@@ -1,0 +1,13 @@
+U:RDoc::Attr[iI"subsequent:ETI"Prism::IfNode#subsequent;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"›Represents an <code>ElseNode</code> or an <code>IfNode</code> when there is an <code>else</code> or an <code>elsif</code> in the <code>if</code> statement.;To:RDoc::Markup::Verbatim;	[I"if foo
+;TI"  bar
+;TI"elsif baz
+;TI"^^^^^^^^^
+;TI"  qux
+;TI"  ^^^
+;TI"	end
+;TI"	^^^
+;TI"
+;TI""if foo then bar else baz end
+;TI""                ^^^^^^^^^^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::IfNode;TcRDoc::NormalClass0

@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"ignore_eof:ETI"Net::HTTP#ignore_eof;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"PSets or returns whether to ignore end-of-file when reading a response body ;TI"+with <tt>Content-Length</tt> headers; ;TI"initially +true+.;T:
+@fileI"lib/net/http.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Net::HTTP;TcRDoc::NormalClass0

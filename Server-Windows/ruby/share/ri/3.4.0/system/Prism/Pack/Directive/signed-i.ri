@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"signed:ETI""Prism::Pack::Directive#signed;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"-The type of signedness of the directive.;T:
+@fileI"lib/prism/pack.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::Pack::Directive;TcRDoc::NormalClass0

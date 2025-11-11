@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>exceptions - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,exceptions">
+  <meta name="description" content="exceptions: Exceptions Ruby code can raise exceptions. Most often, a raised exception is meant to alert the running program that an unusual (i.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/exceptions_md.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Exceptions">Exceptions</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-Raised+Exceptions">Raised Exceptions</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Unrescued+Exceptions">Unrescued Exceptions</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Rescued+Exceptions">Rescued Exceptions</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Begin+Clause">Begin Clause</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Rescue+Clauses">Rescue Clauses</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Rescued+Exceptions">Rescued Exceptions</a>
+          <li>      <a href="#label-Multiple+Rescue+Clauses">Multiple Rescue Clauses</a>
+          <li>      <a href="#label-Capturing+the+Rescued+Exception">Capturing the Rescued Exception</a>
+          <li>      <a href="#label-Global+Variables">Global Variables</a>
+          <li>      <a href="#label-Cause">Cause</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Else+Clause">Else Clause</a>
+          <li>      <a href="#label-Ensure+Clause">Ensure Clause</a>
+          <li>      <a href="#label-End+Statement">End Statement</a>
+          <li>      <a href="#label-Begin-Less+Exception+Handlers">Begin-Less Exception Handlers</a>
+          <li>      <a href="#label-Re-Raising+an+Exception">Re-Raising an Exception</a>
+          <li>      <a href="#label-Retrying">Retrying</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Raising+an+Exception">Raising an Exception</a>
+          <li>      <a href="#label-Custom+Exceptions">Custom Exceptions</a>
+          <li>      <a href="#label-Messages">Messages</a>
+          <li>      <a href="#label-Backtraces">Backtraces</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./COPYING.html">COPYING</a>
+    <li><a href="./COPYING_ja.html">COPYING.ja</a>
+    <li><a href="./LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="./NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="./NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="./NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="./NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="./NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="./NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="./NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="./NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="./NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="./NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="./NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="./NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="./NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="./NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="./NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="./NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="./NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="./README_ja_md.html">README.ja</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./bsearch_rdoc.html">bsearch</a>
+    <li><a href="./bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="./case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="./character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="./command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="./contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="./contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="./contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="./contributing/glossary_md.html">glossary</a>
+      <li><a href="./contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="./contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="./contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="./contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="./date/calendars_rdoc.html">calendars</a>
+    <li><a href="./dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="./distribution_md.html">distribution</a>
+    <li><a href="./dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="./encodings_rdoc.html">encodings</a>
+    <li><a href="./exceptions_md.html">exceptions</a>
+    <li><a href="./extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="./extension_rdoc.html">extension</a>
+    <li><a href="./fiber_md.html">fiber</a>
+    <li><a href="./format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="./globals_rdoc.html">globals</a>
+    <li><a href="./implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="./index_md.html">index</a>
+    <li><a href="./maintainers_md.html">maintainers</a>
+    <li><a href="./marshal_rdoc.html">marshal</a>
+    <li><a href="./memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="./optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="./optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="./optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="./optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="./packed_data_rdoc.html">packed_data</a>
+    <li><a href="./ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="./regexp/methods_rdoc.html">methods</a>
+      <li><a href="./regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="./rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="./ruby/option_dump_md.html">option_dump</a>
+      <li><a href="./ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="./security_rdoc.html">security</a>
+    <li><a href="./signals_rdoc.html">signals</a>
+    <li><a href="./standard_library_md.html">standard_library</a>
+    <li><a href="./strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="./syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="./syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="./syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="./syntax/comments_rdoc.html">comments</a>
+      <li><a href="./syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="./syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="./syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="./syntax/literals_rdoc.html">literals</a>
+      <li><a href="./syntax/methods_rdoc.html">methods</a>
+      <li><a href="./syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="./syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="./syntax/operators_rdoc.html">operators</a>
+      <li><a href="./syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="./syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="./syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="./windows_md.html">windows</a>
+    <li><a href="./yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page exceptions.md">
+
+<h1 id="label-Exceptions">Exceptions<span><a href="#label-Exceptions">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Ruby code can raise exceptions.</p>
+
+<p>Most often, a raised exception is meant to alert the running program that an unusual (i.e., <em>exceptional</em>) situation has arisen, and may need to be handled.</p>
+
+<p>Code throughout the Ruby core, Ruby standard library, and Ruby gems generates exceptions in certain circumstances:</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;nope.txt&#39;</span>) <span class="ruby-comment"># Raises Errno::ENOENT: &quot;No such file or directory&quot;</span>
+</pre>
+
+<h2 id="label-Raised+Exceptions">Raised Exceptions<span><a href="#label-Raised+Exceptions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A raised exception transfers program execution, one way or another.</p>
+
+<h3 id="label-Unrescued+Exceptions">Unrescued Exceptions<span><a href="#label-Unrescued+Exceptions">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If an exception not <em>rescued</em> (see <a href="#label-Rescued+Exceptions">Rescued Exceptions</a> below), execution transfers to code in the Ruby interpreter that prints a message and exits the program (or thread):</p>
+
+<pre>$ ruby -e &quot;raise&quot;
+-e:1:in &#39;&lt;main&gt;&#39;: unhandled exception</pre>
+
+<h3 id="label-Rescued+Exceptions">Rescued Exceptions<span><a href="#label-Rescued+Exceptions">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>An <em>exception handler</em> may determine what is to happen when an exception is raised; the handler may <em>rescue</em> an exception, and may prevent the program from exiting.</p>
+
+<p>A simple example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Boom!&#39;</span>                <span class="ruby-comment"># Raises an exception, transfers control.</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Will not get here.&#39;</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Rescued an exception.&#39;</span> <span class="ruby-comment"># Control transferred to here; program does not exit.</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Got here.&#39;</span>
+</pre>
+
+<p>Output:</p>
+
+<pre>Rescued an exception.
+Got here.</pre>
+
+<p>An exception handler has several elements:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Element</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Begin clause.</td>
+<td>Begins the handler and contains the code whose raised exception, if any, may be rescued.</td>
+</tr>
+<tr>
+<td>One or more rescue clauses.</td>
+<td>Each contains “rescuing” code, which is to be executed for certain exceptions.</td>
+</tr>
+<tr>
+<td>Else clause (optional).</td>
+<td>Contains code to be executed if no exception is raised.</td>
+</tr>
+<tr>
+<td>Ensure clause (optional).</td>
+<td>Contains code to be executed whether or not an exception is raised, or is rescued.</td>
+</tr>
+<tr>
+<td><code>end</code> statement.</td>
+<td>Ends the handler.  ‘</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="label-Begin+Clause">Begin Clause<span><a href="#label-Begin+Clause">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The begin clause begins the exception handler:</p>
+<ul><li>
+<p>May start with a <code>begin</code> statement; see also <a href="#label-Begin-Less+Exception+Handlers">Begin-Less Exception Handlers</a>.</p>
+</li><li>
+<p>Contains code whose raised exception (if any) is covered by the handler.</p>
+</li><li>
+<p>Ends with the first following <code>rescue</code> statement.</p>
+</li></ul>
+
+<h4 id="label-Rescue+Clauses">Rescue Clauses<span><a href="#label-Rescue+Clauses">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>A rescue clause:</p>
+<ul><li>
+<p>Starts with a <code>rescue</code> statement.</p>
+</li><li>
+<p>Contains code that is to be executed for certain raised exceptions.</p>
+</li><li>
+<p>Ends with the first following <code>rescue</code>, <code>else</code>, <code>ensure</code>, or <code>end</code> statement.</p>
+</li></ul>
+
+<h5 id="label-Rescued+Exceptions">Rescued Exceptions<span><a href="#label-Rescued+Exceptions">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>A <code>rescue</code> statement may include one or more classes that are to be rescued; if none is given, <a href="StandardError.html"><code>StandardError</code></a> is assumed.</p>
+
+<p>The rescue clause rescues both the specified class (or <a href="StandardError.html"><code>StandardError</code></a> if none given) or any of its subclasses; see <a href="Exception.html#class-Exception-label-Built-In+Exception+Class+Hierarchy">Built-In Exception Class Hierarchy</a>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-value">1</span> <span class="ruby-operator">/</span> <span class="ruby-value">0</span> <span class="ruby-comment"># Raises ZeroDivisionError, a subclass of StandardError.</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Rescued #{$!.class}&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby"><span class="ruby-constant">Rescued</span> <span class="ruby-constant">ZeroDivisionError</span>
+</pre>
+
+<p>If the <code>rescue</code> statement specifies an exception class, only that class (or one of its subclasses) is rescued; this example exits with a <a href="ZeroDivisionError.html"><code>ZeroDivisionError</code></a>, which was not rescued because it is not <a href="ArgumentError.html"><code>ArgumentError</code></a> or one of its subclasses:</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-value">1</span> <span class="ruby-operator">/</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Rescued #{$!.class}&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>A <code>rescue</code> statement may specify multiple classes, which means that its code rescues an exception of any of the given classes (or their subclasses):</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-value">1</span> <span class="ruby-operator">/</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">FloatDomainError</span>, <span class="ruby-constant">ZeroDivisionError</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Rescued #{$!.class}&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h5 id="label-Multiple+Rescue+Clauses">Multiple Rescue Clauses<span><a href="#label-Multiple+Rescue+Clauses">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>An exception handler may contain multiple rescue clauses; in that case, the first clause that rescues the exception does so, and those before and after are ignored:</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;nosuch&#39;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOTDIR</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Rescued #{$!.class}&quot;</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Rescued #{$!.class}&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby"><span class="ruby-constant">Rescued</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span>
+</pre>
+
+<h5 id="label-Capturing+the+Rescued+Exception">Capturing the Rescued Exception<span><a href="#label-Capturing+the+Rescued+Exception">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>A <code>rescue</code> statement may specify a variable whose value becomes the rescued exception (an instance of <a href="Exception.html"><code>Exception</code></a> or one of its subclasses:</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-value">1</span> <span class="ruby-operator">/</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">x</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby"><span class="ruby-constant">ZeroDivisionError</span>
+<span class="ruby-identifier">divided</span> <span class="ruby-identifier">by</span> <span class="ruby-value">0</span>
+</pre>
+
+<h5 id="label-Global+Variables">Global Variables<span><a href="#label-Global+Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>Two read-only global variables always have <code>nil</code> value except in a rescue clause; there:</p>
+<ul><li>
+<p><code>$!</code>: contains the rescued exception.</p>
+</li><li>
+<p><code>$@</code>: contains its backtrace.</p>
+</li></ul>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-value">1</span> <span class="ruby-operator">/</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">$!</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">$@</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby"><span class="ruby-comment">#&lt;ZeroDivisionError: divided by 0&gt;</span>
+[<span class="ruby-string">&quot;t.rb:2:in &#39;Integer#/&#39;&quot;</span>, <span class="ruby-string">&quot;t.rb:2:in &#39;&lt;main&gt;&#39;&quot;</span>]
+</pre>
+
+<h5 id="label-Cause">Cause<span><a href="#label-Cause">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>In a rescue clause, the method <a href="Exception.html#method-i-cause"><code>Exception#cause</code></a> returns the previous value of <code>$!</code>, which may be <code>nil</code>; elsewhere, the method returns <code>nil</code>.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">raise</span>(<span class="ruby-string">&#39;Boom 0&#39;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">x0</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Exception: #{x0.inspect};  $!: #{$!.inspect};  cause: #{x0.cause.inspect}.&quot;</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">raise</span>(<span class="ruby-string">&#39;Boom 1&#39;</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">x1</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Exception: #{x1.inspect};  $!: #{$!.inspect};  cause: #{x1.cause.inspect}.&quot;</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">raise</span>(<span class="ruby-string">&#39;Boom 2&#39;</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">x2</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Exception: #{x2.inspect};  $!: #{$!.inspect};  cause: #{x2.cause.inspect}.&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre>Exception: #&lt;RuntimeError: Boom 0&gt;;  $!: #&lt;RuntimeError: Boom 0&gt;;  cause: nil.
+Exception: #&lt;RuntimeError: Boom 1&gt;;  $!: #&lt;RuntimeError: Boom 1&gt;;  cause: #&lt;RuntimeError: Boom 0&gt;.
+Exception: #&lt;RuntimeError: Boom 2&gt;;  $!: #&lt;RuntimeError: Boom 2&gt;;  cause: #&lt;RuntimeError: Boom 1&gt;.</pre>
+
+<h4 id="label-Else+Clause">Else Clause<span><a href="#label-Else+Clause">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The <code>else</code> clause:</p>
+<ul><li>
+<p>Starts with an <code>else</code> statement.</p>
+</li><li>
+<p>Contains code that is to be executed if no exception is raised in the begin clause.</p>
+</li><li>
+<p>Ends with the first following <code>ensure</code> or <code>end</code> statement.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Begin.&#39;</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Rescued an exception!&#39;</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;No exception raised.&#39;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre>Begin.
+No exception raised.</pre>
+
+<h4 id="label-Ensure+Clause">Ensure Clause<span><a href="#label-Ensure+Clause">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The ensure clause:</p>
+<ul><li>
+<p>Starts with an <code>ensure</code> statement.</p>
+</li><li>
+<p>Contains code that is to be executed regardless of whether an exception is raised, and regardless of whether a raised exception is handled.</p>
+</li><li>
+<p>Ends with the first following <code>end</code> statement.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">foo</span>(<span class="ruby-value">boom:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Begin.&#39;</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Boom!&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">boom</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Rescued an exception!&#39;</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;No exception raised.&#39;</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Always do this.&#39;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">foo</span>(<span class="ruby-value">boom:</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-identifier">foo</span>(<span class="ruby-value">boom:</span> <span class="ruby-keyword">false</span>)
+</pre>
+
+<p>Output:</p>
+
+<pre>Begin.
+Rescued an exception!
+Always do this.
+Begin.
+No exception raised.
+Always do this.</pre>
+
+<h4 id="label-End+Statement">End Statement<span><a href="#label-End+Statement">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The <code>end</code> statement ends the handler.</p>
+
+<p>Code following it is reached only if any raised exception is rescued.</p>
+
+<h4 id="label-Begin-Less+Exception+Handlers">Begin-Less Exception Handlers<span><a href="#label-Begin-Less+Exception+Handlers">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>As seen above, an exception handler may be implemented with <code>begin</code> and <code>end</code>.</p>
+
+<p>An exception handler may also be implemented as:</p>
+<ul><li>
+<p>A method body:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">foo</span>(<span class="ruby-value">boom:</span> <span class="ruby-keyword">false</span>) <span class="ruby-comment"># Serves as beginning of exception handler.</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Begin.&#39;</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Boom!&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">boom</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Rescued an exception!&#39;</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;No exception raised.&#39;</span>
+<span class="ruby-keyword">end</span>                  <span class="ruby-comment"># Serves as end of exception handler.</span>
+</pre>
+</li><li>
+<p>A block:</p>
+
+<pre class="ruby"><span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-string">&#39;.&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span> <span class="ruby-comment"># Serves as beginning of exception handler.</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Boom!&#39;</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Rescued an exception!&#39;</span>
+<span class="ruby-keyword">end</span>                     <span class="ruby-comment"># Serves as end of exception handler.</span>
+</pre>
+</li></ul>
+
+<h4 id="label-Re-Raising+an+Exception">Re-Raising an Exception<span><a href="#label-Re-Raising+an+Exception">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>It can be useful to rescue an exception, but allow its eventual effect; for example, a program can rescue an exception, log data about it, and then “reinstate” the exception.</p>
+
+<p>This may be done via the <code>raise</code> method, but in a special way; a rescuing clause:</p>
+<ul><li>
+<p>Captures an exception.</p>
+</li><li>
+<p>Does whatever is needed concerning the exception (such as logging it).</p>
+</li><li>
+<p>Calls method <code>raise</code> with no argument, which raises the rescued exception:</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-value">1</span> <span class="ruby-operator">/</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ZeroDivisionError</span>
+  <span class="ruby-comment"># Do needful things (like logging).</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-comment"># Raised exception will be ZeroDivisionError, not RuntimeError.</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre>ruby t.rb
+t.rb:2:in &#39;Integer#/&#39;: divided by 0 (ZeroDivisionError)
+    from t.rb:2:in &#39;&lt;main&gt;&#39;</pre>
+
+<h4 id="label-Retrying">Retrying<span><a href="#label-Retrying">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>It can be useful to retry a begin clause; for example, if it must access a possibly-volatile resource (such as a web page), it can be useful to try the access more than once (in the hope that it may become available):</p>
+
+<pre class="ruby"><span class="ruby-identifier">retries</span> = <span class="ruby-value">0</span>
+<span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Try ##{retries}.&quot;</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Boom&#39;</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Rescued retry ##{retries}.&quot;</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">retries</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>) <span class="ruby-operator">&lt;</span> <span class="ruby-value">3</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Retrying&#39;</span>
+    <span class="ruby-keyword">retry</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Giving up.&#39;</span>
+    <span class="ruby-identifier">raise</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<pre>Try #0.
+Rescued retry #0.
+Retrying
+Try #1.
+Rescued retry #1.
+Retrying
+Try #2.
+Rescued retry #2.
+Giving up.
+# RuntimeError (&#39;Boom&#39;) raised.</pre>
+
+<p>Note that the retry re-executes the entire begin clause, not just the part after the point of failure.</p>
+
+<h2 id="label-Raising+an+Exception">Raising an Exception<span><a href="#label-Raising+an+Exception">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Method <a href="Kernel.html#method-i-raise"><code>Kernel#raise</code></a> raises an exception.</p>
+
+<h2 id="label-Custom+Exceptions">Custom Exceptions<span><a href="#label-Custom+Exceptions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>To provide additional or alternate information, you may create custom exception classes. Each should be a subclass of one of the built-in exception classes (commonly <a href="StandardError.html"><code>StandardError</code></a> or <a href="RuntimeError.html"><code>RuntimeError</code></a>); see <a href="Exception.html#class-Exception-label-Built-In+Exception+Class+Hierarchy">Built-In Exception Class Hierarchy</a>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyException</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">StandardError</span>; <span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="label-Messages">Messages<span><a href="#label-Messages">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Every <a href="Exception.html"><code>Exception</code></a> object has a message, which is a string that is set at the time the object is created; see <a href="Exception.html#method-c-new"><code>Exception.new</code></a>.</p>
+
+<p>The message cannot be changed, but you can create a similar object with a different message; see <a href="Exception.html#method-i-exception"><code>Exception#exception</code></a>.</p>
+
+<p>This method returns the message as defined:</p>
+<ul><li>
+<p><a href="Exception.html#method-i-message"><code>Exception#message</code></a>.</p>
+</li></ul>
+
+<p>Two other methods return enhanced versions of the message:</p>
+<ul><li>
+<p><a href="Exception.html#method-i-detailed_message"><code>Exception#detailed_message</code></a>: adds exception class name, with optional highlighting.</p>
+</li><li>
+<p><a href="Exception.html#method-i-full_message"><code>Exception#full_message</code></a>: adds exception class name and backtrace, with optional highlighting.</p>
+</li></ul>
+
+<p>Each of the two methods above accepts keyword argument <code>highlight</code>; if the value of keyword <code>highlight</code> is <code>true</code>, the returned string includes bolding and underlining ANSI codes (see below) to enhance the appearance of the message.</p>
+
+<p>Any exception class (Ruby or custom) may choose to override either of these methods, and may choose to interpret keyword argument <code>highlight: true</code> to mean that the returned message should contain <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI codes</a> that specify color, bolding, and underlining.</p>
+
+<p>Because the enhanced message may be written to a non-terminal device (e.g., into an HTML page), it is best to limit the ANSI codes to these widely-supported codes:</p>
+<ul><li>
+<p>Begin font color:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Color</th>
+<th>ANSI Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red</td>
+<td><code>\e[31m</code></td>
+</tr>
+<tr>
+<td>Green</td>
+<td><code>\e[32m</code></td>
+</tr>
+<tr>
+<td>Yellow</td>
+<td><code>\e[33m</code></td>
+</tr>
+<tr>
+<td>Blue</td>
+<td><code>\e[34m</code></td>
+</tr>
+<tr>
+<td>Magenta</td>
+<td><code>\e[35m</code></td>
+</tr>
+<tr>
+<td>Cyan</td>
+<td><code>\e[36m</code></td>
+</tr>
+</tbody>
+</table>
+</li></ul>
+
+<p><br></p>
+<ul><li>
+<p>Begin font attribute:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>ANSI Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bold</td>
+<td><code>\e[1m</code></td>
+</tr>
+<tr>
+<td>Underline</td>
+<td><code>\e[4m</code></td>
+</tr>
+</tbody>
+</table>
+</li></ul>
+
+<p><br></p>
+<ul><li>
+<p>End all of the above:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Color</th>
+<th>ANSI Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reset</td>
+<td><code>\e[0m</code></td>
+</tr>
+</tbody>
+</table>
+</li></ul>
+
+<p>It’s also best to craft a message that is conveniently human-readable, even if the ANSI codes are included “as-is” (rather than interpreted as font directives).</p>
+
+<h2 id="label-Backtraces">Backtraces<span><a href="#label-Backtraces">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A <em>backtrace</em> is a record of the methods currently in the <a href="https://en.wikipedia.org/wiki/Call_stack">call stack</a>; each such method has been called, but has not yet returned.</p>
+
+<p>These methods return backtrace information:</p>
+<ul><li>
+<p><a href="Exception.html#method-i-backtrace"><code>Exception#backtrace</code></a>: returns the backtrace as an array of strings or <code>nil</code>.</p>
+</li><li>
+<p><a href="Exception.html#method-i-backtrace_locations"><code>Exception#backtrace_locations</code></a>: returns the backtrace as an array of <a href="Thread/Backtrace/Location.html"><code>Thread::Backtrace::Location</code></a> objects or <code>nil</code>. Each <a href="Thread/Backtrace/Location.html"><code>Thread::Backtrace::Location</code></a> object gives detailed information about a called method.</p>
+</li></ul>
+
+<p>By default, Ruby sets the backtrace of the exception to the location where it was raised.</p>
+
+<p>The developer might adjust this by either providing <code>backtrace</code> argument to <a href="Kernel.html#method-i-raise"><code>Kernel#raise</code></a>, or using <a href="Exception.html#method-i-set_backtrace"><code>Exception#set_backtrace</code></a>.</p>
+
+<p>Note that:</p>
+<ul><li>
+<p>by default, both <code>backtrace</code> and <code>backtrace_locations</code> represent the same backtrace;</p>
+</li><li>
+<p>if the developer sets the backtrace by one of the above methods to an array of <a href="Thread/Backtrace/Location.html"><code>Thread::Backtrace::Location</code></a>, they still represent the same backtrace;</p>
+</li><li>
+<p>if the developer sets the backtrace to a string or an array of strings:</p>
+</li><li>
+<p>by <a href="Kernel.html#method-i-raise"><code>Kernel#raise</code></a>: <code>backtrace_locations</code> become <code>nil</code>;</p>
+</li><li>
+<p>by <a href="Exception.html#method-i-set_backtrace"><code>Exception#set_backtrace</code></a>: <code>backtrace_locations</code> preserve the original value;</p>
+</li><li>
+<p>if the developer sets the backtrace to <code>nil</code> by <a href="Exception.html#method-i-set_backtrace"><code>Exception#set_backtrace</code></a>, <code>backtrace_locations</code> preserve the original value; but if the exception is then reraised, both <code>backtrace</code> and <code>backtrace_locations</code> become the location of reraise.</p>
+</li></ul>
+
+</main>
+

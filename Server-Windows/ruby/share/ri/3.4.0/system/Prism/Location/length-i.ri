@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"length:ETI"Prism::Location#length;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"*The length of this location in bytes.;T:
+@fileI"lib/prism/parse_result.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::Location;TcRDoc::NormalClass0

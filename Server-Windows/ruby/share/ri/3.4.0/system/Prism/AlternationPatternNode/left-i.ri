@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"	left:ETI"'Prism::AlternationPatternNode#left;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"0Represents the left side of the expression.;To:RDoc::Markup::Verbatim;	[I"foo => bar | baz
+;TI"       ^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I""Prism::AlternationPatternNode;TcRDoc::NormalClass0

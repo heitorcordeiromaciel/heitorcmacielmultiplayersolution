@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class IPAddr - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,IPAddr">
+
+    <meta name="description" content="class IPAddr: IPAddr provides a set of methods to manipulate an IP address. Both IPv4 and IPv6 are supported.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/IPAddr.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="Object.html">Object</a><ul><li><a href="BasicObject.html">BasicObject</a></li></ul></li></ul>
+</div>
+
+  
+<div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+    <li><a class="include" href="Comparable.html">Comparable</a>
+  </ul>
+</div>
+
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-new">new</a></li>
+      <li ><a href="#method-c-new_ntoh">new_ntoh</a></li>
+      <li ><a href="#method-c-ntop">ntop</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-26">&amp;</a></li>
+      <li ><a href="#method-i-3C-3C">&lt;&lt;</a></li>
+      <li ><a href="#method-i-3C-3D-3E">&lt;=&gt;</a></li>
+      <li ><a href="#method-i-3D-3D">==</a></li>
+      <li ><a href="#method-i-3D-3D-3D">===</a></li>
+      <li ><a href="#method-i-3E-3E">&gt;&gt;</a></li>
+      <li ><a href="#method-i-_ipv4_compat-3F">_ipv4_compat?</a></li>
+      <li ><a href="#method-i-_reverse">_reverse</a></li>
+      <li ><a href="#method-i-_to_string">_to_string</a></li>
+      <li ><a href="#method-i-7C">|</a></li>
+      <li ><a href="#method-i-~">~</a></li>
+      <li ><a href="#method-i-addr_mask">addr_mask</a></li>
+      <li ><a href="#method-i-as_json">as_json</a></li>
+      <li ><a href="#method-i-begin_addr">begin_addr</a></li>
+      <li ><a href="#method-i-cidr">cidr</a></li>
+      <li ><a href="#method-i-coerce_other">coerce_other</a></li>
+      <li ><a href="#method-i-end_addr">end_addr</a></li>
+      <li ><a href="#method-i-eql-3F">eql?</a></li>
+      <li ><a href="#method-i-hash">hash</a></li>
+      <li ><a href="#method-i-hton">hton</a></li>
+      <li ><a href="#method-i-in6_addr">in6_addr</a></li>
+      <li ><a href="#method-i-in_addr">in_addr</a></li>
+      <li ><a href="#method-i-include-3F">include?</a></li>
+      <li ><a href="#method-i-inspect">inspect</a></li>
+      <li ><a href="#method-i-ip6_arpa">ip6_arpa</a></li>
+      <li ><a href="#method-i-ip6_int">ip6_int</a></li>
+      <li ><a href="#method-i-ipv4-3F">ipv4?</a></li>
+      <li ><a href="#method-i-ipv4_compat">ipv4_compat</a></li>
+      <li ><a href="#method-i-ipv4_compat-3F">ipv4_compat?</a></li>
+      <li ><a href="#method-i-ipv4_mapped">ipv4_mapped</a></li>
+      <li ><a href="#method-i-ipv4_mapped-3F">ipv4_mapped?</a></li>
+      <li ><a href="#method-i-ipv6-3F">ipv6?</a></li>
+      <li ><a href="#method-i-link_local-3F">link_local?</a></li>
+      <li ><a href="#method-i-loopback-3F">loopback?</a></li>
+      <li ><a href="#method-i-mask">mask</a></li>
+      <li ><a href="#method-i-mask-21">mask!</a></li>
+      <li ><a href="#method-i-native">native</a></li>
+      <li ><a href="#method-i-netmask">netmask</a></li>
+      <li ><a href="#method-i-prefix">prefix</a></li>
+      <li ><a href="#method-i-prefix-3D">prefix=</a></li>
+      <li ><a href="#method-i-private-3F">private?</a></li>
+      <li ><a href="#method-i-reverse">reverse</a></li>
+      <li ><a href="#method-i-set">set</a></li>
+      <li ><a href="#method-i-succ">succ</a></li>
+      <li ><a href="#method-i-to_i">to_i</a></li>
+      <li ><a href="#method-i-to_json">to_json</a></li>
+      <li ><a href="#method-i-to_range">to_range</a></li>
+      <li ><a href="#method-i-to_s">to_s</a></li>
+      <li ><a href="#method-i-to_string">to_string</a></li>
+      <li ><a href="#method-i-wildcard_mask">wildcard_mask</a></li>
+      <li ><a href="#method-i-zone_id">zone_id</a></li>
+      <li ><a href="#method-i-zone_id-3D">zone_id=</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-IPAddr">
+  
+  
+
+  <h1 id="class-IPAddr" class="anchor-link class">
+    class IPAddr
+  </h1>
+
+  <section class="description">
+    
+<p><a href="IPAddr.html"><code>IPAddr</code></a> provides a set of methods to manipulate an IP address.  Both IPv4 and IPv6 are supported.</p>
+
+<h2 id="class-IPAddr-label-Example">Example<span><a href="#class-IPAddr-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;ipaddr&#39;</span>
+
+<span class="ruby-identifier">ipaddr1</span> = <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;3ffe:505:2::1&quot;</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">ipaddr1</span>                   <span class="ruby-comment">#=&gt; #&lt;IPAddr: IPv6:3ffe:0505:0002:0000:0000:0000:0000:0001/ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff&gt;</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">ipaddr1</span>.<span class="ruby-identifier">to_s</span>              <span class="ruby-comment">#=&gt; &quot;3ffe:505:2::1&quot;</span>
+
+<span class="ruby-identifier">ipaddr2</span> = <span class="ruby-identifier">ipaddr1</span>.<span class="ruby-identifier">mask</span>(<span class="ruby-value">48</span>)  <span class="ruby-comment">#=&gt; #&lt;IPAddr: IPv6:3ffe:0505:0002:0000:0000:0000:0000:0000/ffff:ffff:ffff:0000:0000:0000:0000:0000&gt;</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">ipaddr2</span>.<span class="ruby-identifier">to_s</span>              <span class="ruby-comment">#=&gt; &quot;3ffe:505:2::&quot;</span>
+
+<span class="ruby-identifier">ipaddr3</span> = <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;192.168.2.0/24&quot;</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">ipaddr3</span>                   <span class="ruby-comment">#=&gt; #&lt;IPAddr: IPv4:192.168.2.0/255.255.255.0&gt;</span>
+</pre>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="IN4MASK">IN4MASK
+        <dd>
+          <p>32 bit mask for IPv4</p>
+        <dt id="IN6FORMAT">IN6FORMAT
+        <dd>
+          <p>Format string for IPv6</p>
+        <dt id="IN6MASK">IN6MASK
+        <dd>
+          <p>128 bit mask for IPv6</p>
+        <dt id="RE_IPV4ADDRLIKE">RE_IPV4ADDRLIKE
+        <dd>
+          <p><a href="Regexp.html"><code>Regexp</code></a> <em>internally</em> used for parsing IPv4 address.</p>
+        <dt id="RE_IPV6ADDRLIKE_COMPRESSED">RE_IPV6ADDRLIKE_COMPRESSED
+        <dd>
+          <p><a href="Regexp.html"><code>Regexp</code></a> <em>internally</em> used for parsing IPv6 address.</p>
+        <dt id="RE_IPV6ADDRLIKE_FULL">RE_IPV6ADDRLIKE_FULL
+        <dd>
+          <p><a href="Regexp.html"><code>Regexp</code></a> <em>internally</em> used for parsing IPv6 address.</p>
+        <dt id="VERSION">VERSION
+        <dd>
+          
+      </dl>
+    </section>
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-family" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-family" title="Link to this attribute">
+            <span class="method-name">family</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        <p>Returns the address family of this IP address.</p>
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(addr = &#39;::&#39;, family = Socket::AF_UNSPEC)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 643</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">addr</span> = <span class="ruby-string">&#39;::&#39;</span>, <span class="ruby-identifier">family</span> = <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNSPEC</span>)
+  <span class="ruby-ivar">@mask_addr</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">addr</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">family</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+      <span class="ruby-identifier">set</span>(<span class="ruby-identifier">addr</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">family</span>)
+      <span class="ruby-ivar">@mask_addr</span> = (<span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">IN4MASK</span> <span class="ruby-operator">:</span> <span class="ruby-constant">IN6MASK</span>
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNSPEC</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;address family must be specified&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-node">&quot;unsupported address family: #{family}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">prefixlen</span> = <span class="ruby-identifier">addr</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-value">2</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefix</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A\[(.*)\]\z/i</span>
+    <span class="ruby-identifier">prefix</span> = <span class="ruby-node">$1</span>
+    <span class="ruby-identifier">family</span> = <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefix</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A(.*)(%\w+)\z/</span>
+    <span class="ruby-identifier">prefix</span> = <span class="ruby-node">$1</span>
+    <span class="ruby-identifier">zone_id</span> = <span class="ruby-node">$2</span>
+    <span class="ruby-identifier">family</span> = <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># It seems AI_NUMERICHOST doesn&#39;t do the job.</span>
+  <span class="ruby-comment">#Socket.getaddrinfo(left, nil, Socket::AF_INET6, Socket::SOCK_STREAM, nil,</span>
+  <span class="ruby-comment">#                  Socket::AI_NUMERICHOST)</span>
+  <span class="ruby-ivar">@addr</span> = <span class="ruby-ivar">@family</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNSPEC</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-ivar">@addr</span> = <span class="ruby-identifier">in_addr</span>(<span class="ruby-identifier">prefix</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@addr</span>
+      <span class="ruby-ivar">@family</span> = <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNSPEC</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>)
+    <span class="ruby-ivar">@addr</span> = <span class="ruby-identifier">in6_addr</span>(<span class="ruby-identifier">prefix</span>)
+    <span class="ruby-ivar">@family</span> = <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@zone_id</span> = <span class="ruby-identifier">zone_id</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">family</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNSPEC</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@family</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">family</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;address family mismatch&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefixlen</span>
+    <span class="ruby-identifier">mask!</span>(<span class="ruby-identifier">prefixlen</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@mask_addr</span> = (<span class="ruby-ivar">@family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">IN4MASK</span> <span class="ruby-operator">:</span> <span class="ruby-constant">IN6MASK</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Creates a new ipaddr object either from a human readable IP address representation in string, or from a packed <a href="IPAddr.html#method-i-in_addr"><code>in_addr</code></a> value followed by an address family.</p>
+
+<p>In the former case, the following are the valid formats that will be recognized: “address”, “address/prefixlen” and “address/mask”, where IPv6 address may be enclosed in square brackets (‘[’ and ‘]’).  If a prefixlen or a mask is specified, it returns a masked IP address.  Although the address family is determined automatically from a specified string, you can specify one explicitly by the optional second argument.</p>
+
+<p>Otherwise an IP address is generated from a packed <a href="IPAddr.html#method-i-in_addr"><code>in_addr</code></a> value and an address family.</p>
+
+<p>The <a href="IPAddr.html"><code>IPAddr</code></a> class defines many methods and operators, and some of those, such as &amp;, |, include? and ==, accept a string, or a packed <a href="IPAddr.html#method-i-in_addr"><code>in_addr</code></a> value instead of an <a href="IPAddr.html"><code>IPAddr</code></a> object.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-new_ntoh" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new_ntoh" title="Link to this method">
+                <span class="method-name">new_ntoh</span>
+                <span class="method-args">(addr)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new_ntoh-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">new_ntoh</span>(<span class="ruby-identifier">addr</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">new</span>(<span class="ruby-identifier">ntop</span>(<span class="ruby-identifier">addr</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Creates a new ipaddr containing the given network byte ordered string form of an IP address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-ntop" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-ntop" title="Link to this method">
+                <span class="method-name">ntop</span>
+                <span class="method-args">(addr)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ntop-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">ntop</span>(<span class="ruby-identifier">addr</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">addr</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">addr</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">BINARY</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;invalid encoding (given #{addr.encoding}, expected BINARY)&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">addr</span>.<span class="ruby-identifier">bytesize</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">4</span>
+    <span class="ruby-identifier">addr</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;C4&#39;</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;.&#39;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">16</span>
+    <span class="ruby-constant">IN6FORMAT</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">addr</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;n8&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Convert a network byte ordered string form of an IP address into human readable form. It expects the string to be encoded in Encoding::ASCII_8BIT (BINARY).</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-26" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-26" title="Link to this method">
+                <span class="method-name">&amp;</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="26-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&amp;</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">set</span>(<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">coerce_other</span>(<span class="ruby-identifier">other</span>).<span class="ruby-identifier">to_i</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new ipaddr built by bitwise AND.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3C-3C" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3C-3C" title="Link to this method">
+                <span class="method-name">&lt;&lt;</span>
+                <span class="method-args">(num)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3C-3C-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;&lt;</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">addr_mask</span>(<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">num</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new ipaddr built by bitwise left shift.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3C-3D-3E" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3C-3D-3E" title="Link to this method">
+                <span class="method-name">&lt;=&gt;</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3C-3D-3E-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 422</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">other</span> = <span class="ruby-identifier">coerce_other</span>(<span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@family</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Compares the ipaddr with another.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3D-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3D-3D" title="Link to this method">
+                <span class="method-name">==</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">other</span> = <span class="ruby-identifier">coerce_other</span>(<span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-ivar">@family</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">family</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@addr</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if two ipaddrs are equal.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3D-3D-3D" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3D-3D-3D" title="Link to this method">
+                <span class="method-name">===</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="IPAddr.html#method-i-include-3F">include?</a>
+        </div>
+      </div>
+
+      <div id="method-i-3E-3E" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3E-3E" title="Link to this method">
+                <span class="method-name">&gt;&gt;</span>
+                <span class="method-args">(num)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3E-3E-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&gt;&gt;</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">set</span>(<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">num</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new ipaddr built by bitwise right-shift.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-7C" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-7C" title="Link to this method">
+                <span class="method-name">|</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="7C-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">|</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">set</span>(<span class="ruby-ivar">@addr</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">coerce_other</span>(<span class="ruby-identifier">other</span>).<span class="ruby-identifier">to_i</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new ipaddr built by bitwise OR.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-~" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-~" title="Link to this method">
+                <span class="method-name">~</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="~-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">~</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">addr_mask</span>(<span class="ruby-operator">~</span><span class="ruby-ivar">@addr</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new ipaddr built by bitwise negation.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-as_json" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-as_json" title="Link to this method">
+                <span class="method-name">as_json</span>
+                <span class="method-args">(*)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="as_json-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-operator">*</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ipv4?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">prefix</span> <span class="ruby-operator">==</span> <span class="ruby-value">32</span>
+    <span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ipv6?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">prefix</span> <span class="ruby-operator">==</span> <span class="ruby-value">128</span>
+    <span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cidr</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string containing the IP address representation with prefix.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cidr" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-cidr" title="Link to this method">
+                <span class="method-name">cidr</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cidr-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 248</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cidr</span>
+  <span class="ruby-node">&quot;#{to_s}/#{prefix}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string containing the IP address representation in cidr notation</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-eql-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-eql-3F" title="Link to this method">
+                <span class="method-name">eql?</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="eql-3F-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 432</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">eql?</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Checks equality used by <a href="Hash.html"><code>Hash</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-hash" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-hash" title="Link to this method">
+                <span class="method-name">hash</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="hash-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 437</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hash</span>
+  <span class="ruby-keyword">return</span> ([<span class="ruby-ivar">@addr</span>, <span class="ruby-ivar">@mask_addr</span>, <span class="ruby-ivar">@zone_id</span>].<span class="ruby-identifier">hash</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">1</span>) <span class="ruby-operator">|</span> (<span class="ruby-identifier">ipv4?</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a hash value used by <a href="Hash.html"><code>Hash</code></a>, Set, and <a href="Array.html"><code>Array</code></a> classes</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-hton" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-hton" title="Link to this method">
+                <span class="method-name">hton</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="hton-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 253</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hton</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-ivar">@addr</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;N&#39;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-keyword">return</span> (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">7</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      (<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&gt;&gt;</span> (<span class="ruby-value">112</span> <span class="ruby-operator">-</span> <span class="ruby-value">16</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">i</span>)) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xffff</span>
+    }.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;n8&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a network byte ordered string form of the IP address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-include-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-include-3F" title="Link to this method">
+                <span class="method-name">include?</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="include-3F-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">include?</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">other</span> = <span class="ruby-identifier">coerce_other</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">family</span>
+  <span class="ruby-identifier">begin_addr</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">begin_addr</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">end_addr</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">end_addr</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the given ipaddr is in the range.</p>
+
+<p>e.g.:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;ipaddr&#39;</span>
+<span class="ruby-identifier">net1</span> = <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;192.168.2.0/24&quot;</span>)
+<span class="ruby-identifier">net2</span> = <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;192.168.2.100&quot;</span>)
+<span class="ruby-identifier">net3</span> = <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;192.168.3.0&quot;</span>)
+<span class="ruby-identifier">net4</span> = <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;192.168.2.0/16&quot;</span>)
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">net1</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">net2</span>)     <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">net1</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">net3</span>)     <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">net1</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">net4</span>)     <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">net4</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">net1</span>)     <span class="ruby-comment">#=&gt; true</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="IPAddr.html#method-i-3D-3D-3D">===</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-inspect" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-inspect" title="Link to this method">
+                <span class="method-name">inspect</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 477</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-identifier">af</span> = <span class="ruby-string">&quot;IPv4&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-identifier">af</span> = <span class="ruby-string">&quot;IPv6&quot;</span>
+    <span class="ruby-identifier">zone_id</span> = <span class="ruby-ivar">@zone_id</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&quot;#&lt;%s: %s:%s%s/%s&gt;&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>,
+                 <span class="ruby-identifier">af</span>, <span class="ruby-identifier">_to_string</span>(<span class="ruby-ivar">@addr</span>), <span class="ruby-identifier">zone_id</span>, <span class="ruby-identifier">_to_string</span>(<span class="ruby-ivar">@mask_addr</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string containing a human-readable representation of the ipaddr. (“#&lt;IPAddr: family:address/mask&gt;”)</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ip6_arpa" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ip6_arpa" title="Link to this method">
+                <span class="method-name">ip6_arpa</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ip6_arpa-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 401</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ip6_arpa</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">ipv6?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;not an IPv6 address: #{@addr}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">_reverse</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;.ip6.arpa&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string for DNS reverse lookup compatible with RFC3172.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ip6_int" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ip6_int" title="Link to this method">
+                <span class="method-name">ip6_int</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ip6_int-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 409</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ip6_int</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">ipv6?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;not an IPv6 address: #{@addr}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">_reverse</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;.ip6.int&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string for DNS reverse lookup compatible with RFC1886.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ipv4-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ipv4-3F" title="Link to this method">
+                <span class="method-name">ipv4?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ipv4-3F-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ipv4?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the ipaddr is an IPv4 address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ipv4_compat" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ipv4_compat" title="Link to this method">
+                <span class="method-name">ipv4_compat</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ipv4_compat-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ipv4_compat</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;IPAddr\##{__callee__} is obsolete&quot;</span>, <span class="ruby-value">uplevel:</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">ipv4?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;not an IPv4 address: #{@addr}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">set</span>(<span class="ruby-ivar">@addr</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new ipaddr built by converting the native IPv4 address into an IPv4-compatible IPv6 address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ipv4_compat-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ipv4_compat-3F" title="Link to this method">
+                <span class="method-name">ipv4_compat?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ipv4_compat-3F-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ipv4_compat?</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;IPAddr\##{__callee__} is obsolete&quot;</span>, <span class="ruby-value">uplevel:</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
+  <span class="ruby-identifier">_ipv4_compat?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the ipaddr is an IPv4-compatible IPv6 address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ipv4_mapped" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ipv4_mapped" title="Link to this method">
+                <span class="method-name">ipv4_mapped</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ipv4_mapped-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ipv4_mapped</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">ipv4?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;not an IPv4 address: #{@addr}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">clone</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">set</span>(<span class="ruby-ivar">@addr</span> <span class="ruby-operator">|</span> <span class="ruby-value">0xffff00000000</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>)
+  <span class="ruby-identifier">clone</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-value">:@mask_addr</span>, <span class="ruby-ivar">@mask_addr</span> <span class="ruby-operator">|</span> <span class="ruby-value">0xffffffffffffffffffffffff00000000</span>)
+  <span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new ipaddr built by converting the native IPv4 address into an IPv4-mapped IPv6 address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ipv4_mapped-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ipv4_mapped-3F" title="Link to this method">
+                <span class="method-name">ipv4_mapped?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ipv4_mapped-3F-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ipv4_mapped?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ipv6?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">32</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0xffff</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the ipaddr is an IPv4-mapped IPv6 address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ipv6-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ipv6-3F" title="Link to this method">
+                <span class="method-name">ipv6?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ipv6-3F-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ipv6?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the ipaddr is an IPv6 address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-link_local-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-link_local-3F" title="Link to this method">
+                <span class="method-name">link_local?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="link_local-3F-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 321</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">link_local?</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xffff0000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xa9fe0000</span> <span class="ruby-comment"># 169.254.0.0/16</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xffc0_0000_0000_0000_0000_0000_0000_0000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xfe80_0000_0000_0000_0000_0000_0000_0000</span> <span class="ruby-operator">||</span> <span class="ruby-comment"># fe80::/10</span>
+      (<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xffff_0000_0000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xffff_0000_0000</span> <span class="ruby-operator">&amp;&amp;</span> (
+        <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xffff0000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xa9fe0000</span> <span class="ruby-comment"># ::ffff:169.254.0.0/16</span>
+      ))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the ipaddr is a link-local address.  IPv4 addresses in 169.254.0.0/16 reserved by RFC 3927 and link-local IPv6 Unicast Addresses in fe80::/10 reserved by RFC 4291 are considered link-local. Link-local IPv4 addresses in the IPv4-mapped IPv6 address range are also considered link-local.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-loopback-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-loopback-3F" title="Link to this method">
+                <span class="method-name">loopback?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="loopback-3F-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">loopback?</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff000000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0x7f000000</span> <span class="ruby-comment"># 127.0.0.1/8</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-ivar">@addr</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-comment"># ::1</span>
+      (<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xffff_0000_0000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xffff_0000_0000</span> <span class="ruby-operator">&amp;&amp;</span> (
+        <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff000000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0x7f000000</span> <span class="ruby-comment"># ::ffff:127.0.0.1/8</span>
+      ))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the ipaddr is a loopback address. Loopback IPv4 addresses in the IPv4-mapped IPv6 address range are also considered as loopback addresses.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-mask" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-mask" title="Link to this method">
+                <span class="method-name">mask</span>
+                <span class="method-args">(prefixlen)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="mask-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mask</span>(<span class="ruby-identifier">prefixlen</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">mask!</span>(<span class="ruby-identifier">prefixlen</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new ipaddr built by masking IP address with the given prefixlen/netmask. (e.g. 8, 64, “255.255.255.0”, etc.)</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-native" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-native" title="Link to this method">
+                <span class="method-name">native</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="native-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 380</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">native</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">ipv4_mapped?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">_ipv4_compat?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">set</span>(<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-constant">IN4MASK</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new ipaddr built by converting the IPv6 address into a native IPv4 address.  If the IP address is not an IPv4-mapped or IPv4-compatible IPv6 address, returns self.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-netmask" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-netmask" title="Link to this method">
+                <span class="method-name">netmask</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="netmask-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 492</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">netmask</span>
+  <span class="ruby-identifier">_to_string</span>(<span class="ruby-ivar">@mask_addr</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the netmask in string format e.g. 255.255.0.0</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prefix" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prefix" title="Link to this method">
+                <span class="method-name">prefix</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prefix-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 447</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prefix</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-identifier">n</span> = <span class="ruby-constant">IN4MASK</span> <span class="ruby-operator">^</span> <span class="ruby-ivar">@mask_addr</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-value">32</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-identifier">n</span> = <span class="ruby-constant">IN6MASK</span> <span class="ruby-operator">^</span> <span class="ruby-ivar">@mask_addr</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-value">128</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">positive?</span>
+    <span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;&gt;=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">i</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the prefix length in bits for the ipaddr.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prefix-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prefix-3D" title="Link to this method">
+                <span class="method-name">prefix=</span>
+                <span class="method-args">(prefix)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prefix-3D-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 466</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prefix=</span>(<span class="ruby-identifier">prefix</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">prefix</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>
+    <span class="ruby-identifier">mask!</span>(<span class="ruby-identifier">prefix</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidPrefixError</span>, <span class="ruby-string">&quot;prefix must be an integer&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Sets the prefix length in bits</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-private-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-private-3F" title="Link to this method">
+                <span class="method-name">private?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="private-3F-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">private?</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff000000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0x0a000000</span> <span class="ruby-operator">||</span>    <span class="ruby-comment"># 10.0.0.0/8</span>
+      <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xfff00000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xac100000</span> <span class="ruby-operator">||</span>  <span class="ruby-comment"># 172.16.0.0/12</span>
+      <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xffff0000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xc0a80000</span>     <span class="ruby-comment"># 192.168.0.0/16</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xfe00_0000_0000_0000_0000_0000_0000_0000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xfc00_0000_0000_0000_0000_0000_0000_0000</span> <span class="ruby-operator">||</span>
+      (<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xffff_0000_0000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xffff_0000_0000</span> <span class="ruby-operator">&amp;&amp;</span> (
+        <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff000000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0x0a000000</span> <span class="ruby-operator">||</span>  <span class="ruby-comment"># ::ffff:10.0.0.0/8</span>
+        <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xfff00000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xac100000</span> <span class="ruby-operator">||</span>  <span class="ruby-comment"># ::ffff::172.16.0.0/12</span>
+        <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xffff0000</span> <span class="ruby-operator">==</span> <span class="ruby-value">0xc0a80000</span>     <span class="ruby-comment"># ::ffff::192.168.0.0/16</span>
+      ))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the ipaddr is a private address.  IPv4 addresses in 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16 as defined in RFC 1918 and IPv6 Unique Local Addresses in fc00::/7 as defined in RFC 4193 are considered private. Private IPv4 addresses in the IPv4-mapped IPv6 address range are also considered private.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-reverse" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-reverse" title="Link to this method">
+                <span class="method-name">reverse</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="reverse-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 389</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reverse</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">_reverse</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;.in-addr.arpa&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">ip6_arpa</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string for DNS reverse lookup.  It returns a string in RFC3172 form for an IPv6 address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-succ" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-succ" title="Link to this method">
+                <span class="method-name">succ</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="succ-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">succ</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">set</span>(<span class="ruby-ivar">@addr</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-ivar">@family</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the successor to the ipaddr.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_i" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_i" title="Link to this method">
+                <span class="method-name">to_i</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_i-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_i</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@addr</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the integer representation of the ipaddr.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_json" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_json" title="Link to this method">
+                <span class="method-name">to_json</span>
+                <span class="method-args">(*a)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_json-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_json</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">a</span>)
+  <span class="ruby-node">%Q{&quot;#{as_json(*a)}&quot;}</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a json string containing the IP address representation.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_range" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_range" title="Link to this method">
+                <span class="method-name">to_range</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_range-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 442</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_range</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">begin_addr</span>, <span class="ruby-ivar">@family</span>)<span class="ruby-operator">..</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">end_addr</span>, <span class="ruby-ivar">@family</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Creates a <a href="Range.html"><code>Range</code></a> object for the network address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_s" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_s" title="Link to this method">
+                <span class="method-name">to_s</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">to_string</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ipv4?</span>
+
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/\b0{1,3}([\da-f]+)\b/i</span>, <span class="ruby-string">&#39;\1&#39;</span>)
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\A0:0:0:0:0:0:0:0\z/</span>, <span class="ruby-string">&#39;::&#39;</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\b0:0:0:0:0:0:0\b/</span>, <span class="ruby-string">&#39;:&#39;</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\b0:0:0:0:0:0\b/</span>, <span class="ruby-string">&#39;:&#39;</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\b0:0:0:0:0\b/</span>, <span class="ruby-string">&#39;:&#39;</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\b0:0:0:0\b/</span>, <span class="ruby-string">&#39;:&#39;</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\b0:0:0\b/</span>, <span class="ruby-string">&#39;:&#39;</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\b0:0\b/</span>, <span class="ruby-string">&#39;:&#39;</span>)
+    <span class="ruby-keyword">break</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/:{3,}/</span>, <span class="ruby-string">&#39;::&#39;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-regexp">/\A::(ffff:)?([\da-f]{1,4}):([\da-f]{1,4})\z/i</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">str</span>
+    <span class="ruby-identifier">str</span> = <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&#39;::%s%d.%d.%d.%d&#39;</span>, <span class="ruby-node">$1</span>, <span class="ruby-node">$2</span>.<span class="ruby-identifier">hex</span> <span class="ruby-operator">/</span> <span class="ruby-value">256</span>, <span class="ruby-node">$2</span>.<span class="ruby-identifier">hex</span> <span class="ruby-operator">%</span> <span class="ruby-value">256</span>, <span class="ruby-node">$3</span>.<span class="ruby-identifier">hex</span> <span class="ruby-operator">/</span> <span class="ruby-value">256</span>, <span class="ruby-node">$3</span>.<span class="ruby-identifier">hex</span> <span class="ruby-operator">%</span> <span class="ruby-value">256</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string containing the IP address representation.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_string" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_string" title="Link to this method">
+                <span class="method-name">to_string</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_string-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_string</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">_to_string</span>(<span class="ruby-ivar">@addr</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">zone_id</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string containing the IP address representation in canonical form.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-wildcard_mask" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-wildcard_mask" title="Link to this method">
+                <span class="method-name">wildcard_mask</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="wildcard_mask-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 497</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">wildcard_mask</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-identifier">mask</span> = <span class="ruby-constant">IN4MASK</span> <span class="ruby-operator">^</span> <span class="ruby-ivar">@mask_addr</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-identifier">mask</span> = <span class="ruby-constant">IN6MASK</span> <span class="ruby-operator">^</span> <span class="ruby-ivar">@mask_addr</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">_to_string</span>(<span class="ruby-identifier">mask</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the wildcard mask in string format e.g. 0.0.255.255</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-zone_id" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-zone_id" title="Link to this method">
+                <span class="method-name">zone_id</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="zone_id-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 512</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">zone_id</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-ivar">@zone_id</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-string">&quot;not an IPv6 address&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the IPv6 zone identifier, if present. Raises <a href="IPAddr/InvalidAddressError.html"><code>InvalidAddressError</code></a> if not an IPv6 address.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-zone_id-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-zone_id-3D" title="Link to this method">
+                <span class="method-name">zone_id=</span>
+                <span class="method-args">(zid)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="zone_id-3D-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 522</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">zone_id=</span>(<span class="ruby-identifier">zid</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">zid</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-keyword">nil</span>, <span class="ruby-regexp">/\A%(\w+)\z/</span>
+      <span class="ruby-ivar">@zone_id</span> = <span class="ruby-identifier">zid</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-string">&quot;invalid zone identifier for address&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-string">&quot;not an IPv6 address&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the IPv6 zone identifier, if present. Raises <a href="IPAddr/InvalidAddressError.html"><code>InvalidAddressError</code></a> if not an IPv6 address.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+      <div id="method-i-begin_addr" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-begin_addr" title="Link to this method">
+                <span class="method-name">begin_addr</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="begin_addr-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 537</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">begin_addr</span>
+  <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-ivar">@mask_addr</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-end_addr" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-end_addr" title="Link to this method">
+                <span class="method-name">end_addr</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="end_addr-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 541</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_addr</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-ivar">@addr</span> <span class="ruby-operator">|</span> (<span class="ruby-constant">IN4MASK</span> <span class="ruby-operator">^</span> <span class="ruby-ivar">@mask_addr</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-ivar">@addr</span> <span class="ruby-operator">|</span> (<span class="ruby-constant">IN6MASK</span> <span class="ruby-operator">^</span> <span class="ruby-ivar">@mask_addr</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-mask-21" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-mask-21" title="Link to this method">
+                <span class="method-name">mask!</span>
+                <span class="method-args">(mask)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="mask-21-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 579</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mask!</span>(<span class="ruby-identifier">mask</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">mask</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">mask</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/\A(0|[1-9]+\d*)\z/</span>
+      <span class="ruby-identifier">prefixlen</span> = <span class="ruby-identifier">mask</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/\A\d+\z/</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidPrefixError</span>, <span class="ruby-string">&quot;leading zeros in prefix&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">m</span> = <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">mask</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">family</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@family</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidPrefixError</span>, <span class="ruby-string">&quot;address family is not same&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@mask_addr</span> = <span class="ruby-identifier">m</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">n</span> = <span class="ruby-ivar">@mask_addr</span> <span class="ruby-operator">^</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@mask_addr</span>)
+      <span class="ruby-keyword">unless</span> ((<span class="ruby-identifier">n</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">n</span>).<span class="ruby-identifier">zero?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidPrefixError</span>, <span class="ruby-node">&quot;invalid mask #{mask}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;=</span> <span class="ruby-ivar">@mask_addr</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">prefixlen</span> = <span class="ruby-identifier">mask</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefixlen</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">prefixlen</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">32</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidPrefixError</span>, <span class="ruby-string">&quot;invalid length&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">masklen</span> = <span class="ruby-value">32</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">prefixlen</span>
+    <span class="ruby-ivar">@mask_addr</span> = ((<span class="ruby-constant">IN4MASK</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">masklen</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">masklen</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefixlen</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">prefixlen</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">128</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidPrefixError</span>, <span class="ruby-string">&quot;invalid length&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">masklen</span> = <span class="ruby-value">128</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">prefixlen</span>
+    <span class="ruby-ivar">@mask_addr</span> = ((<span class="ruby-constant">IN6MASK</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">masklen</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">masklen</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@addr</span> = ((<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">masklen</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">masklen</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Set current netmask to given mask.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-set" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-set" title="Link to this method">
+                <span class="method-name">set</span>
+                <span class="method-args">(addr, *family)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="set-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 555</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set</span>(<span class="ruby-identifier">addr</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">family</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">family</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">family</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">:</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">addr</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">addr</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">IN4MASK</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;invalid address: #{addr}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">addr</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">addr</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">IN6MASK</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;invalid address: #{addr}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@addr</span> = <span class="ruby-identifier">addr</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">family</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-ivar">@family</span> = <span class="ruby-identifier">family</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+      <span class="ruby-ivar">@mask_addr</span> <span class="ruby-operator">&amp;=</span> <span class="ruby-constant">IN4MASK</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Set +@addr+, the internal stored ip address, to given <code>addr</code>. The parameter <code>addr</code> is validated using the first <code>family</code> member, which is <code>Socket::AF_INET</code> or <code>Socket::AF_INET6</code>.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-_ipv4_compat-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-_ipv4_compat-3F" title="Link to this method">
+                <span class="method-name">_ipv4_compat?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="_ipv4_compat-3F-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 346</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_ipv4_compat?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">ipv6?</span> <span class="ruby-operator">||</span> (<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">32</span>) <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">a</span> = (<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-constant">IN4MASK</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-_reverse" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-_reverse" title="Link to this method">
+                <span class="method-name">_reverse</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="_reverse-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 766</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_reverse</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-keyword">return</span> (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">3</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      (<span class="ruby-ivar">@addr</span> <span class="ruby-operator">&gt;&gt;</span> (<span class="ruby-value">8</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">i</span>)) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>
+    }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;.&#39;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-keyword">return</span> (<span class="ruby-string">&quot;%.32x&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-ivar">@addr</span>).<span class="ruby-identifier">reverse!</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/.(?!$)/</span>, <span class="ruby-string">&#39;\&amp;.&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-_to_string" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-_to_string" title="Link to this method">
+                <span class="method-name">_to_string</span>
+                <span class="method-args">(addr)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="_to_string-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 779</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_to_string</span>(<span class="ruby-identifier">addr</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-keyword">return</span> (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">3</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      (<span class="ruby-identifier">addr</span> <span class="ruby-operator">&gt;&gt;</span> (<span class="ruby-value">24</span> <span class="ruby-operator">-</span> <span class="ruby-value">8</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">i</span>)) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>
+    }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;.&#39;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-keyword">return</span> ((<span class="ruby-string">&quot;%.32x&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">addr</span>).<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/.{4}(?!$)/</span>, <span class="ruby-string">&#39;\&amp;:&#39;</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-addr_mask" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-addr_mask" title="Link to this method">
+                <span class="method-name">addr_mask</span>
+                <span class="method-args">(addr)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="addr_mask-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 755</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">addr_mask</span>(<span class="ruby-identifier">addr</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@family</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-constant">IN4MASK</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">addr</span> <span class="ruby-operator">&amp;</span> <span class="ruby-constant">IN6MASK</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">AddressFamilyError</span>, <span class="ruby-string">&quot;unsupported address family&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-coerce_other" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-coerce_other" title="Link to this method">
+                <span class="method-name">coerce_other</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="coerce_other-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 692</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">coerce_other</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">other</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">IPAddr</span>
+    <span class="ruby-identifier">other</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">other</span>, <span class="ruby-ivar">@family</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-in6_addr" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-in6_addr" title="Link to this method">
+                <span class="method-name">in6_addr</span>
+                <span class="method-args">(left)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="in6_addr-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 718</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">in6_addr</span>(<span class="ruby-identifier">left</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">left</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">RE_IPV6ADDRLIKE_FULL</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-node">$2</span>
+      <span class="ruby-identifier">addr</span> = <span class="ruby-identifier">in_addr</span>(<span class="ruby-identifier">$~</span>[<span class="ruby-value">2</span>,<span class="ruby-value">4</span>])
+      <span class="ruby-identifier">left</span> = <span class="ruby-node">$1</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;:&#39;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">addr</span> = <span class="ruby-value">0</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">right</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">RE_IPV6ADDRLIKE_COMPRESSED</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-node">$4</span>
+      <span class="ruby-identifier">left</span>.<span class="ruby-identifier">count</span>(<span class="ruby-string">&#39;:&#39;</span>) <span class="ruby-operator">&lt;=</span> <span class="ruby-value">6</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;invalid address: #{@addr}&quot;</span>
+      <span class="ruby-identifier">addr</span> = <span class="ruby-identifier">in_addr</span>(<span class="ruby-identifier">$~</span>[<span class="ruby-value">4</span>,<span class="ruby-value">4</span>])
+      <span class="ruby-identifier">left</span> = <span class="ruby-node">$1</span>
+      <span class="ruby-identifier">right</span> = <span class="ruby-node">$3</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;0:0&#39;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">left</span>.<span class="ruby-identifier">count</span>(<span class="ruby-string">&#39;:&#39;</span>) <span class="ruby-operator">&lt;=</span> (<span class="ruby-node">$1</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-node">$2</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-value">8</span> <span class="ruby-operator">:</span> <span class="ruby-value">7</span>) <span class="ruby-keyword">or</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;invalid address: #{@addr}&quot;</span>
+      <span class="ruby-identifier">left</span> = <span class="ruby-node">$1</span>
+      <span class="ruby-identifier">right</span> = <span class="ruby-node">$2</span>
+      <span class="ruby-identifier">addr</span> = <span class="ruby-value">0</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;invalid address: #{@addr}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">l</span> = <span class="ruby-identifier">left</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;:&#39;</span>)
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">right</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;:&#39;</span>)
+  <span class="ruby-identifier">rest</span> = <span class="ruby-value">8</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">rest</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  (<span class="ruby-identifier">l</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">rest</span>, <span class="ruby-string">&#39;0&#39;</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span>).<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span>, <span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">16</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">hex</span>
+  } <span class="ruby-operator">|</span> <span class="ruby-identifier">addr</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-in_addr" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-in_addr" title="Link to this method">
+                <span class="method-name">in_addr</span>
+                <span class="method-args">(addr)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="in_addr-source">
+            <pre><span class="ruby-comment"># File lib/ipaddr.rb, line 703</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">in_addr</span>(<span class="ruby-identifier">addr</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">addr</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-identifier">octets</span> = <span class="ruby-identifier">addr</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">RE_IPV4ADDRLIKE</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">addr</span>) <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">octets</span> = <span class="ruby-identifier">addr</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">octets</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span>, <span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    (<span class="ruby-identifier">n</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_i</span>) <span class="ruby-operator">&lt;</span> <span class="ruby-value">256</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;invalid address: #{@addr}&quot;</span>
+    (<span class="ruby-identifier">s</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;0&#39;</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidAddressError</span>, <span class="ruby-node">&quot;zero-filled number in IPv4 address is ambiguous: #{@addr}&quot;</span>
+    <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

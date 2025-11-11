@@ -1,0 +1,9 @@
+U:RDoc::AnyMethod[iI"select:ETI"Hash#select;TF:privateo:RDoc::Markup::Document:@parts[	o:RDoc::Markup::Paragraph;	[I"dReturns a new +Hash+ object whose entries are those for which the block returns a truthy value:;To:RDoc::Markup::Verbatim;	[I""h = {foo: 0, bar: 1, baz: 2}
+;TI"@h.select {|key, value| value < 2 } # => {:foo=>0, :bar=>1}
+;T:@format0o;
+;	[I"0Returns a new Enumerator if no block given:;To;;	[I""h = {foo: 0, bar: 1, baz: 2}
+;TI"Ie = h.select # => #<Enumerator: {:foo=>0, :bar=>1, :baz=>2}:select>
+;TI"=e.each {|key, value| value < 2 } # => {:foo=>0, :bar=>1};T;0:
+@fileI"hash.c;T:0@omit_headings_from_table_of_contents_below0I"Ohash.select {|key, value| ... } -> new_hash
+hash.select -> new_enumerator
+;T0[[I"filter;T@	I"();T@FI"	Hash;TcRDoc::NormalClass00

@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"filename:ETI"(Prism::Translation::Ripper#filename;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"-The filename of the source being parsed.;T:
+@fileI"$lib/prism/translation/ripper.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::Translation::Ripper;TcRDoc::NormalClass0

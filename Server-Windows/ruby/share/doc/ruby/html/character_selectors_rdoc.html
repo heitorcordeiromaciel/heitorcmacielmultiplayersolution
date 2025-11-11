@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>character_selectors - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,character_selectors">
+  <meta name="description" content="character_selectors: Character Selectors == Character Selector A _character_ _selector_ is a string argument accepted by certain Ruby methods. returns a new string.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/character_selectors_rdoc.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Character+Selectors">Character Selectors</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Character+Selector">Character Selector</a>
+          <li>      <a href="#label-Multiple+Character+Selectors">Multiple Character Selectors</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./COPYING.html">COPYING</a>
+    <li><a href="./COPYING_ja.html">COPYING.ja</a>
+    <li><a href="./LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="./NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="./NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="./NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="./NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="./NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="./NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="./NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="./NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="./NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="./NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="./NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="./NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="./NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="./NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="./NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="./NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="./NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="./README_ja_md.html">README.ja</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./bsearch_rdoc.html">bsearch</a>
+    <li><a href="./bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="./case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="./character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="./command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="./contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="./contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="./contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="./contributing/glossary_md.html">glossary</a>
+      <li><a href="./contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="./contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="./contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="./contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="./date/calendars_rdoc.html">calendars</a>
+    <li><a href="./dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="./distribution_md.html">distribution</a>
+    <li><a href="./dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="./encodings_rdoc.html">encodings</a>
+    <li><a href="./exceptions_md.html">exceptions</a>
+    <li><a href="./extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="./extension_rdoc.html">extension</a>
+    <li><a href="./fiber_md.html">fiber</a>
+    <li><a href="./format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="./globals_rdoc.html">globals</a>
+    <li><a href="./implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="./index_md.html">index</a>
+    <li><a href="./maintainers_md.html">maintainers</a>
+    <li><a href="./marshal_rdoc.html">marshal</a>
+    <li><a href="./memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="./optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="./optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="./optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="./optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="./packed_data_rdoc.html">packed_data</a>
+    <li><a href="./ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="./regexp/methods_rdoc.html">methods</a>
+      <li><a href="./regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="./rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="./ruby/option_dump_md.html">option_dump</a>
+      <li><a href="./ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="./security_rdoc.html">security</a>
+    <li><a href="./signals_rdoc.html">signals</a>
+    <li><a href="./standard_library_md.html">standard_library</a>
+    <li><a href="./strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="./syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="./syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="./syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="./syntax/comments_rdoc.html">comments</a>
+      <li><a href="./syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="./syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="./syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="./syntax/literals_rdoc.html">literals</a>
+      <li><a href="./syntax/methods_rdoc.html">methods</a>
+      <li><a href="./syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="./syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="./syntax/operators_rdoc.html">operators</a>
+      <li><a href="./syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="./syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="./syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="./windows_md.html">windows</a>
+    <li><a href="./yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page character_selectors.rdoc">
+
+<h1 id="label-Character+Selectors">Character Selectors<span><a href="#label-Character+Selectors">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Character+Selector">Character Selector<span><a href="#label-Character+Selector">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A <em>character</em> <em>selector</em> is a string argument accepted by certain Ruby methods. Each of these instance methods accepts one or more character selectors:</p>
+<ul><li>
+<p><a href="String.html#method-i-tr"><code>String#tr(selector, replacements)</code></a>: returns a new string.</p>
+</li><li>
+<p><a href="String.html#method-i-tr-21"><code>String#tr!(selector, replacements)</code></a>: returns <code>self</code> or <code>nil</code>.</p>
+</li><li>
+<p><a href="String.html#method-i-tr_s"><code>String#tr_s(selector, replacements)</code></a>: returns a new string.</p>
+</li><li>
+<p><a href="String.html#method-i-tr_s-21"><code>String#tr_s!(selector, replacements)</code></a>: returns <code>self</code> or <code>nil</code>.</p>
+</li><li>
+<p><a href="String.html#method-i-count"><code>String#count(*selectors)</code></a>: returns the count of the specified characters.</p>
+</li><li>
+<p><a href="String.html#method-i-delete"><code>String#delete(*selectors)</code></a>: returns a new string.</p>
+</li><li>
+<p><a href="String.html#method-i-delete-21"><code>String#delete!(*selectors)</code></a>: returns <code>self</code> or <code>nil</code>.</p>
+</li><li>
+<p><a href="String.html#method-i-squeeze"><code>String#squeeze(*selectors)</code></a>: returns a new string.</p>
+</li><li>
+<p><a href="String.html#method-i-squeeze-21"><code>String#squeeze!(*selectors)</code></a>: returns <code>self</code> or <code>nil</code>.</p>
+</li></ul>
+
+<p>A character selector identifies zero or more characters in <code>self</code> that are to be operands for the method.</p>
+
+<p>In this section, we illustrate using method <a href="String.html#method-i-delete"><code>String#delete(selector)</code></a>, which deletes the selected characters.</p>
+
+<p>In the simplest case, the characters selected are exactly those contained in the selector itself:</p>
+
+<pre class="ruby"><span class="ruby-string">&#39;abracadabra&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;a&#39;</span>)   <span class="ruby-comment"># =&gt; &quot;brcdbr&quot;</span>
+<span class="ruby-string">&#39;abracadabra&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;ab&#39;</span>)  <span class="ruby-comment"># =&gt; &quot;rcdr&quot;</span>
+<span class="ruby-string">&#39;abracadabra&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;abc&#39;</span>) <span class="ruby-comment"># =&gt; &quot;rdr&quot;</span>
+<span class="ruby-string">&#39;0123456789&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;258&#39;</span>)  <span class="ruby-comment"># =&gt; &quot;0134679&quot;</span>
+<span class="ruby-string">&#39;!@#$%&amp;*()_+&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;+&amp;#&#39;</span>) <span class="ruby-comment"># =&gt; &quot;!@$%*()_&quot;</span>
+<span class="ruby-string">&#39;тест&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;т&#39;</span>)          <span class="ruby-comment"># =&gt; &quot;ес&quot;</span>
+<span class="ruby-string">&#39;こんにちは&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;に&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;こんちは&quot;</span>
+</pre>
+
+<p>Note that order and repetitions do not matter:</p>
+
+<pre class="ruby"><span class="ruby-string">&#39;abracadabra&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;dcab&#39;</span>) <span class="ruby-comment"># =&gt; &quot;rr&quot;</span>
+<span class="ruby-string">&#39;abracadabra&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;aaaa&#39;</span>) <span class="ruby-comment"># =&gt; &quot;brcdbr&quot;</span>
+</pre>
+
+<p>In a character selector, these three characters get special treatment:</p>
+<ul><li>
+<p>A leading caret (<code>&#39;^&#39;</code>) functions as a “not” operator for the characters to its right:</p>
+
+<pre class="ruby"><span class="ruby-string">&#39;abracadabra&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;^bc&#39;</span>) <span class="ruby-comment"># =&gt; &quot;bcb&quot;</span>
+<span class="ruby-string">&#39;0123456789&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;^852&#39;</span>) <span class="ruby-comment"># =&gt; &quot;258&quot;</span>
+</pre>
+</li><li>
+<p>A hyphen (<code>&#39;-&#39;</code>) between two other characters defines a range of characters instead of a plain string of characters:</p>
+
+<pre class="ruby"><span class="ruby-string">&#39;abracadabra&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;a-d&#39;</span>) <span class="ruby-comment"># =&gt; &quot;rr&quot;</span>
+<span class="ruby-string">&#39;0123456789&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;4-7&#39;</span>)  <span class="ruby-comment"># =&gt; &quot;012389&quot;</span>
+<span class="ruby-string">&#39;!@#$%&amp;*()_+&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39; -/&#39;</span>) <span class="ruby-comment"># =&gt; &quot;@^_&quot;</span>
+
+<span class="ruby-comment"># May contain more than one range.</span>
+<span class="ruby-string">&#39;abracadabra&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;a-cq-t&#39;</span>) <span class="ruby-comment"># =&gt; &quot;d&quot;</span>
+
+<span class="ruby-comment"># Ranges may be mixed with plain characters.</span>
+<span class="ruby-string">&#39;0123456789&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;67-950-23&#39;</span>) <span class="ruby-comment"># =&gt; &quot;4&quot;</span>
+
+<span class="ruby-comment"># Ranges may be mixed with negations.</span>
+<span class="ruby-string">&#39;abracadabra&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;^a-c&#39;</span>) <span class="ruby-comment"># =&gt; &quot;abacaaba&quot;</span>
+</pre>
+</li><li>
+<p>A backslash (<code>&#39;\&#39;</code>) acts as an escape for a caret, a hyphen, or another backslash:</p>
+
+<pre class="ruby"><span class="ruby-string">&#39;abracadabra^&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;\^bc&#39;</span>)   <span class="ruby-comment"># =&gt; &quot;araadara&quot;</span>
+<span class="ruby-string">&#39;abracadabra-&#39;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;a\-d&#39;</span>)   <span class="ruby-comment"># =&gt; &quot;brcbr&quot;</span>
+<span class="ruby-string">&quot;hello\r\nworld&quot;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;\r&quot;</span>)   <span class="ruby-comment"># =&gt; &quot;hello\nworld&quot;</span>
+<span class="ruby-string">&quot;hello\r\nworld&quot;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;\\r&quot;</span>)  <span class="ruby-comment"># =&gt; &quot;hello\r\nwold&quot;</span>
+<span class="ruby-string">&quot;hello\r\nworld&quot;</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;\\\r&quot;</span>) <span class="ruby-comment"># =&gt; &quot;hello\nworld&quot;</span>
+</pre>
+</li></ul>
+
+<h2 id="label-Multiple+Character+Selectors">Multiple Character Selectors<span><a href="#label-Multiple+Character+Selectors">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>These instance methods accept multiple character selectors:</p>
+<ul><li>
+<p><a href="String.html#method-i-count"><code>String#count(*selectors)</code></a>: returns the count of the specified characters.</p>
+</li><li>
+<p><a href="String.html#method-i-delete"><code>String#delete(*selectors)</code></a>: returns a new string.</p>
+</li><li>
+<p><a href="String.html#method-i-delete-21"><code>String#delete!(*selectors)</code></a>: returns <code>self</code> or <code>nil</code>.</p>
+</li><li>
+<p><a href="String.html#method-i-squeeze"><code>String#squeeze(*selectors)</code></a>: returns a new string.</p>
+</li><li>
+<p><a href="String.html#method-i-squeeze-21"><code>String#squeeze!(*selectors)</code></a>: returns <code>self</code> or <code>nil</code>.</p>
+</li></ul>
+
+<p>In effect, the given selectors are formed into a single selector consisting of only those characters common to <em>all</em> of the given selectors.</p>
+
+<p>All forms of selectors may be used, including negations, ranges, and escapes.</p>
+
+<p>Each of these pairs of method calls is equivalent:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;abcde&#39;</span>, <span class="ruby-string">&#39;dcbfg&#39;</span>)
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;bcd&#39;</span>)
+
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;^abc&#39;</span>, <span class="ruby-string">&#39;^def&#39;</span>)
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;^abcdef&#39;</span>)
+
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;a-e&#39;</span>, <span class="ruby-string">&#39;c-g&#39;</span>)
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;cde&#39;</span>)
+</pre>
+
+</main>
+

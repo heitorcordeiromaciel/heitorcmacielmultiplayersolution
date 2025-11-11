@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>options - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,options">
+  <meta name="description" content="options: console $ ruby -e &#39;puts &quot;Hello, World. Some examples here assume that file `desiderata.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/ruby/options_md.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Ruby+Command-Line+Options">Ruby Command-Line Options</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-About+the+Examples">About the Examples</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Options">Options</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-0-3A+Set+-24-2F+-28Input+Record+Separator-29"><code>-0</code>: Set <code>$/</code> (Input Record Separator)</a>
+          <li>      <a href="#label-a-3A+Split+Input+Lines+into+Fields"><code>-a</code>: Split Input Lines into Fields</a>
+          <li>      <a href="#label-c-3A+Check+Syntax"><code>-c</code>: Check Syntax</a>
+          <li>      <a href="#label-C-3A+Set+Working+Directory"><code>-C</code>: Set Working Directory</a>
+          <li>      <a href="#label-d-3A+Set+-24DEBUG+to+true"><code>-d</code>: Set <code>$DEBUG</code> to <code>true</code></a>
+          <li>      <a href="#label-e-3A+Execute+Given+Ruby+Code"><code>-e</code>: Execute Given Ruby Code</a>
+          <li>      <a href="#label-E-3A+Set+Default+Encodings"><code>-E</code>: Set Default Encodings</a>
+          <li>      <a href="#label-F-3A+Set+Input+Field+Separator"><code>-F</code>: Set Input Field Separator</a>
+          <li>      <a href="#label-h-3A+Print+Short+Help+Message"><code>-h</code>: Print Short Help Message</a>
+          <li>      <a href="#label-i-3A+Set+ARGF+In-Place+Mode"><code>-i</code>: Set ARGF In-Place Mode</a>
+          <li>      <a href="#label-I-3A+Add+to+-24LOAD_PATH"><code>-I</code>: Add to <code>$LOAD_PATH</code></a>
+          <li>      <a href="#label-l-3A+Set+Output+Record+Separator-3B+Chop+Lines"><code>-l</code>: Set Output Record Separator; Chop Lines</a>
+          <li>      <a href="#label-n-3A+Run+Program+in+gets+Loop"><code>-n</code>: Run Program in <code>gets</code> Loop</a>
+          <li>      <a href="#label-p-3A+-n-2C+with+Printing"><code>-p</code>: <code>-n</code>, with Printing</a>
+          <li>      <a href="#label-r-3A+Require+Library"><code>-r</code>: Require Library</a>
+          <li>      <a href="#label-s-3A+Define+Global+Variable"><code>-s</code>: Define Global Variable</a>
+          <li>      <a href="#label-S-3A+Search+Directories+in+ENV-5B-27PATH-27-5D"><code>-S</code>: Search Directories in <code>ENV[&#39;PATH&#39;]</code></a>
+          <li>      <a href="#label-v-3A+Print+Version-3B+Set+-24VERBOSE"><code>-v</code>: Print Version; Set <code>$VERBOSE</code></a>
+          <li>      <a href="#label-w-3A+Synonym+for+-W1"><code>-w</code>: Synonym for <code>-W1</code></a>
+          <li>      <a href="#label-W-3A+Set+Warning+Policy"><code>-W</code>: Set Warning Policy</a>
+          <li>      <a href="#label-x-3A+Execute+Ruby+Code+Found+in+Text"><code>-x</code>: Execute Ruby Code Found in Text</a>
+          <li>      <a href="#label--backtrace-limit-3A+Set+Backtrace+Limit"><code>--backtrace-limit</code>: Set Backtrace Limit</a>
+          <li>      <a href="#label--copyright-3A+Print+Ruby+Copyright"><code>--copyright</code>: Print Ruby Copyright</a>
+          <li>      <a href="#label--debug-3A+Alias+for+-d"><code>--debug</code>: Alias for <code>-d</code></a>
+          <li>      <a href="#label--disable-3A+Disable+Features"><code>--disable</code>: Disable Features</a>
+          <li>      <a href="#label--dump-3A+Dump+Items"><code>--dump</code>: Dump Items</a>
+          <li>      <a href="#label--enable-3A+Enable+Features"><code>--enable</code>: Enable Features</a>
+          <li>      <a href="#label--encoding-3A+Alias+for+-E."><code>--encoding</code>: Alias for <code>-E</code>.</a>
+          <li>      <a href="#label--external-encoding-3A+Set+Default+External+Encoding"><code>--external-encoding</code>: Set Default External Encoding</a>
+          <li>      <a href="#label--help-3A+Print+Help+Message"><code>--help</code>: Print Help Message</a>
+          <li>      <a href="#label--internal-encoding-3A+Set+Default+Internal+Encoding"><code>--internal-encoding</code>: Set Default Internal Encoding</a>
+          <li>      <a href="#label--verbose-3A+Set+-24VERBOSE"><code>--verbose</code>: Set <code>$VERBOSE</code></a>
+          <li>      <a href="#label--version-3A+Print+Ruby+Version"><code>--version</code>: Print Ruby Version</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Experimental+Options">Experimental Options</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label--jit"><code>--jit</code></a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label--jit-debug"><code>--jit-debug</code></a>
+          <li>      <a href="#label--jit-max-cache-3Dnum"><code>--jit-max-cache=num</code></a>
+          <li>      <a href="#label--jit-min-calls-3Dnum"><code>--jit-min-calls=num</code></a>
+          <li>      <a href="#label--jit-save-temps"><code>--jit-save-temps</code></a>
+          <li>      <a href="#label--jit-verbose"><code>--jit-verbose</code></a>
+          <li>      <a href="#label--jit-wait"><code>--jit-wait</code></a>
+          <li>      <a href="#label--jit-warnings"><code>--jit-warnings</code></a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../COPYING.html">COPYING</a>
+    <li><a href="../COPYING_ja.html">COPYING.ja</a>
+    <li><a href="../LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="../NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="../NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="../NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="../NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="../NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="../NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="../NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="../NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="../NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="../NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="../NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="../NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="../NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="../NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="../NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="../NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="../NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="../README_ja_md.html">README.ja</a>
+    <li><a href="../README_md.html">README</a>
+    <li><a href="../bsearch_rdoc.html">bsearch</a>
+    <li><a href="../bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="../case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="../character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="../command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="../contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="../contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="../contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="../contributing/glossary_md.html">glossary</a>
+      <li><a href="../contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="../contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="../contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="../contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="../date/calendars_rdoc.html">calendars</a>
+    <li><a href="../dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="../distribution_md.html">distribution</a>
+    <li><a href="../dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="../encodings_rdoc.html">encodings</a>
+    <li><a href="../exceptions_md.html">exceptions</a>
+    <li><a href="../extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="../extension_rdoc.html">extension</a>
+    <li><a href="../fiber_md.html">fiber</a>
+    <li><a href="../format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="../globals_rdoc.html">globals</a>
+    <li><a href="../implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="../index_md.html">index</a>
+    <li><a href="../maintainers_md.html">maintainers</a>
+    <li><a href="../marshal_rdoc.html">marshal</a>
+    <li><a href="../memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="../optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="../optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="../optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="../optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="../packed_data_rdoc.html">packed_data</a>
+    <li><a href="../ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="../regexp/methods_rdoc.html">methods</a>
+      <li><a href="../regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="../rjit/rjit_md.html">rjit</a>
+    <li><details open><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="../ruby/option_dump_md.html">option_dump</a>
+      <li><a href="../ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="../security_rdoc.html">security</a>
+    <li><a href="../signals_rdoc.html">signals</a>
+    <li><a href="../standard_library_md.html">standard_library</a>
+    <li><a href="../strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="../syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="../syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="../syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="../syntax/comments_rdoc.html">comments</a>
+      <li><a href="../syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="../syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="../syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="../syntax/literals_rdoc.html">literals</a>
+      <li><a href="../syntax/methods_rdoc.html">methods</a>
+      <li><a href="../syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="../syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="../syntax/operators_rdoc.html">operators</a>
+      <li><a href="../syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="../syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="../syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="../windows_md.html">windows</a>
+    <li><a href="../yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page ruby/options.md">
+
+<h1 id="label-Ruby+Command-Line+Options">Ruby Command-Line Options<span><a href="#label-Ruby+Command-Line+Options">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-About+the+Examples">About the Examples<span><a href="#label-About+the+Examples">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Some examples here use command-line option <code>-e</code>, which passes the Ruby code to be executed on the command line itself:</p>
+
+<pre>$ ruby -e &#39;puts &quot;Hello, World.&quot;&#39;</pre>
+
+<p>Some examples here assume that file <code>desiderata.txt</code> exists:</p>
+
+<pre>$ cat desiderata.txt
+Go placidly amid the noise and the haste,
+and remember what peace there may be in silence.
+As far as possible, without surrender,
+be on good terms with all persons.</pre>
+
+<h2 id="label-Options">Options<span><a href="#label-Options">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-0-3A+Set+-24-2F+-28Input+Record+Separator-29"><code>-0</code>: Set <code>$/</code> (Input Record Separator)<span><a href="#label-0-3A+Set+-24-2F+-28Input+Record+Separator-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-0</code> defines the input record separator <code>$/</code> for the invoked Ruby program.</p>
+
+<p>The optional argument to the option must be octal digits, each in the range <code>0..7</code>; these digits are prefixed with digit <code>0</code> to form an octal value.</p>
+
+<p>If no argument is given, the input record separator is <code>0x00</code>.</p>
+
+<p>If an argument is given, it must immediately follow the option (no intervening whitespace or equal-sign character <code>&#39;=&#39;</code>); argument values:</p>
+<ul><li>
+<p><code>0</code>: the input record separator is <code>&#39;&#39;</code>; see <a href="../IO.html#class-IO-label-Special+Line+Separator+Values">Special Line Separator Values</a>.</p>
+</li><li>
+<p>In range <code>(1..0377)</code>: the input record separator <code>$/</code> is set to the character value of the argument.</p>
+</li><li>
+<p>Any other octal value: the input record separator is <code>nil</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre>$ ruby -0 -e &#39;p $/&#39;
+&quot;\x00&quot;
+ruby -00 -e &#39;p $/&#39;
+&quot;&quot;
+$ ruby -012 -e &#39;p $/&#39;
+&quot;\n&quot;
+$ ruby -015 -e &#39;p $/&#39;
+&quot;\r&quot;
+$ ruby -0377 -e &#39;p $/&#39;
+&quot;\xFF&quot;
+$ ruby -0400 -e &#39;p $/&#39;
+nil</pre>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="options_md.html#label-a-3A+Split+Input+Lines+into+Fields">Option -a</a>: Split input lines into fields.</p>
+</li><li>
+<p><a href="options_md.html#label-F-3A+Set+Input+Field+Separator">Option -F</a>: Set input field separator.</p>
+</li><li>
+<p><a href="options_md.html#label-l-3A+Set+Output+Record+Separator-3B+Chop+Lines">Option -l</a>: Set output record separator; chop lines.</p>
+</li><li>
+<p><a href="options_md.html#label-n-3A+Run+Program+in+gets+Loop">Option -n</a>: Run program in <code>gets</code> loop.</p>
+</li><li>
+<p><a href="options_md.html#label-p-3A+-n-2C+with+Printing">Option -p</a>: <code>-n</code>, with printing.</p>
+</li></ul>
+
+<h3 id="label-a-3A+Split+Input+Lines+into+Fields"><code>-a</code>: Split Input Lines into Fields<span><a href="#label-a-3A+Split+Input+Lines+into+Fields">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-a</code>, when given with either of options <code>-n</code> or <code>-p</code>, splits the string at <code>$_</code> into an array of strings at <code>$F</code>:</p>
+
+<pre>$ ruby -an -e &#39;p $F&#39; desiderata.txt
+[&quot;Go&quot;, &quot;placidly&quot;, &quot;amid&quot;, &quot;the&quot;, &quot;noise&quot;, &quot;and&quot;, &quot;the&quot;, &quot;haste,&quot;]
+[&quot;and&quot;, &quot;remember&quot;, &quot;what&quot;, &quot;peace&quot;, &quot;there&quot;, &quot;may&quot;, &quot;be&quot;, &quot;in&quot;, &quot;silence.&quot;]
+[&quot;As&quot;, &quot;far&quot;, &quot;as&quot;, &quot;possible,&quot;, &quot;without&quot;, &quot;surrender,&quot;]
+[&quot;be&quot;, &quot;on&quot;, &quot;good&quot;, &quot;terms&quot;, &quot;with&quot;, &quot;all&quot;, &quot;persons.&quot;]</pre>
+
+<p>For the splitting, the default record separator is <code>$/</code>, and the default field separator is <code>$;</code>.</p>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="options_md.html#label-0-3A+Set+-24-2F+-28Input+Record+Separator-29">Option -0</a>: Set <code>$/</code> (input record separator).</p>
+</li><li>
+<p><a href="options_md.html#label-F-3A+Set+Input+Field+Separator">Option -F</a>: Set input field separator.</p>
+</li><li>
+<p><a href="options_md.html#label-l-3A+Set+Output+Record+Separator-3B+Chop+Lines">Option -l</a>: Set output record separator; chop lines.</p>
+</li><li>
+<p><a href="options_md.html#label-n-3A+Run+Program+in+gets+Loop">Option -n</a>: Run program in <code>gets</code> loop.</p>
+</li><li>
+<p><a href="options_md.html#label-p-3A+-n-2C+with+Printing">Option -p</a>: <code>-n</code>, with printing.</p>
+</li></ul>
+
+<h3 id="label-c-3A+Check+Syntax"><code>-c</code>: Check Syntax<span><a href="#label-c-3A+Check+Syntax">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-c</code> specifies that the specified Ruby program should be checked for syntax, but not actually executed:</p>
+
+<pre>$ ruby -e &#39;puts &quot;Foo&quot;&#39;
+Foo
+$ ruby -c -e &#39;puts &quot;Foo&quot;&#39;
+Syntax OK</pre>
+
+<h3 id="label-C-3A+Set+Working+Directory"><code>-C</code>: Set Working Directory<span><a href="#label-C-3A+Set+Working+Directory">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The argument to option <code>-C</code> specifies a working directory for the invoked Ruby program; does not change the working directory for the current process:</p>
+
+<pre>$ basename `pwd`
+ruby
+$ ruby -C lib -e &#39;puts File.basename(Dir.pwd)&#39;
+lib
+$ basename `pwd`
+ruby</pre>
+
+<p>Whitespace between the option and its argument may be omitted.</p>
+
+<h3 id="label-d-3A+Set+-24DEBUG+to+true"><code>-d</code>: Set <code>$DEBUG</code> to <code>true</code><span><a href="#label-d-3A+Set+-24DEBUG+to+true">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Some code in (or called by) the Ruby program may include statements or blocks conditioned by the global variable <code>$DEBUG</code> (e.g., <code>if $DEBUG</code>); these commonly write to <code>$stdout</code> or <code>$stderr</code>.</p>
+
+<p>The default value for <code>$DEBUG</code> is <code>false</code>; option <code>-d</code> sets it to <code>true</code>:</p>
+
+<pre>$ ruby -e &#39;p $DEBUG&#39;
+false
+$ ruby -d -e &#39;p $DEBUG&#39;
+true</pre>
+
+<p>Option <code>--debug</code> is an alias for option <code>-d</code>.</p>
+
+<h3 id="label-e-3A+Execute+Given+Ruby+Code"><code>-e</code>: Execute Given Ruby Code<span><a href="#label-e-3A+Execute+Given+Ruby+Code">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-e</code> requires an argument, which is Ruby code to be executed; the option may be given more than once:</p>
+
+<pre>$ ruby -e &#39;puts &quot;Foo&quot;&#39; -e &#39;puts &quot;Bar&quot;&#39;
+Foo
+Bar</pre>
+
+<p>Whitespace between the option and its argument may be omitted.</p>
+
+<p>The command may include other options, but should not include arguments (which, if given, are ignored).</p>
+
+<h3 id="label-E-3A+Set+Default+Encodings"><code>-E</code>: Set Default Encodings<span><a href="#label-E-3A+Set+Default+Encodings">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-E</code> requires an argument, which specifies either the default external encoding, or both the default external and internal encodings for the invoked Ruby program:</p>
+
+<pre># No option -E.
+$ ruby -e &#39;p [Encoding::default_external, Encoding::default_internal]&#39;
+[#&lt;Encoding:UTF-8&gt;, nil]
+# Option -E with default external encoding.
+$ ruby -E cesu-8 -e &#39;p [Encoding::default_external, Encoding::default_internal]&#39;
+[#&lt;Encoding:CESU-8&gt;, nil]
+# Option -E with default external and internal encodings.
+$ ruby -E utf-8:cesu-8 -e &#39;p [Encoding::default_external, Encoding::default_internal]&#39;
+[#&lt;Encoding:UTF-8&gt;, #&lt;Encoding:CESU-8&gt;]</pre>
+
+<p>Whitespace between the option and its argument may be omitted.</p>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="options_md.html#label--external-encoding-3A+Set+Default+External+Encoding">Option –external-encoding</a>: Set default external encoding.</p>
+</li><li>
+<p><a href="options_md.html#label--internal-encoding-3A+Set+Default+Internal+Encoding">Option –internal-encoding</a>: Set default internal encoding.</p>
+</li></ul>
+
+<p>Option <code>--encoding</code> is an alias for option <code>-E</code>.</p>
+
+<h3 id="label-F-3A+Set+Input+Field+Separator"><code>-F</code>: Set Input Field Separator<span><a href="#label-F-3A+Set+Input+Field+Separator">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-F</code>, when given with option <code>-a</code>, specifies that its argument is to be the input field separator to be used for splitting:</p>
+
+<pre>$ ruby -an -Fs -e &#39;p $F&#39; desiderata.txt
+[&quot;Go placidly amid the noi&quot;, &quot;e and the ha&quot;, &quot;te,\n&quot;]
+[&quot;and remember what peace there may be in &quot;, &quot;ilence.\n&quot;]
+[&quot;A&quot;, &quot; far a&quot;, &quot; po&quot;, &quot;&quot;, &quot;ible, without &quot;, &quot;urrender,\n&quot;]
+[&quot;be on good term&quot;, &quot; with all per&quot;, &quot;on&quot;, &quot;.\n&quot;]</pre>
+
+<p>The argument may be a regular expression:</p>
+
+<pre>$ ruby -an -F&#39;[.,]\s*&#39; -e &#39;p $F&#39; desiderata.txt
+[&quot;Go placidly amid the noise and the haste&quot;]
+[&quot;and remember what peace there may be in silence&quot;]
+[&quot;As far as possible&quot;, &quot;without surrender&quot;]
+[&quot;be on good terms with all persons&quot;]</pre>
+
+<p>The argument must immediately follow the option (no intervening whitespace or equal-sign character <code>&#39;=&#39;</code>).</p>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="options_md.html#label-0-3A+Set+-24-2F+-28Input+Record+Separator-29">Option -0</a>: Set <code>$/</code> (input record separator).</p>
+</li><li>
+<p><a href="options_md.html#label-a-3A+Split+Input+Lines+into+Fields">Option -a</a>: Split input lines into fields.</p>
+</li><li>
+<p><a href="options_md.html#label-l-3A+Set+Output+Record+Separator-3B+Chop+Lines">Option -l</a>: Set output record separator; chop lines.</p>
+</li><li>
+<p><a href="options_md.html#label-n-3A+Run+Program+in+gets+Loop">Option -n</a>: Run program in <code>gets</code> loop.</p>
+</li><li>
+<p><a href="options_md.html#label-p-3A+-n-2C+with+Printing">Option -p</a>: <code>-n</code>, with printing.</p>
+</li></ul>
+
+<h3 id="label-h-3A+Print+Short+Help+Message"><code>-h</code>: Print Short Help Message<span><a href="#label-h-3A+Print+Short+Help+Message">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-h</code> prints a short help message that includes single-hyphen options (e.g. <code>-I</code>), and largely omits double-hyphen options (e.g., <code>--version</code>).</p>
+
+<p>Arguments and additional options are ignored.</p>
+
+<p>For a longer help message, use option <code>--help</code>.</p>
+
+<h3 id="label-i-3A+Set+ARGF+In-Place+Mode"><code>-i</code>: Set ARGF In-Place Mode<span><a href="#label-i-3A+Set+ARGF+In-Place+Mode">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-i</code> sets the ARGF in-place mode for the invoked Ruby program; see <a href="../ARGF.html#method-i-inplace_mode-3D"><code>ARGF#inplace_mode=</code></a>:</p>
+
+<pre>$ ruby -e &#39;p ARGF.inplace_mode&#39;
+nil
+$ ruby -i -e &#39;p ARGF.inplace_mode&#39;
+&quot;&quot;
+$ ruby -i.bak -e &#39;p ARGF.inplace_mode&#39;
+&quot;.bak&quot;</pre>
+
+<h3 id="label-I-3A+Add+to+-24LOAD_PATH"><code>-I</code>: Add to <code>$LOAD_PATH</code><span><a href="#label-I-3A+Add+to+-24LOAD_PATH">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The argument to option <code>-I</code> specifies a directory to be added to the array in global variable <code>$LOAD_PATH</code>; the option may be given more than once:</p>
+
+<pre>$ pushd /tmp
+$ ruby -e &#39;p $LOAD_PATH.size&#39;
+8
+$ ruby -I my_lib -I some_lib -e &#39;p $LOAD_PATH.size&#39;
+10
+$ ruby -I my_lib -I some_lib -e &#39;p $LOAD_PATH.take(2)&#39;
+[&quot;/tmp/my_lib&quot;, &quot;/tmp/some_lib&quot;]
+$ popd</pre>
+
+<p>Whitespace between the option and its argument may be omitted.</p>
+
+<h3 id="label-l-3A+Set+Output+Record+Separator-3B+Chop+Lines"><code>-l</code>: Set Output Record Separator; Chop Lines<span><a href="#label-l-3A+Set+Output+Record+Separator-3B+Chop+Lines">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-l</code>, when given with option <code>-n</code> or <code>-p</code>, modifies line-ending processing by:</p>
+<ul><li>
+<p>Setting global variable output record separator <code>$&lt;/code&gt; to the current value of input record separator &lt;code&gt;$/</code>; this affects line-oriented output (such a the output from <a href="../Kernel.html#method-i-puts"><code>Kernel#puts</code></a>).</p>
+</li><li>
+<p>Calling <a href="../String.html#method-i-chop-21"><code>String#chop!</code></a> on each line read.</p>
+</li></ul>
+
+<p>Without option <code>-l</code> (unchopped):</p>
+
+<pre>$ ruby -n -e &#39;p $_&#39; desiderata.txt
+&quot;Go placidly amid the noise and the haste,\n&quot;
+&quot;and remember what peace there may be in silence.\n&quot;
+&quot;As far as possible, without surrender,\n&quot;
+&quot;be on good terms with all persons.\n&quot;</pre>
+
+<p>With option ‘-l’ (chopped):</p>
+
+<pre>$ ruby -ln -e &#39;p $_&#39; desiderata.txt
+&quot;Go placidly amid the noise and the haste,&quot;
+&quot;and remember what peace there may be in silence.&quot;
+&quot;As far as possible, without surrender,&quot;
+&quot;be on good terms with all persons.&quot;</pre>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="options_md.html#label-0-3A+Set+-24-2F+-28Input+Record+Separator-29">Option -0</a>: Set <code>$/</code> (input record separator).</p>
+</li><li>
+<p><a href="options_md.html#label-a-3A+Split+Input+Lines+into+Fields">Option -a</a>: Split input lines into fields.</p>
+</li><li>
+<p><a href="options_md.html#label-F-3A+Set+Input+Field+Separator">Option -F</a>: Set input field separator.</p>
+</li><li>
+<p><a href="options_md.html#label-n-3A+Run+Program+in+gets+Loop">Option -n</a>: Run program in <code>gets</code> loop.</p>
+</li><li>
+<p><a href="options_md.html#label-p-3A+-n-2C+with+Printing">Option -p</a>: <code>-n</code>, with printing.</p>
+</li></ul>
+
+<h3 id="label-n-3A+Run+Program+in+gets+Loop"><code>-n</code>: Run Program in <code>gets</code> Loop<span><a href="#label-n-3A+Run+Program+in+gets+Loop">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-n</code> runs your program in a <a href="../Kernel.html#method-i-gets"><code>Kernel#gets</code></a> loop:</p>
+
+<pre class="ruby"><span class="ruby-keyword">while</span> <span class="ruby-identifier">gets</span>
+  <span class="ruby-comment"># Your Ruby code.</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Note that <code>gets</code> reads the next line and sets global variable <code>$_</code> to the last read line:</p>
+
+<pre>$ ruby -n -e &#39;puts $_&#39; desiderata.txt
+Go placidly amid the noise and the haste,
+and remember what peace there may be in silence.
+As far as possible, without surrender,
+be on good terms with all persons.</pre>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="options_md.html#label-0-3A+Set+-24-2F+-28Input+Record+Separator-29">Option -0</a>: Set <code>$/</code> (input record separator).</p>
+</li><li>
+<p><a href="options_md.html#label-a-3A+Split+Input+Lines+into+Fields">Option -a</a>: Split input lines into fields.</p>
+</li><li>
+<p><a href="options_md.html#label-F-3A+Set+Input+Field+Separator">Option -F</a>: Set input field separator.</p>
+</li><li>
+<p><a href="options_md.html#label-l-3A+Set+Output+Record+Separator-3B+Chop+Lines">Option -l</a>: Set output record separator; chop lines.</p>
+</li><li>
+<p><a href="options_md.html#label-p-3A+-n-2C+with+Printing">Option -p</a>: <code>-n</code>, with printing.</p>
+</li></ul>
+
+<h3 id="label-p-3A+-n-2C+with+Printing"><code>-p</code>: <code>-n</code>, with Printing<span><a href="#label-p-3A+-n-2C+with+Printing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-p</code> is like option <code>-n</code>, but also prints each line:</p>
+
+<pre>$ ruby -p -e &#39;puts $_.size&#39; desiderata.txt
+42
+Go placidly amid the noise and the haste,
+49
+and remember what peace there may be in silence.
+39
+As far as possible, without surrender,
+35
+be on good terms with all persons.</pre>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="options_md.html#label-0-3A+Set+-24-2F+-28Input+Record+Separator-29">Option -0</a>: Set <code>$/</code> (input record separator).</p>
+</li><li>
+<p><a href="options_md.html#label-a-3A+Split+Input+Lines+into+Fields">Option -a</a>: Split input lines into fields.</p>
+</li><li>
+<p><a href="options_md.html#label-F-3A+Set+Input+Field+Separator">Option -F</a>: Set input field separator.</p>
+</li><li>
+<p><a href="options_md.html#label-l-3A+Set+Output+Record+Separator-3B+Chop+Lines">Option -l</a>: Set output record separator; chop lines.</p>
+</li><li>
+<p><a href="options_md.html#label-n-3A+Run+Program+in+gets+Loop">Option -n</a>: Run program in <code>gets</code> loop.</p>
+</li></ul>
+
+<h3 id="label-r-3A+Require+Library"><code>-r</code>: Require Library<span><a href="#label-r-3A+Require+Library">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The argument to option <code>-r</code> specifies a library to be required before executing the Ruby program; the option may be given more than once:</p>
+
+<pre>$ ruby -e &#39;p defined?(JSON); p defined?(CSV)&#39;
+nil
+nil
+$ ruby -r CSV -r JSON -e &#39;p defined?(JSON); p defined?(CSV)&#39;
+&quot;constant&quot;
+&quot;constant&quot;</pre>
+
+<p>Whitespace between the option and its argument may be omitted.</p>
+
+<h3 id="label-s-3A+Define+Global+Variable"><code>-s</code>: Define Global Variable<span><a href="#label-s-3A+Define+Global+Variable">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-s</code> specifies that a “custom option” is to define a global variable in the invoked Ruby program:</p>
+<ul><li>
+<p>The custom option must appear <em>after</em> the program name.</p>
+</li><li>
+<p>The custom option must begin with single hyphen (e.g., <code>-foo</code>), not two hyphens (e.g., <code>--foo</code>).</p>
+</li><li>
+<p>The name of the global variable is based on the option name: global variable <code>$foo</code> for custom option<code>-foo</code>.</p>
+</li><li>
+<p>The value of the global variable is the string option argument if given, <code>true</code> otherwise.</p>
+</li></ul>
+
+<p>More than one custom option may be given:</p>
+
+<pre>$ cat t.rb
+p [$foo, $bar]
+$ ruby t.rb
+[nil, nil]
+$ ruby -s t.rb -foo=baz
+[&quot;baz&quot;, nil]
+$ ruby -s t.rb -foo
+[true, nil]
+$ ruby -s t.rb -foo=baz -bar=bat
+[&quot;baz&quot;, &quot;bat&quot;]</pre>
+
+<p>The option may not be used with <a href="options_md.html#label-e-3A+Execute+Given+Ruby+Code">option -e</a></p>
+
+<h3 id="label-S-3A+Search+Directories+in+ENV-5B-27PATH-27-5D"><code>-S</code>: Search Directories in <code>ENV[&#39;PATH&#39;]</code><span><a href="#label-S-3A+Search+Directories+in+ENV-5B-27PATH-27-5D">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-S</code> specifies that the Ruby interpreter is to search (if necessary) the directories whose paths are in the program’s <code>PATH</code> environment variable; the program is executed in the shell’s current working directory (not necessarily in the directory where the program is found).</p>
+
+<p>This example uses adds path <code>&#39;tmp/&#39;</code> to the <code>PATH</code> environment variable:</p>
+
+<pre>$ export PATH=/tmp:$PATH
+$ echo &quot;puts File.basename(Dir.pwd)&quot; &gt; /tmp/t.rb
+$ ruby -S t.rb
+ruby</pre>
+
+<h3 id="label-v-3A+Print+Version-3B+Set+-24VERBOSE"><code>-v</code>: Print Version; Set <code>$VERBOSE</code><span><a href="#label-v-3A+Print+Version-3B+Set+-24VERBOSE">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Options <code>-v</code> prints the Ruby version and sets global variable <code>$VERBOSE</code>:</p>
+
+<pre>$ ruby -e &#39;p $VERBOSE&#39;
+false
+$ ruby -v -e &#39;p $VERBOSE&#39;
+ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x64-mingw-ucrt]
+true</pre>
+
+<h3 id="label-w-3A+Synonym+for+-W1"><code>-w</code>: Synonym for <code>-W1</code><span><a href="#label-w-3A+Synonym+for+-W1">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-w</code> (lowercase letter) is equivalent to option <code>-W1</code> (uppercase letter).</p>
+
+<h3 id="label-W-3A+Set+Warning+Policy"><code>-W</code>: Set Warning Policy<span><a href="#label-W-3A+Set+Warning+Policy">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Any Ruby code can create a <em>warning message</em> by calling method <a href="../Kernel.html#method-i-warn"><code>Kernel#warn</code></a>; methods in the Ruby core and standard libraries can also create warning messages. Such a message may be printed on <code>$stderr</code> (or not, depending on certain settings).</p>
+
+<p>Option <code>-W</code> helps determine whether a particular warning message will be written, by setting the initial value of global variable <code>$-W</code>:</p>
+<ul><li>
+<p><code>-W0</code>: Sets <code>$-W</code> to <code>0</code> (silent; no warnings).</p>
+</li><li>
+<p><code>-W1</code>: Sets <code>$-W</code> to <code>1</code> (moderate verbosity).</p>
+</li><li>
+<p><code>-W2</code>: Sets <code>$-W</code> to <code>2</code> (high verbosity).</p>
+</li><li>
+<p><code>-W</code>: Same as <code>-W2</code> (high verbosity).</p>
+</li><li>
+<p>Option not given: Same as <code>-W1</code> (moderate verbosity).</p>
+</li></ul>
+
+<p>The value of <code>$-W</code>, in turn, determines which warning messages (if any) are to be printed to <code>$stdout</code> (see <a href="../Kernel.html#method-i-warn"><code>Kernel#warn</code></a>):</p>
+
+<pre>$ ruby -W1 -e &#39;p $foo&#39;
+nil
+$ ruby -W2 -e &#39;p $foo&#39;
+-e:1: warning: global variable &#39;$foo&#39; not initialized
+nil</pre>
+
+<p>Ruby code may also define warnings for certain categories; these are the default settings for the defined categories:</p>
+
+<pre class="ruby"><span class="ruby-constant">Warning</span>[<span class="ruby-value">:experimental</span>] <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-constant">Warning</span>[<span class="ruby-value">:deprecated</span>]   <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-constant">Warning</span>[<span class="ruby-value">:performance</span>]  <span class="ruby-comment"># =&gt; false</span>
+</pre>
+
+<p>They may also be set:</p>
+
+<pre class="ruby"><span class="ruby-constant">Warning</span>[<span class="ruby-value">:experimental</span>] = <span class="ruby-keyword">false</span>
+<span class="ruby-constant">Warning</span>[<span class="ruby-value">:deprecated</span>]   = <span class="ruby-keyword">true</span>
+<span class="ruby-constant">Warning</span>[<span class="ruby-value">:performance</span>]  = <span class="ruby-keyword">true</span>
+</pre>
+
+<p>You can suppress a category by prefixing <code>no-</code> to the category name:</p>
+
+<pre>$ ruby -W:no-experimental -e &#39;p IO::Buffer.new&#39;
+#&lt;IO::Buffer&gt;</pre>
+
+<h3 id="label-x-3A+Execute+Ruby+Code+Found+in+Text"><code>-x</code>: Execute Ruby Code Found in Text<span><a href="#label-x-3A+Execute+Ruby+Code+Found+in+Text">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-x</code> executes a Ruby program whose code is embedded in other, non-code, text:</p>
+
+<p>The ruby code:</p>
+<ul><li>
+<p>Begins after the first line beginning with <code>&#39;#!</code> and containing string <code>&#39;ruby&#39;</code>.</p>
+</li><li>
+<p>Ends before any one of:</p>
+<ul><li>
+<p>End-of-file.</p>
+</li><li>
+<p>A line consisting of <code>&#39;__END__&#39;</code>,</p>
+</li><li>
+<p>Character <code>Ctrl-D</code> or <code>Ctrl-Z</code>.</p>
+</li></ul>
+</li></ul>
+
+<p>Example:</p>
+
+<pre>$ cat t.txt
+Leading garbage.
+#!ruby
+puts File.basename(Dir.pwd)
+__END__
+Trailing garbage.
+
+$ ruby -x t.txt
+ruby</pre>
+
+<p>The optional argument specifies the directory where the text file is to be found; the Ruby code is executed in that directory:</p>
+
+<pre>$ cp t.txt /tmp/
+$ ruby -x/tmp t.txt
+tmp
+$</pre>
+
+<p>If an argument is given, it must immediately follow the option (no intervening whitespace or equal-sign character <code>&#39;=&#39;</code>).</p>
+
+<h3 id="label--backtrace-limit-3A+Set+Backtrace+Limit"><code>--backtrace-limit</code>: Set Backtrace Limit<span><a href="#label--backtrace-limit-3A+Set+Backtrace+Limit">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--backtrace-limit</code> sets a limit on the number of entries to be displayed in a backtrace.</p>
+
+<p>See <a href="../Thread/Backtrace.html#method-c-limit"><code>Thread::Backtrace.limit</code></a>.</p>
+
+<h3 id="label--copyright-3A+Print+Ruby+Copyright"><code>--copyright</code>: Print Ruby Copyright<span><a href="#label--copyright-3A+Print+Ruby+Copyright">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--copyright</code> prints a copyright message:</p>
+
+<pre>$ ruby --copyright
+ruby - Copyright (C) 1993-2024 Yukihiro Matsumoto</pre>
+
+<h3 id="label--debug-3A+Alias+for+-d"><code>--debug</code>: Alias for <code>-d</code><span><a href="#label--debug-3A+Alias+for+-d">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--debug</code> is an alias for <a href="options_md.html#label-d-3A+Set+-24DEBUG+to+true">option -d</a>.</p>
+
+<h3 id="label--disable-3A+Disable+Features"><code>--disable</code>: Disable Features<span><a href="#label--disable-3A+Disable+Features">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--disable</code> specifies features to be disabled; the argument is a comma-separated list of the features to be disabled:</p>
+
+<pre>ruby --disable=gems,rubyopt t.rb</pre>
+
+<p>The supported features:</p>
+<ul><li>
+<p><code>gems</code>: Rubygems (default: enabled).</p>
+</li><li>
+<p><code>did_you_mean</code>: {<code>did_you_mean</code><a href="https://github.com/ruby/did_you_mean">}</a> (default: enabled).</p>
+</li><li>
+<p><code>rubyopt</code>: <code>RUBYOPT</code> environment variable (default: enabled).</p>
+</li><li>
+<p><code>frozen-string-literal</code>: Freeze all string literals (default: disabled).</p>
+</li><li>
+<p><code>jit</code>: JIT compiler (default: disabled).</p>
+</li></ul>
+
+<p>See also <a href="options_md.html#label--enable-3A+Enable+Features">option –enable</a>.</p>
+
+<h3 id="label--dump-3A+Dump+Items"><code>--dump</code>: Dump Items<span><a href="#label--dump-3A+Dump+Items">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--dump</code> specifies items to be dumped; the argument is a comma-separated list of the items.</p>
+
+<p>Some of the argument values cause the command to behave as if a different option was given:</p>
+<ul><li>
+<p><code>--dump=copyright</code>: Same as <a href="options_md.html#label--copyright-3A+Print+Ruby+Copyright">option –copyright</a>.</p>
+</li><li>
+<p><code>--dump=help</code>: Same as <a href="options_md.html#label--help-3A+Print+Help+Message">option –help</a>.</p>
+</li><li>
+<p><code>--dump=syntax</code>: Same as <a href="options_md.html#label-c-3A+Check+Syntax">option -c</a>.</p>
+</li><li>
+<p><code>--dump=usage</code>: Same as <a href="options_md.html#label-h-3A+Print+Short+Help+Message">option -h</a>.</p>
+</li><li>
+<p><code>--dump=version</code>: Same as <a href="options_md.html#label--version-3A+Print+Ruby+Version">option –version</a>.</p>
+</li></ul>
+
+<p>For other argument values and examples, see <a href="option_dump_md.html">Option –dump</a>.</p>
+
+<h3 id="label--enable-3A+Enable+Features"><code>--enable</code>: Enable Features<span><a href="#label--enable-3A+Enable+Features">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--enable</code> specifies features to be enabled; the argument is a comma-separated list of the features to be enabled.</p>
+
+<pre>ruby --enable=gems,rubyopt t.rb</pre>
+
+<p>For the features, see <a href="options_md.html#label--disable-3A+Disable+Features">option –disable</a>.</p>
+
+<h3 id="label--encoding-3A+Alias+for+-E."><code>--encoding</code>: Alias for <code>-E</code>.<span><a href="#label--encoding-3A+Alias+for+-E.">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--encoding</code> is an alias for <a href="options_md.html#label-E-3A+Set+Default+Encodings">option -E</a>.</p>
+
+<h3 id="label--external-encoding-3A+Set+Default+External+Encoding"><code>--external-encoding</code>: Set Default External Encoding<span><a href="#label--external-encoding-3A+Set+Default+External+Encoding">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--external-encoding</code> sets the default external encoding for the invoked Ruby program; for values of <code>encoding</code>, see <a href="../encodings_rdoc.html#label-Names+and+Aliases">Encoding: Names and Aliases</a>.</p>
+
+<pre>$ ruby -e &#39;puts Encoding::default_external&#39;
+UTF-8
+$ ruby --external-encoding=cesu-8 -e &#39;puts Encoding::default_external&#39;
+CESU-8</pre>
+
+<h3 id="label--help-3A+Print+Help+Message"><code>--help</code>: Print Help Message<span><a href="#label--help-3A+Print+Help+Message">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--help</code> prints a long help message.</p>
+
+<p>Arguments and additional options are ignored.</p>
+
+<p>For a shorter help message, use option <code>-h</code>.</p>
+
+<h3 id="label--internal-encoding-3A+Set+Default+Internal+Encoding"><code>--internal-encoding</code>: Set Default Internal Encoding<span><a href="#label--internal-encoding-3A+Set+Default+Internal+Encoding">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--internal-encoding</code> sets the default internal encoding for the invoked Ruby program; for values of <code>encoding</code>, see <a href="../encodings_rdoc.html#label-Names+and+Aliases">Encoding: Names and Aliases</a>.</p>
+
+<pre>$ ruby -e &#39;puts Encoding::default_internal.nil?&#39;
+true
+$ ruby --internal-encoding=cesu-8 -e &#39;puts Encoding::default_internal&#39;
+CESU-8</pre>
+
+<h3 id="label--verbose-3A+Set+-24VERBOSE"><code>--verbose</code>: Set <code>$VERBOSE</code><span><a href="#label--verbose-3A+Set+-24VERBOSE">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--verbose</code> sets global variable <code>$VERBOSE</code> to <code>true</code> and disables input from <code>$stdin</code>.</p>
+
+<h3 id="label--version-3A+Print+Ruby+Version"><code>--version</code>: Print Ruby Version<span><a href="#label--version-3A+Print+Ruby+Version">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>--version</code> prints the version of the Ruby interpreter, then exits.</p>
+
+<h2 id="label-Experimental+Options">Experimental Options<span><a href="#label-Experimental+Options">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>These options are experimental in the current Ruby release, and may be modified or withdrawn in later releases.</p>
+
+<h3 id="label--jit"><code>--jit</code><span><a href="#label--jit">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Option <code>-jit</code> enables JIT compilation with the default option.</p>
+
+<h4 id="label--jit-debug"><code>--jit-debug</code><span><a href="#label--jit-debug">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Option <code>--jit-debug</code> enables JIT debugging (very slow); adds compiler flags if given.</p>
+
+<h4 id="label--jit-max-cache-3Dnum"><code>--jit-max-cache=num</code><span><a href="#label--jit-max-cache-3Dnum">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Option <code>--jit-max-cache=num</code> sets the maximum number of methods to be JIT-ed in a cache; default: 100).</p>
+
+<h4 id="label--jit-min-calls-3Dnum"><code>--jit-min-calls=num</code><span><a href="#label--jit-min-calls-3Dnum">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Option <code>jit-min-calls=num</code> sets the minimum number of calls to trigger JIT (for testing); default: 10000).</p>
+
+<h4 id="label--jit-save-temps"><code>--jit-save-temps</code><span><a href="#label--jit-save-temps">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Option <code>--jit-save-temps</code> saves JIT temporary files in $TMP or /tmp (for testing).</p>
+
+<h4 id="label--jit-verbose"><code>--jit-verbose</code><span><a href="#label--jit-verbose">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Option <code>--jit-verbose</code> prints JIT logs of level <code>num</code> or less to <code>$stderr</code>; default: 0.</p>
+
+<h4 id="label--jit-wait"><code>--jit-wait</code><span><a href="#label--jit-wait">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Option <code>--jit-wait</code> waits until JIT compilation finishes every time (for testing).</p>
+
+<h4 id="label--jit-warnings"><code>--jit-warnings</code><span><a href="#label--jit-warnings">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Option <code>--jit-warnings</code> enables printing of JIT warnings.</p>
+
+</main>
+

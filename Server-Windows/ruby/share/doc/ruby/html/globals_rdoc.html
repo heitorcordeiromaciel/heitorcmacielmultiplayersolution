@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>globals - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,globals">
+  <meta name="description" content="globals: Pre-Defined Global Variables Some of the pre-defined global variables have synonyms that are available via module English. For each of those, the \En">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/globals_rdoc.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Pre-Defined+Global+Variables">Pre-Defined Global Variables</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-Exceptions">Exceptions</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-24-21+-28Exception-29"><code>$!</code> (Exception)</a>
+          <li>      <a href="#label-24-40+-28Backtrace-29"><code>$@</code> (Backtrace)</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Pattern+Matching">Pattern Matching</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-24~+-28MatchData-29"><code>$~</code> (MatchData)</a>
+          <li>      <a href="#label-24-26+-28Matched+Substring-29"><code>$&amp;</code> (Matched Substring)</a>
+          <li>      <a href="#label-24-60+-28Pre-Match+Substring-29"><code>$`</code> (Pre-Match Substring)</a>
+          <li>      <a href="#label-24-27+-28Post-Match+Substring-29"><code>$&#39;</code> (Post-Match Substring)</a>
+          <li>      <a href="#label-24-2B+-28Last+Matched+Group-29"><code>$+</code> (Last Matched Group)</a>
+          <li>      <a href="#label-241-2C+-242-2C+Etc.+-28Matched+Group-29"><code>$1</code>, <code>$2</code>, Etc. (Matched Group)</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Separators">Separators</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-24-2F+-28Input+Record+Separator-29"><code>$/</code> (Input Record Separator)</a>
+          <li>      <a href="#label-24-5C+-28Output+Record+Separator-29"><code>$\</code> (Output Record Separator)</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Streams">Streams</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-24stdin+-28Standard+Input-29"><code>$stdin</code> (Standard Input)</a>
+          <li>      <a href="#label-24stdout+-28Standard+Output-29"><code>$stdout</code> (Standard Output)</a>
+          <li>      <a href="#label-24stderr+-28Standard+Error-29"><code>$stderr</code> (Standard Error)</a>
+          <li>      <a href="#label-24-3C+-28ARGF+or+-24stdin-29"><code>$&lt;</code> (ARGF or $stdin)</a>
+          <li>      <a href="#label-24-3E+-28Default+Standard+Output-29"><code>$&gt;</code> (Default Standard Output)</a>
+          <li>      <a href="#label-24.+-28Input+Position-29"><code>$.</code> (Input Position)</a>
+          <li>      <a href="#label-24_+-28Last+Read+Line-29"><code>$_</code> (Last Read Line)</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Processes">Processes</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-240"><code>$0</code></a>
+          <li>      <a href="#label-24-2A+-28ARGV-29"><code>$*</code> (ARGV)</a>
+          <li>      <a href="#label-24-24+-28Process+ID-29"><code>$$</code> (Process ID)</a>
+          <li>      <a href="#label-24-3F+-28Child+Status-29"><code>$?</code> (Child Status)</a>
+          <li>      <a href="#label-24LOAD_PATH+-28Load+Path-29"><code>$LOAD_PATH</code> (Load Path)</a>
+          <li>      <a href="#label-24LOADED_FEATURES"><code>$LOADED_FEATURES</code></a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Debugging">Debugging</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-24FILENAME"><code>$FILENAME</code></a>
+          <li>      <a href="#label-24DEBUG"><code>$DEBUG</code></a>
+          <li>      <a href="#label-24VERBOSE"><code>$VERBOSE</code></a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Other+Variables">Other Variables</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-24-a"><code>$-a</code></a>
+          <li>      <a href="#label-24-i"><code>$-i</code></a>
+          <li>      <a href="#label-24-l"><code>$-l</code></a>
+          <li>      <a href="#label-24-p"><code>$-p</code></a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Deprecated">Deprecated</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-24-3D"><code>$=</code></a>
+          <li>      <a href="#label-24-2C"><code>$,</code></a>
+          <li>      <a href="#label-24-3B"><code>$;</code></a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Pre-Defined+Global+Constants">Pre-Defined Global Constants</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Streams">Streams</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-STDIN"><code>STDIN</code></a>
+          <li>      <a href="#label-STDOUT"><code>STDOUT</code></a>
+          <li>      <a href="#label-STDERR"><code>STDERR</code></a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Environment">Environment</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-ENV">ENV</a>
+          <li>      <a href="#label-ARGF">ARGF</a>
+          <li>      <a href="#label-ARGV"><code>ARGV</code></a>
+          <li>      <a href="#label-TOPLEVEL_BINDING"><code>TOPLEVEL_BINDING</code></a>
+          <li>      <a href="#label-RUBY_VERSION"><code>RUBY_VERSION</code></a>
+          <li>      <a href="#label-RUBY_RELEASE_DATE"><code>RUBY_RELEASE_DATE</code></a>
+          <li>      <a href="#label-RUBY_PLATFORM"><code>RUBY_PLATFORM</code></a>
+          <li>      <a href="#label-RUBY_PATCHLEVEL"><code>RUBY_PATCHLEVEL</code></a>
+          <li>      <a href="#label-RUBY_REVISION"><code>RUBY_REVISION</code></a>
+          <li>      <a href="#label-RUBY_COPYRIGHT"><code>RUBY_COPYRIGHT</code></a>
+          <li>      <a href="#label-RUBY_ENGINE"><code>RUBY_ENGINE</code></a>
+          <li>      <a href="#label-RUBY_ENGINE_VERSION"><code>RUBY_ENGINE_VERSION</code></a>
+          <li>      <a href="#label-RUBY_DESCRIPTION"><code>RUBY_DESCRIPTION</code></a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Embedded+Data">Embedded Data</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-DATA"><code>DATA</code></a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./COPYING.html">COPYING</a>
+    <li><a href="./COPYING_ja.html">COPYING.ja</a>
+    <li><a href="./LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="./NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="./NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="./NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="./NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="./NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="./NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="./NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="./NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="./NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="./NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="./NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="./NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="./NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="./NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="./NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="./NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="./NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="./README_ja_md.html">README.ja</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./bsearch_rdoc.html">bsearch</a>
+    <li><a href="./bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="./case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="./character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="./command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="./contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="./contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="./contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="./contributing/glossary_md.html">glossary</a>
+      <li><a href="./contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="./contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="./contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="./contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="./date/calendars_rdoc.html">calendars</a>
+    <li><a href="./dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="./distribution_md.html">distribution</a>
+    <li><a href="./dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="./encodings_rdoc.html">encodings</a>
+    <li><a href="./exceptions_md.html">exceptions</a>
+    <li><a href="./extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="./extension_rdoc.html">extension</a>
+    <li><a href="./fiber_md.html">fiber</a>
+    <li><a href="./format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="./globals_rdoc.html">globals</a>
+    <li><a href="./implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="./index_md.html">index</a>
+    <li><a href="./maintainers_md.html">maintainers</a>
+    <li><a href="./marshal_rdoc.html">marshal</a>
+    <li><a href="./memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="./optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="./optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="./optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="./optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="./packed_data_rdoc.html">packed_data</a>
+    <li><a href="./ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="./regexp/methods_rdoc.html">methods</a>
+      <li><a href="./regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="./rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="./ruby/option_dump_md.html">option_dump</a>
+      <li><a href="./ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="./security_rdoc.html">security</a>
+    <li><a href="./signals_rdoc.html">signals</a>
+    <li><a href="./standard_library_md.html">standard_library</a>
+    <li><a href="./strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="./syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="./syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="./syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="./syntax/comments_rdoc.html">comments</a>
+      <li><a href="./syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="./syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="./syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="./syntax/literals_rdoc.html">literals</a>
+      <li><a href="./syntax/methods_rdoc.html">methods</a>
+      <li><a href="./syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="./syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="./syntax/operators_rdoc.html">operators</a>
+      <li><a href="./syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="./syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="./syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="./windows_md.html">windows</a>
+    <li><a href="./yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page globals.rdoc">
+
+<h1 id="label-Pre-Defined+Global+Variables">Pre-Defined Global Variables<span><a href="#label-Pre-Defined+Global+Variables">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Some of the pre-defined global variables have synonyms that are available via module <a href="English.html"><code>English</code></a>. For each of those, the English synonym is given.</p>
+
+<p>To use the module:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;English&#39;</span>
+</pre>
+
+<h2 id="label-Exceptions">Exceptions<span><a href="#label-Exceptions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-24-21+-28Exception-29"><code>$!</code> (Exception)<span><a href="#label-24-21+-28Exception-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Contains the <a href="Exception.html"><code>Exception</code></a> object set by <a href="Kernel.html#method-i-raise"><code>Kernel#raise</code></a>:</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Boo!&#39;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">RuntimeError</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">$!</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby"><span class="ruby-comment">#&lt;RuntimeError: Boo!&gt;</span>
+</pre>
+
+<p><a href="English.html"><code>English</code></a> - <code>$ERROR_INFO</code></p>
+
+<h3 id="label-24-40+-28Backtrace-29"><code>$@</code> (Backtrace)<span><a href="#label-24-40+-28Backtrace-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Same as <code>$!.backtrace</code>; returns an array of backtrace positions:</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Boo!&#39;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">RuntimeError</span>
+  <span class="ruby-identifier">pp</span> <span class="ruby-identifier">$@</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">4</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby">[<span class="ruby-string">&quot;(irb):338:in `&lt;top (required)&gt;&#39;&quot;</span>,
+ <span class="ruby-string">&quot;/snap/ruby/317/lib/ruby/3.2.0/irb/workspace.rb:119:in `eval&#39;&quot;</span>,
+ <span class="ruby-string">&quot;/snap/ruby/317/lib/ruby/3.2.0/irb/workspace.rb:119:in `evaluate&#39;&quot;</span>,
+ <span class="ruby-string">&quot;/snap/ruby/317/lib/ruby/3.2.0/irb/context.rb:502:in `evaluate&#39;&quot;</span>]
+</pre>
+
+<p><a href="English.html"><code>English</code></a> - <code>$ERROR_POSITION</code>.</p>
+
+<h2 id="label-Pattern+Matching">Pattern Matching<span><a href="#label-Pattern+Matching">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>These global variables store information about the most recent successful match in the current scope.</p>
+
+<p>For details and examples, see <a href="Regexp.html#class-Regexp-label-Global+Variables">Regexp Global Variables</a>.</p>
+
+<h3 id="label-24~+-28MatchData-29"><code>$~</code> (MatchData)<span><a href="#label-24~+-28MatchData-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><a href="MatchData.html"><code>MatchData</code></a> object created from the match; thread-local and frame-local.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$LAST_MATCH_INFO</code>.</p>
+
+<h3 id="label-24-26+-28Matched+Substring-29"><code>$&amp;</code> (Matched Substring)<span><a href="#label-24-26+-28Matched+Substring-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The matched string.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$MATCH</code>.</p>
+
+<h3 id="label-24-60+-28Pre-Match+Substring-29"><code>$`</code> (Pre-Match Substring)<span><a href="#label-24-60+-28Pre-Match+Substring-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The string to the left of the match.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$PREMATCH</code>.</p>
+
+<h3 id="label-24-27+-28Post-Match+Substring-29"><code>$&#39;</code> (Post-Match Substring)<span><a href="#label-24-27+-28Post-Match+Substring-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The string to the right of the match.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$POSTMATCH</code>.</p>
+
+<h3 id="label-24-2B+-28Last+Matched+Group-29"><code>$+</code> (Last Matched Group)<span><a href="#label-24-2B+-28Last+Matched+Group-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The last group matched.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$LAST_PAREN_MATCH</code>.</p>
+
+<h3 id="label-241-2C+-242-2C+Etc.+-28Matched+Group-29"><code>$1</code>, <code>$2</code>, Etc. (Matched Group)<span><a href="#label-241-2C+-242-2C+Etc.+-28Matched+Group-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>For <code>$<em>n</em></code> the <em>nth</em> group of the match.</p>
+
+<p>No English.</p>
+
+<h2 id="label-Separators">Separators<span><a href="#label-Separators">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-24-2F+-28Input+Record+Separator-29"><code>$/</code> (Input Record Separator)<span><a href="#label-24-2F+-28Input+Record+Separator-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>An input record separator, initially newline.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$INPUT_RECORD_SEPARATOR</code>, <code>$RS</code>.</p>
+
+<p>Aliased as <code>$-0</code>.</p>
+
+<h3 id="label-24-5C+-28Output+Record+Separator-29"><code>$\</code> (Output Record Separator)<span><a href="#label-24-5C+-28Output+Record+Separator-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>An output record separator, initially <code>nil</code>.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$OUTPUT_RECORD_SEPARATOR</code>, <code>$ORS</code>.</p>
+
+<h2 id="label-Streams">Streams<span><a href="#label-Streams">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-24stdin+-28Standard+Input-29"><code>$stdin</code> (Standard Input)<span><a href="#label-24stdin+-28Standard+Input-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The current standard input stream; initially:</p>
+
+<pre class="ruby"><span class="ruby-identifier">$stdin</span> <span class="ruby-comment"># =&gt; #&lt;IO:&lt;STDIN&gt;&gt;</span>
+</pre>
+
+<h3 id="label-24stdout+-28Standard+Output-29"><code>$stdout</code> (Standard Output)<span><a href="#label-24stdout+-28Standard+Output-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The current standard output stream; initially:</p>
+
+<pre class="ruby"><span class="ruby-identifier">$stdout</span> <span class="ruby-comment"># =&gt; #&lt;IO:&lt;STDOUT&gt;&gt;</span>
+</pre>
+
+<h3 id="label-24stderr+-28Standard+Error-29"><code>$stderr</code> (Standard Error)<span><a href="#label-24stderr+-28Standard+Error-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The current standard error stream; initially:</p>
+
+<pre class="ruby"><span class="ruby-identifier">$stderr</span> <span class="ruby-comment"># =&gt; #&lt;IO:&lt;STDERR&gt;&gt;</span>
+</pre>
+
+<h3 id="label-24-3C+-28ARGF+or+-24stdin-29"><code>$&lt;</code> (ARGF or $stdin)<span><a href="#label-24-3C+-28ARGF+or+-24stdin-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Points to stream <a href="ARGF.html"><code>ARGF</code></a> if not empty, else to stream $stdin; read-only.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$DEFAULT_INPUT</code>.</p>
+
+<h3 id="label-24-3E+-28Default+Standard+Output-29"><code>$&gt;</code> (Default Standard Output)<span><a href="#label-24-3E+-28Default+Standard+Output-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>An output stream, initially <code>$stdout</code>.</p>
+
+<p><a href="English.html"><code>English</code></a> - &lt;tt&gt;$DEFAULT_OUTPUT</p>
+
+<h3 id="label-24.+-28Input+Position-29"><code>$.</code> (Input Position)<span><a href="#label-24.+-28Input+Position-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The input position (line number) in the most recently read stream.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$INPUT_LINE_NUMBER</code>, <code>$NR</code></p>
+
+<h3 id="label-24_+-28Last+Read+Line-29"><code>$_</code> (Last Read Line)<span><a href="#label-24_+-28Last+Read+Line-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The line (string) from the most recently read stream.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$LAST_READ_LINE</code>.</p>
+
+<h2 id="label-Processes">Processes<span><a href="#label-Processes">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-240"><code>$0</code><span><a href="#label-240">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Initially, contains the name of the script being executed; may be reassigned.</p>
+
+<h3 id="label-24-2A+-28ARGV-29"><code>$*</code> (ARGV)<span><a href="#label-24-2A+-28ARGV-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Points to ARGV.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$ARGV</code>.</p>
+
+<h3 id="label-24-24+-28Process+ID-29"><code>$$</code> (Process ID)<span><a href="#label-24-24+-28Process+ID-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The process ID of the current process. Same as <a href="Process.html#method-c-pid"><code>Process.pid</code></a>.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$PROCESS_ID</code>, <code>$PID</code>.</p>
+
+<h3 id="label-24-3F+-28Child+Status-29"><code>$?</code> (Child Status)<span><a href="#label-24-3F+-28Child+Status-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Initially <code>nil</code>, otherwise the <a href="Process/Status.html"><code>Process::Status</code></a> object created for the most-recently exited child process; thread-local.</p>
+
+<p><a href="English.html"><code>English</code></a> - <code>$CHILD_STATUS</code>.</p>
+
+<h3 id="label-24LOAD_PATH+-28Load+Path-29"><code>$LOAD_PATH</code> (Load Path)<span><a href="#label-24LOAD_PATH+-28Load+Path-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Contains the array of paths to be searched by <a href="Kernel.html#method-i-load"><code>Kernel#load</code></a> and <a href="Kernel.html#method-i-require"><code>Kernel#require</code></a>.</p>
+
+<p><a href="Singleton.html"><code>Singleton</code></a> method <code>$LOAD_PATH.resolve_feature_path(feature)</code> returns:</p>
+<ul><li>
+<p><code>[:rb, <em>path</em>]</code>, where <code>path</code> is the path to the Ruby file to be loaded for the given <code>feature</code>.</p>
+</li><li>
+<p><code>[:so+ <em>path</em>]</code>, where <code>path</code> is the path to the shared object file to be loaded for the given <code>feature</code>.</p>
+</li><li>
+<p><code>nil</code> if there is no such <code>feature</code> and <code>path</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">resolve_feature_path</span>(<span class="ruby-string">&#39;timeout&#39;</span>)
+<span class="ruby-comment"># =&gt; [:rb, &quot;/snap/ruby/317/lib/ruby/3.2.0/timeout.rb&quot;]</span>
+<span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">resolve_feature_path</span>(<span class="ruby-string">&#39;date_core&#39;</span>)
+<span class="ruby-comment"># =&gt; [:so, &quot;/snap/ruby/317/lib/ruby/3.2.0/x86_64-linux/date_core.so&quot;]</span>
+<span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">resolve_feature_path</span>(<span class="ruby-string">&#39;foo&#39;</span>)
+<span class="ruby-comment"># =&gt; nil</span>
+</pre>
+
+<p>Aliased as <code>$:</code> and <code>$-I</code>.</p>
+
+<h3 id="label-24LOADED_FEATURES"><code>$LOADED_FEATURES</code><span><a href="#label-24LOADED_FEATURES">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Contains an array of the paths to the loaded files:</p>
+
+<pre class="ruby"><span class="ruby-identifier">$LOADED_FEATURES</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">10</span>)
+<span class="ruby-comment"># =&gt;</span>
+[<span class="ruby-string">&quot;enumerator.so&quot;</span>,
+ <span class="ruby-string">&quot;thread.rb&quot;</span>,
+ <span class="ruby-string">&quot;fiber.so&quot;</span>,
+ <span class="ruby-string">&quot;rational.so&quot;</span>,
+ <span class="ruby-string">&quot;complex.so&quot;</span>,
+ <span class="ruby-string">&quot;ruby2_keywords.rb&quot;</span>,
+ <span class="ruby-string">&quot;/snap/ruby/317/lib/ruby/3.2.0/x86_64-linux/enc/encdb.so&quot;</span>,
+ <span class="ruby-string">&quot;/snap/ruby/317/lib/ruby/3.2.0/x86_64-linux/enc/trans/transdb.so&quot;</span>,
+ <span class="ruby-string">&quot;/snap/ruby/317/lib/ruby/3.2.0/x86_64-linux/rbconfig.rb&quot;</span>,
+ <span class="ruby-string">&quot;/snap/ruby/317/lib/ruby/3.2.0/rubygems/compatibility.rb&quot;</span>]
+</pre>
+
+<p>Aliased as <code>$&quot;</code>.</p>
+
+<h2 id="label-Debugging">Debugging<span><a href="#label-Debugging">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-24FILENAME"><code>$FILENAME</code><span><a href="#label-24FILENAME">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The value returned by method <a href="ARGF.html#method-i-filename"><code>ARGF.filename</code></a>.</p>
+
+<h3 id="label-24DEBUG"><code>$DEBUG</code><span><a href="#label-24DEBUG">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Initially <code>true</code> if command-line option <code>-d</code> or <code>--debug</code> is given, otherwise initially <code>false</code>; may be set to either value in the running program.</p>
+
+<p>When <code>true</code>, prints each raised exception to <code>$stderr</code>.</p>
+
+<p>Aliased as <code>$-d</code>.</p>
+
+<h3 id="label-24VERBOSE"><code>$VERBOSE</code><span><a href="#label-24VERBOSE">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Initially <code>true</code> if command-line option <code>-v</code> or <code>-w</code> is given, otherwise initially <code>false</code>; may be set to either value, or to <code>nil</code>, in the running program.</p>
+
+<p>When <code>true</code>, enables Ruby warnings.</p>
+
+<p>When <code>nil</code>, disables warnings, including those from <a href="Kernel.html#method-i-warn"><code>Kernel#warn</code></a>.</p>
+
+<p>Aliased as <code>$-v</code> and <code>$-w</code>.</p>
+
+<h2 id="label-Other+Variables">Other Variables<span><a href="#label-Other+Variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-24-a"><code>$-a</code><span><a href="#label-24-a">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Whether command-line option <code>-a</code> was given; read-only.</p>
+
+<h3 id="label-24-i"><code>$-i</code><span><a href="#label-24-i">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Contains the extension given with command-line option <code>-i</code>, or <code>nil</code> if none.</p>
+
+<p>An alias of <a href="ARGF.html#method-i-inplace_mode"><code>ARGF.inplace_mode</code></a>.</p>
+
+<h3 id="label-24-l"><code>$-l</code><span><a href="#label-24-l">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Whether command-line option <code>-l</code> was set; read-only.</p>
+
+<h3 id="label-24-p"><code>$-p</code><span><a href="#label-24-p">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Whether command-line option <code>-p</code> was given; read-only.</p>
+
+<h2 id="label-Deprecated">Deprecated<span><a href="#label-Deprecated">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-24-3D"><code>$=</code><span><a href="#label-24-3D">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h3 id="label-24-2C"><code>$,</code><span><a href="#label-24-2C">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h3 id="label-24-3B"><code>$;</code><span><a href="#label-24-3B">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h1 id="label-Pre-Defined+Global+Constants">Pre-Defined Global Constants<span><a href="#label-Pre-Defined+Global+Constants">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="label-Streams">Streams<span><a href="#label-Streams">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h3 id="label-STDIN"><code>STDIN</code><span><a href="#label-STDIN">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The standard input stream (the default value for <code>$stdin</code>):</p>
+
+<pre class="ruby"><span class="ruby-constant">STDIN</span> <span class="ruby-comment"># =&gt; #&lt;IO:&lt;STDIN&gt;&gt;</span>
+</pre>
+
+<h3 id="label-STDOUT"><code>STDOUT</code><span><a href="#label-STDOUT">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The standard output stream (the default value for <code>$stdout</code>):</p>
+
+<pre class="ruby"><span class="ruby-constant">STDOUT</span> <span class="ruby-comment"># =&gt; #&lt;IO:&lt;STDOUT&gt;&gt;</span>
+</pre>
+
+<h3 id="label-STDERR"><code>STDERR</code><span><a href="#label-STDERR">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The standard error stream (the default value for <code>$stderr</code>):</p>
+
+<pre class="ruby"><span class="ruby-constant">STDERR</span> <span class="ruby-comment"># =&gt; #&lt;IO:&lt;STDERR&gt;&gt;</span>
+</pre>
+
+<h2 id="label-Environment">Environment<span><a href="#label-Environment">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-ENV"><a href="ENV.html"><code>ENV</code></a><span><a href="#label-ENV">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>A hash of the contains current environment variables names and values:</p>
+
+<pre class="ruby"><span class="ruby-constant">ENV</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">5</span>)
+<span class="ruby-comment"># =&gt;</span>
+[[<span class="ruby-string">&quot;COLORTERM&quot;</span>, <span class="ruby-string">&quot;truecolor&quot;</span>],
+ [<span class="ruby-string">&quot;DBUS_SESSION_BUS_ADDRESS&quot;</span>, <span class="ruby-string">&quot;unix:path=/run/user/1000/bus&quot;</span>],
+ [<span class="ruby-string">&quot;DESKTOP_SESSION&quot;</span>, <span class="ruby-string">&quot;ubuntu&quot;</span>],
+ [<span class="ruby-string">&quot;DISPLAY&quot;</span>, <span class="ruby-string">&quot;:0&quot;</span>],
+ [<span class="ruby-string">&quot;GDMSESSION&quot;</span>, <span class="ruby-string">&quot;ubuntu&quot;</span>]]
+</pre>
+
+<h3 id="label-ARGF"><a href="ARGF.html"><code>ARGF</code></a><span><a href="#label-ARGF">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The virtual concatenation of the files given on the command line, or from <code>$stdin</code> if no files were given, <code>&quot;-&quot;</code> is given, or after all files have been read.</p>
+
+<h3 id="label-ARGV"><code>ARGV</code><span><a href="#label-ARGV">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>An array of the given command-line arguments.</p>
+
+<h3 id="label-TOPLEVEL_BINDING"><code>TOPLEVEL_BINDING</code><span><a href="#label-TOPLEVEL_BINDING">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The <a href="Binding.html"><code>Binding</code></a> of the top level scope:</p>
+
+<pre class="ruby"><span class="ruby-constant">TOPLEVEL_BINDING</span> <span class="ruby-comment"># =&gt; #&lt;Binding:0x00007f58da0da7c0&gt;</span>
+</pre>
+
+<h3 id="label-RUBY_VERSION"><code>RUBY_VERSION</code><span><a href="#label-RUBY_VERSION">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The Ruby version:</p>
+
+<pre class="ruby"><span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-comment"># =&gt; &quot;3.2.2&quot;</span>
+</pre>
+
+<h3 id="label-RUBY_RELEASE_DATE"><code>RUBY_RELEASE_DATE</code><span><a href="#label-RUBY_RELEASE_DATE">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The release date string:</p>
+
+<pre class="ruby"><span class="ruby-constant">RUBY_RELEASE_DATE</span> <span class="ruby-comment"># =&gt; &quot;2023-03-30&quot;</span>
+</pre>
+
+<h3 id="label-RUBY_PLATFORM"><code>RUBY_PLATFORM</code><span><a href="#label-RUBY_PLATFORM">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The platform identifier:</p>
+
+<pre class="ruby"><span class="ruby-constant">RUBY_PLATFORM</span> <span class="ruby-comment"># =&gt; &quot;x86_64-linux&quot;</span>
+</pre>
+
+<h3 id="label-RUBY_PATCHLEVEL"><code>RUBY_PATCHLEVEL</code><span><a href="#label-RUBY_PATCHLEVEL">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The integer patch level for this Ruby:</p>
+
+<pre class="ruby"><span class="ruby-constant">RUBY_PATCHLEVEL</span> <span class="ruby-comment"># =&gt; 53</span>
+</pre>
+
+<p>For a development build the patch level will be -1.</p>
+
+<h3 id="label-RUBY_REVISION"><code>RUBY_REVISION</code><span><a href="#label-RUBY_REVISION">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The git commit hash for this Ruby:</p>
+
+<pre class="ruby"><span class="ruby-constant">RUBY_REVISION</span> <span class="ruby-comment"># =&gt; &quot;e51014f9c05aa65cbf203442d37fef7c12390015&quot;</span>
+</pre>
+
+<h3 id="label-RUBY_COPYRIGHT"><code>RUBY_COPYRIGHT</code><span><a href="#label-RUBY_COPYRIGHT">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The copyright string:</p>
+
+<pre class="ruby"><span class="ruby-constant">RUBY_COPYRIGHT</span>
+<span class="ruby-comment"># =&gt; &quot;ruby - Copyright (C) 1993-2023 Yukihiro Matsumoto&quot;</span>
+</pre>
+
+<h3 id="label-RUBY_ENGINE"><code>RUBY_ENGINE</code><span><a href="#label-RUBY_ENGINE">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The name of the Ruby implementation:</p>
+
+<pre class="ruby"><span class="ruby-constant">RUBY_ENGINE</span> <span class="ruby-comment"># =&gt; &quot;ruby&quot;</span>
+</pre>
+
+<h3 id="label-RUBY_ENGINE_VERSION"><code>RUBY_ENGINE_VERSION</code><span><a href="#label-RUBY_ENGINE_VERSION">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The version of the Ruby implementation:</p>
+
+<pre class="ruby"><span class="ruby-constant">RUBY_ENGINE_VERSION</span> <span class="ruby-comment"># =&gt; &quot;3.2.2&quot;</span>
+</pre>
+
+<h3 id="label-RUBY_DESCRIPTION"><code>RUBY_DESCRIPTION</code><span><a href="#label-RUBY_DESCRIPTION">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The description of the Ruby implementation:</p>
+
+<pre class="ruby"><span class="ruby-constant">RUBY_DESCRIPTION</span>
+<span class="ruby-comment"># =&gt; &quot;ruby 3.2.2 (2023-03-30 revision e51014f9c0) [x86_64-linux]&quot;</span>
+</pre>
+
+<h2 id="label-Embedded+Data">Embedded Data<span><a href="#label-Embedded+Data">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-DATA"><code>DATA</code><span><a href="#label-DATA">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Defined if and only if the program has this line:</p>
+
+<pre class="ruby">__END__
+</pre>
+
+<p>When defined, <code>DATA</code> is a <a href="File.html"><code>File</code></a> object containing the lines following the <code>__END__</code>, positioned at the first of those lines:</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> <span class="ruby-constant">DATA</span>
+<span class="ruby-constant">DATA</span>.<span class="ruby-identifier">each_line</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">line</span> }
+__END__
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby"><span class="ruby-comment">#&lt;File:t.rb&gt;</span>
+<span class="ruby-string">&quot;Foo\n&quot;</span>
+<span class="ruby-string">&quot;Bar\n&quot;</span>
+<span class="ruby-string">&quot;Baz\n&quot;</span>
+</pre>
+
+</main>
+

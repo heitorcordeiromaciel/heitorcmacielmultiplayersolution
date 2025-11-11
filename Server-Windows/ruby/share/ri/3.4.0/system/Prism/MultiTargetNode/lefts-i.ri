@@ -1,0 +1,8 @@
+U:RDoc::Attr[iI"
+lefts:ETI"!Prism::MultiTargetNode#lefts;TI"R;T:privateo:RDoc::Markup::Document:@parts[	o:RDoc::Markup::Paragraph;	[I"<Represents the targets expressions before a splat node.;To:RDoc::Markup::Verbatim;	[I""a, (b, c, *) = 1, 2, 3, 4, 5
+;TI"    ^^^^
+;T:@format0o;
+;	[I"]The splat node can be absent, in that case all target expressions are in the left field.;To;;	[I"a, (b, c) = 1, 2, 3, 4, 5
+;TI"    ^^^^
+;T;0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::MultiTargetNode;TcRDoc::NormalClass0

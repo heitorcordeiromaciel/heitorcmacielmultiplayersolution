@@ -1,0 +1,7 @@
+U:RDoc::Attr[iI"number:ETI",Prism::NumberedReferenceReadNode#number;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"çThe (1-indexed, from the left) number of the capture group. Numbered references that are too large result in this value being <code>0</code>.;To:RDoc::Markup::Verbatim;	[
+I"$1          # number `1`
+;TI"
+;TI"!$5432       # number `5432`
+;T@I"$4294967296 # number `0`
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"%Prism::NumberedReferenceReadNode;TcRDoc::NormalClass0

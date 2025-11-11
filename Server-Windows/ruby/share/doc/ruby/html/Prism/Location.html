@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class Prism::Location - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,Prism::Location">
+
+    <meta name="description" content="class Prism::Location: This represents a location in the source.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Prism/Location.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="../Object.html">Object</a><ul><li><a href="../BasicObject.html">BasicObject</a></li></ul></li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-new">new</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-3D-3D">==</a></li>
+      <li ><a href="#method-i-adjoin">adjoin</a></li>
+      <li ><a href="#method-i-cached_end_code_units_column">cached_end_code_units_column</a></li>
+      <li ><a href="#method-i-cached_end_code_units_offset">cached_end_code_units_offset</a></li>
+      <li ><a href="#method-i-cached_start_code_units_column">cached_start_code_units_column</a></li>
+      <li ><a href="#method-i-cached_start_code_units_offset">cached_start_code_units_offset</a></li>
+      <li ><a href="#method-i-chop">chop</a></li>
+      <li ><a href="#method-i-comments">comments</a></li>
+      <li ><a href="#method-i-copy">copy</a></li>
+      <li ><a href="#method-i-deconstruct_keys">deconstruct_keys</a></li>
+      <li ><a href="#method-i-end_character_column">end_character_column</a></li>
+      <li ><a href="#method-i-end_character_offset">end_character_offset</a></li>
+      <li ><a href="#method-i-end_code_units_column">end_code_units_column</a></li>
+      <li ><a href="#method-i-end_code_units_offset">end_code_units_offset</a></li>
+      <li ><a href="#method-i-end_column">end_column</a></li>
+      <li ><a href="#method-i-end_line">end_line</a></li>
+      <li ><a href="#method-i-end_offset">end_offset</a></li>
+      <li ><a href="#method-i-inspect">inspect</a></li>
+      <li ><a href="#method-i-join">join</a></li>
+      <li ><a href="#method-i-leading_comment">leading_comment</a></li>
+      <li ><a href="#method-i-leading_comments">leading_comments</a></li>
+      <li ><a href="#method-i-pretty_print">pretty_print</a></li>
+      <li ><a href="#method-i-slice">slice</a></li>
+      <li ><a href="#method-i-slice_lines">slice_lines</a></li>
+      <li ><a href="#method-i-source_lines">source_lines</a></li>
+      <li ><a href="#method-i-start_character_column">start_character_column</a></li>
+      <li ><a href="#method-i-start_character_offset">start_character_offset</a></li>
+      <li ><a href="#method-i-start_code_units_column">start_code_units_column</a></li>
+      <li ><a href="#method-i-start_code_units_offset">start_code_units_offset</a></li>
+      <li ><a href="#method-i-start_column">start_column</a></li>
+      <li ><a href="#method-i-start_line">start_line</a></li>
+      <li ><a href="#method-i-start_line_slice">start_line_slice</a></li>
+      <li ><a href="#method-i-trailing_comment">trailing_comment</a></li>
+      <li ><a href="#method-i-trailing_comments">trailing_comments</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-Prism::Location">
+  
+  
+    <ol role="navigation" aria-label="breadcrumb" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../Prism.html">Prism</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>Location</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <h1 id="class-Prism::Location" class="anchor-link class">
+    class Prism::Location
+  </h1>
+
+  <section class="description">
+    
+<p>This represents a location in the source.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-length" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-length" title="Link to this attribute">
+            <span class="method-name">length</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        <p>The length of this location in bytes.</p>
+        </div>
+      </div>
+      <div id="attribute-i-source" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-source" title="Link to this attribute">
+            <span class="method-name">source</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        <p>A <a href="Source.html"><code>Source</code></a> object that is used to determine more information from the given offset and length.</p>
+        </div>
+      </div>
+      <div id="attribute-i-start_offset" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-start_offset" title="Link to this attribute">
+            <span class="method-name">start_offset</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        <p>The byte offset from the beginning of the source where this location starts.</p>
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(source, start_offset, length)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">start_offset</span>, <span class="ruby-identifier">length</span>)
+  <span class="ruby-ivar">@source</span> = <span class="ruby-identifier">source</span>
+  <span class="ruby-ivar">@start_offset</span> = <span class="ruby-identifier">start_offset</span>
+  <span class="ruby-ivar">@length</span> = <span class="ruby-identifier">length</span>
+
+  <span class="ruby-comment"># These are used to store comments that are associated with this location.</span>
+  <span class="ruby-comment"># They are initialized to `nil` to save on memory when there are no</span>
+  <span class="ruby-comment"># comments to be attached and/or the comment-related APIs are not used.</span>
+  <span class="ruby-ivar">@leading_comments</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@trailing_comments</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Create a new location object with the given source, start byte offset, and byte length.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-3D-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3D-3D" title="Link to this method">
+                <span class="method-name">==</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 494</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-constant">Location</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">other</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">other</span>.<span class="ruby-identifier">start_offset</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">start_offset</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">other</span>.<span class="ruby-identifier">end_offset</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">end_offset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the given other location is equal to this location.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-adjoin" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-adjoin" title="Link to this method">
+                <span class="method-name">adjoin</span>
+                <span class="method-args">(string)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="adjoin-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 513</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">adjoin</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">line_suffix</span> = <span class="ruby-identifier">source</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-identifier">end_offset</span>, <span class="ruby-identifier">source</span>.<span class="ruby-identifier">line_end</span>(<span class="ruby-identifier">end_offset</span>) <span class="ruby-operator">-</span> <span class="ruby-identifier">end_offset</span>)
+
+  <span class="ruby-identifier">line_suffix_index</span> = <span class="ruby-identifier">line_suffix</span>.<span class="ruby-identifier">byteindex</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Could not find #{string}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">line_suffix_index</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">start_offset</span>, <span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">line_suffix_index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">bytesize</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Join this location with the first occurrence of the string in the source that occurs after this location on the same line, and return the new location. This will raise an error if the string does not exist.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cached_end_code_units_column" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-cached_end_code_units_column" title="Link to this method">
+                <span class="method-name">cached_end_code_units_column</span>
+                <span class="method-args">(cache)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cached_end_code_units_column-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 479</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cached_end_code_units_column</span>(<span class="ruby-identifier">cache</span>)
+  <span class="ruby-identifier">cache</span>[<span class="ruby-identifier">end_offset</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">cache</span>[<span class="ruby-identifier">source</span>.<span class="ruby-identifier">line_start</span>(<span class="ruby-identifier">end_offset</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The end column in code units using the given cache to fetch or calculate the value.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cached_end_code_units_offset" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-cached_end_code_units_offset" title="Link to this method">
+                <span class="method-name">cached_end_code_units_offset</span>
+                <span class="method-args">(cache)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cached_end_code_units_offset-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 415</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cached_end_code_units_offset</span>(<span class="ruby-identifier">cache</span>)
+  <span class="ruby-identifier">cache</span>[<span class="ruby-identifier">end_offset</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The end offset from the start of the file in code units using the given cache to fetch or calculate the value.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cached_start_code_units_column" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-cached_start_code_units_column" title="Link to this method">
+                <span class="method-name">cached_start_code_units_column</span>
+                <span class="method-args">(cache)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cached_start_code_units_column-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 455</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cached_start_code_units_column</span>(<span class="ruby-identifier">cache</span>)
+  <span class="ruby-identifier">cache</span>[<span class="ruby-identifier">start_offset</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">cache</span>[<span class="ruby-identifier">source</span>.<span class="ruby-identifier">line_start</span>(<span class="ruby-identifier">start_offset</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The start column in code units using the given cache to fetch or calculate the value.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cached_start_code_units_offset" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-cached_start_code_units_offset" title="Link to this method">
+                <span class="method-name">cached_start_code_units_offset</span>
+                <span class="method-args">(cache)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cached_start_code_units_offset-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 393</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cached_start_code_units_offset</span>(<span class="ruby-identifier">cache</span>)
+  <span class="ruby-identifier">cache</span>[<span class="ruby-identifier">start_offset</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The start offset from the start of the file in code units using the given cache to fetch or calculate the value.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-chop" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-chop" title="Link to this method">
+                <span class="method-name">chop</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="chop-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 352</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">chop</span>
+  <span class="ruby-identifier">copy</span>(<span class="ruby-value">length:</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new location that is the result of chopping off the last byte.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-comments" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-comments" title="Link to this method">
+                <span class="method-name">comments</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="comments-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">comments</span>
+  [<span class="ruby-operator">*</span><span class="ruby-ivar">@leading_comments</span>, <span class="ruby-operator">*</span><span class="ruby-ivar">@trailing_comments</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns all comments that are associated with this location (both leading and trailing comments).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-copy" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-copy" title="Link to this method">
+                <span class="method-name">copy</span>
+                <span class="method-args">(source: self.source, start_offset: self.start_offset, length: self.length)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="copy-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">copy</span>(<span class="ruby-value">source:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">source</span>, <span class="ruby-value">start_offset:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_offset</span>, <span class="ruby-value">length:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">length</span>)
+  <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">start_offset</span>, <span class="ruby-identifier">length</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Create a new location object with the given options.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-deconstruct_keys" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-deconstruct_keys" title="Link to this method">
+                <span class="method-name">deconstruct_keys</span>
+                <span class="method-args">(keys)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="deconstruct_keys-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 484</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deconstruct_keys</span>(<span class="ruby-identifier">keys</span>)
+  { <span class="ruby-value">start_offset:</span> <span class="ruby-identifier">start_offset</span>, <span class="ruby-value">end_offset:</span> <span class="ruby-identifier">end_offset</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Implement the hash pattern matching interface for <a href="Location.html"><code>Location</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-end_character_column" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-end_character_column" title="Link to this method">
+                <span class="method-name">end_character_column</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="end_character_column-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 467</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_character_column</span>
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">character_column</span>(<span class="ruby-identifier">end_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The column number in characters where this location ends from the start of the line.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-end_character_offset" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-end_character_offset" title="Link to this method">
+                <span class="method-name">end_character_offset</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="end_character_offset-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 404</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_character_offset</span>
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">character_offset</span>(<span class="ruby-identifier">end_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The character offset from the beginning of the source where this location ends.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-end_code_units_column" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-end_code_units_column" title="Link to this method">
+                <span class="method-name">end_code_units_column</span>
+                <span class="method-args">(encoding = Encoding::UTF_16LE)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="end_code_units_column-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 473</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_code_units_column</span>(<span class="ruby-identifier">encoding</span> = <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_16LE</span>)
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">code_units_column</span>(<span class="ruby-identifier">end_offset</span>, <span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The column number in code units of the given encoding where this location ends from the start of the line.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-end_code_units_offset" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-end_code_units_offset" title="Link to this method">
+                <span class="method-name">end_code_units_offset</span>
+                <span class="method-args">(encoding = Encoding::UTF_16LE)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="end_code_units_offset-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 409</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_code_units_offset</span>(<span class="ruby-identifier">encoding</span> = <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_16LE</span>)
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">code_units_offset</span>(<span class="ruby-identifier">end_offset</span>, <span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The offset from the start of the file in code units of the given encoding.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-end_column" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-end_column" title="Link to this method">
+                <span class="method-name">end_column</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="end_column-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 461</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_column</span>
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">column</span>(<span class="ruby-identifier">end_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The column number in bytes where this location ends from the start of the line.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-end_line" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-end_line" title="Link to this method">
+                <span class="method-name">end_line</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="end_line-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 431</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_line</span>
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">line</span>(<span class="ruby-identifier">end_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The line number where this location ends.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-end_offset" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-end_offset" title="Link to this method">
+                <span class="method-name">end_offset</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="end_offset-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 398</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_offset</span>
+  <span class="ruby-identifier">start_offset</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">length</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The byte offset from the beginning of the source where this location ends.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-inspect" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-inspect" title="Link to this method">
+                <span class="method-name">inspect</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 357</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
+  <span class="ruby-node">&quot;#&lt;Prism::Location @start_offset=#{@start_offset} @length=#{@length} start_line=#{start_line}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string representation of this location.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-join" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-join" title="Link to this method">
+                <span class="method-name">join</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="join-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 503</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">join</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Incompatible sources&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">source</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">source</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Incompatible locations&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">start_offset</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">start_offset</span>
+
+  <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">start_offset</span>, <span class="ruby-identifier">other</span>.<span class="ruby-identifier">end_offset</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new location that stretches from this location to the given other location. Raises an error if this location is not before the other location or if they don’t share the same source.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-leading_comment" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-leading_comment" title="Link to this method">
+                <span class="method-name">leading_comment</span>
+                <span class="method-args">(comment)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="leading_comment-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 325</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">leading_comment</span>(<span class="ruby-identifier">comment</span>)
+  <span class="ruby-identifier">leading_comments</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Attach a comment to the leading comments of this location.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-leading_comments" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-leading_comments" title="Link to this method">
+                <span class="method-name">leading_comments</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="leading_comments-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 320</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">leading_comments</span>
+  <span class="ruby-ivar">@leading_comments</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>These are the comments that are associated with this location that exist before the start of this location.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-pretty_print" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-pretty_print" title="Link to this method">
+                <span class="method-name">pretty_print</span>
+                <span class="method-args">(q)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="pretty_print-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 489</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pretty_print</span>(<span class="ruby-identifier">q</span>)
+  <span class="ruby-identifier">q</span>.<span class="ruby-identifier">text</span>(<span class="ruby-node">&quot;(#{start_line},#{start_column})-(#{end_line},#{end_column})&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Implement the pretty print interface for <a href="Location.html"><code>Location</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-slice" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-slice" title="Link to this method">
+                <span class="method-name">slice</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="slice-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 367</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">slice</span>
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-identifier">start_offset</span>, <span class="ruby-identifier">length</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The source code that this location represents.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-slice_lines" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-slice_lines" title="Link to this method">
+                <span class="method-name">slice_lines</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="slice_lines-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 374</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">slice_lines</span>
+  <span class="ruby-identifier">line_start</span> = <span class="ruby-identifier">source</span>.<span class="ruby-identifier">line_start</span>(<span class="ruby-identifier">start_offset</span>)
+  <span class="ruby-identifier">line_end</span> = <span class="ruby-identifier">source</span>.<span class="ruby-identifier">line_end</span>(<span class="ruby-identifier">end_offset</span>)
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-identifier">line_start</span>, <span class="ruby-identifier">line_end</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">line_start</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The source code that this location represents starting from the beginning of the line that this location starts on to the end of the line that this location ends on.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-source_lines" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-source_lines" title="Link to this method">
+                <span class="method-name">source_lines</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="source_lines-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 362</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">source_lines</span>
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">lines</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns all of the lines of the source code associated with this location.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start_character_column" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-start_character_column" title="Link to this method">
+                <span class="method-name">start_character_column</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="start_character_column-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 443</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_character_column</span>
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">character_column</span>(<span class="ruby-identifier">start_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The column number in characters where this location ends from the start of the line.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start_character_offset" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-start_character_offset" title="Link to this method">
+                <span class="method-name">start_character_offset</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="start_character_offset-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 382</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_character_offset</span>
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">character_offset</span>(<span class="ruby-identifier">start_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The character offset from the beginning of the source where this location starts.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start_code_units_column" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-start_code_units_column" title="Link to this method">
+                <span class="method-name">start_code_units_column</span>
+                <span class="method-args">(encoding = Encoding::UTF_16LE)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="start_code_units_column-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 449</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_code_units_column</span>(<span class="ruby-identifier">encoding</span> = <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_16LE</span>)
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">code_units_column</span>(<span class="ruby-identifier">start_offset</span>, <span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The column number in code units of the given encoding where this location starts from the start of the line.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start_code_units_offset" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-start_code_units_offset" title="Link to this method">
+                <span class="method-name">start_code_units_offset</span>
+                <span class="method-args">(encoding = Encoding::UTF_16LE)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="start_code_units_offset-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 387</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_code_units_offset</span>(<span class="ruby-identifier">encoding</span> = <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_16LE</span>)
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">code_units_offset</span>(<span class="ruby-identifier">start_offset</span>, <span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The offset from the start of the file in code units of the given encoding.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start_column" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-start_column" title="Link to this method">
+                <span class="method-name">start_column</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="start_column-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 437</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_column</span>
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">column</span>(<span class="ruby-identifier">start_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The column number in bytes where this location starts from the start of the line.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start_line" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-start_line" title="Link to this method">
+                <span class="method-name">start_line</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="start_line-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 420</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_line</span>
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">line</span>(<span class="ruby-identifier">start_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The line number where this location starts.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start_line_slice" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-start_line_slice" title="Link to this method">
+                <span class="method-name">start_line_slice</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="start_line_slice-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 425</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_line_slice</span>
+  <span class="ruby-identifier">offset</span> = <span class="ruby-identifier">source</span>.<span class="ruby-identifier">line_start</span>(<span class="ruby-identifier">start_offset</span>)
+  <span class="ruby-identifier">source</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">start_offset</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>The content of the line where this location starts before this location.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-trailing_comment" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-trailing_comment" title="Link to this method">
+                <span class="method-name">trailing_comment</span>
+                <span class="method-args">(comment)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="trailing_comment-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">trailing_comment</span>(<span class="ruby-identifier">comment</span>)
+  <span class="ruby-identifier">trailing_comments</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Attach a comment to the trailing comments of this location.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-trailing_comments" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-trailing_comments" title="Link to this method">
+                <span class="method-name">trailing_comments</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="trailing_comments-source">
+            <pre><span class="ruby-comment"># File lib/prism/parse_result.rb, line 331</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">trailing_comments</span>
+  <span class="ruby-ivar">@trailing_comments</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>These are the comments that are associated with this location that exist after the end of this location.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

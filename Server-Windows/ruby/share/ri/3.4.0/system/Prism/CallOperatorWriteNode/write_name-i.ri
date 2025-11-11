@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"write_name:ETI",Prism::CallOperatorWriteNode#write_name;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"8Represents the name of the method being written to.;To:RDoc::Markup::Verbatim;	[I"+foo.bar += value # write_name `:bar=`
+;TI"    ^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Prism::CallOperatorWriteNode;TcRDoc::NormalClass0

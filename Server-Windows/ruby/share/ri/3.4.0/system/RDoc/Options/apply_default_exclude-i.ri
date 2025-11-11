@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"apply_default_exclude:ETI"(RDoc::Options#apply_default_exclude;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"2Exclude the default patterns as well if true.;T:
+@fileI"lib/rdoc/options.rb;T:0@omit_headings_from_table_of_contents_below0F@I"RDoc::Options;TcRDoc::NormalClass0

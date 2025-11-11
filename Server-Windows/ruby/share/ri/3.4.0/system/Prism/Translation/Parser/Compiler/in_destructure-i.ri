@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"in_destructure:ETI"8Prism::Translation::Parser::Compiler#in_destructure;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"9Whether or not the current node is in a destructure.;T:
+@fileI"-lib/prism/translation/parser/compiler.rb;T:0@omit_headings_from_table_of_contents_below0F@I")Prism::Translation::Parser::Compiler;TcRDoc::NormalClass0

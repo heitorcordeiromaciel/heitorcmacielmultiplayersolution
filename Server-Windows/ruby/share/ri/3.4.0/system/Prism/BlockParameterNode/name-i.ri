@@ -1,0 +1,5 @@
+U:RDoc::Attr[iI"	name:ETI"#Prism::BlockParameterNode#name;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"%The name of the block parameter.;To:RDoc::Markup::Verbatim;	[I"def a(&b) # name `:b`
+;TI"       ^
+;TI"	end
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::BlockParameterNode;TcRDoc::NormalClass0

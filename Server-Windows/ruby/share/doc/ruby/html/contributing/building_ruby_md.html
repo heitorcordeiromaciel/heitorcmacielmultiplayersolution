@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>building_ruby - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,building_ruby">
+  <meta name="description" content="building_ruby: Building Ruby ## Dependencies 1. OpenSSL] 1.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/contributing/building_ruby_md.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Building+Ruby">Building Ruby</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Dependencies">Dependencies</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Quick+start+guide">Quick start guide</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Unexplainable+Build+Errors">Unexplainable Build Errors</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Building+on+Windows">Building on Windows</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-More+details">More details</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Running+make+scripts+in+parallel">Running make scripts in parallel</a>
+          <li>      <a href="#label-Miniruby+vs+Ruby">Miniruby vs Ruby</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Debugging">Debugging</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Compiling+for+Debugging">Compiling for Debugging</a>
+          <li>      <a href="#label-Building+with+Address+Sanitizer">Building with Address Sanitizer</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-How+to+measure+coverage+of+C+and+Ruby+code">How to measure coverage of C and Ruby code</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../COPYING.html">COPYING</a>
+    <li><a href="../COPYING_ja.html">COPYING.ja</a>
+    <li><a href="../LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="../NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="../NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="../NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="../NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="../NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="../NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="../NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="../NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="../NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="../NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="../NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="../NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="../NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="../NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="../NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="../NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="../NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="../README_ja_md.html">README.ja</a>
+    <li><a href="../README_md.html">README</a>
+    <li><a href="../bsearch_rdoc.html">bsearch</a>
+    <li><a href="../bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="../case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="../character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="../command_injection_rdoc.html">command_injection</a>
+    <li><details open><summary><a href="../contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="../contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="../contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="../contributing/glossary_md.html">glossary</a>
+      <li><a href="../contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="../contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="../contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="../contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="../date/calendars_rdoc.html">calendars</a>
+    <li><a href="../dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="../distribution_md.html">distribution</a>
+    <li><a href="../dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="../encodings_rdoc.html">encodings</a>
+    <li><a href="../exceptions_md.html">exceptions</a>
+    <li><a href="../extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="../extension_rdoc.html">extension</a>
+    <li><a href="../fiber_md.html">fiber</a>
+    <li><a href="../format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="../globals_rdoc.html">globals</a>
+    <li><a href="../implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="../index_md.html">index</a>
+    <li><a href="../maintainers_md.html">maintainers</a>
+    <li><a href="../marshal_rdoc.html">marshal</a>
+    <li><a href="../memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="../optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="../optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="../optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="../optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="../packed_data_rdoc.html">packed_data</a>
+    <li><a href="../ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="../regexp/methods_rdoc.html">methods</a>
+      <li><a href="../regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="../rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="../ruby/option_dump_md.html">option_dump</a>
+      <li><a href="../ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="../security_rdoc.html">security</a>
+    <li><a href="../signals_rdoc.html">signals</a>
+    <li><a href="../standard_library_md.html">standard_library</a>
+    <li><a href="../strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="../syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="../syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="../syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="../syntax/comments_rdoc.html">comments</a>
+      <li><a href="../syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="../syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="../syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="../syntax/literals_rdoc.html">literals</a>
+      <li><a href="../syntax/methods_rdoc.html">methods</a>
+      <li><a href="../syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="../syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="../syntax/operators_rdoc.html">operators</a>
+      <li><a href="../syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="../syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="../syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="../windows_md.html">windows</a>
+    <li><a href="../yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page contributing/building_ruby.md">
+
+<h1 id="label-Building+Ruby">Building Ruby<span><a href="#label-Building+Ruby">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Dependencies">Dependencies<span><a href="#label-Dependencies">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ol><li>
+<p>Install the prerequisite dependencies for building the CRuby interpreter:</p>
+<ul><li>
+<p>C compiler</p>
+</li></ul>
+
+<p>For RubyGems, you will also need:</p>
+<ul><li>
+<p><a href="https://www.openssl.org">OpenSSL</a> 1.1.x or 3.0.x / <a href="https://www.libressl.org">LibreSSL</a></p>
+</li><li>
+<p><a href="https://github.com/yaml/libyaml/">libyaml</a> 0.1.7 or later</p>
+</li><li>
+<p><a href="https://www.zlib.net">zlib</a></p>
+</li></ul>
+
+<p>If you want to build from the git repository, you will also need:</p>
+<ul><li>
+<p><a href="https://www.gnu.org/software/autoconf/">autoconf</a> - 2.67 or later</p>
+</li><li>
+<p><a href="https://www.gnu.org/software/gperf/">gperf</a> - 3.1 or later</p>
+<ul><li>
+<p>Usually unneeded; only if you edit some source files using gperf</p>
+</li></ul>
+</li><li>
+<p>ruby - 3.0 or later</p>
+<ul><li>
+<p>We can upgrade this version to system ruby version of the latest Ubuntu LTS.</p>
+</li></ul>
+</li></ul>
+</li><li>
+<p>Install optional, recommended dependencies:</p>
+<ul><li>
+<p><a href="https://sourceware.org/libffi/">libffi</a> (to build fiddle)</p>
+</li><li>
+<p><a href="https://gmplib.org">gmp</a> (if you wish to accelerate Bignum operations)</p>
+</li><li>
+<p><a href="https://www.rust-lang.org">rustc</a> - 1.58.0 or later, if you wish to build <a href="../RubyVM/YJIT.html">YJIT</a>.</p>
+</li></ul>
+
+<p>If you want to link the libraries (e.g., gmp) installed into other than the OS default place, typically using Homebrew on macOS, pass the <code>--with-opt-dir</code> (or <code>--with-gmp-dir</code> for gmp) option to <code>configure</code>.</p>
+
+<pre>configure --with-opt-dir=$(brew --prefix gmp):$(brew --prefix jemalloc)</pre>
+
+<p>As for the libraries needed for particular extensions only and not for Ruby (openssl, readline, libyaml, zlib), you can add <code>--with-EXTLIB-dir</code> options to the command line or to <code>CONFIGURE_ARGS</code> environment variable. The command line options will be embedded in <code>rbconfig.rb</code>, while the latter environment variable is not embedded and is only used when building the extension libraries.</p>
+
+<pre>export CONFIGURE_ARGS=&quot;&quot;
+for ext in openssl readline libyaml zlib; do
+  CONFIGURE_ARGS=&quot;${CONFIGURE_ARGS} --with-$ext-dir=$(brew --prefix $ext)&quot;
+done</pre>
+</li></ol>
+
+<h2 id="label-Quick+start+guide">Quick start guide<span><a href="#label-Quick+start+guide">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ol><li>
+<p>Download ruby source code:</p>
+
+<p>Select one of the below.</p>
+<ol><li>
+<p>Build from the tarball:</p>
+
+<p>Download the latest tarball from <a href="https://www.ruby-lang.org/en/downloads/">Download Ruby</a> page and extract it. Example for Ruby 3.0.2:</p>
+
+<pre>tar -xzf ruby-3.0.2.tar.gz
+cd ruby-3.0.2</pre>
+</li><li>
+<p>Build from the git repository:</p>
+
+<p>Checkout the CRuby source code:</p>
+
+<pre>git clone https://github.com/ruby/ruby.git
+cd ruby</pre>
+
+<p>Run the GNU Autoconf script (which generates the <code>configure</code> script):</p>
+
+<pre>./autogen.sh</pre>
+</li></ol>
+</li><li>
+<p>Create a <code>build</code> directory inside the repository directory:</p>
+
+<pre>mkdir build &amp;&amp; cd build</pre>
+
+<p>While it's not necessary to build in a dedicated directory like this, it's good practice to do so.</p>
+</li><li>
+<p>We'll eventually install our new Ruby in <code>~/.rubies/ruby-master</code>, so we'll create that directory:</p>
+
+<pre>mkdir ~/.rubies</pre>
+</li><li>
+<p>Run the <code>configure</code> script (which generates the <code>Makefile</code>):</p>
+
+<pre>../configure --prefix=&quot;${HOME}/.rubies/ruby-master&quot;</pre>
+<ul><li>
+<p>Also <code>-C</code> (or <code>--config-cache</code>) would reduce time to configure from the next time.</p>
+</li></ul>
+</li><li>
+<p>Build Ruby:</p>
+
+<pre class="ruby"><span class="ruby-identifier">make</span>
+</pre>
+</li><li>
+<p><a href="testing_ruby_md.html">Run tests</a> to confirm your build succeeded.</p>
+</li><li>
+<p>Install our newly-compiled Ruby into <code>~/.rubies/ruby-master</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">make</span> <span class="ruby-identifier">install</span>
+</pre>
+<ul><li>
+<p>If you need to run <code>make install</code> with <code>sudo</code> and want to avoid document generation with different permissions, you can use <code>make SUDO=sudo  install</code>.</p>
+</li></ul>
+</li><li>
+<p>You can then try your new Ruby out, for example:</p>
+
+<pre>~/.rubies/ruby-master/bin/ruby -e &quot;puts &#39;Hello, World!&#39;&quot;</pre>
+</li></ol>
+
+<p>By the end, your repo will look like this:</p>
+
+<pre>ruby
+├── autogen.sh      # Pre-existing Autoconf script, used in step 1
+├── configure       # Generated in step 1, which generates the `Makefile` in step 4
+├── build           # Created in step 2 and populated in step 4
+│   ├── GNUmakefile # Generated by `../configure`
+│   ├── Makefile    # Generated by `../configure`
+│   ├── object.o    # Compiled object file, built my `make`
+│   └── ... other compiled `.o` object files
+│
+│ # Other interesting files:
+├── include
+│   └── ruby.h      # The main public header
+├── internal
+│   ├── object.h
+│   └── ... other header files used by the `.c` files in the repo root.
+├── lib
+│   └── # Default gems, like `bundler`, `erb`, `set`, `yaml`, etc.
+├── spec
+│   └── # A mirror of the Ruby specification from github.com/ruby/spec
+├── test
+│   ├── ruby
+│   └── ...
+├── object.c
+└── ... other `.c` files</pre>
+
+<h3 id="label-Unexplainable+Build+Errors">Unexplainable Build Errors<span><a href="#label-Unexplainable+Build+Errors">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If you are having unexplainable build errors, after saving all your work, try running <code>git clean -xfd</code> in the source root to remove all git ignored local files. If you are working from a source directory that's been updated several times, you may have temporary build artifacts from previous releases which can cause build failures.</p>
+
+<h2 id="label-Building+on+Windows">Building on Windows<span><a href="#label-Building+on+Windows">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The documentation for building on Windows can be found in <a href="../windows_md.html">the separated file</a>.</p>
+
+<h2 id="label-More+details">More details<span><a href="#label-More+details">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>If you're interested in continuing development on Ruby, here are more details about Ruby's build to help out.</p>
+
+<h3 id="label-Running+make+scripts+in+parallel">Running make scripts in parallel<span><a href="#label-Running+make+scripts+in+parallel">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>In GNU make<sup><a id="footmark-1" href="#foottext-1">1</a></sup> and BSD make implementations, to run a specific make script in parallel, pass the flag <code>-j&lt;number of processes&gt;</code>. For instance, to run tests on 8 processes, use:</p>
+
+<pre>make test-all -j8</pre>
+
+<p>We can also set <code>MAKEFLAGS</code> to run <em>all</em> <code>make</code> commands in parallel.</p>
+
+<p>Having the right <code>--jobs</code> flag will ensure all processors are utilized when building software projects. To do this effectively, you can set <code>MAKEFLAGS</code> in your shell configuration/profile:</p>
+
+<pre># On macOS with Fish shell:
+export MAKEFLAGS=&quot;--jobs &quot;(sysctl -n hw.ncpu)
+
+# On macOS with Bash/ZSH shell:
+export MAKEFLAGS=&quot;--jobs $(sysctl -n hw.ncpu)&quot;
+
+# On Linux with Fish shell:
+export MAKEFLAGS=&quot;--jobs &quot;(nproc)
+
+# On Linux with Bash/ZSH shell:
+export MAKEFLAGS=&quot;--jobs $(nproc)&quot;</pre>
+
+<h3 id="label-Miniruby+vs+Ruby">Miniruby vs Ruby<span><a href="#label-Miniruby+vs+Ruby">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Miniruby is a version of Ruby which has no external dependencies and lacks certain features. It can be useful in Ruby development because it allows for faster build times. Miniruby is built before Ruby. A functional Miniruby is required to build Ruby. To build Miniruby:</p>
+
+<pre class="ruby"><span class="ruby-identifier">make</span> <span class="ruby-identifier">miniruby</span>
+</pre>
+
+<h2 id="label-Debugging">Debugging<span><a href="#label-Debugging">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>You can use either lldb or gdb for debugging. Before debugging, you need to create a <code>test.rb</code> with the Ruby script you'd like to run. You can use the following make targets:</p>
+<ul><li>
+<p><code>make run</code>: Runs <code>test.rb</code> using Miniruby</p>
+</li><li>
+<p><code>make lldb</code>: Runs <code>test.rb</code> using Miniruby in lldb</p>
+</li><li>
+<p><code>make gdb</code>: Runs <code>test.rb</code> using Miniruby in gdb</p>
+</li><li>
+<p><code>make runruby</code>: Runs <code>test.rb</code> using Ruby</p>
+</li><li>
+<p><code>make lldb-ruby</code>: Runs <code>test.rb</code> using Ruby in lldb</p>
+</li><li>
+<p><code>make gdb-ruby</code>: Runs <code>test.rb</code> using Ruby in gdb</p>
+</li></ul>
+
+<h3 id="label-Compiling+for+Debugging">Compiling for Debugging<span><a href="#label-Compiling+for+Debugging">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You should configure Ruby without optimization and other flags that may interfere with debugging:</p>
+
+<pre>./configure --enable-debug-env optflags=&quot;-O0 -fno-omit-frame-pointer&quot;</pre>
+
+<h3 id="label-Building+with+Address+Sanitizer">Building with Address Sanitizer<span><a href="#label-Building+with+Address+Sanitizer">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Using the address sanitizer (ASAN) is a great way to detect memory issues. It can detect memory safety issues in Ruby itself, and also in any C extensions compiled with and loaded into a Ruby compiled with ASAN.</p>
+
+<pre>./autogen.sh
+mkdir build &amp;&amp; cd build
+../configure CC=clang-18 cflags=&quot;-fsanitize=address -fno-omit-frame-pointer -DUSE_MN_THREADS=0&quot; # and any other options you might like
+make</pre>
+
+<p>The compiled Ruby will now automatically crash with a report and a backtrace if ASAN detects a memory safety issue. To run Ruby's test suite under ASAN, issue the following command. Note that this will take quite a long time (over two hours on my laptop); the <code>RUBY_TEST_TIMEOUT_SCALE</code> and <code>SYNTAX_SUGEST_TIMEOUT</code> variables are required to make sure tests don't spuriously fail with timeouts when in fact they're just slow.</p>
+
+<pre>RUBY_TEST_TIMEOUT_SCALE=5 SYNTAX_SUGGEST_TIMEOUT=600 make check</pre>
+
+<p>Please note, however, the following caveats!</p>
+<ul><li>
+<p>ASAN will not work properly on any currently released version of Ruby; the necessary support is currently only present on Ruby’s master branch (and the whole test suite passes only as of commit <a href="https://bugs.ruby-lang.org/projects/ruby-master/repository/git/revisions/9d0a5148ae062a0481a4a18fbeb9cfd01dc10428">Revision 9d0a5148</a>).</p>
+</li><li>
+<p>Due to <a href="https://bugs.ruby-lang.org/issues/20243">Bug #20243</a>, Clang generates code for threadlocal variables which doesn’t work with M:N threading. Thus, it’s necessary to disable M:N threading support at build time for now (with the <code>-DUSE_MN_THREADS=0</code> configure argument).</p>
+</li><li>
+<p>ASAN will only work when using Clang version 18 or later - it requires <a href="https://github.com/llvm/llvm-project/pull/75290">llvm/llvm-project#75290</a> related to multithreaded <code>fork</code>.</p>
+</li><li>
+<p>ASAN has only been tested so far with Clang on Linux. It may or may not work with other compilers or on other platforms - please file an issue on <a href="https://bugs.ruby-lang.org">Ruby Issue Tracking System</a> if you run into problems with such configurations (or, to report that they actually work properly!)</p>
+</li><li>
+<p>In particular, although I have not yet tried it, I have reason to believe ASAN will <em>not</em> work properly on macOS yet - the fix for the multithreaded fork issue was actually reverted for macOS (see <a href="https://github.com/llvm/llvm-project/pull/75659#issuecomment-1861584777">llvm/llvm-project#75659</a>). Please open an issue on <a href="https://bugs.ruby-lang.org">Ruby Issue Tracking System</a> if this is a problem for you.</p>
+</li></ul>
+
+<h2 id="label-How+to+measure+coverage+of+C+and+Ruby+code">How to measure coverage of C and Ruby code<span><a href="#label-How+to+measure+coverage+of+C+and+Ruby+code">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>You need to be able to use gcc (gcov) and lcov visualizer.</p>
+
+<pre>./autogen.sh
+./configure --enable-gcov
+make
+make update-coverage
+rm -f test-coverage.dat
+make test-all COVERAGE=true
+make lcov
+open lcov-out/index.html</pre>
+
+<p>If you need only C code coverage, you can remove <code>COVERAGE=true</code> from the above process. You can also use <code>gcov</code> command directly to get per-file coverage.</p>
+
+<p>If you need only Ruby code coverage, you can remove <code>--enable-gcov</code>. Note that <code>test-coverage.dat</code> accumulates all runs of <code>make test-all</code>. Make sure that you remove the file if you want to measure one test run.</p>
+
+<p>You can see the coverage result of CI: <a href="https://rubyci.org/coverage">rubyci.org/coverage</a></p>
+<hr>
+
+<p><sup><a id="foottext-1" href="#footmark-1">1</a></sup> <strong>CAUTION</strong>: GNU make 3 is missing some features for parallel execution, we recommend to upgrade to GNU make 4 or later.</p>
+
+</main>
+

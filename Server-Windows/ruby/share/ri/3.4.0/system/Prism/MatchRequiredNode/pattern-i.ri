@@ -1,0 +1,28 @@
+U:RDoc::Attr[iI"pattern:ETI"%Prism::MatchRequiredNode#pattern;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"dRepresents the right-hand side of the operator. The type of the node depends on the expression.;To;
+;	[I"€Anything that looks like a local variable name (including <code>_</code>) will result in a <code>LocalVariableTargetNode</code>.;To:RDoc::Markup::Verbatim;	[I"8foo => a # This is equivalent to writing `a = foo`
+;TI"       ^
+;T:@format0o;
+;	[I"¥Using an explicit <code>Array</code> or combining expressions with <code>,</code> will result in a <code>ArrayPatternNode</code>. This can be preceded by a constant.;To;;	[I"foo => [a]
+;TI"       ^^^
+;TI"
+;TI"foo => a, b
+;TI"       ^^^^
+;T@I"foo => Bar[a, b]
+;TI"       ^^^^^^^^^
+;T;0o;
+;	[I"tIf the array pattern contains at least two wildcard matches, a <code>FindPatternNode</code> is created instead.;To;;	[I"foo => *, 1, *a
+;TI"       ^^^^^
+;T;0o;
+;	[I"šUsing an explicit <code>Hash</code> or a constant with square brackets and hash keys in the square brackets will result in a <code>HashPatternNode</code>.;To;;	[
+I"foo => { a: 1, b: }
+;T@I"foo => Bar[a: 1, b:]
+;T@I"foo => Bar[**]
+;T;0o;
+;	[I"To use any variable that needs run time evaluation, pinning is required. This results in a <code>PinnedVariableNode</code>;To;;	[I"foo => ^a
+;TI"       ^^
+;T;0o;
+;	[I"kSimilar, any expression can be used with pinning. This results in a <code>PinnedExpressionNode</code>.;To;;	[I"foo => ^(a + 1)
+;T;0o;
+;	[I"tAnything else will result in the regular node for that expression, for example a <code>ConstantReadNode</code>.;To;;	[I"foo => CONST
+;T;0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@DI"Prism::MatchRequiredNode;TcRDoc::NormalClass0

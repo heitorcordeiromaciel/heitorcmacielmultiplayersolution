@@ -1,0 +1,9 @@
+U:RDoc::Attr[iI"constant:ETI"%Prism::ArrayPatternNode#constant;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"9Represents the optional constant preceding the Array;To:RDoc::Markup::Verbatim;	[I"foo in Bar[]
+;TI"       ^^^
+;TI"
+;TI"foo in Bar[1, 2, 3]
+;TI"       ^^^
+;T@I"foo in Bar::Baz[1, 2, 3]
+;TI"       ^^^^^^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::ArrayPatternNode;TcRDoc::NormalClass0

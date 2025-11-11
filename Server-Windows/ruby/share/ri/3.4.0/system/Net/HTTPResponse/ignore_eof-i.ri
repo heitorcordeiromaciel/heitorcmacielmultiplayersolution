@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"ignore_eof:ETI"!Net::HTTPResponse#ignore_eof;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"OWhether to ignore EOF when reading bodies with a specified Content-Length ;TI"header.;T:
+@fileI"lib/net/http/response.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Net::HTTPResponse;TcRDoc::NormalClass0

@@ -1,0 +1,5 @@
+U:RDoc::Attr[iI"	name:ETI")Prism::InstanceVariableReadNode#name;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"¤The name of the instance variable, which is a <code>@</code> followed by an {identifier}[https://github.com/ruby/prism/blob/main/docs/parsing_rules.md#identifiers].;To:RDoc::Markup::Verbatim;	[I"@x     # name `:@x`
+;TI"
+;TI"@_test # name `:@_test`
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"$Prism::InstanceVariableReadNode;TcRDoc::NormalClass0

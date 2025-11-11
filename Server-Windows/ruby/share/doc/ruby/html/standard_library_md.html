@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>standard_library - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,standard_library">
+  <meta name="description" content="standard_library: Ruby Standard Library The Ruby Standard Library is a large collection of classes and modules you can require in your code to gain additional features">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/standard_library_md.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Ruby+Standard+Library">Ruby Standard Library</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Libraries">Libraries</a>
+          <li>      <a href="#label-Extensions">Extensions</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Default+gems">Default gems</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Libraries">Libraries</a>
+          <li>      <a href="#label-Extensions">Extensions</a>
+          <li>      <a href="#label-Tools">Tools</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Bundled+gems">Bundled gems</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Libraries">Libraries</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./COPYING.html">COPYING</a>
+    <li><a href="./COPYING_ja.html">COPYING.ja</a>
+    <li><a href="./LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="./NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="./NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="./NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="./NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="./NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="./NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="./NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="./NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="./NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="./NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="./NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="./NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="./NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="./NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="./NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="./NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="./NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="./README_ja_md.html">README.ja</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./bsearch_rdoc.html">bsearch</a>
+    <li><a href="./bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="./case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="./character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="./command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="./contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="./contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="./contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="./contributing/glossary_md.html">glossary</a>
+      <li><a href="./contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="./contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="./contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="./contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="./date/calendars_rdoc.html">calendars</a>
+    <li><a href="./dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="./distribution_md.html">distribution</a>
+    <li><a href="./dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="./encodings_rdoc.html">encodings</a>
+    <li><a href="./exceptions_md.html">exceptions</a>
+    <li><a href="./extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="./extension_rdoc.html">extension</a>
+    <li><a href="./fiber_md.html">fiber</a>
+    <li><a href="./format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="./globals_rdoc.html">globals</a>
+    <li><a href="./implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="./index_md.html">index</a>
+    <li><a href="./maintainers_md.html">maintainers</a>
+    <li><a href="./marshal_rdoc.html">marshal</a>
+    <li><a href="./memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="./optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="./optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="./optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="./optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="./packed_data_rdoc.html">packed_data</a>
+    <li><a href="./ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="./regexp/methods_rdoc.html">methods</a>
+      <li><a href="./regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="./rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="./ruby/option_dump_md.html">option_dump</a>
+      <li><a href="./ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="./security_rdoc.html">security</a>
+    <li><a href="./signals_rdoc.html">signals</a>
+    <li><a href="./standard_library_md.html">standard_library</a>
+    <li><a href="./strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="./syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="./syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="./syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="./syntax/comments_rdoc.html">comments</a>
+      <li><a href="./syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="./syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="./syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="./syntax/literals_rdoc.html">literals</a>
+      <li><a href="./syntax/methods_rdoc.html">methods</a>
+      <li><a href="./syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="./syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="./syntax/operators_rdoc.html">operators</a>
+      <li><a href="./syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="./syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="./syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="./windows_md.html">windows</a>
+    <li><a href="./yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page standard_library.md">
+
+<h1 id="label-Ruby+Standard+Library">Ruby Standard Library<span><a href="#label-Ruby+Standard+Library">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>The Ruby Standard Library is a large collection of classes and modules you can require in your code to gain additional features.</p>
+
+<p>Below is an overview of the libraries and extensions, followed by a brief description of each.</p>
+
+<h2 id="label-Libraries">Libraries<span><a href="#label-Libraries">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="MakeMakefile.html"><code>MakeMakefile</code></a>: A module used to generate a Makefile for C extensions</p>
+</li><li>
+<p><a href="RbConfig.html"><code>RbConfig</code></a>: Information about your Ruby configuration and build</p>
+</li><li>
+<p><a href="Gem.html"><code>Gem</code></a>: A package management framework for Ruby</p>
+</li></ul>
+
+<h2 id="label-Extensions">Extensions<span><a href="#label-Extensions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="Coverage.html"><code>Coverage</code></a>: Provides coverage measurement for Ruby</p>
+</li><li>
+<p><a href="Monitor.html"><code>Monitor</code></a>: Provides a reentrant mutex</p>
+</li><li>
+<p><code>objspace</code>: Extends the <a href="ObjectSpace.html"><code>ObjectSpace</code></a> module to add methods for internal statistics</p>
+</li><li>
+<p><a href="PTY.html"><code>PTY</code></a>: Creates and manages pseudo-terminals</p>
+</li><li>
+<p><a href="Ripper.html"><code>Ripper</code></a>: Provides an interface for parsing Ruby programs into S-expressions</p>
+</li><li>
+<p><a href="Socket.html"><code>Socket</code></a>: Accesses underlying OS socket implementations</p>
+</li></ul>
+
+<h1 id="label-Default+gems">Default gems<span><a href="#label-Default+gems">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Default gems are shipped with Ruby releases and also available as rubygems.</p>
+</li><li>
+<p>Default gems are not uninstallable from the Ruby installation.</p>
+</li><li>
+<p>Default gems can be updated using rubygems.</p>
+<ul><li>
+<p>e.g. <code>gem update json</code></p>
+</li></ul>
+</li><li>
+<p>Default gems can be used with bundler environments like <code>unbundled_env</code>.</p>
+</li><li>
+<p>Default gems can be used at any version in a Gemfile.</p>
+<ul><li>
+<p>e.g. <code>gem &quot;json&quot;, &quot;&gt;= 2.6&quot;</code></p>
+</li></ul>
+</li></ul>
+
+<h2 id="label-Libraries">Libraries<span><a href="#label-Libraries">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="Benchmark.html"><code>Benchmark</code></a> (<a href="https://github.com/ruby/benchmark">GitHub</a>): Provides methods to measure and report the time used to execute code</p>
+</li><li>
+<p><a href="Bundler.html"><code>Bundler</code></a> (<a href="https://github.com/rubygems/rubygems">GitHub</a>): Manage your Ruby application’s gem dependencies</p>
+</li><li>
+<p><a href="CGI.html"><code>CGI</code></a> (<a href="https://github.com/ruby/cgi">GitHub</a>): Support for the Common Gateway Interface protocol</p>
+</li><li>
+<p><a href="Delegator.html"><code>Delegator</code></a> (<a href="https://github.com/ruby/delegate">GitHub</a>): Provides three abilities to delegate method calls to an object</p>
+</li><li>
+<p><a href="DidYouMean.html"><code>DidYouMean</code></a> (<a href="https://github.com/ruby/did_you_mean">GitHub</a>): “Did you mean?” experience in Ruby</p>
+</li><li>
+<p><a href="English.html"><code>English</code></a> (<a href="https://github.com/ruby/English">GitHub</a>): Provides references to special global variables with less cryptic names</p>
+</li><li>
+<p><a href="ERB.html"><code>ERB</code></a> (<a href="https://github.com/ruby/erb">GitHub</a>): An easy-to-use but powerful templating system for Ruby</p>
+</li><li>
+<p><a href="ErrorHighlight.html"><code>ErrorHighlight</code></a> (<a href="https://github.com/ruby/error_highlight">GitHub</a>): Highlight error locations in your code</p>
+</li><li>
+<p><a href="FileUtils.html"><code>FileUtils</code></a> (<a href="https://github.com/ruby/fileutils">GitHub</a>): Several file utility methods for copying, moving, removing, etc.</p>
+</li><li>
+<p><a href="Find.html"><code>Find</code></a> (<a href="https://github.com/ruby/find">GitHub</a>): This module supports top-down traversal of a set of file paths</p>
+</li><li>
+<p><a href="Forwardable.html"><code>Forwardable</code></a> (<a href="https://github.com/ruby/forwardable">GitHub</a>): Provides delegation of specified methods to a designated object</p>
+</li><li>
+<p><a href="IPAddr.html"><code>IPAddr</code></a> (<a href="https://github.com/ruby/ipaddr">GitHub</a>): Provides methods to manipulate IPv4 and IPv6 IP addresses</p>
+</li><li>
+<p><a href="OptionParser.html"><code>OptionParser</code></a> (<a href="https://github.com/ruby/optparse">GitHub</a>): Ruby-oriented class for command-line option analysis</p>
+</li><li>
+<p><a href="Logger.html"><code>Logger</code></a> (<a href="https://github.com/ruby/logger">GitHub</a>): Provides a simple logging utility for outputting messages</p>
+</li><li>
+<p><a href="Net/HTTP.html"><code>Net::HTTP</code></a> (<a href="https://github.com/ruby/net-http">GitHub</a>): HTTP client API for Ruby</p>
+</li><li>
+<p><a href="Open3.html"><code>Open3</code></a> (<a href="https://github.com/ruby/open3">GitHub</a>): Provides access to stdin, stdout, and stderr when running other programs</p>
+</li><li>
+<p><a href="OpenStruct.html"><code>OpenStruct</code></a> (<a href="https://github.com/ruby/ostruct">GitHub</a>): A class to build custom data structures, similar to a <a href="Hash.html"><code>Hash</code></a></p>
+</li><li>
+<p><a href="OpenURI.html"><code>OpenURI</code></a> (<a href="https://github.com/ruby/open-uri">GitHub</a>): An easy-to-use wrapper for <a href="URI/HTTP.html"><code>URI::HTTP</code></a>, <a href="URI/HTTPS.html"><code>URI::HTTPS</code></a>, and <a href="URI/FTP.html"><code>URI::FTP</code></a></p>
+</li><li>
+<p><a href="PP.html"><code>PP</code></a> (<a href="https://github.com/ruby/pp">GitHub</a>): Provides a PrettyPrinter for Ruby objects</p>
+</li><li>
+<p><a href="PrettyPrint.html"><code>PrettyPrint</code></a> (<a href="https://github.com/ruby/prettyprint">GitHub</a>): Implements a pretty printing algorithm for readable structure</p>
+</li><li>
+<p><a href="Prism.html"><code>Prism</code></a> (<a href="https://github.com/ruby/prism">GitHub</a>): A portable, error-tolerant Ruby parser</p>
+</li><li>
+<p><a href="PStore.html"><code>PStore</code></a> (<a href="https://github.com/ruby/pstore">GitHub</a>): Implements a file-based persistence mechanism based on a <a href="Hash.html"><code>Hash</code></a></p>
+</li><li>
+<p><a href="Readline.html"><code>Readline</code></a> (<a href="https://github.com/ruby/readline">GitHub</a>): Wrapper for the <a href="Readline.html"><code>Readline</code></a> extension and <a href="Reline.html"><code>Reline</code></a></p>
+</li><li>
+<p><a href="Reline.html"><code>Reline</code></a> (<a href="https://github.com/ruby/reline">GitHub</a>): GNU <a href="Readline.html"><code>Readline</code></a> and Editline in a pure Ruby implementation</p>
+</li><li>
+<p><a href="Resolv.html"><code>Resolv</code></a> (<a href="https://github.com/ruby/resolv">GitHub</a>): Thread-aware DNS resolver library in Ruby</p>
+</li><li>
+<p><a href="SecureRandom.html"><code>SecureRandom</code></a> (<a href="https://github.com/ruby/securerandom">GitHub</a>): Interface for a secure random number generator</p>
+</li><li>
+<p>Set (<a href="https://github.com/ruby/set">GitHub</a>): Provides a class to deal with collections of unordered, unique values</p>
+</li><li>
+<p><a href="Shellwords.html"><code>Shellwords</code></a> (<a href="https://github.com/ruby/shellwords">GitHub</a>): Manipulates strings with the word parsing rules of the UNIX Bourne shell</p>
+</li><li>
+<p><a href="Singleton.html"><code>Singleton</code></a> (<a href="https://github.com/ruby/singleton">GitHub</a>): Implementation of the <a href="Singleton.html"><code>Singleton</code></a> pattern for Ruby</p>
+</li><li>
+<p><a href="Tempfile.html"><code>Tempfile</code></a> (<a href="https://github.com/ruby/tempfile">GitHub</a>): A utility class for managing temporary files</p>
+</li><li>
+<p><a href="Time.html"><code>Time</code></a> (<a href="https://github.com/ruby/time">GitHub</a>): Extends the <a href="Time.html"><code>Time</code></a> class with methods for parsing and conversion</p>
+</li><li>
+<p><a href="Timeout.html"><code>Timeout</code></a> (<a href="https://github.com/ruby/timeout">GitHub</a>): Auto-terminate potentially long-running operations in Ruby</p>
+</li><li>
+<p><a href="TSort.html"><code>TSort</code></a> (<a href="https://github.com/ruby/tsort">GitHub</a>): Topological sorting using Tarjan’s algorithm</p>
+</li><li>
+<p>UN (<a href="https://github.com/ruby/un">GitHub</a>): Utilities to replace common UNIX commands</p>
+</li><li>
+<p><a href="URI.html"><code>URI</code></a> (<a href="https://github.com/ruby/uri">GitHub</a>): A Ruby module providing support for Uniform Resource Identifiers</p>
+</li><li>
+<p><a href="YAML.html"><code>YAML</code></a> (<a href="https://github.com/ruby/yaml">GitHub</a>): The Ruby client library for the <a href="Psych.html"><code>Psych</code></a> <a href="YAML.html"><code>YAML</code></a> implementation</p>
+</li><li>
+<p><a href="WeakRef.html"><code>WeakRef</code></a> (<a href="https://github.com/ruby/weakref">GitHub</a>): Allows a referenced object to be garbage-collected</p>
+</li></ul>
+
+<h2 id="label-Extensions">Extensions<span><a href="#label-Extensions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="Date.html"><code>Date</code></a> (<a href="https://github.com/ruby/date">GitHub</a>): Represents dates, with a subclass for dates with time and timezones</p>
+</li><li>
+<p><a href="Digest.html"><code>Digest</code></a> (<a href="https://github.com/ruby/digest">GitHub</a>): Provides a framework for message digest libraries</p>
+</li><li>
+<p><a href="Etc.html"><code>Etc</code></a> (<a href="https://github.com/ruby/etc">GitHub</a>): Provides access to information typically stored in the UNIX /etc directory</p>
+</li><li>
+<p><a href="Fcntl.html"><code>Fcntl</code></a> (<a href="https://github.com/ruby/fcntl">GitHub</a>): Loads constants defined in the OS fcntl.h C header file</p>
+</li><li>
+<p><a href="Fiddle.html"><code>Fiddle</code></a> (<a href="https://github.com/ruby/fiddle">GitHub</a>): A libffi wrapper for Ruby</p>
+</li><li>
+<p><a href="IO.html#method-c-console"><code>IO.console</code></a> (<a href="https://github.com/ruby/io-console">GitHub</a>): Extensions for the <a href="IO.html"><code>IO</code></a> class, including <a href="IO.html#method-c-console"><code>IO.console</code></a>, <a href="IO.html#method-i-winsize"><code>IO.winsize</code></a>, etc.</p>
+</li><li>
+<p><a href="JSON.html"><code>JSON</code></a> (<a href="https://github.com/ruby/json">GitHub</a>): Implements JavaScript <a href="Object.html"><code>Object</code></a> Notation for Ruby</p>
+</li><li>
+<p><a href="OpenSSL.html"><code>OpenSSL</code></a> (<a href="https://github.com/ruby/openssl">GitHub</a>): Provides SSL, TLS, and general-purpose cryptography for Ruby</p>
+</li><li>
+<p><a href="Pathname.html"><code>Pathname</code></a> (<a href="https://github.com/ruby/pathname">GitHub</a>): Representation of the name of a file or directory on the filesystem</p>
+</li><li>
+<p><a href="Psych.html"><code>Psych</code></a> (<a href="https://github.com/ruby/psych">GitHub</a>): A <a href="YAML.html"><code>YAML</code></a> parser and emitter for Ruby</p>
+</li><li>
+<p><a href="StringIO.html"><code>StringIO</code></a> (<a href="https://github.com/ruby/stringio">GitHub</a>): Pseudo-I/O on <a href="String.html"><code>String</code></a> objects</p>
+</li><li>
+<p><a href="StringScanner.html"><code>StringScanner</code></a> (<a href="https://github.com/ruby/strscan">GitHub</a>): Provides lexical scanning operations on a <a href="String.html"><code>String</code></a></p>
+</li><li>
+<p>TmpDir (<a href="https://github.com/ruby/tmpdir">GitHub</a>): Extends the <a href="Dir.html"><code>Dir</code></a> class to manage the OS temporary file path</p>
+</li><li>
+<p><a href="WIN32OLE.html"><code>WIN32OLE</code></a> (<a href="https://github.com/ruby/win32ole">GitHub</a>): Provides an interface for OLE Automation in Ruby</p>
+</li><li>
+<p><a href="Zlib.html"><code>Zlib</code></a> (<a href="https://github.com/ruby/zlib">GitHub</a>): Ruby interface for the zlib compression/decompression library</p>
+</li></ul>
+
+<h2 id="label-Tools">Tools<span><a href="#label-Tools">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="https://ruby.github.io/irb/">IRB</a> (<a href="https://github.com/ruby/irb">GitHub</a>): Interactive Ruby command-line tool for REPL (Read Eval Print Loop)</p>
+</li><li>
+<p><a href="https://ruby.github.io/rdoc/">RDoc</a> (<a href="https://github.com/ruby/rdoc">GitHub</a>): Documentation generator for Ruby</p>
+</li></ul>
+
+<h1 id="label-Bundled+gems">Bundled gems<span><a href="#label-Bundled+gems">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Bundled gems are shipped with Ruby releases and also available as rubygems.</p>
+<ul><li>
+<p>They are only bundled with Ruby releases.</p>
+</li><li>
+<p>They can be uninstalled from the Ruby installation.</p>
+</li><li>
+<p>They need to be declared in a Gemfile when used with bundler.</p>
+</li></ul>
+</li></ul>
+
+<h2 id="label-Libraries">Libraries<span><a href="#label-Libraries">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="https://github.com/seattlerb/minitest">minitest</a>: A test library supporting TDD, BDD, mocking, and benchmarking</p>
+</li><li>
+<p><a href="https://github.com/ruby/power_assert">power_assert</a>: Power Assert for Ruby</p>
+</li><li>
+<p><a href="https://github.com/ruby/rake">rake</a>: Ruby build program with capabilities similar to make</p>
+</li><li>
+<p><a href="https://github.com/test-unit/test-unit">test-unit</a>: A compatibility layer for MiniTest</p>
+</li><li>
+<p><a href="https://github.com/ruby/rexml">rexml</a>: An XML toolkit for Ruby</p>
+</li><li>
+<p><a href="https://github.com/ruby/rss">rss</a>: A family of libraries supporting various XML-based “feeds”</p>
+</li><li>
+<p><a href="https://github.com/ruby/net-ftp">net-ftp</a>: Support for the <a href="File.html"><code>File</code></a> Transfer Protocol</p>
+</li><li>
+<p><a href="https://github.com/ruby/net-imap">net-imap</a>: Ruby client API for the Internet Message Access Protocol</p>
+</li><li>
+<p><a href="https://github.com/ruby/net-pop">net-pop</a>: Ruby client library for POP3</p>
+</li><li>
+<p><a href="https://github.com/ruby/net-smtp">net-smtp</a>: Simple Mail Transfer Protocol client library for Ruby</p>
+</li><li>
+<p><a href="https://github.com/ruby/matrix">matrix</a>: Represents a mathematical matrix</p>
+</li><li>
+<p><a href="https://github.com/ruby/prime">prime</a>: Prime numbers and factorization library</p>
+</li><li>
+<p><a href="https://github.com/ruby/rbs">rbs</a>: RBS is a language to describe the structure of Ruby programs</p>
+</li><li>
+<p><a href="https://github.com/ruby/typeprof">typeprof</a>: A type analysis tool for Ruby code based on abstract interpretation</p>
+</li><li>
+<p><a href="https://github.com/ruby/debug">debug</a>: Debugging functionality for Ruby</p>
+</li><li>
+<p><a href="https://github.com/ruby/racc">racc</a>: A LALR(1) parser generator written in Ruby</p>
+</li><li>
+<p><a href="https://github.com/ruby/mutex_m">mutex_m</a>: Mixin to extend objects to be handled like a Mutex</p>
+</li><li>
+<p><a href="https://github.com/ruby/getoptlong">getoptlong</a>: Parse command line options similar to the GNU C getopt_long()</p>
+</li><li>
+<p><a href="https://github.com/ruby/base64">base64</a>: Support for encoding and decoding binary data using a Base64 representation</p>
+</li><li>
+<p><a href="https://github.com/ruby/bigdecimal">bigdecimal</a>: Provides arbitrary-precision floating point decimal arithmetic</p>
+</li><li>
+<p><a href="https://github.com/ruby/observer">observer</a>: Provides a mechanism for the publish/subscribe pattern in Ruby</p>
+</li><li>
+<p><a href="https://github.com/ruby/abbrev">abbrev</a>: Calculates a set of unique abbreviations for a given set of strings</p>
+</li><li>
+<p><a href="https://github.com/ruby/resolv-replace">resolv-replace</a>: Replace <a href="Socket.html"><code>Socket</code></a> DNS with <a href="Resolv.html"><code>Resolv</code></a></p>
+</li><li>
+<p><a href="https://github.com/ruby/rinda">rinda</a>: The Linda distributed computing paradigm in Ruby</p>
+</li><li>
+<p><a href="https://github.com/ruby/drb">drb</a>: Distributed object system for Ruby</p>
+</li><li>
+<p><a href="https://github.com/ruby/nkf">nkf</a>: Ruby extension for the Network Kanji Filter</p>
+</li><li>
+<p><a href="https://github.com/ruby/syslog">syslog</a>: Ruby interface for the POSIX system logging facility</p>
+</li><li>
+<p><a href="https://github.com/ruby/csv">csv</a>: Provides an interface to read and write CSV files and data</p>
+</li></ul>
+
+</main>
+

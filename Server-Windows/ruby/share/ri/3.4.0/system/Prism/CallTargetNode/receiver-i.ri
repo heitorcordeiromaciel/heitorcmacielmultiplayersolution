@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"receiver:ETI"#Prism::CallTargetNode#receiver;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"¨The object that the method is being called on. This can be any {non-void expression}[https://github.com/ruby/prism/blob/main/docs/parsing_rules.md#non-void-expression].;To:RDoc::Markup::Verbatim;	[I"foo.bar = 1
+;TI"	^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::CallTargetNode;TcRDoc::NormalClass0

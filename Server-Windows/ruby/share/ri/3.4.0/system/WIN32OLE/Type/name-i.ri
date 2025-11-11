@@ -1,0 +1,4 @@
+U:RDoc::AnyMethod[iI"	name:ETI"WIN32OLE::Type#name;TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"Returns OLE type name.;To:RDoc::Markup::Verbatim;	[I"Ttobj = WIN32OLE::Type.new('Microsoft Excel 9.0 Object Library', 'Application')
+;TI"%puts tobj.name  # => Application;T:@format0:
+@fileI"!ext/win32ole/win32ole_type.c;T:0@omit_headings_from_table_of_contents_below0I"name #=> OLE type name
+;T0[[I"	to_s;T@	I"();T@FI"	Type;TcRDoc::NormalClass00

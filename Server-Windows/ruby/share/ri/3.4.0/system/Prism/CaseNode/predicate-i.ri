@@ -1,0 +1,5 @@
+U:RDoc::Attr[iI"predicate:ETI"Prism::CaseNode#predicate;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"ÅRepresents the predicate of the case statement. This can be either <code>nil</code> or any {non-void expressions}[https://github.com/ruby/prism/blob/main/docs/parsing_rules.md#non-void-expression].;To:RDoc::Markup::Verbatim;	[I" case true; when false; end
+;TI"
+^^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::CaseNode;TcRDoc::NormalClass0

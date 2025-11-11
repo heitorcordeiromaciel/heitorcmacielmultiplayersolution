@@ -1,0 +1,2465 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class Set - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,Set">
+
+    <meta name="description" content="class Set: This library provides the Set class, which implements a collection of unordered values with no duplicates. It is a hybrid of Array&#39;s intuitive inter-o">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Set.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>      <a href="#class-Set-label-Comparison">Comparison</a>
+          <li>      <a href="#class-Set-label-Example">Example</a>
+          <li>      <a href="#class-Set-label-Contact">Contact</a>
+          <li>
+            <details open>
+              <summary>      <a href="#class-Set-label-What-27s+Here">What’s Here</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-Set-label-Methods+for+Creating+a+Set">Methods for Creating a Set</a>
+          <li>      <a href="#class-Set-label-Methods+for+Set+Operations">Methods for Set Operations</a>
+          <li>      <a href="#class-Set-label-Methods+for+Comparing">Methods for Comparing</a>
+          <li>      <a href="#class-Set-label-Methods+for+Querying">Methods for Querying</a>
+          <li>      <a href="#class-Set-label-Methods+for+Assigning">Methods for Assigning</a>
+          <li>      <a href="#class-Set-label-Methods+for+Deleting">Methods for Deleting</a>
+          <li>      <a href="#class-Set-label-Methods+for+Converting">Methods for Converting</a>
+          <li>      <a href="#class-Set-label-Methods+for+Iterating">Methods for Iterating</a>
+          <li>      <a href="#class-Set-label-Other+Methods">Other Methods</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="Object.html">Object</a><ul><li><a href="BasicObject.html">BasicObject</a></li></ul></li></ul>
+</div>
+
+  
+<div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+    <li><a class="include" href="Enumerable.html">Enumerable</a>
+  </ul>
+</div>
+
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-5B-5D">[]</a></li>
+      <li ><a href="#method-c-json_create">json_create</a></li>
+      <li ><a href="#method-c-new">new</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-26">&amp;</a></li>
+      <li ><a href="#method-i-2B">+</a></li>
+      <li ><a href="#method-i-2D">-</a></li>
+      <li ><a href="#method-i-3C">&lt;</a></li>
+      <li ><a href="#method-i-3C-3C">&lt;&lt;</a></li>
+      <li ><a href="#method-i-3C-3D">&lt;=</a></li>
+      <li ><a href="#method-i-3C-3D-3E">&lt;=&gt;</a></li>
+      <li ><a href="#method-i-3D-3D">==</a></li>
+      <li ><a href="#method-i-3D-3D-3D">===</a></li>
+      <li ><a href="#method-i-3E">&gt;</a></li>
+      <li ><a href="#method-i-3E-3D">&gt;=</a></li>
+      <li ><a href="#method-i-5E">^</a></li>
+      <li ><a href="#method-i-7C">|</a></li>
+      <li ><a href="#method-i-add">add</a></li>
+      <li ><a href="#method-i-add-3F">add?</a></li>
+      <li ><a href="#method-i-as_json">as_json</a></li>
+      <li ><a href="#method-i-classify">classify</a></li>
+      <li ><a href="#method-i-clear">clear</a></li>
+      <li ><a href="#method-i-collect-21">collect!</a></li>
+      <li ><a href="#method-i-compare_by_identity">compare_by_identity</a></li>
+      <li ><a href="#method-i-compare_by_identity-3F">compare_by_identity?</a></li>
+      <li ><a href="#method-i-delete">delete</a></li>
+      <li ><a href="#method-i-delete-3F">delete?</a></li>
+      <li ><a href="#method-i-delete_if">delete_if</a></li>
+      <li ><a href="#method-i-difference">difference</a></li>
+      <li ><a href="#method-i-disjoint-3F">disjoint?</a></li>
+      <li ><a href="#method-i-divide">divide</a></li>
+      <li ><a href="#method-i-each">each</a></li>
+      <li ><a href="#method-i-empty-3F">empty?</a></li>
+      <li ><a href="#method-i-filter-21">filter!</a></li>
+      <li ><a href="#method-i-flatten">flatten</a></li>
+      <li ><a href="#method-i-flatten-21">flatten!</a></li>
+      <li ><a href="#method-i-include-3F">include?</a></li>
+      <li class="calls-super" ><a href="#method-i-initialize_clone">initialize_clone</a></li>
+      <li class="calls-super" ><a href="#method-i-initialize_dup">initialize_dup</a></li>
+      <li ><a href="#method-i-inspect">inspect</a></li>
+      <li ><a href="#method-i-intersect-3F">intersect?</a></li>
+      <li ><a href="#method-i-intersection">intersection</a></li>
+      <li ><a href="#method-i-join">join</a></li>
+      <li ><a href="#method-i-keep_if">keep_if</a></li>
+      <li ><a href="#method-i-length">length</a></li>
+      <li ><a href="#method-i-map-21">map!</a></li>
+      <li ><a href="#method-i-member-3F">member?</a></li>
+      <li ><a href="#method-i-merge">merge</a></li>
+      <li ><a href="#method-i-proper_subset-3F">proper_subset?</a></li>
+      <li ><a href="#method-i-proper_superset-3F">proper_superset?</a></li>
+      <li ><a href="#method-i-reject-21">reject!</a></li>
+      <li ><a href="#method-i-replace">replace</a></li>
+      <li ><a href="#method-i-reset">reset</a></li>
+      <li ><a href="#method-i-select-21">select!</a></li>
+      <li ><a href="#method-i-size">size</a></li>
+      <li ><a href="#method-i-subset-3F">subset?</a></li>
+      <li ><a href="#method-i-subtract">subtract</a></li>
+      <li ><a href="#method-i-superset-3F">superset?</a></li>
+      <li ><a href="#method-i-to_a">to_a</a></li>
+      <li ><a href="#method-i-to_json">to_json</a></li>
+      <li ><a href="#method-i-to_s">to_s</a></li>
+      <li ><a href="#method-i-to_set">to_set</a></li>
+      <li ><a href="#method-i-union">union</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-Set">
+  
+  
+
+  <h1 id="class-Set" class="anchor-link class">
+    class Set
+  </h1>
+
+  <section class="description">
+    
+<p>This library provides the Set class, which implements a collection of unordered values with no duplicates. It is a hybrid of Array’s intuitive inter-operation facilities and Hash’s fast lookup.</p>
+
+<p>The method <a href="Set.html#method-i-to_set"><code>to_set</code></a> is added to <a href="Enumerable.html"><code>Enumerable</code></a> for convenience.</p>
+
+<p>Set is easy to use with <a href="Enumerable.html"><code>Enumerable</code></a> objects (implementing <code>each</code>). Most of the initializer methods and binary operators accept generic <a href="Enumerable.html"><code>Enumerable</code></a> objects besides sets and arrays. An <a href="Enumerable.html"><code>Enumerable</code></a> object can be converted to Set using the <a href="Set.html#method-i-to_set"><code>to_set</code></a> method.</p>
+
+<p>Set uses <a href="Hash.html"><code>Hash</code></a> as storage, so you must note the following points:</p>
+<ul><li>
+<p>Equality of elements is determined according to <a href="Object.html#method-i-eql-3F"><code>Object#eql?</code></a> and <a href="Object.html#method-i-hash"><code>Object#hash</code></a>. Use <a href="Set.html#method-i-compare_by_identity"><code>Set#compare_by_identity</code></a> to make a set compare its elements by their identity.</p>
+</li><li>
+<p>Set assumes that the identity of each element does not change while it is stored. Modifying an element of a set will render the set to an unreliable state.</p>
+</li><li>
+<p>When a string is to be stored, a frozen copy of the string is stored instead unless the original string is already frozen.</p>
+</li></ul>
+
+<h2 id="class-Set-label-Comparison">Comparison<span><a href="#class-Set-label-Comparison">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The comparison operators <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code> are implemented as shorthand for the {proper_,}{subset?,superset?} methods. The <code>&lt;=&gt;</code> operator reflects this order, or return <code>nil</code> for sets that both have distinct elements (<code>{x, y}</code> vs. <code>{x, z}</code> for example).</p>
+
+<h2 id="class-Set-label-Example">Example<span><a href="#class-Set-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;set&#39;</span>
+<span class="ruby-identifier">s1</span> = <span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>]                        <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2}&gt;</span>
+<span class="ruby-identifier">s2</span> = [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">to_set</span>                    <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2}&gt;</span>
+<span class="ruby-identifier">s1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">s2</span>                              <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">add</span>(<span class="ruby-string">&quot;foo&quot;</span>)                         <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2, &quot;foo&quot;}&gt;</span>
+<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge</span>([<span class="ruby-value">2</span>, <span class="ruby-value">6</span>])                      <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2, &quot;foo&quot;, 6}&gt;</span>
+<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">subset?</span>(<span class="ruby-identifier">s2</span>)                        <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-identifier">s2</span>.<span class="ruby-identifier">subset?</span>(<span class="ruby-identifier">s1</span>)                        <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<h2 id="class-Set-label-Contact">Contact<span><a href="#class-Set-label-Contact">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Akinori MUSHA &lt;<a href="mailto:knu@iDaemons.org">knu@iDaemons.org</a>&gt; (current maintainer)</p>
+</li></ul>
+
+<h2 id="class-Set-label-What-27s+Here">What’s Here<span><a href="#class-Set-label-What-27s+Here">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>First, what’s elsewhere. Class Set:</p>
+<ul><li>
+<p>Inherits from <a href="Object.html#class-Object-label-What-27s+Here">class Object</a>.</p>
+</li><li>
+<p>Includes <a href="Enumerable.html#module-Enumerable-label-What-27s+Here">module Enumerable</a>, which provides dozens of additional methods.</p>
+</li></ul>
+
+<p>In particular, class Set does not have many methods of its own for fetching or for iterating. Instead, it relies on those in Enumerable.</p>
+
+<p>Here, class Set provides methods that are useful for:</p>
+<ul><li>
+<p><a href="#class-Set-label-Methods+for+Creating+a+Set">Creating a Set</a></p>
+</li><li>
+<p><a href="#class-Set-label-Methods+for+Set+Operations">Set Operations</a></p>
+</li><li>
+<p><a href="#class-Set-label-Methods+for+Comparing">Comparing</a></p>
+</li><li>
+<p><a href="#class-Set-label-Methods+for+Querying">Querying</a></p>
+</li><li>
+<p><a href="#class-Set-label-Methods+for+Assigning">Assigning</a></p>
+</li><li>
+<p><a href="#class-Set-label-Methods+for+Deleting">Deleting</a></p>
+</li><li>
+<p><a href="#class-Set-label-Methods+for+Converting">Converting</a></p>
+</li><li>
+<p><a href="#class-Set-label-Methods+for+Iterating">Iterating</a></p>
+</li><li>
+<p><a href="#class-Set-label-Other+Methods">And more.…</a></p>
+</li></ul>
+
+<h3 id="class-Set-label-Methods+for+Creating+a+Set">Methods for Creating a Set<span><a href="#class-Set-label-Methods+for+Creating+a+Set">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Set.html#method-c-5B-5D"><code>::[]</code></a>: Returns a new set containing the given objects.</p>
+</li><li>
+<p><a href="Set.html#method-c-new"><code>::new</code></a>: Returns a new set containing either the given objects (if no block given) or the return values from the called block (if a block given).</p>
+</li></ul>
+
+<h3 id="class-Set-label-Methods+for+Set+Operations">Methods for Set Operations<span><a href="#class-Set-label-Methods+for+Set+Operations">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="#method-i-7C">|</a> (aliased as <a href="Set.html#method-i-union"><code>union</code></a> and <a href="Set.html#method-i-2B"><code>+</code></a>): Returns a new set containing all elements from <code>self</code> and all elements from a given enumerable (no duplicates).</p>
+</li><li>
+<p><a href="#method-i-26">&amp;</a> (aliased as <a href="Set.html#method-i-intersection"><code>intersection</code></a>): Returns a new set containing all elements common to <code>self</code> and a given enumerable.</p>
+</li><li>
+<p><a href="#method-i-2D">-</a> (aliased as <a href="Set.html#method-i-difference"><code>difference</code></a>): Returns a copy of <code>self</code> with all elements in a given enumerable removed.</p>
+</li><li>
+<p><a href="#method-i-5E">^</a>: Returns a new set containing all elements from <code>self</code> and a given enumerable except those common to both.</p>
+</li></ul>
+
+<h3 id="class-Set-label-Methods+for+Comparing">Methods for Comparing<span><a href="#class-Set-label-Methods+for+Comparing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="#method-i-3C-3D-3E">&lt;=&gt;</a>: Returns -1, 0, or 1 as <code>self</code> is less than, equal to, or greater than a given object.</p>
+</li><li>
+<p><a href="#method-i-3D-3D">==</a>: Returns whether <code>self</code> and a given enumerable are equal, as determined by <a href="Object.html#method-i-eql-3F"><code>Object#eql?</code></a>.</p>
+</li><li>
+<p><a href="Set.html#method-i-compare_by_identity-3F"><code>compare_by_identity?</code></a>: Returns whether the set considers only identity when comparing elements.</p>
+</li></ul>
+
+<h3 id="class-Set-label-Methods+for+Querying">Methods for Querying<span><a href="#class-Set-label-Methods+for+Querying">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Set.html#method-i-length"><code>length</code></a> (aliased as <a href="Set.html#method-i-size"><code>size</code></a>): Returns the count of elements.</p>
+</li><li>
+<p><a href="Set.html#method-i-empty-3F"><code>empty?</code></a>: Returns whether the set has no elements.</p>
+</li><li>
+<p><a href="Set.html#method-i-include-3F"><code>include?</code></a> (aliased as <a href="Set.html#method-i-member-3F"><code>member?</code></a> and <a href="Set.html#method-i-3D-3D-3D"><code>===</code></a>): Returns whether a given object is an element in the set.</p>
+</li><li>
+<p><a href="Set.html#method-i-subset-3F"><code>subset?</code></a> (aliased as <a href="#method-i-3C-3D">&lt;=</a>): Returns whether a given object is a subset of the set.</p>
+</li><li>
+<p><a href="Set.html#method-i-proper_subset-3F"><code>proper_subset?</code></a> (aliased as <a href="#method-i-3C">&lt;</a>): Returns whether a given enumerable is a proper subset of the set.</p>
+</li><li>
+<p><a href="Set.html#method-i-superset-3F"><code>superset?</code></a> (aliased as <a href="#method-i-3E-3D">&gt;=</a>]): Returns whether a given enumerable is a superset of the set.</p>
+</li><li>
+<p><a href="Set.html#method-i-proper_superset-3F"><code>proper_superset?</code></a> (aliased as <a href="#method-i-3E">&gt;</a>): Returns whether a given enumerable is a proper superset of the set.</p>
+</li><li>
+<p><a href="Set.html#method-i-disjoint-3F"><code>disjoint?</code></a>: Returns <code>true</code> if the set and a given enumerable have no common elements, <code>false</code> otherwise.</p>
+</li><li>
+<p><a href="Set.html#method-i-intersect-3F"><code>intersect?</code></a>: Returns <code>true</code> if the set and a given enumerable: have any common elements, <code>false</code> otherwise.</p>
+</li><li>
+<p><a href="Set.html#method-i-compare_by_identity-3F"><code>compare_by_identity?</code></a>: Returns whether the set considers only identity when comparing elements.</p>
+</li></ul>
+
+<h3 id="class-Set-label-Methods+for+Assigning">Methods for Assigning<span><a href="#class-Set-label-Methods+for+Assigning">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Set.html#method-i-add"><code>add</code></a> (aliased as <a href="Set.html#method-i-3C-3C"><code>&lt;&lt;</code></a>): Adds a given object to the set; returns <code>self</code>.</p>
+</li><li>
+<p><a href="Set.html#method-i-add-3F"><code>add?</code></a>: If the given object is not an element in the set, adds it and returns <code>self</code>; otherwise, returns <code>nil</code>.</p>
+</li><li>
+<p><a href="Set.html#method-i-merge"><code>merge</code></a>: Merges the elements of each given enumerable object to the set; returns <code>self</code>.</p>
+</li><li>
+<p><a href="Set.html#method-i-replace"><code>replace</code></a>: Replaces the contents of the set with the contents of a given enumerable.</p>
+</li></ul>
+
+<h3 id="class-Set-label-Methods+for+Deleting">Methods for Deleting<span><a href="#class-Set-label-Methods+for+Deleting">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Set.html#method-i-clear"><code>clear</code></a>: Removes all elements in the set; returns <code>self</code>.</p>
+</li><li>
+<p><a href="Set.html#method-i-delete"><code>delete</code></a>: Removes a given object from the set; returns <code>self</code>.</p>
+</li><li>
+<p><a href="Set.html#method-i-delete-3F"><code>delete?</code></a>: If the given object is an element in the set, removes it and returns <code>self</code>; otherwise, returns <code>nil</code>.</p>
+</li><li>
+<p><a href="Set.html#method-i-subtract"><code>subtract</code></a>: Removes each given object from the set; returns <code>self</code>.</p>
+</li><li>
+<p><a href="Set.html#method-i-delete_if"><code>delete_if</code></a> - Removes elements specified by a given block.</p>
+</li><li>
+<p><a href="Set.html#method-i-select-21"><code>select!</code></a> (aliased as <a href="Set.html#method-i-filter-21"><code>filter!</code></a>): Removes elements not specified by a given block.</p>
+</li><li>
+<p><a href="Set.html#method-i-keep_if"><code>keep_if</code></a>: Removes elements not specified by a given block.</p>
+</li><li>
+<p><a href="Set.html#method-i-reject-21"><code>reject!</code></a> Removes elements specified by a given block.</p>
+</li></ul>
+
+<h3 id="class-Set-label-Methods+for+Converting">Methods for Converting<span><a href="#class-Set-label-Methods+for+Converting">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Set.html#method-i-classify"><code>classify</code></a>: Returns a hash that classifies the elements, as determined by the given block.</p>
+</li><li>
+<p><a href="Set.html#method-i-collect-21"><code>collect!</code></a> (aliased as <a href="Set.html#method-i-map-21"><code>map!</code></a>): Replaces each element with a block return-value.</p>
+</li><li>
+<p><a href="Set.html#method-i-divide"><code>divide</code></a>: Returns a hash that classifies the elements, as determined by the given block; differs from <a href="Set.html#method-i-classify"><code>classify</code></a> in that the block may accept either one or two arguments.</p>
+</li><li>
+<p><a href="Set.html#method-i-flatten"><code>flatten</code></a>: Returns a new set that is a recursive flattening of <code>self</code>. <a href="Set.html#method-i-flatten-21"><code>flatten!</code></a>: Replaces each nested set in <code>self</code> with the elements from that set.</p>
+</li><li>
+<p><a href="Set.html#method-i-inspect"><code>inspect</code></a> (aliased as <a href="Set.html#method-i-to_s"><code>to_s</code></a>): Returns a string displaying the elements.</p>
+</li><li>
+<p><a href="Set.html#method-i-join"><code>join</code></a>: Returns a string containing all elements, converted to strings as needed, and joined by the given record separator.</p>
+</li><li>
+<p><a href="Set.html#method-i-to_a"><code>to_a</code></a>: Returns an array containing all set elements.</p>
+</li><li>
+<p><a href="Set.html#method-i-to_set"><code>to_set</code></a>: Returns <code>self</code> if given no arguments and no block; with a block given, returns a new set consisting of block return values.</p>
+</li></ul>
+
+<h3 id="class-Set-label-Methods+for+Iterating">Methods for Iterating<span><a href="#class-Set-label-Methods+for+Iterating">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Set.html#method-i-each"><code>each</code></a>: Calls the block with each successive element; returns <code>self</code>.</p>
+</li></ul>
+
+<h3 id="class-Set-label-Other+Methods">Other Methods<span><a href="#class-Set-label-Other+Methods">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Set.html#method-i-reset"><code>reset</code></a>: Resets the internal state; useful if an object has been modified while an element in the set.</p>
+</li></ul>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="VERSION">VERSION
+        <dd>
+          
+      </dl>
+    </section>
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-5B-5D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-5B-5D" title="Link to this method">
+                <span class="method-name">[]</span>
+                <span class="method-args">(*ary)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">ary</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">ary</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Creates a new set containing the given objects.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>]                   <span class="ruby-comment"># =&gt; #&lt;Set: {1, 2}&gt;</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>]                <span class="ruby-comment"># =&gt; #&lt;Set: {1, 2}&gt;</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-value">:s</span>]             <span class="ruby-comment"># =&gt; #&lt;Set: {1, &quot;c&quot;, :s}&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-json_create" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-json_create" title="Link to this method">
+                <span class="method-name">json_create</span>
+                <span class="method-args">(object)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="json_create-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/add/set.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">json_create</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-identifier">new</span> <span class="ruby-identifier">object</span>[<span class="ruby-string">&#39;a&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>See <a href="Set.html#method-i-as_json"><code>as_json</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(enum = nil) { |o| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 243</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">enum</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-comment"># :yields: o</span>
+  <span class="ruby-ivar">@hash</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>)
+
+  <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+    <span class="ruby-identifier">do_with_enum</span>(<span class="ruby-identifier">enum</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">block</span>[<span class="ruby-identifier">o</span>]) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">enum</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Creates a new set containing the elements of the given enumerable object.</p>
+
+<p>If a block is given, the elements of enum are preprocessed by the given block.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">1</span>, <span class="ruby-value">2</span>])                       <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2}&gt;</span>
+<span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>])                    <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2}&gt;</span>
+<span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">1</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-value">:s</span>])                 <span class="ruby-comment">#=&gt; #&lt;Set: {1, &quot;c&quot;, :s}&gt;</span>
+<span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>)                         <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2, 3, 4, 5}&gt;</span>
+<span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">x</span> }      <span class="ruby-comment">#=&gt; #&lt;Set: {1, 4, 9}&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-26" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-26" title="Link to this method">
+                <span class="method-name">&amp;</span>
+                <span class="method-args">(enum)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="26-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 643</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&amp;</span>(<span class="ruby-identifier">enum</span>)
+  <span class="ruby-identifier">n</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Set</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">size</span>
+      <span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">o</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">o</span>) }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">o</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">include?</span>(<span class="ruby-identifier">o</span>) }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">do_with_enum</span>(<span class="ruby-identifier">enum</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">o</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">include?</span>(<span class="ruby-identifier">o</span>) }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new set containing elements common to the set and the given enumerable object.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">5</span>] <span class="ruby-operator">&amp;</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">3</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>]             <span class="ruby-comment">#=&gt; #&lt;Set: {3, 1}&gt;</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;z&#39;</span>] <span class="ruby-operator">&amp;</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>]    <span class="ruby-comment">#=&gt; #&lt;Set: {&quot;a&quot;, &quot;b&quot;}&gt;</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-intersection">intersection</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-2B" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-2B" title="Link to this method">
+                <span class="method-name">+</span>
+                <span class="method-args">(enum)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-7C">|</a>
+        </div>
+      </div>
+
+      <div id="method-i-2D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-2D" title="Link to this method">
+                <span class="method-name">-</span>
+                <span class="method-args">(enum)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="2D-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 633</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">-</span>(<span class="ruby-identifier">enum</span>)
+  <span class="ruby-identifier">dup</span>.<span class="ruby-identifier">subtract</span>(<span class="ruby-identifier">enum</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new set built by duplicating the set, removing every element that appears in the given enumerable object.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">5</span>] <span class="ruby-operator">-</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">5</span>]                <span class="ruby-comment">#=&gt; #&lt;Set: {3}&gt;</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;z&#39;</span>] <span class="ruby-operator">-</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>]         <span class="ruby-comment">#=&gt; #&lt;Set: {&quot;b&quot;, &quot;z&quot;}&gt;</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-difference">difference</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-3C" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3C" title="Link to this method">
+                <span class="method-name">&lt;</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-proper_subset-3F">proper_subset?</a>
+        </div>
+      </div>
+
+      <div id="method-i-3C-3C" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3C-3C" title="Link to this method">
+                <span class="method-name">&lt;&lt;</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-add">add</a>
+        </div>
+      </div>
+
+      <div id="method-i-3C-3D" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3C-3D" title="Link to this method">
+                <span class="method-name">&lt;=</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-subset-3F">subset?</a>
+        </div>
+      </div>
+
+      <div id="method-i-3C-3D-3E" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3C-3D-3E" title="Link to this method">
+                <span class="method-name">&lt;=&gt;</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3C-3D-3E-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 456</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Set</span>)
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">-1</span> <span class="ruby-keyword">then</span> <span class="ruby-value">-1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">proper_subset?</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">+1</span> <span class="ruby-keyword">then</span> <span class="ruby-value">+1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">proper_superset?</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">else</span> <span class="ruby-value">0</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">==</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns 0 if the set are equal, -1 / +1 if the set is a proper subset / superset of the given set, or nil if they both have unique elements.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3D-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3D-3D" title="Link to this method">
+                <span class="method-name">==</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 677</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">equal?</span>(<span class="ruby-identifier">other</span>)
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>)
+    <span class="ruby-ivar">@hash</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@hash</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Set</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">other</span>.<span class="ruby-identifier">all?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">o</span>) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if two sets are equal. The equality of each couple of elements is defined according to <a href="Object.html#method-i-eql-3F"><code>Object#eql?</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>] <span class="ruby-operator">==</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">2</span>, <span class="ruby-value">1</span>]                       <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">5</span>] <span class="ruby-operator">==</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">5</span>]                    <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-constant">Set</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>]     <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>]        <span class="ruby-comment">#=&gt; false</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3D-3D-3D" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3D-3D-3D" title="Link to this method">
+                <span class="method-name">===</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>Returns true if the given object is a member of the set, and false otherwise.</p>
+
+<p>Used in case statements:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;set&#39;</span>
+
+<span class="ruby-keyword">case</span> <span class="ruby-value">:apple</span>
+<span class="ruby-keyword">when</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">:potato</span>, <span class="ruby-value">:carrot</span>]
+  <span class="ruby-string">&quot;vegetable&quot;</span>
+<span class="ruby-keyword">when</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">:apple</span>, <span class="ruby-value">:banana</span>]
+  <span class="ruby-string">&quot;fruit&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment"># =&gt; &quot;fruit&quot;</span>
+</pre>
+
+<p>Or by itself:</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>] <span class="ruby-operator">===</span> <span class="ruby-value">2</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>] <span class="ruby-operator">===</span> <span class="ruby-value">4</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-include-3F">include?</a>
+        </div>
+      </div>
+
+      <div id="method-i-3E" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3E" title="Link to this method">
+                <span class="method-name">&gt;</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-proper_superset-3F">proper_superset?</a>
+        </div>
+      </div>
+
+      <div id="method-i-3E-3D" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3E-3D" title="Link to this method">
+                <span class="method-name">&gt;=</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-superset-3F">superset?</a>
+        </div>
+      </div>
+
+      <div id="method-i-5E" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-5E" title="Link to this method">
+                <span class="method-name">^</span>
+                <span class="method-args">(enum)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5E-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 664</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">^</span>(<span class="ruby-identifier">enum</span>)
+  <span class="ruby-identifier">n</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">enum</span>)
+  <span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">o</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">delete?</span>(<span class="ruby-identifier">o</span>) }
+  <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new set containing elements exclusive between the set and the given enumerable object. <code>(set ^ enum)</code> is equivalent to <code>((set | enum) - (set &amp; enum))</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>] <span class="ruby-operator">^</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">2</span>, <span class="ruby-value">3</span>]                   <span class="ruby-comment">#=&gt; #&lt;Set: {3, 1}&gt;</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>] <span class="ruby-operator">^</span> [<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;d&#39;</span>]           <span class="ruby-comment">#=&gt; #&lt;Set: {&quot;d&quot;, 1, &quot;c&quot;}&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-7C" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-7C" title="Link to this method">
+                <span class="method-name">|</span>
+                <span class="method-args">(enum)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="7C-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 622</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">|</span>(<span class="ruby-identifier">enum</span>)
+  <span class="ruby-identifier">dup</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">enum</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new set built by merging the set and the elements of the given enumerable object.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>] <span class="ruby-operator">|</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">2</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>]         <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2, 3, 4, 5}&gt;</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">5</span>, <span class="ruby-string">&#39;z&#39;</span>] <span class="ruby-operator">|</span> (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">6</span>)             <span class="ruby-comment">#=&gt; #&lt;Set: {1, 5, &quot;z&quot;, 2, 3, 4, 6}&gt;</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-2B">+</a>, <a href="Set.html#method-i-union">union</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-add" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-add" title="Link to this method">
+                <span class="method-name">add</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="add-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 514</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-ivar">@hash</span>[<span class="ruby-identifier">o</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Adds the given object to the set and returns self. Use <code>merge</code> to add many elements at once.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">add</span>(<span class="ruby-value">3</span>)                    <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2, 3}&gt;</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">add</span>([<span class="ruby-value">3</span>, <span class="ruby-value">4</span>])               <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2, [3, 4]}&gt;</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">add</span>(<span class="ruby-value">2</span>)                    <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2}&gt;</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-3C-3C">&lt;&lt;</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-add-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-add-3F" title="Link to this method">
+                <span class="method-name">add?</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="add-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 526</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add?</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-identifier">o</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">include?</span>(<span class="ruby-identifier">o</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Adds the given object to the set and returns self. If the object is already in the set, returns nil.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">add?</span>(<span class="ruby-value">3</span>)                    <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2, 3}&gt;</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">add?</span>([<span class="ruby-value">3</span>, <span class="ruby-value">4</span>])               <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2, [3, 4]}&gt;</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">add?</span>(<span class="ruby-value">2</span>)                    <span class="ruby-comment">#=&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-as_json" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-as_json" title="Link to this method">
+                <span class="method-name">as_json</span>
+                <span class="method-args">(*)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="as_json-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/add/set.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-operator">*</span>)
+  {
+    <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">create_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>,
+    <span class="ruby-string">&#39;a&#39;</span>            <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">to_a</span>,
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Methods <a href="Set.html#method-i-as_json"><code>Set#as_json</code></a> and <a href="Set.html#method-c-json_create"><code>Set.json_create</code></a> may be used to serialize and deserialize a Set object; see <a href="Marshal.html"><code>Marshal</code></a>.</p>
+
+<p>Method <a href="Set.html#method-i-as_json"><code>Set#as_json</code></a> serializes <code>self</code>, returning a 2-element hash representing <code>self</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;json/add/set&#39;</span>
+<span class="ruby-identifier">x</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">%w/foo bar baz/</span>).<span class="ruby-identifier">as_json</span>
+<span class="ruby-comment"># =&gt; {&quot;json_class&quot;=&gt;&quot;Set&quot;, &quot;a&quot;=&gt;[&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;]}</span>
+</pre>
+
+<p>Method <code>JSON.create</code> deserializes such a hash, returning a Set object:</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>.<span class="ruby-identifier">json_create</span>(<span class="ruby-identifier">x</span>) <span class="ruby-comment"># =&gt; #&lt;Set: {&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;}&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-classify" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-classify" title="Link to this method">
+                <span class="method-name">classify</span>
+                <span class="method-args">() { |o| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="classify-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 746</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">classify</span> <span class="ruby-comment"># :yields: o</span>
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-identifier">size</span> }
+
+  <span class="ruby-identifier">h</span> = {}
+
+  <span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    (<span class="ruby-identifier">h</span>[<span class="ruby-keyword">yield</span>(<span class="ruby-identifier">i</span>)] <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>).<span class="ruby-identifier">add</span>(<span class="ruby-identifier">i</span>)
+  }
+
+  <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Classifies the set by the return value of the given block and returns a hash of {value =&gt; set of elements} pairs. The block is called once for each element of the set, passing the element as parameter.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;set&#39;</span>
+<span class="ruby-identifier">files</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-string">&quot;*.rb&quot;</span>))
+<span class="ruby-identifier">hash</span> = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">classify</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">f</span>).<span class="ruby-identifier">year</span> }
+<span class="ruby-identifier">hash</span>       <span class="ruby-comment">#=&gt; {2000=&gt;#&lt;Set: {&quot;a.rb&quot;, &quot;b.rb&quot;}&gt;,</span>
+           <span class="ruby-comment">#    2001=&gt;#&lt;Set: {&quot;c.rb&quot;, &quot;d.rb&quot;, &quot;e.rb&quot;}&gt;,</span>
+           <span class="ruby-comment">#    2002=&gt;#&lt;Set: {&quot;f.rb&quot;}&gt;}</span>
+</pre>
+
+<p>Returns an enumerator if no block is given.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-clear" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-clear" title="Link to this method">
+                <span class="method-name">clear</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear</span>
+  <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Removes all elements and returns self.</p>
+
+<pre class="ruby"><span class="ruby-identifier">set</span> = <span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-value">:s</span>]             <span class="ruby-comment">#=&gt; #&lt;Set: {1, &quot;c&quot;, :s}&gt;</span>
+<span class="ruby-identifier">set</span>.<span class="ruby-identifier">clear</span>                         <span class="ruby-comment">#=&gt; #&lt;Set: {}&gt;</span>
+<span class="ruby-identifier">set</span>                               <span class="ruby-comment">#=&gt; #&lt;Set: {}&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-collect-21" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-collect-21" title="Link to this method">
+                <span class="method-name">collect!</span>
+                <span class="method-args">() { |o| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="collect-21-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 567</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">collect!</span>
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-identifier">size</span> }
+  <span class="ruby-identifier">set</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">set</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">o</span>) }
+  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">set</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Replaces the elements with ones returned by <code>collect()</code>. Returns an enumerator if no block is given.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-map-21">map!</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-compare_by_identity" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-compare_by_identity" title="Link to this method">
+                <span class="method-name">compare_by_identity</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="compare_by_identity-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">compare_by_identity</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:compare_by_identity</span>)
+    <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">compare_by_identity</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-node">&quot;#{self.class.name}\##{__method__} is not implemented&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Makes the set compare its elements by their identity and returns self. This method may not be supported by all subclasses of Set.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-compare_by_identity-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-compare_by_identity-3F" title="Link to this method">
+                <span class="method-name">compare_by_identity?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="compare_by_identity-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">compare_by_identity?</span>
+  <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:compare_by_identity?</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">compare_by_identity?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the set will compare its elements by their identity. Also see <a href="Set.html#method-i-compare_by_identity"><code>Set#compare_by_identity</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-delete" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-delete" title="Link to this method">
+                <span class="method-name">delete</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 532</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Deletes the given object from the set and returns self. Use <code>subtract</code> to delete many items at once.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-delete-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-delete-3F" title="Link to this method">
+                <span class="method-name">delete?</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="delete-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 539</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete?</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">o</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">include?</span>(<span class="ruby-identifier">o</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Deletes the given object from the set and returns self. If the object is not in the set, returns nil.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-delete_if" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-delete_if" title="Link to this method">
+                <span class="method-name">delete_if</span>
+                <span class="method-args">(&amp;block)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="delete_if-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 546</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete_if</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-identifier">size</span> }
+  <span class="ruby-comment"># Instead of directly using @hash.delete_if, perform enumeration</span>
+  <span class="ruby-comment"># using self.each that subclasses may override.</span>
+  <span class="ruby-identifier">select</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">o</span>) }
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Deletes every element of the set for which block evaluates to true, and returns self. Returns an enumerator if no block is given.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-difference" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-difference" title="Link to this method">
+                <span class="method-name">difference</span>
+                <span class="method-args">(enum)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-2D">-</a>
+        </div>
+      </div>
+
+      <div id="method-i-disjoint-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-disjoint-3F" title="Link to this method">
+                <span class="method-name">disjoint?</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="disjoint-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 495</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">disjoint?</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-operator">!</span><span class="ruby-identifier">intersect?</span>(<span class="ruby-identifier">set</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the set and the given enumerable have no element in common. This method is the opposite of <code>intersect?</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">disjoint?</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]   <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">disjoint?</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">4</span>, <span class="ruby-value">5</span>]   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">disjoint?</span> [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]      <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">disjoint?</span> <span class="ruby-value">4</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>        <span class="ruby-comment">#=&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-divide" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-divide" title="Link to this method">
+                <span class="method-name">divide</span>
+                <span class="method-args">(&amp;func)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="divide-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 774</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">divide</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">func</span>)
+  <span class="ruby-identifier">func</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-identifier">size</span> }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">func</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;tsort&#39;</span>
+
+    <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">dig</span> = {}         <span class="ruby-comment"># :nodoc:</span>
+      <span class="ruby-identifier">include</span> <span class="ruby-constant">TSort</span>
+
+      <span class="ruby-keyword">alias</span> <span class="ruby-identifier">tsort_each_node</span> <span class="ruby-identifier">each_key</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tsort_each_child</span>(<span class="ruby-identifier">node</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">node</span>).<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">dig</span>[<span class="ruby-identifier">u</span>] = <span class="ruby-identifier">a</span> = []
+      <span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">func</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">u</span>, <span class="ruby-identifier">v</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span> }
+    }
+
+    <span class="ruby-identifier">set</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-identifier">dig</span>.<span class="ruby-identifier">each_strongly_connected_component</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">css</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">set</span>.<span class="ruby-identifier">add</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">css</span>))
+    }
+    <span class="ruby-identifier">set</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">classify</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">func</span>).<span class="ruby-identifier">values</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Divides the set into a set of subsets according to the commonality defined by the given block.</p>
+
+<p>If the arity of the block is 2, elements o1 and o2 are in common if block.call(o1, o2) is true. Otherwise, elements o1 and o2 are in common if block.call(o1) == block.call(o2).</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;set&#39;</span>
+<span class="ruby-identifier">numbers</span> = <span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">6</span>, <span class="ruby-value">9</span>, <span class="ruby-value">10</span>, <span class="ruby-value">11</span>]
+<span class="ruby-identifier">set</span> = <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">divide</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span>,<span class="ruby-identifier">j</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">j</span>).<span class="ruby-identifier">abs</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> }
+<span class="ruby-identifier">set</span>        <span class="ruby-comment">#=&gt; #&lt;Set: {#&lt;Set: {1}&gt;,</span>
+           <span class="ruby-comment">#           #&lt;Set: {11, 9, 10}&gt;,</span>
+           <span class="ruby-comment">#           #&lt;Set: {3, 4}&gt;,</span>
+           <span class="ruby-comment">#           #&lt;Set: {6}&gt;}&gt;</span>
+</pre>
+
+<p>Returns an enumerator if no block is given.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-each" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-each" title="Link to this method">
+                <span class="method-name">each</span>
+                <span class="method-args">(&amp;block)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="each-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 502</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-identifier">size</span> }
+  <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">each_key</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Calls the given block once for each element in the set, passing the element as parameter. Returns an enumerator if no block is given.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-empty-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-empty-3F" title="Link to this method">
+                <span class="method-name">empty?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="empty-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 307</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">empty?</span>
+  <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the set contains no elements.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-filter-21" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-filter-21" title="Link to this method">
+                <span class="method-name">filter!</span>
+                <span class="method-args">(&amp;block)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>Equivalent to <a href="Set.html#method-i-select-21"><code>Set#select!</code></a></p>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-select-21">select!</a>
+        </div>
+      </div>
+
+      <div id="method-i-flatten" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-flatten" title="Link to this method">
+                <span class="method-name">flatten</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="flatten-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 380</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">flatten</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">flatten_merge</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new set that is a copy of the set, flattening each containing set recursively.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-flatten-21" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-flatten-21" title="Link to this method">
+                <span class="method-name">flatten!</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="flatten-21-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 386</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">flatten!</span>
+  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">flatten</span>()) <span class="ruby-keyword">if</span> <span class="ruby-identifier">any?</span>(<span class="ruby-constant">Set</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Equivalent to <a href="Set.html#method-i-flatten"><code>Set#flatten</code></a>, but replaces the receiver with the result in place. Returns nil if no modifications were made.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-include-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-include-3F" title="Link to this method">
+                <span class="method-name">include?</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="include-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 396</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">include?</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-ivar">@hash</span>[<span class="ruby-identifier">o</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the set contains the given object.</p>
+
+<p>Note that <code>include?</code> and <code>member?</code> do not test member equality using <code>==</code> as do other Enumerables.</p>
+
+<p>See also <a href="Enumerable.html#method-i-include-3F"><code>Enumerable#include?</code></a></p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-member-3F">member?</a>, <a href="Set.html#method-i-3D-3D-3D">===</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-initialize_clone" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-initialize_clone" title="Link to this method">
+                <span class="method-name">initialize_clone</span>
+                <span class="method-args">(orig, **options)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="initialize_clone-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize_clone</span>(<span class="ruby-identifier">orig</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@hash</span> = <span class="ruby-identifier">orig</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@hash</span>).<span class="ruby-identifier">clone</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Clone internal hash.</p>
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-initialize_dup" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-initialize_dup" title="Link to this method">
+                <span class="method-name">initialize_dup</span>
+                <span class="method-args">(orig)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="initialize_dup-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize_dup</span>(<span class="ruby-identifier">orig</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@hash</span> = <span class="ruby-identifier">orig</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@hash</span>).<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Dup internal hash.</p>
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-inspect" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-inspect" title="Link to this method">
+                <span class="method-name">inspect</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 814</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
+  <span class="ruby-identifier">ids</span> = (<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">InspectKey</span>] <span class="ruby-operator">||=</span> [])
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">object_id</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&#39;#&lt;%s: {...}&gt;&#39;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ids</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">object_id</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&#39;#&lt;%s: {%s}&gt;&#39;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">inspect</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>])
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string containing a human-readable representation of the set (“#&lt;Set: {element1, element2, …}&gt;”).</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-to_s">to_s</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-intersect-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-intersect-3F" title="Link to this method">
+                <span class="method-name">intersect?</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="intersect-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 473</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">intersect?</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">set</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Set</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">size</span>
+      <span class="ruby-identifier">any?</span>(<span class="ruby-identifier">set</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">set</span>.<span class="ruby-identifier">any?</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Enumerable</span>
+    <span class="ruby-identifier">set</span>.<span class="ruby-identifier">any?</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;value must be enumerable&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the set and the given enumerable have at least one element in common.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">intersect?</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">4</span>, <span class="ruby-value">5</span>]   <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">intersect?</span> <span class="ruby-constant">Set</span>[<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">intersect?</span> <span class="ruby-value">4</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>        <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">intersect?</span> [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]      <span class="ruby-comment">#=&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-intersection" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-intersection" title="Link to this method">
+                <span class="method-name">intersection</span>
+                <span class="method-args">(enum)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-26">&amp;</a>
+        </div>
+      </div>
+
+      <div id="method-i-join" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-join" title="Link to this method">
+                <span class="method-name">join</span>
+                <span class="method-args">(separator=nil)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="join-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 806</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">join</span>(<span class="ruby-identifier">separator</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">separator</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a string created by converting each element of the set to a string See also: <a href="Array.html#method-i-join"><code>Array#join</code></a></p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-keep_if" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-keep_if" title="Link to this method">
+                <span class="method-name">keep_if</span>
+                <span class="method-args">(&amp;block)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="keep_if-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 557</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">keep_if</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-identifier">size</span> }
+  <span class="ruby-comment"># Instead of directly using @hash.keep_if, perform enumeration</span>
+  <span class="ruby-comment"># using self.each that subclasses may override.</span>
+  <span class="ruby-identifier">reject</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">o</span>) }
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Deletes every element of the set for which block evaluates to false, and returns self. Returns an enumerator if no block is given.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-length" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-length" title="Link to this method">
+                <span class="method-name">length</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-size">size</a>
+        </div>
+      </div>
+
+      <div id="method-i-map-21" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-map-21" title="Link to this method">
+                <span class="method-name">map!</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-collect-21">collect!</a>
+        </div>
+      </div>
+
+      <div id="method-i-member-3F" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-member-3F" title="Link to this method">
+                <span class="method-name">member?</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-include-3F">include?</a>
+        </div>
+      </div>
+
+      <div id="method-i-merge" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-merge" title="Link to this method">
+                <span class="method-name">merge</span>
+                <span class="method-args">(*enums, **nil)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="merge-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 598</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">merge</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">enums</span>, <span class="ruby-operator">**</span><span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">enums</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">enum</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>)
+      <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">enum</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@hash</span>))
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">do_with_enum</span>(<span class="ruby-identifier">enum</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">o</span>) }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Merges the elements of the given enumerable objects to the set and returns self.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-proper_subset-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-proper_subset-3F" title="Link to this method">
+                <span class="method-name">proper_subset?</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="proper_subset-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 441</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">proper_subset?</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:&lt;</span>)
+    <span class="ruby-ivar">@hash</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@hash</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Set</span>)
+    <span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">all?</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;value must be a set&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the set is a proper subset of the given set.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-3C">&lt;</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-proper_superset-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-proper_superset-3F" title="Link to this method">
+                <span class="method-name">proper_superset?</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="proper_superset-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 415</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">proper_superset?</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:&gt;</span>)
+    <span class="ruby-ivar">@hash</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@hash</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Set</span>)
+    <span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">all?</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;value must be a set&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the set is a proper superset of the given set.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-3E">&gt;</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-reject-21" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-reject-21" title="Link to this method">
+                <span class="method-name">reject!</span>
+                <span class="method-args">(&amp;block)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="reject-21-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 577</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reject!</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-identifier">size</span> }
+  <span class="ruby-identifier">n</span> = <span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">delete_if</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Equivalent to <a href="Set.html#method-i-delete_if"><code>Set#delete_if</code></a>, but returns nil if no changes were made. Returns an enumerator if no block is given.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-replace" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-replace" title="Link to this method">
+                <span class="method-name">replace</span>
+                <span class="method-args">(enum)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="replace-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 327</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replace</span>(<span class="ruby-identifier">enum</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>)
+    <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">enum</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@hash</span>))
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">do_with_enum</span>(<span class="ruby-identifier">enum</span>)  <span class="ruby-comment"># make sure enum is enumerable before calling clear</span>
+    <span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">enum</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Replaces the contents of the set with the contents of the given enumerable object and returns self.</p>
+
+<pre class="ruby"><span class="ruby-identifier">set</span> = <span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-value">:s</span>]             <span class="ruby-comment">#=&gt; #&lt;Set: {1, &quot;c&quot;, :s}&gt;</span>
+<span class="ruby-identifier">set</span>.<span class="ruby-identifier">replace</span>([<span class="ruby-value">1</span>, <span class="ruby-value">2</span>])               <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2}&gt;</span>
+<span class="ruby-identifier">set</span>                               <span class="ruby-comment">#=&gt; #&lt;Set: {1, 2}&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-reset" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-reset" title="Link to this method">
+                <span class="method-name">reset</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="reset-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 702</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reset</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:rehash</span>)
+    <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">rehash</span> <span class="ruby-comment"># This should perform frozenness check.</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">FrozenError</span>, <span class="ruby-node">&quot;can&#39;t modify frozen #{self.class.name}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">frozen?</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Resets the internal state after modification to existing elements and returns self.</p>
+
+<p>Elements will be reindexed and deduplicated.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-select-21" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-select-21" title="Link to this method">
+                <span class="method-name">select!</span>
+                <span class="method-args">(&amp;block)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="select-21-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 586</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">select!</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-identifier">size</span> }
+  <span class="ruby-identifier">n</span> = <span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">keep_if</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Equivalent to <a href="Set.html#method-i-keep_if"><code>Set#keep_if</code></a>, but returns nil if no changes were made. Returns an enumerator if no block is given.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-filter-21">filter!</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-size" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-size" title="Link to this method">
+                <span class="method-name">size</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="size-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">size</span>
+  <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the number of elements.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-length">length</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-subset-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-subset-3F" title="Link to this method">
+                <span class="method-name">subset?</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="subset-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 428</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">subset?</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:&lt;=</span>)
+    <span class="ruby-ivar">@hash</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@hash</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Set</span>)
+    <span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">all?</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;value must be a set&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the set is a subset of the given set.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-3C-3D">&lt;=</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-subtract" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-subtract" title="Link to this method">
+                <span class="method-name">subtract</span>
+                <span class="method-args">(enum)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="subtract-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 612</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">subtract</span>(<span class="ruby-identifier">enum</span>)
+  <span class="ruby-identifier">do_with_enum</span>(<span class="ruby-identifier">enum</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">o</span>) }
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Deletes every element that appears in the given enumerable object and returns self.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-superset-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-superset-3F" title="Link to this method">
+                <span class="method-name">superset?</span>
+                <span class="method-args">(set)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="superset-3F-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 402</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">superset?</span>(<span class="ruby-identifier">set</span>)
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:&gt;=</span>)
+    <span class="ruby-ivar">@hash</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@hash</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Set</span>)
+    <span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">all?</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;value must be a set&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns true if the set is a superset of the given set.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Set.html#method-i-3E-3D">&gt;=</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-to_a" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_a" title="Link to this method">
+                <span class="method-name">to_a</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_a-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_a</span>
+  <span class="ruby-ivar">@hash</span>.<span class="ruby-identifier">keys</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns an array containing all elements in the set.</p>
+
+<pre class="ruby"><span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">to_a</span>                    <span class="ruby-comment">#=&gt; [1, 2]</span>
+<span class="ruby-constant">Set</span>[<span class="ruby-value">1</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-value">:s</span>].<span class="ruby-identifier">to_a</span>              <span class="ruby-comment">#=&gt; [1, &quot;c&quot;, :s]</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_json" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_json" title="Link to this method">
+                <span class="method-name">to_json</span>
+                <span class="method-args">(*args)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_json-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/add/set.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_json</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">as_json</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a <a href="JSON.html"><code>JSON</code></a> string representing <code>self</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;json/add/set&#39;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">%w/foo bar baz/</span>).<span class="ruby-identifier">to_json</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby">{<span class="ruby-value">&quot;json_class&quot;:</span><span class="ruby-string">&quot;Set&quot;</span>,<span class="ruby-value">&quot;a&quot;:</span>[<span class="ruby-string">&quot;foo&quot;</span>,<span class="ruby-string">&quot;bar&quot;</span>,<span class="ruby-string">&quot;baz&quot;</span>]}
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_s" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_s" title="Link to this method">
+                <span class="method-name">to_s</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-inspect">inspect</a>
+        </div>
+      </div>
+
+      <div id="method-i-to_set" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_set" title="Link to this method">
+                <span class="method-name">to_set</span>
+                <span class="method-args">(klass = Set, *args, &amp;block)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_set-source">
+            <pre><span class="ruby-comment"># File lib/set.rb, line 351</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_set</span>(<span class="ruby-identifier">klass</span> = <span class="ruby-constant">Set</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Set</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">klass</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Set</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns self if no arguments are given. Otherwise, converts the set to another with <code>klass.new(self, *args, &amp;block)</code>.</p>
+
+<p>In subclasses, returns <code>klass.new(self, *args, &amp;block)</code> unless overridden.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-union" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-union" title="Link to this method">
+                <span class="method-name">union</span>
+                <span class="method-args">(enum)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Set.html#method-i-7C">|</a>
+        </div>
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

@@ -1,0 +1,221 @@
+U:RDoc::NormalClass[iI"StringScanner:ET@I"Object;To:RDoc::Markup::Document:@parts[o;;[to:RDoc::Markup::Paragraph;[I"≤\Class <code>StringScanner</code> supports processing a stored string as a stream;
+this code creates a new <code>StringScanner</code> object with string <code>'foobarbaz'</code>:;To:RDoc::Markup::Verbatim;[I"@require 'strscan'
+scanner = StringScanner.new('foobarbaz')
+;T:@format:rbS:RDoc::Markup::Heading:
+leveli:	textI"About the Examples;To;	;[I"PAll examples here assume that <code>StringScanner</code> has been required:;To;
+;[I"require 'strscan'
+;T;;o;	;[I"@Some examples here assume that these constants are defined:;To;
+;[I"ÆMULTILINE_TEXT = <<~EOT
+Go placidly amid the noise and haste,
+and remember what peace there may be in silence.
+EOT
+
+HIRAGANA_TEXT = '„Åì„Çì„Å´„Å°„ÅØ'
+
+ENGLISH_TEXT = 'Hello'
+;T;;o;	;[I"GSome examples here assume that certain helper methods are defined:;To:RDoc::Markup::List:
+@type:BULLET:@items[o:RDoc::Markup::ListItem:@label0;[o;	;[I"<code>put_situation(scanner)</code>:
+ Displays the values of the scanner's
+ methods #pos, #charpos, #rest, and #rest_size.;To;;0;[o;	;[I"y<code>put_match_values(scanner)</code>:
+ Displays the scanner's {match values}[rdoc-ref:StringScanner@Match+Values].;To;;0;[o;	;[I"å<code>match_values_cleared?(scanner)</code>:
+ Returns whether the scanner's {match values}[rdoc-ref:StringScanner@Match+Values] are cleared.;To;	;[I"=See examples [here][ext/strscan/helper_methods_md.html].;TS;;i;I"+The <code>StringScanner</code> \Object;To;	;[I"ÅThis code creates a <code>StringScanner</code> object
+(we'll call it simply a _scanner_),
+and shows some of its basic properties:;To;
+;[I"ªscanner = StringScanner.new('foobarbaz')
+scanner.string # => "foobarbaz"
+put_situation(scanner)
+# Situation:
+#   pos:       0
+#   charpos:   0
+#   rest:      "foobarbaz"
+#   rest_size: 9
+;T;;o;	;[I"The scanner has:;To;;;;[o;;0;[o;	;[I"&A <i>stored string</i>, which is:;Fo;;;;[o;;0;[o;	;[I"}Initially set by StringScanner.new(string) to the given <code>string</code>
+ (<code>'foobarbaz'</code> in the example above).;Fo;;0;[o;	;[I"IModifiable by methods #string=(new_string) and #concat(more_string).;Fo;;0;[o;	;[I" Returned by method #string.;Fo;	;[I"IMore at {Stored String}[rdoc-ref:StringScanner@Stored+String] below.;Fo;;0;[o;	;[I"gA _position_;
+ a zero-based index into the bytes of the stored string (_not_ into its characters):;Fo;;;;[	o;;0;[o;	;[I":Initially set by StringScanner.new to <code>0</code>.;Fo;;0;[o;	;[I"Returned by method #pos.;Fo;;0;[o;	;[I"MModifiable explicitly by methods #reset, #terminate, and #pos=(new_pos).;Fo;;0;[o;	;[I"FModifiable implicitly (various traversing methods, among others).;Fo;	;[I"XMore at {Byte Position}[rdoc-ref:StringScanner@Byte+Position+-28Position-29] below.;Fo;;0;[	o;	;[I"ñA <i>target substring</i>,
+ which is a trailing substring of the stored string;
+ it extends from the current position to the end of the stored string:;Fo;;;;[o;;0;[o;	;[I"}Initially set by StringScanner.new(string) to the given <code>string</code>
+ (<code>'foobarbaz'</code> in the example above).;Fo;;0;[o;	;[I"Returned by method #rest.;Fo;;0;[o;	;[I"NModified by any modification to either the stored string or the position.;Fo;	;[I"û<b>Most importantly</b>:
+the searching and traversing methods operate on the target substring,
+which may be (and often is) less than the entire stored string.;Fo;	;[I"OMore at {Target Substring}[rdoc-ref:StringScanner@Target+Substring] below.;FS;;i;I"Stored \String;To;	;[I"\The <i>stored string</i> is the string stored in the <code>StringScanner</code> object.;To;	;[I"HEach of these methods sets, modifies, or returns the stored string:;To:RDoc::Markup::Table:@header[I"Method;TI"Effect;T:@align[00:
+@body[	[I"::new(string);TI"0Creates a new scanner for the given string.;T[I"#string=(new_string);TI")Replaces the existing stored string.;T[I"#concat(more_string);TI"4Appends a string to the existing stored string.;T[I"#string;TI"Returns the stored string.;TS;;i;I"Positions;To;	;[I"{A <code>StringScanner</code> object maintains a zero-based <i>byte position</i>
+and a zero-based <i>character position</i>.;To;	;[I"5Each of these methods explicitly sets positions:;To;;[I"Method;TI"Effect;T;[00;[[I"#reset;TI"=Sets both positions to zero (begining of stored string).;T[I"#terminate;TI"9Sets both positions to the end of the stored string.;T[I"#pos=(new_byte_position);TI"4Sets byte position; adjusts character position.;TS;;i;I"Byte Position (Position);To;	;[I"µThe byte position (or simply _position_)
+is a zero-based index into the bytes in the scanner's stored string;
+for a new <code>StringScanner</code> object, the byte position is zero.;To;	;[I"When the byte position is:;To;;;;[o;;0;[o;	;[I"OZero (at the beginning), the target substring is the entire stored string.;To;;0;[o;	;[I"tEqual to the size of the stored string (at the end),
+ the target substring is the empty string <code>''</code>.;To;	;[I"%To get or set the byte position:;To;;;;[o;;0;[o;	;[I"%#pos: returns the byte position.;To;;0;[o;	;[I",#pos=(new_pos): sets the byte position.;To;	;[I"ÄMany methods use the byte position as the basis for finding matches;
+many others set, increment, or decrement the byte position:;To;
+;[I"scanner = StringScanner.new('foobar')
+scanner.pos # => 0
+scanner.scan(/foo/) # => "foo" # Match found.
+scanner.pos         # => 3     # Byte position incremented.
+scanner.scan(/foo/) # => nil   # Match not found.
+scanner.pos # => 3             # Byte position not changed.
+;T;;o;	;[I";Some methods implicitly modify the byte position;
+see:;To;;;;[o;;0;[o;	;[I"Y{Setting the Target Substring}[rdoc-ref:StringScanner@Setting+the+Target+Substring].;To;;0;[o;	;[I"_{Traversing the Target Substring}[rdoc-ref:StringScanner@Traversing+the+Target+Substring].;To;	;[I"ZThe values of these methods are derived directly from the values of #pos and #string:;To;;;;[o;;0;[o;	;[I"S#charpos: the {character position}[rdoc-ref:StringScanner@Character+Position].;To;;0;[o;	;[I"L#rest: the {target substring}[rdoc-ref:StringScanner@Target+Substring].;To;;0;[o;	;[I"(#rest_size: <code>rest.size</code>.;TS;;i;I"Character Position;To;	;[I"•The character position is a zero-based index into the _characters_
+in the stored string;
+for a new <code>StringScanner</code> object, the character position is zero.;To;	;[I"\\Method #charpos returns the character position;
+its value may not be reset explicitly.;To;	;[I"JSome methods change (increment or reset) the character position;
+see:;To;;;;[o;;0;[o;	;[I"Y{Setting the Target Substring}[rdoc-ref:StringScanner@Setting+the+Target+Substring].;To;;0;[o;	;[I"_{Traversing the Target Substring}[rdoc-ref:StringScanner@Traversing+the+Target+Substring].;To;	;[I"5Example (string includes multi-byte characters):;To;
+;[I"µscanner = StringScanner.new(ENGLISH_TEXT) # Five 1-byte characters.
+scanner.concat(HIRAGANA_TEXT)             # Five 3-byte characters
+scanner.string # => "Hello„Åì„Çì„Å´„Å°„ÅØ"       # Twenty bytes in all.
+put_situation(scanner)
+# Situation:
+#   pos:       0
+#   charpos:   0
+#   rest:      "Hello„Åì„Çì„Å´„Å°„ÅØ"
+#   rest_size: 20
+scanner.scan(/Hello/) # => "Hello" # Five 1-byte characters.
+put_situation(scanner)
+# Situation:
+#   pos:       5
+#   charpos:   5
+#   rest:      "„Åì„Çì„Å´„Å°„ÅØ"
+#   rest_size: 15
+scanner.getch         # => "„Åì"    # One 3-byte character.
+put_situation(scanner)
+# Situation:
+#   pos:       8
+#   charpos:   6
+#   rest:      "„Çì„Å´„Å°„ÅØ"
+#   rest_size: 12
+;T;;S;;i;I"Target Substring;To;	;[I"˙The target substring is the the part of the {stored string}[rdoc-ref:StringScanner@Stored+String]
+that extends from the current {byte position}[rdoc-ref:StringScanner@Byte+Position+-28Position-29] to the end of the stored string;
+it is always either:;To;;;;[o;;0;[o;	;[I"6The entire stored string (byte position is zero).;To;;0;[o;	;[I"HA trailing substring of the stored string (byte position positive).;To;	;[I"eThe target substring is returned by method #rest,
+and its size is returned by method #rest_size.;To;	;[I"Examples:;To;
+;[I"ìscanner = StringScanner.new('foobarbaz')
+put_situation(scanner)
+# Situation:
+#   pos:       0
+#   charpos:   0
+#   rest:      "foobarbaz"
+#   rest_size: 9
+scanner.pos = 3
+put_situation(scanner)
+# Situation:
+#   pos:       3
+#   charpos:   3
+#   rest:      "barbaz"
+#   rest_size: 6
+scanner.pos = 9
+put_situation(scanner)
+# Situation:
+#   pos:       9
+#   charpos:   9
+#   rest:      ""
+#   rest_size: 0
+;T;;S;;i;I"!Setting the Target Substring;To;	;[I"*The target substring is set whenever:;To;;;;[o;;0;[o;	;[I"ÅThe {stored string}[rdoc-ref:StringScanner@Stored+String] is set (position reset to zero; target substring set to stored string).;To;;0;[o;	;[I"}The {byte position}[rdoc-ref:StringScanner@Byte+Position+-28Position-29] is set (target substring adjusted accordingly).;TS;;i;I""Querying the Target Substring;To;	;[I"?This table summarizes (details and examples at the links):;To;;[I"Method;TI"Returns;T;[00;[[I"
+#rest;TI"Target substring.;T[I"#rest_size;TI"&Size (bytes) of target substring.;TS;;i;I"#Searching the Target Substring;To;	;[I"©A _search_ method examines the target substring,
+but does not advance the {positions}[rdoc-ref:StringScanner@Positions]
+or (by implication) shorten the target substring.;To;	;[I"?This table summarizes (details and examples at the links):;To;;[I"Method;TI"Returns;TI"Sets Match Values?;T;[000;[[I"#check(pattern);TI"(Matched leading substring or +nil+.;TI"	Yes.;T[I"#check_until(pattern);TI"+Matched substring (anywhere) or +nil+.;TI"	Yes.;T[I"#exist?(pattern);TI",Matched substring (anywhere) end index.;TI"	Yes.;T[I"#match?(pattern);TI"0Size of matched leading substring or +nil+.;TI"	Yes.;T[I"#peek(size);TI"/Leading substring of given length (bytes).;TI"No.;T[I"#peek_byte;TI"#Integer leading byte or +nil+.;TI"No.;T[I"
+#rest;TI"2Target substring (from byte position to end).;TI"No.;TS;;i;I"$Traversing the Target Substring;To;	;[I"LA _traversal_ method examines the target substring,
+and, if successful:;To;;;;[o;;0;[o;	;[I"@Advances the {positions}[rdoc-ref:StringScanner@Positions].;To;;0;[o;	;[I"#Shortens the target substring.;To;	;[I";This table summarizes (details and examples at links):;To;;[I"Method;TI"Returns;TI"Sets Match Values?;T;[000;[[I"#get_byte;TI"Leading byte or +nil+.;TI"No.;T[I"#getch;TI" Leading character or +nil+.;TI"No.;T[I"#scan(pattern);TI"(Matched leading substring or +nil+.;TI"	Yes.;T[I"#scan_byte;TI"#Integer leading byte or +nil+.;TI"No.;T[I"#scan_until(pattern);TI"+Matched substring (anywhere) or +nil+.;TI"	Yes.;T[I"#skip(pattern);TI"-Matched leading substring size or +nil+.;TI"	Yes.;T[I"#skip_until(pattern);TI"9Position delta to end-of-matched-substring or +nil+.;TI"	Yes.;T[I"#unscan;TI"+self+.;TI"No.;TS;;i;I"Querying the Scanner;To;	;[I"jEach of these methods queries the scanner object
+without modifying it (details and examples at links);To;;[I"Method;TI"Returns;T;[00;[[I"#beginning_of_line?;TI"+true+ or +false+.;T[I"#charpos;TI"Character position.;T[I"
+#eos?;TI"+true+ or +false+.;T[I"#fixed_anchor?;TI"+true+ or +false+.;T[I"#inspect;TI"%String representation of +self+.;T[I"	#pos;TI"Byte position.;T[I"
+#rest;TI"Target substring.;T[I"#rest_size;TI"Size of target substring.;T[I"#string;TI"Stored string.;TS;;i;I"Matching;To;	;[I"	<code>StringScanner</code> implements pattern matching via Ruby class {Regexp}[https://docs.ruby-lang.org/en/master/Regexp.html],
+and its matching behaviors are the same as Ruby's
+except for the {fixed-anchor property}[rdoc-ref:StringScanner@Fixed-Anchor+Property].;TS;;i;I"Matcher Methods;To;	;[I"∂Each <i>matcher method</i> takes a single argument <code>pattern</code>,
+and attempts to find a matching substring in the {target substring}[rdoc-ref:StringScanner@Target+Substring].;To;;[
+I"Method;TI"Pattern Type;TI"Matches Target Substring;TI"Success Return;TI"May Update Positions?;T;[
+00000;[[
+I"#check;TI"Regexp or String.;TI"At beginning.;TI"Matched substring.;TI"No.;T[
+I"#check_until;TI"Regexp or String.;TI"Anywhere.;TI"Substring.;TI"No.;T[
+I"#match?;TI"Regexp or String.;TI"At beginning.;TI"Match size.;TI"No.;T[
+I"#exist?;TI"Regexp or String.;TI"Anywhere.;TI"Substring size.;TI"No.;T[
+I"
+#scan;TI"Regexp or String.;TI"At beginning.;TI"Matched substring.;TI"	Yes.;T[
+I"#scan_until;TI"Regexp or String.;TI"Anywhere.;TI"Substring.;TI"	Yes.;T[
+I"
+#skip;TI"Regexp or String.;TI"At beginning.;TI"Match size.;TI"	Yes.;T[
+I"#skip_until;TI"Regexp or String.;TI"Anywhere.;TI"Substring size.;TI"	Yes.;To;	;[I"	<br>;To;	;[I"-Which matcher you choose will depend on:;To;;;;[o;;0;[o;	;[I"$Where you want to find a match:;Fo;;;;[o;;0;[o;	;[I"SOnly at the beginning of the target substring:
+ #check, #match?, #scan, #skip.;Fo;;0;[o;	;[I"XAnywhere in the target substring:
+ #check_until, #exist?, #scan_until, #skip_until.;Fo;;0;[o;	;[I"Whether you want to:;Fo;;;;[o;;0;[o;	;[I"STraverse, by advancing the positions:
+ #scan, #scan_until, #skip, #skip_until.;Fo;;0;[o;	;[I"KKeep the positions unchanged:
+ #check, #check_until, #match?, #exist?.;Fo;;0;[o;	;[I"(What you want for the return value:;Fo;;;;[	o;;0;[o;	;[I"*The matched substring: #check, #scan.;Fo;;0;[o;	;[I".The substring: #check_until, #scan_until.;Fo;;0;[o;	;[I"$The match size: #match?, #skip.;Fo;;0;[o;	;[I".The substring size: #exist?, #skip_until.;FS;;i;I"Match Values;To;	;[I"ÄThe <i>match values</i> in a <code>StringScanner</code> object
+generally contain the results of the most recent attempted match.;To;	;[I"+Each match value may be thought of as:;To;;;;[o;;0;[o;	;[I"_Clear_: Initially, or after an unsuccessful match attempt:
+ usually, <code>false</code>, <code>nil</code>, or <code>{}</code>.;To;;0;[o;	;[I"Y_Set_: After a successful match attempt:
+ <code>true</code>, string, array, or hash.;To;	;[I"/Each of these methods clears match values:;To;;;;[o;;0;[o;	;[I"::new(string).;To;;0;[o;	;[I"#reset.;To;;0;[o;	;[I"#terminate.;To;	;[I"ÄEach of these methods attempts a match based on a pattern,
+and either sets match values (if successful) or clears them (if not);;To;;;;[o;;0;[o;	;[I"#check(pattern);To;;0;[o;	;[I"#check_until(pattern);To;;0;[o;	;[I"#exist?(pattern);To;;0;[o;	;[I"#match?(pattern);To;;0;[o;	;[I"#scan(pattern);To;;0;[o;	;[I"#scan_until(pattern);To;;0;[o;	;[I"#skip(pattern);To;;0;[o;	;[I"#skip_until(pattern);TS;;i	;I"Basic Match Values;To;	;[I":Basic match values are those not related to captures.;To;	;[I"7Each of these methods returns a basic match value:;To;;[I"Method;TI"Return After Match;TI"Return After No Match;T;[000;[
+[I"#matched?;TI"+true+.;TI"+false+.;T[I"#matched_size;TI"Size of matched substring.;TI"+nil+.;T[I"#matched;TI"Matched substring.;TI"+nil+.;T[I"#pre_match;TI"+Substring preceding matched substring.;TI"+nil+.;T[I"#post_match;TI"+Substring following matched substring.;TI"+nil+.;To;	;[I"	<br>;To;	;[I"See examples below.;TS;;i	;I"Captured Match Values;To;	;[I"èCaptured match values are those related to {captures}[https://docs.ruby-lang.org/en/master/Regexp.html#class-Regexp-label-Groups+and+Captures].;To;	;[I":Each of these methods returns a captured match value:;To;;[I"Method;TI"Return After Match;TI"Return After No Match;T;[000;[
+[I"
+#size;TI""Count of captured substrings.;TI"+nil+.;T[I"#[](n);TI"%<tt>n</tt>th captured substring.;TI"+nil+.;T[I"#captures;TI"&Array of all captured substrings.;TI"+nil+.;T[I"#values_at(*n);TI",Array of specified captured substrings.;TI"+nil+.;T[I"#named_captures;TI"Hash of named captures.;TI"<tt>{}</tt>.;To;	;[I"	<br>;To;	;[I"See examples below.;TS;;i	;I"Match Values Examples;To;	;[I"2Successful basic match attempt (no captures):;To;
+;[I"§scanner = StringScanner.new('foobarbaz')
+scanner.exist?(/bar/)
+put_match_values(scanner)
+# Basic match values:
+#   matched?:       true
+#   matched_size:   3
+#   pre_match:      "foo"
+#   matched  :      "bar"
+#   post_match:     "baz"
+# Captured match values:
+#   size:           1
+#   captures:       []
+#   named_captures: {}
+#   values_at:      ["bar", nil]
+#   []:
+#     [0]:          "bar"
+#     [1]:          nil
+;T;;o;	;[I".Failed basic match attempt (no captures);;To;
+;[I"nscanner = StringScanner.new('foobarbaz')
+scanner.exist?(/nope/)
+match_values_cleared?(scanner) # => true
+;T;;o;	;[I".Successful unnamed capture match attempt:;To;
+;[I"Qscanner = StringScanner.new('foobarbazbatbam')
+scanner.exist?(/(foo)bar(baz)bat(bam)/)
+put_match_values(scanner)
+# Basic match values:
+#   matched?:       true
+#   matched_size:   15
+#   pre_match:      ""
+#   matched  :      "foobarbazbatbam"
+#   post_match:     ""
+# Captured match values:
+#   size:           4
+#   captures:       ["foo", "baz", "bam"]
+#   named_captures: {}
+#   values_at:      ["foobarbazbatbam", "foo", "baz", "bam", nil]
+#   []:
+#     [0]:          "foobarbazbatbam"
+#     [1]:          "foo"
+#     [2]:          "baz"
+#     [3]:          "bam"
+#     [4]:          nil
+;T;;o;	;[I"_Successful named capture match attempt;
+same as unnamed above, except for #named_captures:;To;
+;[I"§scanner = StringScanner.new('foobarbazbatbam')
+scanner.exist?(/(?<x>foo)bar(?<y>baz)bat(?<z>bam)/)
+scanner.named_captures # => {"x"=>"foo", "y"=>"baz", "z"=>"bam"}
+;T;;o;	;[I"*Failed unnamed capture match attempt:;To;
+;[I"{scanner = StringScanner.new('somestring')
+scanner.exist?(/(foo)bar(baz)bat(bam)/)
+match_values_cleared?(scanner) # => true
+;T;;o;	;[I"[Failed named capture match attempt;
+same as unnamed above, except for #named_captures:;To;
+;[I"√scanner = StringScanner.new('somestring')
+scanner.exist?(/(?<x>foo)bar(?<y>baz)bat(?<z>bam)/)
+match_values_cleared?(scanner) # => false
+scanner.named_captures # => {"x"=>nil, "y"=>nil, "z"=>nil}
+;T;;S;;i;I"Fixed-Anchor Property;To;	;[I"°Pattern matching in <code>StringScanner</code> is the same as in Ruby's,
+except for its fixed-anchor property,
+which determines the meaning of <code>'\A'</code>:;To;;;;[o;;0;[o;	;[I"I<code>false</code> (the default): matches the current byte position.;To;
+;[I"öscanner = StringScanner.new('foobar')
+scanner.scan(/\A./) # => "f"
+scanner.scan(/\A./) # => "o"
+scanner.scan(/\A./) # => "o"
+scanner.scan(/\A./) # => "b"
+;F;;o;;0;[o;	;[I"w<code>true</code>: matches the beginning of the target substring;
+ never matches unless the byte position is zero:;To;
+;[I"üscanner = StringScanner.new('foobar', fixed_anchor: true)
+scanner.scan(/\A./) # => "f"
+scanner.scan(/\A./) # => nil
+scanner.reset
+scanner.scan(/\A./) # => "f"
+;F;;o;	;[I"≥The fixed-anchor property is set when the <code>StringScanner</code> object is created,
+and may not be modified
+(see StringScanner.new);
+method #fixed_anchor? returns the setting.;T:
+@fileI"ext/strscan/strscan.c;T:0@omit_headings_from_table_of_contents_below0;0;0[ [ [ [[I"
+class;T[[:public[ [:protected[ [:private[[I"new;TI"ext/strscan/strscan.c;T[I"instance;T[[;[ [;[ [;[1[I"<<;T@t[I"[];T@t[I"beginning_of_line?;T@t[I"captures;T@t[I"charpos;T@t[I"
+check;T@t[I"check_until;T@t[I"concat;T@t[I"	eos?;T@t[I"exist?;T@t[I"fixed_anchor?;T@t[I"get_byte;T@t[I"
+getch;T@t[I"initialize_copy;T@t[I"inspect;T@t[I"match?;T@t[I"matched;T@t[I"matched?;T@t[I"matched_size;T@t[I"named_captures;T@t[I"	peek;T@t[I"peek_byte;T@t[I"pointer;T@t[I"pointer=;T@t[I"pos;T@t[I"	pos=;T@t[I"post_match;T@t[I"pre_match;T@t[I"
+reset;T@t[I"	rest;T@t[I"rest_size;T@t[I"	scan;T@t[I"scan_base10_integer;T@t[I"scan_base16_integer;T@t[I"scan_byte;T@t[I"scan_until;T@t[I"	size;T@t[I"	skip;T@t[I"skip_until;T@t[I"string;T@t[I"string=;T@t[I"terminate;T@t[I"unscan;T@t[I"values_at;T@t[ [U:RDoc::Context::Section[i 0o;;[ ;0;0[I"ext/strscan/strscan.c;T@dcRDoc::TopLevel

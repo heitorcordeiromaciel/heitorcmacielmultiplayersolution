@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"write_timeout:ETI"Net::HTTP#write_timeout;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@Returns the numeric (\Integer or \Float) number of seconds ;TI"Bto wait for one block to be written (via one write(2) call); ;TI"see #write_timeout=.;T:
+@fileI"lib/net/http.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Net::HTTP;TcRDoc::NormalClass0

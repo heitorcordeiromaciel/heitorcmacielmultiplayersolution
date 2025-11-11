@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"discover_gems_on_require:ETI""Gem::discover_gems_on_require;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"HWhether RubyGems should enhance builtin `require` to automatically ;TI"Gcheck whether the path required is present in installed gems, and ;TI">automatically activate them and add them to `$LOAD_PATH`.;T:
+@fileI"lib/rubygems.rb;T:0@omit_headings_from_table_of_contents_below0T@I"Gem;TcRDoc::NormalModule0

@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"requireds:ETI"&Prism::ArrayPatternNode#requireds;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I";Represents the required elements of the array pattern.;To:RDoc::Markup::Verbatim;	[I"foo in [1, 2]
+;TI"        ^  ^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::ArrayPatternNode;TcRDoc::NormalClass0

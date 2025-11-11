@@ -1,0 +1,8 @@
+U:RDoc::AnyMethod[iI"random_number:ETI"$Random::Formatter#random_number;TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I">Generates formatted random number from raw random bytes. ;TI"See Random#rand.;T:
+@fileI"random.c;T:0@omit_headings_from_table_of_contents_below0I"Öprng.random_number        -> float
+prng.random_number(max)   -> number
+prng.random_number(range) -> number
+prng.rand                 -> float
+prng.rand(max)            -> number
+prng.rand(range)          -> number
+;T0[[I"	rand;T@	I"(*args);T@FI"Formatter;TcRDoc::NormalModule00

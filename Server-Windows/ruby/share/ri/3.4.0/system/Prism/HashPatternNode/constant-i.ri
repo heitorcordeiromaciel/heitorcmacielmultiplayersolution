@@ -1,0 +1,8 @@
+U:RDoc::Attr[iI"constant:ETI"$Prism::HashPatternNode#constant;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"9Represents the optional constant preceding the Hash.;To:RDoc::Markup::Verbatim;	[
+I"foo => Bar[a: 1, b: 2]
+;TI"     ^^^
+;TI"
+;TI"!foo => Bar::Baz[a: 1, b: 2]
+;TI"     ^^^^^^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::HashPatternNode;TcRDoc::NormalClass0

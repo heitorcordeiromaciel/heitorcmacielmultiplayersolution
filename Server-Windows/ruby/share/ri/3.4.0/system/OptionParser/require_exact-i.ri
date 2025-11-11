@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"require_exact:ETI"OptionParser#require_exact;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"HWhether to require that options match exactly (disallows providing ;TI".abbreviated long option as short option).;T:
+@fileI"lib/optparse.rb;T:0@omit_headings_from_table_of_contents_below0F@I"OptionParser;TcRDoc::NormalClass0

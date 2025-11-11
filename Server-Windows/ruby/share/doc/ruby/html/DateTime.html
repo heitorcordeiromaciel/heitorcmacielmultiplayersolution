@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class DateTime - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,DateTime">
+
+    <meta name="description" content="class DateTime: DateTime A subclass of Date that easily handles date, hour, minute, second, and offset. DateTime class is considered deprecated.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/DateTime.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-DateTime-label-DateTime">DateTime</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-DateTime-label-When+should+you+use+DateTime+and+when+should+you+use+Time-3F">When should you use DateTime and when should you use Time?</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="Date.html">Date</a><ul><li><a href="Object.html">Object</a><ul><li><a href="BasicObject.html">BasicObject</a></li></ul></li></ul></li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-_strptime">_strptime</a></li>
+      <li ><a href="#method-c-civil">civil</a></li>
+      <li ><a href="#method-c-commercial">commercial</a></li>
+      <li ><a href="#method-c-httpdate">httpdate</a></li>
+      <li ><a href="#method-c-iso8601">iso8601</a></li>
+      <li ><a href="#method-c-jd">jd</a></li>
+      <li ><a href="#method-c-jisx0301">jisx0301</a></li>
+      <li ><a href="#method-c-json_create">json_create</a></li>
+      <li ><a href="#method-c-new">new</a></li>
+      <li ><a href="#method-c-now">now</a></li>
+      <li ><a href="#method-c-ordinal">ordinal</a></li>
+      <li ><a href="#method-c-parse">parse</a></li>
+      <li ><a href="#method-c-rfc2822">rfc2822</a></li>
+      <li ><a href="#method-c-rfc3339">rfc3339</a></li>
+      <li ><a href="#method-c-rfc822">rfc822</a></li>
+      <li ><a href="#method-c-strptime">strptime</a></li>
+      <li ><a href="#method-c-xmlschema">xmlschema</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-as_json">as_json</a></li>
+      <li ><a href="#method-i-deconstruct_keys">deconstruct_keys</a></li>
+      <li ><a href="#method-i-hour">hour</a></li>
+      <li ><a href="#method-i-iso8601">iso8601</a></li>
+      <li ><a href="#method-i-jisx0301">jisx0301</a></li>
+      <li ><a href="#method-i-min">min</a></li>
+      <li ><a href="#method-i-minute">minute</a></li>
+      <li ><a href="#method-i-new_offset">new_offset</a></li>
+      <li ><a href="#method-i-offset">offset</a></li>
+      <li ><a href="#method-i-rfc3339">rfc3339</a></li>
+      <li ><a href="#method-i-sec">sec</a></li>
+      <li ><a href="#method-i-sec_fraction">sec_fraction</a></li>
+      <li ><a href="#method-i-second">second</a></li>
+      <li ><a href="#method-i-second_fraction">second_fraction</a></li>
+      <li ><a href="#method-i-strftime">strftime</a></li>
+      <li ><a href="#method-i-to_date">to_date</a></li>
+      <li ><a href="#method-i-to_datetime">to_datetime</a></li>
+      <li ><a href="#method-i-to_json">to_json</a></li>
+      <li ><a href="#method-i-to_s">to_s</a></li>
+      <li ><a href="#method-i-to_time">to_time</a></li>
+      <li ><a href="#method-i-xmlschema">xmlschema</a></li>
+      <li ><a href="#method-i-zone">zone</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-DateTime">
+  
+  
+
+  <h1 id="class-DateTime" class="anchor-link class">
+    class DateTime
+  </h1>
+
+  <section class="description">
+    
+<h2 id="class-DateTime-label-DateTime"><a href="DateTime.html"><code>DateTime</code></a><span><a href="#class-DateTime-label-DateTime">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A subclass of <a href="Date.html"><code>Date</code></a> that easily handles date, hour, minute, second, and offset.</p>
+
+<p><a href="DateTime.html"><code>DateTime</code></a> class is considered deprecated. Use <a href="Time.html"><code>Time</code></a> class.</p>
+
+<p><a href="DateTime.html"><code>DateTime</code></a> does not consider any leap seconds, does not track any summer time rules.</p>
+
+<p>A <a href="DateTime.html"><code>DateTime</code></a> object is created with <a href="DateTime.html#method-c-new"><code>DateTime::new</code></a>, <a href="DateTime.html#method-c-jd"><code>DateTime::jd</code></a>, <a href="DateTime.html#method-c-ordinal"><code>DateTime::ordinal</code></a>, <a href="DateTime.html#method-c-commercial"><code>DateTime::commercial</code></a>, <a href="DateTime.html#method-c-parse"><code>DateTime::parse</code></a>, <a href="DateTime.html#method-c-strptime"><code>DateTime::strptime</code></a>, <a href="DateTime.html#method-c-now"><code>DateTime::now</code></a>, <a href="Time.html#method-i-to_datetime"><code>Time#to_datetime</code></a>, etc.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;date&#39;</span>
+
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2001</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>)
+                    <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+00:00 ...&gt;</span>
+</pre>
+
+<p>The last element of day, hour, minute, or second can be a fractional number. The fractional number’s precision is assumed at most nanosecond.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2001</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3.5</span>)
+                    <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T12:00:00+00:00 ...&gt;</span>
+</pre>
+
+<p>An optional argument, the offset, indicates the difference between the local time and UTC. For example, <code>Rational(3,24)</code> represents ahead of 3 hours of UTC, <code>Rational(-5,24)</code> represents behind of 5 hours of UTC. The offset should be -1 to +1, and its precision is assumed at most second. The default value is zero (equals to UTC).</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2001</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>,<span class="ruby-constant">Rational</span>(<span class="ruby-value">3</span>,<span class="ruby-value">24</span>))
+                    <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+03:00 ...&gt;</span>
+</pre>
+
+<p>The offset also accepts string form:</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2001</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>,<span class="ruby-string">&#39;+03:00&#39;</span>)
+                    <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+03:00 ...&gt;</span>
+</pre>
+
+<p>An optional argument, the day of calendar reform (<code>start</code>), denotes a Julian day number, which should be 2298874 to 2426355 or negative/positive infinity. The default value is <code>Date::ITALY</code> (2299161=1582-10-15).</p>
+
+<p>A <a href="DateTime.html"><code>DateTime</code></a> object has various methods. See each reference.</p>
+
+<pre class="ruby"><span class="ruby-identifier">d</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;3rd Feb 2001 04:05:06+03:30&#39;</span>)
+                    <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+03:30 ...&gt;</span>
+<span class="ruby-identifier">d</span>.<span class="ruby-identifier">hour</span>              <span class="ruby-comment">#=&gt; 4</span>
+<span class="ruby-identifier">d</span>.<span class="ruby-identifier">min</span>               <span class="ruby-comment">#=&gt; 5</span>
+<span class="ruby-identifier">d</span>.<span class="ruby-identifier">sec</span>               <span class="ruby-comment">#=&gt; 6</span>
+<span class="ruby-identifier">d</span>.<span class="ruby-identifier">offset</span>            <span class="ruby-comment">#=&gt; (7/48)</span>
+<span class="ruby-identifier">d</span>.<span class="ruby-identifier">zone</span>              <span class="ruby-comment">#=&gt; &quot;+03:30&quot;</span>
+<span class="ruby-identifier">d</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Rational</span>(<span class="ruby-string">&#39;1.5&#39;</span>)
+                    <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-04%16:05:06+03:30 ...&gt;</span>
+<span class="ruby-identifier">d</span> = <span class="ruby-identifier">d</span>.<span class="ruby-identifier">new_offset</span>(<span class="ruby-string">&#39;+09:00&#39;</span>)
+                    <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-04%21:35:06+09:00 ...&gt;</span>
+<span class="ruby-identifier">d</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;%I:%M:%S %p&#39;</span>)
+                    <span class="ruby-comment">#=&gt; &quot;09:35:06 PM&quot;</span>
+<span class="ruby-identifier">d</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1999</span>)
+                    <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<h3 id="class-DateTime-label-When+should+you+use+DateTime+and+when+should+you+use+Time-3F">When should you use <a href="DateTime.html"><code>DateTime</code></a> and when should you use <a href="Time.html"><code>Time</code></a>?<span><a href="#class-DateTime-label-When+should+you+use+DateTime+and+when+should+you+use+Time-3F">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>It’s a common misconception that <a href="https://en.wikipedia.org/wiki/William_Shakespeare">William Shakespeare</a> and <a href="https://en.wikipedia.org/wiki/Miguel_de_Cervantes">Miguel de Cervantes</a> died on the same day in history - so much so that UNESCO named April 23 as <a href="https://en.wikipedia.org/wiki/World_Book_Day">World Book Day because of this fact</a>. However, because England hadn’t yet adopted the <a href="https://en.wikipedia.org/wiki/Gregorian_calendar#Gregorian_reform">Gregorian Calendar Reform</a> (and wouldn’t until <a href="https://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750">1752</a>) their deaths are actually 10 days apart. Since Ruby’s <a href="Time.html"><code>Time</code></a> class implements a <a href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar">proleptic Gregorian calendar</a> and has no concept of calendar reform there’s no way to express this with <a href="Time.html"><code>Time</code></a> objects. This is where <a href="DateTime.html"><code>DateTime</code></a> steps in:</p>
+
+<pre class="ruby"><span class="ruby-identifier">shakespeare</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">iso8601</span>(<span class="ruby-string">&#39;1616-04-23&#39;</span>, <span class="ruby-constant">Date</span><span class="ruby-operator">::</span><span class="ruby-constant">ENGLAND</span>)
+ <span class="ruby-comment">#=&gt; Tue, 23 Apr 1616 00:00:00 +0000</span>
+<span class="ruby-identifier">cervantes</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">iso8601</span>(<span class="ruby-string">&#39;1616-04-23&#39;</span>, <span class="ruby-constant">Date</span><span class="ruby-operator">::</span><span class="ruby-constant">ITALY</span>)
+ <span class="ruby-comment">#=&gt; Sat, 23 Apr 1616 00:00:00 +0000</span>
+</pre>
+
+<p>Already you can see something is weird - the days of the week are different. Taking this further:</p>
+
+<pre class="ruby"><span class="ruby-identifier">cervantes</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">shakespeare</span>
+ <span class="ruby-comment">#=&gt; false</span>
+(<span class="ruby-identifier">shakespeare</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">cervantes</span>).<span class="ruby-identifier">to_i</span>
+ <span class="ruby-comment">#=&gt; 10</span>
+</pre>
+
+<p>This shows that in fact they died 10 days apart (in reality 11 days since Cervantes died a day earlier but was buried on the 23rd). We can see the actual date of Shakespeare’s death by using the <a href="Date.html#method-i-gregorian"><code>gregorian</code></a> method to convert it:</p>
+
+<pre class="ruby"><span class="ruby-identifier">shakespeare</span>.<span class="ruby-identifier">gregorian</span>
+ <span class="ruby-comment">#=&gt; Tue, 03 May 1616 00:00:00 +0000</span>
+</pre>
+
+<p>So there’s an argument that all the celebrations that take place on the 23rd April in Stratford-upon-Avon are actually the wrong date since England is now using the Gregorian calendar. You can see why when we transition across the reform date boundary:</p>
+
+<pre class="ruby"><span class="ruby-comment"># start off with the anniversary of Shakespeare&#39;s birth in 1751</span>
+<span class="ruby-identifier">shakespeare</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">iso8601</span>(<span class="ruby-string">&#39;1751-04-23&#39;</span>, <span class="ruby-constant">Date</span><span class="ruby-operator">::</span><span class="ruby-constant">ENGLAND</span>)
+ <span class="ruby-comment">#=&gt; Tue, 23 Apr 1751 00:00:00 +0000</span>
+
+<span class="ruby-comment"># add 366 days since 1752 is a leap year and April 23 is after February 29</span>
+<span class="ruby-identifier">shakespeare</span> <span class="ruby-operator">+</span> <span class="ruby-value">366</span>
+ <span class="ruby-comment">#=&gt; Thu, 23 Apr 1752 00:00:00 +0000</span>
+
+<span class="ruby-comment"># add another 365 days to take us to the anniversary in 1753</span>
+<span class="ruby-identifier">shakespeare</span> <span class="ruby-operator">+</span> <span class="ruby-value">366</span> <span class="ruby-operator">+</span> <span class="ruby-value">365</span>
+ <span class="ruby-comment">#=&gt; Fri, 04 May 1753 00:00:00 +0000</span>
+</pre>
+
+<p>As you can see, if we’re accurately tracking the number of <a href="https://en.wikipedia.org/wiki/Tropical_year">solar years</a> since Shakespeare’s birthday then the correct anniversary date would be the 4th May and not the 23rd April.</p>
+
+<p>So when should you use <a href="DateTime.html"><code>DateTime</code></a> in Ruby and when should you use <a href="Time.html"><code>Time</code></a>? Almost certainly you’ll want to use <a href="Time.html"><code>Time</code></a> since your app is probably dealing with current dates and times. However, if you need to deal with dates and times in a historical context you’ll want to use <a href="DateTime.html"><code>DateTime</code></a> to avoid making the same mistakes as UNESCO. If you also have to deal with timezones then best of luck - just bear in mind that you’ll probably be dealing with <a href="https://en.wikipedia.org/wiki/Solar_time">local solar times</a>, since it wasn’t until the 19th century that the introduction of the railways necessitated the need for <a href="https://en.wikipedia.org/wiki/Standard_time#Great_Britain">Standard Time</a> and eventually timezones.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-_strptime" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-_strptime" title="Link to this method">
+                  <span class="method-callseq">
+                    _strptime(string[, format=&#39;%FT%T%z&#39;])  &rarr;  hash
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="_strptime-source">
+            <pre>static VALUE
+datetime_s__strptime(int argc, VALUE *argv, VALUE klass)
+{
+    return date_s__strptime_internal(argc, argv, klass, &quot;%FT%T%z&quot;);
+}</pre>
+          </div>
+          <p>Parses the given representation of date and time with the given template, and returns a hash of parsed elements.  _strptime does not support specification of flags and width unlike strftime.</p>
+
+<p>See also strptime(3) and <a href="DateTime.html#method-i-strftime"><code>strftime</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-civil" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-civil" title="Link to this method">
+                <span class="method-name">civil</span>
+                <span class="method-args">(*args)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="civil-source">
+            <pre>static VALUE
+datetime_s_civil(int argc, VALUE *argv, VALUE klass)
+{
+    return datetime_initialize(argc, argv, d_lite_s_alloc_complex(klass));
+}</pre>
+          </div>
+          <p>Same as <a href="DateTime.html#method-c-new"><code>DateTime.new</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-commercial" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-commercial" title="Link to this method">
+                  <span class="method-callseq">
+                    commercial([cwyear=-4712[, cweek=1[, cwday=1[, hour=0[, minute=0[, second=0[, offset=0[, start=Date::ITALY]]]]]]]])  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="commercial-source">
+            <pre>static VALUE
+datetime_s_commercial(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE vy, vw, vd, vh, vmin, vs, vof, vsg, y, fr, fr2, ret;
+    int w, d, h, min, s, rof;
+    double sg;
+
+    rb_scan_args(argc, argv, &quot;08&quot;, &amp;vy, &amp;vw, &amp;vd, &amp;vh, &amp;vmin, &amp;vs, &amp;vof, &amp;vsg);
+
+    y = INT2FIX(-4712);
+    w = 1;
+    d = 1;
+
+    h = min = s = 0;
+    fr2 = INT2FIX(0);
+    rof = 0;
+    sg = DEFAULT_SG;
+
+    switch (argc) {
+      case 8:
+        val2sg(vsg, sg);
+      case 7:
+        val2off(vof, rof);
+      case 6:
+        check_numeric(vs, &quot;second&quot;);
+        num2int_with_frac(s, positive_inf);
+      case 5:
+        check_numeric(vmin, &quot;minute&quot;);
+        num2int_with_frac(min, 5);
+      case 4:
+        check_numeric(vh, &quot;hour&quot;);
+        num2int_with_frac(h, 4);
+      case 3:
+        check_numeric(vd, &quot;cwday&quot;);
+        num2int_with_frac(d, 3);
+      case 2:
+        check_numeric(vw, &quot;cweek&quot;);
+        w = NUM2INT(vw);
+      case 1:
+        check_numeric(vy, &quot;year&quot;);
+        y = vy;
+    }
+
+    {
+        VALUE nth;
+        int ry, rw, rd, rh, rmin, rs, rjd, rjd2, ns;
+
+        if (!valid_commercial_p(y, w, d, sg,
+                                &amp;nth, &amp;ry,
+                                &amp;rw, &amp;rd, &amp;rjd,
+                                &amp;ns))
+            rb_raise(eDateError, &quot;invalid date&quot;);
+        if (!c_valid_time_p(h, min, s, &amp;rh, &amp;rmin, &amp;rs))
+            rb_raise(eDateError, &quot;invalid date&quot;);
+        canon24oc();
+
+        rjd2 = jd_local_to_utc(rjd,
+                               time_to_df(rh, rmin, rs),
+                               rof);
+
+        ret = d_complex_new_internal(klass,
+                                     nth, rjd2,
+                                     0, INT2FIX(0),
+                                     rof, sg,
+                                     0, 0, 0,
+                                     rh, rmin, rs,
+                                     HAVE_JD | HAVE_TIME);
+    }
+    add_frac();
+    return ret;
+}</pre>
+          </div>
+          <p>Creates a <a href="DateTime.html"><code>DateTime</code></a> object denoting the given week date.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">commercial</span>(<span class="ruby-value">2001</span>) <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-01-01T00:00:00+00:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">commercial</span>(<span class="ruby-value">2002</span>) <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-12-31T00:00:00+00:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">commercial</span>(<span class="ruby-value">2001</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>,<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>,<span class="ruby-string">&#39;+7&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-httpdate" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-httpdate" title="Link to this method">
+                  <span class="method-callseq">
+                    httpdate(string=&#39;Mon, 01 Jan -4712 00:00:00 GMT&#39;[, start=Date::ITALY])  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="httpdate-source">
+            <pre>static VALUE
+datetime_s_httpdate(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE str, sg, opt;
+
+    argc = rb_scan_args(argc, argv, &quot;02:&quot;, &amp;str, &amp;sg, &amp;opt);
+
+    switch (argc) {
+      case 0:
+        str = rb_str_new2(JULIAN_EPOCH_DATETIME_HTTPDATE);
+      case 1:
+        sg = INT2FIX(DEFAULT_SG);
+    }
+
+    {
+        int argc2 = 1;
+        VALUE argv2[2], hash;
+        argv2[0] = str;
+        argv2[1] = opt;
+        if (!NIL_P(opt)) argc2++;
+        hash = date_s__httpdate(argc2, argv2, klass);
+        return dt_new_by_frags(klass, hash, sg);
+    }
+}</pre>
+          </div>
+          <p>Creates a new <a href="DateTime.html"><code>DateTime</code></a> object by parsing from a string according to some RFC 2616 format.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">httpdate</span>(<span class="ruby-string">&#39;Sat, 03 Feb 2001 04:05:06 GMT&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+00:00 ...&gt;</span>
+</pre>
+
+<p>Raise an <a href="ArgumentError.html"><code>ArgumentError</code></a> when the string length is longer than <em>limit</em>. You can stop this check by passing <code>limit: nil</code>, but note that it may take a long time to parse.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-iso8601" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-iso8601" title="Link to this method">
+                  <span class="method-callseq">
+                    iso8601(string=&#39;-4712-01-01T00:00:00+00:00&#39;[, start=Date::ITALY], limit: 128)  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="iso8601-source">
+            <pre>static VALUE
+datetime_s_iso8601(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE str, sg, opt;
+
+    argc = rb_scan_args(argc, argv, &quot;02:&quot;, &amp;str, &amp;sg, &amp;opt);
+
+    switch (argc) {
+      case 0:
+        str = rb_str_new2(JULIAN_EPOCH_DATETIME);
+      case 1:
+        sg = INT2FIX(DEFAULT_SG);
+    }
+
+    {
+        int argc2 = 1;
+        VALUE argv2[2], hash;
+        argv2[0] = str;
+        argv2[1] = opt;
+        if (!NIL_P(opt)) argc2++;
+        hash = date_s__iso8601(argc2, argv2, klass);
+        return dt_new_by_frags(klass, hash, sg);
+    }
+}</pre>
+          </div>
+          <p>Creates a new <a href="DateTime.html"><code>DateTime</code></a> object by parsing from a string according to some typical ISO 8601 formats.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">iso8601</span>(<span class="ruby-string">&#39;2001-02-03T04:05:06+07:00&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">iso8601</span>(<span class="ruby-string">&#39;20010203T040506+0700&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">iso8601</span>(<span class="ruby-string">&#39;2001-W05-6T04:05:06+07:00&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+</pre>
+
+<p>Raise an <a href="ArgumentError.html"><code>ArgumentError</code></a> when the string length is longer than <em>limit</em>. You can stop this check by passing <code>limit: nil</code>, but note that it may take a long time to parse.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-jd" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-jd" title="Link to this method">
+                  <span class="method-callseq">
+                    jd([jd=0[, hour=0[, minute=0[, second=0[, offset=0[, start=Date::ITALY]]]]]])  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="jd-source">
+            <pre>static VALUE
+datetime_s_jd(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE vjd, vh, vmin, vs, vof, vsg, jd, fr, fr2, ret;
+    int h, min, s, rof;
+    double sg;
+
+    rb_scan_args(argc, argv, &quot;06&quot;, &amp;vjd, &amp;vh, &amp;vmin, &amp;vs, &amp;vof, &amp;vsg);
+
+    jd = INT2FIX(0);
+
+    h = min = s = 0;
+    fr2 = INT2FIX(0);
+    rof = 0;
+    sg = DEFAULT_SG;
+
+    switch (argc) {
+      case 6:
+        val2sg(vsg, sg);
+      case 5:
+        val2off(vof, rof);
+      case 4:
+        check_numeric(vs, &quot;second&quot;);
+        num2int_with_frac(s, positive_inf);
+      case 3:
+        check_numeric(vmin, &quot;minute&quot;);
+        num2int_with_frac(min, 3);
+      case 2:
+        check_numeric(vh, &quot;hour&quot;);
+        num2int_with_frac(h, 2);
+      case 1:
+        check_numeric(vjd, &quot;jd&quot;);
+        num2num_with_frac(jd, 1);
+    }
+
+    {
+        VALUE nth;
+        int rh, rmin, rs, rjd, rjd2;
+
+        if (!c_valid_time_p(h, min, s, &amp;rh, &amp;rmin, &amp;rs))
+            rb_raise(eDateError, &quot;invalid date&quot;);
+        canon24oc();
+
+        decode_jd(jd, &amp;nth, &amp;rjd);
+        rjd2 = jd_local_to_utc(rjd,
+                               time_to_df(rh, rmin, rs),
+                               rof);
+
+        ret = d_complex_new_internal(klass,
+                                     nth, rjd2,
+                                     0, INT2FIX(0),
+                                     rof, sg,
+                                     0, 0, 0,
+                                     rh, rmin, rs,
+                                     HAVE_JD | HAVE_TIME);
+    }
+    add_frac();
+    return ret;
+}</pre>
+          </div>
+          <p>Creates a <a href="DateTime.html"><code>DateTime</code></a> object denoting the given chronological Julian day number.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>(<span class="ruby-value">2451944</span>)      <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T00:00:00+00:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>(<span class="ruby-value">2451945</span>)      <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-04T00:00:00+00:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-string">&#39;0.5&#39;</span>))
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: -4712-01-01T12:00:00+00:00 ...&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-jisx0301" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-jisx0301" title="Link to this method">
+                  <span class="method-callseq">
+                    jisx0301(string=&#39;-4712-01-01T00:00:00+00:00&#39;[, start=Date::ITALY], limit: 128)  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="jisx0301-source">
+            <pre>static VALUE
+datetime_s_jisx0301(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE str, sg, opt;
+
+    argc = rb_scan_args(argc, argv, &quot;02:&quot;, &amp;str, &amp;sg, &amp;opt);
+
+    switch (argc) {
+      case 0:
+        str = rb_str_new2(JULIAN_EPOCH_DATETIME);
+      case 1:
+        sg = INT2FIX(DEFAULT_SG);
+    }
+
+    {
+        int argc2 = 1;
+        VALUE argv2[2], hash;
+        argv2[0] = str;
+        argv2[1] = opt;
+        if (!NIL_P(opt)) argc2++;
+        hash = date_s__jisx0301(argc2, argv2, klass);
+        return dt_new_by_frags(klass, hash, sg);
+    }
+}</pre>
+          </div>
+          <p>Creates a new <a href="DateTime.html"><code>DateTime</code></a> object by parsing from a string according to some typical JIS X 0301 formats.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jisx0301</span>(<span class="ruby-string">&#39;H13.02.03T04:05:06+07:00&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+</pre>
+
+<p>For no-era year, legacy format, Heisei is assumed.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jisx0301</span>(<span class="ruby-string">&#39;13.02.03T04:05:06+07:00&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+</pre>
+
+<p>Raise an <a href="ArgumentError.html"><code>ArgumentError</code></a> when the string length is longer than <em>limit</em>. You can stop this check by passing <code>limit: nil</code>, but note that it may take a long time to parse.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-json_create" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-json_create" title="Link to this method">
+                <span class="method-name">json_create</span>
+                <span class="method-args">(object)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="json_create-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/add/date_time.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">json_create</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-identifier">args</span> = <span class="ruby-identifier">object</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-string">&#39;y&#39;</span>, <span class="ruby-string">&#39;m&#39;</span>, <span class="ruby-string">&#39;d&#39;</span>, <span class="ruby-string">&#39;H&#39;</span>, <span class="ruby-string">&#39;M&#39;</span>, <span class="ruby-string">&#39;S&#39;</span>)
+  <span class="ruby-identifier">of_a</span>, <span class="ruby-identifier">of_b</span> = <span class="ruby-identifier">object</span>[<span class="ruby-string">&#39;of&#39;</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;/&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">of_b</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">of_b</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span>
+    <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Rational</span>(<span class="ruby-identifier">of_a</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">of_b</span>.<span class="ruby-identifier">to_i</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">of_a</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">object</span>[<span class="ruby-string">&#39;sg&#39;</span>]
+  <span class="ruby-identifier">civil</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>See <a href="DateTime.html#method-i-as_json"><code>as_json</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(*args)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE
+datetime_s_civil(int argc, VALUE *argv, VALUE klass)
+{
+    return datetime_initialize(argc, argv, d_lite_s_alloc_complex(klass));
+}</pre>
+          </div>
+          <p>Same as <a href="DateTime.html#method-c-new"><code>DateTime.new</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-now" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-now" title="Link to this method">
+                  <span class="method-callseq">
+                    now([start=Date::ITALY])  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="now-source">
+            <pre>static VALUE
+datetime_s_now(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE vsg, nth, ret;
+    double sg;
+#ifdef HAVE_CLOCK_GETTIME
+    struct timespec ts;
+#else
+    struct timeval tv;
+#endif
+    time_t sec;
+    struct tm tm;
+    long sf, of;
+    int y, ry, m, d, h, min, s;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;vsg);
+
+    if (argc &lt; 1)
+        sg = DEFAULT_SG;
+    else
+        sg = NUM2DBL(vsg);
+
+#ifdef HAVE_CLOCK_GETTIME
+    if (clock_gettime(CLOCK_REALTIME, &amp;ts) == -1)
+        rb_sys_fail(&quot;clock_gettime&quot;);
+    sec = ts.tv_sec;
+#else
+    if (gettimeofday(&amp;tv, NULL) == -1)
+        rb_sys_fail(&quot;gettimeofday&quot;);
+    sec = tv.tv_sec;
+#endif
+    tzset();
+    if (!localtime_r(&amp;sec, &amp;tm))
+        rb_sys_fail(&quot;localtime&quot;);
+
+    y = tm.tm_year + 1900;
+    m = tm.tm_mon + 1;
+    d = tm.tm_mday;
+    h = tm.tm_hour;
+    min = tm.tm_min;
+    s = tm.tm_sec;
+    if (s == 60)
+        s = 59;
+#ifdef HAVE_STRUCT_TM_TM_GMTOFF
+    of = tm.tm_gmtoff;
+#elif defined(HAVE_TIMEZONE)
+#if defined(HAVE_ALTZONE) &amp;&amp; !defined(_AIX)
+    of = (long)-((tm.tm_isdst &gt; 0) ? altzone : timezone);
+#else
+    of = (long)-timezone;
+    if (tm.tm_isdst) {
+        time_t sec2;
+
+        tm.tm_isdst = 0;
+        sec2 = mktime(&amp;tm);
+        of += (long)difftime(sec2, sec);
+    }
+#endif
+#elif defined(HAVE_TIMEGM)
+    {
+        time_t sec2;
+
+        sec2 = timegm(&amp;tm);
+        of = (long)difftime(sec2, sec);
+    }
+#else
+    {
+        struct tm tm2;
+        time_t sec2;
+
+        if (!gmtime_r(&amp;sec, &amp;tm2))
+            rb_sys_fail(&quot;gmtime&quot;);
+        tm2.tm_isdst = tm.tm_isdst;
+        sec2 = mktime(&amp;tm2);
+        of = (long)difftime(sec, sec2);
+    }
+#endif
+#ifdef HAVE_CLOCK_GETTIME
+    sf = ts.tv_nsec;
+#else
+    sf = tv.tv_usec * 1000;
+#endif
+
+    if (of &lt; -DAY_IN_SECONDS || of &gt; DAY_IN_SECONDS) {
+        of = 0;
+        rb_warning(&quot;invalid offset is ignored&quot;);
+    }
+
+    decode_year(INT2FIX(y), -1, &amp;nth, &amp;ry);
+
+    ret = d_complex_new_internal(klass,
+                                 nth, 0,
+                                 0, LONG2NUM(sf),
+                                 (int)of, GREGORIAN,
+                                 ry, m, d,
+                                 h, min, s,
+                                 HAVE_CIVIL | HAVE_TIME);
+    {
+        get_d1(ret);
+        set_sg(dat, sg);
+    }
+    return ret;
+}</pre>
+          </div>
+          <p>Creates a <a href="DateTime.html"><code>DateTime</code></a> object denoting the present time.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>              <span class="ruby-comment">#=&gt; #&lt;DateTime: 2011-06-11T21:20:44+09:00 ...&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-ordinal" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-ordinal" title="Link to this method">
+                  <span class="method-callseq">
+                    ordinal([year=-4712[, yday=1[, hour=0[, minute=0[, second=0[, offset=0[, start=Date::ITALY]]]]]]])  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ordinal-source">
+            <pre>static VALUE
+datetime_s_ordinal(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE vy, vd, vh, vmin, vs, vof, vsg, y, fr, fr2, ret;
+    int d, h, min, s, rof;
+    double sg;
+
+    rb_scan_args(argc, argv, &quot;07&quot;, &amp;vy, &amp;vd, &amp;vh, &amp;vmin, &amp;vs, &amp;vof, &amp;vsg);
+
+    y = INT2FIX(-4712);
+    d = 1;
+
+    h = min = s = 0;
+    fr2 = INT2FIX(0);
+    rof = 0;
+    sg = DEFAULT_SG;
+
+    switch (argc) {
+      case 7:
+        val2sg(vsg, sg);
+      case 6:
+        val2off(vof, rof);
+      case 5:
+        check_numeric(vs, &quot;second&quot;);
+        num2int_with_frac(s, positive_inf);
+      case 4:
+        check_numeric(vmin, &quot;minute&quot;);
+        num2int_with_frac(min, 4);
+      case 3:
+        check_numeric(vh, &quot;hour&quot;);
+        num2int_with_frac(h, 3);
+      case 2:
+        check_numeric(vd, &quot;yday&quot;);
+        num2int_with_frac(d, 2);
+      case 1:
+        check_numeric(vy, &quot;year&quot;);
+        y = vy;
+    }
+
+    {
+        VALUE nth;
+        int ry, rd, rh, rmin, rs, rjd, rjd2, ns;
+
+        if (!valid_ordinal_p(y, d, sg,
+                             &amp;nth, &amp;ry,
+                             &amp;rd, &amp;rjd,
+                             &amp;ns))
+            rb_raise(eDateError, &quot;invalid date&quot;);
+        if (!c_valid_time_p(h, min, s, &amp;rh, &amp;rmin, &amp;rs))
+            rb_raise(eDateError, &quot;invalid date&quot;);
+        canon24oc();
+
+        rjd2 = jd_local_to_utc(rjd,
+                               time_to_df(rh, rmin, rs),
+                               rof);
+
+        ret = d_complex_new_internal(klass,
+                                     nth, rjd2,
+                                     0, INT2FIX(0),
+                                     rof, sg,
+                                     0, 0, 0,
+                                     rh, rmin, rs,
+                                     HAVE_JD | HAVE_TIME);
+    }
+    add_frac();
+    return ret;
+}</pre>
+          </div>
+          <p>Creates a <a href="DateTime.html"><code>DateTime</code></a> object denoting the given ordinal date.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">ordinal</span>(<span class="ruby-value">2001</span>,<span class="ruby-value">34</span>) <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T00:00:00+00:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">ordinal</span>(<span class="ruby-value">2001</span>,<span class="ruby-value">34</span>,<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>,<span class="ruby-string">&#39;+7&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">ordinal</span>(<span class="ruby-value">2001</span>,<span class="ruby-value">-332</span>,<span class="ruby-value">-20</span>,<span class="ruby-value">-55</span>,<span class="ruby-value">-54</span>,<span class="ruby-string">&#39;+7&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-parse" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-parse" title="Link to this method">
+                  <span class="method-callseq">
+                    parse(string=&#39;-4712-01-01T00:00:00+00:00&#39;[, comp=true[, start=Date::ITALY]], limit: 128)  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="parse-source">
+            <pre>static VALUE
+datetime_s_parse(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE str, comp, sg, opt;
+
+    argc = rb_scan_args(argc, argv, &quot;03:&quot;, &amp;str, &amp;comp, &amp;sg, &amp;opt);
+
+    switch (argc) {
+      case 0:
+        str = rb_str_new2(JULIAN_EPOCH_DATETIME);
+      case 1:
+        comp = Qtrue;
+      case 2:
+        sg = INT2FIX(DEFAULT_SG);
+    }
+
+    {
+        int argc2 = 2;
+        VALUE argv2[3], hash;
+        argv2[0] = str;
+        argv2[1] = comp;
+        argv2[2] = opt;
+        if (!NIL_P(opt)) argc2++;
+        hash = date_s__parse(argc2, argv2, klass);
+        return dt_new_by_frags(klass, hash, sg);
+    }
+}</pre>
+          </div>
+          <p>Parses the given representation of date and time, and creates a <a href="DateTime.html"><code>DateTime</code></a> object.</p>
+
+<p>This method <strong>does</strong> <strong>not</strong> function as a validator.  If the input string does not match valid formats strictly, you may get a cryptic result.  Should consider to use <a href="DateTime.html#method-c-strptime"><code>DateTime.strptime</code></a> instead of this method as possible.</p>
+
+<p>If the optional second argument is true and the detected year is in the range “00” to “99”, makes it full.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;2001-02-03T04:05:06+07:00&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;20010203T040506+0700&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;3rd Feb 2001 04:05:06 PM&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T16:05:06+00:00 ...&gt;</span>
+</pre>
+
+<p>Raise an <a href="ArgumentError.html"><code>ArgumentError</code></a> when the string length is longer than <em>limit</em>. You can stop this check by passing <code>limit: nil</code>, but note that it may take a long time to parse.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-rfc2822" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-rfc2822" title="Link to this method">
+                  <span class="method-callseq">
+                    rfc2822(string=&#39;Mon, 1 Jan -4712 00:00:00 +0000&#39;[, start=Date::ITALY], limit: 128)  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-c-rfc2822" title="Link to this method">
+                  <span class="method-callseq">
+                    rfc822(string=&#39;Mon, 1 Jan -4712 00:00:00 +0000&#39;[, start=Date::ITALY], limit: 128)   &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="rfc2822-source">
+            <pre>static VALUE
+datetime_s_rfc2822(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE str, sg, opt;
+
+    argc = rb_scan_args(argc, argv, &quot;02:&quot;, &amp;str, &amp;sg, &amp;opt);
+
+    switch (argc) {
+      case 0:
+        str = rb_str_new2(JULIAN_EPOCH_DATETIME_RFC3339);
+      case 1:
+        sg = INT2FIX(DEFAULT_SG);
+    }
+
+    {
+        int argc2 = 1;
+        VALUE argv2[2], hash;
+        argv2[0] = str;
+        argv2[1] = opt;
+        if (!NIL_P(opt)) argc2++;
+        hash = date_s__rfc2822(argc2, argv2, klass);
+        return dt_new_by_frags(klass, hash, sg);
+    }
+}</pre>
+          </div>
+          <p>Creates a new <a href="DateTime.html"><code>DateTime</code></a> object by parsing from a string according to some typical RFC 2822 formats.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">rfc2822</span>(<span class="ruby-string">&#39;Sat, 3 Feb 2001 04:05:06 +0700&#39;</span>)
+                         <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+</pre>
+
+<p>Raise an <a href="ArgumentError.html"><code>ArgumentError</code></a> when the string length is longer than <em>limit</em>. You can stop this check by passing <code>limit: nil</code>, but note that it may take a long time to parse.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-rfc3339" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-rfc3339" title="Link to this method">
+                  <span class="method-callseq">
+                    rfc3339(string=&#39;-4712-01-01T00:00:00+00:00&#39;[, start=Date::ITALY], limit: 128)  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="rfc3339-source">
+            <pre>static VALUE
+datetime_s_rfc3339(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE str, sg, opt;
+
+    argc = rb_scan_args(argc, argv, &quot;02:&quot;, &amp;str, &amp;sg, &amp;opt);
+
+    switch (argc) {
+      case 0:
+        str = rb_str_new2(JULIAN_EPOCH_DATETIME);
+      case 1:
+        sg = INT2FIX(DEFAULT_SG);
+    }
+
+    {
+        int argc2 = 1;
+        VALUE argv2[2], hash;
+        argv2[0] = str;
+        argv2[1] = opt;
+        if (!NIL_P(opt)) argc2++;
+        hash = date_s__rfc3339(argc2, argv2, klass);
+        return dt_new_by_frags(klass, hash, sg);
+    }
+}</pre>
+          </div>
+          <p>Creates a new <a href="DateTime.html"><code>DateTime</code></a> object by parsing from a string according to some typical RFC 3339 formats.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">rfc3339</span>(<span class="ruby-string">&#39;2001-02-03T04:05:06+07:00&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+</pre>
+
+<p>Raise an <a href="ArgumentError.html"><code>ArgumentError</code></a> when the string length is longer than <em>limit</em>. You can stop this check by passing <code>limit: nil</code>, but note that it may take a long time to parse.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-rfc822" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-rfc822" title="Link to this method">
+                  <span class="method-callseq">
+                    rfc2822(string=&#39;Mon, 1 Jan -4712 00:00:00 +0000&#39;[, start=Date::ITALY], limit: 128)  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-c-rfc822" title="Link to this method">
+                  <span class="method-callseq">
+                    rfc822(string=&#39;Mon, 1 Jan -4712 00:00:00 +0000&#39;[, start=Date::ITALY], limit: 128)   &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="rfc822-source">
+            <pre>static VALUE
+datetime_s_rfc2822(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE str, sg, opt;
+
+    argc = rb_scan_args(argc, argv, &quot;02:&quot;, &amp;str, &amp;sg, &amp;opt);
+
+    switch (argc) {
+      case 0:
+        str = rb_str_new2(JULIAN_EPOCH_DATETIME_RFC3339);
+      case 1:
+        sg = INT2FIX(DEFAULT_SG);
+    }
+
+    {
+        int argc2 = 1;
+        VALUE argv2[2], hash;
+        argv2[0] = str;
+        argv2[1] = opt;
+        if (!NIL_P(opt)) argc2++;
+        hash = date_s__rfc2822(argc2, argv2, klass);
+        return dt_new_by_frags(klass, hash, sg);
+    }
+}</pre>
+          </div>
+          <p>Creates a new <a href="DateTime.html"><code>DateTime</code></a> object by parsing from a string according to some typical RFC 2822 formats.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">rfc2822</span>(<span class="ruby-string">&#39;Sat, 3 Feb 2001 04:05:06 +0700&#39;</span>)
+                         <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+</pre>
+
+<p>Raise an <a href="ArgumentError.html"><code>ArgumentError</code></a> when the string length is longer than <em>limit</em>. You can stop this check by passing <code>limit: nil</code>, but note that it may take a long time to parse.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-strptime" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-strptime" title="Link to this method">
+                  <span class="method-callseq">
+                    strptime([string=&#39;-4712-01-01T00:00:00+00:00&#39;[, format=&#39;%FT%T%z&#39;[ ,start=Date::ITALY]]])  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="strptime-source">
+            <pre>static VALUE
+datetime_s_strptime(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE str, fmt, sg;
+
+    rb_scan_args(argc, argv, &quot;03&quot;, &amp;str, &amp;fmt, &amp;sg);
+
+    switch (argc) {
+      case 0:
+        str = rb_str_new2(JULIAN_EPOCH_DATETIME);
+      case 1:
+        fmt = rb_str_new2(&quot;%FT%T%z&quot;);
+      case 2:
+        sg = INT2FIX(DEFAULT_SG);
+    }
+
+    {
+        VALUE argv2[2], hash;
+
+        argv2[0] = str;
+        argv2[1] = fmt;
+        hash = date_s__strptime(2, argv2, klass);
+        return dt_new_by_frags(klass, hash, sg);
+    }
+}</pre>
+          </div>
+          <p>Parses the given representation of date and time with the given template, and creates a <a href="DateTime.html"><code>DateTime</code></a> object.  strptime does not support specification of flags and width unlike strftime.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-string">&#39;2001-02-03T04:05:06+07:00&#39;</span>, <span class="ruby-string">&#39;%Y-%m-%dT%H:%M:%S%z&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-string">&#39;03-02-2001 04:05:06 PM&#39;</span>, <span class="ruby-string">&#39;%d-%m-%Y %I:%M:%S %p&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T16:05:06+00:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-string">&#39;2001-W05-6T04:05:06+07:00&#39;</span>, <span class="ruby-string">&#39;%G-W%V-%uT%H:%M:%S%z&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-string">&#39;2001 04 6 04 05 06 +7&#39;</span>, <span class="ruby-string">&#39;%Y %U %w %H %M %S %z&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-string">&#39;2001 05 6 04 05 06 +7&#39;</span>, <span class="ruby-string">&#39;%Y %W %u %H %M %S %z&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-string">&#39;-1&#39;</span>, <span class="ruby-string">&#39;%s&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 1969-12-31T23:59:59+00:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-string">&#39;-1000&#39;</span>, <span class="ruby-string">&#39;%Q&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 1969-12-31T23:59:59+00:00 ...&gt;</span>
+<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-string">&#39;sat3feb014pm+7&#39;</span>, <span class="ruby-string">&#39;%a%d%b%y%H%p%z&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T16:00:00+07:00 ...&gt;</span>
+</pre>
+
+<p>See also strptime(3) and <a href="DateTime.html#method-i-strftime"><code>strftime</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-xmlschema" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-xmlschema" title="Link to this method">
+                  <span class="method-callseq">
+                    xmlschema(string=&#39;-4712-01-01T00:00:00+00:00&#39;[, start=Date::ITALY], limit: 128)  &rarr;  datetime
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="xmlschema-source">
+            <pre>static VALUE
+datetime_s_xmlschema(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE str, sg, opt;
+
+    argc = rb_scan_args(argc, argv, &quot;02:&quot;, &amp;str, &amp;sg, &amp;opt);
+
+    switch (argc) {
+      case 0:
+        str = rb_str_new2(JULIAN_EPOCH_DATETIME);
+      case 1:
+        sg = INT2FIX(DEFAULT_SG);
+    }
+
+    {
+        int argc2 = 1;
+        VALUE argv2[2], hash;
+        argv2[0] = str;
+        argv2[1] = opt;
+        if (!NIL_P(opt)) argc2++;
+        hash = date_s__xmlschema(argc2, argv2, klass);
+        return dt_new_by_frags(klass, hash, sg);
+    }
+}</pre>
+          </div>
+          <p>Creates a new <a href="DateTime.html"><code>DateTime</code></a> object by parsing from a string according to some typical XML Schema formats.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">xmlschema</span>(<span class="ruby-string">&#39;2001-02-03T04:05:06+07:00&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+07:00 ...&gt;</span>
+</pre>
+
+<p>Raise an <a href="ArgumentError.html"><code>ArgumentError</code></a> when the string length is longer than <em>limit</em>. You can stop this check by passing <code>limit: nil</code>, but note that it may take a long time to parse.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-as_json" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-as_json" title="Link to this method">
+                <span class="method-name">as_json</span>
+                <span class="method-args">(*)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="as_json-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/add/date_time.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-operator">*</span>)
+  {
+    <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">create_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>,
+    <span class="ruby-string">&#39;y&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">year</span>,
+    <span class="ruby-string">&#39;m&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">month</span>,
+    <span class="ruby-string">&#39;d&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">day</span>,
+    <span class="ruby-string">&#39;H&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">hour</span>,
+    <span class="ruby-string">&#39;M&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">min</span>,
+    <span class="ruby-string">&#39;S&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">sec</span>,
+    <span class="ruby-string">&#39;of&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">offset</span>.<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-string">&#39;sg&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">start</span>,
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Methods <a href="DateTime.html#method-i-as_json"><code>DateTime#as_json</code></a> and <a href="DateTime.html#method-c-json_create"><code>DateTime.json_create</code></a> may be used to serialize and deserialize a DateTime object; see <a href="Marshal.html"><code>Marshal</code></a>.</p>
+
+<p>Method <a href="DateTime.html#method-i-as_json"><code>DateTime#as_json</code></a> serializes <code>self</code>, returning a 2-element hash representing <code>self</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;json/add/datetime&#39;</span>
+<span class="ruby-identifier">x</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">as_json</span>
+<span class="ruby-comment"># =&gt; {&quot;json_class&quot;=&gt;&quot;DateTime&quot;, &quot;y&quot;=&gt;2023, &quot;m&quot;=&gt;11, &quot;d&quot;=&gt;21, &quot;sg&quot;=&gt;2299161.0}</span>
+</pre>
+
+<p>Method <code>JSON.create</code> deserializes such a hash, returning a DateTime object:</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">json_create</span>(<span class="ruby-identifier">x</span>) <span class="ruby-comment"># BUG? Raises Date::Error &quot;invalid date&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-deconstruct_keys" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-deconstruct_keys" title="Link to this method">
+                  <span class="method-callseq">
+                    deconstruct_keys(array_of_names_or_nil) &rarr; hash
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="deconstruct_keys-source">
+            <pre>static VALUE
+dt_lite_deconstruct_keys(VALUE self, VALUE keys)
+{
+    return deconstruct_keys(self, keys, /* is_datetime=true */ 1);
+}</pre>
+          </div>
+          <p>Returns a hash of the name/value pairs, to use in pattern matching. Possible keys are: <code>:year</code>, <code>:month</code>, <code>:day</code>, <code>:wday</code>, <code>:yday</code>, <code>:hour</code>, <code>:min</code>, <code>:sec</code>, <code>:sec_fraction</code>, <code>:zone</code>.</p>
+
+<p>Possible usages:</p>
+
+<pre class="ruby"><span class="ruby-identifier">dt</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2022</span>, <span class="ruby-value">10</span>, <span class="ruby-value">5</span>, <span class="ruby-value">13</span>, <span class="ruby-value">30</span>)
+
+<span class="ruby-keyword">if</span> <span class="ruby-identifier">d</span> <span class="ruby-keyword">in</span> <span class="ruby-value">wday:</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>, <span class="ruby-value">hour:</span> <span class="ruby-value">10</span><span class="ruby-operator">..</span><span class="ruby-value">18</span>  <span class="ruby-comment"># uses deconstruct_keys underneath</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Working time&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment">#=&gt; prints &quot;Working time&quot;</span>
+
+<span class="ruby-keyword">case</span> <span class="ruby-identifier">dt</span>
+<span class="ruby-keyword">in</span> <span class="ruby-value">year:</span> <span class="ruby-operator">...</span><span class="ruby-value">2022</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;too old&quot;</span>
+<span class="ruby-keyword">in</span> <span class="ruby-value">month:</span> <span class="ruby-operator">..</span><span class="ruby-value">9</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;quarter 1-3&quot;</span>
+<span class="ruby-keyword">in</span> <span class="ruby-value">wday:</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>, <span class="ruby-value">month:</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;working day in month #{month}&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment">#=&gt; prints &quot;working day in month 10&quot;</span>
+</pre>
+
+<p>Note that deconstruction by pattern can also be combined with class check:</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-identifier">d</span> <span class="ruby-keyword">in</span> <span class="ruby-constant">DateTime</span>(<span class="ruby-value">wday:</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>, <span class="ruby-value">hour:</span> <span class="ruby-value">10</span><span class="ruby-operator">..</span><span class="ruby-value">18</span>, <span class="ruby-value">day:</span> <span class="ruby-operator">..</span><span class="ruby-value">7</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Working time, first week of the month&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-hour" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-hour" title="Link to this method">
+                  <span class="method-callseq">
+                    hour &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="hour-source">
+            <pre>static VALUE
+d_lite_hour(VALUE self)
+{
+    get_d1(self);
+    return INT2FIX(m_hour(dat));
+}</pre>
+          </div>
+          <p>Returns the hour in range (0..23):</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2001</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>).<span class="ruby-identifier">hour</span> <span class="ruby-comment"># =&gt; 4</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-iso8601" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-iso8601" title="Link to this method">
+                  <span class="method-callseq">
+                    iso8601([n=0])    &rarr;  string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="iso8601-source">
+            <pre>static VALUE
+dt_lite_iso8601(int argc, VALUE *argv, VALUE self)
+{
+    long n = 0;
+
+    rb_check_arity(argc, 0, 1);
+    if (argc &gt;= 1)
+        n = NUM2LONG(argv[0]);
+
+    return rb_str_append(strftimev(&quot;%Y-%m-%d&quot;, self, set_tmx),
+                         iso8601_timediv(self, n));
+}</pre>
+          </div>
+          <p>This method is equivalent to strftime(‘%FT%T%:z’). The optional argument <code>n</code> is the number of digits for fractional seconds.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;2001-02-03T04:05:06.123456789+07:00&#39;</span>).<span class="ruby-identifier">iso8601</span>(<span class="ruby-value">9</span>)
+                          <span class="ruby-comment">#=&gt; &quot;2001-02-03T04:05:06.123456789+07:00&quot;</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="DateTime.html#method-i-xmlschema">xmlschema</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-jisx0301" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-jisx0301" title="Link to this method">
+                  <span class="method-callseq">
+                    jisx0301([n=0])  &rarr;  string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="jisx0301-source">
+            <pre>static VALUE
+dt_lite_jisx0301(int argc, VALUE *argv, VALUE self)
+{
+    long n = 0;
+
+    rb_check_arity(argc, 0, 1);
+    if (argc &gt;= 1)
+        n = NUM2LONG(argv[0]);
+
+    return rb_str_append(d_lite_jisx0301(self),
+                         iso8601_timediv(self, n));
+}</pre>
+          </div>
+          <p>Returns a string in a JIS X 0301 format. The optional argument <code>n</code> is the number of digits for fractional seconds.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;2001-02-03T04:05:06.123456789+07:00&#39;</span>).<span class="ruby-identifier">jisx0301</span>(<span class="ruby-value">9</span>)
+                          <span class="ruby-comment">#=&gt; &quot;H13.02.03T04:05:06.123456789+07:00&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-min" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-min" title="Link to this method">
+                  <span class="method-callseq">
+                    min &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="min-source">
+            <pre>static VALUE
+d_lite_min(VALUE self)
+{
+    get_d1(self);
+    return INT2FIX(m_min(dat));
+}</pre>
+          </div>
+          <p>Returns the minute in range (0..59):</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2001</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>).<span class="ruby-identifier">min</span> <span class="ruby-comment"># =&gt; 5</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="DateTime.html#method-i-minute">minute</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-minute" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-minute" title="Link to this method">
+                <span class="method-name">minute</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="DateTime.html#method-i-min">min</a>
+        </div>
+      </div>
+
+      <div id="method-i-new_offset" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-new_offset" title="Link to this method">
+                  <span class="method-callseq">
+                    new_offset([offset=0])  &rarr;  date
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new_offset-source">
+            <pre>static VALUE
+d_lite_new_offset(int argc, VALUE *argv, VALUE self)
+{
+    VALUE vof;
+    int rof;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;vof);
+
+    rof = 0;
+    if (argc &gt;= 1)
+        val2off(vof, rof);
+
+    return dup_obj_with_new_offset(self, rof);
+}</pre>
+          </div>
+          <p>Duplicates self and resets its offset.</p>
+
+<pre class="ruby"><span class="ruby-identifier">d</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2001</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>,<span class="ruby-string">&#39;-02:00&#39;</span>)
+                          <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06-02:00 ...&gt;</span>
+<span class="ruby-identifier">d</span>.<span class="ruby-identifier">new_offset</span>(<span class="ruby-string">&#39;+09:00&#39;</span>)    <span class="ruby-comment">#=&gt; #&lt;DateTime: 2001-02-03T15:05:06+09:00 ...&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-offset" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-offset" title="Link to this method">
+                  <span class="method-callseq">
+                    offset  &rarr;  rational
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="offset-source">
+            <pre>static VALUE
+d_lite_offset(VALUE self)
+{
+    get_d1(self);
+    return m_of_in_day(dat);
+}</pre>
+          </div>
+          <p>Returns the offset.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;04pm+0730&#39;</span>).<span class="ruby-identifier">offset</span>        <span class="ruby-comment">#=&gt; (5/16)</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rfc3339" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-rfc3339" title="Link to this method">
+                  <span class="method-callseq">
+                    rfc3339([n=0])  &rarr;  string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="rfc3339-source">
+            <pre>static VALUE
+dt_lite_rfc3339(int argc, VALUE *argv, VALUE self)
+{
+    return dt_lite_iso8601(argc, argv, self);
+}</pre>
+          </div>
+          <p>This method is equivalent to strftime(‘%FT%T%:z’). The optional argument <code>n</code> is the number of digits for fractional seconds.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;2001-02-03T04:05:06.123456789+07:00&#39;</span>).<span class="ruby-identifier">rfc3339</span>(<span class="ruby-value">9</span>)
+                          <span class="ruby-comment">#=&gt; &quot;2001-02-03T04:05:06.123456789+07:00&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-sec" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-sec" title="Link to this method">
+                  <span class="method-callseq">
+                    sec &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="sec-source">
+            <pre>static VALUE
+d_lite_sec(VALUE self)
+{
+    get_d1(self);
+    return INT2FIX(m_sec(dat));
+}</pre>
+          </div>
+          <p>Returns the second in range (0..59):</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2001</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>).<span class="ruby-identifier">sec</span> <span class="ruby-comment"># =&gt; 6</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="DateTime.html#method-i-second">second</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-sec_fraction" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-sec_fraction" title="Link to this method">
+                  <span class="method-callseq">
+                    sec_fraction &rarr; rational
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="sec_fraction-source">
+            <pre>static VALUE
+d_lite_sec_fraction(VALUE self)
+{
+    get_d1(self);
+    return m_sf_in_sec(dat);
+}</pre>
+          </div>
+          <p>Returns the fractional part of the second in range (Rational(0, 1)…Rational(1, 1)):</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2001</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6.5</span>).<span class="ruby-identifier">sec_fraction</span> <span class="ruby-comment"># =&gt; (1/2)</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="DateTime.html#method-i-second_fraction">second_fraction</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-second" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-second" title="Link to this method">
+                <span class="method-name">second</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="DateTime.html#method-i-sec">sec</a>
+        </div>
+      </div>
+
+      <div id="method-i-second_fraction" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-second_fraction" title="Link to this method">
+                <span class="method-name">second_fraction</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="DateTime.html#method-i-sec_fraction">sec_fraction</a>
+        </div>
+      </div>
+
+      <div id="method-i-strftime" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-strftime" title="Link to this method">
+                  <span class="method-callseq">
+                    strftime(format = &#39;%FT%T%:z&#39;) &rarr; string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="strftime-source">
+            <pre>static VALUE
+dt_lite_strftime(int argc, VALUE *argv, VALUE self)
+{
+    return date_strftime_internal(argc, argv, self,
+                                  &quot;%Y-%m-%dT%H:%M:%S%:z&quot;, set_tmx);
+}</pre>
+          </div>
+          <p>Returns a string representation of <code>self</code>, formatted according the given +format:</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span> <span class="ruby-comment"># =&gt; &quot;2022-07-01T11:03:19-05:00&quot;</span>
+</pre>
+
+<p>For other formats, see <a href="strftime_formatting_rdoc.html">Formats for Dates and Times</a>:</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_date" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_date" title="Link to this method">
+                  <span class="method-callseq">
+                    to_date  &rarr;  date
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_date-source">
+            <pre>static VALUE
+datetime_to_date(VALUE self)
+{
+    get_d1a(self);
+
+    if (simple_dat_p(adat)) {
+        VALUE new = d_lite_s_alloc_simple(cDate);
+        {
+            get_d1b(new);
+            bdat-&gt;s = adat-&gt;s;
+            bdat-&gt;s.jd = m_local_jd(adat);
+            return new;
+        }
+    }
+    else {
+        VALUE new = d_lite_s_alloc_simple(cDate);
+        {
+            get_d1b(new);
+            copy_complex_to_simple(new, &amp;bdat-&gt;s, &amp;adat-&gt;c);
+            bdat-&gt;s.jd = m_local_jd(adat);
+            bdat-&gt;s.flags &amp;= ~(HAVE_DF | HAVE_TIME | COMPLEX_DAT);
+            return new;
+        }
+    }
+}</pre>
+          </div>
+          <p>Returns a <a href="Date.html"><code>Date</code></a> object which denotes self.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_datetime" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_datetime" title="Link to this method">
+                  <span class="method-callseq">
+                    to_datetime  &rarr;  self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_datetime-source">
+            <pre>static VALUE
+datetime_to_datetime(VALUE self)
+{
+    return self;
+}</pre>
+          </div>
+          <p>Returns self.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_json" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_json" title="Link to this method">
+                <span class="method-name">to_json</span>
+                <span class="method-args">(*args)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_json-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/add/date_time.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_json</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">as_json</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a <a href="JSON.html"><code>JSON</code></a> string representing <code>self</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;json/add/datetime&#39;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_json</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby">{<span class="ruby-value">&quot;json_class&quot;:</span><span class="ruby-string">&quot;DateTime&quot;</span>,<span class="ruby-value">&quot;y&quot;:</span><span class="ruby-value">2023</span>,<span class="ruby-value">&quot;m&quot;:</span><span class="ruby-value">11</span>,<span class="ruby-value">&quot;d&quot;:</span><span class="ruby-value">21</span>,<span class="ruby-value">&quot;sg&quot;:</span><span class="ruby-value">2299161.0</span>}
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_s" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_s" title="Link to this method">
+                  <span class="method-callseq">
+                    to_s  &rarr;  string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_s-source">
+            <pre>static VALUE
+dt_lite_to_s(VALUE self)
+{
+    return strftimev(&quot;%Y-%m-%dT%H:%M:%S%:z&quot;, self, set_tmx);
+}</pre>
+          </div>
+          <p>Returns a string in an ISO 8601 format. (This method doesn’t use the expanded representations.)</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2001</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>,<span class="ruby-string">&#39;-7&#39;</span>).<span class="ruby-identifier">to_s</span>
+                         <span class="ruby-comment">#=&gt; &quot;2001-02-03T04:05:06-07:00&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_time" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_time" title="Link to this method">
+                  <span class="method-callseq">
+                    to_time  &rarr;  time
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_time-source">
+            <pre>static VALUE
+datetime_to_time(VALUE self)
+{
+    get_d1(self);
+
+    if (m_julian_p(dat)) {
+        VALUE g = d_lite_gregorian(self);
+        get_d1a(g);
+        dat = adat;
+        self = g;
+    }
+
+    {
+        VALUE t;
+
+        t = rb_funcall(rb_cTime,
+                   rb_intern(&quot;new&quot;),
+                   7,
+                   m_real_year(dat),
+                   INT2FIX(m_mon(dat)),
+                   INT2FIX(m_mday(dat)),
+                   INT2FIX(m_hour(dat)),
+                   INT2FIX(m_min(dat)),
+                   f_add(INT2FIX(m_sec(dat)),
+                         m_sf_in_sec(dat)),
+                   INT2FIX(m_of(dat)));
+        RB_GC_GUARD(self); /* may be the converted gregorian */
+        return t;
+    }
+}</pre>
+          </div>
+          <p>Returns a <a href="Time.html"><code>Time</code></a> object which denotes self.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-xmlschema" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-xmlschema" title="Link to this method">
+                  <span class="method-callseq">
+                    xmlschema([n=0])  &rarr;  string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>This method is equivalent to strftime(‘%FT%T%:z’). The optional argument <code>n</code> is the number of digits for fractional seconds.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;2001-02-03T04:05:06.123456789+07:00&#39;</span>).<span class="ruby-identifier">iso8601</span>(<span class="ruby-value">9</span>)
+                          <span class="ruby-comment">#=&gt; &quot;2001-02-03T04:05:06.123456789+07:00&quot;</span>
+</pre>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="DateTime.html#method-i-iso8601">iso8601</a>
+        </div>
+      </div>
+
+      <div id="method-i-zone" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-zone" title="Link to this method">
+                  <span class="method-callseq">
+                    zone  &rarr;  string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="zone-source">
+            <pre>static VALUE
+d_lite_zone(VALUE self)
+{
+    get_d1(self);
+    return m_zone(dat);
+}</pre>
+          </div>
+          <p>Returns the timezone.</p>
+
+<pre class="ruby"><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;04pm+0730&#39;</span>).<span class="ruby-identifier">zone</span>          <span class="ruby-comment">#=&gt; &quot;+07:30&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

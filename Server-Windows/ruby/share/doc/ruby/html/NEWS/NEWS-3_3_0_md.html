@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>NEWS-3.3.0 - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,NEWS-3.3.0">
+  <meta name="description" content="NEWS-3.3.0: NEWS for Ruby 3. This document is a list of user-visible feature changes since the **3.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/NEWS/NEWS-3_3_0_md.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-NEWS+for+Ruby+3.3.0">NEWS for Ruby 3.3.0</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Command+line+options">Command line options</a>
+          <li>      <a href="#label-Core+classes+updates">Core classes updates</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Stdlib+updates">Stdlib updates</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Prism">Prism</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Compatibility+issues">Compatibility issues</a>
+          <li>      <a href="#label-Stdlib+compatibility+issues">Stdlib compatibility issues</a>
+          <li>      <a href="#label-C+API+updates">C API updates</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Implementation+improvements">Implementation improvements</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Parser">Parser</a>
+          <li>      <a href="#label-GC+-2F+Memory+management">GC / Memory management</a>
+          <li>      <a href="#label-YJIT">YJIT</a>
+          <li>      <a href="#label-MJIT">MJIT</a>
+          <li>      <a href="#label-RJIT">RJIT</a>
+          <li>      <a href="#label-M-3AN+Thread+scheduler">M:N Thread scheduler</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../COPYING.html">COPYING</a>
+    <li><a href="../COPYING_ja.html">COPYING.ja</a>
+    <li><a href="../LEGAL.html">LEGAL</a>
+    <li><details open><summary><a href="../NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="../NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="../NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="../NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="../NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="../NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="../NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="../NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="../NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="../NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="../NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="../NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="../NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="../NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="../NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="../NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="../NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="../README_ja_md.html">README.ja</a>
+    <li><a href="../README_md.html">README</a>
+    <li><a href="../bsearch_rdoc.html">bsearch</a>
+    <li><a href="../bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="../case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="../character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="../command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="../contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="../contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="../contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="../contributing/glossary_md.html">glossary</a>
+      <li><a href="../contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="../contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="../contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="../contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="../date/calendars_rdoc.html">calendars</a>
+    <li><a href="../dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="../distribution_md.html">distribution</a>
+    <li><a href="../dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="../encodings_rdoc.html">encodings</a>
+    <li><a href="../exceptions_md.html">exceptions</a>
+    <li><a href="../extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="../extension_rdoc.html">extension</a>
+    <li><a href="../fiber_md.html">fiber</a>
+    <li><a href="../format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="../globals_rdoc.html">globals</a>
+    <li><a href="../implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="../index_md.html">index</a>
+    <li><a href="../maintainers_md.html">maintainers</a>
+    <li><a href="../marshal_rdoc.html">marshal</a>
+    <li><a href="../memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="../optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="../optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="../optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="../optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="../packed_data_rdoc.html">packed_data</a>
+    <li><a href="../ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="../regexp/methods_rdoc.html">methods</a>
+      <li><a href="../regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="../rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="../ruby/option_dump_md.html">option_dump</a>
+      <li><a href="../ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="../security_rdoc.html">security</a>
+    <li><a href="../signals_rdoc.html">signals</a>
+    <li><a href="../standard_library_md.html">standard_library</a>
+    <li><a href="../strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="../syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="../syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="../syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="../syntax/comments_rdoc.html">comments</a>
+      <li><a href="../syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="../syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="../syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="../syntax/literals_rdoc.html">literals</a>
+      <li><a href="../syntax/methods_rdoc.html">methods</a>
+      <li><a href="../syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="../syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="../syntax/operators_rdoc.html">operators</a>
+      <li><a href="../syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="../syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="../syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="../windows_md.html">windows</a>
+    <li><a href="../yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page NEWS/NEWS-3.3.0.md">
+
+<h1 id="label-NEWS+for+Ruby+3.3.0"><a href="../NEWS_md.html">NEWS</a> for Ruby 3.3.0<span><a href="#label-NEWS+for+Ruby+3.3.0">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>This document is a list of user-visible feature changes since the <strong>3.2.0</strong> release, except for bug fixes.</p>
+
+<p>Note that each entry is kept to a minimum, see links for details.</p>
+
+<h2 id="label-Command+line+options">Command line options<span><a href="#label-Command+line+options">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>A new <code>performance</code> warning category was introduced. They are not displayed by default even in verbose mode. Turn them on with <code>-W:performance</code> or <code>Warning[:performance] = true</code>. [<a href="https://bugs.ruby-lang.org/issues/19538">Feature #19538</a>]</p>
+</li><li>
+<p>A new <code>RUBY_CRASH_REPORT</code> environment variable was introduced to allow redirecting Ruby crash reports to a file or sub command. See the <code>BUG REPORT ENVIRONMENT</code> section of the ruby manpage for further details. [<a href="https://bugs.ruby-lang.org/issues/19790">Feature #19790</a>]</p>
+</li></ul>
+
+<h2 id="label-Core+classes+updates">Core classes updates<span><a href="#label-Core+classes+updates">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Note: We’re only listing outstanding class updates.</p>
+<ul><li>
+<p><a href="../Array.html"><code>Array</code></a></p>
+<ul><li>
+<p><a href="../Array.html#method-i-pack"><code>Array#pack</code></a> now raises <a href="../ArgumentError.html"><code>ArgumentError</code></a> for unknown directives. [<a href="https://bugs.ruby-lang.org/issues/19150">Bug #19150</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Dir.html"><code>Dir</code></a></p>
+<ul><li>
+<p><a href="../Dir.html#method-c-for_fd"><code>Dir.for_fd</code></a> added for returning a <a href="../Dir.html"><code>Dir</code></a> object for the directory specified by the provided directory file descriptor. [<a href="https://bugs.ruby-lang.org/issues/19347">Feature #19347</a>]</p>
+</li><li>
+<p><a href="../Dir.html#method-c-fchdir"><code>Dir.fchdir</code></a> added for changing the directory to the directory specified by the provided directory file descriptor. [<a href="https://bugs.ruby-lang.org/issues/19347">Feature #19347</a>]</p>
+</li><li>
+<p><a href="../Dir.html#method-i-chdir"><code>Dir#chdir</code></a> added for changing the directory to the directory specified by the provided <a href="../Dir.html"><code>Dir</code></a> object. [<a href="https://bugs.ruby-lang.org/issues/19347">Feature #19347</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Encoding.html"><code>Encoding</code></a></p>
+<ul><li>
+<p><code>Encoding#replicate</code> has been removed, it was already deprecated. [<a href="https://bugs.ruby-lang.org/issues/18949">Feature #18949</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Fiber.html"><code>Fiber</code></a></p>
+<ul><li>
+<p>Introduce <a href="../Fiber.html#method-i-kill"><code>Fiber#kill</code></a>. [<a href="https://bugs.ruby-lang.org/issues/595">Bug #595</a>]</p>
+
+<pre class="ruby"><span class="ruby-identifier">fiber</span> = <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Yielding...&quot;</span>
+    <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Exiting...&quot;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">fiber</span>.<span class="ruby-identifier">resume</span>
+<span class="ruby-comment"># Yielding...</span>
+<span class="ruby-identifier">fiber</span>.<span class="ruby-identifier">kill</span>
+<span class="ruby-comment"># Exiting...</span>
+</pre>
+</li></ul>
+</li><li>
+<p><a href="../MatchData.html"><code>MatchData</code></a></p>
+<ul><li>
+<p><a href="../MatchData.html#method-i-named_captures"><code>MatchData#named_captures</code></a> now accepts optional <code>symbolize_names</code> keyword. [<a href="https://bugs.ruby-lang.org/issues/19591">Feature #19591</a>]</p>
+</li></ul>
+</li><li>
+<p>Module</p>
+<ul><li>
+<p><a href="../Module.html#method-i-set_temporary_name"><code>Module#set_temporary_name</code></a> added for setting a temporary name for a module. [<a href="https://bugs.ruby-lang.org/issues/19521">Feature #19521</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../ObjectSpace/WeakKeyMap.html"><code>ObjectSpace::WeakKeyMap</code></a></p>
+<ul><li>
+<p>New core class to build collections with weak references. The class use equality semantic to lookup keys like a regular hash, but it doesn't hold strong references on the keys. [<a href="https://bugs.ruby-lang.org/issues/18498">Feature #18498</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../ObjectSpace/WeakMap.html"><code>ObjectSpace::WeakMap</code></a></p>
+<ul><li>
+<p><a href="../ObjectSpace/WeakMap.html#method-i-delete"><code>ObjectSpace::WeakMap#delete</code></a> was added to eagerly clear weak map entries. [<a href="https://bugs.ruby-lang.org/issues/19561">Feature #19561</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Proc.html"><code>Proc</code></a></p>
+<ul><li>
+<p>Now <a href="../Object.html#method-i-dup"><code>Proc#dup</code></a> and <a href="../Kernel.html#method-i-clone"><code>Proc#clone</code></a> call initialize_dup and initialize_clone hooks respectively. [<a href="https://bugs.ruby-lang.org/issues/19362">Feature #19362</a>]</p>
+</li></ul>
+</li><li>
+<p>Process</p>
+<ul><li>
+<p>New <a href="../Process.html#method-c-warmup"><code>Process.warmup</code></a> method that notify the Ruby virtual machine that the boot sequence is finished, and that now is a good time to optimize the application. This is useful for long-running applications. The actual optimizations performed are entirely implementation-specific and may change in the future without notice. [<a href="https://bugs.ruby-lang.org/issues/18885">Feature #18885</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Process/Status.html"><code>Process::Status</code></a></p>
+<ul><li>
+<p><a href="../Process/Status.html#method-i-26"><code>Process::Status#&amp;</code></a> and <a href="../Process/Status.html#method-i-3E-3E"><code>Process::Status#&gt;&gt;</code></a> are deprecated. [<a href="https://bugs.ruby-lang.org/issues/19868">Bug #19868</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Range.html"><code>Range</code></a></p>
+<ul><li>
+<p><a href="../Range.html#method-i-reverse_each"><code>Range#reverse_each</code></a> can now process beginless ranges with an <a href="../Integer.html"><code>Integer</code></a> endpoint. [<a href="https://bugs.ruby-lang.org/issues/18515">Feature #18515</a>]</p>
+</li><li>
+<p><a href="../Range.html#method-i-reverse_each"><code>Range#reverse_each</code></a> now raises <a href="../TypeError.html"><code>TypeError</code></a> for endless ranges. [<a href="https://bugs.ruby-lang.org/issues/18551">Feature #18551</a>]</p>
+</li><li>
+<p><a href="../Range.html#method-i-overlap-3F"><code>Range#overlap?</code></a> added for checking if two ranges overlap. [<a href="https://bugs.ruby-lang.org/issues/19839">Feature #19839</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Refinement.html"><code>Refinement</code></a></p>
+<ul><li>
+<p>Add <a href="../Refinement.html#method-i-target"><code>Refinement#target</code></a> as an alternative of Refinement#refined_class. Refinement#refined_class is deprecated and will be removed in Ruby 3.4. [<a href="https://bugs.ruby-lang.org/issues/19714">Feature #19714</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Regexp.html"><code>Regexp</code></a></p>
+<ul><li>
+<p>The cache-based optimization now supports lookarounds and atomic groupings. That is, match for <a href="../Regexp.html"><code>Regexp</code></a> containing these extensions can now also be performed in linear time to the length of the input string. However, these cannot contain captures and cannot be nested. [<a href="https://bugs.ruby-lang.org/issues/19725">Feature #19725</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../String.html"><code>String</code></a></p>
+<ul><li>
+<p><a href="../String.html#method-i-unpack"><code>String#unpack</code></a> now raises <a href="../ArgumentError.html"><code>ArgumentError</code></a> for unknown directives. [<a href="https://bugs.ruby-lang.org/issues/19150">Bug #19150</a>]</p>
+</li><li>
+<p><a href="../String.html#method-i-bytesplice"><code>String#bytesplice</code></a> now accepts new arguments index/length or range of the source string to be copied. [<a href="https://bugs.ruby-lang.org/issues/19314">Feature #19314</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Thread/Queue.html"><code>Thread::Queue</code></a></p>
+<ul><li>
+<p><a href="../Thread/Queue.html#method-i-freeze"><code>Thread::Queue#freeze</code></a> now raises <a href="../TypeError.html"><code>TypeError</code></a>. [<a href="https://bugs.ruby-lang.org/issues/17146">Bug #17146</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Thread/SizedQueue.html"><code>Thread::SizedQueue</code></a></p>
+<ul><li>
+<p><a href="../Object.html#method-i-freeze"><code>Thread::SizedQueue#freeze</code></a> now raises <a href="../TypeError.html"><code>TypeError</code></a>. [<a href="https://bugs.ruby-lang.org/issues/17146">Bug #17146</a>]</p>
+</li></ul>
+</li><li>
+<p><a href="../Time.html"><code>Time</code></a></p>
+<ul><li>
+<p><a href="../Time.html#method-c-new"><code>Time.new</code></a> with a string argument became stricter. [<a href="https://bugs.ruby-lang.org/issues/19293">Bug #19293</a>]</p>
+
+<pre class="ruby"><span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;2023-12-20&#39;</span>)
+<span class="ruby-comment">#  no time information (ArgumentError)</span>
+</pre>
+</li></ul>
+</li><li>
+<p><a href="../TracePoint.html"><code>TracePoint</code></a></p>
+<ul><li>
+<p><a href="../TracePoint.html"><code>TracePoint</code></a> supports <code>rescue</code> event. When the raised exception was rescued, the <a href="../TracePoint.html"><code>TracePoint</code></a> will fire the hook. <code>rescue</code> event only supports Ruby-level <code>rescue</code>. [<a href="https://bugs.ruby-lang.org/issues/19572">Feature #19572</a>]</p>
+</li></ul>
+</li></ul>
+
+<h2 id="label-Stdlib+updates">Stdlib updates<span><a href="#label-Stdlib+updates">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>RubyGems and <a href="../Bundler.html"><code>Bundler</code></a> warn if users do <code>require</code> the following gems without adding them to Gemfile or gemspec. This is because they will become the bundled gems in the future version of Ruby. This warning is suppressed if you use bootsnap gem. We recommend to run your application with <code>DISABLE_BOOTSNAP=1</code> environmental variable at least once. This is limitation of this version. [<a href="https://bugs.ruby-lang.org/issues/19351">Feature #19351</a>] [<a href="https://bugs.ruby-lang.org/issues/19776">Feature #19776</a>] [<a href="https://bugs.ruby-lang.org/issues/19843">Feature #19843</a>]</p>
+<ul><li>
+<p>abbrev</p>
+</li><li>
+<p>base64</p>
+</li><li>
+<p>bigdecimal</p>
+</li><li>
+<p>csv</p>
+</li><li>
+<p>drb</p>
+</li><li>
+<p>getoptlong</p>
+</li><li>
+<p>mutex_m</p>
+</li><li>
+<p>nkf</p>
+</li><li>
+<p>observer</p>
+</li><li>
+<p>racc</p>
+</li><li>
+<p>resolv-replace</p>
+</li><li>
+<p>rinda</p>
+</li><li>
+<p>syslog</p>
+</li><li>
+<p>abbrev</p>
+</li><li>
+<p>base64</p>
+</li><li>
+<p>bigdecimal</p>
+</li><li>
+<p>csv</p>
+</li><li>
+<p>drb</p>
+</li><li>
+<p>getoptlong</p>
+</li><li>
+<p>mutex_m</p>
+</li><li>
+<p>nkf</p>
+</li><li>
+<p>observer</p>
+</li><li>
+<p>racc</p>
+</li><li>
+<p>resolv-replace</p>
+</li><li>
+<p>rinda</p>
+</li><li>
+<p>syslog</p>
+</li></ul>
+</li><li>
+<p><a href="../BasicSocket.html#method-i-recv"><code>Socket#recv</code></a> and <a href="../BasicSocket.html#method-i-recv_nonblock"><code>Socket#recv_nonblock</code></a> returns <code>nil</code> instead of an empty string on closed connections. <a href="../BasicSocket.html#method-i-recvmsg"><code>Socket#recvmsg</code></a> and <a href="../BasicSocket.html#method-i-recvmsg_nonblock"><code>Socket#recvmsg_nonblock</code></a> returns <code>nil</code> instead of an empty packet on closed connections. [<a href="https://bugs.ruby-lang.org/issues/19012">Bug #19012</a>]</p>
+</li><li>
+<p>Name resolution such as <a href="../Socket.html#method-c-getaddrinfo"><code>Socket.getaddrinfo</code></a>, <a href="../Socket.html#method-c-getnameinfo"><code>Socket.getnameinfo</code></a>, <a href="../Addrinfo.html#method-c-getaddrinfo"><code>Addrinfo.getaddrinfo</code></a>, etc. can now be interrupted. [<a href="https://bugs.ruby-lang.org/issues/19965">Feature #19965</a>]</p>
+</li><li>
+<p><a href="../Random/Formatter.html#method-i-alphanumeric"><code>Random::Formatter#alphanumeric</code></a> is extended to accept optional <code>chars</code> keyword argument. [<a href="https://bugs.ruby-lang.org/issues/18183">Feature #18183</a>]</p>
+</li></ul>
+
+<p>The following default gem is added.</p>
+<ul><li>
+<p>prism 0.19.0</p>
+</li></ul>
+
+<p>The following default gems are updated.</p>
+<ul><li>
+<p>RubyGems 3.5.3</p>
+</li><li>
+<p>abbrev 0.1.2</p>
+</li><li>
+<p>base64 0.2.0</p>
+</li><li>
+<p>benchmark 0.3.0</p>
+</li><li>
+<p>bigdecimal 3.1.5</p>
+</li><li>
+<p>bundler 2.5.3</p>
+</li><li>
+<p>cgi 0.4.1</p>
+</li><li>
+<p>csv 3.2.8</p>
+</li><li>
+<p>date 3.3.4</p>
+</li><li>
+<p>delegate 0.3.1</p>
+</li><li>
+<p>drb 2.2.0</p>
+</li><li>
+<p>english 0.8.0</p>
+</li><li>
+<p>erb 4.0.3</p>
+</li><li>
+<p>error_highlight 0.6.0</p>
+</li><li>
+<p>etc 1.4.3</p>
+</li><li>
+<p>fcntl 1.1.0</p>
+</li><li>
+<p>fiddle 1.1.2</p>
+</li><li>
+<p>fileutils 1.7.2</p>
+</li><li>
+<p>find 0.2.0</p>
+</li><li>
+<p>getoptlong 0.2.1</p>
+</li><li>
+<p>io-console 0.7.1</p>
+</li><li>
+<p>io-nonblock 0.3.0</p>
+</li><li>
+<p>io-wait 0.3.1</p>
+</li><li>
+<p>ipaddr 1.2.6</p>
+</li><li>
+<p>irb 1.11.0</p>
+</li><li>
+<p>json 2.7.1</p>
+</li><li>
+<p>logger 1.6.0</p>
+</li><li>
+<p>mutex_m 0.2.0</p>
+</li><li>
+<p>net-http 0.4.0</p>
+</li><li>
+<p>net-protocol 0.2.2</p>
+</li><li>
+<p>nkf 0.1.3</p>
+</li><li>
+<p>observer 0.1.2</p>
+</li><li>
+<p>open-uri 0.4.1</p>
+</li><li>
+<p>open3 0.2.1</p>
+</li><li>
+<p>openssl 3.2.0</p>
+</li><li>
+<p>optparse 0.4.0</p>
+</li><li>
+<p>ostruct 0.6.0</p>
+</li><li>
+<p>pathname 0.3.0</p>
+</li><li>
+<p>pp 0.5.0</p>
+</li><li>
+<p>prettyprint 0.2.0</p>
+</li><li>
+<p>pstore 0.1.3</p>
+</li><li>
+<p>psych 5.1.2</p>
+</li><li>
+<p>rdoc 6.6.2</p>
+</li><li>
+<p>readline 0.0.4</p>
+</li><li>
+<p>reline 0.4.1</p>
+</li><li>
+<p>resolv 0.3.0</p>
+</li><li>
+<p>rinda 0.2.0</p>
+</li><li>
+<p>securerandom 0.3.1</p>
+</li><li>
+<p>set 1.1.0</p>
+</li><li>
+<p>shellwords 0.2.0</p>
+</li><li>
+<p>singleton 0.2.0</p>
+</li><li>
+<p>stringio 3.1.0</p>
+</li><li>
+<p>strscan 3.0.7</p>
+</li><li>
+<p>syntax_suggest 2.0.0</p>
+</li><li>
+<p>syslog 0.1.2</p>
+</li><li>
+<p>tempfile 0.2.1</p>
+</li><li>
+<p>time 0.3.0</p>
+</li><li>
+<p>timeout 0.4.1</p>
+</li><li>
+<p>tmpdir 0.2.0</p>
+</li><li>
+<p>tsort 0.2.0</p>
+</li><li>
+<p>un 0.3.0</p>
+</li><li>
+<p>uri 0.13.0</p>
+</li><li>
+<p>weakref 0.1.3</p>
+</li><li>
+<p>win32ole 1.8.10</p>
+</li><li>
+<p>yaml 0.3.0</p>
+</li><li>
+<p>zlib 3.1.0</p>
+</li></ul>
+
+<p>The following bundled gem is promoted from default gems.</p>
+<ul><li>
+<p>racc 1.7.3</p>
+</li></ul>
+
+<p>The following bundled gems are updated.</p>
+<ul><li>
+<p>minitest 5.20.0</p>
+</li><li>
+<p>rake 13.1.0</p>
+</li><li>
+<p>test-unit 3.6.1</p>
+</li><li>
+<p>rexml 3.2.6</p>
+</li><li>
+<p>rss 0.3.0</p>
+</li><li>
+<p>net-ftp 0.3.3</p>
+</li><li>
+<p>net-imap 0.4.9</p>
+</li><li>
+<p>net-smtp 0.4.0</p>
+</li><li>
+<p>rbs 3.4.0</p>
+</li><li>
+<p>typeprof 0.21.9</p>
+</li><li>
+<p>debug 1.9.1</p>
+</li></ul>
+
+<p>See GitHub releases like <a href="https://github.com/ruby/logger/releases">Logger</a> or changelog for details of the default gems or bundled gems.</p>
+
+<h3 id="label-Prism"><a href="../Prism.html"><code>Prism</code></a><span><a href="#label-Prism">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Introduced <a href="https://github.com/ruby/prism">the Prism parser</a> as a default gem</p>
+<ul><li>
+<p><a href="../Prism.html"><code>Prism</code></a> is a portable, error tolerant, and maintainable recursive descent parser for the Ruby language</p>
+</li></ul>
+</li><li>
+<p><a href="../Prism.html"><code>Prism</code></a> is production ready and actively maintained, you can use it in place of <a href="../Ripper.html"><code>Ripper</code></a></p>
+<ul><li>
+<p>There is <a href="https://ruby.github.io/prism/">extensive documentation</a> on how to use <a href="../Prism.html"><code>Prism</code></a></p>
+</li><li>
+<p><a href="../Prism.html"><code>Prism</code></a> is both a C library that will be used internally by CRuby and a Ruby gem that can be used by any tooling which needs to parse Ruby code</p>
+</li><li>
+<p>Notable methods in the <a href="../Prism.html"><code>Prism</code></a> API are:</p>
+<ul><li>
+<p><a href="../Prism.html#method-c-parse"><code>Prism.parse(source)</code></a> which returns the AST as part of a parse result object</p>
+</li><li>
+<p><a href="../Prism.html#method-c-parse_comments"><code>Prism.parse_comments(source)</code></a> which returns the comments</p>
+</li><li>
+<p><a href="../Prism.html#method-c-parse_success-3F"><code>Prism.parse_success?(source)</code></a> which returns true if there are no errors</p>
+</li></ul>
+</li></ul>
+</li><li>
+<p>You can make pull requests or issues directly on <a href="https://github.com/ruby/prism">the Prism repository</a> if you are interested in contributing</p>
+</li><li>
+<p>You can now use <code>ruby --parser=prism</code> or <code>RUBYOPT=&quot;--parser=prism&quot;</code> to experiment with the <a href="../Prism.html"><code>Prism</code></a> compiler. Please note that this flag is for debugging only.</p>
+</li></ul>
+
+<h2 id="label-Compatibility+issues">Compatibility issues<span><a href="#label-Compatibility+issues">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Subprocess creation/forking via the following file open methods is deprecated. [<a href="https://bugs.ruby-lang.org/issues/19630">Feature #19630</a>]</p>
+<ul><li>
+<p><a href="../Kernel.html#method-i-open"><code>Kernel#open</code></a></p>
+</li><li>
+<p><a href="../URI.html#method-c-open"><code>URI.open</code></a></p>
+</li><li>
+<p><a href="../IO.html#method-c-binread"><code>IO.binread</code></a></p>
+</li><li>
+<p><a href="../IO.html#method-c-foreach"><code>IO.foreach</code></a></p>
+</li><li>
+<p><a href="../IO.html#method-c-readlines"><code>IO.readlines</code></a></p>
+</li><li>
+<p><a href="../IO.html#method-c-read"><code>IO.read</code></a></p>
+</li><li>
+<p><a href="../IO.html#method-c-write"><code>IO.write</code></a></p>
+</li><li>
+<p><a href="../Kernel.html#method-i-open"><code>Kernel#open</code></a></p>
+</li><li>
+<p><a href="../URI.html#method-c-open"><code>URI.open</code></a></p>
+</li><li>
+<p><a href="../IO.html#method-c-binread"><code>IO.binread</code></a></p>
+</li><li>
+<p><a href="../IO.html#method-c-foreach"><code>IO.foreach</code></a></p>
+</li><li>
+<p><a href="../IO.html#method-c-readlines"><code>IO.readlines</code></a></p>
+</li><li>
+<p><a href="../IO.html#method-c-read"><code>IO.read</code></a></p>
+</li><li>
+<p><a href="../IO.html#method-c-write"><code>IO.write</code></a></p>
+</li></ul>
+</li><li>
+<p>When given a non-lambda, non-literal block, <a href="../Kernel.html#method-i-lambda"><code>Kernel#lambda</code></a> with now raises <a href="../ArgumentError.html"><code>ArgumentError</code></a> instead of returning it unmodified. These usages have been issuing warnings under the <code>Warning[:deprecated]</code> category since Ruby 3.0.0. [<a href="https://bugs.ruby-lang.org/issues/19777">Feature #19777</a>]</p>
+</li><li>
+<p>The <code>RUBY_GC_HEAP_INIT_SLOTS</code> environment variable has been deprecated and removed. Environment variables <code>RUBY_GC_HEAP_%d_INIT_SLOTS</code> should be used instead. [<a href="https://bugs.ruby-lang.org/issues/19785">Feature #19785</a>]</p>
+</li><li>
+<p><code>it</code> calls without arguments in a block with no ordinary parameters are deprecated. <code>it</code> will be a reference to the first block parameter in Ruby 3.4. [<a href="https://bugs.ruby-lang.org/issues/18980">Feature #18980</a>]</p>
+</li><li>
+<p>Error message for <a href="../NoMethodError.html"><code>NoMethodError</code></a> have changed to not use the target object's inspect for efficiency, and says "instance of ClassName" instead. [<a href="https://bugs.ruby-lang.org/issues/18285">Feature #18285</a>]</p>
+
+<pre class="ruby">([<span class="ruby-value">1</span>] <span class="ruby-operator">*</span> <span class="ruby-value">100</span>).<span class="ruby-identifier">nonexisting</span>
+<span class="ruby-comment"># undefined method `nonexisting&#39; for an instance of Array (NoMethodError)</span>
+</pre>
+</li><li>
+<p>Now anonymous parameters forwarding is disallowed inside a block that uses anonymous parameters. [<a href="https://bugs.ruby-lang.org/issues/19370">Feature #19370</a>]</p>
+</li></ul>
+
+<h2 id="label-Stdlib+compatibility+issues">Stdlib compatibility issues<span><a href="#label-Stdlib+compatibility+issues">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><code>racc</code> is promoted to bundled gems.</p>
+<ul><li>
+<p>You need to add <code>racc</code> to your <code>Gemfile</code> if you use <code>racc</code> under bundler environment.</p>
+</li></ul>
+</li><li>
+<p><code>ext/readline</code> is retired</p>
+<ul><li>
+<p>We have <code>reline</code> that is pure Ruby implementation compatible with <code>ext/readline</code> API. We rely on <code>reline</code> in the future. If you need to use <code>ext/readline</code>, you can install <code>ext/readline</code> via rubygems.org with <code>gem install readline-ext</code>.</p>
+</li><li>
+<p>We no longer need to install libraries like <code>libreadline</code> or <code>libedit</code>.</p>
+</li></ul>
+</li></ul>
+
+<h2 id="label-C+API+updates">C API updates<span><a href="#label-C+API+updates">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><code>rb_postponed_job</code> updates</p>
+</li><li>
+<p>New APIs and deprecated APIs (see comments for details)</p>
+<ul><li>
+<p>added: <code>rb_postponed_job_preregister()</code></p>
+</li><li>
+<p>added: <code>rb_postponed_job_trigger()</code></p>
+</li><li>
+<p>deprecated: <code>rb_postponed_job_register()</code> (and semantic change. see below)</p>
+</li><li>
+<p>deprecated: <code>rb_postponed_job_register_one()</code></p>
+</li><li>
+<p>added: <code>rb_postponed_job_preregister()</code></p>
+</li><li>
+<p>added: <code>rb_postponed_job_trigger()</code></p>
+</li><li>
+<p>deprecated: <code>rb_postponed_job_register()</code> (and semantic change. see below)</p>
+</li><li>
+<p>deprecated: <code>rb_postponed_job_register_one()</code></p>
+</li></ul>
+</li><li>
+<p>The postponed job APIs have been changed to address some rare crashes. To solve the issue, we introduced new two APIs and deprecated current APIs. The semantics of these functions have also changed slightly; <code>rb_postponed_job_register</code> now behaves like the <code>once</code> variant in that multiple calls with the same <code>func</code> might be coalesced into a single execution of the <code>func</code> [<a href="https://bugs.ruby-lang.org/issues/20057">Feature #20057</a>]</p>
+</li><li>
+<p>Some updates for internal thread event hook APIs</p>
+</li><li>
+<p><code>rb_internal_thread_event_data_t</code> with a target Ruby thread (VALUE) and callback functions (<code>rb_internal_thread_event_callback</code>) receive it. <a href="https://github.com/ruby/ruby/pull/8885">github.com/ruby/ruby/pull/8885</a></p>
+</li><li>
+<p>The following functions are introduced to manipulate Ruby thread local data from internal thread event hook APIs (they are introduced since Ruby 3.2). <a href="https://github.com/ruby/ruby/pull/8936">github.com/ruby/ruby/pull/8936</a></p>
+<ul><li>
+<p><code>rb_internal_thread_specific_key_create()</code></p>
+</li><li>
+<p><code>rb_internal_thread_specific_get()</code></p>
+</li><li>
+<p><code>rb_internal_thread_specific_set()</code></p>
+</li></ul>
+</li><li>
+<p><code>rb_profile_thread_frames()</code> is introduced to get a frames from a specific thread. [<a href="https://bugs.ruby-lang.org/issues/10602">Feature #10602</a>]</p>
+</li><li>
+<p><code>rb_data_define()</code> is introduced to define <a href="../Data.html"><code>Data</code></a>. [<a href="https://bugs.ruby-lang.org/issues/19757">Feature #19757</a>]</p>
+</li><li>
+<p><code>rb_ext_resolve_symbol()</code> is introduced to search a function from extension libraries. [<a href="https://bugs.ruby-lang.org/issues/20005">Feature #20005</a>]</p>
+</li><li>
+<p><a href="../IO.html"><code>IO</code></a> related updates:</p>
+</li><li>
+<p>The details of <code>rb_io_t</code> will be hidden and deprecated attributes are added for each members. [<a href="https://bugs.ruby-lang.org/issues/19057">Feature #19057</a>]</p>
+</li><li>
+<p><code>rb_io_path(VALUE io)</code> is introduced to get a path of <code>io</code>.</p>
+</li><li>
+<p><code>rb_io_closed_p(VALUE io)</code> to get opening or closing of <code>io</code>.</p>
+</li><li>
+<p><code>rb_io_mode(VALUE io)</code> to get the mode of <code>io</code>.</p>
+</li><li>
+<p><code>rb_io_open_descriptor()</code> is introduced to make an <a href="../IO.html"><code>IO</code></a> object from a file descriptor.</p>
+</li></ul>
+
+<h2 id="label-Implementation+improvements">Implementation improvements<span><a href="#label-Implementation+improvements">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Parser">Parser<span><a href="#label-Parser">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Replace Bison with <a href="https://github.com/ruby/lrama">Lrama LALR parser generator</a>. No need to install Bison to build Ruby from source code anymore. We will no longer suffer bison compatibility issues and we can use new features by just implementing it to Lrama. [<a href="https://bugs.ruby-lang.org/issues/19637">Feature #19637</a>]</p>
+</li><li>
+<p>See <a href="https://rubykaigi.org/2023/presentations/spikeolaf.html">The future vision of Ruby Parser</a> for detail.</p>
+</li><li>
+<p>Lrama internal parser is a LR parser generated by Racc for maintainability.</p>
+</li><li>
+<p>Parameterizing Rules <code>(?, *, +)</code> are supported, it will be used in Ruby parse.y.</p>
+</li></ul>
+
+<h3 id="label-GC+-2F+Memory+management"><a href="../GC.html"><code>GC</code></a> / Memory management<span><a href="#label-GC+-2F+Memory+management">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Major performance improvements over Ruby 3.2</p>
+<ul><li>
+<p>Young objects referenced by old objects are no longer immediately promoted to the old generation. This significantly reduces the frequency of major <a href="../GC.html"><code>GC</code></a> collections. [<a href="https://bugs.ruby-lang.org/issues/19678">Feature #19678</a>]</p>
+</li><li>
+<p>A new <code>REMEMBERED_WB_UNPROTECTED_OBJECTS_LIMIT_RATIO</code> tuning variable was introduced to control the number of unprotected objects cause a major <a href="../GC.html"><code>GC</code></a> collection to trigger. The default is set to <code>0.01</code> (1%). This significantly reduces the frequency of major <a href="../GC.html"><code>GC</code></a> collection. [<a href="https://bugs.ruby-lang.org/issues/19571">Feature #19571</a>]</p>
+</li><li>
+<p>Write Barriers were implemented for many core types that were missing them, notably <a href="../Time.html"><code>Time</code></a>, <a href="../Enumerator.html"><code>Enumerator</code></a>, <a href="../MatchData.html"><code>MatchData</code></a>, <a href="../Method.html"><code>Method</code></a>, <a href="../File/Stat.html"><code>File::Stat</code></a>, <a href="../BigDecimal.html"><code>BigDecimal</code></a> and several others. This significantly reduces minor <a href="../GC.html"><code>GC</code></a> collection time and major <a href="../GC.html"><code>GC</code></a> collection frequency.</p>
+</li><li>
+<p>Most core classes are now using Variable Width Allocation, notably <a href="../Hash.html"><code>Hash</code></a>, <a href="../Time.html"><code>Time</code></a>, <a href="../Thread/Backtrace.html"><code>Thread::Backtrace</code></a>, <a href="../Thread/Backtrace/Location.html"><code>Thread::Backtrace::Location</code></a>, <a href="../File/Stat.html"><code>File::Stat</code></a>, <a href="../Method.html"><code>Method</code></a>. This makes these classes faster to allocate and free, use less memory and reduce heap fragmentation.</p>
+</li></ul>
+</li><li>
+<p><code>defined?(@ivar)</code> is optimized with <a href="../Object.html"><code>Object</code></a> Shapes.</p>
+</li></ul>
+
+<h3 id="label-YJIT">YJIT<span><a href="#label-YJIT">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Major performance improvements over Ruby 3.2</p>
+</li><li>
+<p>Support for splat and rest arguments has been improved.</p>
+</li><li>
+<p>Registers are allocated for stack operations of the virtual machine.</p>
+</li><li>
+<p>More calls with optional arguments are compiled. <a href="../Exception.html"><code>Exception</code></a> handlers are also compiled.</p>
+</li><li>
+<p>Unsupported call types and megamorphic call sites no longer exit to the interpreter.</p>
+</li><li>
+<p>Basic methods like Rails blank? and {specialized present?<a href="https://github.com/rails/rails/pull/49909">}</a> are inlined.</p>
+</li><li>
+<p><a href="../Integer.html#method-i-2A"><code>Integer#*</code></a>, <a href="../BasicObject.html#method-i-21-3D"><code>Integer#!=</code></a>, <a href="../BasicObject.html#method-i-21-3D"><code>String#!=</code></a>, <a href="../String.html#method-i-getbyte"><code>String#getbyte</code></a>, <a href="../Kernel.html#method-i-block_given-3F"><code>Kernel#block_given?</code></a>, <code>Kernel#is_a?</code>, <code>Kernel#instance_of?</code>, and <a href="../Module.html#method-i-3D-3D-3D"><code>Module#===</code></a> are specially optimized.</p>
+</li><li>
+<p>Compilation speed is now slightly faster than Ruby 3.2.</p>
+</li><li>
+<p>Now more than 3x faster than the interpreter on Optcarrot!</p>
+</li><li>
+<p>Significantly improved memory usage over Ruby 3.2</p>
+<ul><li>
+<p>Metadata for compiled code uses a lot less memory.</p>
+</li><li>
+<p><code>--yjit-call-threshold</code> is automatically raised from 30 to 120 when the application has more than 40,000 ISEQs.</p>
+</li><li>
+<p><code>--yjit-cold-threshold</code> is added to skip compiling cold ISEQs.</p>
+</li><li>
+<p>More compact code is generated on Arm64.</p>
+</li></ul>
+</li><li>
+<p>Code <a href="../GC.html"><code>GC</code></a> is now disabled by default</p>
+</li><li>
+<p><code>--yjit-exec-mem-size</code> is treated as a hard limit where compilation of new code stops.</p>
+</li><li>
+<p>No sudden drops in performance due to code <a href="../GC.html"><code>GC</code></a>. Better copy-on-write behavior on servers reforking with <a href="https://github.com/shopify/pitchfork">Pitchfork</a>.</p>
+</li><li>
+<p>You can still enable code <a href="../GC.html"><code>GC</code></a> if desired with <code>--yjit-code-gc</code></p>
+</li><li>
+<p>Add <a href="../RubyVM/YJIT.html#method-c-enable"><code>RubyVM::YJIT.enable</code></a> that can enable YJIT at run-time</p>
+</li><li>
+<p>You can start YJIT without modifying command-line arguments or environment variables. Rails 7.2 will <a href="https://github.com/rails/rails/pull/49947">enable YJIT by default</a> using this method.</p>
+</li><li>
+<p>This can also be used to enable YJIT only once your application is done booting. <code>--yjit-disable</code> can be used if you want to use other YJIT options while disabling YJIT at boot.</p>
+</li><li>
+<p>More YJIT stats are available by default</p>
+</li><li>
+<p><code>yjit_alloc_size</code> and several more metadata-related stats are now available by default.</p>
+</li><li>
+<p><code>ratio_in_yjit</code> stat produced by <code>--yjit-stats</code> is now available in release builds, a special stats or dev build is no longer required to access most stats.</p>
+</li><li>
+<p>Add more profiling capabilities</p>
+</li><li>
+<p><code>--yjit-perf</code> is added to facilitate profiling with Linux perf.</p>
+</li><li>
+<p><code>--yjit-trace-exits</code> now supports sampling with <code>--yjit-trace-exits-sample-rate=N</code></p>
+</li><li>
+<p>More thorough testing and multiple bug fixes</p>
+</li><li>
+<p><code>--yjit-stats=quiet</code> is added to avoid printing stats on exit.</p>
+</li></ul>
+
+<h3 id="label-MJIT">MJIT<span><a href="#label-MJIT">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>MJIT is removed.</p>
+<ul><li>
+<p><code>--disable-jit-support</code> is removed. Consider using <code>--disable-yjit --disable-rjit</code> instead.</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-RJIT">RJIT<span><a href="#label-RJIT">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Introduced a pure-Ruby JIT compiler RJIT.</p>
+<ul><li>
+<p>RJIT supports only x86_64 architecture on Unix platforms.</p>
+</li><li>
+<p>Unlike MJIT, it doesn’t require a C compiler at runtime.</p>
+</li></ul>
+</li><li>
+<p>RJIT exists only for experimental purposes.</p>
+<ul><li>
+<p>You should keep using YJIT in production.</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-M-3AN+Thread+scheduler">M:N <a href="../Thread.html"><code>Thread</code></a> scheduler<span><a href="#label-M-3AN+Thread+scheduler">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>M:N <a href="../Thread.html"><code>Thread</code></a> scheduler is introduced. [<a href="https://bugs.ruby-lang.org/issues/19842">Feature #19842</a>]</p>
+<ul><li>
+<p>Background: Ruby 1.8 and before, M:1 thread scheduler (M Ruby threads with 1 native thread. Called as User level threads or Green threads) is used. Ruby 1.9 and later, 1:1 thread scheduler (1 Ruby thread with 1 native thread). M:1 threads takes lower resources compare with 1:1 threads because it needs only 1 native threads. However it is difficult to support context switching for all of blocking operation so 1:1 threads are employed from Ruby 1.9. M:N thread scheduler uses N native threads for M Ruby threads (N is small number in general). It doesn’t need same number of native threads as Ruby threads (similar to the M:1 thread scheduler). Also our M:N threads supports blocking operations well same as 1:1 threads. See the ticket for more details. Our M:N thread scheduler refers on the goroutine scheduler in the Go language.</p>
+</li><li>
+<p>In a ractor, only 1 thread can run in a same time because of implementation. Therefore, applications that use only one <a href="../Ractor.html"><code>Ractor</code></a> (most applications) M:N thread scheduler works as M:1 thread scheduler with further extension from Ruby 1.8.</p>
+</li><li>
+<p>M:N thread scheduler can introduce incompatibility for C-extensions, so it is disabled by default on the main Ractors. <code>RUBY_MN_THREADS=1</code> environment variable will enable it. On non-main Ractors, M:N thread scheduler is enabled (and can not disable it now).</p>
+</li><li>
+<p><code>N</code> (the number of native threads) can be specified with <code>RUBY_MAX_CPU</code> environment variable. The default is 8. Note that more than <code>N</code> native threads are used to support many kind of blocking operations.</p>
+</li></ul>
+</li></ul>
+
+</main>
+

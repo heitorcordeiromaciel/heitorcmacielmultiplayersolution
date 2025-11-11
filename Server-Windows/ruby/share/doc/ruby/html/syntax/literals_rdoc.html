@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>literals - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,literals">
+  <meta name="description" content="literals: Literals Literals create objects you can use in your program. Backtick Literals}[#label-25x-3A+Backtick+Literals] == Boolean and Nil Literals +nil+">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/syntax/literals_rdoc.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Literals">Literals</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Boolean+and+Nil+Literals">Boolean and Nil Literals</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Number+Literals">Number Literals</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Integer+Literals">Integer Literals</a>
+          <li>      <a href="#label-Float+Literals">Float Literals</a>
+          <li>      <a href="#label-Rational+Literals">Rational Literals</a>
+          <li>      <a href="#label-Complex+Literals">Complex Literals</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Strings">Strings</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Escape+Sequences">Escape Sequences</a>
+          <li>      <a href="#label-Double-Quoted+String+Literals">Double-Quoted String Literals</a>
+          <li>      <a href="#label-Single-Quoted+String+Literals">Single-Quoted String Literals</a>
+          <li>      <a href="#label-Literal+String+Concatenation">Literal String Concatenation</a>
+          <li>      <a href="#label-Character+Literal">Character Literal</a>
+          <li>      <a href="#label-Here+Document+Literals">Here Document Literals</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Symbol+Literals">Symbol Literals</a>
+          <li>      <a href="#label-Array+Literals">Array Literals</a>
+          <li>      <a href="#label-Hash+Literals">Hash Literals</a>
+          <li>      <a href="#label-Range+Literals">Range Literals</a>
+          <li>      <a href="#label-Regexp+Literals">Regexp Literals</a>
+          <li>      <a href="#label-Lambda+Proc+Literals">Lambda Proc Literals</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Percent+Literals">Percent Literals</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-25q-3A+Non-Interpolable+String+Literals"><code>%q</code>: Non-Interpolable String Literals</a>
+          <li>      <a href="#label-25+and+-25Q-3A+Interpolable+String+Literals"><code>% and %Q</code>: Interpolable String Literals</a>
+          <li>      <a href="#label-25w+and+-25W-3A+String-Array+Literals"><code>%w and %W</code>: String-Array Literals</a>
+          <li>      <a href="#label-25i+and+-25I-3A+Symbol-Array+Literals"><code>%i and %I</code>: Symbol-Array Literals</a>
+          <li>      <a href="#label-25s-3A+Symbol+Literals"><code>%s</code>: Symbol Literals</a>
+          <li>      <a href="#label-25r-3A+Regexp+Literals"><code>%r</code>: Regexp Literals</a>
+          <li>      <a href="#label-25x-3A+Backtick+Literals"><code>%x</code>: Backtick Literals</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../COPYING.html">COPYING</a>
+    <li><a href="../COPYING_ja.html">COPYING.ja</a>
+    <li><a href="../LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="../NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="../NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="../NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="../NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="../NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="../NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="../NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="../NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="../NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="../NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="../NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="../NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="../NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="../NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="../NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="../NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="../NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="../README_ja_md.html">README.ja</a>
+    <li><a href="../README_md.html">README</a>
+    <li><a href="../bsearch_rdoc.html">bsearch</a>
+    <li><a href="../bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="../case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="../character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="../command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="../contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="../contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="../contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="../contributing/glossary_md.html">glossary</a>
+      <li><a href="../contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="../contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="../contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="../contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="../date/calendars_rdoc.html">calendars</a>
+    <li><a href="../dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="../distribution_md.html">distribution</a>
+    <li><a href="../dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="../encodings_rdoc.html">encodings</a>
+    <li><a href="../exceptions_md.html">exceptions</a>
+    <li><a href="../extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="../extension_rdoc.html">extension</a>
+    <li><a href="../fiber_md.html">fiber</a>
+    <li><a href="../format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="../globals_rdoc.html">globals</a>
+    <li><a href="../implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="../index_md.html">index</a>
+    <li><a href="../maintainers_md.html">maintainers</a>
+    <li><a href="../marshal_rdoc.html">marshal</a>
+    <li><a href="../memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="../optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="../optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="../optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="../optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="../packed_data_rdoc.html">packed_data</a>
+    <li><a href="../ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="../regexp/methods_rdoc.html">methods</a>
+      <li><a href="../regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="../rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="../ruby/option_dump_md.html">option_dump</a>
+      <li><a href="../ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="../security_rdoc.html">security</a>
+    <li><a href="../signals_rdoc.html">signals</a>
+    <li><a href="../standard_library_md.html">standard_library</a>
+    <li><a href="../strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details open><summary><a href="../syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="../syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="../syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="../syntax/comments_rdoc.html">comments</a>
+      <li><a href="../syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="../syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="../syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="../syntax/literals_rdoc.html">literals</a>
+      <li><a href="../syntax/methods_rdoc.html">methods</a>
+      <li><a href="../syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="../syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="../syntax/operators_rdoc.html">operators</a>
+      <li><a href="../syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="../syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="../syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="../windows_md.html">windows</a>
+    <li><a href="../yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page syntax/literals.rdoc">
+
+<h1 id="label-Literals">Literals<span><a href="#label-Literals">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Literals create objects you can use in your program.  Literals include:</p>
+<ul><li>
+<p><a href="#label-Boolean+and+Nil+Literals">Boolean and Nil Literals</a></p>
+</li><li>
+<p><a href="#label-Number+Literals">Number Literals</a></p>
+<ul><li>
+<p><a href="#label-Integer+Literals">Integer Literals</a></p>
+</li><li>
+<p><a href="#label-Float+Literals">Float Literals</a></p>
+</li><li>
+<p><a href="#label-Rational+Literals">Rational Literals</a></p>
+</li><li>
+<p><a href="#label-Complex+Literals">Complex Literals</a></p>
+</li></ul>
+</li><li>
+<p><a href="#label-String+Literals">String Literals</a></p>
+</li><li>
+<p><a href="#label-Here+Document+Literals">Here Document Literals</a></p>
+</li><li>
+<p><a href="#label-Symbol+Literals">Symbol Literals</a></p>
+</li><li>
+<p><a href="#label-Array+Literals">Array Literals</a></p>
+</li><li>
+<p><a href="#label-Hash+Literals">Hash Literals</a></p>
+</li><li>
+<p><a href="#label-Range+Literals">Range Literals</a></p>
+</li><li>
+<p><a href="#label-Regexp+Literals">Regexp Literals</a></p>
+</li><li>
+<p><a href="#label-Lambda+Proc+Literals">Lambda Proc Literals</a></p>
+</li><li>
+<p><a href="#label-Percent+Literals">Percent Literals</a></p>
+<ul><li>
+<p><a href="#label-25q-3A+Non-Interpolable+String+Literals">%q: Non-Interpolable String Literals</a></p>
+</li><li>
+<p><a href="#label-25+and+-25Q-3A+Interpolable+String+Literals">% and %Q: Interpolable String Literals</a></p>
+</li><li>
+<p><a href="#label-25w+and+-25W-3A+String-Array+Literals">%w and %W: String-Array Literals</a></p>
+</li><li>
+<p><a href="#label-25i+and+-25I-3A+Symbol-Array+Literals">%i and %I: Symbol-Array Literals</a></p>
+</li><li>
+<p><a href="#label-25r-3A+Regexp+Literals">%r: Regexp Literals</a></p>
+</li><li>
+<p><a href="#label-25s-3A+Symbol+Literals">%s: Symbol Literals</a></p>
+</li><li>
+<p><a href="#label-25x-3A+Backtick+Literals">%x: Backtick Literals</a></p>
+</li></ul>
+</li></ul>
+
+<h2 id="label-Boolean+and+Nil+Literals">Boolean and Nil Literals<span><a href="#label-Boolean+and+Nil+Literals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><code>nil</code> and <code>false</code> are both false values.  <code>nil</code> is sometimes used to indicate “no value” or “unknown” but evaluates to <code>false</code> in conditional expressions.</p>
+
+<p><code>true</code> is a true value.  All objects except <code>nil</code> and <code>false</code> evaluate to a true value in conditional expressions.</p>
+
+<h2 id="label-Number+Literals">Number Literals<span><a href="#label-Number+Literals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Integer+Literals">Integer Literals<span><a href="#label-Integer+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can write integers of any size as follows:</p>
+
+<pre class="ruby"><span class="ruby-value">1234</span>
+<span class="ruby-value">1_234</span>
+</pre>
+
+<p>These numbers have the same value, 1,234.  The underscore may be used to enhance readability for humans.  You may place an underscore anywhere in the number.</p>
+
+<p>You can use a special prefix to write numbers in decimal, hexadecimal, octal or binary formats.  For decimal numbers use a prefix of <code>0d</code>, for hexadecimal numbers use a prefix of <code>0x</code>, for octal numbers use a prefix of <code>0</code> or <code>0o</code>, for binary numbers use a prefix of <code>0b</code>.  The alphabetic component of the number is not case-sensitive.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-value">0d170</span>
+<span class="ruby-value">0D170</span>
+
+<span class="ruby-value">0xaa</span>
+<span class="ruby-value">0xAa</span>
+<span class="ruby-value">0xAA</span>
+<span class="ruby-value">0Xaa</span>
+<span class="ruby-value">0XAa</span>
+<span class="ruby-value">0XaA</span>
+
+<span class="ruby-value">0252</span>
+<span class="ruby-value">0o252</span>
+<span class="ruby-value">0O252</span>
+
+<span class="ruby-value">0b10101010</span>
+<span class="ruby-value">0B10101010</span>
+</pre>
+
+<p>All these numbers have the same decimal value, 170.  Like integers and floats you may use an underscore for readability.</p>
+
+<h3 id="label-Float+Literals">Float Literals<span><a href="#label-Float+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Floating-point numbers may be written as follows:</p>
+
+<pre class="ruby"><span class="ruby-value">12.34</span>
+<span class="ruby-value">1234e-2</span>
+<span class="ruby-value">1.234E1</span>
+</pre>
+
+<p>These numbers have the same value, 12.34.  You may use underscores in floating point numbers as well.</p>
+
+<h3 id="label-Rational+Literals">Rational Literals<span><a href="#label-Rational+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can write a <a href="../Rational.html"><code>Rational</code></a> literal using a special suffix, <code>&#39;r&#39;</code>.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-value">1r</span>       <span class="ruby-comment"># =&gt; (1/1)</span>
+<span class="ruby-value">2</span><span class="ruby-operator">/</span><span class="ruby-value">3r</span>     <span class="ruby-comment"># =&gt; (2/3)   # With denominator.</span>
+<span class="ruby-value">-1r</span>      <span class="ruby-comment"># =&gt; (-1/1)  # With signs.</span>
+<span class="ruby-value">-2</span><span class="ruby-operator">/</span><span class="ruby-value">3r</span>    <span class="ruby-comment"># =&gt; (-2/3)</span>
+<span class="ruby-value">2</span><span class="ruby-operator">/</span><span class="ruby-value">-3r</span>    <span class="ruby-comment"># =&gt; (-2/3)</span>
+<span class="ruby-value">-2</span><span class="ruby-operator">/</span><span class="ruby-value">-3r</span>   <span class="ruby-comment"># =&gt; (2/3)</span>
+<span class="ruby-value">+1</span><span class="ruby-operator">/</span><span class="ruby-value">+3r</span>   <span class="ruby-comment"># =&gt; (1/3)</span>
+<span class="ruby-value">1.2r</span>     <span class="ruby-comment"># =&gt; (6/5)   # With fractional part.</span>
+<span class="ruby-value">1_1</span><span class="ruby-operator">/</span><span class="ruby-value">2_1r</span> <span class="ruby-comment"># =&gt; (11/21) # With embedded underscores.</span>
+<span class="ruby-value">2</span><span class="ruby-operator">/</span><span class="ruby-value">4r</span>     <span class="ruby-comment"># =&gt; (1/2)   # Automatically reduced.</span>
+</pre>
+
+<p>Syntax:</p>
+
+<pre>&lt;rational-literal&gt; = &lt;numerator&gt; [ &#39;/&#39; &lt;denominator&gt; ] &#39;r&#39;
+&lt;numerator&gt; = [ &lt;sign&gt; ] &lt;digits&gt; [ &lt;fractional-part&gt; ]
+&lt;fractional-part&gt; = &#39;.&#39; &lt;digits&gt;
+&lt;denominator&gt; = [ sign ] &lt;digits&gt;
+&lt;sign&gt; = &#39;-&#39; | &#39;+&#39;
+&lt;digits&gt; = &lt;digit&gt; { &lt;digit&gt; | &#39;_&#39; &lt;digit&gt; }
+&lt;digit&gt; = &#39;0&#39; | &#39;1&#39; | &#39;2&#39; | &#39;3&#39; | &#39;4&#39; | &#39;5&#39; | &#39;6&#39; | &#39;7&#39; | &#39;8&#39; | &#39;9&#39;</pre>
+
+<p>Note this, which is parsed as Float numerator <code>1.2</code> divided by Rational denominator <code>3r</code>, resulting in a Float:</p>
+
+<pre class="ruby"><span class="ruby-value">1.2</span><span class="ruby-operator">/</span><span class="ruby-value">3r</span>  <span class="ruby-comment"># =&gt; 0.39999999999999997</span>
+</pre>
+
+<h3 id="label-Complex+Literals">Complex Literals<span><a href="#label-Complex+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can write a <a href="../Complex.html"><code>Complex</code></a> number as follows (suffixed <code>i</code>):</p>
+
+<pre class="ruby"><span class="ruby-value">1i</span>          <span class="ruby-comment">#=&gt; (0+1i)</span>
+<span class="ruby-value">1i</span> <span class="ruby-operator">*</span> <span class="ruby-value">1i</span>     <span class="ruby-comment">#=&gt; (-1+0i)</span>
+</pre>
+
+<p>Also Rational numbers may be imaginary numbers.</p>
+
+<pre class="ruby"><span class="ruby-value">12.3ri</span>      <span class="ruby-comment">#=&gt; (0+(123/10)*i)</span>
+</pre>
+
+<p><code>i</code> must be placed after <code>r</code>; the opposite is not allowed.</p>
+
+<pre>12.3ir      #=&gt; Syntax error</pre>
+
+<h2 id="label-Strings">Strings<span><a href="#label-Strings">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Escape+Sequences">Escape Sequences<span><a href="#label-Escape+Sequences">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Some characters can be represented as escape sequences in double-quoted strings, character literals, here document literals (non-quoted, double-quoted, and with backticks), double-quoted symbols, double-quoted symbol keys in <a href="../Hash.html"><code>Hash</code></a> literals, <a href="../Regexp.html"><code>Regexp</code></a> literals, and several percent literals (<code>%</code>, <code>%Q</code>, <code>%W</code>, <code>%I</code>, <code>%r</code>, <code>%x</code>).</p>
+
+<p>They allow escape sequences such as <code>\n</code> for newline, <code>\t</code> for tab, etc.  The full list of supported escape sequences are as follows:</p>
+
+<pre>\a             bell, ASCII 07h (BEL)
+\b             backspace, ASCII 08h (BS)
+\t             horizontal tab, ASCII 09h (TAB)
+\n             newline (line feed), ASCII 0Ah (LF)
+\v             vertical tab, ASCII 0Bh (VT)
+\f             form feed, ASCII 0Ch (FF)
+\r             carriage return, ASCII 0Dh (CR)
+\e             escape, ASCII 1Bh (ESC)
+\s             space, ASCII 20h (SPC)
+\\             backslash, \
+\nnn           octal bit pattern, where nnn is 1-3 octal digits ([0-7])
+\xnn           hexadecimal bit pattern, where nn is 1-2 hexadecimal digits ([0-9a-fA-F])
+\unnnn         Unicode character, where nnnn is exactly 4 hexadecimal digits ([0-9a-fA-F])
+\u{nnnn ...}   Unicode character(s), where each nnnn is 1-6 hexadecimal digits ([0-9a-fA-F])
+\cx or \C-x    control character, where x is an ASCII printable character
+\M-x           meta character, where x is an ASCII printable character
+\M-\C-x        meta control character, where x is an ASCII printable character
+\M-\cx         same as above
+\c\M-x         same as above
+\c? or \C-?    delete, ASCII 7Fh (DEL)
+\&lt;newline&gt;     continuation line (empty string)</pre>
+
+<p>The last one, <code>&lt;newline&gt;</code>, represents an empty string instead of a character. It is used to fold a line in a string.</p>
+
+<h3 id="label-Double-Quoted+String+Literals">Double-Quoted String Literals<span><a href="#label-Double-Quoted+String+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The most common way of writing strings is using <code>&quot;</code>:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;This is a string.&quot;</span>
+</pre>
+
+<p>The string may be many lines long.</p>
+
+<p>Any internal <code>&quot;</code> must be escaped:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;This string has a quote: \&quot;.  As you can see, it is escaped&quot;</span>
+</pre>
+
+<p>Double-quoted strings allow escape sequences described in <a href="#label-Escape+Sequences">Escape Sequences</a>.</p>
+
+<p>In a double-quoted string, any other character following a backslash is interpreted as the character itself.</p>
+
+<p>Double-quoted strings allow interpolation of other values using <code>#{...}</code>:</p>
+
+<pre class="ruby"><span class="ruby-node">&quot;One plus one is two: #{1 + 1}&quot;</span>
+</pre>
+
+<p>Any expression may be placed inside the interpolated section, but it’s best to keep the expression small for readability.</p>
+
+<p>You can also use <code>#@foo</code>, <code>#@@foo</code> and <code>#$foo</code> as a shorthand for, respectively, <code>#{ @foo }</code>, <code>#{ @@foo }</code> and <code>#{ $foo }</code>.</p>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="#label-25+and+-25Q-3A+Interpolable+String+Literals">% and %Q: Interpolable String Literals</a></p>
+</li></ul>
+
+<h3 id="label-Single-Quoted+String+Literals">Single-Quoted String Literals<span><a href="#label-Single-Quoted+String+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Interpolation may be disabled by escaping the “#” character or using single-quoted strings:</p>
+
+<pre class="ruby"><span class="ruby-string">&#39;#{1 + 1}&#39;</span> <span class="ruby-comment">#=&gt; &quot;\#{1 + 1}&quot;</span>
+</pre>
+
+<p>In addition to disabling interpolation, single-quoted strings also disable all escape sequences except for the single-quote (<code>\&#39;</code>) and backslash (<code>\\</code>).</p>
+
+<p>In a single-quoted string, any other character following a backslash is interpreted as is: a backslash and the character itself.</p>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="#label-25q-3A+Non-Interpolable+String+Literals">%q: Non-Interpolable String Literals</a></p>
+</li></ul>
+
+<h3 id="label-Literal+String+Concatenation">Literal <a href="../String.html"><code>String</code></a> Concatenation<span><a href="#label-Literal+String+Concatenation">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Adjacent string literals are automatically concatenated by the interpreter:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;con&quot;</span> <span class="ruby-string">&quot;cat&quot;</span> <span class="ruby-string">&quot;en&quot;</span> <span class="ruby-string">&quot;at&quot;</span> <span class="ruby-string">&quot;ion&quot;</span> <span class="ruby-comment">#=&gt; &quot;concatenation&quot;</span>
+<span class="ruby-string">&quot;This string contains &quot;</span>\
+<span class="ruby-string">&quot;no newlines.&quot;</span>              <span class="ruby-comment">#=&gt; &quot;This string contains no newlines.&quot;</span>
+</pre>
+
+<p>Any combination of adjacent single-quote, double-quote, percent strings will be concatenated as long as a percent-string is not last.</p>
+
+<pre class="ruby"><span class="ruby-string">%q{a}</span> <span class="ruby-string">&#39;b&#39;</span> <span class="ruby-string">&quot;c&quot;</span> <span class="ruby-comment">#=&gt; &quot;abc&quot;</span>
+<span class="ruby-string">&quot;a&quot;</span> <span class="ruby-string">&#39;b&#39;</span> <span class="ruby-operator">%</span><span class="ruby-identifier">q</span>{<span class="ruby-identifier">c</span>} <span class="ruby-comment">#=&gt; NameError: uninitialized constant q</span>
+</pre>
+
+<h3 id="label-Character+Literal">Character Literal<span><a href="#label-Character+Literal">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>There is also a character literal notation to represent single character strings, which syntax is a question mark (<code>?</code>) followed by a single character or escape sequence (except continuation line) that corresponds to a single codepoint in the script encoding:</p>
+
+<pre>?a       #=&gt; &quot;a&quot;
+?abc     #=&gt; SyntaxError
+?\n      #=&gt; &quot;\n&quot;
+?\s      #=&gt; &quot; &quot;
+?\\      #=&gt; &quot;\\&quot;
+?\u{41}  #=&gt; &quot;A&quot;
+?\C-a    #=&gt; &quot;\x01&quot;
+?\M-a    #=&gt; &quot;\xE1&quot;
+?\M-\C-a #=&gt; &quot;\x81&quot;
+?\C-\M-a #=&gt; &quot;\x81&quot;, same as above
+?あ      #=&gt; &quot;あ&quot;</pre>
+
+<h3 id="label-Here+Document+Literals">Here Document Literals<span><a href="#label-Here+Document+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If you are writing a large block of text you may use a “here document” or “heredoc”:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expected_result</span> = <span class="ruby-identifier">&lt;&lt;HEREDOC</span>
+<span class="ruby-value">This would contain specially formatted text.
+
+That might span many lines
+</span><span class="ruby-identifier">HEREDOC</span>
+</pre>
+
+<p>The heredoc starts on the line following <code>&lt;&lt;HEREDOC</code> and ends with the next line that starts with <code>HEREDOC</code>.  The result includes the ending newline.</p>
+
+<p>You may use any identifier with a heredoc, but all-uppercase identifiers are typically used.</p>
+
+<p>You may indent the ending identifier if you place a “-” after <code>&lt;&lt;</code>:</p>
+
+<pre class="ruby">  <span class="ruby-identifier">expected_result</span> = <span class="ruby-identifier">&lt;&lt;-INDENTED_HEREDOC</span>
+<span class="ruby-value">This would contain specially formatted text.
+
+That might span many lines
+</span><span class="ruby-identifier">  INDENTED_HEREDOC</span>
+</pre>
+
+<p>Note that while the closing identifier may be indented, the content is always treated as if it is flush left.  If you indent the content those spaces will appear in the output.</p>
+
+<p>To have indented content as well as an indented closing identifier, you can use a “squiggly” heredoc, which uses a “~” instead of a “-” after <code>&lt;&lt;</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expected_result</span> = <span class="ruby-identifier">&lt;&lt;~SQUIGGLY_HEREDOC</span>
+<span class="ruby-value">  This would contain specially formatted text.
+
+  That might span many lines
+</span><span class="ruby-identifier">SQUIGGLY_HEREDOC</span>
+</pre>
+
+<p>The indentation of the least-indented line will be removed from each line of the content.  Note that empty lines and lines consisting solely of literal tabs and spaces will be ignored for the purposes of determining indentation, but escaped tabs and spaces are considered non-indentation characters.</p>
+
+<p>For the purpose of measuring an indentation, a horizontal tab is regarded as a sequence of one to eight spaces such that the column position corresponding to its end is a multiple of eight.  The amount to be removed is counted in terms of the number of spaces.  If the boundary appears in the middle of a tab, that tab is not removed.</p>
+
+<p>A heredoc allows interpolation and the escape sequences described in <a href="#label-Escape+Sequences">Escape Sequences</a>. You may disable interpolation and the escaping by surrounding the opening identifier with single quotes:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expected_result</span> = <span class="ruby-identifier">&lt;&lt;-&#39;EXPECTED&#39;</span>
+<span class="ruby-value">One plus one is #{1 + 1}
+</span><span class="ruby-identifier">EXPECTED</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">expected_result</span> <span class="ruby-comment"># prints: &quot;One plus one is \#{1 + 1}\n&quot;</span>
+</pre>
+
+<p>The identifier may also be surrounded with double quotes (which is the same as no quotes) or with backticks.  When surrounded by backticks the HEREDOC behaves like <a href="../Kernel.html#method-i-60"><code>Kernel#`</code></a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">puts</span> <span class="ruby-identifier">&lt;&lt;-`HEREDOC`</span>
+<span class="ruby-value">cat #{__FILE__}
+</span><span class="ruby-identifier">HEREDOC</span>
+</pre>
+
+<p>When surrounding with quotes, any character but that quote and newline (CR and/or LF) can be used as the identifier.</p>
+
+<p>To call a method on a heredoc place it after the opening identifier:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expected_result</span> = <span class="ruby-identifier">&lt;&lt;-EXPECTED</span>.<span class="ruby-identifier">chomp</span>
+<span class="ruby-value">One plus one is #{1 + 1}
+</span><span class="ruby-identifier">EXPECTED</span>
+</pre>
+
+<p>You may open multiple heredocs on the same line, but this can be difficult to read:</p>
+
+<pre class="ruby"><span class="ruby-identifier">puts</span>(<span class="ruby-identifier">&lt;&lt;-ONE</span>, <span class="ruby-identifier">&lt;&lt;-TWO</span>)
+<span class="ruby-value">content for heredoc one
+</span><span class="ruby-identifier">ONE</span>
+<span class="ruby-value">content for heredoc two
+</span><span class="ruby-identifier">TWO</span>
+</pre>
+
+<h2 id="label-Symbol+Literals">Symbol Literals<span><a href="#label-Symbol+Literals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A <a href="../Symbol.html"><code>Symbol</code></a> represents a name inside the ruby interpreter.  See <a href="../Symbol.html"><code>Symbol</code></a> for more details on what symbols are and when ruby creates them internally.</p>
+
+<p>You may reference a symbol using a colon: <code>:my_symbol</code>.</p>
+
+<p>You may also create symbols by interpolation and escape sequences described in <a href="#label-Escape+Sequences">Escape Sequences</a> with double-quotes:</p>
+
+<pre class="ruby"><span class="ruby-value">:&quot;my_symbol1&quot;</span>
+<span class="ruby-value">:&quot;my_symbol#{1 + 1}&quot;</span>
+<span class="ruby-value">:&quot;foo\sbar&quot;</span>
+</pre>
+
+<p>Like strings, a single-quote may be used to disable interpolation and escape sequences:</p>
+
+<pre class="ruby"><span class="ruby-value">:&#39;my_symbol#{1 + 1}&#39;</span> <span class="ruby-comment">#=&gt; :&quot;my_symbol\#{1 + 1}&quot;</span>
+</pre>
+
+<p>When creating a <a href="../Hash.html"><code>Hash</code></a>, there is a special syntax for referencing a <a href="../Symbol.html"><code>Symbol</code></a> as well.</p>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="#label-25s-3A+Symbol+Literals">%s: Symbol Literals</a></p>
+</li></ul>
+
+<h2 id="label-Array+Literals">Array Literals<span><a href="#label-Array+Literals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>An array is created using the objects between <code>[</code> and <code>]</code>:</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]
+</pre>
+
+<p>You may place expressions inside the array:</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">1</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-value">1</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>]
+[<span class="ruby-value">1</span>, [<span class="ruby-value">1</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, [<span class="ruby-value">1</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>]]]
+</pre>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="#label-25w+and+-25W-3A+String-Array+Literals">%w and %W: String-Array Literals</a></p>
+</li><li>
+<p><a href="#label-25i+and+-25I-3A+Symbol-Array+Literals">%i and %I: Symbol-Array Literals</a></p>
+</li></ul>
+
+<p>See <a href="../Array.html"><code>Array</code></a> for the methods you may use with an array.</p>
+
+<h2 id="label-Hash+Literals">Hash Literals<span><a href="#label-Hash+Literals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A hash is created using key-value pairs between <code>{</code> and <code>}</code>:</p>
+
+<pre class="ruby">{ <span class="ruby-string">&quot;a&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-string">&quot;b&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">2</span> }
+</pre>
+
+<p>Both the key and value may be any object.</p>
+
+<p>You can create a hash using symbol keys with the following syntax:</p>
+
+<pre class="ruby">{ <span class="ruby-value">a:</span> <span class="ruby-value">1</span>, <span class="ruby-value">b:</span> <span class="ruby-value">2</span> }
+</pre>
+
+<p>This same syntax is used for keyword arguments for a method.</p>
+
+<p>Like <a href="../Symbol.html"><code>Symbol</code></a> literals, you can quote symbol keys.</p>
+
+<pre class="ruby">{ <span class="ruby-value">&quot;a 1&quot;:</span> <span class="ruby-value">1</span>, <span class="ruby-value">&quot;b #{1 + 1}&quot;:</span> <span class="ruby-value">2</span> }
+</pre>
+
+<p>is equal to</p>
+
+<pre class="ruby">{ <span class="ruby-value">:&quot;a 1&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-value">:&quot;b 2&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">2</span> }
+</pre>
+
+<p><a href="../Hash.html"><code>Hash</code></a> values can be omitted, meaning that value will be fetched from the context by the name of the key:</p>
+
+<pre class="ruby"><span class="ruby-identifier">x</span> = <span class="ruby-value">100</span>
+<span class="ruby-identifier">y</span> = <span class="ruby-value">200</span>
+<span class="ruby-identifier">h</span> = { <span class="ruby-value">x:</span>, <span class="ruby-value">y:</span> }
+<span class="ruby-comment">#=&gt; {:x=&gt;100, :y=&gt;200}</span>
+</pre>
+
+<p>See <a href="../Hash.html"><code>Hash</code></a> for the methods you may use with a hash.</p>
+
+<h2 id="label-Range+Literals">Range Literals<span><a href="#label-Range+Literals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A range represents an interval of values.  The range may include or exclude its ending value.</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">2</span>)  <span class="ruby-comment"># includes its ending value</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">...</span><span class="ruby-value">2</span>) <span class="ruby-comment"># excludes its ending value</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span>)   <span class="ruby-comment"># endless range, representing infinite sequence from 1 to Infinity</span>
+(<span class="ruby-operator">..</span><span class="ruby-value">1</span>)   <span class="ruby-comment"># beginless range, representing infinite sequence from -Infinity to 1</span>
+</pre>
+
+<p>You may create a range of any object.  See the <a href="../Range.html"><code>Range</code></a> documentation for details on the methods you need to implement.</p>
+
+<h2 id="label-Regexp+Literals">Regexp Literals<span><a href="#label-Regexp+Literals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A regular expression may be created using leading and trailing slash (<code>&#39;/&#39;</code>) characters:</p>
+
+<pre class="ruby"><span class="ruby-identifier">re</span> = <span class="ruby-regexp">/foo/</span> <span class="ruby-comment"># =&gt; /foo/</span>
+<span class="ruby-identifier">re</span>.<span class="ruby-identifier">class</span>   <span class="ruby-comment"># =&gt; Regexp</span>
+</pre>
+
+<p>The trailing slash may be followed by one or more modifiers characters that set modes for the regexp. See <a href="../Regexp.html#class-Regexp-label-Modes">Regexp modes</a> for details.</p>
+
+<p>Interpolation may be used inside regular expressions along with escaped characters.  Note that a regular expression may require additional escaped characters than a string.</p>
+
+<p>See also:</p>
+<ul><li>
+<p><a href="#label-25r-3A+Regexp+Literals">%r: Regexp Literals</a></p>
+</li></ul>
+
+<p>See <a href="../Regexp.html"><code>Regexp</code></a> for a description of the syntax of regular expressions.</p>
+
+<h2 id="label-Lambda+Proc+Literals">Lambda <a href="../Proc.html"><code>Proc</code></a> Literals<span><a href="#label-Lambda+Proc+Literals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A lambda proc can be created with <code>-&gt;</code>:</p>
+
+<pre class="ruby"><span class="ruby-operator">-&gt;</span> { <span class="ruby-value">1</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> }
+</pre>
+
+<p>Calling the above proc will give a result of <code>2</code>.</p>
+
+<p>You can require arguments for the proc as follows:</p>
+
+<pre class="ruby"><span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">v</span>) { <span class="ruby-value">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">v</span> }
+</pre>
+
+<p>This proc will add one to its argument.</p>
+
+<h2 id="label-Percent+Literals">Percent Literals<span><a href="#label-Percent+Literals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Each of the literals in described in this section may use these paired delimiters:</p>
+<ul><li>
+<p><code>[</code> and <code>]</code>.</p>
+</li><li>
+<p><code>(</code> and <code>)</code>.</p>
+</li><li>
+<p><code>{</code> and <code>}</code>.</p>
+</li><li>
+<p><code>&lt;</code> and <code>&gt;</code>.</p>
+</li><li>
+<p>Non-alphanumeric ASCII character except above, as both beginning and ending delimiters.</p>
+</li></ul>
+
+<p>The delimiters can be escaped with a backslash. However, the first four pairs (brackets, parenthesis, braces, and angle brackets) are allowed without backslash as far as they are correctly paired.</p>
+
+<p>These are demonstrated in the next section.</p>
+
+<h3 id="label-25q-3A+Non-Interpolable+String+Literals"><code>%q</code>: Non-Interpolable <a href="../String.html"><code>String</code></a> Literals<span><a href="#label-25q-3A+Non-Interpolable+String+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can write a non-interpolable string with <code>%q</code>. The created string is the same as if you created it with single quotes:</p>
+
+<pre class="ruby"><span class="ruby-string">%q[foo bar baz]</span>       <span class="ruby-comment"># =&gt; &quot;foo bar baz&quot; # Using [].</span>
+<span class="ruby-string">%q(foo bar baz)</span>       <span class="ruby-comment"># =&gt; &quot;foo bar baz&quot; # Using ().</span>
+<span class="ruby-string">%q{foo bar baz}</span>       <span class="ruby-comment"># =&gt; &quot;foo bar baz&quot; # Using {}.</span>
+<span class="ruby-string">%q&lt;foo bar baz&gt;</span>       <span class="ruby-comment"># =&gt; &quot;foo bar baz&quot; # Using &lt;&gt;.</span>
+<span class="ruby-string">%q|foo bar baz|</span>       <span class="ruby-comment"># =&gt; &quot;foo bar baz&quot; # Using two |.</span>
+<span class="ruby-string">%q:foo bar baz:</span>       <span class="ruby-comment"># =&gt; &quot;foo bar baz&quot; # Using two :.</span>
+<span class="ruby-string">%q(1 + 1 is #{1 + 1})</span> <span class="ruby-comment"># =&gt; &quot;1 + 1 is \#{1 + 1}&quot; # No interpolation.</span>
+<span class="ruby-string">%q[foo[bar]baz]</span>       <span class="ruby-comment"># =&gt; &quot;foo[bar]baz&quot; # brackets can be nested.</span>
+<span class="ruby-string">%q(foo(bar)baz)</span>       <span class="ruby-comment"># =&gt; &quot;foo(bar)baz&quot; # parenthesis can be nested.</span>
+<span class="ruby-string">%q{foo{bar}baz}</span>       <span class="ruby-comment"># =&gt; &quot;foo{bar}baz&quot; # braces can be nested.</span>
+<span class="ruby-string">%q&lt;foo&lt;bar&gt;baz&gt;</span>       <span class="ruby-comment"># =&gt; &quot;foo&lt;bar&gt;baz&quot; # angle brackets can be nested.</span>
+</pre>
+
+<p>This is similar to single-quoted string but only backslashes and the specified delimiters can be escaped with a backslash.</p>
+
+<h3 id="label-25+and+-25Q-3A+Interpolable+String+Literals"><code>% and %Q</code>: Interpolable <a href="../String.html"><code>String</code></a> Literals<span><a href="#label-25+and+-25Q-3A+Interpolable+String+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can write an interpolable string with <code>%Q</code> or with its alias <code>%</code>:</p>
+
+<pre class="ruby"><span class="ruby-string">%[foo bar baz]</span>       <span class="ruby-comment"># =&gt; &quot;foo bar baz&quot;</span>
+<span class="ruby-node">%(1 + 1 is #{1 + 1})</span> <span class="ruby-comment"># =&gt; &quot;1 + 1 is 2&quot; # Interpolation.</span>
+</pre>
+
+<p>This is similar to double-quoted string. It allow escape sequences described in <a href="#label-Escape+Sequences">Escape Sequences</a>. Other escaped characters (a backslash followed by a character) are interpreted as the character.</p>
+
+<h3 id="label-25w+and+-25W-3A+String-Array+Literals"><code>%w and %W</code>: String-Array Literals<span><a href="#label-25w+and+-25W-3A+String-Array+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can write an array of strings as whitespace-separated words with <code>%w</code> (non-interpolable) or <code>%W</code> (interpolable):</p>
+
+<pre class="ruby"><span class="ruby-node">%w[foo bar baz]</span>       <span class="ruby-comment"># =&gt; [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;]</span>
+<span class="ruby-node">%w[1 % *]</span>             <span class="ruby-comment"># =&gt; [&quot;1&quot;, &quot;%&quot;, &quot;*&quot;]</span>
+<span class="ruby-comment"># Use backslash to embed spaces in the strings.</span>
+<span class="ruby-node">%w[foo\ bar baz\ bat]</span> <span class="ruby-comment"># =&gt; [&quot;foo bar&quot;, &quot;baz bat&quot;]</span>
+<span class="ruby-node">%W[foo\ bar baz\ bat]</span> <span class="ruby-comment"># =&gt; [&quot;foo bar&quot;, &quot;baz bat&quot;]</span>
+<span class="ruby-node">%w(#{1 + 1})</span>          <span class="ruby-comment"># =&gt; [&quot;\#{1&quot;, &quot;+&quot;, &quot;1}&quot;]</span>
+<span class="ruby-node">%W(#{1 + 1})</span>          <span class="ruby-comment"># =&gt; [&quot;2&quot;]</span>
+
+<span class="ruby-comment"># The nested delimiters evaluated to a flat array of strings</span>
+<span class="ruby-comment"># (not nested array).</span>
+<span class="ruby-node">%w[foo[bar baz]qux]</span>   <span class="ruby-comment"># =&gt; [&quot;foo[bar&quot;, &quot;baz]qux&quot;]</span>
+</pre>
+
+<p>The following characters are considered as white spaces to separate words:</p>
+<ul><li>
+<p>space, ASCII 20h (SPC)</p>
+</li><li>
+<p>form feed, ASCII 0Ch (FF)</p>
+</li><li>
+<p>newline (line feed), ASCII 0Ah (LF)</p>
+</li><li>
+<p>carriage return, ASCII 0Dh (CR)</p>
+</li><li>
+<p>horizontal tab, ASCII 09h (TAB)</p>
+</li><li>
+<p>vertical tab, ASCII 0Bh (VT)</p>
+</li></ul>
+
+<p>The white space characters can be escaped with a backslash to make them part of a word.</p>
+
+<p><code>%W</code> allow escape sequences described in <a href="#label-Escape+Sequences">Escape Sequences</a>. However the continuation line <code>&lt;newline&gt;</code> is not usable because it is interpreted as the escaped newline described above.</p>
+
+<h3 id="label-25i+and+-25I-3A+Symbol-Array+Literals"><code>%i and %I</code>: Symbol-Array Literals<span><a href="#label-25i+and+-25I-3A+Symbol-Array+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can write an array of symbols as whitespace-separated words with <code>%i</code> (non-interpolable) or <code>%I</code> (interpolable):</p>
+
+<pre class="ruby"><span class="ruby-node">%i[foo bar baz]</span>       <span class="ruby-comment"># =&gt; [:foo, :bar, :baz]</span>
+<span class="ruby-node">%i[1 % *]</span>             <span class="ruby-comment"># =&gt; [:&quot;1&quot;, :%, :*]</span>
+<span class="ruby-comment"># Use backslash to embed spaces in the symbols.</span>
+<span class="ruby-node">%i[foo\ bar baz\ bat]</span> <span class="ruby-comment"># =&gt; [:&quot;foo bar&quot;, :&quot;baz bat&quot;]</span>
+<span class="ruby-node">%I[foo\ bar baz\ bat]</span> <span class="ruby-comment"># =&gt; [:&quot;foo bar&quot;, :&quot;baz bat&quot;]</span>
+<span class="ruby-node">%i(#{1 + 1})</span>          <span class="ruby-comment"># =&gt; [:&quot;\#{1&quot;, :+, :&quot;1}&quot;]</span>
+<span class="ruby-node">%I(#{1 + 1})</span>          <span class="ruby-comment"># =&gt; [:&quot;2&quot;]</span>
+</pre>
+
+<p>The white space characters and its escapes are interpreted as the same as string-array literals described in <a href="#label-25w+and+-25W-3A+String-Array+Literals">%w and %W: String-Array Literals</a>.</p>
+
+<h3 id="label-25s-3A+Symbol+Literals"><code>%s</code>: <a href="../Symbol.html"><code>Symbol</code></a> Literals<span><a href="#label-25s-3A+Symbol+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can write a symbol with <code>%s</code>:</p>
+
+<pre class="ruby"><span class="ruby-value">%s[foo]</span>     <span class="ruby-comment"># =&gt; :foo</span>
+<span class="ruby-value">%s[foo bar]</span> <span class="ruby-comment"># =&gt; :&quot;foo bar&quot;</span>
+</pre>
+
+<p>This is non-interpolable. No interpolation allowed. Only backslashes and the specified delimiters can be escaped with a backslash.</p>
+
+<h3 id="label-25r-3A+Regexp+Literals"><code>%r</code>: <a href="../Regexp.html"><code>Regexp</code></a> Literals<span><a href="#label-25r-3A+Regexp+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can write a regular expression with <code>%r</code>; the character used as the leading and trailing delimiter may be (almost) any character:</p>
+
+<pre class="ruby"><span class="ruby-regexp">%r/foo/</span>             <span class="ruby-comment"># =&gt; /foo/</span>
+<span class="ruby-regexp">%r:name/value pair:</span> <span class="ruby-comment"># =&gt; /name\/value pair/</span>
+</pre>
+
+<p>A few “symmetrical” character pairs may be used as delimiters:</p>
+
+<pre class="ruby"><span class="ruby-regexp">%r[foo]</span> <span class="ruby-comment"># =&gt; /foo/</span>
+<span class="ruby-regexp">%r{foo}</span> <span class="ruby-comment"># =&gt; /foo/</span>
+<span class="ruby-regexp">%r(foo)</span> <span class="ruby-comment"># =&gt; /foo/</span>
+<span class="ruby-regexp">%r&lt;foo&gt;</span> <span class="ruby-comment"># =&gt; /foo/</span>
+</pre>
+
+<p>The trailing delimiter may be followed by one or more modifier characters that set modes for the regexp. See <a href="../Regexp.html#class-Regexp-label-Modes">Regexp modes</a> for details.</p>
+
+<h3 id="label-25x-3A+Backtick+Literals"><code>%x</code>: Backtick Literals<span><a href="#label-25x-3A+Backtick+Literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can write and execute a shell command with <code>%x</code>:</p>
+
+<pre class="ruby"><span class="ruby-string">%x(echo 1)</span>      <span class="ruby-comment"># =&gt; &quot;1\n&quot;</span>
+<span class="ruby-node">%x[echo #{1 + 2}]</span> <span class="ruby-comment"># =&gt; &quot;3\n&quot;</span>
+<span class="ruby-string">%x[echo \u0030]</span> <span class="ruby-comment"># =&gt; &quot;0\n&quot;</span>
+</pre>
+
+<p>This is interpolable. <code>%x</code> allow escape sequences described in <a href="#label-Escape+Sequences">Escape Sequences</a>.</p>
+
+</main>
+

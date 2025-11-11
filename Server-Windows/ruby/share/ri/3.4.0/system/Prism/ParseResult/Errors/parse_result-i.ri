@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"parse_result:ETI",Prism::ParseResult::Errors#parse_result;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"/The parse result that contains the errors.;T:
+@fileI"%lib/prism/parse_result/errors.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::ParseResult::Errors;TcRDoc::NormalClass0

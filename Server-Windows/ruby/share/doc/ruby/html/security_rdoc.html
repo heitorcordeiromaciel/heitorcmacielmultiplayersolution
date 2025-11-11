@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>security - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,security">
+  <meta name="description" content="security: Ruby Security The Ruby programming language is large and complex and there are many security pitfalls often encountered by newcomers and experienced ">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/security_rdoc.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Ruby+Security">Ruby Security</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Marshal.load"><code>Marshal.load</code></a>
+          <li>      <a href="#label-YAML">YAML</a>
+          <li>      <a href="#label-Symbols">Symbols</a>
+          <li>      <a href="#label-Regular+expressions">Regular expressions</a>
+          <li>      <a href="#label-eval"><code>eval</code></a>
+          <li>      <a href="#label-send"><code>send</code></a>
+          <li>      <a href="#label-DRb">DRb</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./COPYING.html">COPYING</a>
+    <li><a href="./COPYING_ja.html">COPYING.ja</a>
+    <li><a href="./LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="./NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="./NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="./NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="./NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="./NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="./NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="./NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="./NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="./NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="./NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="./NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="./NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="./NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="./NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="./NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="./NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="./NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="./README_ja_md.html">README.ja</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./bsearch_rdoc.html">bsearch</a>
+    <li><a href="./bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="./case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="./character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="./command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="./contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="./contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="./contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="./contributing/glossary_md.html">glossary</a>
+      <li><a href="./contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="./contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="./contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="./contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="./date/calendars_rdoc.html">calendars</a>
+    <li><a href="./dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="./distribution_md.html">distribution</a>
+    <li><a href="./dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="./encodings_rdoc.html">encodings</a>
+    <li><a href="./exceptions_md.html">exceptions</a>
+    <li><a href="./extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="./extension_rdoc.html">extension</a>
+    <li><a href="./fiber_md.html">fiber</a>
+    <li><a href="./format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="./globals_rdoc.html">globals</a>
+    <li><a href="./implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="./index_md.html">index</a>
+    <li><a href="./maintainers_md.html">maintainers</a>
+    <li><a href="./marshal_rdoc.html">marshal</a>
+    <li><a href="./memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="./optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="./optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="./optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="./optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="./packed_data_rdoc.html">packed_data</a>
+    <li><a href="./ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="./regexp/methods_rdoc.html">methods</a>
+      <li><a href="./regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="./rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="./ruby/option_dump_md.html">option_dump</a>
+      <li><a href="./ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="./security_rdoc.html">security</a>
+    <li><a href="./signals_rdoc.html">signals</a>
+    <li><a href="./standard_library_md.html">standard_library</a>
+    <li><a href="./strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="./syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="./syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="./syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="./syntax/comments_rdoc.html">comments</a>
+      <li><a href="./syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="./syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="./syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="./syntax/literals_rdoc.html">literals</a>
+      <li><a href="./syntax/methods_rdoc.html">methods</a>
+      <li><a href="./syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="./syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="./syntax/operators_rdoc.html">operators</a>
+      <li><a href="./syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="./syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="./syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="./windows_md.html">windows</a>
+    <li><a href="./yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page security.rdoc">
+
+<h1 id="label-Ruby+Security">Ruby Security<span><a href="#label-Ruby+Security">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>The Ruby programming language is large and complex and there are many security pitfalls often encountered by newcomers and experienced Rubyists alike.</p>
+
+<p>This document aims to discuss many of these pitfalls and provide more secure alternatives where applicable.</p>
+
+<p>Please check the full list of publicly known CVEs and how to correctly report a security vulnerability, at: <a href="https://www.ruby-lang.org/en/security">www.ruby-lang.org/en/security</a>/ Japanese version is here: <a href="https://www.ruby-lang.org/ja/security">www.ruby-lang.org/ja/security</a>/</p>
+
+<p>Security vulnerabilities should be reported via an email to <a href="mailto:security@ruby-lang.org">security@ruby-lang.org</a> (<a href="https://www.ruby-lang.org/security.asc">the PGP public key</a>), which is a private mailing list. Reported problems will be published after fixes.</p>
+
+<h2 id="label-Marshal.load"><a href="Marshal.html#method-c-load"><code>Marshal.load</code></a><span><a href="#label-Marshal.load">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Ruby’s <a href="Marshal.html"><code>Marshal</code></a> module provides methods for serializing and deserializing Ruby object trees to and from a binary data format.</p>
+
+<p>Never use <a href="Marshal.html#method-c-load"><code>Marshal.load</code></a> to deserialize untrusted or user supplied data. Because <a href="Marshal.html"><code>Marshal</code></a> can deserialize to almost any Ruby object and has full control over instance variables, it is possible to craft a malicious payload that executes code shortly after deserialization.</p>
+
+<p>If you need to deserialize untrusted data, you should use <a href="JSON.html"><code>JSON</code></a> as it is only capable of returning ‘primitive’ types such as strings, arrays, hashes, numbers and nil. If you need to deserialize other classes, you should handle this manually. Never deserialize to a user specified class.</p>
+
+<h2 id="label-YAML"><a href="YAML.html"><code>YAML</code></a><span><a href="#label-YAML">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="YAML.html"><code>YAML</code></a> is a popular human readable data serialization format used by many Ruby programs for configuration and database persistence of Ruby object trees.</p>
+
+<p>Similar to <a href="Marshal.html"><code>Marshal</code></a>, it is able to deserialize into arbitrary Ruby classes. For example, the following <a href="YAML.html"><code>YAML</code></a> data will create an <a href="ERB.html"><code>ERB</code></a> object when deserialized, using the ‘unsafe_load` method:</p>
+
+<pre>!ruby/object:ERB
+src: puts `uname`</pre>
+
+<p>Because of this, many of the security considerations applying to <a href="Marshal.html"><code>Marshal</code></a> are also applicable to <a href="YAML.html"><code>YAML</code></a>. Do not use <a href="YAML.html"><code>YAML</code></a> to deserialize untrusted data.</p>
+
+<h2 id="label-Symbols">Symbols<span><a href="#label-Symbols">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Symbols are often seen as syntax sugar for simple strings, but they play a much more crucial role. The MRI Ruby implementation uses Symbols internally for method, variable and constant names. The reason for this is that symbols are simply integers with names attached to them, so they are faster to look up in hashtables.</p>
+
+<p>Starting in version 2.2, most symbols can be garbage collected; these are called <em>mortal</em> symbols. Most symbols you create (e.g. by calling <code>to_sym</code>) are mortal.</p>
+
+<p><em>Immortal</em> symbols on the other hand will never be garbage collected. They are created when modifying code:</p>
+<ul><li>
+<p>defining a method (e.g. with <code>define_method</code>),</p>
+</li><li>
+<p>setting an instance variable (e.g. with <code>instance_variable_set</code>),</p>
+</li><li>
+<p>creating a variable or constant (e.g. with <code>const_set</code>)</p>
+</li></ul>
+
+<p>C extensions that have not been updated and are still calling ‘SYM2ID` will create immortal symbols. Bugs in 2.2.0: <code>send</code> and <code>__send__</code> also created immortal symbols, and calling methods with keyword arguments could also create some.</p>
+
+<p>Don’t create immortal symbols from user inputs. Otherwise, this would allow a user to mount a denial of service attack against your application by flooding it with unique strings, which will cause memory to grow indefinitely until the Ruby process is killed or causes the system to slow to a halt.</p>
+
+<p>While it might not be a good idea to call these with user inputs, methods that used to be vulnerable such as <code>to_sym</code>, <code>respond_to?</code>, <code>method</code>, <code>instance_variable_get</code>, <code>const_get</code>, etc. are no longer a threat.</p>
+
+<h2 id="label-Regular+expressions">Regular expressions<span><a href="#label-Regular+expressions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Ruby’s regular expression syntax has some minor differences when compared to other languages. In Ruby, the <code>^</code> and <code>$</code> anchors do not refer to the beginning and end of the string, rather the beginning and end of a <strong>line</strong>.</p>
+
+<p>This means that if you’re using a regular expression like <code>/^[a-z]+$/</code> to restrict a string to only letters, an attacker can bypass this check by passing a string containing a letter, then a newline, then any string of their choosing.</p>
+
+<p>If you want to match the beginning and end of the entire string in Ruby, use the anchors <code>\A</code> and <code>\z</code>.</p>
+
+<h2 id="label-eval"><code>eval</code><span><a href="#label-eval">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Never pass untrusted or user controlled input to <code>eval</code>.</p>
+
+<p>Unless you are implementing a REPL like <code>irb</code> or <code>pry</code>, <code>eval</code> is almost certainly not what you want. Do not attempt to filter user input before passing it to <code>eval</code> - this approach is fraught with danger and will most likely open your application up to a serious remote code execution vulnerability.</p>
+
+<h2 id="label-send"><code>send</code><span><a href="#label-send">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>‘Global functions’ in Ruby (<code>puts</code>, <code>exit</code>, etc.) are actually private instance methods on <a href="Object.html"><code>Object</code></a>. This means it is possible to invoke these methods with <code>send</code>, even if the call to <code>send</code> has an explicit receiver.</p>
+
+<p>For example, the following code snippet writes “Hello world” to the terminal:</p>
+
+<pre class="ruby"><span class="ruby-value">1</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:puts</span>, <span class="ruby-string">&quot;Hello world&quot;</span>)
+</pre>
+
+<p>You should never call <code>send</code> with user supplied input as the first parameter. Doing so can introduce a denial of service vulnerability:</p>
+
+<pre class="ruby"><span class="ruby-identifier">foo</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bar</span>]) <span class="ruby-comment"># params[:bar] is &quot;exit!&quot;</span>
+</pre>
+
+<p>If an attacker can control the first two arguments to <code>send</code>, remote code execution is possible:</p>
+
+<pre class="ruby"><span class="ruby-comment"># params is { :a =&gt; &quot;eval&quot;, :b =&gt; &quot;...ruby code to be executed...&quot; }</span>
+<span class="ruby-identifier">foo</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:a</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:b</span>])
+</pre>
+
+<p>When dispatching a method call based on user input, carefully verify that the method name. If possible, check it against a whitelist of safe method names.</p>
+
+<p>Note that the use of <code>public_send</code> is also dangerous, as <code>send</code> itself is public:</p>
+
+<pre class="ruby"><span class="ruby-value">1</span>.<span class="ruby-identifier">public_send</span>(<span class="ruby-string">&quot;send&quot;</span>, <span class="ruby-string">&quot;eval&quot;</span>, <span class="ruby-string">&quot;...ruby code to be executed...&quot;</span>)
+</pre>
+
+<h2 id="label-DRb">DRb<span><a href="#label-DRb">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>As DRb allows remote clients to invoke arbitrary methods, it is not suitable to expose to untrusted clients.</p>
+
+<p>When using DRb, try to avoid exposing it over the network if possible. If this isn’t possible and you need to expose DRb to the world, you <strong>must</strong> configure an appropriate security policy with <code>DRb::ACL</code>.</p>
+
+</main>
+

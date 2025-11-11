@@ -1,0 +1,9 @@
+U:RDoc::Attr[iI"new_name:ETI"$Prism::AliasMethodNode#new_name;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@Represents the new name of the method that will be aliased.;To:RDoc::Markup::Verbatim;	[I"alias foo bar
+;TI"      ^^^
+;TI"
+;TI"alias :foo :bar
+;TI"      ^^^^
+;T@I"alias :"#{foo}" :"#{bar}"
+;TI"      ^^^^^^^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::AliasMethodNode;TcRDoc::NormalClass0

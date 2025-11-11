@@ -1,0 +1,3612 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class Integer - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,Integer">
+
+    <meta name="description" content="class Integer: An \Integer object represents an integer value. literals.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Integer.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-Integer-label-What-27s+Here">What’s Here</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-Integer-label-Querying">Querying</a>
+          <li>      <a href="#class-Integer-label-Comparing">Comparing</a>
+          <li>      <a href="#class-Integer-label-Converting">Converting</a>
+          <li>      <a href="#class-Integer-label-Other">Other</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="Numeric.html">Numeric</a><ul><li><a href="Object.html">Object</a><ul><li><a href="BasicObject.html">BasicObject</a></li></ul></li></ul></li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-sqrt">sqrt</a></li>
+      <li ><a href="#method-c-try_convert">try_convert</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-25">%</a></li>
+      <li ><a href="#method-i-26">&amp;</a></li>
+      <li ><a href="#method-i-2A">*</a></li>
+      <li ><a href="#method-i-2A-2A">**</a></li>
+      <li ><a href="#method-i-2B">+</a></li>
+      <li ><a href="#method-i-2D">-</a></li>
+      <li ><a href="#method-i-2D-40">-@</a></li>
+      <li ><a href="#method-i-2F">/</a></li>
+      <li ><a href="#method-i-3C">&lt;</a></li>
+      <li ><a href="#method-i-3C-3C">&lt;&lt;</a></li>
+      <li ><a href="#method-i-3C-3D">&lt;=</a></li>
+      <li ><a href="#method-i-3C-3D-3E">&lt;=&gt;</a></li>
+      <li ><a href="#method-i-3D-3D">==</a></li>
+      <li ><a href="#method-i-3D-3D-3D">===</a></li>
+      <li ><a href="#method-i-3E">&gt;</a></li>
+      <li ><a href="#method-i-3E-3D">&gt;=</a></li>
+      <li ><a href="#method-i-3E-3E">&gt;&gt;</a></li>
+      <li ><a href="#method-i-5B-5D">[]</a></li>
+      <li ><a href="#method-i-5E">^</a></li>
+      <li ><a href="#method-i-7C">|</a></li>
+      <li ><a href="#method-i-~">~</a></li>
+      <li ><a href="#method-i-abs">abs</a></li>
+      <li ><a href="#method-i-allbits-3F">allbits?</a></li>
+      <li ><a href="#method-i-anybits-3F">anybits?</a></li>
+      <li ><a href="#method-i-bit_length">bit_length</a></li>
+      <li ><a href="#method-i-ceil">ceil</a></li>
+      <li ><a href="#method-i-ceildiv">ceildiv</a></li>
+      <li ><a href="#method-i-chr">chr</a></li>
+      <li ><a href="#method-i-coerce">coerce</a></li>
+      <li ><a href="#method-i-denominator">denominator</a></li>
+      <li ><a href="#method-i-digits">digits</a></li>
+      <li ><a href="#method-i-div">div</a></li>
+      <li ><a href="#method-i-divmod">divmod</a></li>
+      <li ><a href="#method-i-downto">downto</a></li>
+      <li ><a href="#method-i-even-3F">even?</a></li>
+      <li ><a href="#method-i-fdiv">fdiv</a></li>
+      <li ><a href="#method-i-floor">floor</a></li>
+      <li ><a href="#method-i-gcd">gcd</a></li>
+      <li ><a href="#method-i-gcdlcm">gcdlcm</a></li>
+      <li ><a href="#method-i-inspect">inspect</a></li>
+      <li ><a href="#method-i-integer-3F">integer?</a></li>
+      <li ><a href="#method-i-lcm">lcm</a></li>
+      <li ><a href="#method-i-magnitude">magnitude</a></li>
+      <li ><a href="#method-i-modulo">modulo</a></li>
+      <li ><a href="#method-i-next">next</a></li>
+      <li ><a href="#method-i-nobits-3F">nobits?</a></li>
+      <li ><a href="#method-i-numerator">numerator</a></li>
+      <li ><a href="#method-i-odd-3F">odd?</a></li>
+      <li ><a href="#method-i-ord">ord</a></li>
+      <li ><a href="#method-i-pow">pow</a></li>
+      <li ><a href="#method-i-pred">pred</a></li>
+      <li ><a href="#method-i-rationalize">rationalize</a></li>
+      <li ><a href="#method-i-remainder">remainder</a></li>
+      <li ><a href="#method-i-round">round</a></li>
+      <li ><a href="#method-i-size">size</a></li>
+      <li ><a href="#method-i-succ">succ</a></li>
+      <li ><a href="#method-i-times">times</a></li>
+      <li ><a href="#method-i-to_bn">to_bn</a></li>
+      <li ><a href="#method-i-to_f">to_f</a></li>
+      <li ><a href="#method-i-to_i">to_i</a></li>
+      <li ><a href="#method-i-to_int">to_int</a></li>
+      <li ><a href="#method-i-to_r">to_r</a></li>
+      <li ><a href="#method-i-to_s">to_s</a></li>
+      <li ><a href="#method-i-truncate">truncate</a></li>
+      <li ><a href="#method-i-upto">upto</a></li>
+      <li ><a href="#method-i-zero-3F">zero?</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-Integer">
+  
+  
+
+  <h1 id="class-Integer" class="anchor-link class">
+    class Integer
+  </h1>
+
+  <section class="description">
+    
+<p>An Integer object represents an integer value.</p>
+
+<p>You can create an Integer object explicitly with:</p>
+<ul><li>
+<p>An <a href="syntax/literals_rdoc.html#label-Integer+Literals">integer literal</a>.</p>
+</li></ul>
+
+<p>You can convert certain objects to Integers with:</p>
+<ul><li>
+<p>Method <a href="Kernel.html#method-i-Integer"><code>Integer</code></a>.</p>
+</li></ul>
+
+<p>An attempt to add a singleton method to an instance of this class causes an exception to be raised.</p>
+
+<h2 id="class-Integer-label-What-27s+Here">What’s Here<span><a href="#class-Integer-label-What-27s+Here">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>First, what’s elsewhere. Class Integer:</p>
+<ul><li>
+<p>Inherits from <a href="Numeric.html#class-Numeric-label-What-27s+Here">class Numeric</a> and <a href="Object.html#class-Object-label-What-27s+Here">class Object</a>.</p>
+</li><li>
+<p>Includes <a href="Comparable.html#module-Comparable-label-What-27s+Here">module Comparable</a>.</p>
+</li></ul>
+
+<p>Here, class Integer provides methods for:</p>
+<ul><li>
+<p><a href="Integer.html#class-Integer-label-Querying">Querying</a></p>
+</li><li>
+<p><a href="Integer.html#class-Integer-label-Comparing">Comparing</a></p>
+</li><li>
+<p><a href="Integer.html#class-Integer-label-Converting">Converting</a></p>
+</li><li>
+<p><a href="Integer.html#class-Integer-label-Other">Other</a></p>
+</li></ul>
+
+<h3 id="class-Integer-label-Querying">Querying<span><a href="#class-Integer-label-Querying">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Integer.html#method-i-allbits-3F"><code>allbits?</code></a>: Returns whether all bits in <code>self</code> are set.</p>
+</li><li>
+<p><a href="Integer.html#method-i-anybits-3F"><code>anybits?</code></a>: Returns whether any bits in <code>self</code> are set.</p>
+</li><li>
+<p><a href="Integer.html#method-i-nobits-3F"><code>nobits?</code></a>: Returns whether no bits in <code>self</code> are set.</p>
+</li></ul>
+
+<h3 id="class-Integer-label-Comparing">Comparing<span><a href="#class-Integer-label-Comparing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Integer.html#method-i-3C"><code>&lt;</code></a>: Returns whether <code>self</code> is less than the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-3C-3D"><code>&lt;=</code></a>: Returns whether <code>self</code> is less than or equal to the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-3C-3D-3E"><code>&lt;=&gt;</code></a>: Returns a number indicating whether <code>self</code> is less than, equal to, or greater than the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-3D-3D"><code>==</code></a> (aliased as <a href="Integer.html#method-i-3D-3D-3D"><code>===</code></a>): Returns whether <code>self</code> is equal to the given</p>
+
+<pre>value.</pre>
+</li><li>
+<p><a href="Integer.html#method-i-3E"><code>&gt;</code></a>: Returns whether <code>self</code> is greater than the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-3E-3D"><code>&gt;=</code></a>: Returns whether <code>self</code> is greater than or equal to the given value.</p>
+</li></ul>
+
+<h3 id="class-Integer-label-Converting">Converting<span><a href="#class-Integer-label-Converting">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Integer.html#method-c-sqrt"><code>::sqrt</code></a>: Returns the integer square root of the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-c-try_convert"><code>::try_convert</code></a>: Returns the given value converted to an Integer.</p>
+</li><li>
+<p><a href="Integer.html#method-i-25"><code>%</code></a> (aliased as <a href="Integer.html#method-i-modulo"><code>modulo</code></a>): Returns <code>self</code> modulo the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-26"><code>&amp;</code></a>: Returns the bitwise AND of <code>self</code> and the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-2A"><code>*</code></a>: Returns the product of <code>self</code> and the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-2A-2A"><code>**</code></a>: Returns the value of <code>self</code> raised to the power of the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-2B"><code>+</code></a>: Returns the sum of <code>self</code> and the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-2D"><code>-</code></a>: Returns the difference of <code>self</code> and the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-2F"><code>/</code></a>: Returns the quotient of <code>self</code> and the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-3C-3C"><code>&lt;&lt;</code></a>: Returns the value of <code>self</code> after a leftward bit-shift.</p>
+</li><li>
+<p><a href="Integer.html#method-i-3E-3E"><code>&gt;&gt;</code></a>: Returns the value of <code>self</code> after a rightward bit-shift.</p>
+</li><li>
+<p><a href="Integer.html#method-i-5B-5D"><code>[]</code></a>: Returns a slice of bits from <code>self</code>.</p>
+</li><li>
+<p><a href="Integer.html#method-i-5E"><code>^</code></a>: Returns the bitwise EXCLUSIVE OR of <code>self</code> and the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-7C"><code>|</code></a>: Returns the bitwise OR of <code>self</code> and the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-ceil"><code>ceil</code></a>: Returns the smallest number greater than or equal to <code>self</code>.</p>
+</li><li>
+<p><a href="Integer.html#method-i-chr"><code>chr</code></a>: Returns a 1-character string containing the character represented by the value of <code>self</code>.</p>
+</li><li>
+<p><a href="Integer.html#method-i-digits"><code>digits</code></a>: Returns an array of integers representing the base-radix digits of <code>self</code>.</p>
+</li><li>
+<p><a href="Integer.html#method-i-div"><code>div</code></a>: Returns the integer result of dividing <code>self</code> by the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-divmod"><code>divmod</code></a>: Returns a 2-element array containing the quotient and remainder results of dividing <code>self</code> by the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-fdiv"><code>fdiv</code></a>: Returns the <a href="Float.html"><code>Float</code></a> result of dividing <code>self</code> by the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-floor"><code>floor</code></a>: Returns the greatest number smaller than or equal to <code>self</code>.</p>
+</li><li>
+<p><a href="Integer.html#method-i-pow"><code>pow</code></a>: Returns the modular exponentiation of <code>self</code>.</p>
+</li><li>
+<p><a href="Integer.html#method-i-pred"><code>pred</code></a>: Returns the integer predecessor of <code>self</code>.</p>
+</li><li>
+<p><a href="Integer.html#method-i-remainder"><code>remainder</code></a>: Returns the remainder after dividing <code>self</code> by the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-round"><code>round</code></a>: Returns <code>self</code> rounded to the nearest value with the given precision.</p>
+</li><li>
+<p><a href="Integer.html#method-i-succ"><code>succ</code></a> (aliased as <a href="Integer.html#method-i-next"><code>next</code></a>): Returns the integer successor of <code>self</code>.</p>
+</li><li>
+<p><a href="Integer.html#method-i-to_f"><code>to_f</code></a>: Returns <code>self</code> converted to a <a href="Float.html"><code>Float</code></a>.</p>
+</li><li>
+<p><a href="Integer.html#method-i-to_s"><code>to_s</code></a> (aliased as <a href="Integer.html#method-i-inspect"><code>inspect</code></a>): Returns a string containing the place-value representation of <code>self</code> in the given radix.</p>
+</li><li>
+<p><a href="Integer.html#method-i-truncate"><code>truncate</code></a>: Returns <code>self</code> truncated to the given precision.</p>
+</li></ul>
+
+<h3 id="class-Integer-label-Other">Other<span><a href="#class-Integer-label-Other">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Integer.html#method-i-downto"><code>downto</code></a>: Calls the given block with each integer value from <code>self</code> down to the given value.</p>
+</li><li>
+<p><a href="Integer.html#method-i-times"><code>times</code></a>: Calls the given block <code>self</code> times with each integer in <code>(0..self-1)</code>.</p>
+</li><li>
+<p><a href="Integer.html#method-i-upto"><code>upto</code></a>: Calls the given block with each integer value from <code>self</code> up to the given value.</p>
+</li></ul>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="GMP_VERSION">GMP_VERSION
+        <dd>
+          <p>The version of loaded GMP.</p>
+      </dl>
+    </section>
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-sqrt" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-sqrt" title="Link to this method">
+                  <span class="method-callseq">
+                    sqrt(numeric) &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="sqrt-source">
+            <pre>static VALUE
+rb_int_s_isqrt(VALUE self, VALUE num)
+{
+    unsigned long n, sq;
+    num = rb_to_int(num);
+    if (FIXNUM_P(num)) {
+        if (FIXNUM_NEGATIVE_P(num)) {
+            domain_error(&quot;isqrt&quot;);
+        }
+        n = FIX2ULONG(num);
+        sq = rb_ulong_isqrt(n);
+        return LONG2FIX(sq);
+    }
+    else {
+        size_t biglen;
+        if (RBIGNUM_NEGATIVE_P(num)) {
+            domain_error(&quot;isqrt&quot;);
+        }
+        biglen = BIGNUM_LEN(num);
+        if (biglen == 0) return INT2FIX(0);
+#if SIZEOF_BDIGIT &lt;= SIZEOF_LONG
+        /* short-circuit */
+        if (biglen == 1) {
+            n = BIGNUM_DIGITS(num)[0];
+            sq = rb_ulong_isqrt(n);
+            return ULONG2NUM(sq);
+        }
+#endif
+        return rb_big_isqrt(num);
+    }
+}</pre>
+          </div>
+          <p>Returns the integer square root of the non-negative integer <code>n</code>, which is the largest non-negative integer less than or equal to the square root of <code>numeric</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">0</span>)       <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-constant">Integer</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">1</span>)       <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-constant">Integer</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">24</span>)      <span class="ruby-comment"># =&gt; 4</span>
+<span class="ruby-constant">Integer</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">25</span>)      <span class="ruby-comment"># =&gt; 5</span>
+<span class="ruby-constant">Integer</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">400</span>) <span class="ruby-comment"># =&gt; 10**200</span>
+</pre>
+
+<p>If <code>numeric</code> is not an Integer, it is converted to an Integer:</p>
+
+<pre class="ruby"><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-constant">Complex</span>(<span class="ruby-value">4</span>, <span class="ruby-value">0</span>))  <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-constant">Integer</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">4</span>, <span class="ruby-value">1</span>)) <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-constant">Integer</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">4.0</span>)            <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-constant">Integer</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">3.14159</span>)        <span class="ruby-comment"># =&gt; 1</span>
+</pre>
+
+<p>This method is equivalent to <a href="Math.html#method-c-sqrt"><code>Math.sqrt(numeric).floor</code></a>, except that the result of the latter code may differ from the true value due to the limited precision of floating point arithmetic.</p>
+
+<pre class="ruby"><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">46</span>)    <span class="ruby-comment"># =&gt; 100000000000000000000000</span>
+<span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">46</span>).<span class="ruby-identifier">floor</span> <span class="ruby-comment"># =&gt; 99999999999999991611392</span>
+</pre>
+
+<p>Raises an exception if <code>numeric</code> is negative.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-try_convert" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-try_convert" title="Link to this method">
+                  <span class="method-callseq">
+                    try_convert(object) &rarr; object, integer, or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="try_convert-source">
+            <pre>static VALUE
+int_s_try_convert(VALUE self, VALUE num)
+{
+    return rb_check_integer_type(num);
+}</pre>
+          </div>
+          <p>If <code>object</code> is an Integer object, returns <code>object</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">try_convert</span>(<span class="ruby-value">1</span>) <span class="ruby-comment"># =&gt; 1</span>
+</pre>
+
+<p>Otherwise if <code>object</code> responds to <code>:to_int</code>, calls <code>object.to_int</code> and returns the result.</p>
+
+<pre class="ruby"><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">try_convert</span>(<span class="ruby-value">1.25</span>) <span class="ruby-comment"># =&gt; 1</span>
+</pre>
+
+<p>Returns <code>nil</code> if <code>object</code> does not respond to <code>:to_int</code></p>
+
+<pre class="ruby"><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">try_convert</span>([]) <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+
+<p>Raises an exception unless <code>object.to_int</code> returns an Integer object.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-25" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-25" title="Link to this method">
+                  <span class="method-callseq">
+                    self % other &rarr; real_number
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="25-source">
+            <pre>VALUE
+rb_int_modulo(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_mod(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_modulo(x, y);
+    }
+    return num_modulo(x, y);
+}</pre>
+          </div>
+          <p>Returns <code>self</code> modulo <code>other</code> as a real number.</p>
+
+<p>For integer <code>n</code> and real number <code>r</code>, these expressions are equivalent:</p>
+
+<pre class="ruby"><span class="ruby-identifier">n</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">r</span>
+<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-identifier">r</span><span class="ruby-operator">*</span>(<span class="ruby-identifier">n</span><span class="ruby-operator">/</span><span class="ruby-identifier">r</span>).<span class="ruby-identifier">floor</span>
+<span class="ruby-identifier">n</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-identifier">r</span>)[<span class="ruby-value">1</span>]
+</pre>
+
+<p>See <a href="Numeric.html#method-i-divmod"><code>Numeric#divmod</code></a>.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-value">10</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span>              <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">10</span> <span class="ruby-operator">%</span> <span class="ruby-value">3</span>              <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-value">10</span> <span class="ruby-operator">%</span> <span class="ruby-value">4</span>              <span class="ruby-comment"># =&gt; 2</span>
+
+<span class="ruby-value">10</span> <span class="ruby-operator">%</span> <span class="ruby-value">-2</span>             <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">10</span> <span class="ruby-operator">%</span> <span class="ruby-value">-3</span>             <span class="ruby-comment"># =&gt; -2</span>
+<span class="ruby-value">10</span> <span class="ruby-operator">%</span> <span class="ruby-value">-4</span>             <span class="ruby-comment"># =&gt; -2</span>
+
+<span class="ruby-value">10</span> <span class="ruby-operator">%</span> <span class="ruby-value">3.0</span>            <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-value">10</span> <span class="ruby-operator">%</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># =&gt; (1/1)</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Integer.html#method-i-modulo">modulo</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-26" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-26" title="Link to this method">
+                  <span class="method-callseq">
+                    self &amp; other &rarr;  integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="26-source">
+            <pre>VALUE
+rb_int_and(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_and(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_and(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Bitwise AND; each bit in the result is 1 if both corresponding bits in <code>self</code> and <code>other</code> are 1, 0 otherwise:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;%04b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-value">0b0101</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0b0110</span>) <span class="ruby-comment"># =&gt; &quot;0100&quot;</span>
+</pre>
+
+<p>Raises an exception if <code>other</code> is not an Integer.</p>
+
+<p>Related: <a href="Integer.html#method-i-7C"><code>Integer#|</code></a> (bitwise OR), <a href="Integer.html#method-i-5E"><code>Integer#^</code></a> (bitwise EXCLUSIVE OR).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-2A" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-2A" title="Link to this method">
+                  <span class="method-callseq">
+                    self * numeric &rarr; numeric_result
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="2A-source">
+            <pre>VALUE
+rb_int_mul(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_mul(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_mul(x, y);
+    }
+    return rb_num_coerce_bin(x, y, &#39;*&#39;);
+}</pre>
+          </div>
+          <p>Performs multiplication:</p>
+
+<pre class="ruby"><span class="ruby-value">4</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>              <span class="ruby-comment"># =&gt; 8</span>
+<span class="ruby-value">4</span> <span class="ruby-operator">*</span> <span class="ruby-value">-2</span>             <span class="ruby-comment"># =&gt; -8</span>
+<span class="ruby-value">-4</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>             <span class="ruby-comment"># =&gt; -8</span>
+<span class="ruby-value">4</span> <span class="ruby-operator">*</span> <span class="ruby-value">2.0</span>            <span class="ruby-comment"># =&gt; 8.0</span>
+<span class="ruby-value">4</span> <span class="ruby-operator">*</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">3</span>) <span class="ruby-comment"># =&gt; (4/3)</span>
+<span class="ruby-value">4</span> <span class="ruby-operator">*</span> <span class="ruby-constant">Complex</span>(<span class="ruby-value">2</span>, <span class="ruby-value">0</span>)  <span class="ruby-comment"># =&gt; (8+0i)</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-2A-2A" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-2A-2A" title="Link to this method">
+                  <span class="method-callseq">
+                    self ** numeric &rarr; numeric_result
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="2A-2A-source">
+            <pre>VALUE
+rb_int_pow(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_pow(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_pow(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Raises <code>self</code> to the power of <code>numeric</code>:</p>
+
+<pre class="ruby"><span class="ruby-value">2</span> <span class="ruby-operator">**</span> <span class="ruby-value">3</span>              <span class="ruby-comment"># =&gt; 8</span>
+<span class="ruby-value">2</span> <span class="ruby-operator">**</span> <span class="ruby-value">-3</span>             <span class="ruby-comment"># =&gt; (1/8)</span>
+<span class="ruby-value">-2</span> <span class="ruby-operator">**</span> <span class="ruby-value">3</span>             <span class="ruby-comment"># =&gt; -8</span>
+<span class="ruby-value">-2</span> <span class="ruby-operator">**</span> <span class="ruby-value">-3</span>            <span class="ruby-comment"># =&gt; (-1/8)</span>
+<span class="ruby-value">2</span> <span class="ruby-operator">**</span> <span class="ruby-value">3.3</span>            <span class="ruby-comment"># =&gt; 9.849155306759329</span>
+<span class="ruby-value">2</span> <span class="ruby-operator">**</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># =&gt; (8/1)</span>
+<span class="ruby-value">2</span> <span class="ruby-operator">**</span> <span class="ruby-constant">Complex</span>(<span class="ruby-value">3</span>, <span class="ruby-value">0</span>)  <span class="ruby-comment"># =&gt; (8+0i)</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-2B" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-2B" title="Link to this method">
+                  <span class="method-callseq">
+                    self + numeric &rarr; numeric_result
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="2B-source">
+            <pre>VALUE
+rb_int_plus(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_plus(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_plus(x, y);
+    }
+    return rb_num_coerce_bin(x, y, &#39;+&#39;);
+}</pre>
+          </div>
+          <p>Performs addition:</p>
+
+<pre class="ruby"><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>              <span class="ruby-comment"># =&gt; 4</span>
+<span class="ruby-value">-2</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>             <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">-2</span> <span class="ruby-operator">+</span> <span class="ruby-value">-2</span>            <span class="ruby-comment"># =&gt; -4</span>
+<span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">2.0</span>            <span class="ruby-comment"># =&gt; 4.0</span>
+<span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">2</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># =&gt; (4/1)</span>
+<span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Complex</span>(<span class="ruby-value">2</span>, <span class="ruby-value">0</span>)  <span class="ruby-comment"># =&gt; (4+0i)</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-2D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-2D" title="Link to this method">
+                  <span class="method-callseq">
+                    self - numeric &rarr; numeric_result
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="2D-source">
+            <pre>VALUE
+rb_int_minus(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_minus(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_minus(x, y);
+    }
+    return rb_num_coerce_bin(x, y, &#39;-&#39;);
+}</pre>
+          </div>
+          <p>Performs subtraction:</p>
+
+<pre class="ruby"><span class="ruby-value">4</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span>              <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-value">-4</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span>             <span class="ruby-comment"># =&gt; -6</span>
+<span class="ruby-value">-4</span> <span class="ruby-operator">-</span> <span class="ruby-value">-2</span>            <span class="ruby-comment"># =&gt; -2</span>
+<span class="ruby-value">4</span> <span class="ruby-operator">-</span> <span class="ruby-value">2.0</span>            <span class="ruby-comment"># =&gt; 2.0</span>
+<span class="ruby-value">4</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">2</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># =&gt; (2/1)</span>
+<span class="ruby-value">4</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Complex</span>(<span class="ruby-value">2</span>, <span class="ruby-value">0</span>)  <span class="ruby-comment"># =&gt; (2+0i)</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-2D-40" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-2D-40" title="Link to this method">
+                  <span class="method-callseq">
+                    -int &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="2D-40-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">-@</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">attr!</span> <span class="ruby-value">:leaf</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">cexpr!</span> <span class="ruby-string">&#39;rb_int_uminus(self)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>self</code>, negated.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-2F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-2F" title="Link to this method">
+                  <span class="method-callseq">
+                    self / numeric &rarr; numeric_result
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="2F-source">
+            <pre>VALUE
+rb_int_div(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_div(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_div(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Performs division; for integer <code>numeric</code>, truncates the result to an integer:</p>
+
+<pre> 4 / 3              # =&gt; 1
+ 4 / -3             # =&gt; -2
+ -4 / 3             # =&gt; -2
+ -4 / -3            # =&gt; 1
+
+For other +numeric+, returns non-integer result:
+
+ 4 / 3.0            # =&gt; 1.3333333333333333
+ 4 / Rational(3, 1) # =&gt; (4/3)
+ 4 / Complex(3, 0)  # =&gt; ((4/3)+0i)</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3C" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-3C" title="Link to this method">
+                  <span class="method-callseq">
+                    self &lt; other &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3C-source">
+            <pre>static VALUE
+int_lt(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_lt(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_lt(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if the value of <code>self</code> is less than that of <code>other</code>:</p>
+
+<pre>  1 &lt; 0              # =&gt; false
+  1 &lt; 1              # =&gt; false
+  1 &lt; 2              # =&gt; true
+  1 &lt; 0.5            # =&gt; false
+  1 &lt; Rational(1, 2) # =&gt; false
+
+Raises an exception if the comparison cannot be made.</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3C-3C" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-3C-3C" title="Link to this method">
+                  <span class="method-callseq">
+                    self &lt;&lt; count &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3C-3C-source">
+            <pre>VALUE
+rb_int_lshift(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return rb_fix_lshift(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_lshift(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns <code>self</code> with bits shifted <code>count</code> positions to the left, or to the right if <code>count</code> is negative:</p>
+
+<pre class="ruby"><span class="ruby-identifier">n</span> = <span class="ruby-value">0b11110000</span>
+<span class="ruby-string">&quot;%08b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">1</span>)  <span class="ruby-comment"># =&gt; &quot;111100000&quot;</span>
+<span class="ruby-string">&quot;%08b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">3</span>)  <span class="ruby-comment"># =&gt; &quot;11110000000&quot;</span>
+<span class="ruby-string">&quot;%08b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">-1</span>) <span class="ruby-comment"># =&gt; &quot;01111000&quot;</span>
+<span class="ruby-string">&quot;%08b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">-3</span>) <span class="ruby-comment"># =&gt; &quot;00011110&quot;</span>
+</pre>
+
+<p>Related: <a href="Integer.html#method-i-3E-3E"><code>Integer#&gt;&gt;</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3C-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-3C-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    self &lt;= real &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3C-3D-source">
+            <pre>static VALUE
+int_le(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_le(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_le(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if the value of <code>self</code> is less than or equal to that of <code>other</code>:</p>
+
+<pre class="ruby"><span class="ruby-value">1</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>              <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">1</span>              <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">2</span>              <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0.5</span>            <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">2</span>) <span class="ruby-comment"># =&gt; false</span>
+</pre>
+
+<p>Raises an exception if the comparison cannot be made.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3C-3D-3E" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-3C-3D-3E" title="Link to this method">
+                  <span class="method-callseq">
+                    self &lt;=&gt; other  &rarr;  -1, 0, +1, or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3C-3D-3E-source">
+            <pre>VALUE
+rb_int_cmp(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_cmp(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_cmp(x, y);
+    }
+    else {
+        rb_raise(rb_eNotImpError, &quot;need to define &#39;&lt;=&gt;&#39; in %s&quot;, rb_obj_classname(x));
+    }
+}</pre>
+          </div>
+          <p>Returns:</p>
+<ul><li>
+<p>-1, if <code>self</code> is less than <code>other</code>.</p>
+</li><li>
+<p>0, if <code>self</code> is equal to <code>other</code>.</p>
+</li><li>
+<p>1, if <code>self</code> is greater then <code>other</code>.</p>
+</li><li>
+<p><code>nil</code>, if <code>self</code> and <code>other</code> are incomparable.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-value">1</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-value">2</span>              <span class="ruby-comment"># =&gt; -1</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-value">1</span>              <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-value">0</span>              <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-string">&#39;foo&#39;</span>          <span class="ruby-comment"># =&gt; nil</span>
+
+<span class="ruby-value">1</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-value">1.0</span>            <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-constant">Complex</span>(<span class="ruby-value">1</span>, <span class="ruby-value">0</span>)  <span class="ruby-comment"># =&gt; 0</span>
+</pre>
+
+<p>This method is the basis for comparisons in module <a href="Comparable.html"><code>Comparable</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3D-3D" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-3D-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    self == other &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>Returns <code>true</code> if <code>self</code> is numerically equal to <code>other</code>; <code>false</code> otherwise.</p>
+
+<pre class="ruby"><span class="ruby-value">1</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>     <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">==</span> <span class="ruby-value">1.0</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<p>Related: <a href="Numeric.html#method-i-eql-3F"><code>Integer#eql?</code></a> (requires <code>other</code> to be an Integer).</p>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Integer.html#method-i-3D-3D-3D">===</a>
+        </div>
+      </div>
+
+      <div id="method-i-3D-3D-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3D-3D-3D" title="Link to this method">
+                <span class="method-name">===</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+
+        <div class="aliases">
+          Also aliased as: <a href="Integer.html#method-i-3D-3D">==</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-3E" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-3E" title="Link to this method">
+                  <span class="method-callseq">
+                    self &gt; other &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3E-source">
+            <pre>VALUE
+rb_int_gt(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_gt(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_gt(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if the value of <code>self</code> is greater than that of <code>other</code>:</p>
+
+<pre>  1 &gt; 0              # =&gt; true
+  1 &gt; 1              # =&gt; false
+  1 &gt; 2              # =&gt; false
+  1 &gt; 0.5            # =&gt; true
+  1 &gt; Rational(1, 2) # =&gt; true
+
+Raises an exception if the comparison cannot be made.</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3E-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-3E-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    self &gt;= real &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3E-3D-source">
+            <pre>VALUE
+rb_int_ge(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_ge(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_ge(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if the value of <code>self</code> is greater than or equal to that of <code>other</code>:</p>
+
+<pre class="ruby"><span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>              <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">1</span>              <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">2</span>              <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0.5</span>            <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">2</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p>Raises an exception if the comparison cannot be made.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3E-3E" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-3E-3E" title="Link to this method">
+                  <span class="method-callseq">
+                    self &gt;&gt; count &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3E-3E-source">
+            <pre>VALUE
+rb_int_rshift(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return rb_fix_rshift(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_rshift(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns <code>self</code> with bits shifted <code>count</code> positions to the right, or to the left if <code>count</code> is negative:</p>
+
+<pre class="ruby"><span class="ruby-identifier">n</span> = <span class="ruby-value">0b11110000</span>
+<span class="ruby-string">&quot;%08b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">1</span>)  <span class="ruby-comment"># =&gt; &quot;01111000&quot;</span>
+<span class="ruby-string">&quot;%08b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">3</span>)  <span class="ruby-comment"># =&gt; &quot;00011110&quot;</span>
+<span class="ruby-string">&quot;%08b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">-1</span>) <span class="ruby-comment"># =&gt; &quot;111100000&quot;</span>
+<span class="ruby-string">&quot;%08b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">-3</span>) <span class="ruby-comment"># =&gt; &quot;11110000000&quot;</span>
+</pre>
+
+<p>Related: <a href="Integer.html#method-i-3C-3C"><code>Integer#&lt;&lt;</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-5B-5D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-5B-5D" title="Link to this method">
+                  <span class="method-callseq">
+                    self[offset]    &rarr; 0 or 1
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-5B-5D" title="Link to this method">
+                  <span class="method-callseq">
+                    self[offset, size] &rarr; integer
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-5B-5D" title="Link to this method">
+                  <span class="method-callseq">
+                    self[range] &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5B-5D-source">
+            <pre>static VALUE
+int_aref(int const argc, VALUE * const argv, VALUE const num)
+{
+    rb_check_arity(argc, 1, 2);
+    if (argc == 2) {
+        return int_aref2(num, argv[0], argv[1]);
+    }
+    return int_aref1(num, argv[0]);
+
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns a slice of bits from <code>self</code>.</p>
+
+<p>With argument <code>offset</code>, returns the bit at the given offset, where offset 0 refers to the least significant bit:</p>
+
+<pre class="ruby"><span class="ruby-identifier">n</span> = <span class="ruby-value">0b10</span> <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-identifier">n</span>[<span class="ruby-value">0</span>]     <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-identifier">n</span>[<span class="ruby-value">1</span>]     <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-identifier">n</span>[<span class="ruby-value">2</span>]     <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-identifier">n</span>[<span class="ruby-value">3</span>]     <span class="ruby-comment"># =&gt; 0</span>
+</pre>
+
+<p>In principle, <code>n[i]</code> is equivalent to <code>(n &gt;&gt; i) &amp; 1</code>. Thus, negative index always returns zero:</p>
+
+<pre class="ruby"><span class="ruby-value">255</span>[<span class="ruby-value">-1</span>] <span class="ruby-comment"># =&gt; 0</span>
+</pre>
+
+<p>With arguments <code>offset</code> and <code>size</code>, returns <code>size</code> bits from <code>self</code>, beginning at <code>offset</code> and including bits of greater significance:</p>
+
+<pre class="ruby"><span class="ruby-identifier">n</span> = <span class="ruby-value">0b111000</span>       <span class="ruby-comment"># =&gt; 56</span>
+<span class="ruby-string">&quot;%010b&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">n</span>[<span class="ruby-value">0</span>, <span class="ruby-value">10</span>] <span class="ruby-comment"># =&gt; &quot;0000111000&quot;</span>
+<span class="ruby-string">&quot;%010b&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">n</span>[<span class="ruby-value">4</span>, <span class="ruby-value">10</span>] <span class="ruby-comment"># =&gt; &quot;0000000011&quot;</span>
+</pre>
+
+<p>With argument <code>range</code>, returns <code>range.size</code> bits from <code>self</code>, beginning at <code>range.begin</code> and including bits of greater significance:</p>
+
+<pre class="ruby"><span class="ruby-identifier">n</span> = <span class="ruby-value">0b111000</span>      <span class="ruby-comment"># =&gt; 56</span>
+<span class="ruby-string">&quot;%010b&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">n</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">9</span>] <span class="ruby-comment"># =&gt; &quot;0000111000&quot;</span>
+<span class="ruby-string">&quot;%010b&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">n</span>[<span class="ruby-value">4</span><span class="ruby-operator">..</span><span class="ruby-value">9</span>] <span class="ruby-comment"># =&gt; &quot;0000000011&quot;</span>
+</pre>
+
+<p>Raises an exception if the slice cannot be constructed.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-5E" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-5E" title="Link to this method">
+                  <span class="method-callseq">
+                    self ^ other &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5E-source">
+            <pre>static VALUE
+int_xor(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_xor(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_xor(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Bitwise EXCLUSIVE OR; each bit in the result is 1 if the corresponding bits in <code>self</code> and <code>other</code> are different, 0 otherwise:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;%04b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-value">0b0101</span> <span class="ruby-operator">^</span> <span class="ruby-value">0b0110</span>) <span class="ruby-comment"># =&gt; &quot;0011&quot;</span>
+</pre>
+
+<p>Raises an exception if <code>other</code> is not an Integer.</p>
+
+<p>Related: <a href="Integer.html#method-i-26"><code>Integer#&amp;</code></a> (bitwise AND), <a href="Integer.html#method-i-7C"><code>Integer#|</code></a> (bitwise OR).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-7C" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-7C" title="Link to this method">
+                  <span class="method-callseq">
+                    self | other &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="7C-source">
+            <pre>static VALUE
+int_or(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_or(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_or(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Bitwise OR; each bit in the result is 1 if either corresponding bit in <code>self</code> or <code>other</code> is 1, 0 otherwise:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;%04b&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-value">0b0101</span> <span class="ruby-operator">|</span> <span class="ruby-value">0b0110</span>) <span class="ruby-comment"># =&gt; &quot;0111&quot;</span>
+</pre>
+
+<p>Raises an exception if <code>other</code> is not an Integer.</p>
+
+<p>Related: <a href="Integer.html#method-i-26"><code>Integer#&amp;</code></a> (bitwise AND), <a href="Integer.html#method-i-5E"><code>Integer#^</code></a> (bitwise EXCLUSIVE OR).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-~" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-~" title="Link to this method">
+                  <span class="method-callseq">
+                    ~int &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="~-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">~</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">attr!</span> <span class="ruby-value">:leaf</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">cexpr!</span> <span class="ruby-string">&#39;rb_int_comp(self)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>One’s complement: returns the value of <code>self</code> with each bit inverted.</p>
+
+<p>Because an integer value is conceptually of infinite length, the result acts as if it had an infinite number of one bits to the left. In hex representations, this is displayed as two periods to the left of the digits:</p>
+
+<pre class="ruby"><span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&quot;%X&quot;</span>, <span class="ruby-operator">~</span><span class="ruby-value">0x1122334455</span>)    <span class="ruby-comment"># =&gt; &quot;..FEEDDCCBBAA&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-abs" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-abs" title="Link to this method">
+                  <span class="method-callseq">
+                    abs &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="abs-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">abs</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">attr!</span> <span class="ruby-value">:leaf</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">cexpr!</span> <span class="ruby-string">&#39;rb_int_abs(self)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the absolute value of <code>self</code>.</p>
+
+<pre class="ruby">(<span class="ruby-value">-12345</span>).<span class="ruby-identifier">abs</span> <span class="ruby-comment"># =&gt; 12345</span>
+<span class="ruby-value">-12345</span>.<span class="ruby-identifier">abs</span>   <span class="ruby-comment"># =&gt; 12345</span>
+<span class="ruby-value">12345</span>.<span class="ruby-identifier">abs</span>    <span class="ruby-comment"># =&gt; 12345</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Integer.html#method-i-magnitude">magnitude</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-allbits-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-allbits-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    allbits?(mask) &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="allbits-3F-source">
+            <pre>static VALUE
+int_allbits_p(VALUE num, VALUE mask)
+{
+    mask = rb_to_int(mask);
+    return rb_int_equal(rb_int_and(num, mask), mask);
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if all bits that are set (=1) in <code>mask</code> are also set in <code>self</code>; returns <code>false</code> otherwise.</p>
+
+<p>Example values:</p>
+
+<pre>0b1010101  self
+0b1010100  mask
+0b1010100  self &amp; mask
+     true  self.allbits?(mask)
+
+0b1010100  self
+0b1010101  mask
+0b1010100  self &amp; mask
+    false  self.allbits?(mask)</pre>
+
+<p>Related: <a href="Integer.html#method-i-anybits-3F"><code>Integer#anybits?</code></a>, <a href="Integer.html#method-i-nobits-3F"><code>Integer#nobits?</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-anybits-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-anybits-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    anybits?(mask) &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="anybits-3F-source">
+            <pre>static VALUE
+int_anybits_p(VALUE num, VALUE mask)
+{
+    mask = rb_to_int(mask);
+    return RBOOL(!int_zero_p(rb_int_and(num, mask)));
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if any bit that is set (=1) in <code>mask</code> is also set in <code>self</code>; returns <code>false</code> otherwise.</p>
+
+<p>Example values:</p>
+
+<pre>0b10000010  self
+0b11111111  mask
+0b10000010  self &amp; mask
+      true  self.anybits?(mask)
+
+0b00000000  self
+0b11111111  mask
+0b00000000  self &amp; mask
+     false  self.anybits?(mask)</pre>
+
+<p>Related: <a href="Integer.html#method-i-allbits-3F"><code>Integer#allbits?</code></a>, <a href="Integer.html#method-i-nobits-3F"><code>Integer#nobits?</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bit_length" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-bit_length" title="Link to this method">
+                  <span class="method-callseq">
+                    bit_length &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="bit_length-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bit_length</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">attr!</span> <span class="ruby-value">:leaf</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">cexpr!</span> <span class="ruby-string">&#39;rb_int_bit_length(self)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the number of bits of the value of <code>self</code>, which is the bit position of the highest-order bit that is different from the sign bit (where the least significant bit has bit position 1). If there is no such bit (zero or minus one), returns zero.</p>
+
+<p>This method returns <code>ceil(log2(self &lt; 0 ? -self : self + 1))</code>&gt;.</p>
+
+<pre class="ruby">(<span class="ruby-value">-2</span><span class="ruby-operator">**</span><span class="ruby-value">1000</span><span class="ruby-value">-1</span>).<span class="ruby-identifier">bit_length</span>   <span class="ruby-comment"># =&gt; 1001</span>
+(<span class="ruby-value">-2</span><span class="ruby-operator">**</span><span class="ruby-value">1000</span>).<span class="ruby-identifier">bit_length</span>     <span class="ruby-comment"># =&gt; 1000</span>
+(<span class="ruby-value">-2</span><span class="ruby-operator">**</span><span class="ruby-value">1000</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">bit_length</span>   <span class="ruby-comment"># =&gt; 1000</span>
+(<span class="ruby-value">-2</span><span class="ruby-operator">**</span><span class="ruby-value">12</span><span class="ruby-value">-1</span>).<span class="ruby-identifier">bit_length</span>     <span class="ruby-comment"># =&gt; 13</span>
+(<span class="ruby-value">-2</span><span class="ruby-operator">**</span><span class="ruby-value">12</span>).<span class="ruby-identifier">bit_length</span>       <span class="ruby-comment"># =&gt; 12</span>
+(<span class="ruby-value">-2</span><span class="ruby-operator">**</span><span class="ruby-value">12</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">bit_length</span>     <span class="ruby-comment"># =&gt; 12</span>
+<span class="ruby-value">-0x101</span>.<span class="ruby-identifier">bit_length</span>         <span class="ruby-comment"># =&gt; 9</span>
+<span class="ruby-value">-0x100</span>.<span class="ruby-identifier">bit_length</span>         <span class="ruby-comment"># =&gt; 8</span>
+<span class="ruby-value">-0xff</span>.<span class="ruby-identifier">bit_length</span>          <span class="ruby-comment"># =&gt; 8</span>
+<span class="ruby-value">-2</span>.<span class="ruby-identifier">bit_length</span>             <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-value">-1</span>.<span class="ruby-identifier">bit_length</span>             <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">0</span>.<span class="ruby-identifier">bit_length</span>              <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">1</span>.<span class="ruby-identifier">bit_length</span>              <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-value">0xff</span>.<span class="ruby-identifier">bit_length</span>           <span class="ruby-comment"># =&gt; 8</span>
+<span class="ruby-value">0x100</span>.<span class="ruby-identifier">bit_length</span>          <span class="ruby-comment"># =&gt; 9</span>
+(<span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">12</span><span class="ruby-value">-1</span>).<span class="ruby-identifier">bit_length</span>      <span class="ruby-comment"># =&gt; 12</span>
+(<span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">12</span>).<span class="ruby-identifier">bit_length</span>        <span class="ruby-comment"># =&gt; 13</span>
+(<span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">12</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">bit_length</span>      <span class="ruby-comment"># =&gt; 13</span>
+(<span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">1000</span><span class="ruby-value">-1</span>).<span class="ruby-identifier">bit_length</span>    <span class="ruby-comment"># =&gt; 1000</span>
+(<span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">1000</span>).<span class="ruby-identifier">bit_length</span>      <span class="ruby-comment"># =&gt; 1001</span>
+(<span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">1000</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">bit_length</span>    <span class="ruby-comment"># =&gt; 1001</span>
+</pre>
+
+<p>For Integer <em>n</em>, this method can be used to detect overflow in <a href="Array.html#method-i-pack"><code>Array#pack</code></a>:</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">bit_length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">32</span>
+  [<span class="ruby-identifier">n</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;l&#39;</span>) <span class="ruby-comment"># No overflow.</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Overflow&#39;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ceil" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-ceil" title="Link to this method">
+                  <span class="method-callseq">
+                    ceil(ndigits = 0) &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ceil-source">
+            <pre>static VALUE
+int_ceil(int argc, VALUE* argv, VALUE num)
+{
+    int ndigits;
+
+    if (!rb_check_arity(argc, 0, 1)) return num;
+    ndigits = NUM2INT(argv[0]);
+    if (ndigits &gt;= 0) {
+        return num;
+    }
+    return rb_int_ceil(num, ndigits);
+}</pre>
+          </div>
+          <p>Returns an integer that is a “ceiling” value for <code>self</code>, as specified by the given <code>ndigits</code>, which must be an <a href="implicit_conversion_rdoc.html#label-Integer-Convertible+Objects">integer-convertible object</a>.</p>
+<ul><li>
+<p>When <code>self</code> is zero, returns zero (regardless of the value of <code>ndigits</code>):</p>
+
+<pre class="ruby"><span class="ruby-value">0</span>.<span class="ruby-identifier">ceil</span>(<span class="ruby-value">2</span>)  <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">0</span>.<span class="ruby-identifier">ceil</span>(<span class="ruby-value">-2</span>) <span class="ruby-comment"># =&gt; 0</span>
+</pre>
+</li><li>
+<p>When <code>self</code> is non-zero and <code>ndigits</code> is non-negative, returns <code>self</code>:</p>
+
+<pre class="ruby"><span class="ruby-value">555</span>.<span class="ruby-identifier">ceil</span>     <span class="ruby-comment"># =&gt; 555</span>
+<span class="ruby-value">555</span>.<span class="ruby-identifier">ceil</span>(<span class="ruby-value">50</span>) <span class="ruby-comment"># =&gt; 555</span>
+</pre>
+</li><li>
+<p>When <code>self</code> is non-zero and <code>ndigits</code> is negative, returns a value based on a computed granularity:</p>
+<ul><li>
+<p>The granularity is <code>10 ** ndigits.abs</code>.</p>
+</li><li>
+<p>The returned value is the smallest multiple of the granularity that is greater than or equal to <code>self</code>.</p>
+</li></ul>
+
+<p>Examples with positive <code>self</code>:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th align="right">ndigits</th>
+<th align="right">Granularity</th>
+<th align="right">1234.ceil(ndigits)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">-1</td>
+<td align="right">10</td>
+<td align="right">1240</td>
+</tr>
+<tr>
+<td align="right">-2</td>
+<td align="right">100</td>
+<td align="right">1300</td>
+</tr>
+<tr>
+<td align="right">-3</td>
+<td align="right">1000</td>
+<td align="right">2000</td>
+</tr>
+<tr>
+<td align="right">-4</td>
+<td align="right">10000</td>
+<td align="right">10000</td>
+</tr>
+<tr>
+<td align="right">-5</td>
+<td align="right">100000</td>
+<td align="right">100000</td>
+</tr>
+</tbody>
+</table>
+
+<p>Examples with negative <code>self</code>:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th align="right">ndigits</th>
+<th align="right">Granularity</th>
+<th align="right">-1234.ceil(ndigits)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">-1</td>
+<td align="right">10</td>
+<td align="right">-1230</td>
+</tr>
+<tr>
+<td align="right">-2</td>
+<td align="right">100</td>
+<td align="right">-1200</td>
+</tr>
+<tr>
+<td align="right">-3</td>
+<td align="right">1000</td>
+<td align="right">-1000</td>
+</tr>
+<tr>
+<td align="right">-4</td>
+<td align="right">10000</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="right">-5</td>
+<td align="right">100000</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+</li></ul>
+
+<p>Related: <a href="Integer.html#method-i-floor"><code>Integer#floor</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ceildiv" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-ceildiv" title="Link to this method">
+                  <span class="method-callseq">
+                    ceildiv(numeric) &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ceildiv-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 303</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ceildiv</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-operator">-</span><span class="ruby-identifier">div</span>(<span class="ruby-value">0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the result of division <code>self</code> by <code>numeric</code>. rounded up to the nearest integer.</p>
+
+<pre class="ruby"><span class="ruby-value">3</span>.<span class="ruby-identifier">ceildiv</span>(<span class="ruby-value">3</span>)   <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-value">4</span>.<span class="ruby-identifier">ceildiv</span>(<span class="ruby-value">3</span>)   <span class="ruby-comment"># =&gt; 2</span>
+
+<span class="ruby-value">4</span>.<span class="ruby-identifier">ceildiv</span>(<span class="ruby-value">-3</span>)  <span class="ruby-comment"># =&gt; -1</span>
+<span class="ruby-value">-4</span>.<span class="ruby-identifier">ceildiv</span>(<span class="ruby-value">3</span>)  <span class="ruby-comment"># =&gt; -1</span>
+<span class="ruby-value">-4</span>.<span class="ruby-identifier">ceildiv</span>(<span class="ruby-value">-3</span>) <span class="ruby-comment"># =&gt; 2</span>
+
+<span class="ruby-value">3</span>.<span class="ruby-identifier">ceildiv</span>(<span class="ruby-value">1.2</span>) <span class="ruby-comment"># =&gt; 3</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-chr" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-chr" title="Link to this method">
+                  <span class="method-callseq">
+                    chr           &rarr; string
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-chr" title="Link to this method">
+                  <span class="method-callseq">
+                    chr(encoding) &rarr; string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="chr-source">
+            <pre>static VALUE
+int_chr(int argc, VALUE *argv, VALUE num)
+{
+    char c;
+    unsigned int i;
+    rb_encoding *enc;
+
+    if (rb_num_to_uint(num, &amp;i) == 0) {
+    }
+    else if (FIXNUM_P(num)) {
+        rb_raise(rb_eRangeError, &quot;%ld out of char range&quot;, FIX2LONG(num));
+    }
+    else {
+        rb_raise(rb_eRangeError, &quot;bignum out of char range&quot;);
+    }
+
+    switch (argc) {
+      case 0:
+        if (0xff &lt; i) {
+            enc = rb_default_internal_encoding();
+            if (!enc) {
+                rb_raise(rb_eRangeError, &quot;%u out of char range&quot;, i);
+            }
+            goto decode;
+        }
+        c = (char)i;
+        if (i &lt; 0x80) {
+            return rb_usascii_str_new(&amp;c, 1);
+        }
+        else {
+            return rb_str_new(&amp;c, 1);
+        }
+      case 1:
+        break;
+      default:
+        rb_error_arity(argc, 0, 1);
+    }
+    enc = rb_to_encoding(argv[0]);
+    if (!enc) enc = rb_ascii8bit_encoding();
+  decode:
+    return rb_enc_uint_chr(i, enc);
+}</pre>
+          </div>
+          <p>Returns a 1-character string containing the character represented by the value of <code>self</code>, according to the given <code>encoding</code>.</p>
+
+<pre class="ruby"><span class="ruby-value">65</span>.<span class="ruby-identifier">chr</span>                   <span class="ruby-comment"># =&gt; &quot;A&quot;</span>
+<span class="ruby-value">0</span>.<span class="ruby-identifier">chr</span>                    <span class="ruby-comment"># =&gt; &quot;\x00&quot;</span>
+<span class="ruby-value">255</span>.<span class="ruby-identifier">chr</span>                  <span class="ruby-comment"># =&gt; &quot;\xFF&quot;</span>
+<span class="ruby-identifier">string</span> = <span class="ruby-value">255</span>.<span class="ruby-identifier">chr</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+<span class="ruby-identifier">string</span>.<span class="ruby-identifier">encoding</span>          <span class="ruby-comment"># =&gt; Encoding::UTF_8</span>
+</pre>
+
+<p>Raises an exception if <code>self</code> is negative.</p>
+
+<p>Related: <a href="Integer.html#method-i-ord"><code>Integer#ord</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-coerce" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-coerce" title="Link to this method">
+                  <span class="method-callseq">
+                    coerce(numeric)  &rarr;  array
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="coerce-source">
+            <pre>static VALUE
+rb_int_coerce(VALUE x, VALUE y)
+{
+    if (RB_INTEGER_TYPE_P(y)) {
+        return rb_assoc_new(y, x);
+    }
+    else {
+        x = rb_Float(x);
+        y = rb_Float(y);
+        return rb_assoc_new(y, x);
+    }
+}</pre>
+          </div>
+          <p>Returns an array with both a <code>numeric</code> and a <code>int</code> represented as <a href="Integer.html"><code>Integer</code></a> objects or <a href="Float.html"><code>Float</code></a> objects.</p>
+
+<p>This is achieved by converting <code>numeric</code> to an <a href="Integer.html"><code>Integer</code></a> or a <a href="Float.html"><code>Float</code></a>.</p>
+
+<p>A <a href="TypeError.html"><code>TypeError</code></a> is raised if the <code>numeric</code> is not an <a href="Integer.html"><code>Integer</code></a> or a <a href="Float.html"><code>Float</code></a> type.</p>
+
+<pre class="ruby">(<span class="ruby-value">0x3FFFFFFFFFFFFFFF</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">coerce</span>(<span class="ruby-value">42</span>)   <span class="ruby-comment">#=&gt; [42, 4611686018427387904]</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-denominator" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-denominator" title="Link to this method">
+                  <span class="method-callseq">
+                    denominator &rarr; 1
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="denominator-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 321</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">denominator</span>
+  <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>1</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-digits" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-digits" title="Link to this method">
+                  <span class="method-callseq">
+                    digits(base = 10) &rarr; array_of_integers
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="digits-source">
+            <pre>static VALUE
+rb_int_digits(int argc, VALUE *argv, VALUE num)
+{
+    VALUE base_value;
+    long base;
+
+    if (rb_num_negative_p(num))
+        rb_raise(rb_eMathDomainError, &quot;out of domain&quot;);
+
+    if (rb_check_arity(argc, 0, 1)) {
+        base_value = rb_to_int(argv[0]);
+        if (!RB_INTEGER_TYPE_P(base_value))
+            rb_raise(rb_eTypeError, &quot;wrong argument type %s (expected Integer)&quot;,
+                     rb_obj_classname(argv[0]));
+        if (RB_BIGNUM_TYPE_P(base_value))
+            return rb_int_digits_bigbase(num, base_value);
+
+        base = FIX2LONG(base_value);
+        if (base &lt; 0)
+            rb_raise(rb_eArgError, &quot;negative radix&quot;);
+        else if (base &lt; 2)
+            rb_raise(rb_eArgError, &quot;invalid radix %ld&quot;, base);
+    }
+    else
+        base = 10;
+
+    if (FIXNUM_P(num))
+        return rb_fix_digits(num, base);
+    else if (RB_BIGNUM_TYPE_P(num))
+        return rb_int_digits_bigbase(num, LONG2FIX(base));
+
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns an array of integers representing the <code>base</code>-radix digits of <code>self</code>; the first element of the array represents the least significant digit:</p>
+
+<pre class="ruby"><span class="ruby-value">12345</span>.<span class="ruby-identifier">digits</span>      <span class="ruby-comment"># =&gt; [5, 4, 3, 2, 1]</span>
+<span class="ruby-value">12345</span>.<span class="ruby-identifier">digits</span>(<span class="ruby-value">7</span>)   <span class="ruby-comment"># =&gt; [4, 6, 6, 0, 5]</span>
+<span class="ruby-value">12345</span>.<span class="ruby-identifier">digits</span>(<span class="ruby-value">100</span>) <span class="ruby-comment"># =&gt; [45, 23, 1]</span>
+</pre>
+
+<p>Raises an exception if <code>self</code> is negative or <code>base</code> is less than 2.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-div" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-div" title="Link to this method">
+                  <span class="method-callseq">
+                    div(numeric)  &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="div-source">
+            <pre>VALUE
+rb_int_idiv(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_idiv(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_idiv(x, y);
+    }
+    return num_div(x, y);
+}</pre>
+          </div>
+          <p>Performs integer division; returns the integer result of dividing <code>self</code> by <code>numeric</code>:</p>
+
+<pre class="ruby"><span class="ruby-value">4</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value">3</span>)              <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-value">4</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value">-3</span>)             <span class="ruby-comment"># =&gt; -2</span>
+<span class="ruby-value">-4</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value">3</span>)             <span class="ruby-comment"># =&gt; -2</span>
+<span class="ruby-value">-4</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value">-3</span>)            <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-value">4</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value">3.0</span>)            <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-value">4</span>.<span class="ruby-identifier">div</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>)) <span class="ruby-comment"># =&gt; 1</span>
+</pre>
+
+<p>Raises an exception if <code>numeric</code> does not have method <code>div</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-divmod" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-divmod" title="Link to this method">
+                  <span class="method-callseq">
+                    divmod(other) &rarr; array
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="divmod-source">
+            <pre>VALUE
+rb_int_divmod(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        return fix_divmod(x, y);
+    }
+    else if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_divmod(x, y);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns a 2-element array <code>[q, r]</code>, where</p>
+
+<pre class="ruby"><span class="ruby-identifier">q</span> = (<span class="ruby-keyword">self</span><span class="ruby-operator">/</span><span class="ruby-identifier">other</span>).<span class="ruby-identifier">floor</span>    <span class="ruby-comment"># Quotient</span>
+<span class="ruby-identifier">r</span> = <span class="ruby-keyword">self</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">other</span>          <span class="ruby-comment"># Remainder</span>
+</pre>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-value">11</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-value">4</span>)              <span class="ruby-comment"># =&gt; [2, 3]</span>
+<span class="ruby-value">11</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-value">-4</span>)             <span class="ruby-comment"># =&gt; [-3, -1]</span>
+<span class="ruby-value">-11</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-value">4</span>)             <span class="ruby-comment"># =&gt; [-3, 1]</span>
+<span class="ruby-value">-11</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-value">-4</span>)            <span class="ruby-comment"># =&gt; [2, -3]</span>
+
+<span class="ruby-value">12</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-value">4</span>)              <span class="ruby-comment"># =&gt; [3, 0]</span>
+<span class="ruby-value">12</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-value">-4</span>)             <span class="ruby-comment"># =&gt; [-3, 0]</span>
+<span class="ruby-value">-12</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-value">4</span>)             <span class="ruby-comment"># =&gt; [-3, 0]</span>
+<span class="ruby-value">-12</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-value">-4</span>)            <span class="ruby-comment"># =&gt; [3, 0]</span>
+
+<span class="ruby-value">13</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-value">4.0</span>)            <span class="ruby-comment"># =&gt; [3, 1.0]</span>
+<span class="ruby-value">13</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">4</span>, <span class="ruby-value">1</span>)) <span class="ruby-comment"># =&gt; [3, (1/1)]</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-downto" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-downto" title="Link to this method">
+                  <span class="method-callseq">
+                    downto(limit) {|i| ... } &rarr; self
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-downto" title="Link to this method">
+                  <span class="method-callseq">
+                    downto(limit)            &rarr;  enumerator
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="downto-source">
+            <pre>static VALUE
+int_downto(VALUE from, VALUE to)
+{
+    RETURN_SIZED_ENUMERATOR(from, 1, &amp;to, int_downto_size);
+    if (FIXNUM_P(from) &amp;&amp; FIXNUM_P(to)) {
+        long i, end;
+
+        end = FIX2LONG(to);
+        for (i=FIX2LONG(from); i &gt;= end; i--) {
+            rb_yield(LONG2FIX(i));
+        }
+    }
+    else {
+        VALUE i = from, c;
+
+        while (!(c = rb_funcall(i, &#39;&lt;&#39;, 1, to))) {
+            rb_yield(i);
+            i = rb_funcall(i, &#39;-&#39;, 1, INT2FIX(1));
+        }
+        if (NIL_P(c)) rb_cmperr(i, to);
+    }
+    return from;
+}</pre>
+          </div>
+          <p>Calls the given block with each integer value from <code>self</code> down to <code>limit</code>; returns <code>self</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = []
+<span class="ruby-value">10</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-value">5</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span> }              <span class="ruby-comment"># =&gt; 10</span>
+<span class="ruby-identifier">a</span>                                       <span class="ruby-comment"># =&gt; [10, 9, 8, 7, 6, 5]</span>
+<span class="ruby-identifier">a</span> = []
+<span class="ruby-value">0</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-value">-5</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span> }              <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-identifier">a</span>                                       <span class="ruby-comment"># =&gt; [0, -1, -2, -3, -4, -5]</span>
+<span class="ruby-value">4</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-value">5</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fail</span> <span class="ruby-string">&#39;Cannot happen&#39;</span> } <span class="ruby-comment"># =&gt; 4</span>
+</pre>
+
+<p>With no block given, returns an <a href="Enumerator.html"><code>Enumerator</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-even-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-even-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    even? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="even-3F-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">even?</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">attr!</span> <span class="ruby-value">:leaf</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">cexpr!</span> <span class="ruby-string">&#39;rb_int_even_p(self)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>true</code> if <code>self</code> is an even number, <code>false</code> otherwise.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-fdiv" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-fdiv" title="Link to this method">
+                  <span class="method-callseq">
+                    fdiv(numeric) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="fdiv-source">
+            <pre>VALUE
+rb_int_fdiv(VALUE x, VALUE y)
+{
+    if (RB_INTEGER_TYPE_P(x)) {
+        return DBL2NUM(rb_int_fdiv_double(x, y));
+    }
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns the <a href="Float.html"><code>Float</code></a> result of dividing <code>self</code> by <code>numeric</code>:</p>
+
+<pre class="ruby"><span class="ruby-value">4</span>.<span class="ruby-identifier">fdiv</span>(<span class="ruby-value">2</span>)      <span class="ruby-comment"># =&gt; 2.0</span>
+<span class="ruby-value">4</span>.<span class="ruby-identifier">fdiv</span>(<span class="ruby-value">-2</span>)      <span class="ruby-comment"># =&gt; -2.0</span>
+<span class="ruby-value">-4</span>.<span class="ruby-identifier">fdiv</span>(<span class="ruby-value">2</span>)      <span class="ruby-comment"># =&gt; -2.0</span>
+<span class="ruby-value">4</span>.<span class="ruby-identifier">fdiv</span>(<span class="ruby-value">2.0</span>)      <span class="ruby-comment"># =&gt; 2.0</span>
+<span class="ruby-value">4</span>.<span class="ruby-identifier">fdiv</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">3</span>, <span class="ruby-value">4</span>))      <span class="ruby-comment"># =&gt; 5.333333333333333</span>
+</pre>
+
+<p>Raises an exception if <code>numeric</code> cannot be converted to a <a href="Float.html"><code>Float</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-floor" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-floor" title="Link to this method">
+                  <span class="method-callseq">
+                    floor(ndigits = 0) &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="floor-source">
+            <pre>static VALUE
+int_floor(int argc, VALUE* argv, VALUE num)
+{
+    int ndigits;
+
+    if (!rb_check_arity(argc, 0, 1)) return num;
+    ndigits = NUM2INT(argv[0]);
+    if (ndigits &gt;= 0) {
+        return num;
+    }
+    return rb_int_floor(num, ndigits);
+}</pre>
+          </div>
+          <p>Returns an integer that is a “floor” value for <code>self</code>, as specified by the given <code>ndigits</code>, which must be an <a href="implicit_conversion_rdoc.html#label-Integer-Convertible+Objects">integer-convertible object</a>.</p>
+<ul><li>
+<p>When <code>self</code> is zero, returns zero (regardless of the value of <code>ndigits</code>):</p>
+
+<pre class="ruby"><span class="ruby-value">0</span>.<span class="ruby-identifier">floor</span>(<span class="ruby-value">2</span>)  <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">0</span>.<span class="ruby-identifier">floor</span>(<span class="ruby-value">-2</span>) <span class="ruby-comment"># =&gt; 0</span>
+</pre>
+</li><li>
+<p>When <code>self</code> is non-zero and <code>ndigits</code> is non-negative, returns <code>self</code>:</p>
+
+<pre class="ruby"><span class="ruby-value">555</span>.<span class="ruby-identifier">floor</span>     <span class="ruby-comment"># =&gt; 555</span>
+<span class="ruby-value">555</span>.<span class="ruby-identifier">floor</span>(<span class="ruby-value">50</span>) <span class="ruby-comment"># =&gt; 555</span>
+</pre>
+</li><li>
+<p>When <code>self</code> is non-zero and <code>ndigits</code> is negative, returns a value based on a computed granularity:</p>
+<ul><li>
+<p>The granularity is <code>10 ** ndigits.abs</code>.</p>
+</li><li>
+<p>The returned value is the largest multiple of the granularity that is less than or equal to <code>self</code>.</p>
+</li></ul>
+
+<p>Examples with positive <code>self</code>:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th align="right">ndigits</th>
+<th align="right">Granularity</th>
+<th align="right">1234.floor(ndigits)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">-1</td>
+<td align="right">10</td>
+<td align="right">1230</td>
+</tr>
+<tr>
+<td align="right">-2</td>
+<td align="right">100</td>
+<td align="right">1200</td>
+</tr>
+<tr>
+<td align="right">-3</td>
+<td align="right">1000</td>
+<td align="right">1000</td>
+</tr>
+<tr>
+<td align="right">-4</td>
+<td align="right">10000</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="right">-5</td>
+<td align="right">100000</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+
+<p>Examples with negative <code>self</code>:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th align="right">ndigits</th>
+<th align="right">Granularity</th>
+<th align="right">-1234.floor(ndigits)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">-1</td>
+<td align="right">10</td>
+<td align="right">-1240</td>
+</tr>
+<tr>
+<td align="right">-2</td>
+<td align="right">100</td>
+<td align="right">-1300</td>
+</tr>
+<tr>
+<td align="right">-3</td>
+<td align="right">1000</td>
+<td align="right">-2000</td>
+</tr>
+<tr>
+<td align="right">-4</td>
+<td align="right">10000</td>
+<td align="right">-10000</td>
+</tr>
+<tr>
+<td align="right">-5</td>
+<td align="right">100000</td>
+<td align="right">-100000</td>
+</tr>
+</tbody>
+</table>
+</li></ul>
+
+<p>Related: <a href="Integer.html#method-i-ceil"><code>Integer#ceil</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-gcd" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-gcd" title="Link to this method">
+                  <span class="method-callseq">
+                    gcd(other_int)  &rarr;  integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="gcd-source">
+            <pre>VALUE
+rb_gcd(VALUE self, VALUE other)
+{
+    other = nurat_int_value(other);
+    return f_gcd(self, other);
+}</pre>
+          </div>
+          <p>Returns the greatest common divisor of the two integers. The result is always positive. 0.gcd(x) and x.gcd(0) return x.abs.</p>
+
+<pre class="ruby"><span class="ruby-value">36</span>.<span class="ruby-identifier">gcd</span>(<span class="ruby-value">60</span>)                  <span class="ruby-comment">#=&gt; 12</span>
+<span class="ruby-value">2</span>.<span class="ruby-identifier">gcd</span>(<span class="ruby-value">2</span>)                    <span class="ruby-comment">#=&gt; 2</span>
+<span class="ruby-value">3</span>.<span class="ruby-identifier">gcd</span>(<span class="ruby-value">-7</span>)                   <span class="ruby-comment">#=&gt; 1</span>
+((<span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">31</span>)<span class="ruby-value">-1</span>).<span class="ruby-identifier">gcd</span>((<span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">61</span>)<span class="ruby-value">-1</span>)  <span class="ruby-comment">#=&gt; 1</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-gcdlcm" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-gcdlcm" title="Link to this method">
+                  <span class="method-callseq">
+                    gcdlcm(other_int)  &rarr;  array
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="gcdlcm-source">
+            <pre>VALUE
+rb_gcdlcm(VALUE self, VALUE other)
+{
+    other = nurat_int_value(other);
+    return rb_assoc_new(f_gcd(self, other), f_lcm(self, other));
+}</pre>
+          </div>
+          <p>Returns an array with the greatest common divisor and the least common multiple of the two integers, [gcd, lcm].</p>
+
+<pre class="ruby"><span class="ruby-value">36</span>.<span class="ruby-identifier">gcdlcm</span>(<span class="ruby-value">60</span>)                  <span class="ruby-comment">#=&gt; [12, 180]</span>
+<span class="ruby-value">2</span>.<span class="ruby-identifier">gcdlcm</span>(<span class="ruby-value">2</span>)                    <span class="ruby-comment">#=&gt; [2, 2]</span>
+<span class="ruby-value">3</span>.<span class="ruby-identifier">gcdlcm</span>(<span class="ruby-value">-7</span>)                   <span class="ruby-comment">#=&gt; [1, 21]</span>
+((<span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">31</span>)<span class="ruby-value">-1</span>).<span class="ruby-identifier">gcdlcm</span>((<span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">61</span>)<span class="ruby-value">-1</span>)  <span class="ruby-comment">#=&gt; [1, 4951760154835678088235319297]</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-inspect" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-inspect" title="Link to this method">
+                <span class="method-name">inspect</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="Integer.html#method-i-to_s">to_s</a>
+        </div>
+      </div>
+
+      <div id="method-i-integer-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-integer-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    integer? &rarr; true
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="integer-3F-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">integer?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Since <code>self</code> is already an Integer, always returns <code>true</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-lcm" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-lcm" title="Link to this method">
+                  <span class="method-callseq">
+                    lcm(other_int)  &rarr;  integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="lcm-source">
+            <pre>VALUE
+rb_lcm(VALUE self, VALUE other)
+{
+    other = nurat_int_value(other);
+    return f_lcm(self, other);
+}</pre>
+          </div>
+          <p>Returns the least common multiple of the two integers. The result is always positive. 0.lcm(x) and x.lcm(0) return zero.</p>
+
+<pre class="ruby"><span class="ruby-value">36</span>.<span class="ruby-identifier">lcm</span>(<span class="ruby-value">60</span>)                  <span class="ruby-comment">#=&gt; 180</span>
+<span class="ruby-value">2</span>.<span class="ruby-identifier">lcm</span>(<span class="ruby-value">2</span>)                    <span class="ruby-comment">#=&gt; 2</span>
+<span class="ruby-value">3</span>.<span class="ruby-identifier">lcm</span>(<span class="ruby-value">-7</span>)                   <span class="ruby-comment">#=&gt; 21</span>
+((<span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">31</span>)<span class="ruby-value">-1</span>).<span class="ruby-identifier">lcm</span>((<span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">61</span>)<span class="ruby-value">-1</span>)  <span class="ruby-comment">#=&gt; 4951760154835678088235319297</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-magnitude" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-magnitude" title="Link to this method">
+                <span class="method-name">magnitude</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="Integer.html#method-i-abs">abs</a>
+        </div>
+      </div>
+
+      <div id="method-i-modulo" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-modulo" title="Link to this method">
+                <span class="method-name">modulo</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="Integer.html#method-i-25">%</a>
+        </div>
+      </div>
+
+      <div id="method-i-next" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-next" title="Link to this method">
+                <span class="method-name">next</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="Integer.html#method-i-succ">succ</a>
+        </div>
+      </div>
+
+      <div id="method-i-nobits-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-nobits-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    nobits?(mask) &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="nobits-3F-source">
+            <pre>static VALUE
+int_nobits_p(VALUE num, VALUE mask)
+{
+    mask = rb_to_int(mask);
+    return RBOOL(int_zero_p(rb_int_and(num, mask)));
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if no bit that is set (=1) in <code>mask</code> is also set in <code>self</code>; returns <code>false</code> otherwise.</p>
+
+<p>Example values:</p>
+
+<pre>0b11110000  self
+0b00001111  mask
+0b00000000  self &amp; mask
+      true  self.nobits?(mask)
+
+0b00000001  self
+0b11111111  mask
+0b00000001  self &amp; mask
+     false  self.nobits?(mask)</pre>
+
+<p>Related: <a href="Integer.html#method-i-allbits-3F"><code>Integer#allbits?</code></a>, <a href="Integer.html#method-i-anybits-3F"><code>Integer#anybits?</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-numerator" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-numerator" title="Link to this method">
+                  <span class="method-callseq">
+                    numerator &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="numerator-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 313</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">numerator</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>self</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-odd-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-odd-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    odd? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="odd-3F-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">odd?</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">attr!</span> <span class="ruby-value">:leaf</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">cexpr!</span> <span class="ruby-string">&#39;rb_int_odd_p(self)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>true</code> if <code>self</code> is an odd number, <code>false</code> otherwise.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ord" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-ord" title="Link to this method">
+                  <span class="method-callseq">
+                    ord &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ord-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ord</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>self</code>; intended for compatibility to character literals in Ruby 1.9.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-pow" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-pow" title="Link to this method">
+                  <span class="method-callseq">
+                    pow(numeric)           &rarr;  numeric
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-pow" title="Link to this method">
+                  <span class="method-callseq">
+                    pow(integer, integer)  &rarr;  integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="pow-source">
+            <pre>VALUE
+rb_int_powm(int const argc, VALUE * const argv, VALUE const num)
+{
+    rb_check_arity(argc, 1, 2);
+
+    if (argc == 1) {
+        return rb_int_pow(num, argv[0]);
+    }
+    else {
+        VALUE const a = num;
+        VALUE const b = argv[0];
+        VALUE m = argv[1];
+        int nega_flg = 0;
+        if ( ! RB_INTEGER_TYPE_P(b)) {
+            rb_raise(rb_eTypeError, &quot;Integer#pow() 2nd argument not allowed unless a 1st argument is integer&quot;);
+        }
+        if (rb_int_negative_p(b)) {
+            rb_raise(rb_eRangeError, &quot;Integer#pow() 1st argument cannot be negative when 2nd argument specified&quot;);
+        }
+        if (!RB_INTEGER_TYPE_P(m)) {
+            rb_raise(rb_eTypeError, &quot;Integer#pow() 2nd argument not allowed unless all arguments are integers&quot;);
+        }
+
+        if (rb_int_negative_p(m)) {
+            m = rb_int_uminus(m);
+            nega_flg = 1;
+        }
+
+        if (FIXNUM_P(m)) {
+            long const half_val = (long)HALF_LONG_MSB;
+            long const mm = FIX2LONG(m);
+            if (!mm) rb_num_zerodiv();
+            if (mm == 1) return INT2FIX(0);
+            if (mm &lt;= half_val) {
+                return int_pow_tmp1(rb_int_modulo(a, m), b, mm, nega_flg);
+            }
+            else {
+                return int_pow_tmp2(rb_int_modulo(a, m), b, mm, nega_flg);
+            }
+        }
+        else {
+            if (rb_bigzero_p(m)) rb_num_zerodiv();
+            if (bignorm(m) == INT2FIX(1)) return INT2FIX(0);
+            return int_pow_tmp3(rb_int_modulo(a, m), b, m, nega_flg);
+        }
+    }
+    UNREACHABLE_RETURN(Qnil);
+}</pre>
+          </div>
+          <p>Returns (modular) exponentiation as:</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span>.<span class="ruby-identifier">pow</span>(<span class="ruby-identifier">b</span>)     <span class="ruby-comment">#=&gt; same as a**b</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">pow</span>(<span class="ruby-identifier">b</span>, <span class="ruby-identifier">m</span>)  <span class="ruby-comment">#=&gt; same as (a**b) % m, but avoids huge temporary values</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-pred" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-pred" title="Link to this method">
+                  <span class="method-callseq">
+                    pred &rarr; next_integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="pred-source">
+            <pre>static VALUE
+rb_int_pred(VALUE num)
+{
+    if (FIXNUM_P(num)) {
+        long i = FIX2LONG(num) - 1;
+        return LONG2NUM(i);
+    }
+    if (RB_BIGNUM_TYPE_P(num)) {
+        return rb_big_minus(num, INT2FIX(1));
+    }
+    return num_funcall1(num, &#39;-&#39;, INT2FIX(1));
+}</pre>
+          </div>
+          <p>Returns the predecessor of <code>self</code> (equivalent to <code>self - 1</code>):</p>
+
+<pre class="ruby"><span class="ruby-value">1</span>.<span class="ruby-identifier">pred</span>  <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-value">-1</span>.<span class="ruby-identifier">pred</span> <span class="ruby-comment">#=&gt; -2</span>
+</pre>
+
+<p>Related: <a href="Integer.html#method-i-succ"><code>Integer#succ</code></a> (successor value).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rationalize" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-rationalize" title="Link to this method">
+                  <span class="method-callseq">
+                    rationalize([eps])  &rarr;  rational
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="rationalize-source">
+            <pre>static VALUE
+integer_rationalize(int argc, VALUE *argv, VALUE self)
+{
+    rb_check_arity(argc, 0, 1);
+    return integer_to_r(self);
+}</pre>
+          </div>
+          <p>Returns the value as a rational.  The optional argument <code>eps</code> is always ignored.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-remainder" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-remainder" title="Link to this method">
+                  <span class="method-callseq">
+                    remainder(other) &rarr; real_number
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="remainder-source">
+            <pre>static VALUE
+int_remainder(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+        if (FIXNUM_P(y)) {
+            VALUE z = fix_mod(x, y);
+            RUBY_ASSERT(FIXNUM_P(z));
+            if (z != INT2FIX(0) &amp;&amp; (SIGNED_VALUE)(x ^ y) &lt; 0)
+                z = fix_minus(z, y);
+            return z;
+        }
+        else if (!RB_BIGNUM_TYPE_P(y)) {
+            return num_remainder(x, y);
+        }
+        x = rb_int2big(FIX2LONG(x));
+    }
+    else if (!RB_BIGNUM_TYPE_P(x)) {
+        return Qnil;
+    }
+    return rb_big_remainder(x, y);
+}</pre>
+          </div>
+          <p>Returns the remainder after dividing <code>self</code> by <code>other</code>.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-value">11</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4</span>)              <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-value">11</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">-4</span>)             <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-value">-11</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4</span>)             <span class="ruby-comment"># =&gt; -3</span>
+<span class="ruby-value">-11</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">-4</span>)            <span class="ruby-comment"># =&gt; -3</span>
+
+<span class="ruby-value">12</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4</span>)              <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">12</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">-4</span>)             <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">-12</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4</span>)             <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-value">-12</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">-4</span>)            <span class="ruby-comment"># =&gt; 0</span>
+
+<span class="ruby-value">13</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4.0</span>)            <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-value">13</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">4</span>, <span class="ruby-value">1</span>)) <span class="ruby-comment"># =&gt; (1/1)</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-round" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-round" title="Link to this method">
+                  <span class="method-callseq">
+                    round(ndigits= 0, half: :up) &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="round-source">
+            <pre>static VALUE
+int_round(int argc, VALUE* argv, VALUE num)
+{
+    int ndigits;
+    int mode;
+    VALUE nd, opt;
+
+    if (!rb_scan_args(argc, argv, &quot;01:&quot;, &amp;nd, &amp;opt)) return num;
+    ndigits = NUM2INT(nd);
+    mode = rb_num_get_rounding_option(opt);
+    if (ndigits &gt;= 0) {
+        return num;
+    }
+    return rb_int_round(num, ndigits, mode);
+}</pre>
+          </div>
+          <p>Returns <code>self</code> rounded to the nearest value with a precision of <code>ndigits</code> decimal digits.</p>
+
+<p>When <code>ndigits</code> is negative, the returned value has at least <code>ndigits.abs</code> trailing zeros:</p>
+
+<pre class="ruby"><span class="ruby-value">555</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">-1</span>)      <span class="ruby-comment"># =&gt; 560</span>
+<span class="ruby-value">555</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">-2</span>)      <span class="ruby-comment"># =&gt; 600</span>
+<span class="ruby-value">555</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">-3</span>)      <span class="ruby-comment"># =&gt; 1000</span>
+<span class="ruby-value">-555</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">-2</span>)     <span class="ruby-comment"># =&gt; -600</span>
+<span class="ruby-value">555</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">-4</span>)      <span class="ruby-comment"># =&gt; 0</span>
+</pre>
+
+<p>Returns <code>self</code> when <code>ndigits</code> is zero or positive.</p>
+
+<pre class="ruby"><span class="ruby-value">555</span>.<span class="ruby-identifier">round</span>     <span class="ruby-comment"># =&gt; 555</span>
+<span class="ruby-value">555</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">1</span>)  <span class="ruby-comment"># =&gt; 555</span>
+<span class="ruby-value">555</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">50</span>) <span class="ruby-comment"># =&gt; 555</span>
+</pre>
+
+<p>If keyword argument <code>half</code> is given, and <code>self</code> is equidistant from the two candidate  values, the rounding is according to the given <code>half</code> value:</p>
+<ul><li>
+<p><code>:up</code> or <code>nil</code>: round away from zero:</p>
+
+<pre class="ruby"><span class="ruby-value">25</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">-1</span>, <span class="ruby-value">half:</span> <span class="ruby-value">:up</span>)      <span class="ruby-comment"># =&gt; 30</span>
+(<span class="ruby-value">-25</span>).<span class="ruby-identifier">round</span>(<span class="ruby-value">-1</span>, <span class="ruby-value">half:</span> <span class="ruby-value">:up</span>)   <span class="ruby-comment"># =&gt; -30</span>
+</pre>
+</li><li>
+<p><code>:down</code>: round toward zero:</p>
+
+<pre class="ruby"><span class="ruby-value">25</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">-1</span>, <span class="ruby-value">half:</span> <span class="ruby-value">:down</span>)    <span class="ruby-comment"># =&gt; 20</span>
+(<span class="ruby-value">-25</span>).<span class="ruby-identifier">round</span>(<span class="ruby-value">-1</span>, <span class="ruby-value">half:</span> <span class="ruby-value">:down</span>) <span class="ruby-comment"># =&gt; -20</span>
+</pre>
+</li><li>
+<p><code>:even</code>: round toward the candidate whose last nonzero digit is even:</p>
+
+<pre class="ruby"><span class="ruby-value">25</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">-1</span>, <span class="ruby-value">half:</span> <span class="ruby-value">:even</span>)    <span class="ruby-comment"># =&gt; 20</span>
+<span class="ruby-value">15</span>.<span class="ruby-identifier">round</span>(<span class="ruby-value">-1</span>, <span class="ruby-value">half:</span> <span class="ruby-value">:even</span>)    <span class="ruby-comment"># =&gt; 20</span>
+(<span class="ruby-value">-25</span>).<span class="ruby-identifier">round</span>(<span class="ruby-value">-1</span>, <span class="ruby-value">half:</span> <span class="ruby-value">:even</span>) <span class="ruby-comment"># =&gt; -20</span>
+</pre>
+</li></ul>
+
+<p>Raises and exception if the value for <code>half</code> is invalid.</p>
+
+<p>Related: <a href="Integer.html#method-i-truncate"><code>Integer#truncate</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-size" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-size" title="Link to this method">
+                  <span class="method-callseq">
+                    size &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="size-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">size</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">attr!</span> <span class="ruby-value">:leaf</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">cexpr!</span> <span class="ruby-string">&#39;rb_int_size(self)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the number of bytes in the machine representation of <code>self</code>; the value is system-dependent:</p>
+
+<pre class="ruby"><span class="ruby-value">1</span>.<span class="ruby-identifier">size</span>             <span class="ruby-comment"># =&gt; 8</span>
+<span class="ruby-value">-1</span>.<span class="ruby-identifier">size</span>            <span class="ruby-comment"># =&gt; 8</span>
+<span class="ruby-value">2147483647</span>.<span class="ruby-identifier">size</span>    <span class="ruby-comment"># =&gt; 8</span>
+(<span class="ruby-value">256</span><span class="ruby-operator">**</span><span class="ruby-value">10</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">size</span> <span class="ruby-comment"># =&gt; 10</span>
+(<span class="ruby-value">256</span><span class="ruby-operator">**</span><span class="ruby-value">20</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">size</span> <span class="ruby-comment"># =&gt; 20</span>
+(<span class="ruby-value">256</span><span class="ruby-operator">**</span><span class="ruby-value">40</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">size</span> <span class="ruby-comment"># =&gt; 40</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-succ" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-succ" title="Link to this method">
+                  <span class="method-callseq">
+                    succ &rarr; next_integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="succ-source">
+            <pre>VALUE
+rb_int_succ(VALUE num)
+{
+    if (FIXNUM_P(num)) {
+        long i = FIX2LONG(num) + 1;
+        return LONG2NUM(i);
+    }
+    if (RB_BIGNUM_TYPE_P(num)) {
+        return rb_big_plus(num, INT2FIX(1));
+    }
+    return num_funcall1(num, &#39;+&#39;, INT2FIX(1));
+}</pre>
+          </div>
+          <p>Returns the successor integer of <code>self</code> (equivalent to <code>self + 1</code>):</p>
+
+<pre class="ruby"><span class="ruby-value">1</span>.<span class="ruby-identifier">succ</span>  <span class="ruby-comment">#=&gt; 2</span>
+<span class="ruby-value">-1</span>.<span class="ruby-identifier">succ</span> <span class="ruby-comment">#=&gt; 0</span>
+</pre>
+
+<p>Related: <a href="Integer.html#method-i-pred"><code>Integer#pred</code></a> (predecessor value).</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Integer.html#method-i-next">next</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-times" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-times" title="Link to this method">
+                  <span class="method-callseq">
+                    times {|i| ... } &rarr; self
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-times" title="Link to this method">
+                  <span class="method-callseq">
+                    times            &rarr; enumerator
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="times-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 250</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">times</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">attr!</span> <span class="ruby-value">:inline_block</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-keyword">yield</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">cexpr!</span> <span class="ruby-string">&#39;SIZED_ENUMERATOR(self, 0, 0, int_dotimes_size)&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">i</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span>.<span class="ruby-identifier">succ</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Calls the given block <code>self</code> times with each integer in <code>(0..self-1)</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = []
+<span class="ruby-value">5</span>.<span class="ruby-identifier">times</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">i</span>) } <span class="ruby-comment"># =&gt; 5</span>
+<span class="ruby-identifier">a</span>                        <span class="ruby-comment"># =&gt; [0, 1, 2, 3, 4]</span>
+</pre>
+
+<p>With no block given, returns an <a href="Enumerator.html"><code>Enumerator</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_bn" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_bn" title="Link to this method">
+                <span class="method-name">to_bn</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_bn-source">
+            <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/bn.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_bn</span>
+  <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">BN</span><span class="ruby-operator">::</span><span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Casts an <a href="Integer.html"><code>Integer</code></a> as an <a href="OpenSSL/BN.html"><code>OpenSSL::BN</code></a></p>
+
+<p>See ‘man bn` for more info.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_f" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_f" title="Link to this method">
+                  <span class="method-callseq">
+                    to_f &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_f-source">
+            <pre>static VALUE
+int_to_f(VALUE num)
+{
+    double val;
+
+    if (FIXNUM_P(num)) {
+        val = (double)FIX2LONG(num);
+    }
+    else if (RB_BIGNUM_TYPE_P(num)) {
+        val = rb_big2dbl(num);
+    }
+    else {
+        rb_raise(rb_eNotImpError, &quot;Unknown subclass for to_f: %s&quot;, rb_obj_classname(num));
+    }
+
+    return DBL2NUM(val);
+}</pre>
+          </div>
+          <p>Converts <code>self</code> to a Float:</p>
+
+<pre class="ruby"><span class="ruby-value">1</span>.<span class="ruby-identifier">to_f</span>  <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-value">-1</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-comment"># =&gt; -1.0</span>
+</pre>
+
+<p>If the value of <code>self</code> does not fit in a <a href="Float.html"><code>Float</code></a>, the result is infinity:</p>
+
+<pre class="ruby">(<span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">400</span>).<span class="ruby-identifier">to_f</span>  <span class="ruby-comment"># =&gt; Infinity</span>
+(<span class="ruby-value">-10</span><span class="ruby-operator">**</span><span class="ruby-value">400</span>).<span class="ruby-identifier">to_f</span> <span class="ruby-comment"># =&gt; -Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_i" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_i" title="Link to this method">
+                  <span class="method-callseq">
+                    to_i &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_i-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_i</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>self</code> (which is already an Integer).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_int" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_int" title="Link to this method">
+                  <span class="method-callseq">
+                    to_int &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_int-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_int</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>self</code> (which is already an Integer).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_r" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_r" title="Link to this method">
+                  <span class="method-callseq">
+                    to_r  &rarr;  rational
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_r-source">
+            <pre>static VALUE
+integer_to_r(VALUE self)
+{
+    return rb_rational_new1(self);
+}</pre>
+          </div>
+          <p>Returns the value as a rational.</p>
+
+<pre class="ruby"><span class="ruby-value">1</span>.<span class="ruby-identifier">to_r</span>        <span class="ruby-comment">#=&gt; (1/1)</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">64</span>).<span class="ruby-identifier">to_r</span>  <span class="ruby-comment">#=&gt; (18446744073709551616/1)</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_s" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_s" title="Link to this method">
+                  <span class="method-callseq">
+                    to_s(base = 10)  &rarr;  string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_s-source">
+            <pre>VALUE
+rb_int_to_s(int argc, VALUE *argv, VALUE x)
+{
+    int base;
+
+    if (rb_check_arity(argc, 0, 1))
+        base = NUM2INT(argv[0]);
+    else
+        base = 10;
+    return rb_int2str(x, base);
+}</pre>
+          </div>
+          <p>Returns a string containing the place-value representation of <code>self</code> in radix <code>base</code> (in 2..36).</p>
+
+<pre class="ruby"><span class="ruby-value">12345</span>.<span class="ruby-identifier">to_s</span>               <span class="ruby-comment"># =&gt; &quot;12345&quot;</span>
+<span class="ruby-value">12345</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">2</span>)            <span class="ruby-comment"># =&gt; &quot;11000000111001&quot;</span>
+<span class="ruby-value">12345</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">8</span>)            <span class="ruby-comment"># =&gt; &quot;30071&quot;</span>
+<span class="ruby-value">12345</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">10</span>)           <span class="ruby-comment"># =&gt; &quot;12345&quot;</span>
+<span class="ruby-value">12345</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">16</span>)           <span class="ruby-comment"># =&gt; &quot;3039&quot;</span>
+<span class="ruby-value">12345</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">36</span>)           <span class="ruby-comment"># =&gt; &quot;9ix&quot;</span>
+<span class="ruby-value">78546939656932</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">36</span>)  <span class="ruby-comment"># =&gt; &quot;rubyrules&quot;</span>
+</pre>
+
+<p>Raises an exception if <code>base</code> is out of range.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Integer.html#method-i-inspect">inspect</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-truncate" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-truncate" title="Link to this method">
+                  <span class="method-callseq">
+                    truncate(ndigits = 0) &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="truncate-source">
+            <pre>static VALUE
+int_truncate(int argc, VALUE* argv, VALUE num)
+{
+    int ndigits;
+
+    if (!rb_check_arity(argc, 0, 1)) return num;
+    ndigits = NUM2INT(argv[0]);
+    if (ndigits &gt;= 0) {
+        return num;
+    }
+    return rb_int_truncate(num, ndigits);
+}</pre>
+          </div>
+          <p>Returns <code>self</code> truncated (toward zero) to a precision of <code>ndigits</code> decimal digits.</p>
+
+<p>When <code>ndigits</code> is negative, the returned value has at least <code>ndigits.abs</code> trailing zeros:</p>
+
+<pre class="ruby"><span class="ruby-value">555</span>.<span class="ruby-identifier">truncate</span>(<span class="ruby-value">-1</span>)  <span class="ruby-comment"># =&gt; 550</span>
+<span class="ruby-value">555</span>.<span class="ruby-identifier">truncate</span>(<span class="ruby-value">-2</span>)  <span class="ruby-comment"># =&gt; 500</span>
+<span class="ruby-value">-555</span>.<span class="ruby-identifier">truncate</span>(<span class="ruby-value">-2</span>) <span class="ruby-comment"># =&gt; -500</span>
+</pre>
+
+<p>Returns <code>self</code> when <code>ndigits</code> is zero or positive.</p>
+
+<pre class="ruby"><span class="ruby-value">555</span>.<span class="ruby-identifier">truncate</span>     <span class="ruby-comment"># =&gt; 555</span>
+<span class="ruby-value">555</span>.<span class="ruby-identifier">truncate</span>(<span class="ruby-value">50</span>) <span class="ruby-comment"># =&gt; 555</span>
+</pre>
+
+<p>Related: <a href="Integer.html#method-i-round"><code>Integer#round</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-upto" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-upto" title="Link to this method">
+                  <span class="method-callseq">
+                    upto(limit) {|i| ... } &rarr; self
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-upto" title="Link to this method">
+                  <span class="method-callseq">
+                    upto(limit)            &rarr;  enumerator
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="upto-source">
+            <pre>static VALUE
+int_upto(VALUE from, VALUE to)
+{
+    RETURN_SIZED_ENUMERATOR(from, 1, &amp;to, int_upto_size);
+    if (FIXNUM_P(from) &amp;&amp; FIXNUM_P(to)) {
+        long i, end;
+
+        end = FIX2LONG(to);
+        for (i = FIX2LONG(from); i &lt;= end; i++) {
+            rb_yield(LONG2FIX(i));
+        }
+    }
+    else {
+        VALUE i = from, c;
+
+        while (!(c = rb_funcall(i, &#39;&gt;&#39;, 1, to))) {
+            rb_yield(i);
+            i = rb_funcall(i, &#39;+&#39;, 1, INT2FIX(1));
+        }
+        ensure_cmp(c, i, to);
+    }
+    return from;
+}</pre>
+          </div>
+          <p>Calls the given block with each integer value from <code>self</code> up to <code>limit</code>; returns <code>self</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = []
+<span class="ruby-value">5</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-value">10</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span> }              <span class="ruby-comment"># =&gt; 5</span>
+<span class="ruby-identifier">a</span>                                     <span class="ruby-comment"># =&gt; [5, 6, 7, 8, 9, 10]</span>
+<span class="ruby-identifier">a</span> = []
+<span class="ruby-value">-5</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-value">0</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span> }              <span class="ruby-comment"># =&gt; -5</span>
+<span class="ruby-identifier">a</span>                                     <span class="ruby-comment"># =&gt; [-5, -4, -3, -2, -1, 0]</span>
+<span class="ruby-value">5</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-value">4</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fail</span> <span class="ruby-string">&#39;Cannot happen&#39;</span> } <span class="ruby-comment"># =&gt; 5</span>
+</pre>
+
+<p>With no block given, returns an <a href="Enumerator.html"><code>Enumerator</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-zero-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-zero-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    zero? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="zero-3F-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 283</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">zero?</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">attr!</span> <span class="ruby-value">:leaf</span>
+  <span class="ruby-constant">Primitive</span>.<span class="ruby-identifier">cexpr!</span> <span class="ruby-string">&#39;rb_int_zero_p(self)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>true</code> if <code>self</code> has a zero value, <code>false</code> otherwise.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

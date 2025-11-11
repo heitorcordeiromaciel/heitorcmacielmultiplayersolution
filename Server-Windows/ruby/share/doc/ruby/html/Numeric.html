@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class Numeric - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,Numeric">
+
+    <meta name="description" content="class Numeric: Numeric is the class from which all higher-level numeric classes should inherit. Numeric allows instantiation of heap-allocated objects.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Numeric.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-Numeric-label-What-27s+Here">What’s Here</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-Numeric-label-Querying">Querying</a>
+          <li>      <a href="#class-Numeric-label-Comparing">Comparing</a>
+          <li>      <a href="#class-Numeric-label-Converting">Converting</a>
+          <li>      <a href="#class-Numeric-label-Other">Other</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="Object.html">Object</a><ul><li><a href="BasicObject.html">BasicObject</a></li></ul></li></ul>
+</div>
+
+  
+<div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+    <li><a class="include" href="Comparable.html">Comparable</a>
+  </ul>
+</div>
+
+  
+  
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-25">%</a></li>
+      <li ><a href="#method-i-2B-40">+@</a></li>
+      <li ><a href="#method-i-2D-40">-@</a></li>
+      <li ><a href="#method-i-3C-3D-3E">&lt;=&gt;</a></li>
+      <li ><a href="#method-i-abs">abs</a></li>
+      <li ><a href="#method-i-abs2">abs2</a></li>
+      <li ><a href="#method-i-angle">angle</a></li>
+      <li ><a href="#method-i-arg">arg</a></li>
+      <li ><a href="#method-i-ceil">ceil</a></li>
+      <li ><a href="#method-i-clone">clone</a></li>
+      <li ><a href="#method-i-coerce">coerce</a></li>
+      <li ><a href="#method-i-conj">conj</a></li>
+      <li ><a href="#method-i-conjugate">conjugate</a></li>
+      <li ><a href="#method-i-denominator">denominator</a></li>
+      <li ><a href="#method-i-div">div</a></li>
+      <li ><a href="#method-i-divmod">divmod</a></li>
+      <li ><a href="#method-i-dup">dup</a></li>
+      <li ><a href="#method-i-eql-3F">eql?</a></li>
+      <li ><a href="#method-i-fdiv">fdiv</a></li>
+      <li ><a href="#method-i-finite-3F">finite?</a></li>
+      <li ><a href="#method-i-floor">floor</a></li>
+      <li ><a href="#method-i-i">i</a></li>
+      <li ><a href="#method-i-imag">imag</a></li>
+      <li ><a href="#method-i-imaginary">imaginary</a></li>
+      <li ><a href="#method-i-infinite-3F">infinite?</a></li>
+      <li ><a href="#method-i-integer-3F">integer?</a></li>
+      <li ><a href="#method-i-magnitude">magnitude</a></li>
+      <li ><a href="#method-i-modulo">modulo</a></li>
+      <li ><a href="#method-i-negative-3F">negative?</a></li>
+      <li ><a href="#method-i-nonzero-3F">nonzero?</a></li>
+      <li ><a href="#method-i-numerator">numerator</a></li>
+      <li ><a href="#method-i-phase">phase</a></li>
+      <li ><a href="#method-i-polar">polar</a></li>
+      <li ><a href="#method-i-positive-3F">positive?</a></li>
+      <li ><a href="#method-i-quo">quo</a></li>
+      <li ><a href="#method-i-real">real</a></li>
+      <li ><a href="#method-i-real-3F">real?</a></li>
+      <li ><a href="#method-i-rect">rect</a></li>
+      <li ><a href="#method-i-rectangular">rectangular</a></li>
+      <li ><a href="#method-i-remainder">remainder</a></li>
+      <li ><a href="#method-i-round">round</a></li>
+      <li ><a href="#method-i-step">step</a></li>
+      <li ><a href="#method-i-to_c">to_c</a></li>
+      <li ><a href="#method-i-to_int">to_int</a></li>
+      <li ><a href="#method-i-truncate">truncate</a></li>
+      <li ><a href="#method-i-zero-3F">zero?</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-Numeric">
+  
+  
+
+  <h1 id="class-Numeric" class="anchor-link class">
+    class Numeric
+  </h1>
+
+  <section class="description">
+    
+<p>Numeric is the class from which all higher-level numeric classes should inherit.</p>
+
+<p>Numeric allows instantiation of heap-allocated objects. Other core numeric classes such as <a href="Integer.html"><code>Integer</code></a> are implemented as immediates, which means that each <a href="Integer.html"><code>Integer</code></a> is a single immutable object which is always passed by value.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-value">1</span>
+<span class="ruby-value">1</span>.<span class="ruby-identifier">object_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">object_id</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<p>There can only ever be one instance of the integer <code>1</code>, for example. Ruby ensures this by preventing instantiation. If duplication is attempted, the same instance is returned.</p>
+
+<pre class="ruby"><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>)                   <span class="ruby-comment">#=&gt; NoMethodError: undefined method `new&#39; for Integer:Class</span>
+<span class="ruby-value">1</span>.<span class="ruby-identifier">dup</span>                            <span class="ruby-comment">#=&gt; 1</span>
+<span class="ruby-value">1</span>.<span class="ruby-identifier">object_id</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">object_id</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<p>For this reason, Numeric should be used when defining other numeric classes.</p>
+
+<p>Classes which inherit from Numeric must implement <code>coerce</code>, which returns a two-member <a href="Array.html"><code>Array</code></a> containing an object that has been coerced into an instance of the new class and <code>self</code> (see <a href="Numeric.html#method-i-coerce"><code>coerce</code></a>).</p>
+
+<p>Inheriting classes should also implement arithmetic operator methods (<code>+</code>, <code>-</code>, <code>*</code> and <code>/</code>) and the <code>&lt;=&gt;</code> operator (see <a href="Comparable.html"><code>Comparable</code></a>). These methods may rely on <code>coerce</code> to ensure interoperability with instances of other numeric classes.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Tally</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Numeric</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">string</span>)
+    <span class="ruby-ivar">@string</span> = <span class="ruby-identifier">string</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
+    <span class="ruby-ivar">@string</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_i</span>
+    <span class="ruby-ivar">@string</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">coerce</span>(<span class="ruby-identifier">other</span>)
+    [<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;|&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_i</span>), <span class="ruby-keyword">self</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+    <span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">+</span>(<span class="ruby-identifier">other</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;|&#39;</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_i</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">-</span>(<span class="ruby-identifier">other</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;|&#39;</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_i</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">*</span>(<span class="ruby-identifier">other</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;|&#39;</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">to_i</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_i</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">/</span>(<span class="ruby-identifier">other</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;|&#39;</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">to_i</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_i</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">tally</span> = <span class="ruby-constant">Tally</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;||&#39;</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">tally</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>            <span class="ruby-comment">#=&gt; &quot;||||&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">tally</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>            <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<h2 id="class-Numeric-label-What-27s+Here">What’s Here<span><a href="#class-Numeric-label-What-27s+Here">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>First, what’s elsewhere. Class Numeric:</p>
+<ul><li>
+<p>Inherits from <a href="Object.html#class-Object-label-What-27s+Here">class Object</a>.</p>
+</li><li>
+<p>Includes <a href="Comparable.html#module-Comparable-label-What-27s+Here">module Comparable</a>.</p>
+</li></ul>
+
+<p>Here, class Numeric provides methods for:</p>
+<ul><li>
+<p><a href="Numeric.html#class-Numeric-label-Querying">Querying</a></p>
+</li><li>
+<p><a href="Numeric.html#class-Numeric-label-Comparing">Comparing</a></p>
+</li><li>
+<p><a href="Numeric.html#class-Numeric-label-Converting">Converting</a></p>
+</li><li>
+<p><a href="Numeric.html#class-Numeric-label-Other">Other</a></p>
+</li></ul>
+
+<h3 id="class-Numeric-label-Querying">Querying<span><a href="#class-Numeric-label-Querying">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Numeric.html#method-i-finite-3F"><code>finite?</code></a>: Returns true unless <code>self</code> is infinite or not a number.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-infinite-3F"><code>infinite?</code></a>: Returns -1, <code>nil</code> or +1, depending on whether <code>self</code> is <code>-Infinity&lt;tt&gt;, finite, or &lt;tt&gt;+Infinity</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-integer-3F"><code>integer?</code></a>: Returns whether <code>self</code> is an integer.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-negative-3F"><code>negative?</code></a>: Returns whether <code>self</code> is negative.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-nonzero-3F"><code>nonzero?</code></a>: Returns whether <code>self</code> is not zero.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-positive-3F"><code>positive?</code></a>: Returns whether <code>self</code> is positive.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-real-3F"><code>real?</code></a>: Returns whether <code>self</code> is a real value.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-zero-3F"><code>zero?</code></a>: Returns whether <code>self</code> is zero.</p>
+</li></ul>
+
+<h3 id="class-Numeric-label-Comparing">Comparing<span><a href="#class-Numeric-label-Comparing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Numeric.html#method-i-3C-3D-3E"><code>&lt;=&gt;</code></a>: Returns:</p>
+<ul><li>
+<p>-1 if  <code>self</code> is less than the given value.</p>
+</li><li>
+<p>0 if <code>self</code> is equal to the given value.</p>
+</li><li>
+<p>1 if <code>self</code> is greater than the given value.</p>
+</li><li>
+<p><code>nil</code> if <code>self</code> and the given value are not comparable.</p>
+</li></ul>
+</li><li>
+<p><a href="Numeric.html#method-i-eql-3F"><code>eql?</code></a>: Returns whether <code>self</code> and the given value have the same value and type.</p>
+</li></ul>
+
+<h3 id="class-Numeric-label-Converting">Converting<span><a href="#class-Numeric-label-Converting">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Numeric.html#method-i-25"><code>%</code></a> (aliased as <a href="Numeric.html#method-i-modulo"><code>modulo</code></a>): Returns the remainder of <code>self</code> divided by the given value.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-2D-40"><code>-@</code></a>: Returns the value of <code>self</code>, negated.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-abs"><code>abs</code></a> (aliased as <a href="Numeric.html#method-i-magnitude"><code>magnitude</code></a>): Returns the absolute value of <code>self</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-abs2"><code>abs2</code></a>: Returns the square of <code>self</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-angle"><code>angle</code></a> (aliased as <a href="Numeric.html#method-i-arg"><code>arg</code></a> and <a href="Numeric.html#method-i-phase"><code>phase</code></a>): Returns 0 if <code>self</code> is positive, Math::PI otherwise.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-ceil"><code>ceil</code></a>: Returns the smallest number greater than or equal to <code>self</code>, to a given precision.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-coerce"><code>coerce</code></a>: Returns array <code>[coerced_self, coerced_other]</code> for the given other value.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-conj"><code>conj</code></a> (aliased as <a href="Numeric.html#method-i-conjugate"><code>conjugate</code></a>): Returns the complex conjugate of <code>self</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-denominator"><code>denominator</code></a>: Returns the denominator (always positive) of the <a href="Rational.html"><code>Rational</code></a> representation of <code>self</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-div"><code>div</code></a>: Returns the value of <code>self</code> divided by the given value and converted to an integer.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-divmod"><code>divmod</code></a>: Returns array <code>[quotient, modulus]</code> resulting from dividing <code>self</code> the given divisor.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-fdiv"><code>fdiv</code></a>: Returns the <a href="Float.html"><code>Float</code></a> result of dividing <code>self</code> by the given divisor.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-floor"><code>floor</code></a>: Returns the largest number less than or equal to <code>self</code>, to a given precision.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-i"><code>i</code></a>: Returns the <a href="Complex.html"><code>Complex</code></a> object <code>Complex(0, self)</code>. the given value.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-imaginary"><code>imaginary</code></a> (aliased as <a href="Numeric.html#method-i-imag"><code>imag</code></a>): Returns the imaginary part of the <code>self</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-numerator"><code>numerator</code></a>: Returns the numerator of the <a href="Rational.html"><code>Rational</code></a> representation of <code>self</code>; has the same sign as <code>self</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-polar"><code>polar</code></a>: Returns the array <code>[self.abs, self.arg]</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-quo"><code>quo</code></a>: Returns the value of <code>self</code> divided by the given value.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-real"><code>real</code></a>: Returns the real part of <code>self</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-rect"><code>rect</code></a> (aliased as <a href="Numeric.html#method-i-rectangular"><code>rectangular</code></a>): Returns the array <code>[self, 0]</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-remainder"><code>remainder</code></a>: Returns <code>self-arg*(self/arg).truncate</code> for the given <code>arg</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-round"><code>round</code></a>: Returns the value of <code>self</code> rounded to the nearest value for the given a precision.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-to_c"><code>to_c</code></a>: Returns the <a href="Complex.html"><code>Complex</code></a> representation of <code>self</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-to_int"><code>to_int</code></a>: Returns the <a href="Integer.html"><code>Integer</code></a> representation of <code>self</code>, truncating if necessary.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-truncate"><code>truncate</code></a>: Returns <code>self</code> truncated (toward zero) to a given precision.</p>
+</li></ul>
+
+<h3 id="class-Numeric-label-Other">Other<span><a href="#class-Numeric-label-Other">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Numeric.html#method-i-clone"><code>clone</code></a>: Returns <code>self</code>; does not allow freezing.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-dup"><code>dup</code></a> (aliased as <a href="Numeric.html#method-i-2B-40"><code>+@</code></a>): Returns <code>self</code>.</p>
+</li><li>
+<p><a href="Numeric.html#method-i-step"><code>step</code></a>: Invokes the given block with the sequence of specified numbers.</p>
+</li></ul>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-25" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-25" title="Link to this method">
+                  <span class="method-callseq">
+                    self % other &rarr; real_numeric
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="25-source">
+            <pre>static VALUE
+num_modulo(VALUE x, VALUE y)
+{
+    VALUE q = num_funcall1(x, id_div, y);
+    return rb_funcall(x, &#39;-&#39;, 1,
+                      rb_funcall(y, &#39;*&#39;, 1, q));
+}</pre>
+          </div>
+          <p>Returns <code>self</code> modulo <code>other</code> as a real number.</p>
+
+<p>Of the Core and Standard Library classes, only <a href="Rational.html"><code>Rational</code></a> uses this implementation.</p>
+
+<p>For <a href="Rational.html"><code>Rational</code></a> <code>r</code> and real number <code>n</code>, these expressions are equivalent:</p>
+
+<pre class="ruby"><span class="ruby-identifier">r</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">n</span>
+<span class="ruby-identifier">r</span><span class="ruby-operator">-</span><span class="ruby-identifier">n</span><span class="ruby-operator">*</span>(<span class="ruby-identifier">r</span><span class="ruby-operator">/</span><span class="ruby-identifier">n</span>).<span class="ruby-identifier">floor</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-identifier">n</span>)[<span class="ruby-value">1</span>]
+</pre>
+
+<p>See <a href="Numeric.html#method-i-divmod"><code>Numeric#divmod</code></a>.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">r</span> = <span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">2</span>)    <span class="ruby-comment"># =&gt; (1/2)</span>
+<span class="ruby-identifier">r2</span> = <span class="ruby-constant">Rational</span>(<span class="ruby-value">2</span>, <span class="ruby-value">3</span>)   <span class="ruby-comment"># =&gt; (2/3)</span>
+<span class="ruby-identifier">r</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">r2</span>                <span class="ruby-comment"># =&gt; (1/2)</span>
+<span class="ruby-identifier">r</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span>                 <span class="ruby-comment"># =&gt; (1/2)</span>
+<span class="ruby-identifier">r</span> <span class="ruby-operator">%</span> <span class="ruby-value">2.0</span>               <span class="ruby-comment"># =&gt; 0.5</span>
+
+<span class="ruby-identifier">r</span> = <span class="ruby-constant">Rational</span>(<span class="ruby-value">301</span>,<span class="ruby-value">100</span>) <span class="ruby-comment"># =&gt; (301/100)</span>
+<span class="ruby-identifier">r2</span> = <span class="ruby-constant">Rational</span>(<span class="ruby-value">7</span>,<span class="ruby-value">5</span>)    <span class="ruby-comment"># =&gt; (7/5)</span>
+<span class="ruby-identifier">r</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">r2</span>                <span class="ruby-comment"># =&gt; (21/100)</span>
+<span class="ruby-identifier">r</span> <span class="ruby-operator">%</span> <span class="ruby-operator">-</span><span class="ruby-identifier">r2</span>               <span class="ruby-comment"># =&gt; (-119/100)</span>
+(<span class="ruby-operator">-</span><span class="ruby-identifier">r</span>) <span class="ruby-operator">%</span> <span class="ruby-identifier">r2</span>             <span class="ruby-comment"># =&gt; (119/100)</span>
+(<span class="ruby-operator">-</span><span class="ruby-identifier">r</span>) <span class="ruby-operator">%</span><span class="ruby-operator">-</span><span class="ruby-identifier">r2</span>             <span class="ruby-comment"># =&gt; (-21/100)</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Numeric.html#method-i-modulo">modulo</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-2B-40" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-2B-40" title="Link to this method">
+                  <span class="method-callseq">
+                    +self &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="2B-40-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">+@</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>self</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-2D-40" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-2D-40" title="Link to this method">
+                  <span class="method-callseq">
+                    -self &rarr; numeric
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="2D-40-source">
+            <pre>static VALUE
+num_uminus(VALUE num)
+{
+    VALUE zero;
+
+    zero = INT2FIX(0);
+    do_coerce(&amp;zero, &amp;num, TRUE);
+
+    return num_funcall1(zero, &#39;-&#39;, num);
+}</pre>
+          </div>
+          <p>Unary Minus—Returns the receiver, negated.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-3C-3D-3E" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-3C-3D-3E" title="Link to this method">
+                  <span class="method-callseq">
+                    self &lt;=&gt; other &rarr; zero or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3C-3D-3E-source">
+            <pre>static VALUE
+num_cmp(VALUE x, VALUE y)
+{
+    if (x == y) return INT2FIX(0);
+    return Qnil;
+}</pre>
+          </div>
+          <p>Returns zero if <code>self</code> is the same as <code>other</code>, <code>nil</code> otherwise.</p>
+
+<p>No subclass in the Ruby Core or Standard Library uses this implementation.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-abs" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-abs" title="Link to this method">
+                  <span class="method-callseq">
+                    abs &rarr; numeric
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="abs-source">
+            <pre>static VALUE
+num_abs(VALUE num)
+{
+    if (rb_num_negative_int_p(num)) {
+        return num_funcall0(num, idUMinus);
+    }
+    return num;
+}</pre>
+          </div>
+          <p>Returns the absolute value of <code>self</code>.</p>
+
+<pre class="ruby"><span class="ruby-value">12</span>.<span class="ruby-identifier">abs</span>        <span class="ruby-comment">#=&gt; 12</span>
+(<span class="ruby-value">-34.56</span>).<span class="ruby-identifier">abs</span>  <span class="ruby-comment">#=&gt; 34.56</span>
+<span class="ruby-value">-34.56</span>.<span class="ruby-identifier">abs</span>    <span class="ruby-comment">#=&gt; 34.56</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Numeric.html#method-i-magnitude">magnitude</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-abs2" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-abs2" title="Link to this method">
+                  <span class="method-callseq">
+                    abs2 &rarr; real
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="abs2-source">
+            <pre>static VALUE
+numeric_abs2(VALUE self)
+{
+    return f_mul(self, self);
+}</pre>
+          </div>
+          <p>Returns the square of <code>self</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-angle" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-angle" title="Link to this method">
+                <span class="method-name">angle</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="Numeric.html#method-i-arg">arg</a>
+        </div>
+      </div>
+
+      <div id="method-i-arg" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-arg" title="Link to this method">
+                  <span class="method-callseq">
+                    arg &rarr; 0 or Math::PI
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="arg-source">
+            <pre>static VALUE
+numeric_arg(VALUE self)
+{
+    if (f_positive_p(self))
+        return INT2FIX(0);
+    return DBL2NUM(M_PI);
+}</pre>
+          </div>
+          <p>Returns zero if <code>self</code> is positive, Math::PI otherwise.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Numeric.html#method-i-angle">angle</a>, <a href="Numeric.html#method-i-phase">phase</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-ceil" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-ceil" title="Link to this method">
+                  <span class="method-callseq">
+                    ceil(ndigits = 0) &rarr; float or integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ceil-source">
+            <pre>static VALUE
+num_ceil(int argc, VALUE *argv, VALUE num)
+{
+    return flo_ceil(argc, argv, rb_Float(num));
+}</pre>
+          </div>
+          <p>Returns the smallest float or integer that is greater than or equal to <code>self</code>, as specified by the given ‘ndigits`, which must be an <a href="implicit_conversion_rdoc.html#label-Integer-Convertible+Objects">integer-convertible object</a>.</p>
+
+<p>Equivalent to <code>self.to_f.ceil(ndigits)</code>.</p>
+
+<p>Related: <a href="Numeric.html#method-i-floor"><code>floor</code></a>, <a href="Float.html#method-i-ceil"><code>Float#ceil</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-clone" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-clone" title="Link to this method">
+                  <span class="method-callseq">
+                    clone(freeze: true) &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="clone-source">
+            <pre>static VALUE
+num_clone(int argc, VALUE *argv, VALUE x)
+{
+    return rb_immutable_obj_clone(argc, argv, x);
+}</pre>
+          </div>
+          <p>Returns <code>self</code>.</p>
+
+<p>Raises an exception if the value for <code>freeze</code> is neither <code>true</code> nor <code>nil</code>.</p>
+
+<p>Related: <a href="Numeric.html#method-i-dup"><code>Numeric#dup</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-coerce" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-coerce" title="Link to this method">
+                  <span class="method-callseq">
+                    coerce(other) &rarr; array
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="coerce-source">
+            <pre>static VALUE
+num_coerce(VALUE x, VALUE y)
+{
+    if (CLASS_OF(x) == CLASS_OF(y))
+        return rb_assoc_new(y, x);
+    x = rb_Float(x);
+    y = rb_Float(y);
+    return rb_assoc_new(y, x);
+}</pre>
+          </div>
+          <p>Returns a 2-element array containing two numeric elements, formed from the two operands <code>self</code> and <code>other</code>, of a common compatible type.</p>
+
+<p>Of the Core and Standard Library classes, <a href="Integer.html"><code>Integer</code></a>, <a href="Rational.html"><code>Rational</code></a>, and <a href="Complex.html"><code>Complex</code></a> use this implementation.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">i</span> = <span class="ruby-value">2</span>                    <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-identifier">i</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-value">3</span>)              <span class="ruby-comment"># =&gt; [3, 2]</span>
+<span class="ruby-identifier">i</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-value">3.0</span>)            <span class="ruby-comment"># =&gt; [3.0, 2.0]</span>
+<span class="ruby-identifier">i</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">2</span>)) <span class="ruby-comment"># =&gt; [0.5, 2.0]</span>
+<span class="ruby-identifier">i</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-constant">Complex</span>(<span class="ruby-value">3</span>, <span class="ruby-value">4</span>))  <span class="ruby-comment"># Raises RangeError.</span>
+
+<span class="ruby-identifier">r</span> = <span class="ruby-constant">Rational</span>(<span class="ruby-value">5</span>, <span class="ruby-value">2</span>)       <span class="ruby-comment"># =&gt; (5/2)</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-value">2</span>)              <span class="ruby-comment"># =&gt; [(2/1), (5/2)]</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-value">2.0</span>)            <span class="ruby-comment"># =&gt; [2.0, 2.5]</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">2</span>, <span class="ruby-value">3</span>)) <span class="ruby-comment"># =&gt; [(2/3), (5/2)]</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-constant">Complex</span>(<span class="ruby-value">3</span>, <span class="ruby-value">4</span>))  <span class="ruby-comment"># =&gt; [(3+4i), ((5/2)+0i)]</span>
+
+<span class="ruby-identifier">c</span> = <span class="ruby-constant">Complex</span>(<span class="ruby-value">2</span>, <span class="ruby-value">3</span>)        <span class="ruby-comment"># =&gt; (2+3i)</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-value">2</span>)              <span class="ruby-comment"># =&gt; [(2+0i), (2+3i)]</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-value">2.0</span>)            <span class="ruby-comment"># =&gt; [(2.0+0i), (2+3i)]</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">2</span>)) <span class="ruby-comment"># =&gt; [((1/2)+0i), (2+3i)]</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-constant">Complex</span>(<span class="ruby-value">3</span>, <span class="ruby-value">4</span>))  <span class="ruby-comment"># =&gt; [(3+4i), (2+3i)]</span>
+</pre>
+
+<p>Raises an exception if any type conversion fails.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-conj" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-conj" title="Link to this method">
+                  <span class="method-callseq">
+                    conj &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Numeric.html#method-i-conjugate">conjugate</a>
+        </div>
+      </div>
+
+      <div id="method-i-conjugate" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-conjugate" title="Link to this method">
+                <span class="method-name">conjugate</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+
+        <div class="aliases">
+          Also aliased as: <a href="Numeric.html#method-i-conj">conj</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-denominator" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-denominator" title="Link to this method">
+                  <span class="method-callseq">
+                    denominator  &rarr;  integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="denominator-source">
+            <pre>static VALUE
+numeric_denominator(VALUE self)
+{
+    return f_denominator(f_to_r(self));
+}</pre>
+          </div>
+          <p>Returns the denominator (always positive).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-div" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-div" title="Link to this method">
+                  <span class="method-callseq">
+                    div(other) &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="div-source">
+            <pre>static VALUE
+num_div(VALUE x, VALUE y)
+{
+    if (rb_equal(INT2FIX(0), y)) rb_num_zerodiv();
+    return rb_funcall(num_funcall1(x, &#39;/&#39;, y), rb_intern(&quot;floor&quot;), 0);
+}</pre>
+          </div>
+          <p>Returns the quotient <code>self/other</code> as an integer (via <code>floor</code>), using method <code>/</code> in the derived class of <code>self</code>. (Numeric itself does not define method <code>/</code>.)</p>
+
+<p>Of the Core and Standard Library classes, Only <a href="Float.html"><code>Float</code></a> and <a href="Rational.html"><code>Rational</code></a> use this implementation.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-divmod" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-divmod" title="Link to this method">
+                  <span class="method-callseq">
+                    divmod(other) &rarr; array
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="divmod-source">
+            <pre>static VALUE
+num_divmod(VALUE x, VALUE y)
+{
+    return rb_assoc_new(num_div(x, y), num_modulo(x, y));
+}</pre>
+          </div>
+          <p>Returns a 2-element array <code>[q, r]</code>, where</p>
+
+<pre class="ruby"><span class="ruby-identifier">q</span> = (<span class="ruby-keyword">self</span><span class="ruby-operator">/</span><span class="ruby-identifier">other</span>).<span class="ruby-identifier">floor</span>                  <span class="ruby-comment"># Quotient</span>
+<span class="ruby-identifier">r</span> = <span class="ruby-keyword">self</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">other</span>                        <span class="ruby-comment"># Remainder</span>
+</pre>
+
+<p>Of the Core and Standard Library classes, only <a href="Rational.html"><code>Rational</code></a> uses this implementation.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-constant">Rational</span>(<span class="ruby-value">11</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">divmod</span>(<span class="ruby-value">4</span>)               <span class="ruby-comment"># =&gt; [2, (3/1)]</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">11</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">divmod</span>(<span class="ruby-value">-4</span>)              <span class="ruby-comment"># =&gt; [-3, (-1/1)]</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">-11</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">divmod</span>(<span class="ruby-value">4</span>)              <span class="ruby-comment"># =&gt; [-3, (1/1)]</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">-11</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">divmod</span>(<span class="ruby-value">-4</span>)             <span class="ruby-comment"># =&gt; [2, (-3/1)]</span>
+
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">12</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">divmod</span>(<span class="ruby-value">4</span>)               <span class="ruby-comment"># =&gt; [3, (0/1)]</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">12</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">divmod</span>(<span class="ruby-value">-4</span>)              <span class="ruby-comment"># =&gt; [-3, (0/1)]</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">-12</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">divmod</span>(<span class="ruby-value">4</span>)              <span class="ruby-comment"># =&gt; [-3, (0/1)]</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">-12</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">divmod</span>(<span class="ruby-value">-4</span>)             <span class="ruby-comment"># =&gt; [3, (0/1)]</span>
+
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">13</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">divmod</span>(<span class="ruby-value">4.0</span>)             <span class="ruby-comment"># =&gt; [3, 1.0]</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">13</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">divmod</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">4</span>, <span class="ruby-value">11</span>)) <span class="ruby-comment"># =&gt; [35, (3/11)]</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-dup" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-dup" title="Link to this method">
+                  <span class="method-callseq">
+                    dup &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="dup-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dup</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>self</code>.</p>
+
+<p>Related: <a href="Numeric.html#method-i-clone"><code>Numeric#clone</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-eql-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-eql-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    eql?(other) &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="eql-3F-source">
+            <pre>static VALUE
+num_eql(VALUE x, VALUE y)
+{
+    if (TYPE(x) != TYPE(y)) return Qfalse;
+
+    if (RB_BIGNUM_TYPE_P(x)) {
+        return rb_big_eql(x, y);
+    }
+
+    return rb_equal(x, y);
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if <code>self</code> and <code>other</code> are the same type and have equal values.</p>
+
+<p>Of the Core and Standard Library classes, only <a href="Integer.html"><code>Integer</code></a>, <a href="Rational.html"><code>Rational</code></a>, and <a href="Complex.html"><code>Complex</code></a> use this implementation.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-value">1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-value">1</span>)              <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-value">1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-value">1.0</span>)            <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-value">1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">1</span>)) <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-value">1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-constant">Complex</span>(<span class="ruby-value">1</span>, <span class="ruby-value">0</span>))  <span class="ruby-comment"># =&gt; false</span>
+</pre>
+
+<p>Method <code>eql?</code> is different from <code>==</code> in that <code>eql?</code> requires matching types, while <code>==</code> does not.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-fdiv" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-fdiv" title="Link to this method">
+                  <span class="method-callseq">
+                    fdiv(other) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="fdiv-source">
+            <pre>static VALUE
+num_fdiv(VALUE x, VALUE y)
+{
+    return rb_funcall(rb_Float(x), &#39;/&#39;, 1, y);
+}</pre>
+          </div>
+          <p>Returns the quotient <code>self/other</code> as a float, using method <code>/</code> in the derived class of <code>self</code>. (Numeric itself does not define method <code>/</code>.)</p>
+
+<p>Of the Core and Standard Library classes, only <a href="BigDecimal.html"><code>BigDecimal</code></a> uses this implementation.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-finite-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-finite-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    finite? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="finite-3F-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finite?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>true</code> if <code>self</code> is a finite number, <code>false</code> otherwise.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-floor" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-floor" title="Link to this method">
+                  <span class="method-callseq">
+                    floor(ndigits = 0) &rarr; float or integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="floor-source">
+            <pre>static VALUE
+num_floor(int argc, VALUE *argv, VALUE num)
+{
+    return flo_floor(argc, argv, rb_Float(num));
+}</pre>
+          </div>
+          <p>Returns the largest float or integer that is less than or equal to <code>self</code>, as specified by the given ‘ndigits`, which must be an <a href="implicit_conversion_rdoc.html#label-Integer-Convertible+Objects">integer-convertible object</a>.</p>
+
+<p>Equivalent to <code>self.to_f.floor(ndigits)</code>.</p>
+
+<p>Related: <a href="Numeric.html#method-i-ceil"><code>ceil</code></a>, <a href="Float.html#method-i-floor"><code>Float#floor</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-i" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-i" title="Link to this method">
+                  <span class="method-callseq">
+                    i &rarr; complex
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="i-source">
+            <pre>static VALUE
+num_imaginary(VALUE num)
+{
+    return rb_complex_new(INT2FIX(0), num);
+}</pre>
+          </div>
+          <p>Returns <code>Complex(0, self)</code>:</p>
+
+<pre class="ruby"><span class="ruby-value">2</span>.<span class="ruby-identifier">i</span>              <span class="ruby-comment"># =&gt; (0+2i)</span>
+<span class="ruby-value">-2</span>.<span class="ruby-identifier">i</span>             <span class="ruby-comment"># =&gt; (0-2i)</span>
+<span class="ruby-value">2.0</span>.<span class="ruby-identifier">i</span>            <span class="ruby-comment"># =&gt; (0+2.0i)</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">2</span>).<span class="ruby-identifier">i</span> <span class="ruby-comment"># =&gt; (0+(1/2)*i)</span>
+<span class="ruby-constant">Complex</span>(<span class="ruby-value">3</span>, <span class="ruby-value">4</span>).<span class="ruby-identifier">i</span>  <span class="ruby-comment"># Raises NoMethodError.</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-imag" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-imag" title="Link to this method">
+                  <span class="method-callseq">
+                    imag &rarr; 0
+                  </span>
+                </a>
+              </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Numeric.html#method-i-imaginary">imaginary</a>
+        </div>
+      </div>
+
+      <div id="method-i-imaginary" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-imaginary" title="Link to this method">
+                <span class="method-name">imaginary</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+
+        <div class="aliases">
+          Also aliased as: <a href="Numeric.html#method-i-imag">imag</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-infinite-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-infinite-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    infinite? &rarr; -1, 1, or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="infinite-3F-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">infinite?</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>nil</code>, -1, or 1 depending on whether <code>self</code> is finite, <code>-Infinity</code>, or <code>+Infinity</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-integer-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-integer-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    integer? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="integer-3F-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">integer?</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>true</code> if <code>self</code> is an <a href="Integer.html"><code>Integer</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-value">1.0</span>.<span class="ruby-identifier">integer?</span> <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-value">1</span>.<span class="ruby-identifier">integer?</span>   <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-magnitude" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-magnitude" title="Link to this method">
+                <span class="method-name">magnitude</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="Numeric.html#method-i-abs">abs</a>
+        </div>
+      </div>
+
+      <div id="method-i-modulo" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-modulo" title="Link to this method">
+                <span class="method-name">modulo</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="Numeric.html#method-i-25">%</a>
+        </div>
+      </div>
+
+      <div id="method-i-negative-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-negative-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    negative? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="negative-3F-source">
+            <pre>static VALUE
+num_negative_p(VALUE num)
+{
+    return RBOOL(rb_num_negative_int_p(num));
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if <code>self</code> is less than 0, <code>false</code> otherwise.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-nonzero-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-nonzero-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    nonzero?  &rarr;  self or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="nonzero-3F-source">
+            <pre>static VALUE
+num_nonzero_p(VALUE num)
+{
+    if (RTEST(num_funcall0(num, rb_intern(&quot;zero?&quot;)))) {
+        return Qnil;
+    }
+    return num;
+}</pre>
+          </div>
+          <pre>Returns +self+ if +self+ is not a zero value, +nil+ otherwise;
+uses method &lt;tt&gt;zero?&lt;/tt&gt; for the evaluation.
+
+The returned +self+ allows the method to be chained:
+
+  a = %w[z Bb bB bb BB a aA Aa AA A]
+  a.sort {|a, b| (a.downcase &lt;=&gt; b.downcase).nonzero? || a &lt;=&gt; b }
+  # =&gt; [&quot;A&quot;, &quot;a&quot;, &quot;AA&quot;, &quot;Aa&quot;, &quot;aA&quot;, &quot;BB&quot;, &quot;Bb&quot;, &quot;bB&quot;, &quot;bb&quot;, &quot;z&quot;]
+
+Of the Core and Standard Library classes,
+Integer, Float, Rational, and Complex use this implementation.</pre>
+
+<p>Related: <a href="Numeric.html#method-i-zero-3F"><code>zero?</code></a></p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-numerator" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-numerator" title="Link to this method">
+                  <span class="method-callseq">
+                    numerator  &rarr;  integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="numerator-source">
+            <pre>static VALUE
+numeric_numerator(VALUE self)
+{
+    return f_numerator(f_to_r(self));
+}</pre>
+          </div>
+          <p>Returns the numerator.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-phase" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-phase" title="Link to this method">
+                <span class="method-name">phase</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="Numeric.html#method-i-arg">arg</a>
+        </div>
+      </div>
+
+      <div id="method-i-polar" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-polar" title="Link to this method">
+                  <span class="method-callseq">
+                    polar &rarr; array
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="polar-source">
+            <pre>static VALUE
+numeric_polar(VALUE self)
+{
+    VALUE abs, arg;
+
+    if (RB_INTEGER_TYPE_P(self)) {
+        abs = rb_int_abs(self);
+        arg = numeric_arg(self);
+    }
+    else if (RB_FLOAT_TYPE_P(self)) {
+        abs = rb_float_abs(self);
+        arg = float_arg(self);
+    }
+    else if (RB_TYPE_P(self, T_RATIONAL)) {
+        abs = rb_rational_abs(self);
+        arg = numeric_arg(self);
+    }
+    else {
+        abs = f_abs(self);
+        arg = f_arg(self);
+    }
+    return rb_assoc_new(abs, arg);
+}</pre>
+          </div>
+          <p>Returns array <code>[self.abs, self.arg]</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-positive-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-positive-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    positive? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="positive-3F-source">
+            <pre>static VALUE
+num_positive_p(VALUE num)
+{
+    const ID mid = &#39;&gt;&#39;;
+
+    if (FIXNUM_P(num)) {
+        if (method_basic_p(rb_cInteger))
+            return RBOOL((SIGNED_VALUE)num &gt; (SIGNED_VALUE)INT2FIX(0));
+    }
+    else if (RB_BIGNUM_TYPE_P(num)) {
+        if (method_basic_p(rb_cInteger))
+            return RBOOL(BIGNUM_POSITIVE_P(num) &amp;&amp; !rb_bigzero_p(num));
+    }
+    return rb_num_compare_with_zero(num, mid);
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if <code>self</code> is greater than 0, <code>false</code> otherwise.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-quo" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-quo" title="Link to this method">
+                  <span class="method-callseq">
+                    quo(int_or_rat)   &rarr;  rat
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-quo" title="Link to this method">
+                  <span class="method-callseq">
+                    quo(flo)          &rarr;  flo
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="quo-source">
+            <pre>VALUE
+rb_numeric_quo(VALUE x, VALUE y)
+{
+    if (RB_TYPE_P(x, T_COMPLEX)) {
+        return rb_complex_div(x, y);
+    }
+
+    if (RB_FLOAT_TYPE_P(y)) {
+        return rb_funcallv(x, idFdiv, 1, &amp;y);
+    }
+
+    x = rb_convert_type(x, T_RATIONAL, &quot;Rational&quot;, &quot;to_r&quot;);
+    return rb_rational_div(x, y);
+}</pre>
+          </div>
+          <p>Returns the most exact division (rational for integers, float for floats).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-real" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-real" title="Link to this method">
+                  <span class="method-callseq">
+                    real &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="real-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">real</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>self</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-real-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-real-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    real? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="real-3F-source">
+            <pre><span class="ruby-comment"># File numeric.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">real?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>true</code> if <code>self</code> is a real number (i.e. not <a href="Complex.html"><code>Complex</code></a>).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rect" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-rect" title="Link to this method">
+                  <span class="method-callseq">
+                    rect &rarr; array
+                  </span>
+                </a>
+              </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>Returns array <code>[self, 0]</code>.</p>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Numeric.html#method-i-rectangular">rectangular</a>
+        </div>
+      </div>
+
+      <div id="method-i-rectangular" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-rectangular" title="Link to this method">
+                <span class="method-name">rectangular</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+
+        <div class="aliases">
+          Also aliased as: <a href="Numeric.html#method-i-rect">rect</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-remainder" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-remainder" title="Link to this method">
+                  <span class="method-callseq">
+                    remainder(other) &rarr; real_number
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="remainder-source">
+            <pre>static VALUE
+num_remainder(VALUE x, VALUE y)
+{
+    if (!rb_obj_is_kind_of(y, rb_cNumeric)) {
+        do_coerce(&amp;x, &amp;y, TRUE);
+    }
+    VALUE z = num_funcall1(x, &#39;%&#39;, y);
+
+    if ((!rb_equal(z, INT2FIX(0))) &amp;&amp;
+        ((rb_num_negative_int_p(x) &amp;&amp;
+          rb_num_positive_int_p(y)) ||
+         (rb_num_positive_int_p(x) &amp;&amp;
+          rb_num_negative_int_p(y)))) {
+        if (RB_FLOAT_TYPE_P(y)) {
+            if (isinf(RFLOAT_VALUE(y))) {
+                return x;
+            }
+        }
+        return rb_funcall(z, &#39;-&#39;, 1, y);
+    }
+    return z;
+}</pre>
+          </div>
+          <p>Returns the remainder after dividing <code>self</code> by <code>other</code>.</p>
+
+<p>Of the Core and Standard Library classes, only <a href="Float.html"><code>Float</code></a> and <a href="Rational.html"><code>Rational</code></a> use this implementation.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-value">11.0</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4</span>)              <span class="ruby-comment"># =&gt; 3.0</span>
+<span class="ruby-value">11.0</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">-4</span>)             <span class="ruby-comment"># =&gt; 3.0</span>
+<span class="ruby-value">-11.0</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4</span>)             <span class="ruby-comment"># =&gt; -3.0</span>
+<span class="ruby-value">-11.0</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">-4</span>)            <span class="ruby-comment"># =&gt; -3.0</span>
+
+<span class="ruby-value">12.0</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4</span>)              <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-value">12.0</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">-4</span>)             <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-value">-12.0</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4</span>)             <span class="ruby-comment"># =&gt; -0.0</span>
+<span class="ruby-value">-12.0</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">-4</span>)            <span class="ruby-comment"># =&gt; -0.0</span>
+
+<span class="ruby-value">13.0</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4.0</span>)            <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-value">13.0</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">4</span>, <span class="ruby-value">1</span>)) <span class="ruby-comment"># =&gt; 1.0</span>
+
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">13</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4</span>)   <span class="ruby-comment"># =&gt; (1/1)</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">13</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">remainder</span>(<span class="ruby-value">-4</span>)  <span class="ruby-comment"># =&gt; (1/1)</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">-13</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">remainder</span>(<span class="ruby-value">4</span>)  <span class="ruby-comment"># =&gt; (-1/1)</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">-13</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">remainder</span>(<span class="ruby-value">-4</span>) <span class="ruby-comment"># =&gt; (-1/1)</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-round" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-round" title="Link to this method">
+                  <span class="method-callseq">
+                    round(digits = 0) &rarr; integer or float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="round-source">
+            <pre>static VALUE
+num_round(int argc, VALUE* argv, VALUE num)
+{
+    return flo_round(argc, argv, rb_Float(num));
+}</pre>
+          </div>
+          <p>Returns <code>self</code> rounded to the nearest value with a precision of <code>digits</code> decimal digits.</p>
+
+<p>Numeric implements this by converting <code>self</code> to a <a href="Float.html"><code>Float</code></a> and invoking <a href="Float.html#method-i-round"><code>Float#round</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-step" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-step" title="Link to this method">
+                  <span class="method-callseq">
+                    step(to = nil, by = 1) {|n| ... } &rarr;  self
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-step" title="Link to this method">
+                  <span class="method-callseq">
+                    step(to = nil, by = 1)            &rarr;  enumerator
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-step" title="Link to this method">
+                  <span class="method-callseq">
+                    step(to = nil, by: 1) {|n| ... }  &rarr;  self
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-step" title="Link to this method">
+                  <span class="method-callseq">
+                    step(to = nil, by: 1)             &rarr;  enumerator
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-step" title="Link to this method">
+                  <span class="method-callseq">
+                    step(by: 1, to: ) {|n| ... }      &rarr;  self
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-step" title="Link to this method">
+                  <span class="method-callseq">
+                    step(by: 1, to: )                 &rarr;  enumerator
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-step" title="Link to this method">
+                  <span class="method-callseq">
+                    step(by: , to: nil) {|n| ... }    &rarr;  self
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-step" title="Link to this method">
+                  <span class="method-callseq">
+                    step(by: , to: nil)               &rarr;  enumerator
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="step-source">
+            <pre>static VALUE
+num_step(int argc, VALUE *argv, VALUE from)
+{
+    VALUE to, step;
+    int desc, inf;
+
+    if (!rb_block_given_p()) {
+        VALUE by = Qundef;
+
+        num_step_extract_args(argc, argv, &amp;to, &amp;step, &amp;by);
+        if (!UNDEF_P(by)) {
+            step = by;
+        }
+        if (NIL_P(step)) {
+            step = INT2FIX(1);
+        }
+        else if (rb_equal(step, INT2FIX(0))) {
+            rb_raise(rb_eArgError, &quot;step can&#39;t be 0&quot;);
+        }
+        if ((NIL_P(to) || rb_obj_is_kind_of(to, rb_cNumeric)) &amp;&amp;
+            rb_obj_is_kind_of(step, rb_cNumeric)) {
+            return rb_arith_seq_new(from, ID2SYM(rb_frame_this_func()), argc, argv,
+                                    num_step_size, from, to, step, FALSE);
+        }
+
+        return SIZED_ENUMERATOR_KW(from, 2, ((VALUE [2]){to, step}), num_step_size, FALSE);
+    }
+
+    desc = num_step_scan_args(argc, argv, &amp;to, &amp;step, TRUE, FALSE);
+    if (rb_equal(step, INT2FIX(0))) {
+        inf = 1;
+    }
+    else if (RB_FLOAT_TYPE_P(to)) {
+        double f = RFLOAT_VALUE(to);
+        inf = isinf(f) &amp;&amp; (signbit(f) ? desc : !desc);
+    }
+    else inf = 0;
+
+    if (FIXNUM_P(from) &amp;&amp; (inf || FIXNUM_P(to)) &amp;&amp; FIXNUM_P(step)) {
+        long i = FIX2LONG(from);
+        long diff = FIX2LONG(step);
+
+        if (inf) {
+            for (;; i += diff)
+                rb_yield(LONG2FIX(i));
+        }
+        else {
+            long end = FIX2LONG(to);
+
+            if (desc) {
+                for (; i &gt;= end; i += diff)
+                    rb_yield(LONG2FIX(i));
+            }
+            else {
+                for (; i &lt;= end; i += diff)
+                    rb_yield(LONG2FIX(i));
+            }
+        }
+    }
+    else if (!ruby_float_step(from, to, step, FALSE, FALSE)) {
+        VALUE i = from;
+
+        if (inf) {
+            for (;; i = rb_funcall(i, &#39;+&#39;, 1, step))
+                rb_yield(i);
+        }
+        else {
+            ID cmp = desc ? &#39;&lt;&#39; : &#39;&gt;&#39;;
+
+            for (; !RTEST(rb_funcall(i, cmp, 1, to)); i = rb_funcall(i, &#39;+&#39;, 1, step))
+                rb_yield(i);
+        }
+    }
+    return from;
+}</pre>
+          </div>
+          <p>Generates a sequence of numbers; with a block given, traverses the sequence.</p>
+
+<p>Of the Core and Standard Library classes, <a href="Integer.html"><code>Integer</code></a>, <a href="Float.html"><code>Float</code></a>, and <a href="Rational.html"><code>Rational</code></a> use this implementation.</p>
+
+<p>A quick example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">squares</span> = []
+<span class="ruby-value">1</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">by:</span> <span class="ruby-value">2</span>, <span class="ruby-value">to:</span> <span class="ruby-value">10</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">squares</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span>) }
+<span class="ruby-identifier">squares</span> <span class="ruby-comment"># =&gt; [1, 9, 25, 49, 81]</span>
+</pre>
+
+<p>The generated sequence:</p>
+<ul><li>
+<p>Begins with <code>self</code>.</p>
+</li><li>
+<p>Continues at intervals of <code>by</code> (which may not be zero).</p>
+</li><li>
+<p>Ends with the last number that is within or equal to <code>to</code>; that is, less than or equal to <code>to</code> if <code>by</code> is positive, greater than or equal to <code>to</code> if <code>by</code> is negative. If <code>to</code> is <code>nil</code>, the sequence is of infinite length.</p>
+</li></ul>
+
+<p>If a block is given, calls the block with each number in the sequence; returns <code>self</code>. If no block is given, returns an <a href="Enumerator/ArithmeticSequence.html"><code>Enumerator::ArithmeticSequence</code></a>.</p>
+
+<p><strong>Keyword Arguments</strong></p>
+
+<p>With keyword arguments <code>by</code> and <code>to</code>, their values (or defaults) determine the step and limit:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Both keywords given.</span>
+<span class="ruby-identifier">squares</span> = []
+<span class="ruby-value">4</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">by:</span> <span class="ruby-value">2</span>, <span class="ruby-value">to:</span> <span class="ruby-value">10</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">squares</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span>) }    <span class="ruby-comment"># =&gt; 4</span>
+<span class="ruby-identifier">squares</span> <span class="ruby-comment"># =&gt; [16, 36, 64, 100]</span>
+<span class="ruby-identifier">cubes</span> = []
+<span class="ruby-value">3</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">by:</span> <span class="ruby-value">-1.5</span>, <span class="ruby-value">to:</span> <span class="ruby-value">-3</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cubes</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span>) } <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-identifier">cubes</span>   <span class="ruby-comment"># =&gt; [27.0, 3.375, 0.0, -3.375, -27.0]</span>
+<span class="ruby-identifier">squares</span> = []
+<span class="ruby-value">1.2</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">by:</span> <span class="ruby-value">0.2</span>, <span class="ruby-value">to:</span> <span class="ruby-value">2.0</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">squares</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">f</span><span class="ruby-operator">*</span><span class="ruby-identifier">f</span>) }
+<span class="ruby-identifier">squares</span> <span class="ruby-comment"># =&gt; [1.44, 1.9599999999999997, 2.5600000000000005, 3.24, 4.0]</span>
+
+<span class="ruby-identifier">squares</span> = []
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">6</span><span class="ruby-operator">/</span><span class="ruby-value">5</span>).<span class="ruby-identifier">step</span>(<span class="ruby-value">by:</span> <span class="ruby-value">0.2</span>, <span class="ruby-value">to:</span> <span class="ruby-value">2.0</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">squares</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">r</span><span class="ruby-operator">*</span><span class="ruby-identifier">r</span>) }
+<span class="ruby-identifier">squares</span> <span class="ruby-comment"># =&gt; [1.0, 1.44, 1.9599999999999997, 2.5600000000000005, 3.24, 4.0]</span>
+
+<span class="ruby-comment"># Only keyword to given.</span>
+<span class="ruby-identifier">squares</span> = []
+<span class="ruby-value">4</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">to:</span> <span class="ruby-value">10</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">squares</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span>) }           <span class="ruby-comment"># =&gt; 4</span>
+<span class="ruby-identifier">squares</span> <span class="ruby-comment"># =&gt; [16, 25, 36, 49, 64, 81, 100]</span>
+<span class="ruby-comment"># Only by given.</span>
+
+<span class="ruby-comment"># Only keyword by given</span>
+<span class="ruby-identifier">squares</span> = []
+<span class="ruby-value">4</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">by:</span><span class="ruby-value">2</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">squares</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span>); <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span> }
+<span class="ruby-identifier">squares</span> <span class="ruby-comment"># =&gt; [16, 36, 64, 100, 144]</span>
+
+<span class="ruby-comment"># No block given.</span>
+<span class="ruby-identifier">e</span> = <span class="ruby-value">3</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">by:</span> <span class="ruby-value">-1.5</span>, <span class="ruby-value">to:</span> <span class="ruby-value">-3</span>) <span class="ruby-comment"># =&gt; (3.step(by: -1.5, to: -3))</span>
+<span class="ruby-identifier">e</span>.<span class="ruby-identifier">class</span>                      <span class="ruby-comment"># =&gt; Enumerator::ArithmeticSequence</span>
+</pre>
+
+<p><strong>Positional Arguments</strong></p>
+
+<p>With optional positional arguments <code>to</code> and <code>by</code>, their values (or defaults) determine the step and limit:</p>
+
+<pre class="ruby"><span class="ruby-identifier">squares</span> = []
+<span class="ruby-value">4</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">10</span>, <span class="ruby-value">2</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">squares</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span>) }    <span class="ruby-comment"># =&gt; 4</span>
+<span class="ruby-identifier">squares</span> <span class="ruby-comment"># =&gt; [16, 36, 64, 100]</span>
+<span class="ruby-identifier">squares</span> = []
+<span class="ruby-value">4</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">10</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">squares</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span>) }
+<span class="ruby-identifier">squares</span> <span class="ruby-comment"># =&gt; [16, 25, 36, 49, 64, 81, 100]</span>
+<span class="ruby-identifier">squares</span> = []
+<span class="ruby-value">4</span>.<span class="ruby-identifier">step</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">squares</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span>); <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span> }  <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">squares</span> <span class="ruby-comment"># =&gt; [16, 25, 36, 49, 64, 81, 100, 121]</span>
+</pre>
+
+<p><strong>Implementation Notes</strong></p>
+
+<p>If all the arguments are integers, the loop operates using an integer counter.</p>
+
+<p>If any of the arguments are floating point numbers, all are converted to floats, and the loop is executed <em>floor(n + n*Float::EPSILON) + 1</em> times, where <em>n = (limit - self)/step</em>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_c" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_c" title="Link to this method">
+                  <span class="method-callseq">
+                    to_c &rarr; complex
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_c-source">
+            <pre>static VALUE
+numeric_to_c(VALUE self)
+{
+    return rb_complex_new1(self);
+}</pre>
+          </div>
+          <p>Returns <code>self</code> as a <a href="Complex.html"><code>Complex</code></a> object.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_int" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_int" title="Link to this method">
+                  <span class="method-callseq">
+                    to_int &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_int-source">
+            <pre>static VALUE
+num_to_int(VALUE num)
+{
+    return num_funcall0(num, id_to_i);
+}</pre>
+          </div>
+          <p>Returns <code>self</code> as an integer; converts using method <code>to_i</code> in the derived class.</p>
+
+<p>Of the Core and Standard Library classes, only <a href="Rational.html"><code>Rational</code></a> and <a href="Complex.html"><code>Complex</code></a> use this implementation.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">2</span>).<span class="ruby-identifier">to_int</span> <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-constant">Rational</span>(<span class="ruby-value">2</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">to_int</span> <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-constant">Complex</span>(<span class="ruby-value">2</span>, <span class="ruby-value">0</span>).<span class="ruby-identifier">to_int</span>  <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-constant">Complex</span>(<span class="ruby-value">2</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">to_int</span>  <span class="ruby-comment"># Raises RangeError (non-zero imaginary part)</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-truncate" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-truncate" title="Link to this method">
+                  <span class="method-callseq">
+                    truncate(digits = 0) &rarr; integer or float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="truncate-source">
+            <pre>static VALUE
+num_truncate(int argc, VALUE *argv, VALUE num)
+{
+    return flo_truncate(argc, argv, rb_Float(num));
+}</pre>
+          </div>
+          <p>Returns <code>self</code> truncated (toward zero) to a precision of <code>digits</code> decimal digits.</p>
+
+<p>Numeric implements this by converting <code>self</code> to a <a href="Float.html"><code>Float</code></a> and invoking <a href="Float.html#method-i-truncate"><code>Float#truncate</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-zero-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-zero-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    zero? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="zero-3F-source">
+            <pre>static VALUE
+num_zero_p(VALUE num)
+{
+    return rb_equal(num, INT2FIX(0));
+}</pre>
+          </div>
+          <p>Returns <code>true</code> if <code>zero</code> has a zero value, <code>false</code> otherwise.</p>
+
+<p>Of the Core and Standard Library classes, only <a href="Rational.html"><code>Rational</code></a> and <a href="Complex.html"><code>Complex</code></a> use this implementation.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

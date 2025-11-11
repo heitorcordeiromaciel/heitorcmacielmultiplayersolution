@@ -1,0 +1,8 @@
+U:RDoc::AnyMethod[iI"[]:ETI"Symbol#[];TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"9Equivalent to <tt>symbol.to_s[]</tt>; see String#[].;T:
+@fileI"string.c;T:0@omit_headings_from_table_of_contents_below0I"µsymbol[index] -> string or nil
+symbol[start, length] -> string or nil
+symbol[range] -> string or nil
+symbol[regexp, capture = 0] -> string or nil
+symbol[substring] -> string or nil
+;T0[[I"
+slice;T@	I"(*args);T@FI"Symbol;TcRDoc::NormalClass00

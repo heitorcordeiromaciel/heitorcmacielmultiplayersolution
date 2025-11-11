@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"source:ETI"Prism::Node#source;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"=A pointer to the source that this node was created from.;T:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::Node;TcRDoc::NormalClass0

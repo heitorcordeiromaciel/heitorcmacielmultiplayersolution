@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>module Psych - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,module,Psych">
+
+    <meta name="description" content="module Psych: Overview Psych is a YAML parser and emitter. pyyaml.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Psych.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="module">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>      <a href="#module-Psych-label-Overview">Overview</a>
+          <li>
+            <details open>
+              <summary>      <a href="#module-Psych-label-I+NEED+TO+PARSE+OR+EMIT+YAML+RIGHT+NOW-21">I NEED TO PARSE OR EMIT YAML RIGHT NOW!</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-Psych-label-YAML+Parsing">YAML Parsing</a>
+          <li>      <a href="#module-Psych-label-YAML+Emitting">YAML Emitting</a>
+          <li>
+            <details open>
+              <summary>      <a href="#module-Psych-label-High-level+API">High-level API</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#module-Psych-label-Parsing">Parsing</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-Psych-label-Reading+from+a+string">Reading from a string</a>
+          <li>      <a href="#module-Psych-label-Reading+from+a+file">Reading from a file</a>
+          <li>      <a href="#module-Psych-label-Exception+handling">Exception handling</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-Psych-label-Emitting">Emitting</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-Psych-label-Writing+to+a+string">Writing to a string</a>
+          <li>      <a href="#module-Psych-label-Writing+to+a+file">Writing to a file</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-Psych-label-Mid-level+API">Mid-level API</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#module-Psych-label-Parsing">Parsing</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-Psych-label-Reading+from+a+string">Reading from a string</a>
+          <li>      <a href="#module-Psych-label-Reading+from+a+file">Reading from a file</a>
+          <li>      <a href="#module-Psych-label-Exception+handling">Exception handling</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-Psych-label-Emitting">Emitting</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-Psych-label-Writing+to+a+string">Writing to a string</a>
+          <li>      <a href="#module-Psych-label-Writing+to+a+file">Writing to a file</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-Psych-label-Low-level+API">Low-level API</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#module-Psych-label-Parsing">Parsing</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-Psych-label-Reading+to+Psych-3A-3ANodes-3A-3AStream+structure">Reading to Psych::Nodes::Stream structure</a>
+          <li>      <a href="#module-Psych-label-Receiving+an+events+stream">Receiving an events stream</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-Psych-label-Emitting">Emitting</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-Psych-label-Writing+to+a+Ruby+structure">Writing to a Ruby structure</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+  
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-dump">dump</a></li>
+      <li ><a href="#method-c-dump_stream">dump_stream</a></li>
+      <li ><a href="#method-c-libyaml_version">libyaml_version</a></li>
+      <li ><a href="#method-c-load">load</a></li>
+      <li ><a href="#method-c-load_file">load_file</a></li>
+      <li ><a href="#method-c-load_stream">load_stream</a></li>
+      <li ><a href="#method-c-parse">parse</a></li>
+      <li ><a href="#method-c-parse_file">parse_file</a></li>
+      <li ><a href="#method-c-parse_stream">parse_stream</a></li>
+      <li ><a href="#method-c-parser">parser</a></li>
+      <li ><a href="#method-c-safe_dump">safe_dump</a></li>
+      <li ><a href="#method-c-safe_load">safe_load</a></li>
+      <li ><a href="#method-c-safe_load_file">safe_load_file</a></li>
+      <li ><a href="#method-c-to_json">to_json</a></li>
+      <li ><a href="#method-c-unsafe_load">unsafe_load</a></li>
+      <li ><a href="#method-c-unsafe_load_file">unsafe_load_file</a></li>
+    </ul>
+  </div>
+
+
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="module-Psych">
+  
+  
+
+  <h1 id="module-Psych" class="anchor-link module">
+    module Psych
+  </h1>
+
+  <section class="description">
+    
+<h1 id="module-Psych-label-Overview">Overview<span><a href="#module-Psych-label-Overview">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><a href="Psych.html"><code>Psych</code></a> is a <a href="YAML.html"><code>YAML</code></a> parser and emitter. <a href="Psych.html"><code>Psych</code></a> leverages libyaml [Home page: <a href="https://pyyaml.org/wiki/LibYAML">pyyaml.org/wiki/LibYAML</a>] or [git repo: <a href="https://github.com/yaml/libyaml">github.com/yaml/libyaml</a>] for its <a href="YAML.html"><code>YAML</code></a> parsing and emitting capabilities. In addition to wrapping libyaml, <a href="Psych.html"><code>Psych</code></a> also knows how to serialize and de-serialize most Ruby objects to and from the <a href="YAML.html"><code>YAML</code></a> format.</p>
+
+<h1 id="module-Psych-label-I+NEED+TO+PARSE+OR+EMIT+YAML+RIGHT+NOW-21">I NEED TO PARSE OR EMIT <a href="YAML.html"><code>YAML</code></a> RIGHT NOW!<span><a href="#module-Psych-label-I+NEED+TO+PARSE+OR+EMIT+YAML+RIGHT+NOW-21">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre class="ruby"><span class="ruby-comment"># Parse some YAML</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;--- foo&quot;</span>) <span class="ruby-comment"># =&gt; &quot;foo&quot;</span>
+
+<span class="ruby-comment"># Emit some YAML</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-string">&quot;foo&quot;</span>)     <span class="ruby-comment"># =&gt; &quot;--- foo\n...\n&quot;</span>
+{ <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;b&#39;</span>}.<span class="ruby-identifier">to_yaml</span>  <span class="ruby-comment"># =&gt; &quot;---\n:a: b\n&quot;</span>
+</pre>
+
+<p>Got more time on your hands?  Keep on reading!</p>
+
+<h2 id="module-Psych-label-YAML+Parsing"><a href="YAML.html"><code>YAML</code></a> Parsing<span><a href="#module-Psych-label-YAML+Parsing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="Psych.html"><code>Psych</code></a> provides a range of interfaces for parsing a <a href="YAML.html"><code>YAML</code></a> document ranging from low level to high level, depending on your parsing needs.  At the lowest level, is an event based parser.  Mid level is access to the raw <a href="YAML.html"><code>YAML</code></a> AST, and at the highest level is the ability to unmarshal <a href="YAML.html"><code>YAML</code></a> to Ruby objects.</p>
+
+<h2 id="module-Psych-label-YAML+Emitting"><a href="YAML.html"><code>YAML</code></a> Emitting<span><a href="#module-Psych-label-YAML+Emitting">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="Psych.html"><code>Psych</code></a> provides a range of interfaces ranging from low to high level for producing <a href="YAML.html"><code>YAML</code></a> documents.  Very similar to the <a href="YAML.html"><code>YAML</code></a> parsing interfaces, <a href="Psych.html"><code>Psych</code></a> provides at the lowest level, an event based system, mid-level is building a <a href="YAML.html"><code>YAML</code></a> AST, and the highest level is converting a Ruby object straight to a <a href="YAML.html"><code>YAML</code></a> document.</p>
+
+<h2 id="module-Psych-label-High-level+API">High-level API<span><a href="#module-Psych-label-High-level+API">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="module-Psych-label-Parsing">Parsing<span><a href="#module-Psych-label-Parsing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The high level <a href="YAML.html"><code>YAML</code></a> parser provided by <a href="Psych.html"><code>Psych</code></a> simply takes <a href="YAML.html"><code>YAML</code></a> as input and returns a Ruby data structure.  For information on using the high level parser see <a href="Psych.html#method-c-load"><code>Psych.load</code></a></p>
+
+<h4 id="module-Psych-label-Reading+from+a+string">Reading from a string<span><a href="#module-Psych-label-Reading+from+a+string">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_load</span>(<span class="ruby-string">&quot;--- a&quot;</span>)             <span class="ruby-comment"># =&gt; &#39;a&#39;</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_load</span>(<span class="ruby-string">&quot;---\n - a\n - b&quot;</span>)   <span class="ruby-comment"># =&gt; [&#39;a&#39;, &#39;b&#39;]</span>
+<span class="ruby-comment"># From a trusted string:</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;--- !ruby/range\nbegin: 0\nend: 42\nexcl: false\n&quot;</span>) <span class="ruby-comment"># =&gt; 0..42</span>
+</pre>
+
+<h4 id="module-Psych-label-Reading+from+a+file">Reading from a file<span><a href="#module-Psych-label-Reading+from+a+file">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_load_file</span>(<span class="ruby-string">&quot;data.yml&quot;</span>, <span class="ruby-value">permitted_classes:</span> [<span class="ruby-constant">Date</span>])
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-string">&quot;trusted_database.yml&quot;</span>)
+</pre>
+
+<h4 id="module-Psych-label-Exception+handling">Exception handling<span><a href="#module-Psych-label-Exception+handling">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-comment"># The second argument changes only the exception contents</span>
+  <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;--- `&quot;</span>, <span class="ruby-string">&quot;file.txt&quot;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">file</span>    <span class="ruby-comment"># =&gt; &#39;file.txt&#39;</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span> <span class="ruby-comment"># =&gt; &quot;(file.txt): found character that cannot start any token&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="module-Psych-label-Emitting">Emitting<span><a href="#module-Psych-label-Emitting">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The high level emitter has the easiest interface.  <a href="Psych.html"><code>Psych</code></a> simply takes a Ruby data structure and converts it to a <a href="YAML.html"><code>YAML</code></a> document.  See <a href="Psych.html#method-c-dump"><code>Psych.dump</code></a> for more information on dumping a Ruby data structure.</p>
+
+<h4 id="module-Psych-label-Writing+to+a+string">Writing to a string<span><a href="#module-Psych-label-Writing+to+a+string">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-comment"># Dump an array, get back a YAML string</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>([<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>])  <span class="ruby-comment"># =&gt; &quot;---\n- a\n- b\n&quot;</span>
+
+<span class="ruby-comment"># Dump an array to an IO object</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>([<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>)  <span class="ruby-comment"># =&gt; #&lt;StringIO:0x000001009d0890&gt;</span>
+
+<span class="ruby-comment"># Dump an array with indentation set</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>([<span class="ruby-string">&#39;a&#39;</span>, [<span class="ruby-string">&#39;b&#39;</span>]], <span class="ruby-value">:indentation</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">3</span>) <span class="ruby-comment"># =&gt; &quot;---\n- a\n-  - b\n&quot;</span>
+
+<span class="ruby-comment"># Dump an array to an IO with indentation set</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>([<span class="ruby-string">&#39;a&#39;</span>, [<span class="ruby-string">&#39;b&#39;</span>]], <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>, <span class="ruby-value">:indentation</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">3</span>)
+</pre>
+
+<h4 id="module-Psych-label-Writing+to+a+file">Writing to a file<span><a href="#module-Psych-label-Writing+to+a+file">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Currently there is no direct API for dumping Ruby structure to file:</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;database.yml&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>([<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>]))
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="module-Psych-label-Mid-level+API">Mid-level API<span><a href="#module-Psych-label-Mid-level+API">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="module-Psych-label-Parsing">Parsing<span><a href="#module-Psych-label-Parsing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><a href="Psych.html"><code>Psych</code></a> provides access to an AST produced from parsing a <a href="YAML.html"><code>YAML</code></a> document.  This tree is built using the <a href="Psych/Parser.html"><code>Psych::Parser</code></a> and <a href="Psych/TreeBuilder.html"><code>Psych::TreeBuilder</code></a>.  The AST can be examined and manipulated freely.  Please see <a href="Psych.html#method-c-parse_stream"><code>Psych::parse_stream</code></a>, <a href="Psych/Nodes.html"><code>Psych::Nodes</code></a>, and <a href="Psych/Nodes/Node.html"><code>Psych::Nodes::Node</code></a> for more information on dealing with <a href="YAML.html"><code>YAML</code></a> syntax trees.</p>
+
+<h4 id="module-Psych-label-Reading+from+a+string">Reading from a string<span><a href="#module-Psych-label-Reading+from+a+string">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-comment"># Returns Psych::Nodes::Stream</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse_stream</span>(<span class="ruby-string">&quot;---\n - a\n - b&quot;</span>)
+
+<span class="ruby-comment"># Returns Psych::Nodes::Document</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;---\n - a\n - b&quot;</span>)
+</pre>
+
+<h4 id="module-Psych-label-Reading+from+a+file">Reading from a file<span><a href="#module-Psych-label-Reading+from+a+file">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-comment"># Returns Psych::Nodes::Stream</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse_stream</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;database.yml&#39;</span>))
+
+<span class="ruby-comment"># Returns Psych::Nodes::Document</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse_file</span>(<span class="ruby-string">&#39;database.yml&#39;</span>)
+</pre>
+
+<h4 id="module-Psych-label-Exception+handling">Exception handling<span><a href="#module-Psych-label-Exception+handling">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-comment"># The second argument changes only the exception contents</span>
+  <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;--- `&quot;</span>, <span class="ruby-string">&quot;file.txt&quot;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">file</span>    <span class="ruby-comment"># =&gt; &#39;file.txt&#39;</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span> <span class="ruby-comment"># =&gt; &quot;(file.txt): found character that cannot start any token&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="module-Psych-label-Emitting">Emitting<span><a href="#module-Psych-label-Emitting">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>At the mid level is building an AST.  This AST is exactly the same as the AST used when parsing a <a href="YAML.html"><code>YAML</code></a> document.  Users can build an AST by hand and the AST knows how to emit itself as a <a href="YAML.html"><code>YAML</code></a> document.  See <a href="Psych/Nodes.html"><code>Psych::Nodes</code></a>, <a href="Psych/Nodes/Node.html"><code>Psych::Nodes::Node</code></a>, and <a href="Psych/TreeBuilder.html"><code>Psych::TreeBuilder</code></a> for more information on building a <a href="YAML.html"><code>YAML</code></a> AST.</p>
+
+<h4 id="module-Psych-label-Writing+to+a+string">Writing to a string<span><a href="#module-Psych-label-Writing+to+a+string">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-comment"># We need Psych::Nodes::Stream (not Psych::Nodes::Document)</span>
+<span class="ruby-identifier">stream</span> = <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse_stream</span>(<span class="ruby-string">&quot;---\n - a\n - b&quot;</span>)
+
+<span class="ruby-identifier">stream</span>.<span class="ruby-identifier">to_yaml</span> <span class="ruby-comment"># =&gt; &quot;---\n- a\n- b\n&quot;</span>
+</pre>
+
+<h4 id="module-Psych-label-Writing+to+a+file">Writing to a file<span><a href="#module-Psych-label-Writing+to+a+file">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-comment"># We need Psych::Nodes::Stream (not Psych::Nodes::Document)</span>
+<span class="ruby-identifier">stream</span> = <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse_stream</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;database.yml&#39;</span>))
+
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;database.yml&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">stream</span>.<span class="ruby-identifier">to_yaml</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="module-Psych-label-Low-level+API">Low-level API<span><a href="#module-Psych-label-Low-level+API">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="module-Psych-label-Parsing">Parsing<span><a href="#module-Psych-label-Parsing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The lowest level parser should be used when the <a href="YAML.html"><code>YAML</code></a> input is already known, and the developer does not want to pay the price of building an AST or automatic detection and conversion to Ruby objects.  See <a href="Psych/Parser.html"><code>Psych::Parser</code></a> for more information on using the event based parser.</p>
+
+<h4 id="module-Psych-label-Reading+to+Psych-3A-3ANodes-3A-3AStream+structure">Reading to <a href="Psych/Nodes/Stream.html"><code>Psych::Nodes::Stream</code></a> structure<span><a href="#module-Psych-label-Reading+to+Psych-3A-3ANodes-3A-3AStream+structure">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">parser</span> = <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">TreeBuilder</span>.<span class="ruby-identifier">new</span>) <span class="ruby-comment"># =&gt; #&lt;Psych::Parser&gt;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parser</span>                       <span class="ruby-comment"># it&#39;s an alias for the above</span>
+
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;---\n - a\n - b&quot;</span>)             <span class="ruby-comment"># =&gt; #&lt;Psych::Parser&gt;</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">handler</span>                              <span class="ruby-comment"># =&gt; #&lt;Psych::TreeBuilder&gt;</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">handler</span>.<span class="ruby-identifier">root</span>                         <span class="ruby-comment"># =&gt; #&lt;Psych::Nodes::Stream&gt;</span>
+</pre>
+
+<h4 id="module-Psych-label-Receiving+an+events+stream">Receiving an events stream<span><a href="#module-Psych-label-Receiving+an+events+stream">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">recorder</span> = <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Handlers</span><span class="ruby-operator">::</span><span class="ruby-constant">Recorder</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">recorder</span>)
+
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;---\n - a\n - b&quot;</span>)
+<span class="ruby-identifier">recorder</span>.<span class="ruby-identifier">events</span> <span class="ruby-comment"># =&gt; [list of [event, args] lists]</span>
+                <span class="ruby-comment"># event is one of: Psych::Handler::EVENTS</span>
+                <span class="ruby-comment"># args are the arguments passed to the event</span>
+</pre>
+
+<h3 id="module-Psych-label-Emitting">Emitting<span><a href="#module-Psych-label-Emitting">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The lowest level emitter is an event based system.  Events are sent to a <a href="Psych/Emitter.html"><code>Psych::Emitter</code></a> object.  That object knows how to convert the events to a <a href="YAML.html"><code>YAML</code></a> document.  This interface should be used when document format is known in advance or speed is a concern.  See <a href="Psych/Emitter.html"><code>Psych::Emitter</code></a> for more information.</p>
+
+<h4 id="module-Psych-label-Writing+to+a+Ruby+structure">Writing to a Ruby structure<span><a href="#module-Psych-label-Writing+to+a+Ruby+structure">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;--- a&quot;</span>)       <span class="ruby-comment"># =&gt; #&lt;Psych::Parser&gt;</span>
+
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">handler</span>.<span class="ruby-identifier">first</span>              <span class="ruby-comment"># =&gt; #&lt;Psych::Nodes::Stream&gt;</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">handler</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_ruby</span>      <span class="ruby-comment"># =&gt; [&quot;a&quot;]</span>
+
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">handler</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">first</span>         <span class="ruby-comment"># =&gt; #&lt;Psych::Nodes::Document&gt;</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">handler</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_ruby</span> <span class="ruby-comment"># =&gt; &quot;a&quot;</span>
+
+<span class="ruby-comment"># You can instantiate an Emitter manually</span>
+<span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Visitors</span><span class="ruby-operator">::</span><span class="ruby-constant">ToRuby</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">accept</span>(<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">handler</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">first</span>)
+<span class="ruby-comment"># =&gt; &quot;a&quot;</span>
+</pre>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="DEFAULT_SNAKEYAML_VERSION">DEFAULT_SNAKEYAML_VERSION
+        <dd>
+          
+        <dt id="LIBYAML_VERSION">LIBYAML_VERSION
+        <dd>
+          <p>The version of libyaml <a href="Psych.html"><code>Psych</code></a> is using</p>
+        <dt id="VERSION">VERSION
+        <dd>
+          <p>The version of <a href="Psych.html"><code>Psych</code></a> you are using</p>
+      </dl>
+    </section>
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-dump" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-dump" title="Link to this method">
+                  <span class="method-callseq">
+                    dump(o)               &rarr; string of yaml
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-c-dump" title="Link to this method">
+                  <span class="method-callseq">
+                    dump(o, options)      &rarr; string of yaml
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-c-dump" title="Link to this method">
+                  <span class="method-callseq">
+                    dump(o, io)           &rarr; io object passed in
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-c-dump" title="Link to this method">
+                  <span class="method-callseq">
+                    dump(o, io, options)  &rarr; io object passed in
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="dump-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 515</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">dump</span> <span class="ruby-identifier">o</span>, <span class="ruby-identifier">io</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">io</span>
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">io</span>
+    <span class="ruby-identifier">io</span>      = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">visitor</span> = <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Visitors</span><span class="ruby-operator">::</span><span class="ruby-constant">YAMLTree</span>.<span class="ruby-identifier">create</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">visitor</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">o</span>
+  <span class="ruby-identifier">visitor</span>.<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">yaml</span> <span class="ruby-identifier">io</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Dump Ruby object <code>o</code> to a <a href="YAML.html"><code>YAML</code></a> string.  Optional <code>options</code> may be passed in to control the output format.  If an <a href="IO.html"><code>IO</code></a> object is passed in, the <a href="YAML.html"><code>YAML</code></a> will be dumped to that <a href="IO.html"><code>IO</code></a> object.</p>
+
+<p>Currently supported options are:</p>
+<dl class="rdoc-list label-list"><dt><code>:indentation</code></dt>
+<dd>
+<p>Number of space characters used to indent. Acceptable value should be in <code>0..9</code> range, otherwise option is ignored.</p>
+
+<p>Default: <code>2</code>.</p>
+</dd><dt><code>:line_width</code></dt>
+<dd>
+<p>Max character to wrap line at. For unlimited line width use <code>-1</code>.</p>
+
+<p>Default: <code>0</code> (meaning “wrap at 81”).</p>
+</dd><dt><code>:canonical</code></dt>
+<dd>
+<p>Write “canonical” <a href="YAML.html"><code>YAML</code></a> form (very verbose, yet strictly formal).</p>
+
+<p>Default: <code>false</code>.</p>
+</dd><dt><code>:header</code></dt>
+<dd>
+<p>Write <code>%YAML [version]</code> at the beginning of document.</p>
+
+<p>Default: <code>false</code>.</p>
+</dd><dt><code>:stringify_names</code></dt>
+<dd>
+<p>Dump symbol keys in <a href="Hash.html"><code>Hash</code></a> objects as string.</p>
+
+<p>Default: <code>false</code>.</p>
+</dd></dl>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Dump an array, get back a YAML string</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>([<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>])  <span class="ruby-comment"># =&gt; &quot;---\n- a\n- b\n&quot;</span>
+
+<span class="ruby-comment"># Dump an array to an IO object</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>([<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>)  <span class="ruby-comment"># =&gt; #&lt;StringIO:0x000001009d0890&gt;</span>
+
+<span class="ruby-comment"># Dump an array with indentation set</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>([<span class="ruby-string">&#39;a&#39;</span>, [<span class="ruby-string">&#39;b&#39;</span>]], <span class="ruby-value">indentation:</span> <span class="ruby-value">3</span>) <span class="ruby-comment"># =&gt; &quot;---\n- a\n-  - b\n&quot;</span>
+
+<span class="ruby-comment"># Dump an array to an IO with indentation set</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>([<span class="ruby-string">&#39;a&#39;</span>, [<span class="ruby-string">&#39;b&#39;</span>]], <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>, <span class="ruby-value">indentation:</span> <span class="ruby-value">3</span>)
+
+<span class="ruby-comment"># Dump hash with symbol keys as string</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>({<span class="ruby-value">a:</span> <span class="ruby-string">&quot;b&quot;</span>}, <span class="ruby-value">stringify_names:</span> <span class="ruby-keyword">true</span>) <span class="ruby-comment"># =&gt; &quot;---\na: b\n&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-dump_stream" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-dump_stream" title="Link to this method">
+                <span class="method-name">dump_stream</span>
+                <span class="method-args">(*objects)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="dump_stream-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 613</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">dump_stream</span> <span class="ruby-operator">*</span><span class="ruby-identifier">objects</span>
+  <span class="ruby-identifier">visitor</span> = <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Visitors</span><span class="ruby-operator">::</span><span class="ruby-constant">YAMLTree</span>.<span class="ruby-identifier">create</span>({})
+  <span class="ruby-identifier">objects</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">visitor</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">o</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">visitor</span>.<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">yaml</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Dump a list of objects as separate documents to a document stream.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump_stream</span>(<span class="ruby-string">&quot;foo\n  &quot;</span>, {}) <span class="ruby-comment"># =&gt; &quot;--- ! \&quot;foo\\n  \&quot;\n--- {}\n&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-libyaml_version" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-libyaml_version" title="Link to this method">
+                  <span class="method-callseq">
+                    libyaml_version
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="libyaml_version-source">
+            <pre>static VALUE libyaml_version(VALUE module)
+{
+    int major, minor, patch;
+    VALUE list[3];
+
+    yaml_get_version(&amp;major, &amp;minor, &amp;patch);
+
+    list[0] = INT2NUM(major);
+    list[1] = INT2NUM(minor);
+    list[2] = INT2NUM(patch);
+
+    return rb_ary_new4((long)3, list);
+}</pre>
+          </div>
+          <p>Returns the version of libyaml being used</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-load" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-load" title="Link to this method">
+                <span class="method-name">load</span>
+                <span class="method-args">(yaml, permitted_classes: [Symbol], permitted_symbols: [], aliases: false, filename: nil, fallback: nil, symbolize_names: false, freeze: false, strict_integer: false)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 370</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">load</span> <span class="ruby-identifier">yaml</span>, <span class="ruby-value">permitted_classes:</span> [<span class="ruby-constant">Symbol</span>], <span class="ruby-value">permitted_symbols:</span> [], <span class="ruby-value">aliases:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">filename:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">fallback:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">symbolize_names:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">freeze:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">strict_integer:</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">safe_load</span> <span class="ruby-identifier">yaml</span>, <span class="ruby-value">permitted_classes:</span> <span class="ruby-identifier">permitted_classes</span>,
+                  <span class="ruby-value">permitted_symbols:</span> <span class="ruby-identifier">permitted_symbols</span>,
+                  <span class="ruby-value">aliases:</span> <span class="ruby-identifier">aliases</span>,
+                  <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>,
+                  <span class="ruby-value">fallback:</span> <span class="ruby-identifier">fallback</span>,
+                  <span class="ruby-value">symbolize_names:</span> <span class="ruby-identifier">symbolize_names</span>,
+                  <span class="ruby-value">freeze:</span> <span class="ruby-identifier">freeze</span>,
+                  <span class="ruby-value">strict_integer:</span> <span class="ruby-identifier">strict_integer</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Load <code>yaml</code> in to a Ruby data structure.  If multiple documents are provided, the object contained in the first document will be returned. <code>filename</code> will be used in the exception message if any exception is raised while parsing.  If <code>yaml</code> is empty, it returns the specified <code>fallback</code> return value, which defaults to <code>nil</code>.</p>
+
+<p>Raises a <a href="Psych/SyntaxError.html"><code>Psych::SyntaxError</code></a> when a <a href="YAML.html"><code>YAML</code></a> syntax error is detected.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;--- a&quot;</span>)             <span class="ruby-comment"># =&gt; &#39;a&#39;</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;---\n - a\n - b&quot;</span>)   <span class="ruby-comment"># =&gt; [&#39;a&#39;, &#39;b&#39;]</span>
+
+<span class="ruby-keyword">begin</span>
+  <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;--- `&quot;</span>, <span class="ruby-value">filename:</span> <span class="ruby-string">&quot;file.txt&quot;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">file</span>    <span class="ruby-comment"># =&gt; &#39;file.txt&#39;</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span> <span class="ruby-comment"># =&gt; &quot;(file.txt): found character that cannot start any token&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>When the optional <code>symbolize_names</code> keyword argument is set to a true value, returns symbols for keys in <a href="Hash.html"><code>Hash</code></a> objects (default: strings).</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;---\n foo: bar&quot;</span>)                         <span class="ruby-comment"># =&gt; {&quot;foo&quot;=&gt;&quot;bar&quot;}</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;---\n foo: bar&quot;</span>, <span class="ruby-value">symbolize_names:</span> <span class="ruby-keyword">true</span>)  <span class="ruby-comment"># =&gt; {:foo=&gt;&quot;bar&quot;}</span>
+</pre>
+
+<p>Raises a <a href="TypeError.html"><code>TypeError</code></a> when ‘yaml` parameter is <a href="NilClass.html"><code>NilClass</code></a>.  This method is similar to `safe_load` except that `Symbol` objects are allowed by default.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-load_file" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-load_file" title="Link to this method">
+                <span class="method-name">load_file</span>
+                <span class="method-args">(filename, **kwargs)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="load_file-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 687</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">load_file</span> <span class="ruby-identifier">filename</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">kwargs</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;r:bom|utf-8&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load</span> <span class="ruby-identifier">f</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">kwargs</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Loads the document contained in <code>filename</code>.  Returns the yaml contained in <code>filename</code> as a Ruby object, or if the file is empty, it returns the specified <code>fallback</code> return value, which defaults to <code>nil</code>. See load for options.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-load_stream" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-load_stream" title="Link to this method">
+                <span class="method-name">load_stream</span>
+                <span class="method-args">(yaml, filename: nil, fallback: [], **kwargs) { |to_ruby(**kwargs)| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="load_stream-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 644</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">load_stream</span> <span class="ruby-identifier">yaml</span>, <span class="ruby-value">filename:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">fallback:</span> [], <span class="ruby-operator">**</span><span class="ruby-identifier">kwargs</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+             <span class="ruby-identifier">parse_stream</span>(<span class="ruby-identifier">yaml</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+               <span class="ruby-keyword">yield</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">to_ruby</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">kwargs</span>)
+             <span class="ruby-keyword">end</span>
+           <span class="ruby-keyword">else</span>
+             <span class="ruby-identifier">parse_stream</span>(<span class="ruby-identifier">yaml</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>).<span class="ruby-identifier">children</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">to_ruby</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">kwargs</span>) }
+           <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">fallback</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Load multiple documents given in <code>yaml</code>.  Returns the parsed documents as a list.  If a block is given, each document will be converted to Ruby and passed to the block during parsing</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">load_stream</span>(<span class="ruby-string">&quot;--- foo\n...\n--- bar\n...&quot;</span>) <span class="ruby-comment"># =&gt; [&#39;foo&#39;, &#39;bar&#39;]</span>
+
+<span class="ruby-identifier">list</span> = []
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">load_stream</span>(<span class="ruby-string">&quot;--- foo\n...\n--- bar\n...&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ruby</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">list</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ruby</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">list</span> <span class="ruby-comment"># =&gt; [&#39;foo&#39;, &#39;bar&#39;]</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-parse" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-parse" title="Link to this method">
+                <span class="method-name">parse</span>
+                <span class="method-args">(yaml, filename: nil)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 400</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">parse</span> <span class="ruby-identifier">yaml</span>, <span class="ruby-value">filename:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">parse_stream</span>(<span class="ruby-identifier">yaml</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">node</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Parse a <a href="YAML.html"><code>YAML</code></a> string in <code>yaml</code>.  Returns the <a href="Psych/Nodes/Document.html"><code>Psych::Nodes::Document</code></a>. <code>filename</code> is used in the exception message if a <a href="Psych/SyntaxError.html"><code>Psych::SyntaxError</code></a> is raised.</p>
+
+<p>Raises a <a href="Psych/SyntaxError.html"><code>Psych::SyntaxError</code></a> when a <a href="YAML.html"><code>YAML</code></a> syntax error is detected.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;---\n - a\n - b&quot;</span>) <span class="ruby-comment"># =&gt; #&lt;Psych::Nodes::Document:0x00&gt;</span>
+
+<span class="ruby-keyword">begin</span>
+  <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;--- `&quot;</span>, <span class="ruby-value">filename:</span> <span class="ruby-string">&quot;file.txt&quot;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">file</span>    <span class="ruby-comment"># =&gt; &#39;file.txt&#39;</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span> <span class="ruby-comment"># =&gt; &quot;(file.txt): found character that cannot start any token&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>See <a href="Psych/Nodes.html"><code>Psych::Nodes</code></a> for more information about <a href="YAML.html"><code>YAML</code></a> AST.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-parse_file" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-parse_file" title="Link to this method">
+                <span class="method-name">parse_file</span>
+                <span class="method-args">(filename, fallback: false)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="parse_file-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 412</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">parse_file</span> <span class="ruby-identifier">filename</span>, <span class="ruby-value">fallback:</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;r:bom|utf-8&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">parse</span> <span class="ruby-identifier">f</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">fallback</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Parse a file at <code>filename</code>. Returns the <a href="Psych/Nodes/Document.html"><code>Psych::Nodes::Document</code></a>.</p>
+
+<p>Raises a <a href="Psych/SyntaxError.html"><code>Psych::SyntaxError</code></a> when a <a href="YAML.html"><code>YAML</code></a> syntax error is detected.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-parse_stream" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-parse_stream" title="Link to this method">
+                <span class="method-name">parse_stream</span>
+                <span class="method-args">(yaml, filename: nil, &amp;block)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="parse_stream-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 454</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">parse_stream</span> <span class="ruby-identifier">yaml</span>, <span class="ruby-value">filename:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">parser</span> = <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Handlers</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentStream</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>))
+    <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">yaml</span>, <span class="ruby-identifier">filename</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">parser</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parser</span>
+    <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">yaml</span>, <span class="ruby-identifier">filename</span>
+    <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">handler</span>.<span class="ruby-identifier">root</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Parse a <a href="YAML.html"><code>YAML</code></a> string in <code>yaml</code>.  Returns the <a href="Psych/Nodes/Stream.html"><code>Psych::Nodes::Stream</code></a>. This method can handle multiple <a href="YAML.html"><code>YAML</code></a> documents contained in <code>yaml</code>. <code>filename</code> is used in the exception message if a <a href="Psych/SyntaxError.html"><code>Psych::SyntaxError</code></a> is raised.</p>
+
+<p>If a block is given, a <a href="Psych/Nodes/Document.html"><code>Psych::Nodes::Document</code></a> node will be yielded to the block as it’s being parsed.</p>
+
+<p>Raises a <a href="Psych/SyntaxError.html"><code>Psych::SyntaxError</code></a> when a <a href="YAML.html"><code>YAML</code></a> syntax error is detected.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse_stream</span>(<span class="ruby-string">&quot;---\n - a\n - b&quot;</span>) <span class="ruby-comment"># =&gt; #&lt;Psych::Nodes::Stream:0x00&gt;</span>
+
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse_stream</span>(<span class="ruby-string">&quot;--- a\n--- b&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">node</span> <span class="ruby-comment"># =&gt; #&lt;Psych::Nodes::Document:0x00&gt;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">begin</span>
+  <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">parse_stream</span>(<span class="ruby-string">&quot;--- `&quot;</span>, <span class="ruby-value">filename:</span> <span class="ruby-string">&quot;file.txt&quot;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">file</span>    <span class="ruby-comment"># =&gt; &#39;file.txt&#39;</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span> <span class="ruby-comment"># =&gt; &quot;(file.txt): found character that cannot start any token&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Raises a <a href="TypeError.html"><code>TypeError</code></a> when <a href="NilClass.html"><code>NilClass</code></a> is passed.</p>
+
+<p>See <a href="Psych/Nodes.html"><code>Psych::Nodes</code></a> for more information about <a href="YAML.html"><code>YAML</code></a> AST.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-parser" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-parser" title="Link to this method">
+                <span class="method-name">parser</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="parser-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 421</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">parser</span>
+  <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">TreeBuilder</span>.<span class="ruby-identifier">new</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a default parser</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-safe_dump" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-safe_dump" title="Link to this method">
+                  <span class="method-callseq">
+                    safe_dump(o)               &rarr; string of yaml
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-c-safe_dump" title="Link to this method">
+                  <span class="method-callseq">
+                    safe_dump(o, options)      &rarr; string of yaml
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-c-safe_dump" title="Link to this method">
+                  <span class="method-callseq">
+                    safe_dump(o, io)           &rarr; io object passed in
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-c-safe_dump" title="Link to this method">
+                  <span class="method-callseq">
+                    safe_dump(o, io, options)  &rarr; io object passed in
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="safe_dump-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 596</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">safe_dump</span> <span class="ruby-identifier">o</span>, <span class="ruby-identifier">io</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">io</span>
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">io</span>
+    <span class="ruby-identifier">io</span>      = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">visitor</span> = <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Visitors</span><span class="ruby-operator">::</span><span class="ruby-constant">RestrictedYAMLTree</span>.<span class="ruby-identifier">create</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">visitor</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">o</span>
+  <span class="ruby-identifier">visitor</span>.<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">yaml</span> <span class="ruby-identifier">io</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Safely dump Ruby object <code>o</code> to a <a href="YAML.html"><code>YAML</code></a> string. Optional <code>options</code> may be passed in to control the output format.  If an <a href="IO.html"><code>IO</code></a> object is passed in, the <a href="YAML.html"><code>YAML</code></a> will be dumped to that <a href="IO.html"><code>IO</code></a> object. By default, only the following classes are allowed to be serialized:</p>
+<ul><li>
+<p><a href="TrueClass.html"><code>TrueClass</code></a></p>
+</li><li>
+<p><a href="FalseClass.html"><code>FalseClass</code></a></p>
+</li><li>
+<p><a href="NilClass.html"><code>NilClass</code></a></p>
+</li><li>
+<p><a href="Integer.html"><code>Integer</code></a></p>
+</li><li>
+<p><a href="Float.html"><code>Float</code></a></p>
+</li><li>
+<p><a href="String.html"><code>String</code></a></p>
+</li><li>
+<p><a href="Array.html"><code>Array</code></a></p>
+</li><li>
+<p><a href="Hash.html"><code>Hash</code></a></p>
+</li></ul>
+
+<p>Arbitrary classes can be allowed by adding those classes to the <code>permitted_classes</code> keyword argument.  They are additive.  For example, to allow <a href="Date.html"><code>Date</code></a> serialization:</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_dump</span>(<span class="ruby-identifier">yaml</span>, <span class="ruby-value">permitted_classes:</span> [<span class="ruby-constant">Date</span>])
+</pre>
+
+<p>Now the <a href="Date.html"><code>Date</code></a> class can be dumped in addition to the classes listed above.</p>
+
+<p>A <a href="Psych/DisallowedClass.html"><code>Psych::DisallowedClass</code></a> exception will be raised if the object contains a class that isn’t in the <code>permitted_classes</code> list.</p>
+
+<p>Currently supported options are:</p>
+<dl class="rdoc-list label-list"><dt><code>:indentation</code></dt>
+<dd>
+<p>Number of space characters used to indent. Acceptable value should be in <code>0..9</code> range, otherwise option is ignored.</p>
+
+<p>Default: <code>2</code>.</p>
+</dd><dt><code>:line_width</code></dt>
+<dd>
+<p>Max character to wrap line at. For unlimited line width use <code>-1</code>.</p>
+
+<p>Default: <code>0</code> (meaning “wrap at 81”).</p>
+</dd><dt><code>:canonical</code></dt>
+<dd>
+<p>Write “canonical” <a href="YAML.html"><code>YAML</code></a> form (very verbose, yet strictly formal).</p>
+
+<p>Default: <code>false</code>.</p>
+</dd><dt><code>:header</code></dt>
+<dd>
+<p>Write <code>%YAML [version]</code> at the beginning of document.</p>
+
+<p>Default: <code>false</code>.</p>
+</dd><dt><code>:stringify_names</code></dt>
+<dd>
+<p>Dump symbol keys in <a href="Hash.html"><code>Hash</code></a> objects as string.</p>
+
+<p>Default: <code>false</code>.</p>
+</dd></dl>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Dump an array, get back a YAML string</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_dump</span>([<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>])  <span class="ruby-comment"># =&gt; &quot;---\n- a\n- b\n&quot;</span>
+
+<span class="ruby-comment"># Dump an array to an IO object</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_dump</span>([<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>)  <span class="ruby-comment"># =&gt; #&lt;StringIO:0x000001009d0890&gt;</span>
+
+<span class="ruby-comment"># Dump an array with indentation set</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_dump</span>([<span class="ruby-string">&#39;a&#39;</span>, [<span class="ruby-string">&#39;b&#39;</span>]], <span class="ruby-value">indentation:</span> <span class="ruby-value">3</span>) <span class="ruby-comment"># =&gt; &quot;---\n- a\n-  - b\n&quot;</span>
+
+<span class="ruby-comment"># Dump an array to an IO with indentation set</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_dump</span>([<span class="ruby-string">&#39;a&#39;</span>, [<span class="ruby-string">&#39;b&#39;</span>]], <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>, <span class="ruby-value">indentation:</span> <span class="ruby-value">3</span>)
+
+<span class="ruby-comment"># Dump hash with symbol keys as string</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span>({<span class="ruby-value">a:</span> <span class="ruby-string">&quot;b&quot;</span>}, <span class="ruby-value">stringify_names:</span> <span class="ruby-keyword">true</span>) <span class="ruby-comment"># =&gt; &quot;---\na: b\n&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-safe_load" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-safe_load" title="Link to this method">
+                <span class="method-name">safe_load</span>
+                <span class="method-args">(yaml, permitted_classes: [], permitted_symbols: [], aliases: false, filename: nil, fallback: nil, symbolize_names: false, freeze: false, strict_integer: false)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="safe_load-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">safe_load</span> <span class="ruby-identifier">yaml</span>, <span class="ruby-value">permitted_classes:</span> [], <span class="ruby-value">permitted_symbols:</span> [], <span class="ruby-value">aliases:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">filename:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">fallback:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">symbolize_names:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">freeze:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">strict_integer:</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">yaml</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">fallback</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">result</span>
+
+  <span class="ruby-identifier">class_loader</span> = <span class="ruby-constant">ClassLoader</span><span class="ruby-operator">::</span><span class="ruby-constant">Restricted</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">permitted_classes</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>),
+                                             <span class="ruby-identifier">permitted_symbols</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>))
+  <span class="ruby-identifier">scanner</span>      = <span class="ruby-constant">ScalarScanner</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">class_loader</span>, <span class="ruby-value">strict_integer:</span> <span class="ruby-identifier">strict_integer</span>
+  <span class="ruby-identifier">visitor</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">aliases</span>
+              <span class="ruby-constant">Visitors</span><span class="ruby-operator">::</span><span class="ruby-constant">ToRuby</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">scanner</span>, <span class="ruby-identifier">class_loader</span>, <span class="ruby-value">symbolize_names:</span> <span class="ruby-identifier">symbolize_names</span>, <span class="ruby-value">freeze:</span> <span class="ruby-identifier">freeze</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-constant">Visitors</span><span class="ruby-operator">::</span><span class="ruby-constant">NoAliasRuby</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">scanner</span>, <span class="ruby-identifier">class_loader</span>, <span class="ruby-value">symbolize_names:</span> <span class="ruby-identifier">symbolize_names</span>, <span class="ruby-value">freeze:</span> <span class="ruby-identifier">freeze</span>
+            <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">visitor</span>.<span class="ruby-identifier">accept</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Safely load the yaml string in <code>yaml</code>.  By default, only the following classes are allowed to be deserialized:</p>
+<ul><li>
+<p><a href="TrueClass.html"><code>TrueClass</code></a></p>
+</li><li>
+<p><a href="FalseClass.html"><code>FalseClass</code></a></p>
+</li><li>
+<p><a href="NilClass.html"><code>NilClass</code></a></p>
+</li><li>
+<p><a href="Integer.html"><code>Integer</code></a></p>
+</li><li>
+<p><a href="Float.html"><code>Float</code></a></p>
+</li><li>
+<p><a href="String.html"><code>String</code></a></p>
+</li><li>
+<p><a href="Array.html"><code>Array</code></a></p>
+</li><li>
+<p><a href="Hash.html"><code>Hash</code></a></p>
+</li></ul>
+
+<p>Recursive data structures are not allowed by default.  Arbitrary classes can be allowed by adding those classes to the <code>permitted_classes</code> keyword argument.  They are additive.  For example, to allow <a href="Date.html"><code>Date</code></a> deserialization:</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_load</span>(<span class="ruby-identifier">yaml</span>, <span class="ruby-value">permitted_classes:</span> [<span class="ruby-constant">Date</span>])
+</pre>
+
+<p>Now the <a href="Date.html"><code>Date</code></a> class can be loaded in addition to the classes listed above.</p>
+
+<p>Aliases can be explicitly allowed by changing the <code>aliases</code> keyword argument. For example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">x</span> = []
+<span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>
+<span class="ruby-identifier">yaml</span> = <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">dump</span> <span class="ruby-identifier">x</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_load</span> <span class="ruby-identifier">yaml</span>               <span class="ruby-comment"># =&gt; raises an exception</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_load</span> <span class="ruby-identifier">yaml</span>, <span class="ruby-value">aliases:</span> <span class="ruby-keyword">true</span> <span class="ruby-comment"># =&gt; loads the aliases</span>
+</pre>
+
+<p>A <a href="Psych/DisallowedClass.html"><code>Psych::DisallowedClass</code></a> exception will be raised if the yaml contains a class that isn’t in the <code>permitted_classes</code> list.</p>
+
+<p>A <a href="Psych/AliasesNotEnabled.html"><code>Psych::AliasesNotEnabled</code></a> exception will be raised if the yaml contains aliases but the <code>aliases</code> keyword argument is set to false.</p>
+
+<p><code>filename</code> will be used in the exception message if any exception is raised while parsing.</p>
+
+<p>When the optional <code>symbolize_names</code> keyword argument is set to a true value, returns symbols for keys in <a href="Hash.html"><code>Hash</code></a> objects (default: strings).</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_load</span>(<span class="ruby-string">&quot;---\n foo: bar&quot;</span>)                         <span class="ruby-comment"># =&gt; {&quot;foo&quot;=&gt;&quot;bar&quot;}</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_load</span>(<span class="ruby-string">&quot;---\n foo: bar&quot;</span>, <span class="ruby-value">symbolize_names:</span> <span class="ruby-keyword">true</span>)  <span class="ruby-comment"># =&gt; {:foo=&gt;&quot;bar&quot;}</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-safe_load_file" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-safe_load_file" title="Link to this method">
+                <span class="method-name">safe_load_file</span>
+                <span class="method-args">(filename, **kwargs)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="safe_load_file-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 676</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">safe_load_file</span> <span class="ruby-identifier">filename</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">kwargs</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;r:bom|utf-8&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">safe_load</span> <span class="ruby-identifier">f</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">kwargs</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Safely loads the document contained in <code>filename</code>.  Returns the yaml contained in <code>filename</code> as a Ruby object, or if the file is empty, it returns the specified <code>fallback</code> return value, which defaults to <code>nil</code>. See <a href="Psych.html#method-c-safe_load"><code>safe_load</code></a> for options.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-to_json" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-to_json" title="Link to this method">
+                <span class="method-name">to_json</span>
+                <span class="method-args">(object)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_json-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 623</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">to_json</span> <span class="ruby-identifier">object</span>
+  <span class="ruby-identifier">visitor</span> = <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Visitors</span><span class="ruby-operator">::</span><span class="ruby-constant">JSONTree</span>.<span class="ruby-identifier">create</span>
+  <span class="ruby-identifier">visitor</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">object</span>
+  <span class="ruby-identifier">visitor</span>.<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">yaml</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Dump Ruby <code>object</code> to a <a href="Psych/JSON.html"><code>JSON</code></a> string.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-unsafe_load" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-unsafe_load" title="Link to this method">
+                <span class="method-name">unsafe_load</span>
+                <span class="method-args">(yaml, filename: nil, fallback: false, symbolize_names: false, freeze: false, strict_integer: false)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="unsafe_load-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">unsafe_load</span> <span class="ruby-identifier">yaml</span>, <span class="ruby-value">filename:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">fallback:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">symbolize_names:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">freeze:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">strict_integer:</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">yaml</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">fallback</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">to_ruby</span>(<span class="ruby-value">symbolize_names:</span> <span class="ruby-identifier">symbolize_names</span>, <span class="ruby-value">freeze:</span> <span class="ruby-identifier">freeze</span>, <span class="ruby-value">strict_integer:</span> <span class="ruby-identifier">strict_integer</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Load <code>yaml</code> in to a Ruby data structure.  If multiple documents are provided, the object contained in the first document will be returned. <code>filename</code> will be used in the exception message if any exception is raised while parsing.  If <code>yaml</code> is empty, it returns the specified <code>fallback</code> return value, which defaults to <code>false</code>.</p>
+
+<p>Raises a <a href="Psych/SyntaxError.html"><code>Psych::SyntaxError</code></a> when a <a href="YAML.html"><code>YAML</code></a> syntax error is detected.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">unsafe_load</span>(<span class="ruby-string">&quot;--- a&quot;</span>)             <span class="ruby-comment"># =&gt; &#39;a&#39;</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">unsafe_load</span>(<span class="ruby-string">&quot;---\n - a\n - b&quot;</span>)   <span class="ruby-comment"># =&gt; [&#39;a&#39;, &#39;b&#39;]</span>
+
+<span class="ruby-keyword">begin</span>
+  <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">unsafe_load</span>(<span class="ruby-string">&quot;--- `&quot;</span>, <span class="ruby-value">filename:</span> <span class="ruby-string">&quot;file.txt&quot;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">file</span>    <span class="ruby-comment"># =&gt; &#39;file.txt&#39;</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span> <span class="ruby-comment"># =&gt; &quot;(file.txt): found character that cannot start any token&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>When the optional <code>symbolize_names</code> keyword argument is set to a true value, returns symbols for keys in <a href="Hash.html"><code>Hash</code></a> objects (default: strings).</p>
+
+<pre class="ruby"><span class="ruby-constant">Psych</span>.<span class="ruby-identifier">unsafe_load</span>(<span class="ruby-string">&quot;---\n foo: bar&quot;</span>)                         <span class="ruby-comment"># =&gt; {&quot;foo&quot;=&gt;&quot;bar&quot;}</span>
+<span class="ruby-constant">Psych</span>.<span class="ruby-identifier">unsafe_load</span>(<span class="ruby-string">&quot;---\n foo: bar&quot;</span>, <span class="ruby-value">symbolize_names:</span> <span class="ruby-keyword">true</span>)  <span class="ruby-comment"># =&gt; {:foo=&gt;&quot;bar&quot;}</span>
+</pre>
+
+<p>Raises a <a href="TypeError.html"><code>TypeError</code></a> when ‘yaml` parameter is <a href="NilClass.html"><code>NilClass</code></a></p>
+
+<p>NOTE: This method *should not* be used to parse untrusted documents, such as <a href="YAML.html"><code>YAML</code></a> documents that are supplied via user input.  Instead, please use the load method or the <a href="Psych.html#method-c-safe_load"><code>safe_load</code></a> method.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-unsafe_load_file" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-unsafe_load_file" title="Link to this method">
+                <span class="method-name">unsafe_load_file</span>
+                <span class="method-args">(filename, **kwargs)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="unsafe_load_file-source">
+            <pre><span class="ruby-comment"># File ext/psych/lib/psych.rb, line 665</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">unsafe_load_file</span> <span class="ruby-identifier">filename</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">kwargs</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;r:bom|utf-8&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unsafe_load</span> <span class="ruby-identifier">f</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">kwargs</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Load the document contained in <code>filename</code>.  Returns the yaml contained in <code>filename</code> as a Ruby object, or if the file is empty, it returns the specified <code>fallback</code> return value, which defaults to <code>false</code>.</p>
+
+<p>NOTE: This method *should not* be used to parse untrusted documents, such as <a href="YAML.html"><code>YAML</code></a> documents that are supplied via user input.  Instead, please use the <a href="Psych.html#method-c-safe_load_file"><code>safe_load_file</code></a> method.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

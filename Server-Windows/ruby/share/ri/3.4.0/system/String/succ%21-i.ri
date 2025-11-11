@@ -1,0 +1,5 @@
+U:RDoc::AnyMethod[iI"
+succ!:ETI"String#succ!;TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"MEquivalent to String#succ, but modifies +self+ in place; returns +self+.;T:
+@fileI"string.c;T:0@omit_headings_from_table_of_contents_below0I"succ! -> self
+;T0[[I"
+next!;T@	I"();T@FI"String;TcRDoc::NormalClass00

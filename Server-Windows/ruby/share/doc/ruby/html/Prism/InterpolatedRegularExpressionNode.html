@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class Prism::InterpolatedRegularExpressionNode - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,Prism::InterpolatedRegularExpressionNode">
+
+    <meta name="description" content="class Prism::InterpolatedRegularExpressionNode: Represents a regular expression literal that contains interpolation.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Prism/InterpolatedRegularExpressionNode.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="Node.html">Prism::Node</a><ul><li><a href="../Object.html">Object</a><ul><li><a href="../BasicObject.html">BasicObject</a></li></ul></li></ul></li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-new">new</a></li>
+      <li ><a href="#method-c-type">type</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-3D-3D-3D">===</a></li>
+      <li ><a href="#method-i-accept">accept</a></li>
+      <li ><a href="#method-i-ascii_8bit-3F">ascii_8bit?</a></li>
+      <li ><a href="#method-i-child_nodes">child_nodes</a></li>
+      <li ><a href="#method-i-closing">closing</a></li>
+      <li ><a href="#method-i-closing_loc">closing_loc</a></li>
+      <li ><a href="#method-i-comment_targets">comment_targets</a></li>
+      <li ><a href="#method-i-compact_child_nodes">compact_child_nodes</a></li>
+      <li ><a href="#method-i-copy">copy</a></li>
+      <li ><a href="#method-i-deconstruct">deconstruct</a></li>
+      <li ><a href="#method-i-deconstruct_keys">deconstruct_keys</a></li>
+      <li ><a href="#method-i-euc_jp-3F">euc_jp?</a></li>
+      <li ><a href="#method-i-extended-3F">extended?</a></li>
+      <li ><a href="#method-i-forced_binary_encoding-3F">forced_binary_encoding?</a></li>
+      <li ><a href="#method-i-forced_us_ascii_encoding-3F">forced_us_ascii_encoding?</a></li>
+      <li ><a href="#method-i-forced_utf8_encoding-3F">forced_utf8_encoding?</a></li>
+      <li ><a href="#method-i-ignore_case-3F">ignore_case?</a></li>
+      <li ><a href="#method-i-inspect">inspect</a></li>
+      <li ><a href="#method-i-multi_line-3F">multi_line?</a></li>
+      <li ><a href="#method-i-once-3F">once?</a></li>
+      <li ><a href="#method-i-opening">opening</a></li>
+      <li ><a href="#method-i-opening_loc">opening_loc</a></li>
+      <li ><a href="#method-i-save_closing_loc">save_closing_loc</a></li>
+      <li ><a href="#method-i-save_opening_loc">save_opening_loc</a></li>
+      <li ><a href="#method-i-type">type</a></li>
+      <li ><a href="#method-i-utf_8-3F">utf_8?</a></li>
+      <li ><a href="#method-i-windows_31j-3F">windows_31j?</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-Prism::InterpolatedRegularExpressionNode">
+  
+  
+    <ol role="navigation" aria-label="breadcrumb" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../Prism.html">Prism</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>InterpolatedRegularExpressionNode</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <h1 id="class-Prism::InterpolatedRegularExpressionNode" class="anchor-link class">
+    class Prism::InterpolatedRegularExpressionNode
+  </h1>
+
+  <section class="description">
+    
+<p>Represents a regular expression literal that contains interpolation.</p>
+
+<pre>/foo #{bar} baz/
+^^^^^^^^^^^^^^^^</pre>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-parts" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-parts" title="Link to this attribute">
+            <span class="method-name">parts</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        <p>attr_reader parts: Array[StringNode | <a href="EmbeddedStatementsNode.html"><code>EmbeddedStatementsNode</code></a> | EmbeddedVariableNode]</p>
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(source, node_id, location, flags, opening_loc, parts, closing_loc)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10754</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">node_id</span>, <span class="ruby-identifier">location</span>, <span class="ruby-identifier">flags</span>, <span class="ruby-identifier">opening_loc</span>, <span class="ruby-identifier">parts</span>, <span class="ruby-identifier">closing_loc</span>)
+  <span class="ruby-ivar">@source</span> = <span class="ruby-identifier">source</span>
+  <span class="ruby-ivar">@node_id</span> = <span class="ruby-identifier">node_id</span>
+  <span class="ruby-ivar">@location</span> = <span class="ruby-identifier">location</span>
+  <span class="ruby-ivar">@flags</span> = <span class="ruby-identifier">flags</span>
+  <span class="ruby-ivar">@opening_loc</span> = <span class="ruby-identifier">opening_loc</span>
+  <span class="ruby-ivar">@parts</span> = <span class="ruby-identifier">parts</span>
+  <span class="ruby-ivar">@closing_loc</span> = <span class="ruby-identifier">closing_loc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Initialize a new <a href="InterpolatedRegularExpressionNode.html"><code>InterpolatedRegularExpressionNode</code></a> node.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-type" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-type" title="Link to this method">
+                <span class="method-name">type</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="type-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10902</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">type</span>
+  <span class="ruby-value">:interpolated_regular_expression_node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Return a symbol representation of this node type. See <a href="Node.html#method-c-type"><code>Node::type</code></a>.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-3D-3D-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3D-3D-3D" title="Link to this method">
+                <span class="method-name">===</span>
+                <span class="method-args">(other)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="3D-3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10908</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">===</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">other</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">InterpolatedRegularExpressionNode</span>) <span class="ruby-operator">&amp;&amp;</span>
+    (<span class="ruby-identifier">flags</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">flags</span>) <span class="ruby-operator">&amp;&amp;</span>
+    (<span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-operator">&amp;&amp;</span>
+    (<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">length</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">parts</span>).<span class="ruby-identifier">all?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">left</span>, <span class="ruby-identifier">right</span><span class="ruby-operator">|</span> <span class="ruby-identifier">left</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">right</span> } <span class="ruby-operator">&amp;&amp;</span>
+    (<span class="ruby-identifier">closing_loc</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">closing_loc</span>.<span class="ruby-identifier">nil?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Implements case-equality for the node. This is effectively == but without comparing the value of locations. Locations are checked only for presence.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-accept" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-accept" title="Link to this method">
+                <span class="method-name">accept</span>
+                <span class="method-args">(visitor)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="accept-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10765</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept</span>(<span class="ruby-identifier">visitor</span>)
+  <span class="ruby-identifier">visitor</span>.<span class="ruby-identifier">visit_interpolated_regular_expression_node</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def accept: (<a href="Visitor.html"><code>Visitor</code></a> visitor) -&gt; void</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ascii_8bit-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ascii_8bit-3F" title="Link to this method">
+                <span class="method-name">ascii_8bit?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ascii_8bit-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10823</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ascii_8bit?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def ascii_8bit?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-child_nodes" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-child_nodes" title="Link to this method">
+                <span class="method-name">child_nodes</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="child_nodes-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10770</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">child_nodes</span>
+  [<span class="ruby-operator">*</span><span class="ruby-identifier">parts</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def <a href="InterpolatedRegularExpressionNode.html#method-i-child_nodes"><code>child_nodes</code></a>: () -&gt; <a href="Node?">Array</a></p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="InterpolatedRegularExpressionNode.html#method-i-deconstruct">deconstruct</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-closing" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-closing" title="Link to this method">
+                <span class="method-name">closing</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="closing-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10887</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">closing</span>
+  <span class="ruby-identifier">closing_loc</span>.<span class="ruby-identifier">slice</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def closing: () -&gt; <a href="../String.html"><code>String</code></a></p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-closing_loc" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-closing_loc" title="Link to this method">
+                <span class="method-name">closing_loc</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="closing_loc-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10869</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">closing_loc</span>
+  <span class="ruby-identifier">location</span> = <span class="ruby-ivar">@closing_loc</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">location</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Location</span>)
+  <span class="ruby-ivar">@closing_loc</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">location</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">32</span>, <span class="ruby-identifier">location</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xFFFFFFFF</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>attr_reader <a href="InterpolatedRegularExpressionNode.html#method-i-closing_loc"><code>closing_loc</code></a>: <a href="Location.html"><code>Location</code></a></p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-comment_targets" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-comment_targets" title="Link to this method">
+                <span class="method-name">comment_targets</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="comment_targets-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10780</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">comment_targets</span>
+  [<span class="ruby-identifier">opening_loc</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">parts</span>, <span class="ruby-identifier">closing_loc</span>] <span class="ruby-comment">#: Array[Prism::node | Location]</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def <a href="InterpolatedRegularExpressionNode.html#method-i-comment_targets"><code>comment_targets</code></a>: () -&gt; Array[Node | Location]</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-compact_child_nodes" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-compact_child_nodes" title="Link to this method">
+                <span class="method-name">compact_child_nodes</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="compact_child_nodes-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10775</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">compact_child_nodes</span>
+  [<span class="ruby-operator">*</span><span class="ruby-identifier">parts</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def <a href="InterpolatedRegularExpressionNode.html#method-i-compact_child_nodes"><code>compact_child_nodes</code></a>: () -&gt; <a href="Node">Array</a></p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-copy" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-copy" title="Link to this method">
+                <span class="method-name">copy</span>
+                <span class="method-args">(node_id: self.node_id, location: self.location, flags: self.flags, opening_loc: self.opening_loc, parts: self.parts, closing_loc: self.closing_loc)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="copy-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10785</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">copy</span>(<span class="ruby-value">node_id:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">node_id</span>, <span class="ruby-value">location:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">location</span>, <span class="ruby-value">flags:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">flags</span>, <span class="ruby-value">opening_loc:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">opening_loc</span>, <span class="ruby-value">parts:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parts</span>, <span class="ruby-value">closing_loc:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closing_loc</span>)
+  <span class="ruby-constant">InterpolatedRegularExpressionNode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">node_id</span>, <span class="ruby-identifier">location</span>, <span class="ruby-identifier">flags</span>, <span class="ruby-identifier">opening_loc</span>, <span class="ruby-identifier">parts</span>, <span class="ruby-identifier">closing_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def copy: (?node_id: <a href="../Integer.html"><code>Integer</code></a>, ?location: <a href="Location.html"><code>Location</code></a>, ?flags: <a href="../Integer.html"><code>Integer</code></a>, ?opening_loc: <a href="Location.html"><code>Location</code></a>, ?parts: Array[StringNode | <a href="EmbeddedStatementsNode.html"><code>EmbeddedStatementsNode</code></a> | EmbeddedVariableNode], ?closing_loc: <a href="Location.html"><code>Location</code></a>) -&gt; <a href="InterpolatedRegularExpressionNode.html"><code>InterpolatedRegularExpressionNode</code></a></p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-deconstruct" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-deconstruct" title="Link to this method">
+                <span class="method-name">deconstruct</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>def deconstruct: () -&gt; <a href="Node?">Array</a></p>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="InterpolatedRegularExpressionNode.html#method-i-child_nodes">child_nodes</a>
+        </div>
+      </div>
+
+      <div id="method-i-deconstruct_keys" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-deconstruct_keys" title="Link to this method">
+                <span class="method-name">deconstruct_keys</span>
+                <span class="method-args">(keys)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="deconstruct_keys-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10793</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deconstruct_keys</span>(<span class="ruby-identifier">keys</span>)
+  { <span class="ruby-value">node_id:</span> <span class="ruby-identifier">node_id</span>, <span class="ruby-value">location:</span> <span class="ruby-identifier">location</span>, <span class="ruby-value">opening_loc:</span> <span class="ruby-identifier">opening_loc</span>, <span class="ruby-value">parts:</span> <span class="ruby-identifier">parts</span>, <span class="ruby-value">closing_loc:</span> <span class="ruby-identifier">closing_loc</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def <a href="InterpolatedRegularExpressionNode.html#method-i-deconstruct_keys"><code>deconstruct_keys</code></a>: (<a href="Symbol">Array</a> keys) -&gt; { node_id: <a href="../Integer.html"><code>Integer</code></a>, location: <a href="Location.html"><code>Location</code></a>, <a href="InterpolatedRegularExpressionNode.html#method-i-opening_loc"><code>opening_loc</code></a>: <a href="Location.html"><code>Location</code></a>, parts: Array[StringNode | <a href="EmbeddedStatementsNode.html"><code>EmbeddedStatementsNode</code></a> | EmbeddedVariableNode], <a href="InterpolatedRegularExpressionNode.html#method-i-closing_loc"><code>closing_loc</code></a>: <a href="Location.html"><code>Location</code></a> }</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-euc_jp-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-euc_jp-3F" title="Link to this method">
+                <span class="method-name">euc_jp?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="euc_jp-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10818</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">euc_jp?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">EUC_JP</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def euc_jp?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-extended-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-extended-3F" title="Link to this method">
+                <span class="method-name">extended?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="extended-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10803</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extended?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">EXTENDED</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def extended?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-forced_binary_encoding-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-forced_binary_encoding-3F" title="Link to this method">
+                <span class="method-name">forced_binary_encoding?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="forced_binary_encoding-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10843</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">forced_binary_encoding?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">FORCED_BINARY_ENCODING</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def forced_binary_encoding?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-forced_us_ascii_encoding-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-forced_us_ascii_encoding-3F" title="Link to this method">
+                <span class="method-name">forced_us_ascii_encoding?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="forced_us_ascii_encoding-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10848</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">forced_us_ascii_encoding?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">FORCED_US_ASCII_ENCODING</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def forced_us_ascii_encoding?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-forced_utf8_encoding-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-forced_utf8_encoding-3F" title="Link to this method">
+                <span class="method-name">forced_utf8_encoding?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="forced_utf8_encoding-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10838</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">forced_utf8_encoding?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">FORCED_UTF8_ENCODING</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def forced_utf8_encoding?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ignore_case-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ignore_case-3F" title="Link to this method">
+                <span class="method-name">ignore_case?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ignore_case-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10798</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ignore_case?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">IGNORE_CASE</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def ignore_case?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-inspect" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-inspect" title="Link to this method">
+                <span class="method-name">inspect</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10892</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
+  <span class="ruby-constant">InspectVisitor</span>.<span class="ruby-identifier">compose</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def inspect -&gt; <a href="../String.html"><code>String</code></a></p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-multi_line-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-multi_line-3F" title="Link to this method">
+                <span class="method-name">multi_line?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="multi_line-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10808</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">multi_line?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">MULTI_LINE</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def multi_line?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-once-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-once-3F" title="Link to this method">
+                <span class="method-name">once?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="once-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10813</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">once?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">ONCE</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def once?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-opening" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-opening" title="Link to this method">
+                <span class="method-name">opening</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="opening-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10882</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">opening</span>
+  <span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">slice</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def opening: () -&gt; <a href="../String.html"><code>String</code></a></p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-opening_loc" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-opening_loc" title="Link to this method">
+                <span class="method-name">opening_loc</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="opening_loc-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10853</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">opening_loc</span>
+  <span class="ruby-identifier">location</span> = <span class="ruby-ivar">@opening_loc</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">location</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Location</span>)
+  <span class="ruby-ivar">@opening_loc</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">location</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">32</span>, <span class="ruby-identifier">location</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xFFFFFFFF</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>attr_reader <a href="InterpolatedRegularExpressionNode.html#method-i-opening_loc"><code>opening_loc</code></a>: <a href="Location.html"><code>Location</code></a></p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-save_closing_loc" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-save_closing_loc" title="Link to this method">
+                <span class="method-name">save_closing_loc</span>
+                <span class="method-args">(repository)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="save_closing_loc-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10877</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_closing_loc</span>(<span class="ruby-identifier">repository</span>)
+  <span class="ruby-identifier">repository</span>.<span class="ruby-identifier">enter</span>(<span class="ruby-identifier">node_id</span>, <span class="ruby-value">:closing_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Save the <a href="InterpolatedRegularExpressionNode.html#method-i-closing_loc"><code>closing_loc</code></a> location using the given saved source so that it can be retrieved later.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-save_opening_loc" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-save_opening_loc" title="Link to this method">
+                <span class="method-name">save_opening_loc</span>
+                <span class="method-args">(repository)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="save_opening_loc-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10861</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_opening_loc</span>(<span class="ruby-identifier">repository</span>)
+  <span class="ruby-identifier">repository</span>.<span class="ruby-identifier">enter</span>(<span class="ruby-identifier">node_id</span>, <span class="ruby-value">:opening_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Save the <a href="InterpolatedRegularExpressionNode.html#method-i-opening_loc"><code>opening_loc</code></a> location using the given saved source so that it can be retrieved later.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-type" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-type" title="Link to this method">
+                <span class="method-name">type</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="type-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10897</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">type</span>
+  <span class="ruby-value">:interpolated_regular_expression_node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Return a symbol representation of this node type. See <a href="Node.html#method-i-type"><code>Node#type</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-utf_8-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-utf_8-3F" title="Link to this method">
+                <span class="method-name">utf_8?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="utf_8-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10833</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">utf_8?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def utf_8?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-windows_31j-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-windows_31j-3F" title="Link to this method">
+                <span class="method-name">windows_31j?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="windows_31j-3F-source">
+            <pre><span class="ruby-comment"># File lib/prism/node.rb, line 10828</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">windows_31j?</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">anybits?</span>(<span class="ruby-constant">RegularExpressionFlags</span><span class="ruby-operator">::</span><span class="ruby-constant">WINDOWS_31J</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>def windows_31j?: () -&gt; bool</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

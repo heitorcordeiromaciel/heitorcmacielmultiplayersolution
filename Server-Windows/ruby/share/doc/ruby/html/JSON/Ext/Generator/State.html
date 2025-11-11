@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class JSON::Ext::Generator::State - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,JSON::Ext::Generator::State">
+
+    <meta name="description" content="Documentation for the JSON::Ext::Generator::State class">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/JSON/Ext/Generator/State.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="../../../Object.html">Object</a><ul><li><a href="../../../BasicObject.html">BasicObject</a></li></ul></li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-from_state">from_state</a></li>
+      <li ><a href="#method-c-generate">generate</a></li>
+      <li ><a href="#method-c-new">new</a></li>
+      <li ><a href="#method-c-new">new</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-5B-5D">[]</a></li>
+      <li ><a href="#method-i-5B-5D-3D">[]=</a></li>
+      <li ><a href="#method-i-_configure">_configure</a></li>
+      <li ><a href="#method-i-_generate">_generate</a></li>
+      <li ><a href="#method-i-allow_nan-3D">allow_nan=</a></li>
+      <li ><a href="#method-i-allow_nan-3F">allow_nan?</a></li>
+      <li ><a href="#method-i-array_nl">array_nl</a></li>
+      <li ><a href="#method-i-array_nl-3D">array_nl=</a></li>
+      <li ><a href="#method-i-ascii_only-3D">ascii_only=</a></li>
+      <li ><a href="#method-i-ascii_only-3F">ascii_only?</a></li>
+      <li ><a href="#method-i-buffer_initial_length">buffer_initial_length</a></li>
+      <li ><a href="#method-i-buffer_initial_length-3D">buffer_initial_length=</a></li>
+      <li ><a href="#method-i-check_circular-3F">check_circular?</a></li>
+      <li ><a href="#method-i-configure">configure</a></li>
+      <li ><a href="#method-i-depth">depth</a></li>
+      <li ><a href="#method-i-depth-3D">depth=</a></li>
+      <li ><a href="#method-i-escape_slash">escape_slash</a></li>
+      <li ><a href="#method-i-escape_slash-3D">escape_slash=</a></li>
+      <li ><a href="#method-i-escape_slash-3F">escape_slash?</a></li>
+      <li ><a href="#method-i-generate">generate</a></li>
+      <li ><a href="#method-i-indent">indent</a></li>
+      <li ><a href="#method-i-indent-3D">indent=</a></li>
+      <li ><a href="#method-i-initialize_copy">initialize_copy</a></li>
+      <li ><a href="#method-i-max_nesting">max_nesting</a></li>
+      <li ><a href="#method-i-max_nesting-3D">max_nesting=</a></li>
+      <li ><a href="#method-i-merge">merge</a></li>
+      <li ><a href="#method-i-object_nl">object_nl</a></li>
+      <li ><a href="#method-i-object_nl-3D">object_nl=</a></li>
+      <li ><a href="#method-i-script_safe">script_safe</a></li>
+      <li ><a href="#method-i-script_safe-3D">script_safe=</a></li>
+      <li ><a href="#method-i-script_safe-3F">script_safe?</a></li>
+      <li ><a href="#method-i-space">space</a></li>
+      <li ><a href="#method-i-space-3D">space=</a></li>
+      <li ><a href="#method-i-space_before">space_before</a></li>
+      <li ><a href="#method-i-space_before-3D">space_before=</a></li>
+      <li ><a href="#method-i-strict">strict</a></li>
+      <li ><a href="#method-i-strict-3D">strict=</a></li>
+      <li ><a href="#method-i-strict-3F">strict?</a></li>
+      <li ><a href="#method-i-to_h">to_h</a></li>
+      <li ><a href="#method-i-to_hash">to_hash</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-JSON::Ext::Generator::State">
+  
+  
+    <ol role="navigation" aria-label="breadcrumb" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../../../JSON.html">JSON</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <a href="../../../JSON/Ext.html">Ext</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <a href="../../../JSON/Ext/Generator.html">Generator</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>State</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <h1 id="class-JSON::Ext::Generator::State" class="anchor-link class">
+    class JSON::Ext::Generator::State
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-from_state" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-from_state" title="Link to this method">
+                  <span class="method-callseq">
+                    from_state(opts)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="from_state-source">
+            <pre>static VALUE cState_from_state_s(VALUE self, VALUE opts)
+{
+    if (rb_obj_is_kind_of(opts, self)) {
+        return opts;
+    } else if (rb_obj_is_kind_of(opts, rb_cHash)) {
+        return rb_funcall(self, i_new, 1, opts);
+    } else {
+        return rb_class_new_instance(0, NULL, cState);
+    }
+}</pre>
+          </div>
+          <p>Creates a <a href="State.html"><code>State</code></a> object from <em>opts</em>, which ought to be <a href="../../../Hash.html"><code>Hash</code></a> to create a new <a href="State.html"><code>State</code></a> instance configured by <em>opts</em>, something else to create an unconfigured instance. If <em>opts</em> is a <a href="State.html"><code>State</code></a> object, it is just returned.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-generate" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-generate" title="Link to this method">
+                <span class="method-name">generate</span>
+                <span class="method-args">(p1, p2, p3)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="generate-source">
+            <pre>static VALUE cState_m_generate(VALUE klass, VALUE obj, VALUE opts, VALUE io)
+{
+    JSON_Generator_State state = {0};
+    state_init(&amp;state);
+    configure_state(&amp;state, opts);
+
+    char stack_buffer[FBUFFER_STACK_SIZE];
+    FBuffer buffer = {
+        .io = RTEST(io) ? io : Qfalse,
+    };
+    fbuffer_stack_init(&amp;buffer, state.buffer_initial_length, stack_buffer, FBUFFER_STACK_SIZE);
+
+    struct generate_json_data data = {
+        .buffer = &amp;buffer,
+        .vstate = Qfalse,
+        .state = &amp;state,
+        .obj = obj,
+        .func = generate_json,
+    };
+    rb_rescue(generate_json_try, (VALUE)&amp;data, generate_json_rescue, (VALUE)&amp;data);
+
+    return fbuffer_finalize(&amp;buffer);
+}</pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-new" title="Link to this method">
+                  <span class="method-callseq">
+                    new(opts = {})
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/ext/generator/state.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">opts</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">opts</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">configure</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Instantiates a new <a href="State.html"><code>State</code></a> object, configured by <em>opts</em>.</p>
+
+<p><em>opts</em> can have the following keys:</p>
+<ul><li>
+<p><strong>indent</strong>: a string used to indent levels (default: ”),</p>
+</li><li>
+<p><strong>space</strong>: a string that is put after, a : or , delimiter (default: ”),</p>
+</li><li>
+<p><strong>space_before</strong>: a string that is put before a : pair delimiter (default: ”),</p>
+</li><li>
+<p><strong>object_nl</strong>: a string that is put at the end of a <a href="../../../JSON.html"><code>JSON</code></a> object (default: ”),</p>
+</li><li>
+<p><strong>array_nl</strong>: a string that is put at the end of a <a href="../../../JSON.html"><code>JSON</code></a> array (default: ”),</p>
+</li><li>
+<p><strong>allow_nan</strong>: true if NaN, Infinity, and -Infinity should be generated, otherwise an exception is thrown, if these values are encountered. This options defaults to false.</p>
+</li><li>
+<p><strong>ascii_only</strong>: true if only ASCII characters should be generated. This option defaults to false.</p>
+</li><li>
+<p><strong>buffer_initial_length</strong>: sets the initial length of the generator’s internal buffer.</p>
+</li></ul>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: initialize
+        </div>
+
+      </div>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(*args)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE cState_initialize(int argc, VALUE *argv, VALUE self)
+{
+    rb_warn(&quot;The json gem extension was loaded with the stdlib ruby code. You should upgrade rubygems with `gem update --system`&quot;);
+    return self;
+}</pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-5B-5D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-5B-5D" title="Link to this method">
+                  <span class="method-callseq">
+                    [](name)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/ext/generator/state.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-node">&quot;@#{name}&quot;</span>) <span class="ruby-keyword">if</span>
+      <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-node">&quot;@#{name}&quot;</span>.<span class="ruby-identifier">to_sym</span>) <span class="ruby-comment"># avoid warning</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the value returned by method <code>name</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-5B-5D-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-5B-5D-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    []=(name, value)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/ext/generator/state.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">name_writer</span> = <span class="ruby-node">&quot;#{name}=&quot;</span>)
+    <span class="ruby-identifier">__send__</span> <span class="ruby-identifier">name_writer</span>, <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">instance_variable_set</span> <span class="ruby-node">&quot;@#{name}&quot;</span>, <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Sets the attribute name to value.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-allow_nan-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-allow_nan-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    allow_nan=(enable)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="allow_nan-3D-source">
+            <pre>static VALUE cState_allow_nan_set(VALUE self, VALUE enable)
+{
+    GET_STATE(self);
+    state-&gt;allow_nan = RTEST(enable);
+    return Qnil;
+}</pre>
+          </div>
+          <p>This sets whether or not to serialize NaN, Infinity, and -Infinity</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-allow_nan-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-allow_nan-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    allow_nan?
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="allow_nan-3F-source">
+            <pre>static VALUE cState_allow_nan_p(VALUE self)
+{
+    GET_STATE(self);
+    return state-&gt;allow_nan ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          <p>Returns true, if NaN, Infinity, and -Infinity should be generated, otherwise returns false.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-array_nl" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-array_nl" title="Link to this method">
+                  <span class="method-callseq">
+                    array_nl()
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="array_nl-source">
+            <pre>static VALUE cState_array_nl(VALUE self)
+{
+    GET_STATE(self);
+    return state-&gt;array_nl ? state-&gt;array_nl : rb_str_freeze(rb_utf8_str_new(&quot;&quot;, 0));
+}</pre>
+          </div>
+          <p>This string is put at the end of a line that holds a <a href="../../../JSON.html"><code>JSON</code></a> array.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-array_nl-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-array_nl-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    array_nl=(array_nl)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="array_nl-3D-source">
+            <pre>static VALUE cState_array_nl_set(VALUE self, VALUE array_nl)
+{
+    GET_STATE(self);
+    RB_OBJ_WRITE(self, &amp;state-&gt;array_nl, string_config(array_nl));
+    return Qnil;
+}</pre>
+          </div>
+          <p>This string is put at the end of a line that holds a <a href="../../../JSON.html"><code>JSON</code></a> array.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ascii_only-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-ascii_only-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    ascii_only=(enable)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ascii_only-3D-source">
+            <pre>static VALUE cState_ascii_only_set(VALUE self, VALUE enable)
+{
+    GET_STATE(self);
+    state-&gt;ascii_only = RTEST(enable);
+    return Qnil;
+}</pre>
+          </div>
+          <p>This sets whether only ASCII characters should be generated.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ascii_only-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-ascii_only-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    ascii_only?
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ascii_only-3F-source">
+            <pre>static VALUE cState_ascii_only_p(VALUE self)
+{
+    GET_STATE(self);
+    return state-&gt;ascii_only ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          <p>Returns true, if only ASCII characters should be generated. Otherwise returns false.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-buffer_initial_length" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-buffer_initial_length" title="Link to this method">
+                  <span class="method-callseq">
+                    buffer_initial_length
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="buffer_initial_length-source">
+            <pre>static VALUE cState_buffer_initial_length(VALUE self)
+{
+    GET_STATE(self);
+    return LONG2FIX(state-&gt;buffer_initial_length);
+}</pre>
+          </div>
+          <p>This integer returns the current initial length of the buffer.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-buffer_initial_length-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-buffer_initial_length-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    buffer_initial_length=(length)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="buffer_initial_length-3D-source">
+            <pre>static VALUE cState_buffer_initial_length_set(VALUE self, VALUE buffer_initial_length)
+{
+    GET_STATE(self);
+    buffer_initial_length_set(state, buffer_initial_length);
+    return Qnil;
+}</pre>
+          </div>
+          <p>This sets the initial length of the buffer to <code>length</code>, if <code>length</code> &gt; 0, otherwise its value isn’t changed.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-check_circular-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-check_circular-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    check_circular?
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="check_circular-3F-source">
+            <pre>static VALUE cState_check_circular_p(VALUE self)
+{
+    GET_STATE(self);
+    return state-&gt;max_nesting ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          <p>Returns true, if circular data structures should be checked, otherwise returns false.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-configure" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-configure" title="Link to this method">
+                  <span class="method-callseq">
+                    configure(opts)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="configure-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/ext/generator/state.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">configure</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_hash</span>)
+      <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">to_hash</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_h</span>)
+      <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">to_h</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;can&#39;t convert #{opts.class} into Hash&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">_configure</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Configure this <a href="State.html"><code>State</code></a> instance with the <a href="../../../Hash.html"><code>Hash</code></a> <em>opts</em>, and return itself.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="State.html#method-i-merge">merge</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-depth" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-depth" title="Link to this method">
+                  <span class="method-callseq">
+                    depth
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="depth-source">
+            <pre>static VALUE cState_depth(VALUE self)
+{
+    GET_STATE(self);
+    return LONG2FIX(state-&gt;depth);
+}</pre>
+          </div>
+          <p>This integer returns the current depth of data structure nesting.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-depth-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-depth-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    depth=(depth)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="depth-3D-source">
+            <pre>static VALUE cState_depth_set(VALUE self, VALUE depth)
+{
+    GET_STATE(self);
+    state-&gt;depth = long_config(depth);
+    return Qnil;
+}</pre>
+          </div>
+          <p>This sets the maximum level of data structure nesting in the generated <a href="../../../JSON.html"><code>JSON</code></a> to the integer depth, <a href="State.html#method-i-max_nesting"><code>max_nesting</code></a> = 0 if no maximum should be checked.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-escape_slash" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-escape_slash" title="Link to this method">
+                  <span class="method-callseq">
+                    script_safe
+                  </span>
+                </a>
+              </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>If this boolean is true, the forward slashes will be escaped in the json output.</p>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="State.html#method-i-script_safe">script_safe</a>
+        </div>
+      </div>
+
+      <div id="method-i-escape_slash-3D" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-escape_slash-3D" title="Link to this method">
+                <span class="method-name">escape_slash=</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="State.html#method-i-script_safe-3D">script_safe=</a>
+        </div>
+      </div>
+
+      <div id="method-i-escape_slash-3F" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-escape_slash-3F" title="Link to this method">
+                <span class="method-name">escape_slash?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>If this boolean is true, the forward slashes will be escaped in the json output.</p>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="State.html#method-i-script_safe-3F">script_safe?</a>
+        </div>
+      </div>
+
+      <div id="method-i-generate" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-generate" title="Link to this method">
+                  <span class="method-callseq">
+                    generate(obj) &rarr; String
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-generate" title="Link to this method">
+                  <span class="method-callseq">
+                    generate(obj, anIO) &rarr; anIO
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="generate-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/ext/generator/state.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">io</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">_generate</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">io</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Generates a valid <a href="../../../JSON.html"><code>JSON</code></a> document from object <code>obj</code> and returns the result. If no valid <a href="../../../JSON.html"><code>JSON</code></a> document can be created this method raises a <a href="../../GeneratorError.html"><code>GeneratorError</code></a> exception.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-indent" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-indent" title="Link to this method">
+                  <span class="method-callseq">
+                    indent()
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="indent-source">
+            <pre>static VALUE cState_indent(VALUE self)
+{
+    GET_STATE(self);
+    return state-&gt;indent ? state-&gt;indent : rb_str_freeze(rb_utf8_str_new(&quot;&quot;, 0));
+}</pre>
+          </div>
+          <p>Returns the string that is used to indent levels in the <a href="../../../JSON.html"><code>JSON</code></a> text.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-indent-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-indent-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    indent=(indent)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="indent-3D-source">
+            <pre>static VALUE cState_indent_set(VALUE self, VALUE indent)
+{
+    GET_STATE(self);
+    RB_OBJ_WRITE(self, &amp;state-&gt;indent, string_config(indent));
+    return Qnil;
+}</pre>
+          </div>
+          <p>Sets the string that is used to indent levels in the <a href="../../../JSON.html"><code>JSON</code></a> text.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-initialize_copy" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-initialize_copy" title="Link to this method">
+                  <span class="method-callseq">
+                    initialize_copy(orig)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="initialize_copy-source">
+            <pre>static VALUE cState_init_copy(VALUE obj, VALUE orig)
+{
+    JSON_Generator_State *objState, *origState;
+
+    if (obj == orig) return obj;
+    GET_STATE_TO(obj, objState);
+    GET_STATE_TO(orig, origState);
+    if (!objState) rb_raise(rb_eArgError, &quot;unallocated JSON::State&quot;);
+
+    MEMCPY(objState, origState, JSON_Generator_State, 1);
+    objState-&gt;indent = origState-&gt;indent;
+    objState-&gt;space = origState-&gt;space;
+    objState-&gt;space_before = origState-&gt;space_before;
+    objState-&gt;object_nl = origState-&gt;object_nl;
+    objState-&gt;array_nl = origState-&gt;array_nl;
+    return obj;
+}</pre>
+          </div>
+          <p>Initializes this object from orig if it can be duplicated/cloned and returns it.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-max_nesting" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-max_nesting" title="Link to this method">
+                  <span class="method-callseq">
+                    max_nesting
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="max_nesting-source">
+            <pre>static VALUE cState_max_nesting(VALUE self)
+{
+    GET_STATE(self);
+    return LONG2FIX(state-&gt;max_nesting);
+}</pre>
+          </div>
+          <p>This integer returns the maximum level of data structure nesting in the generated <a href="../../../JSON.html"><code>JSON</code></a>, <a href="State.html#method-i-max_nesting"><code>max_nesting</code></a> = 0 if no maximum is checked.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-max_nesting-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-max_nesting-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    max_nesting=(depth)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="max_nesting-3D-source">
+            <pre>static VALUE cState_max_nesting_set(VALUE self, VALUE depth)
+{
+    GET_STATE(self);
+    state-&gt;max_nesting = long_config(depth);
+    return Qnil;
+}</pre>
+          </div>
+          <p>This sets the maximum level of data structure nesting in the generated <a href="../../../JSON.html"><code>JSON</code></a> to the integer depth, <a href="State.html#method-i-max_nesting"><code>max_nesting</code></a> = 0 if no maximum should be checked.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-merge" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-merge" title="Link to this method">
+                <span class="method-name">merge</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="State.html#method-i-configure">configure</a>
+        </div>
+      </div>
+
+      <div id="method-i-object_nl" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-object_nl" title="Link to this method">
+                  <span class="method-callseq">
+                    object_nl()
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="object_nl-source">
+            <pre>static VALUE cState_object_nl(VALUE self)
+{
+    GET_STATE(self);
+    return state-&gt;object_nl ? state-&gt;object_nl : rb_str_freeze(rb_utf8_str_new(&quot;&quot;, 0));
+}</pre>
+          </div>
+          <p>This string is put at the end of a line that holds a <a href="../../../JSON.html"><code>JSON</code></a> object (or <a href="../../../Hash.html"><code>Hash</code></a>).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-object_nl-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-object_nl-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    object_nl=(object_nl)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="object_nl-3D-source">
+            <pre>static VALUE cState_object_nl_set(VALUE self, VALUE object_nl)
+{
+    GET_STATE(self);
+    RB_OBJ_WRITE(self, &amp;state-&gt;object_nl, string_config(object_nl));
+    return Qnil;
+}</pre>
+          </div>
+          <p>This string is put at the end of a line that holds a <a href="../../../JSON.html"><code>JSON</code></a> object (or <a href="../../../Hash.html"><code>Hash</code></a>).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-script_safe" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-script_safe" title="Link to this method">
+                  <span class="method-callseq">
+                    script_safe
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="script_safe-source">
+            <pre>static VALUE cState_script_safe(VALUE self)
+{
+    GET_STATE(self);
+    return state-&gt;script_safe ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          <p>If this boolean is true, the forward slashes will be escaped in the json output.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="State.html#method-i-script_safe-3F">script_safe?</a>, <a href="State.html#method-i-escape_slash">escape_slash</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-script_safe-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-script_safe-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    script_safe=(enable)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="script_safe-3D-source">
+            <pre>static VALUE cState_script_safe_set(VALUE self, VALUE enable)
+{
+    GET_STATE(self);
+    state-&gt;script_safe = RTEST(enable);
+    return Qnil;
+}</pre>
+          </div>
+          <p>This sets whether or not the forward slashes will be escaped in the json output.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="State.html#method-i-escape_slash-3D">escape_slash=</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-script_safe-3F" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-script_safe-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    script_safe
+                  </span>
+                </a>
+              </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>If this boolean is true, the forward slashes will be escaped in the json output.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="State.html#method-i-escape_slash-3F">escape_slash?</a>
+        </div>
+
+        <div class="aliases">
+          Alias for: <a href="State.html#method-i-script_safe">script_safe</a>
+        </div>
+      </div>
+
+      <div id="method-i-space" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-space" title="Link to this method">
+                  <span class="method-callseq">
+                    space()
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="space-source">
+            <pre>static VALUE cState_space(VALUE self)
+{
+    GET_STATE(self);
+    return state-&gt;space ? state-&gt;space : rb_str_freeze(rb_utf8_str_new(&quot;&quot;, 0));
+}</pre>
+          </div>
+          <p>Returns the string that is used to insert a space between the tokens in a <a href="../../../JSON.html"><code>JSON</code></a> string.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-space-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-space-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    space=(space)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="space-3D-source">
+            <pre>static VALUE cState_space_set(VALUE self, VALUE space)
+{
+    GET_STATE(self);
+    RB_OBJ_WRITE(self, &amp;state-&gt;space, string_config(space));
+    return Qnil;
+}</pre>
+          </div>
+          <p>Sets <em>space</em> to the string that is used to insert a space between the tokens in a <a href="../../../JSON.html"><code>JSON</code></a> string.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-space_before" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-space_before" title="Link to this method">
+                  <span class="method-callseq">
+                    space_before()
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="space_before-source">
+            <pre>static VALUE cState_space_before(VALUE self)
+{
+    GET_STATE(self);
+    return state-&gt;space_before ? state-&gt;space_before : rb_str_freeze(rb_utf8_str_new(&quot;&quot;, 0));
+}</pre>
+          </div>
+          <p>Returns the string that is used to insert a space before the ‘:’ in <a href="../../../JSON.html"><code>JSON</code></a> objects.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-space_before-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-space_before-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    space_before=(space_before)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="space_before-3D-source">
+            <pre>static VALUE cState_space_before_set(VALUE self, VALUE space_before)
+{
+    GET_STATE(self);
+    RB_OBJ_WRITE(self, &amp;state-&gt;space_before, string_config(space_before));
+    return Qnil;
+}</pre>
+          </div>
+          <p>Sets the string that is used to insert a space before the ‘:’ in <a href="../../../JSON.html"><code>JSON</code></a> objects.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-strict" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-strict" title="Link to this method">
+                  <span class="method-callseq">
+                    strict
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="strict-source">
+            <pre>static VALUE cState_strict(VALUE self)
+{
+    GET_STATE(self);
+    return state-&gt;strict ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          <p>If this boolean is false, types unsupported by the <a href="../../../JSON.html"><code>JSON</code></a> format will be serialized as strings. If this boolean is true, types unsupported by the <a href="../../../JSON.html"><code>JSON</code></a> format will raise a <a href="../../GeneratorError.html"><code>JSON::GeneratorError</code></a>.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="State.html#method-i-strict-3F">strict?</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-strict-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-strict-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    strict=(enable)
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="strict-3D-source">
+            <pre>static VALUE cState_strict_set(VALUE self, VALUE enable)
+{
+    GET_STATE(self);
+    state-&gt;strict = RTEST(enable);
+    return Qnil;
+}</pre>
+          </div>
+          <p>This sets whether or not to serialize types unsupported by the <a href="../../../JSON.html"><code>JSON</code></a> format as strings. If this boolean is false, types unsupported by the <a href="../../../JSON.html"><code>JSON</code></a> format will be serialized as strings. If this boolean is true, types unsupported by the <a href="../../../JSON.html"><code>JSON</code></a> format will raise a <a href="../../GeneratorError.html"><code>JSON::GeneratorError</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-strict-3F" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-strict-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    strict
+                  </span>
+                </a>
+              </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>If this boolean is false, types unsupported by the <a href="../../../JSON.html"><code>JSON</code></a> format will be serialized as strings. If this boolean is true, types unsupported by the <a href="../../../JSON.html"><code>JSON</code></a> format will raise a <a href="../../GeneratorError.html"><code>JSON::GeneratorError</code></a>.</p>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="State.html#method-i-strict">strict</a>
+        </div>
+      </div>
+
+      <div id="method-i-to_h" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_h" title="Link to this method">
+                  <span class="method-callseq">
+                    to_h
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_h-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/ext/generator/state.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_h</span>
+  <span class="ruby-identifier">result</span> = {
+    <span class="ruby-value">indent:</span> <span class="ruby-identifier">indent</span>,
+    <span class="ruby-value">space:</span> <span class="ruby-identifier">space</span>,
+    <span class="ruby-value">space_before:</span> <span class="ruby-identifier">space_before</span>,
+    <span class="ruby-value">object_nl:</span> <span class="ruby-identifier">object_nl</span>,
+    <span class="ruby-value">array_nl:</span> <span class="ruby-identifier">array_nl</span>,
+    <span class="ruby-value">allow_nan:</span> <span class="ruby-identifier">allow_nan?</span>,
+    <span class="ruby-value">ascii_only:</span> <span class="ruby-identifier">ascii_only?</span>,
+    <span class="ruby-value">max_nesting:</span> <span class="ruby-identifier">max_nesting</span>,
+    <span class="ruby-value">script_safe:</span> <span class="ruby-identifier">script_safe?</span>,
+    <span class="ruby-value">strict:</span> <span class="ruby-identifier">strict?</span>,
+    <span class="ruby-value">depth:</span> <span class="ruby-identifier">depth</span>,
+    <span class="ruby-value">buffer_initial_length:</span> <span class="ruby-identifier">buffer_initial_length</span>,
+  }
+
+  <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">iv</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">iv</span> = <span class="ruby-identifier">iv</span>.<span class="ruby-identifier">to_s</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+    <span class="ruby-identifier">result</span>[<span class="ruby-identifier">iv</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-keyword">self</span>[<span class="ruby-identifier">iv</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the configuration instance variables as a hash, that can be passed to the configure method.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="State.html#method-i-to_hash">to_hash</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-to_hash" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-to_hash" title="Link to this method">
+                  <span class="method-callseq">
+                    to_h
+                  </span>
+                </a>
+              </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="State.html#method-i-to_h">to_h</a>
+        </div>
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-_configure" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-_configure" title="Link to this method">
+                <span class="method-name">_configure</span>
+                <span class="method-args">(p1)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="_configure-source">
+            <pre>static VALUE cState_configure(VALUE self, VALUE opts)
+{
+    GET_STATE(self);
+    configure_state(state, opts);
+    return self;
+}</pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-_generate" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-_generate" title="Link to this method">
+                <span class="method-name">_generate</span>
+                <span class="method-args">(p1, p2)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="_generate-source">
+            <pre>static VALUE cState_generate(VALUE self, VALUE obj, VALUE io)
+{
+    VALUE result = cState_partial_generate(self, obj, generate_json, io);
+    GET_STATE(self);
+    (void)state;
+    return result;
+}</pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

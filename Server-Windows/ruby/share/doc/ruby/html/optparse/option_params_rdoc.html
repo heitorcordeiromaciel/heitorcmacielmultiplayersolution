@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>option_params - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,option_params">
+  <meta name="description" content="option_params: OptionParser#on, to define options. OptionParser#parse!, to parse the command line.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/optparse/option_params_rdoc.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Parameters+for+New+Options">Parameters for New Options</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-Option+Names">Option Names</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-Short+Names">Short Names</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Simple+Short+Names">Simple Short Names</a>
+          <li>      <a href="#label-Short+Names+with+Required+Arguments">Short Names with Required Arguments</a>
+          <li>      <a href="#label-Short+Names+with+Optional+Arguments">Short Names with Optional Arguments</a>
+          <li>      <a href="#label-Short+Names+from+Range">Short Names from Range</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Long+Names">Long Names</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Simple+Long+Names">Simple Long Names</a>
+          <li>      <a href="#label-Long+Names+with+Required+Arguments">Long Names with Required Arguments</a>
+          <li>      <a href="#label-Long+Names+with+Optional+Arguments">Long Names with Optional Arguments</a>
+          <li>      <a href="#label-Long+Names+with+Negation">Long Names with Negation</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Mixed+Names">Mixed Names</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Argument+Keywords">Argument Keywords</a>
+          <li>      <a href="#label-Argument+Strings">Argument Strings</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Argument+Values">Argument Values</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-Explicit+Argument+Values">Explicit Argument Values</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Explicit+Values+in+Array">Explicit Values in Array</a>
+          <li>      <a href="#label-Explicit+Values+in+Hash">Explicit Values in Hash</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Argument+Value+Patterns">Argument Value Patterns</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Argument+Converters">Argument Converters</a>
+          <li>      <a href="#label-Descriptions">Descriptions</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Option+Handlers">Option Handlers</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Handler+Blocks">Handler Blocks</a>
+          <li>      <a href="#label-Handler+Procs">Handler Procs</a>
+          <li>      <a href="#label-Handler+Methods">Handler Methods</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../COPYING.html">COPYING</a>
+    <li><a href="../COPYING_ja.html">COPYING.ja</a>
+    <li><a href="../LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="../NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="../NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="../NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="../NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="../NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="../NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="../NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="../NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="../NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="../NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="../NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="../NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="../NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="../NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="../NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="../NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="../NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="../README_ja_md.html">README.ja</a>
+    <li><a href="../README_md.html">README</a>
+    <li><a href="../bsearch_rdoc.html">bsearch</a>
+    <li><a href="../bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="../case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="../character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="../command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="../contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="../contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="../contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="../contributing/glossary_md.html">glossary</a>
+      <li><a href="../contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="../contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="../contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="../contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="../date/calendars_rdoc.html">calendars</a>
+    <li><a href="../dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="../distribution_md.html">distribution</a>
+    <li><a href="../dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="../encodings_rdoc.html">encodings</a>
+    <li><a href="../exceptions_md.html">exceptions</a>
+    <li><a href="../extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="../extension_rdoc.html">extension</a>
+    <li><a href="../fiber_md.html">fiber</a>
+    <li><a href="../format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="../globals_rdoc.html">globals</a>
+    <li><a href="../implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="../index_md.html">index</a>
+    <li><a href="../maintainers_md.html">maintainers</a>
+    <li><a href="../marshal_rdoc.html">marshal</a>
+    <li><a href="../memory_view_md.html">memory_view</a>
+    <li><details open><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="../optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="../optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="../optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="../optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="../packed_data_rdoc.html">packed_data</a>
+    <li><a href="../ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="../regexp/methods_rdoc.html">methods</a>
+      <li><a href="../regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="../rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="../ruby/option_dump_md.html">option_dump</a>
+      <li><a href="../ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="../security_rdoc.html">security</a>
+    <li><a href="../signals_rdoc.html">signals</a>
+    <li><a href="../standard_library_md.html">standard_library</a>
+    <li><a href="../strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="../syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="../syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="../syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="../syntax/comments_rdoc.html">comments</a>
+      <li><a href="../syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="../syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="../syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="../syntax/literals_rdoc.html">literals</a>
+      <li><a href="../syntax/methods_rdoc.html">methods</a>
+      <li><a href="../syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="../syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="../syntax/operators_rdoc.html">operators</a>
+      <li><a href="../syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="../syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="../syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="../windows_md.html">windows</a>
+    <li><a href="../yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page optparse/option_params.rdoc">
+
+<h2 id="label-Parameters+for+New+Options">Parameters for New Options<span><a href="#label-Parameters+for+New+Options">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Option-creating methods in <a href="../OptionParser.html"><code>OptionParser</code></a> accept arguments that determine the behavior of a new option:</p>
+<ul><li>
+<p><a href="../OptionParser.html#method-i-on"><code>OptionParser#on</code></a></p>
+</li><li>
+<p><a href="../OptionParser.html#method-i-on_head"><code>OptionParser#on_head</code></a></p>
+</li><li>
+<p><a href="../OptionParser.html#method-i-on_tail"><code>OptionParser#on_tail</code></a></p>
+</li><li>
+<p><a href="../OptionParser.html#method-i-define"><code>OptionParser#define</code></a></p>
+</li><li>
+<p><a href="../OptionParser.html#method-i-define_head"><code>OptionParser#define_head</code></a></p>
+</li><li>
+<p><a href="../OptionParser.html#method-i-define_tail"><code>OptionParser#define_tail</code></a></p>
+</li><li>
+<p><a href="../OptionParser.html#method-i-make_switch"><code>OptionParser#make_switch</code></a></p>
+</li></ul>
+
+<p>The code examples on this page use:</p>
+<ul><li>
+<p><a href="../OptionParser.html#method-i-on"><code>OptionParser#on</code></a>, to define options.</p>
+</li><li>
+<p><a href="../OptionParser.html#method-i-parse-21"><code>OptionParser#parse!</code></a>, to parse the command line.</p>
+</li><li>
+<p>Built-in option <code>--help</code>, to display defined options.</p>
+</li></ul>
+
+<p>Contents:</p>
+<ul><li>
+<p><a href="#label-Option+Names">Option Names</a></p>
+<ul><li>
+<p><a href="#label-Short+Names">Short Names</a></p>
+<ul><li>
+<p><a href="#label-Simple+Short+Names">Simple Short Names</a></p>
+</li><li>
+<p><a href="#label-Short+Names+with+Required+Arguments">Short Names with Required Arguments</a></p>
+</li><li>
+<p><a href="#label-Short+Names+with+Optional+Arguments">Short Names with Optional Arguments</a></p>
+</li><li>
+<p><a href="#label-Short+Names+from+Range">Short Names from Range</a></p>
+</li></ul>
+</li><li>
+<p><a href="#label-Long+Names">Long Names</a></p>
+<ul><li>
+<p><a href="#label-Simple+Long+Names">Simple Long Names</a></p>
+</li><li>
+<p><a href="#label-Long+Names+with+Required+Arguments">Long Names with Required Arguments</a></p>
+</li><li>
+<p><a href="#label-Long+Names+with+Optional+Arguments">Long Names with Optional Arguments</a></p>
+</li><li>
+<p><a href="#label-Long+Names+with+Negation">Long Names with Negation</a></p>
+</li></ul>
+</li><li>
+<p><a href="#label-Mixed+Names">Mixed Names</a></p>
+</li></ul>
+</li><li>
+<p><a href="#label-Argument+Strings">Argument Strings</a></p>
+</li><li>
+<p><a href="#label-Argument+Values">Argument Values</a></p>
+<ul><li>
+<p><a href="#label-Explicit+Argument+Values">Explicit Argument Values</a></p>
+<ul><li>
+<p><a href="#label-Explicit+Values+in+Array">Explicit Values in Array</a></p>
+</li><li>
+<p><a href="#label-Explicit+Values+in+Hash">Explicit Values in Hash</a></p>
+</li></ul>
+</li><li>
+<p><a href="#label-Argument+Value+Patterns">Argument Value Patterns</a></p>
+</li></ul>
+</li><li>
+<p><a href="#label-Argument+Converters">Argument Converters</a></p>
+</li><li>
+<p><a href="#label-Descriptions">Descriptions</a></p>
+</li><li>
+<p><a href="#label-Option+Handlers">Option Handlers</a></p>
+<ul><li>
+<p><a href="#label-Handler+Blocks">Handler Blocks</a></p>
+</li><li>
+<p><a href="#label-Handler+Procs">Handler Procs</a></p>
+</li><li>
+<p><a href="#label-Handler+Methods">Handler Methods</a></p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-Option+Names">Option Names<span><a href="#label-Option+Names">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>There are two kinds of option names:</p>
+<ul><li>
+<p>Short option name, consisting of a single hyphen and a single character.</p>
+</li><li>
+<p>Long option name, consisting of two hyphens and one or more characters.</p>
+</li></ul>
+
+<h4 id="label-Short+Names">Short Names<span><a href="#label-Short+Names">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-Simple+Short+Names">Simple Short Names<span><a href="#label-Simple+Short+Names">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><a href="../File.html"><code>File</code></a> <code>short_simple.rb</code> defines two options:</p>
+<ul><li>
+<p>One with short name <code>-x</code>.</p>
+</li><li>
+<p>The other with two short names, in effect, aliases, <code>-1</code> and <code>-%</code>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-x&#39;</span>, <span class="ruby-string">&#39;One short name&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;-x&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-1&#39;</span>, <span class="ruby-string">&#39;-%&#39;</span>, <span class="ruby-string">&#39;Two short names (aliases)&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;-1 or -%&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby short_simple.rb --help
+Usage: short_simple [options]
+    -x                               One short name
+    -1, -%                           Two short names (aliases)
+$ ruby short_simple.rb -x
+[&quot;-x&quot;, true]
+$ ruby short_simple.rb -1 -x -%
+[&quot;-1 or -%&quot;, true]
+[&quot;-x&quot;, true]
+[&quot;-1 or -%&quot;, true]</pre>
+
+<h5 id="label-Short+Names+with+Required+Arguments">Short Names with Required Arguments<span><a href="#label-Short+Names+with+Required+Arguments">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>A short name followed (no whitespace) by a dummy word defines an option that requires an argument.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>short_required.rb</code> defines an option <code>-x</code> that requires an argument.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-xXXX&#39;</span>, <span class="ruby-string">&#39;Short name with required argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;-x&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby short_required.rb --help
+Usage: short_required [options]
+    -xXXX                            Short name with required argument
+$ ruby short_required.rb -x
+short_required.rb:6:in `&lt;main&gt;&#39;: missing argument: -x (OptionParser::MissingArgument)
+$ ruby short_required.rb -x FOO
+[&quot;-x&quot;, &quot;FOO&quot;]</pre>
+
+<h5 id="label-Short+Names+with+Optional+Arguments">Short Names with Optional Arguments<span><a href="#label-Short+Names+with+Optional+Arguments">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>A short name followed (with whitespace) by a dummy word in square brackets defines an option that allows an optional argument.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>short_optional.rb</code> defines an option <code>-x</code> that allows an optional argument.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-x [XXX]&#39;</span>, <span class="ruby-string">&#39;Short name with optional argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;-x&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby short_optional.rb --help
+Usage: short_optional [options]
+    -x [XXX]                         Short name with optional argument
+$ ruby short_optional.rb -x
+[&quot;-x&quot;, nil]
+$ ruby short_optional.rb -x FOO
+[&quot;-x&quot;, &quot;FOO&quot;]</pre>
+
+<h5 id="label-Short+Names+from+Range">Short Names from <a href="../Range.html"><code>Range</code></a><span><a href="#label-Short+Names+from+Range">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>You can define an option with multiple short names taken from a range of characters. The parser yields both the actual character cited and the value.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>short_range.rb</code> defines an option with short names for all printable characters from <code>!</code> to <code>~</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-[!-~]&#39;</span>, <span class="ruby-string">&#39;Short names in (very large) range&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;!-~&#39;</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby short_range.rb --help
+Usage: short_range [options]
+    -[!-~]                           Short names in (very large) range
+$ ruby short_range.rb -!
+[&quot;!-~&quot;, &quot;!&quot;, nil]
+$ ruby short_range.rb -!
+[&quot;!-~&quot;, &quot;!&quot;, nil]
+$ ruby short_range.rb -A
+[&quot;!-~&quot;, &quot;A&quot;, nil]
+$ ruby short_range.rb -z
+[&quot;!-~&quot;, &quot;z&quot;, nil]</pre>
+
+<h4 id="label-Long+Names">Long Names<span><a href="#label-Long+Names">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-Simple+Long+Names">Simple Long Names<span><a href="#label-Simple+Long+Names">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><a href="../File.html"><code>File</code></a> <code>long_simple.rb</code> defines two options:</p>
+<ul><li>
+<p>One with long name <code>-xxx</code>.</p>
+</li><li>
+<p>The other with two long names, in effect, aliases, <code>--y1%</code> and <code>--z2#</code>.</p>
+
+<p>require ‘optparse’ parser = <a href="../OptionParser.html#method-c-new"><code>OptionParser.new</code></a> parser.on(‘–xxx’, ‘One long name’) do |value|</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-identifier">value</span>]
+</pre>
+
+<p>end parser.on(‘–y1%’, ‘–z2#’, ‘Two long names (aliases)’) do |value|</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--y1% or --z2#&#39;</span>, <span class="ruby-identifier">value</span>]
+</pre>
+
+<p>end parser.parse!</p>
+</li></ul>
+
+<p>Executions:</p>
+
+<pre>$ ruby long_simple.rb --help
+Usage: long_simple [options]
+        --xxx                        One long name
+        --y1%, --z2#                 Two long names (aliases)
+$ ruby long_simple.rb --xxx
+[&quot;--xxx&quot;, true]
+$ ruby long_simple.rb --y1% --xxx --z2#
+[&quot;--y1% or --z2#&quot;, true]
+[&quot;--xxx&quot;, true]
+[&quot;--y1% or --z2#&quot;, true]</pre>
+
+<h5 id="label-Long+Names+with+Required+Arguments">Long Names with Required Arguments<span><a href="#label-Long+Names+with+Required+Arguments">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>A long name followed (with whitespace) by a dummy word defines an option that requires an argument.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>long_required.rb</code> defines an option <code>--xxx</code> that requires an argument.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--xxx XXX&#39;</span>, <span class="ruby-string">&#39;Long name with required argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby long_required.rb --help
+Usage: long_required [options]
+        --xxx XXX                    Long name with required argument
+$ ruby long_required.rb --xxx
+long_required.rb:6:in `&lt;main&gt;&#39;: missing argument: --xxx (OptionParser::MissingArgument)
+$ ruby long_required.rb --xxx FOO
+[&quot;--xxx&quot;, &quot;FOO&quot;]</pre>
+
+<h5 id="label-Long+Names+with+Optional+Arguments">Long Names with Optional Arguments<span><a href="#label-Long+Names+with+Optional+Arguments">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>A long name followed (with whitespace) by a dummy word in square brackets defines an option that allows an optional argument.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>long_optional.rb</code> defines an option <code>--xxx</code> that allows an optional argument.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--xxx [XXX]&#39;</span>, <span class="ruby-string">&#39;Long name with optional argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby long_optional.rb --help
+Usage: long_optional [options]
+        --xxx [XXX]                  Long name with optional argument
+$ ruby long_optional.rb --xxx
+[&quot;--xxx&quot;, nil]
+$ ruby long_optional.rb --xxx FOO
+[&quot;--xxx&quot;, &quot;FOO&quot;]</pre>
+
+<h5 id="label-Long+Names+with+Negation">Long Names with Negation<span><a href="#label-Long+Names+with+Negation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>A long name may be defined with both positive and negative senses.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>long_with_negation.rb</code> defines an option that has both senses.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--[no-]binary&#39;</span>, <span class="ruby-string">&#39;Long name with negation&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby long_with_negation.rb --help
+Usage: long_with_negation [options]
+        --[no-]binary                Long name with negation
+$ ruby long_with_negation.rb --binary
+[true, TrueClass]
+$ ruby long_with_negation.rb --no-binary
+[false, FalseClass]</pre>
+
+<h4 id="label-Mixed+Names">Mixed Names<span><a href="#label-Mixed+Names">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>An option may have both short and long names.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>mixed_names.rb</code> defines a mixture of short and long names.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-x&#39;</span>, <span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-string">&#39;Short and long, no argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-yYYY&#39;</span>, <span class="ruby-string">&#39;--yyy&#39;</span>, <span class="ruby-string">&#39;Short and long, required argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--yyy&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-z [ZZZ]&#39;</span>, <span class="ruby-string">&#39;--zzz&#39;</span>, <span class="ruby-string">&#39;Short and long, optional argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--zzz&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby mixed_names.rb --help</pre>
+
+<p>Usage: mixed_names [options]</p>
+
+<pre>  -x, --xxx                        Short and long, no argument
+  -y, --yyyYYY                     Short and long, required argument
+  -z, --zzz [ZZZ]                  Short and long, optional argument
+$ ruby mixed_names.rb -x
+[&quot;--xxx&quot;, true]
+$ ruby mixed_names.rb --xxx
+[&quot;--xxx&quot;, true]
+$ ruby mixed_names.rb -y
+mixed_names.rb:12:in `&lt;main&gt;&#39;: missing argument: -y (OptionParser::MissingArgument)
+$ ruby mixed_names.rb -y FOO
+[&quot;--yyy&quot;, &quot;FOO&quot;]
+$ ruby mixed_names.rb --yyy
+mixed_names.rb:12:in `&lt;main&gt;&#39;: missing argument: --yyy (OptionParser::MissingArgument)
+$ ruby mixed_names.rb --yyy BAR
+[&quot;--yyy&quot;, &quot;BAR&quot;]
+$ ruby mixed_names.rb -z
+[&quot;--zzz&quot;, nil]
+$ ruby mixed_names.rb -z BAZ
+[&quot;--zzz&quot;, &quot;BAZ&quot;]
+$ ruby mixed_names.rb --zzz
+[&quot;--zzz&quot;, nil]
+$ ruby mixed_names.rb --zzz BAT
+[&quot;--zzz&quot;, &quot;BAT&quot;]</pre>
+
+<h3 id="label-Argument+Keywords">Argument Keywords<span><a href="#label-Argument+Keywords">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>As seen above, a given option name string may itself indicate whether the option has no argument, a required argument, or an optional argument.</p>
+
+<p>An alternative is to use a separate symbol keyword, which is one of <code>:NONE</code> (the default), <code>:REQUIRED</code>, <code>:OPTIONAL</code>.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>argument_keywords.rb</code> defines an option with a required argument.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-x&#39;</span>, <span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-value">:REQUIRED</span>, <span class="ruby-string">&#39;Required argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby argument_keywords.rb --help
+Usage: argument_keywords [options]
+    -x, --xxx                        Required argument
+$ ruby argument_styles.rb --xxx
+argument_styles.rb:6:in `&lt;main&gt;&#39;: missing argument: --xxx (OptionParser::MissingArgument)
+$ ruby argument_styles.rb --xxx FOO
+[&quot;--xxx&quot;, &quot;FOO&quot;]</pre>
+
+<h3 id="label-Argument+Strings">Argument Strings<span><a href="#label-Argument+Strings">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Still another way to specify a required argument is to define it in a string separate from the name string.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>argument_strings.rb</code> defines an option with a required argument.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-x&#39;</span>, <span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-string">&#39;=XXX&#39;</span>, <span class="ruby-string">&#39;Required argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby argument_strings.rb --help
+Usage: argument_strings [options]
+    -x, --xxx=XXX                    Required argument
+$ ruby argument_strings.rb --xxx
+argument_strings.rb:9:in `&lt;main&gt;&#39;: missing argument: --xxx (OptionParser::MissingArgument)
+$ ruby argument_strings.rb --xxx FOO
+[&quot;--xxx&quot;, &quot;FOO&quot;]</pre>
+
+<h3 id="label-Argument+Values">Argument Values<span><a href="#label-Argument+Values">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Permissible argument values may be restricted either by specifying explicit values or by providing a pattern that the given value must match.</p>
+
+<h4 id="label-Explicit+Argument+Values">Explicit Argument Values<span><a href="#label-Explicit+Argument+Values">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>You can specify argument values in either of two ways:</p>
+<ul><li>
+<p>Specify values an array of strings.</p>
+</li><li>
+<p>Specify values a hash.</p>
+</li></ul>
+
+<h5 id="label-Explicit+Values+in+Array">Explicit Values in <a href="../Array.html"><code>Array</code></a><span><a href="#label-Explicit+Values+in+Array">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>You can specify explicit argument values in an array of strings. The argument value must be one of those strings, or an unambiguous abbreviation.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>explicit_array_values.rb</code> defines options with explicit argument values.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-xXXX&#39;</span>, [<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-string">&#39;bar&#39;</span>], <span class="ruby-string">&#39;Values for required argument&#39;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;-x&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-y [YYY]&#39;</span>, [<span class="ruby-string">&#39;baz&#39;</span>, <span class="ruby-string">&#39;bat&#39;</span>], <span class="ruby-string">&#39;Values for optional argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;-y&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby explicit_array_values.rb --help
+Usage: explicit_array_values [options]
+    -xXXX                            Values for required argument
+    -y [YYY]                         Values for optional argument
+$ ruby explicit_array_values.rb -x
+explicit_array_values.rb:9:in `&lt;main&gt;&#39;: missing argument: -x (OptionParser::MissingArgument)
+$ ruby explicit_array_values.rb -x foo
+[&quot;-x&quot;, &quot;foo&quot;]
+$ ruby explicit_array_values.rb -x f
+[&quot;-x&quot;, &quot;foo&quot;]
+$ ruby explicit_array_values.rb -x bar
+[&quot;-x&quot;, &quot;bar&quot;]
+$ ruby explicit_array_values.rb -y ba
+explicit_array_values.rb:9:in `&lt;main&gt;&#39;: ambiguous argument: -y ba (OptionParser::AmbiguousArgument)
+$ ruby explicit_array_values.rb -x baz
+explicit_array_values.rb:9:in `&lt;main&gt;&#39;: invalid argument: -x baz (OptionParser::InvalidArgument)</pre>
+
+<h5 id="label-Explicit+Values+in+Hash">Explicit Values in <a href="../Hash.html"><code>Hash</code></a><span><a href="#label-Explicit+Values+in+Hash">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>You can specify explicit argument values in a hash with string keys. The value passed must be one of those keys, or an unambiguous abbreviation; the value yielded will be the value for that key.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>explicit_hash_values.rb</code> defines options with explicit argument values.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-xXXX&#39;</span>, {<span class="ruby-value">foo:</span> <span class="ruby-value">0</span>, <span class="ruby-value">bar:</span> <span class="ruby-value">1</span>}, <span class="ruby-string">&#39;Values for required argument&#39;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;-x&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-y [YYY]&#39;</span>, {<span class="ruby-value">baz:</span> <span class="ruby-value">2</span>, <span class="ruby-value">bat:</span> <span class="ruby-value">3</span>}, <span class="ruby-string">&#39;Values for optional argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;-y&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby explicit_hash_values.rb --help
+Usage: explicit_hash_values [options]
+    -xXXX                            Values for required argument
+    -y [YYY]                         Values for optional argument
+$ ruby explicit_hash_values.rb -x
+explicit_hash_values.rb:9:in `&lt;main&gt;&#39;: missing argument: -x (OptionParser::MissingArgument)
+$ ruby explicit_hash_values.rb -x foo
+[&quot;-x&quot;, 0]
+$ ruby explicit_hash_values.rb -x f
+[&quot;-x&quot;, 0]
+$ ruby explicit_hash_values.rb -x bar
+[&quot;-x&quot;, 1]
+$ ruby explicit_hash_values.rb -x baz
+explicit_hash_values.rb:9:in `&lt;main&gt;&#39;: invalid argument: -x baz (OptionParser::InvalidArgument)
+$ ruby explicit_hash_values.rb -y
+[&quot;-y&quot;, nil]
+$ ruby explicit_hash_values.rb -y baz
+[&quot;-y&quot;, 2]
+$ ruby explicit_hash_values.rb -y bat
+[&quot;-y&quot;, 3]
+$ ruby explicit_hash_values.rb -y ba
+explicit_hash_values.rb:9:in `&lt;main&gt;&#39;: ambiguous argument: -y ba (OptionParser::AmbiguousArgument)
+$ ruby explicit_hash_values.rb -y bam
+[&quot;-y&quot;, nil]</pre>
+
+<h4 id="label-Argument+Value+Patterns">Argument Value Patterns<span><a href="#label-Argument+Value+Patterns">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>You can restrict permissible argument values by specifying a <a href="../Regexp.html"><code>Regexp</code></a> that the given argument must match.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>matched_values.rb</code> defines options with matched argument values.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--xxx XXX&#39;</span>, <span class="ruby-regexp">/foo/i</span>, <span class="ruby-string">&#39;Matched values&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby matched_values.rb --help
+Usage: matched_values [options]
+        --xxx XXX                    Matched values
+$ ruby matched_values.rb --xxx foo
+[&quot;--xxx&quot;, &quot;foo&quot;]
+$ ruby matched_values.rb --xxx FOO
+[&quot;--xxx&quot;, &quot;FOO&quot;]
+$ ruby matched_values.rb --xxx bar
+matched_values.rb:6:in `&lt;main&gt;&#39;: invalid argument: --xxx bar (OptionParser::InvalidArgument)</pre>
+
+<h3 id="label-Argument+Converters">Argument Converters<span><a href="#label-Argument+Converters">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>An option can specify that its argument is to be converted from the default <a href="../String.html"><code>String</code></a> to an instance of another class.</p>
+
+<p>There are a number of built-in converters. You can also define custom converters.</p>
+
+<p>See <a href="./argument_converters_rdoc.html">Argument Converters</a>.</p>
+
+<h3 id="label-Descriptions">Descriptions<span><a href="#label-Descriptions">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>A description parameter is any string parameter that is not recognized as an <a href="#label-Option+Names">option name</a> or a <a href="#label-Terminators">terminator</a>; in other words, it does not begin with a hyphen.</p>
+
+<p>You may give any number of description parameters; each becomes a line in the text generated by option <code>--help</code>.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>descriptions.rb</code> has six strings in its array <code>descriptions</code>. These are all passed as parameters to <a href="../OptionParser.html#method-i-on"><code>OptionParser#on</code></a>, so that they all, line for line, become the option’s description.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">description</span> = <span class="ruby-identifier">&lt;&lt;-EOT</span>
+<span class="ruby-value">Lorem ipsum dolor sit amet, consectetuer
+adipiscing elit. Aenean commodo ligula eget.
+Aenean massa. Cum sociis natoque penatibus
+et magnis dis parturient montes, nascetur
+ridiculus mus. Donec quam felis, ultricies
+nec, pellentesque eu, pretium quis, sem.
+</span><span class="ruby-identifier">EOT</span>
+<span class="ruby-identifier">descriptions</span> = <span class="ruby-identifier">description</span>.<span class="ruby-identifier">split</span>(<span class="ruby-identifier">$/</span>)
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">descriptions</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby descriptions.rb --help
+Usage: descriptions [options]
+        --xxx                        Lorem ipsum dolor sit amet, consectetuer
+                                     adipiscing elit. Aenean commodo ligula eget.
+                                     Aenean massa. Cum sociis natoque penatibus
+                                     et magnis dis parturient montes, nascetur
+                                     ridiculus mus. Donec quam felis, ultricies
+                                     nec, pellentesque eu, pretium quis, sem.
+$ ruby descriptions.rb --xxx
+[&quot;--xxx&quot;, true]</pre>
+
+<h3 id="label-Option+Handlers">Option Handlers<span><a href="#label-Option+Handlers">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The handler for an option is an executable that will be called when the option is encountered.  The handler may be:</p>
+<ul><li>
+<p>A block (this is most often seen).</p>
+</li><li>
+<p>A proc.</p>
+</li><li>
+<p>A method.</p>
+</li></ul>
+
+<h4 id="label-Handler+Blocks">Handler Blocks<span><a href="#label-Handler+Blocks">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>An option handler may be a block.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>block.rb</code> defines an option that has a handler block.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-string">&#39;Option with no argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;Handler block for -xxx called with value:&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--yyy YYY&#39;</span>, <span class="ruby-string">&#39;Option with required argument&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;Handler block for -yyy called with value:&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby block.rb --help
+Usage: block [options]
+        --xxx                        Option with no argument
+        --yyy YYY                    Option with required argument
+$ ruby block.rb --xxx
+[&quot;Handler block for -xxx called with value:&quot;, true]
+$ ruby block.rb --yyy FOO
+[&quot;Handler block for -yyy called with value:&quot;, &quot;FOO&quot;]</pre>
+
+<h4 id="label-Handler+Procs">Handler Procs<span><a href="#label-Handler+Procs">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>An option handler may be a <a href="../Proc.html"><code>Proc</code></a>.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>proc.rb</code> defines an option that has a handler proc.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(
+  <span class="ruby-string">&#39;--xxx&#39;</span>,
+  <span class="ruby-string">&#39;Option with no argument&#39;</span>,
+  <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">value</span>) {<span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;Handler proc for -xxx called with value:&#39;</span>, <span class="ruby-identifier">value</span>]}
+)
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(
+  <span class="ruby-string">&#39;--yyy YYY&#39;</span>,
+  <span class="ruby-string">&#39;Option with required argument&#39;</span>,
+  <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">value</span>) {<span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;Handler proc for -yyy called with value:&#39;</span>, <span class="ruby-identifier">value</span>]}
+)
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby proc.rb --help
+Usage: proc [options]
+        --xxx                        Option with no argument
+        --yyy YYY                    Option with required argument
+$ ruby proc.rb --xxx
+[&quot;Handler proc for -xxx called with value:&quot;, true]
+$ ruby proc.rb --yyy FOO
+[&quot;Handler proc for -yyy called with value:&quot;, &quot;FOO&quot;]</pre>
+
+<h4 id="label-Handler+Methods">Handler Methods<span><a href="#label-Handler+Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>An option handler may be a Method.</p>
+
+<p><a href="../File.html"><code>File</code></a> <code>proc.rb</code> defines an option that has a handler method.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">xxx_handler</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;Handler method for -xxx called with value:&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--xxx&#39;</span>, <span class="ruby-string">&#39;Option with no argument&#39;</span>, <span class="ruby-identifier">method</span>(<span class="ruby-value">:xxx_handler</span>))
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">yyy_handler</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">p</span> [<span class="ruby-string">&#39;Handler method for -yyy called with value:&#39;</span>, <span class="ruby-identifier">value</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--yyy YYY&#39;</span>, <span class="ruby-string">&#39;Option with required argument&#39;</span>, <span class="ruby-identifier">method</span>(<span class="ruby-value">:yyy_handler</span>))
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby method.rb --help
+Usage: method [options]
+        --xxx                        Option with no argument
+        --yyy YYY                    Option with required argument
+$ ruby method.rb --xxx
+[&quot;Handler method for -xxx called with value:&quot;, true]
+$ ruby method.rb --yyy FOO
+[&quot;Handler method for -yyy called with value:&quot;, &quot;FOO&quot;]</pre>
+
+</main>
+

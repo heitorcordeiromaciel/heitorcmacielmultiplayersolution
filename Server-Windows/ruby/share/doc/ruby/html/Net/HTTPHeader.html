@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>module Net::HTTPHeader - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,module,Net::HTTPHeader">
+
+    <meta name="description" content="module Net::HTTPHeader: The \HTTPHeader module provides access to \HTTP headers. HTTPRequest).">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Net/HTTPHeader.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="module">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>      <a href="#module-Net::HTTPHeader-label-Request+and+Response+Fields">Request and Response Fields</a>
+          <li>      <a href="#module-Net::HTTPHeader-label-About+the+Examples">About the Examples</a>
+          <li>
+            <details open>
+              <summary>      <a href="#module-Net::HTTPHeader-label-Fields">Fields</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-Net::HTTPHeader-label-Field+Keys">Field Keys</a>
+          <li>      <a href="#module-Net::HTTPHeader-label-Field+Values">Field Values</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-Net::HTTPHeader-label-Convenience+Methods">Convenience Methods</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-Net::HTTPHeader-label-Setters">Setters</a>
+          <li>      <a href="#module-Net::HTTPHeader-label-Form+Setters">Form Setters</a>
+          <li>      <a href="#module-Net::HTTPHeader-label-Getters">Getters</a>
+          <li>      <a href="#module-Net::HTTPHeader-label-Queries">Queries</a>
+          <li>      <a href="#module-Net::HTTPHeader-label-Iterators">Iterators</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+  
+  
+  
+  
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-5B-5D">[]</a></li>
+      <li ><a href="#method-i-5B-5D-3D">[]=</a></li>
+      <li ><a href="#method-i-add_field">add_field</a></li>
+      <li ><a href="#method-i-append_field_value">append_field_value</a></li>
+      <li ><a href="#method-i-basic_auth">basic_auth</a></li>
+      <li ><a href="#method-i-basic_encode">basic_encode</a></li>
+      <li ><a href="#method-i-canonical_each">canonical_each</a></li>
+      <li ><a href="#method-i-capitalize">capitalize</a></li>
+      <li ><a href="#method-i-chunked-3F">chunked?</a></li>
+      <li ><a href="#method-i-connection_close-3F">connection_close?</a></li>
+      <li ><a href="#method-i-connection_keep_alive-3F">connection_keep_alive?</a></li>
+      <li ><a href="#method-i-content_length">content_length</a></li>
+      <li ><a href="#method-i-content_length-3D">content_length=</a></li>
+      <li ><a href="#method-i-content_range">content_range</a></li>
+      <li ><a href="#method-i-content_type">content_type</a></li>
+      <li ><a href="#method-i-content_type-3D">content_type=</a></li>
+      <li ><a href="#method-i-delete">delete</a></li>
+      <li ><a href="#method-i-each">each</a></li>
+      <li ><a href="#method-i-each_capitalized">each_capitalized</a></li>
+      <li ><a href="#method-i-each_capitalized_name">each_capitalized_name</a></li>
+      <li ><a href="#method-i-each_header">each_header</a></li>
+      <li ><a href="#method-i-each_key">each_key</a></li>
+      <li ><a href="#method-i-each_name">each_name</a></li>
+      <li ><a href="#method-i-each_value">each_value</a></li>
+      <li ><a href="#method-i-fetch">fetch</a></li>
+      <li ><a href="#method-i-form_data-3D">form_data=</a></li>
+      <li ><a href="#method-i-get_fields">get_fields</a></li>
+      <li ><a href="#method-i-key-3F">key?</a></li>
+      <li ><a href="#method-i-main_type">main_type</a></li>
+      <li ><a href="#method-i-proxy_basic_auth">proxy_basic_auth</a></li>
+      <li ><a href="#method-i-range">range</a></li>
+      <li ><a href="#method-i-range-3D">range=</a></li>
+      <li ><a href="#method-i-range_length">range_length</a></li>
+      <li ><a href="#method-i-set_content_type">set_content_type</a></li>
+      <li ><a href="#method-i-set_field">set_field</a></li>
+      <li ><a href="#method-i-set_form">set_form</a></li>
+      <li ><a href="#method-i-set_form_data">set_form_data</a></li>
+      <li ><a href="#method-i-set_range">set_range</a></li>
+      <li ><a href="#method-i-sub_type">sub_type</a></li>
+      <li ><a href="#method-i-to_hash">to_hash</a></li>
+      <li ><a href="#method-i-type_params">type_params</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="module-Net::HTTPHeader">
+  
+  
+    <ol role="navigation" aria-label="breadcrumb" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../Net.html">Net</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>HTTPHeader</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <h1 id="module-Net::HTTPHeader" class="anchor-link module">
+    module Net::HTTPHeader
+  </h1>
+
+  <section class="description">
+    
+<p>The HTTPHeader module provides access to HTTP headers.</p>
+
+<p>The module is included in:</p>
+<ul><li>
+<p><a href="HTTPGenericRequest.html"><code>Net::HTTPGenericRequest</code></a> (and therefore <a href="HTTPRequest.html"><code>Net::HTTPRequest</code></a>).</p>
+</li><li>
+<p><a href="HTTPResponse.html"><code>Net::HTTPResponse</code></a>.</p>
+</li></ul>
+
+<p>The headers are a hash-like collection of key/value pairs called <em>fields</em>.</p>
+
+<h2 id="module-Net::HTTPHeader-label-Request+and+Response+Fields">Request and Response Fields<span><a href="#module-Net::HTTPHeader-label-Request+and+Response+Fields">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Headers may be included in:</p>
+<ul><li>
+<p>A <a href="HTTPRequest.html"><code>Net::HTTPRequest</code></a> object: the object’s headers will be sent with the request. Any fields may be defined in the request; see <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Setters">Setters</a>.</p>
+</li><li>
+<p>A <a href="HTTPResponse.html"><code>Net::HTTPResponse</code></a> object: the objects headers are usually those returned from the host. Fields may be retrieved from the object; see <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Getters">Getters</a> and <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Iterators">Iterators</a>.</p>
+</li></ul>
+
+<p>Exactly which fields should be sent or expected depends on the host; see:</p>
+<ul><li>
+<p><a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields">Request fields</a>.</p>
+</li><li>
+<p><a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Response_fields">Response fields</a>.</p>
+</li></ul>
+
+<h2 id="module-Net::HTTPHeader-label-About+the+Examples">About the Examples<span><a href="#module-Net::HTTPHeader-label-About+the+Examples">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Examples here assume that <code>net/http</code> has been required (which also requires <code>uri</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;net/http&#39;</span>
+</pre>
+
+<p>Many code examples here use these example websites:</p>
+<ul><li>
+<p><a href="https://jsonplaceholder.typicode.com">jsonplaceholder.typicode.com</a>.</p>
+</li><li>
+<p><a href="http://example.com">example.com</a>.</p>
+</li></ul>
+
+<p>Some examples also assume these variables:</p>
+
+<pre class="ruby"><span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>(<span class="ruby-string">&#39;https://jsonplaceholder.typicode.com/&#39;</span>)
+<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">freeze</span> <span class="ruby-comment"># Examples may not modify.</span>
+<span class="ruby-identifier">hostname</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">hostname</span> <span class="ruby-comment"># =&gt; &quot;jsonplaceholder.typicode.com&quot;</span>
+<span class="ruby-identifier">path</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">path</span>         <span class="ruby-comment"># =&gt; &quot;/&quot;</span>
+<span class="ruby-identifier">port</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>         <span class="ruby-comment"># =&gt; 443</span>
+</pre>
+
+<p>So that example requests may be written as:</p>
+
+<pre class="ruby"><span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">uri</span>)
+<span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/index.html&#39;</span>)
+<span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">hostname</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">http</span>.<span class="ruby-identifier">get</span>(<span class="ruby-string">&#39;/todos/1&#39;</span>)
+  <span class="ruby-identifier">http</span>.<span class="ruby-identifier">get</span>(<span class="ruby-string">&#39;/todos/2&#39;</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>An example that needs a modified <a href="../URI.html"><code>URI</code></a> first duplicates <code>uri</code>, then modifies the duplicate:</p>
+
+<pre class="ruby"><span class="ruby-identifier">_uri</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-identifier">_uri</span>.<span class="ruby-identifier">path</span> = <span class="ruby-string">&#39;/todos/1&#39;</span>
+</pre>
+
+<h2 id="module-Net::HTTPHeader-label-Fields">Fields<span><a href="#module-Net::HTTPHeader-label-Fields">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A header field is a key/value pair.</p>
+
+<h3 id="module-Net::HTTPHeader-label-Field+Keys">Field Keys<span><a href="#module-Net::HTTPHeader-label-Field+Keys">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>A field key may be:</p>
+<ul><li>
+<p>A string: Key <code>&#39;Accept&#39;</code> is treated as if it were <code>&#39;Accept&#39;.downcase</code>;  i.e., <code>&#39;accept&#39;</code>.</p>
+</li><li>
+<p>A symbol: Key <code>:Accept</code> is treated as if it were <code>:Accept.to_s.downcase</code>;  i.e., <code>&#39;accept&#39;</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
+<span class="ruby-identifier">req</span>[<span class="ruby-value">:accept</span>]  <span class="ruby-comment"># =&gt; &quot;*/*&quot;</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Accept&#39;</span>] <span class="ruby-comment"># =&gt; &quot;*/*&quot;</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;ACCEPT&#39;</span>] <span class="ruby-comment"># =&gt; &quot;*/*&quot;</span>
+
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;accept&#39;</span>] = <span class="ruby-string">&#39;text/html&#39;</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-value">:accept</span>] = <span class="ruby-string">&#39;text/html&#39;</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;ACCEPT&#39;</span>] = <span class="ruby-string">&#39;text/html&#39;</span>
+</pre>
+
+<h3 id="module-Net::HTTPHeader-label-Field+Values">Field Values<span><a href="#module-Net::HTTPHeader-label-Field+Values">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>A field value may be returned as an array of strings or as a string:</p>
+<ul><li>
+<p>These methods return field values as arrays:</p>
+<ul><li>
+<p><a href="HTTPHeader.html#method-i-get_fields"><code>get_fields</code></a>: Returns the array value for the given key, or <code>nil</code> if it does not exist.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-to_hash"><code>to_hash</code></a>: Returns a hash of all header fields: each key is a field name; its value is the array value for the field.</p>
+</li></ul>
+</li><li>
+<p>These methods return field values as string; the string value for a field is equivalent to <code>self[key.downcase.to_s].join(&#39;, &#39;))</code>:</p>
+<ul><li>
+<p><a href="HTTPHeader.html#method-i-5B-5D"><code>[]</code></a>: Returns the string value for the given key, or <code>nil</code> if it does not exist.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-fetch"><code>fetch</code></a>: Like <a href="HTTPHeader.html#method-i-5B-5D"><code>[]</code></a>, but accepts a default value to be returned if the key does not exist.</p>
+</li></ul>
+</li></ul>
+
+<p>The field value may be set:</p>
+<ul><li>
+<p><a href="HTTPHeader.html#method-i-5B-5D-3D"><code>[]=</code></a>: Sets the value for the given key; the given value may be a string, a symbol, an array, or a hash.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-add_field"><code>add_field</code></a>: Adds a given value to a value for the given key (not overwriting the existing value).</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-delete"><code>delete</code></a>: Deletes the field for the given key.</p>
+</li></ul>
+
+<p>Example field values:</p>
+<ul><li>
+<p>String:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Accept&#39;</span>] = <span class="ruby-string">&#39;text/html&#39;</span> <span class="ruby-comment"># =&gt; &quot;text/html&quot;</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Accept&#39;</span>]               <span class="ruby-comment"># =&gt; &quot;text/html&quot;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-string">&#39;Accept&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;text/html&quot;]</span>
+</pre>
+</li><li>
+<p>Symbol:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Accept&#39;</span>] = <span class="ruby-value">:text</span>    <span class="ruby-comment"># =&gt; :text</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Accept&#39;</span>]            <span class="ruby-comment"># =&gt; &quot;text&quot;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-string">&#39;Accept&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;text&quot;]</span>
+</pre>
+</li><li>
+<p>Simple array:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>[<span class="ruby-value">:foo</span>] = <span class="ruby-node">%w[bar baz bat]</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-value">:foo</span>]            <span class="ruby-comment"># =&gt; &quot;bar, baz, bat&quot;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-value">:foo</span>) <span class="ruby-comment"># =&gt; [&quot;bar&quot;, &quot;baz&quot;, &quot;bat&quot;]</span>
+</pre>
+</li><li>
+<p>Simple hash:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>[<span class="ruby-value">:foo</span>] = {<span class="ruby-value">bar:</span> <span class="ruby-value">0</span>, <span class="ruby-value">baz:</span> <span class="ruby-value">1</span>, <span class="ruby-value">bat:</span> <span class="ruby-value">2</span>}
+<span class="ruby-identifier">req</span>[<span class="ruby-value">:foo</span>]            <span class="ruby-comment"># =&gt; &quot;bar, 0, baz, 1, bat, 2&quot;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-value">:foo</span>) <span class="ruby-comment"># =&gt; [&quot;bar&quot;, &quot;0&quot;, &quot;baz&quot;, &quot;1&quot;, &quot;bat&quot;, &quot;2&quot;]</span>
+</pre>
+</li><li>
+<p>Nested:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>[<span class="ruby-value">:foo</span>] = [<span class="ruby-node">%w[bar baz]</span>, {<span class="ruby-value">bat:</span> <span class="ruby-value">0</span>, <span class="ruby-value">bam:</span> <span class="ruby-value">1</span>}]
+<span class="ruby-identifier">req</span>[<span class="ruby-value">:foo</span>]            <span class="ruby-comment"># =&gt; &quot;bar, baz, bat, 0, bam, 1&quot;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-value">:foo</span>) <span class="ruby-comment"># =&gt; [&quot;bar&quot;, &quot;baz&quot;, &quot;bat&quot;, &quot;0&quot;, &quot;bam&quot;, &quot;1&quot;]</span>
+
+<span class="ruby-identifier">req</span>[<span class="ruby-value">:foo</span>] = {<span class="ruby-value">bar:</span> <span class="ruby-node">%w[baz bat]</span>, <span class="ruby-value">bam:</span> {<span class="ruby-value">bah:</span> <span class="ruby-value">0</span>, <span class="ruby-value">bad:</span> <span class="ruby-value">1</span>}}
+<span class="ruby-identifier">req</span>[<span class="ruby-value">:foo</span>]            <span class="ruby-comment"># =&gt; &quot;bar, baz, bat, bam, bah, 0, bad, 1&quot;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-value">:foo</span>) <span class="ruby-comment"># =&gt; [&quot;bar&quot;, &quot;baz&quot;, &quot;bat&quot;, &quot;bam&quot;, &quot;bah&quot;, &quot;0&quot;, &quot;bad&quot;, &quot;1&quot;]</span>
+</pre>
+</li></ul>
+
+<h2 id="module-Net::HTTPHeader-label-Convenience+Methods">Convenience Methods<span><a href="#module-Net::HTTPHeader-label-Convenience+Methods">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Various convenience methods retrieve values, set values, query values, set form values, or iterate over fields.</p>
+
+<h3 id="module-Net::HTTPHeader-label-Setters">Setters<span><a href="#module-Net::HTTPHeader-label-Setters">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Method <a href="HTTPHeader.html#method-i-5B-5D-3D"><code>[]=</code></a> can set any field, but does little to validate the new value; some of the other setter methods provide some validation:</p>
+<ul><li>
+<p><a href="HTTPHeader.html#method-i-5B-5D-3D"><code>[]=</code></a>: Sets the string or array value for the given key.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-add_field"><code>add_field</code></a>: Creates or adds to the array value for the given key.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-basic_auth"><code>basic_auth</code></a>: Sets the string authorization header for <code>&#39;Authorization&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-content_length-3D"><code>content_length=</code></a>: Sets the integer length for field <code>&#39;Content-Length</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-content_type-3D"><code>content_type=</code></a>: Sets the string value for field <code>&#39;Content-Type&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-proxy_basic_auth"><code>proxy_basic_auth</code></a>: Sets the string authorization header for <code>&#39;Proxy-Authorization&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-set_range"><code>set_range</code></a>: Sets the value for field <code>&#39;Range&#39;</code>.</p>
+</li></ul>
+
+<h3 id="module-Net::HTTPHeader-label-Form+Setters">Form Setters<span><a href="#module-Net::HTTPHeader-label-Form+Setters">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="HTTPHeader.html#method-i-set_form"><code>set_form</code></a>: Sets an HTML form data set.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-set_form_data"><code>set_form_data</code></a>: Sets header fields and a body from HTML form data.</p>
+</li></ul>
+
+<h3 id="module-Net::HTTPHeader-label-Getters">Getters<span><a href="#module-Net::HTTPHeader-label-Getters">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Method <a href="HTTPHeader.html#method-i-5B-5D"><code>[]</code></a> can retrieve the value of any field that exists, but always as a string; some of the other getter methods return something different from the simple string value:</p>
+<ul><li>
+<p><a href="HTTPHeader.html#method-i-5B-5D"><code>[]</code></a>: Returns the string field value for the given key.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-content_length"><code>content_length</code></a>: Returns the integer value of field <code>&#39;Content-Length&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-content_range"><code>content_range</code></a>: Returns the <a href="../Range.html"><code>Range</code></a> value of field <code>&#39;Content-Range&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-content_type"><code>content_type</code></a>: Returns the string value of field <code>&#39;Content-Type&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-fetch"><code>fetch</code></a>: Returns the string field value for the given key.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-get_fields"><code>get_fields</code></a>: Returns the array field value for the given <code>key</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-main_type"><code>main_type</code></a>: Returns first part of the string value of field <code>&#39;Content-Type&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-sub_type"><code>sub_type</code></a>: Returns second part of the string value of field <code>&#39;Content-Type&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-range"><code>range</code></a>: Returns an array of <a href="../Range.html"><code>Range</code></a> objects of field <code>&#39;Range&#39;</code>, or <code>nil</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-range_length"><code>range_length</code></a>: Returns the integer length of the range given in field <code>&#39;Content-Range&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-type_params"><code>type_params</code></a>: Returns the string parameters for <code>&#39;Content-Type&#39;</code>.</p>
+</li></ul>
+
+<h3 id="module-Net::HTTPHeader-label-Queries">Queries<span><a href="#module-Net::HTTPHeader-label-Queries">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="HTTPHeader.html#method-i-chunked-3F"><code>chunked?</code></a>: Returns whether field <code>&#39;Transfer-Encoding&#39;</code> is set to <code>&#39;chunked&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-connection_close-3F"><code>connection_close?</code></a>: Returns whether field <code>&#39;Connection&#39;</code> is set to <code>&#39;close&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-connection_keep_alive-3F"><code>connection_keep_alive?</code></a>: Returns whether field <code>&#39;Connection&#39;</code> is set to <code>&#39;keep-alive&#39;</code>.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-key-3F"><code>key?</code></a>: Returns whether a given key exists.</p>
+</li></ul>
+
+<h3 id="module-Net::HTTPHeader-label-Iterators">Iterators<span><a href="#module-Net::HTTPHeader-label-Iterators">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="HTTPHeader.html#method-i-each_capitalized"><code>each_capitalized</code></a>: Passes each field capitalized-name/value pair to the block.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-each_capitalized_name"><code>each_capitalized_name</code></a>: Passes each capitalized field name to the block.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-each_header"><code>each_header</code></a>: Passes each field name/value pair to the block.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-each_name"><code>each_name</code></a>: Passes each field name to the block.</p>
+</li><li>
+<p><a href="HTTPHeader.html#method-i-each_value"><code>each_value</code></a>: Passes each string field value to the block.</p>
+</li></ul>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="MAX_FIELD_LENGTH">MAX_FIELD_LENGTH
+        <dd>
+          
+        <dt id="MAX_KEY_LENGTH">MAX_KEY_LENGTH
+        <dd>
+          
+      </dl>
+    </section>
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-5B-5D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-5B-5D" title="Link to this method">
+                <span class="method-name">[]</span>
+                <span class="method-args">(key)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">a</span> = <span class="ruby-ivar">@header</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_s</span>] <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">a</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the string field value for the case-insensitive field <code>key</code>, or <code>nil</code> if there is no such key; see <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Fields">Fields</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;Connection&#39;</span>] <span class="ruby-comment"># =&gt; &quot;keep-alive&quot;</span>
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;Nosuch&#39;</span>]     <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+
+<p>Note that some field values may be retrieved via convenience methods; see <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Getters">Getters</a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-5B-5D-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-5B-5D-3D" title="Link to this method">
+                <span class="method-name">[]=</span>
+                <span class="method-args">(key, val)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 240</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">val</span>
+    <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">val</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">set_field</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Sets the value for the case-insensitive <code>key</code> to <code>val</code>, overwriting the previous value if the field exists; see <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Fields">Fields</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Accept&#39;</span>] <span class="ruby-comment"># =&gt; &quot;*/*&quot;</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Accept&#39;</span>] = <span class="ruby-string">&#39;text/html&#39;</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Accept&#39;</span>] <span class="ruby-comment"># =&gt; &quot;text/html&quot;</span>
+</pre>
+
+<p>Note that some field values may be set via convenience methods; see <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Setters">Setters</a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-add_field" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-add_field" title="Link to this method">
+                <span class="method-name">add_field</span>
+                <span class="method-args">(key, val)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="add_field-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_field</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">stringified_downcased_key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">stringified_downcased_key</span>)
+    <span class="ruby-identifier">append_field_value</span>(<span class="ruby-ivar">@header</span>[<span class="ruby-identifier">stringified_downcased_key</span>], <span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">set_field</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Adds value <code>val</code> to the value array for field <code>key</code> if the field exists; creates the field with the given <code>key</code> and <code>val</code> if it does not exist. see <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Fields">Fields</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">add_field</span>(<span class="ruby-string">&#39;Foo&#39;</span>, <span class="ruby-string">&#39;bar&#39;</span>)
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Foo&#39;</span>]            <span class="ruby-comment"># =&gt; &quot;bar&quot;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">add_field</span>(<span class="ruby-string">&#39;Foo&#39;</span>, <span class="ruby-string">&#39;baz&#39;</span>)
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Foo&#39;</span>]            <span class="ruby-comment"># =&gt; &quot;bar, baz&quot;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">add_field</span>(<span class="ruby-string">&#39;Foo&#39;</span>, <span class="ruby-node">%w[baz bam]</span>)
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Foo&#39;</span>]            <span class="ruby-comment"># =&gt; &quot;bar, baz, baz, bam&quot;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-string">&#39;Foo&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;bar&quot;, &quot;baz&quot;, &quot;baz&quot;, &quot;bam&quot;]</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-basic_auth" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-basic_auth" title="Link to this method">
+                <span class="method-name">basic_auth</span>
+                <span class="method-args">(account, password)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="basic_auth-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 945</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">basic_auth</span>(<span class="ruby-identifier">account</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;authorization&#39;</span>] = [<span class="ruby-identifier">basic_encode</span>(<span class="ruby-identifier">account</span>, <span class="ruby-identifier">password</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Sets header <code>&#39;Authorization&#39;</code> using the given <code>account</code> and <code>password</code> strings:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>.<span class="ruby-identifier">basic_auth</span>(<span class="ruby-string">&#39;my_account&#39;</span>, <span class="ruby-string">&#39;my_password&#39;</span>)
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Authorization&#39;</span>]
+<span class="ruby-comment"># =&gt; &quot;Basic bXlfYWNjb3VudDpteV9wYXNzd29yZA==&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-canonical_each" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-canonical_each" title="Link to this method">
+                <span class="method-name">canonical_each</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="HTTPHeader.html#method-i-each_capitalized">each_capitalized</a>
+        </div>
+      </div>
+
+      <div id="method-i-chunked-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-chunked-3F" title="Link to this method">
+                <span class="method-name">chunked?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="chunked-3F-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 654</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">chunked?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;transfer-encoding&#39;</span>]
+  <span class="ruby-identifier">field</span> = <span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Transfer-Encoding&#39;</span>]
+  (<span class="ruby-regexp">/(?:\A|[^\-\w])chunked(?![\-\w])/i</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">field</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>true</code> if field <code>&#39;Transfer-Encoding&#39;</code> exists and has value <code>&#39;chunked&#39;</code>, <code>false</code> otherwise; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#transfer-encoding-response-header">Transfer-Encoding response header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;Transfer-Encoding&#39;</span>] <span class="ruby-comment"># =&gt; &quot;chunked&quot;</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">chunked?</span>             <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-connection_close-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-connection_close-3F" title="Link to this method">
+                <span class="method-name">connection_close?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="connection_close-3F-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 966</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">connection_close?</span>
+  <span class="ruby-identifier">token</span> = <span class="ruby-regexp">/(?:\A|,)\s*close\s*(?:\z|,)/i</span>
+  <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;connection&#39;</span>]&amp;.<span class="ruby-identifier">grep</span>(<span class="ruby-identifier">token</span>) {<span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>}
+  <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;proxy-connection&#39;</span>]&amp;.<span class="ruby-identifier">grep</span>(<span class="ruby-identifier">token</span>) {<span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>}
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns whether the <a href="HTTP.html"><code>HTTP</code></a> session is to be closed.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-connection_keep_alive-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-connection_keep_alive-3F" title="Link to this method">
+                <span class="method-name">connection_keep_alive?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="connection_keep_alive-3F-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 974</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">connection_keep_alive?</span>
+  <span class="ruby-identifier">token</span> = <span class="ruby-regexp">/(?:\A|,)\s*keep-alive\s*(?:\z|,)/i</span>
+  <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;connection&#39;</span>]&amp;.<span class="ruby-identifier">grep</span>(<span class="ruby-identifier">token</span>) {<span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>}
+  <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;proxy-connection&#39;</span>]&amp;.<span class="ruby-identifier">grep</span>(<span class="ruby-identifier">token</span>) {<span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>}
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns whether the <a href="HTTP.html"><code>HTTP</code></a> session is to be kept alive.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-content_length" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-content_length" title="Link to this method">
+                <span class="method-name">content_length</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="content_length-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 616</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">content_length</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;Content-Length&#39;</span>)
+  <span class="ruby-identifier">len</span> = <span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Content-Length&#39;</span>].<span class="ruby-identifier">slice</span>(<span class="ruby-regexp">/\d+/</span>) <span class="ruby-keyword">or</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPHeaderSyntaxError</span>, <span class="ruby-string">&#39;wrong Content-Length format&#39;</span>
+  <span class="ruby-identifier">len</span>.<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the value of field <code>&#39;Content-Length&#39;</code> as an integer, or <code>nil</code> if there is no such field; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#content-length-request-header">Content-Length request header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/nosuch/1&#39;</span>)
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">content_length</span> <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">content_length</span> <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-content_length-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-content_length-3D" title="Link to this method">
+                <span class="method-name">content_length=</span>
+                <span class="method-args">(len)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="content_length-3D-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 637</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">content_length=</span>(<span class="ruby-identifier">len</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">len</span>
+    <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&#39;content-length&#39;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;content-length&#39;</span>] = [<span class="ruby-identifier">len</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">to_s</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Sets the value of field <code>&#39;Content-Length&#39;</code> to the given numeric; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#content-length-response-header">Content-Length response header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">_uri</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-identifier">hostname</span> = <span class="ruby-identifier">_uri</span>.<span class="ruby-identifier">hostname</span>           <span class="ruby-comment"># =&gt; &quot;jsonplaceholder.typicode.com&quot;</span>
+<span class="ruby-identifier">_uri</span>.<span class="ruby-identifier">path</span> = <span class="ruby-string">&#39;/posts&#39;</span>               <span class="ruby-comment"># =&gt; &quot;/posts&quot;</span>
+<span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">_uri</span>)    <span class="ruby-comment"># =&gt; #&lt;Net::HTTP::Post POST&gt;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-string">&#39;{&quot;title&quot;: &quot;foo&quot;,&quot;body&quot;: &quot;bar&quot;,&quot;userId&quot;: 1}&#39;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">content_length</span> = <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">size</span> <span class="ruby-comment"># =&gt; 42</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">content_type</span> = <span class="ruby-string">&#39;application/json&#39;</span>
+<span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">hostname</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">req</span>)
+<span class="ruby-keyword">end</span> <span class="ruby-comment"># =&gt; #&lt;Net::HTTPCreated 201 Created readbody=true&gt;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-content_range" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-content_range" title="Link to this method">
+                <span class="method-name">content_range</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="content_range-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 670</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">content_range</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;content-range&#39;</span>]
+  <span class="ruby-identifier">m</span> = <span class="ruby-regexp">%r&lt;\A\s*(\w+)\s+(\d+)-(\d+)/(\d+|\*)&gt;</span>.<span class="ruby-identifier">match</span>(<span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Content-Range&#39;</span>]) <span class="ruby-keyword">or</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPHeaderSyntaxError</span>, <span class="ruby-string">&#39;wrong Content-Range format&#39;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;bytes&#39;</span>
+  <span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">..</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a <a href="../Range.html"><code>Range</code></a> object representing the value of field <code>&#39;Content-Range&#39;</code>, or <code>nil</code> if no such field exists; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#content-range-response-header">Content-Range response header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;Content-Range&#39;</span>] <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;Content-Range&#39;</span>] = <span class="ruby-string">&#39;bytes 0-499/1000&#39;</span>
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;Content-Range&#39;</span>] <span class="ruby-comment"># =&gt; &quot;bytes 0-499/1000&quot;</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">content_range</span>    <span class="ruby-comment"># =&gt; 0..499</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-content_type" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-content_type" title="Link to this method">
+                <span class="method-name">content_type</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="content_type-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 701</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">content_type</span>
+  <span class="ruby-identifier">main</span> = <span class="ruby-identifier">main_type</span>()
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">main</span>
+
+  <span class="ruby-identifier">sub</span> = <span class="ruby-identifier">sub_type</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">sub</span>
+    <span class="ruby-node">&quot;#{main}/#{sub}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">main</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Media_type">media type</a> from the value of field <code>&#39;Content-Type&#39;</code>, or <code>nil</code> if no such field exists; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#content-type-response-header">Content-Type response header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;content-type&#39;</span>] <span class="ruby-comment"># =&gt; &quot;application/json; charset=utf-8&quot;</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">content_type</span>    <span class="ruby-comment"># =&gt; &quot;application/json&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-content_type-3D" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-content_type-3D" title="Link to this method">
+                <span class="method-name">content_type=</span>
+                <span class="method-args">(type, params = {})</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="HTTPHeader.html#method-i-set_content_type">set_content_type</a>
+        </div>
+      </div>
+
+      <div id="method-i-delete" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-delete" title="Link to this method">
+                <span class="method-name">delete</span>
+                <span class="method-args">(key)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 453</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Removes the header for the given case-insensitive <code>key</code> (see <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Fields">Fields</a>); returns the deleted value, or <code>nil</code> if no such field exists:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;Accept&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;*/*&quot;]</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;Nosuch&#39;</span>) <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-each" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-each" title="Link to this method">
+                <span class="method-name">each</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="HTTPHeader.html#method-i-each_header">each_header</a>
+        </div>
+      </div>
+
+      <div id="method-i-each_capitalized" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-each_capitalized" title="Link to this method">
+                <span class="method-name">each_capitalized</span>
+                <span class="method-args">() { |capitalize(k), join(&#39;, &#39;)| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="each_capitalized-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 484</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_capitalized</span>
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">size</span> }
+  <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">capitalize</span>(<span class="ruby-identifier">k</span>), <span class="ruby-identifier">v</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Like <a href="HTTPHeader.html#method-i-each_header"><code>each_header</code></a>, but the keys are returned in capitalized form.</p>
+
+<p><a href="HTTPHeader.html#method-i-canonical_each"><code>Net::HTTPHeader#canonical_each</code></a> is an alias for <a href="HTTPHeader.html#method-i-each_capitalized"><code>Net::HTTPHeader#each_capitalized</code></a>.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="HTTPHeader.html#method-i-canonical_each">canonical_each</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-each_capitalized_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-each_capitalized_name" title="Link to this method">
+                <span class="method-name">each_capitalized_name</span>
+                <span class="method-args">() { |key| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="each_capitalized_name-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_capitalized_name</span>  <span class="ruby-comment">#:yield: +key+</span>
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">size</span> }
+  <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">each_key</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">capitalize</span>(<span class="ruby-identifier">k</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Calls the block with each capitalized field name:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">each_capitalized_name</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;C&#39;</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;Content-Type&quot;</span>
+<span class="ruby-string">&quot;Connection&quot;</span>
+<span class="ruby-string">&quot;Cache-Control&quot;</span>
+<span class="ruby-string">&quot;Cf-Cache-Status&quot;</span>
+<span class="ruby-string">&quot;Cf-Ray&quot;</span>
+</pre>
+
+<p>The capitalization is system-dependent; see <a href="../case_mapping_rdoc.html">Case Mapping</a>.</p>
+
+<p>Returns an enumerator if no block is given.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-each_header" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-each_header" title="Link to this method">
+                <span class="method-name">each_header</span>
+                <span class="method-args">() { |key| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="each_header-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 364</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_header</span>   <span class="ruby-comment">#:yield: +key+, +value+</span>
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">size</span> }
+  <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">va</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">k</span>, <span class="ruby-identifier">va</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Calls the block with each key/value pair:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">each_header</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;c&#39;</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby">[<span class="ruby-string">&quot;content-type&quot;</span>, <span class="ruby-string">&quot;application/json; charset=utf-8&quot;</span>]
+[<span class="ruby-string">&quot;connection&quot;</span>, <span class="ruby-string">&quot;keep-alive&quot;</span>]
+[<span class="ruby-string">&quot;cache-control&quot;</span>, <span class="ruby-string">&quot;max-age=43200&quot;</span>]
+[<span class="ruby-string">&quot;cf-cache-status&quot;</span>, <span class="ruby-string">&quot;HIT&quot;</span>]
+[<span class="ruby-string">&quot;cf-ray&quot;</span>, <span class="ruby-string">&quot;771d17e9bc542cf5-ORD&quot;</span>]
+</pre>
+
+<p>Returns an enumerator if no block is given.</p>
+
+<p><a href="HTTPHeader.html#method-i-each"><code>Net::HTTPHeader#each</code></a> is an alias for <a href="HTTPHeader.html#method-i-each_header"><code>Net::HTTPHeader#each_header</code></a>.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="HTTPHeader.html#method-i-each">each</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-each_key" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-each_key" title="Link to this method">
+                <span class="method-name">each_key</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="HTTPHeader.html#method-i-each_name">each_name</a>
+        </div>
+      </div>
+
+      <div id="method-i-each_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-each_name" title="Link to this method">
+                <span class="method-name">each_name</span>
+                <span class="method-args">() { |key| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="each_name-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 391</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_name</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)   <span class="ruby-comment">#:yield: +key+</span>
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">size</span> }
+  <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">each_key</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Calls the block with each field key:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">each_key</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;c&#39;</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;content-type&quot;</span>
+<span class="ruby-string">&quot;connection&quot;</span>
+<span class="ruby-string">&quot;cache-control&quot;</span>
+<span class="ruby-string">&quot;cf-cache-status&quot;</span>
+<span class="ruby-string">&quot;cf-ray&quot;</span>
+</pre>
+
+<p>Returns an enumerator if no block is given.</p>
+
+<p><a href="HTTPHeader.html#method-i-each_name"><code>Net::HTTPHeader#each_name</code></a> is an alias for <a href="HTTPHeader.html#method-i-each_key"><code>Net::HTTPHeader#each_key</code></a>.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="HTTPHeader.html#method-i-each_key">each_key</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-each_value" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-each_value" title="Link to this method">
+                <span class="method-name">each_value</span>
+                <span class="method-args">() { |value| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="each_value-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 438</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_value</span>   <span class="ruby-comment">#:yield: +value+</span>
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">__method__</span>) { <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">size</span> }
+  <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">each_value</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">va</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">va</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Calls the block with each string field value:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">each_value</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;c&#39;</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;chunked&quot;</span>
+<span class="ruby-string">&quot;cf-q-config;dur=6.0000002122251e-06&quot;</span>
+<span class="ruby-string">&quot;cloudflare&quot;</span>
+</pre>
+
+<p>Returns an enumerator if no block is given.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-fetch" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-fetch" title="Link to this method">
+                  <span class="method-callseq">
+                    fetch(key, default_val = nil) {|key| ... } &rarr; object
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-fetch" title="Link to this method">
+                  <span class="method-callseq">
+                    fetch(key, default_val = nil) &rarr; value or default_val
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="fetch-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)   <span class="ruby-comment">#:yield: +key+</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">a</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">a</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>With a block, returns the string value for <code>key</code> if it exists; otherwise returns the value of the block; ignores the <code>default_val</code>; see <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Fields">Fields</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+
+<span class="ruby-comment"># Field exists; block not called.</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;Connection&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">fail</span> <span class="ruby-string">&#39;Cannot happen&#39;</span>
+<span class="ruby-keyword">end</span> <span class="ruby-comment"># =&gt; &quot;keep-alive&quot;</span>
+
+<span class="ruby-comment"># Field does not exist; block called.</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;Nosuch&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">downcase</span>
+<span class="ruby-keyword">end</span> <span class="ruby-comment"># =&gt; &quot;nosuch&quot;</span>
+</pre>
+
+<p>With no block, returns the string value for <code>key</code> if it exists; otherwise, returns <code>default_val</code> if it was given; otherwise raises an exception:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;Connection&#39;</span>, <span class="ruby-string">&#39;Foo&#39;</span>) <span class="ruby-comment"># =&gt; &quot;keep-alive&quot;</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;Nosuch&#39;</span>, <span class="ruby-string">&#39;Foo&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;Foo&quot;</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;Nosuch&#39;</span>)            <span class="ruby-comment"># Raises KeyError.</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-form_data-3D" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-form_data-3D" title="Link to this method">
+                <span class="method-name">form_data=</span>
+                <span class="method-args">(params, sep = &#39;&amp;&#39;)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="HTTPHeader.html#method-i-set_form_data">set_form_data</a>
+        </div>
+      </div>
+
+      <div id="method-i-get_fields" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-get_fields" title="Link to this method">
+                <span class="method-name">get_fields</span>
+                <span class="method-args">(key)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="get_fields-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_fields</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">stringified_downcased_key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@header</span>[<span class="ruby-identifier">stringified_downcased_key</span>]
+  <span class="ruby-ivar">@header</span>[<span class="ruby-identifier">stringified_downcased_key</span>].<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the array field value for the given <code>key</code>, or <code>nil</code> if there is no such field; see <a href="HTTPHeader.html#module-Net::HTTPHeader-label-Fields">Fields</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-string">&#39;Connection&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;keep-alive&quot;]</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-string">&#39;Nosuch&#39;</span>)     <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-key-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-key-3F" title="Link to this method">
+                <span class="method-name">key?</span>
+                <span class="method-args">(key)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="key-3F-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 463</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">key?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>true</code> if the field for the case-insensitive <code>key</code> exists, <code>false</code> otherwise:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;Accept&#39;</span>) <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;Nosuch&#39;</span>) <span class="ruby-comment"># =&gt; false</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-main_type" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-main_type" title="Link to this method">
+                <span class="method-name">main_type</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="main_type-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 723</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">main_type</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;content-type&#39;</span>]
+  <span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;;&#39;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;/&#39;</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the leading (‘type’) part of the <a href="https://en.wikipedia.org/wiki/Media_type">media type</a> from the value of field <code>&#39;Content-Type&#39;</code>, or <code>nil</code> if no such field exists; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#content-type-response-header">Content-Type response header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;content-type&#39;</span>] <span class="ruby-comment"># =&gt; &quot;application/json; charset=utf-8&quot;</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">main_type</span>       <span class="ruby-comment"># =&gt; &quot;application&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-proxy_basic_auth" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-proxy_basic_auth" title="Link to this method">
+                <span class="method-name">proxy_basic_auth</span>
+                <span class="method-args">(account, password)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="proxy_basic_auth-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 956</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">proxy_basic_auth</span>(<span class="ruby-identifier">account</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;proxy-authorization&#39;</span>] = [<span class="ruby-identifier">basic_encode</span>(<span class="ruby-identifier">account</span>, <span class="ruby-identifier">password</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Sets header <code>&#39;Proxy-Authorization&#39;</code> using the given <code>account</code> and <code>password</code> strings:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>.<span class="ruby-identifier">proxy_basic_auth</span>(<span class="ruby-string">&#39;my_account&#39;</span>, <span class="ruby-string">&#39;my_password&#39;</span>)
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Proxy-Authorization&#39;</span>]
+<span class="ruby-comment"># =&gt; &quot;Basic bXlfYWNjb3VudDpteV9wYXNzd29yZA==&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-range" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-range" title="Link to this method">
+                <span class="method-name">range</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="range-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 509</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">range</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;range&#39;</span>]
+
+  <span class="ruby-identifier">value</span> = <span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Range&#39;</span>]
+  <span class="ruby-comment"># byte-range-set = *( &quot;,&quot; OWS ) ( byte-range-spec / suffix-byte-range-spec )</span>
+  <span class="ruby-comment">#   *( OWS &quot;,&quot; [ OWS ( byte-range-spec / suffix-byte-range-spec ) ] )</span>
+  <span class="ruby-comment"># corrected collected ABNF</span>
+  <span class="ruby-comment"># http://tools.ietf.org/html/draft-ietf-httpbis-p5-range-19#section-5.4.1</span>
+  <span class="ruby-comment"># http://tools.ietf.org/html/draft-ietf-httpbis-p5-range-19#appendix-C</span>
+  <span class="ruby-comment"># http://tools.ietf.org/html/draft-ietf-httpbis-p1-messaging-19#section-3.2.5</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-regexp">/\Abytes=((?:,[ \t]*)*(?:\d+-\d*|-\d+)(?:[ \t]*,(?:[ \t]*\d+-\d*|-\d+)?)*)\z/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPHeaderSyntaxError</span>, <span class="ruby-node">&quot;invalid syntax for byte-ranges-specifier: &#39;#{value}&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">byte_range_set</span> = <span class="ruby-node">$1</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">byte_range_set</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/,/</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">m</span> = <span class="ruby-regexp">/(\d+)?\s*-\s*(\d+)?/i</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">spec</span>) <span class="ruby-keyword">or</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPHeaderSyntaxError</span>, <span class="ruby-node">&quot;invalid byte-range-spec: &#39;#{spec}&#39;&quot;</span>
+    <span class="ruby-identifier">d1</span> = <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">d2</span> = <span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>] <span class="ruby-keyword">and</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">d1</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">d2</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPHeaderSyntaxError</span>, <span class="ruby-node">&quot;last-byte-pos MUST greater than or equal to first-byte-pos but &#39;#{spec}&#39;&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">d1</span><span class="ruby-operator">..</span><span class="ruby-identifier">d2</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-identifier">d1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>]
+      <span class="ruby-operator">-</span><span class="ruby-identifier">d2</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPHeaderSyntaxError</span>, <span class="ruby-string">&#39;range is not specified&#39;</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-comment"># if result.empty?</span>
+  <span class="ruby-comment"># byte-range-set must include at least one byte-range-spec or suffix-byte-range-spec</span>
+  <span class="ruby-comment"># but above regexp already denies it.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">begin</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">end</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPHeaderSyntaxError</span>, <span class="ruby-string">&#39;only one suffix-byte-range-spec with zero suffix-length&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns an array of <a href="../Range.html"><code>Range</code></a> objects that represent the value of field <code>&#39;Range&#39;</code>, or <code>nil</code> if there is no such field; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#range-request-header">Range request header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Range&#39;</span>] = <span class="ruby-string">&#39;bytes=0-99,200-299,400-499&#39;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">range</span> <span class="ruby-comment"># =&gt; [0..99, 200..299, 400..499]</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;Range&#39;</span>)
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">range</span> <span class="ruby-comment"># # =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-range-3D" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-range-3D" title="Link to this method">
+                <span class="method-name">range=</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="HTTPHeader.html#method-i-set_range">set_range</a>
+        </div>
+      </div>
+
+      <div id="method-i-range_length" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-range_length" title="Link to this method">
+                <span class="method-name">range_length</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="range_length-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 687</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">range_length</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">content_range</span>() <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">end</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">begin</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the integer representing length of the value of field <code>&#39;Content-Range&#39;</code>, or <code>nil</code> if no such field exists; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#content-range-response-header">Content-Range response header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;Content-Range&#39;</span>] <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;Content-Range&#39;</span>] = <span class="ruby-string">&#39;bytes 0-499/1000&#39;</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">range_length</span>     <span class="ruby-comment"># =&gt; 500</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-set_content_type" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-set_content_type" title="Link to this method">
+                <span class="method-name">set_content_type</span>
+                <span class="method-args">(type, params = {})</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="set_content_type-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 772</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_content_type</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">params</span> = {})
+  <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;content-type&#39;</span>] = [<span class="ruby-identifier">type</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span><span class="ruby-node">&quot;; #{k}=#{v}&quot;</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;&#39;</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Sets the value of field <code>&#39;Content-Type&#39;</code>; returns the new value; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#content-type-request-header">Content-Type request header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_content_type</span>(<span class="ruby-string">&#39;application/json&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;application/json&quot;]</span>
+</pre>
+
+<p><a href="HTTPHeader.html#method-i-content_type-3D"><code>Net::HTTPHeader#content_type=</code></a> is an alias for <a href="HTTPHeader.html#method-i-set_content_type"><code>Net::HTTPHeader#set_content_type</code></a>.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="HTTPHeader.html#method-i-content_type-3D">content_type=</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-set_form" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-set_form" title="Link to this method">
+                <span class="method-name">set_form</span>
+                <span class="method-args">(params, enctype=&#39;application/x-www-form-urlencoded&#39;, formopt={})</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="set_form-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 924</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_form</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">enctype</span>=<span class="ruby-string">&#39;application/x-www-form-urlencoded&#39;</span>, <span class="ruby-identifier">formopt</span>={})
+  <span class="ruby-ivar">@body_data</span> = <span class="ruby-identifier">params</span>
+  <span class="ruby-ivar">@body</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@body_stream</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@form_option</span> = <span class="ruby-identifier">formopt</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">enctype</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/\Aapplication\/x-www-form-urlencoded\z/i</span>,
+    <span class="ruby-regexp">/\Amultipart\/form-data\z/i</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">content_type</span> = <span class="ruby-identifier">enctype</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;invalid enctype: #{enctype}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Stores form data to be used in a <code>POST</code> or <code>PUT</code> request.</p>
+
+<p>The form data given in <code>params</code> consists of zero or more fields; each field is:</p>
+<ul><li>
+<p>A scalar value.</p>
+</li><li>
+<p>A name/value pair.</p>
+</li><li>
+<p>An <a href="../IO.html"><code>IO</code></a> stream opened for reading.</p>
+</li></ul>
+
+<p>Argument <code>params</code> should be an <a href="../Enumerable.html#module-Enumerable-label-Enumerable+in+Ruby+Classes">Enumerable</a> (method <code>params.map</code> will be called), and is often an array or hash.</p>
+
+<p>First, we set up a request:</p>
+
+<pre class="ruby"><span class="ruby-identifier">_uri</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-identifier">_uri</span>.<span class="ruby-identifier">path</span> =<span class="ruby-string">&#39;/posts&#39;</span>
+<span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">_uri</span>)
+</pre>
+
+<p><strong>Argument <code>params</code> As an Array</strong></p>
+
+<p>When <code>params</code> is an array, each of its elements is a subarray that defines a field; the subarray may contain:</p>
+<ul><li>
+<p>One string:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form</span>([[<span class="ruby-string">&#39;foo&#39;</span>], [<span class="ruby-string">&#39;bar&#39;</span>], [<span class="ruby-string">&#39;baz&#39;</span>]])
+</pre>
+</li><li>
+<p>Two strings:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form</span>([<span class="ruby-node">%w[foo 0]</span>, <span class="ruby-node">%w[bar 1]</span>, <span class="ruby-node">%w[baz 2]</span>])
+</pre>
+</li><li>
+<p>When argument <code>enctype</code> (see below) is given as <code>&#39;multipart/form-data&#39;</code>:</p>
+<ul><li>
+<p>A string name and an <a href="../IO.html"><code>IO</code></a> stream opened for reading:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;stringio&#39;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form</span>([[<span class="ruby-string">&#39;file&#39;</span>, <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Ruby is cool.&#39;</span>)]])
+</pre>
+</li><li>
+<p>A string name, an <a href="../IO.html"><code>IO</code></a> stream opened for reading, and an options hash, which may contain these entries:</p>
+<ul><li>
+<p><code>:filename</code>: The name of the file to use.</p>
+</li><li>
+<p><code>:content_type</code>: The content type of the uploaded file.</p>
+</li></ul>
+
+<p>Example:</p>
+
+<pre>req.set_form([[&#39;file&#39;, file, {filename: &quot;other-filename.foo&quot;}]]</pre>
+</li></ul>
+</li></ul>
+
+<p>The various forms may be mixed:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form</span>([<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-node">%w[bar 1]</span>, [<span class="ruby-string">&#39;file&#39;</span>, <span class="ruby-identifier">file</span>]])
+</pre>
+
+<p><strong>Argument <code>params</code> As a Hash</strong></p>
+
+<p>When <code>params</code> is a hash, each of its entries is a name/value pair that defines a field:</p>
+<ul><li>
+<p>The name is a string.</p>
+</li><li>
+<p>The value may be:</p>
+<ul><li>
+<p><code>nil</code>.</p>
+</li><li>
+<p>Another string.</p>
+</li><li>
+<p>An <a href="../IO.html"><code>IO</code></a> stream opened for reading (only when argument <code>enctype</code> – see below – is given as <code>&#39;multipart/form-data&#39;</code>).</p>
+</li></ul>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Nil-valued fields.</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form</span>({<span class="ruby-string">&#39;foo&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;bar&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;baz&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>})
+
+<span class="ruby-comment"># String-valued fields.</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form</span>({<span class="ruby-string">&#39;foo&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-string">&#39;bar&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-string">&#39;baz&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">2</span>})
+
+<span class="ruby-comment"># IO-valued field.</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;stringio&#39;</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form</span>({<span class="ruby-string">&#39;file&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Ruby is cool.&#39;</span>)})
+
+<span class="ruby-comment"># Mixture of fields.</span>
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form</span>({<span class="ruby-string">&#39;foo&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;bar&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-string">&#39;file&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">file</span>})
+</pre>
+
+<p>Optional argument <code>enctype</code> specifies the value to be given to field <code>&#39;Content-Type&#39;</code>, and must be one of:</p>
+<ul><li>
+<p><code>&#39;application/x-www-form-urlencoded&#39;</code> (the default).</p>
+</li><li>
+<p><code>&#39;multipart/form-data&#39;</code>; see <a href="https://www.rfc-editor.org/rfc/rfc7578">RFC 7578</a>.</p>
+</li></ul>
+
+<p>Optional argument <code>formopt</code> is a hash of options (applicable only when argument <code>enctype</code> is <code>&#39;multipart/form-data&#39;</code>) that may include the following entries:</p>
+<ul><li>
+<p><code>:boundary</code>: The value is the boundary string for the multipart message. If not given, the boundary is a random string. See <a href="https://www.rfc-editor.org/rfc/rfc7578#section-4.1">Boundary</a>.</p>
+</li><li>
+<p><code>:charset</code>: Value is the character set for the form submission. Field names and values of non-file fields should be encoded with this charset.</p>
+</li></ul>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-set_form_data" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-set_form_data" title="Link to this method">
+                <span class="method-name">set_form_data</span>
+                <span class="method-args">(params, sep = &#39;&amp;&#39;)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="set_form_data-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 812</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_form_data</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">sep</span> = <span class="ruby-string">&#39;&amp;&#39;</span>)
+  <span class="ruby-identifier">query</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">encode_www_form</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">query</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/&amp;/</span>, <span class="ruby-identifier">sep</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">sep</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;&amp;&#39;</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">query</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">content_type</span> = <span class="ruby-string">&#39;application/x-www-form-urlencoded&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Sets the request body to a URL-encoded string derived from argument <code>params</code>, and sets request header field <code>&#39;Content-Type&#39;</code> to <code>&#39;application/x-www-form-urlencoded&#39;</code>.</p>
+
+<p>The resulting request is suitable for <a href="HTTP.html"><code>HTTP</code></a> request <code>POST</code> or <code>PUT</code>.</p>
+
+<p>Argument <code>params</code> must be suitable for use as argument <code>enum</code> to <a href="../URI.html#method-c-encode_www_form"><code>URI.encode_www_form</code></a>.</p>
+
+<p>With only argument <code>params</code> given, sets the body to a URL-encoded string with the default separator <code>&#39;&amp;&#39;</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;example.com&#39;</span>)
+
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form_data</span>(<span class="ruby-value">q:</span> <span class="ruby-string">&#39;ruby&#39;</span>, <span class="ruby-value">lang:</span> <span class="ruby-string">&#39;en&#39;</span>)
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span>            <span class="ruby-comment"># =&gt; &quot;q=ruby&amp;lang=en&quot;</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] <span class="ruby-comment"># =&gt; &quot;application/x-www-form-urlencoded&quot;</span>
+
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form_data</span>([[<span class="ruby-string">&#39;q&#39;</span>, <span class="ruby-string">&#39;ruby&#39;</span>], [<span class="ruby-string">&#39;lang&#39;</span>, <span class="ruby-string">&#39;en&#39;</span>]])
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span>            <span class="ruby-comment"># =&gt; &quot;q=ruby&amp;lang=en&quot;</span>
+
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form_data</span>(<span class="ruby-value">q:</span> [<span class="ruby-string">&#39;ruby&#39;</span>, <span class="ruby-string">&#39;perl&#39;</span>], <span class="ruby-value">lang:</span> <span class="ruby-string">&#39;en&#39;</span>)
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span>            <span class="ruby-comment"># =&gt; &quot;q=ruby&amp;q=perl&amp;lang=en&quot;</span>
+
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form_data</span>([[<span class="ruby-string">&#39;q&#39;</span>, <span class="ruby-string">&#39;ruby&#39;</span>], [<span class="ruby-string">&#39;q&#39;</span>, <span class="ruby-string">&#39;perl&#39;</span>], [<span class="ruby-string">&#39;lang&#39;</span>, <span class="ruby-string">&#39;en&#39;</span>]])
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span>            <span class="ruby-comment"># =&gt; &quot;q=ruby&amp;q=perl&amp;lang=en&quot;</span>
+</pre>
+
+<p>With string argument <code>sep</code> also given, uses that string as the separator:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form_data</span>({<span class="ruby-value">q:</span> <span class="ruby-string">&#39;ruby&#39;</span>, <span class="ruby-value">lang:</span> <span class="ruby-string">&#39;en&#39;</span>}, <span class="ruby-string">&#39;|&#39;</span>)
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> <span class="ruby-comment"># =&gt; &quot;q=ruby|lang=en&quot;</span>
+</pre>
+
+<p><a href="HTTPHeader.html#method-i-form_data-3D"><code>Net::HTTPHeader#form_data=</code></a> is an alias for <a href="HTTPHeader.html#method-i-set_form_data"><code>Net::HTTPHeader#set_form_data</code></a>.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="HTTPHeader.html#method-i-form_data-3D">form_data=</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-set_range" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-set_range" title="Link to this method">
+                  <span class="method-callseq">
+                    set_range(length) &rarr; length
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-set_range" title="Link to this method">
+                  <span class="method-callseq">
+                    set_range(offset, length) &rarr; range
+                  </span>
+                </a>
+              </div>
+              <div class="method-heading">
+                <a href="#method-i-set_range" title="Link to this method">
+                  <span class="method-callseq">
+                    set_range(begin..length) &rarr; range
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="set_range-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 576</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_range</span>(<span class="ruby-identifier">r</span>, <span class="ruby-identifier">e</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">r</span>
+    <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&#39;range&#39;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">r</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">r</span> = (<span class="ruby-identifier">r</span><span class="ruby-operator">...</span><span class="ruby-identifier">r</span><span class="ruby-operator">+</span><span class="ruby-identifier">e</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">r</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Numeric</span>
+    <span class="ruby-identifier">n</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">rangestr</span> = (<span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;0-#{n-1}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;-#{-n}&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Range</span>
+    <span class="ruby-identifier">first</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">last</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">end</span>
+    <span class="ruby-identifier">last</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">exclude_end?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">last</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>
+      <span class="ruby-identifier">rangestr</span> = (<span class="ruby-identifier">first</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#{first}-&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;-#{-first}&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPHeaderSyntaxError</span>, <span class="ruby-string">&#39;range.first is negative&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">first</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPHeaderSyntaxError</span>, <span class="ruby-string">&#39;range.last is negative&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPHeaderSyntaxError</span>, <span class="ruby-string">&#39;must be .first &lt; .last&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">first</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">last</span>
+      <span class="ruby-identifier">rangestr</span> = <span class="ruby-node">&quot;#{first}-#{last}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&#39;Range/Integer is required&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;range&#39;</span>] = [<span class="ruby-node">&quot;bytes=#{rangestr}&quot;</span>]
+  <span class="ruby-identifier">r</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Sets the value for field <code>&#39;Range&#39;</code>; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#range-request-header">Range request header</a>:</p>
+
+<p>With argument <code>length</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_range</span>(<span class="ruby-value">100</span>)      <span class="ruby-comment"># =&gt; 100</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Range&#39;</span>]            <span class="ruby-comment"># =&gt; &quot;bytes=0-99&quot;</span>
+</pre>
+
+<p>With arguments <code>offset</code> and <code>length</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_range</span>(<span class="ruby-value">100</span>, <span class="ruby-value">100</span>) <span class="ruby-comment"># =&gt; 100...200</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Range&#39;</span>]            <span class="ruby-comment"># =&gt; &quot;bytes=100-199&quot;</span>
+</pre>
+
+<p>With argument <code>range</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_range</span>(<span class="ruby-value">100</span><span class="ruby-operator">..</span><span class="ruby-value">199</span>) <span class="ruby-comment"># =&gt; 100..199</span>
+<span class="ruby-identifier">req</span>[<span class="ruby-string">&#39;Range&#39;</span>]            <span class="ruby-comment"># =&gt; &quot;bytes=100-199&quot;</span>
+</pre>
+
+<p><a href="HTTPHeader.html#method-i-range-3D"><code>Net::HTTPHeader#range=</code></a> is an alias for <a href="HTTPHeader.html#method-i-set_range"><code>Net::HTTPHeader#set_range</code></a>.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="HTTPHeader.html#method-i-range-3D">range=</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-sub_type" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-sub_type" title="Link to this method">
+                <span class="method-name">sub_type</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="sub_type-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 738</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sub_type</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@header</span>[<span class="ruby-string">&#39;content-type&#39;</span>]
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">sub</span> = <span class="ruby-operator">*</span><span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;;&#39;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;/&#39;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sub</span>
+  <span class="ruby-identifier">sub</span>.<span class="ruby-identifier">strip</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the trailing (‘subtype’) part of the <a href="https://en.wikipedia.org/wiki/Media_type">media type</a> from the value of field <code>&#39;Content-Type&#39;</code>, or <code>nil</code> if no such field exists; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#content-type-response-header">Content-Type response header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;content-type&#39;</span>] <span class="ruby-comment"># =&gt; &quot;application/json; charset=utf-8&quot;</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">sub_type</span>        <span class="ruby-comment"># =&gt; &quot;json&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-to_hash" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-to_hash" title="Link to this method">
+                <span class="method-name">to_hash</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 477</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_hash</span>
+  <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a hash of the key/value pairs:</p>
+
+<pre class="ruby"><span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
+<span class="ruby-identifier">req</span>.<span class="ruby-identifier">to_hash</span>
+<span class="ruby-comment"># =&gt;</span>
+{<span class="ruby-string">&quot;accept-encoding&quot;</span><span class="ruby-operator">=&gt;</span>[<span class="ruby-string">&quot;gzip;q=1.0,deflate;q=0.6,identity;q=0.3&quot;</span>],
+ <span class="ruby-string">&quot;accept&quot;</span><span class="ruby-operator">=&gt;</span>[<span class="ruby-string">&quot;*/*&quot;</span>],
+ <span class="ruby-string">&quot;user-agent&quot;</span><span class="ruby-operator">=&gt;</span>[<span class="ruby-string">&quot;Ruby&quot;</span>],
+ <span class="ruby-string">&quot;host&quot;</span><span class="ruby-operator">=&gt;</span>[<span class="ruby-string">&quot;jsonplaceholder.typicode.com&quot;</span>]}
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-type_params" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-type_params" title="Link to this method">
+                <span class="method-name">type_params</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="type_params-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 753</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">type_params</span>
+  <span class="ruby-identifier">result</span> = {}
+  <span class="ruby-identifier">list</span> = <span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;;&#39;</span>)
+  <span class="ruby-identifier">list</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">param</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">result</span>[<span class="ruby-identifier">k</span>.<span class="ruby-identifier">strip</span>] = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the trailing (‘parameters’) part of the value of field <code>&#39;Content-Type&#39;</code>, or <code>nil</code> if no such field exists; see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#content-type-response-header">Content-Type response header</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-string">&#39;/todos/1&#39;</span>)
+<span class="ruby-identifier">res</span>[<span class="ruby-string">&#39;content-type&#39;</span>] <span class="ruby-comment"># =&gt; &quot;application/json; charset=utf-8&quot;</span>
+<span class="ruby-identifier">res</span>.<span class="ruby-identifier">type_params</span>     <span class="ruby-comment"># =&gt; {&quot;charset&quot;=&gt;&quot;utf-8&quot;}</span>
+</pre>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-append_field_value" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-append_field_value" title="Link to this method">
+                <span class="method-name">append_field_value</span>
+                <span class="method-args">(ary, val)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="append_field_value-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 285</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">append_field_value</span>(<span class="ruby-identifier">ary</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">val</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Enumerable</span>
+    <span class="ruby-identifier">val</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">append_field_value</span>(<span class="ruby-identifier">ary</span>, <span class="ruby-identifier">x</span>)}
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">val</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-regexp">/[\r\n]/n</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">val</span>.<span class="ruby-identifier">b</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;header field value cannot include CR/LF&#39;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">val</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-basic_encode" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-basic_encode" title="Link to this method">
+                <span class="method-name">basic_encode</span>
+                <span class="method-args">(account, password)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="basic_encode-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 960</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">basic_encode</span>(<span class="ruby-identifier">account</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-string">&#39;Basic &#39;</span> <span class="ruby-operator">+</span> [<span class="ruby-node">&quot;#{account}:#{password}&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m0&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-capitalize" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-capitalize" title="Link to this method">
+                <span class="method-name">capitalize</span>
+                <span class="method-args">(name)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="capitalize-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 493</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">capitalize</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;-&#39;</span>.<span class="ruby-identifier">freeze</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">capitalize</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;-&#39;</span>.<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-set_field" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-set_field" title="Link to this method">
+                <span class="method-name">set_field</span>
+                <span class="method-args">(key, val)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="set_field-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 270</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_field</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">val</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Enumerable</span>
+    <span class="ruby-identifier">ary</span> = []
+    <span class="ruby-identifier">append_field_value</span>(<span class="ruby-identifier">ary</span>, <span class="ruby-identifier">val</span>)
+    <span class="ruby-ivar">@header</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">ary</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">val</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-comment"># for compatibility use to_s instead of to_str</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">b</span>.<span class="ruby-identifier">count</span>(<span class="ruby-string">&quot;\r\n&quot;</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;header field value cannot include CR/LF&#39;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@header</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_s</span>] = [<span class="ruby-identifier">val</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

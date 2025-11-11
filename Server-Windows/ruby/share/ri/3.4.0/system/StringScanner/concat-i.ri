@@ -1,0 +1,17 @@
+U:RDoc::AnyMethod[iI"concat:ETI"StringScanner#concat;TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::List:
+@type:BULLET:@items[o:RDoc::Markup::ListItem:@label0;	[o:RDoc::Markup::Paragraph;	[I"nAppends the given <code>more_string</code>
+ to the {stored string}[rdoc-ref:StringScanner@Stored+String].;To;;0;	[o;;	[I"Returns <code>self</code>.;To;;0;	[o;;	[I"Does not affect the {positions}[rdoc-ref:StringScanner@Positions]
+ or {match values}[rdoc-ref:StringScanner@Match+Values].;To:RDoc::Markup::Verbatim;	[I"8scanner = StringScanner.new('foo')
+scanner.string           # => "foo"
+scanner.terminate
+scanner.concat('barbaz') # => #<StringScanner 3/9 "foo" @ "barba...">
+scanner.string           # => "foobarbaz"
+put_situation(scanner)
+# Situation:
+#   pos:       3
+#   charpos:   3
+#   rest:      "barbaz"
+#   rest_size: 6
+;T:@format:rb:
+@fileI"ext/strscan/strscan.c;T:0@omit_headings_from_table_of_contents_below0I"!concat(more_string) -> self
+;T0[[I"<<;T@	I"	(p1);T@FI"StringScanner;TcRDoc::NormalClass00

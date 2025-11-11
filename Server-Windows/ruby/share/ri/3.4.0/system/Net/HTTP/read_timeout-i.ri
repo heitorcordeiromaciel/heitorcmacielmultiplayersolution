@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"read_timeout:ETI"Net::HTTP#read_timeout;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@Returns the numeric (\Integer or \Float) number of seconds ;TI">to wait for one block to be read (via one read(2) call); ;TI"see #read_timeout=.;T:
+@fileI"lib/net/http.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Net::HTTP;TcRDoc::NormalClass0

@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>module Math - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,module,Math">
+
+    <meta name="description" content="module Math: Module \Math provides methods for basic trigonometric, logarithmic, and transcendental functions, and for extracting roots. PI # =&gt; 3.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Math.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="module">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#module-Math-label-What-27s+Here">What’s Here</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-Math-label-Trigonometric+Functions">Trigonometric Functions</a>
+          <li>      <a href="#module-Math-label-Inverse+Trigonometric+Functions">Inverse Trigonometric Functions</a>
+          <li>      <a href="#module-Math-label-Hyperbolic+Trigonometric+Functions">Hyperbolic Trigonometric Functions</a>
+          <li>      <a href="#module-Math-label-Inverse+Hyperbolic+Trigonometric+Functions">Inverse Hyperbolic Trigonometric Functions</a>
+          <li>      <a href="#module-Math-label-Exponentiation+and+Logarithmic+Functions">Exponentiation and Logarithmic Functions</a>
+          <li>      <a href="#module-Math-label-Fraction+and+Exponent+Functions">Fraction and Exponent Functions</a>
+          <li>      <a href="#module-Math-label-Root+Functions">Root Functions</a>
+          <li>      <a href="#module-Math-label-Error+Functions">Error Functions</a>
+          <li>      <a href="#module-Math-label-Gamma+Functions">Gamma Functions</a>
+          <li>      <a href="#module-Math-label-Hypotenuse+Function">Hypotenuse Function</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+  
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-acos">acos</a></li>
+      <li ><a href="#method-c-acosh">acosh</a></li>
+      <li ><a href="#method-c-asin">asin</a></li>
+      <li ><a href="#method-c-asinh">asinh</a></li>
+      <li ><a href="#method-c-atan">atan</a></li>
+      <li ><a href="#method-c-atan2">atan2</a></li>
+      <li ><a href="#method-c-atanh">atanh</a></li>
+      <li ><a href="#method-c-cbrt">cbrt</a></li>
+      <li ><a href="#method-c-cos">cos</a></li>
+      <li ><a href="#method-c-cosh">cosh</a></li>
+      <li ><a href="#method-c-erf">erf</a></li>
+      <li ><a href="#method-c-erfc">erfc</a></li>
+      <li ><a href="#method-c-exp">exp</a></li>
+      <li ><a href="#method-c-frexp">frexp</a></li>
+      <li ><a href="#method-c-gamma">gamma</a></li>
+      <li ><a href="#method-c-hypot">hypot</a></li>
+      <li ><a href="#method-c-ldexp">ldexp</a></li>
+      <li ><a href="#method-c-lgamma">lgamma</a></li>
+      <li ><a href="#method-c-log">log</a></li>
+      <li ><a href="#method-c-log10">log10</a></li>
+      <li ><a href="#method-c-log2">log2</a></li>
+      <li ><a href="#method-c-sin">sin</a></li>
+      <li ><a href="#method-c-sinh">sinh</a></li>
+      <li ><a href="#method-c-sqrt">sqrt</a></li>
+      <li ><a href="#method-c-tan">tan</a></li>
+      <li ><a href="#method-c-tanh">tanh</a></li>
+    </ul>
+  </div>
+
+
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="module-Math">
+  
+  
+
+  <h1 id="module-Math" class="anchor-link module">
+    module Math
+  </h1>
+
+  <section class="description">
+    
+<p>Module Math provides methods for basic trigonometric, logarithmic, and transcendental functions, and for extracting roots.</p>
+
+<p>You can write its constants and method calls thus:</p>
+
+<pre class="ruby"><span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">PI</span>      <span class="ruby-comment"># =&gt; 3.141592653589793</span>
+<span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">E</span>       <span class="ruby-comment"># =&gt; 2.718281828459045</span>
+<span class="ruby-constant">Math</span>.<span class="ruby-identifier">sin</span>(<span class="ruby-value">0.0</span>) <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-constant">Math</span>.<span class="ruby-identifier">cos</span>(<span class="ruby-value">0.0</span>) <span class="ruby-comment"># =&gt; 1.0</span>
+</pre>
+
+<p>If you include module Math, you can write simpler forms:</p>
+
+<pre class="ruby"><span class="ruby-identifier">include</span> <span class="ruby-constant">Math</span>
+<span class="ruby-constant">PI</span>       <span class="ruby-comment"># =&gt; 3.141592653589793</span>
+<span class="ruby-constant">E</span>        <span class="ruby-comment"># =&gt; 2.718281828459045</span>
+<span class="ruby-identifier">sin</span>(<span class="ruby-value">0.0</span>) <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">cos</span>(<span class="ruby-value">0.0</span>) <span class="ruby-comment"># =&gt; 1.0</span>
+</pre>
+
+<p>For simplicity, the examples here assume:</p>
+
+<pre class="ruby"><span class="ruby-identifier">include</span> <span class="ruby-constant">Math</span>
+<span class="ruby-constant">INFINITY</span> = <span class="ruby-constant">Float</span><span class="ruby-operator">::</span><span class="ruby-constant">INFINITY</span>
+</pre>
+
+<p>The domains and ranges for the methods are denoted by open or closed intervals, using, respectively, parentheses or square brackets:</p>
+<ul><li>
+<p>An open interval does not include the endpoints:</p>
+
+<pre>(-INFINITY, INFINITY)</pre>
+</li><li>
+<p>A closed interval includes the endpoints:</p>
+
+<pre class="ruby">[<span class="ruby-value">-1.0</span>, <span class="ruby-value">1.0</span>]
+</pre>
+</li><li>
+<p>A half-open interval includes one endpoint, but not the other:</p>
+
+<pre>[1.0, INFINITY)</pre>
+</li></ul>
+
+<p>Many values returned by Math methods are numerical approximations. This is because many such values are, in mathematics, of infinite precision, while in numerical computation the precision is finite.</p>
+
+<p>Thus, in mathematics, <em>cos(π/2)</em> is exactly zero, but in our computation <code>cos(PI/2)</code> is a number very close to zero:</p>
+
+<pre class="ruby"><span class="ruby-identifier">cos</span>(<span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>) <span class="ruby-comment"># =&gt; 6.123031769111886e-17</span>
+</pre>
+
+<p>For very large and very small returned values, we have added formatted numbers for clarity:</p>
+
+<pre class="ruby"><span class="ruby-identifier">tan</span>(<span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>)  <span class="ruby-comment"># =&gt; 1.633123935319537e+16   # 16331239353195370.0</span>
+<span class="ruby-identifier">tan</span>(<span class="ruby-constant">PI</span>)    <span class="ruby-comment"># =&gt; -1.2246467991473532e-16 # -0.0000000000000001</span>
+</pre>
+
+<p>See class <a href="Float.html"><code>Float</code></a> for the constants that affect Ruby’s floating-point arithmetic.</p>
+
+<h3 id="module-Math-label-What-27s+Here">What’s Here<span><a href="#module-Math-label-What-27s+Here">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="module-Math-label-Trigonometric+Functions">Trigonometric Functions<span><a href="#module-Math-label-Trigonometric+Functions">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="Math.html#method-c-cos"><code>::cos</code></a>: Returns the cosine of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-sin"><code>::sin</code></a>: Returns the sine of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-tan"><code>::tan</code></a>: Returns the tangent of the given argument.</p>
+</li></ul>
+
+<h4 id="module-Math-label-Inverse+Trigonometric+Functions">Inverse Trigonometric Functions<span><a href="#module-Math-label-Inverse+Trigonometric+Functions">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="Math.html#method-c-acos"><code>::acos</code></a>: Returns the arc cosine of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-asin"><code>::asin</code></a>: Returns the arc sine of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-atan"><code>::atan</code></a>: Returns the arc tangent of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-atan2"><code>::atan2</code></a>: Returns the arg tangent of two given arguments.</p>
+</li></ul>
+
+<h4 id="module-Math-label-Hyperbolic+Trigonometric+Functions">Hyperbolic Trigonometric Functions<span><a href="#module-Math-label-Hyperbolic+Trigonometric+Functions">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="Math.html#method-c-cosh"><code>::cosh</code></a>: Returns the hyperbolic cosine of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-sinh"><code>::sinh</code></a>: Returns the hyperbolic sine of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-tanh"><code>::tanh</code></a>: Returns the hyperbolic tangent of the given argument.</p>
+</li></ul>
+
+<h4 id="module-Math-label-Inverse+Hyperbolic+Trigonometric+Functions">Inverse Hyperbolic Trigonometric Functions<span><a href="#module-Math-label-Inverse+Hyperbolic+Trigonometric+Functions">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="Math.html#method-c-acosh"><code>::acosh</code></a>: Returns the inverse hyperbolic cosine of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-asinh"><code>::asinh</code></a>: Returns the inverse hyperbolic sine of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-atanh"><code>::atanh</code></a>: Returns the inverse hyperbolic tangent of the given argument.</p>
+</li></ul>
+
+<h4 id="module-Math-label-Exponentiation+and+Logarithmic+Functions">Exponentiation and Logarithmic Functions<span><a href="#module-Math-label-Exponentiation+and+Logarithmic+Functions">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="Math.html#method-c-exp"><code>::exp</code></a>: Returns the value of a given value raised to a given power.</p>
+</li><li>
+<p><a href="Math.html#method-c-log"><code>::log</code></a>: Returns the logarithm of a given value in a given base.</p>
+</li><li>
+<p><a href="Math.html#method-c-log10"><code>::log10</code></a>: Returns the base 10 logarithm of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-log2"><code>::log2</code></a>: Returns the base 2 logarithm of the given argument.</p>
+</li></ul>
+
+<h4 id="module-Math-label-Fraction+and+Exponent+Functions">Fraction and Exponent Functions<span><a href="#module-Math-label-Fraction+and+Exponent+Functions">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="Math.html#method-c-frexp"><code>::frexp</code></a>: Returns the fraction and exponent of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-ldexp"><code>::ldexp</code></a>: Returns the value for a given fraction and exponent.</p>
+</li></ul>
+
+<h4 id="module-Math-label-Root+Functions">Root Functions<span><a href="#module-Math-label-Root+Functions">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="Math.html#method-c-cbrt"><code>::cbrt</code></a>: Returns the cube root of the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-sqrt"><code>::sqrt</code></a>: Returns the square root of the given argument.</p>
+</li></ul>
+
+<h4 id="module-Math-label-Error+Functions">Error Functions<span><a href="#module-Math-label-Error+Functions">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="Math.html#method-c-erf"><code>::erf</code></a>: Returns the value of the Gauss error function for the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-erfc"><code>::erfc</code></a>: Returns the value of the complementary error function for the given argument.</p>
+</li></ul>
+
+<h4 id="module-Math-label-Gamma+Functions">Gamma Functions<span><a href="#module-Math-label-Gamma+Functions">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="Math.html#method-c-gamma"><code>::gamma</code></a>: Returns the value of the gamma function for the given argument.</p>
+</li><li>
+<p><a href="Math.html#method-c-lgamma"><code>::lgamma</code></a>: Returns the value of the logarithmic gamma function for the given argument.</p>
+</li></ul>
+
+<h4 id="module-Math-label-Hypotenuse+Function">Hypotenuse Function<span><a href="#module-Math-label-Hypotenuse+Function">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="Math.html#method-c-hypot"><code>::hypot</code></a>: Returns <code>sqrt(a**2 + b**2)</code> for the given <code>a</code> and <code>b</code>.</p>
+</li></ul>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="E">E
+        <dd>
+          <p>Definition of the mathematical constant <a href="Math.html#E"><code>E</code></a> for Euler’s number (e) as a <a href="Float.html"><code>Float</code></a> number.</p>
+        <dt id="PI">PI
+        <dd>
+          <p>Definition of the mathematical constant <a href="Math.html#PI"><code>PI</code></a> as a <a href="Float.html"><code>Float</code></a> number.</p>
+      </dl>
+    </section>
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-acos" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-acos" title="Link to this method">
+                  <span class="method-callseq">
+                    acos(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="acos-source">
+            <pre>static VALUE
+math_acos(VALUE unused_obj, VALUE x)
+{
+    math_arc(x, acos)
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">arc cosine</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[-1, 1]</code>.</p>
+</li><li>
+<p>Range: <code>[0, PI]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">acos</span>(<span class="ruby-value">-1.0</span>) <span class="ruby-comment"># =&gt; 3.141592653589793  # PI</span>
+<span class="ruby-identifier">acos</span>(<span class="ruby-value">0.0</span>)  <span class="ruby-comment"># =&gt; 1.5707963267948966 # PI/2</span>
+<span class="ruby-identifier">acos</span>(<span class="ruby-value">1.0</span>)  <span class="ruby-comment"># =&gt; 0.0</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-acosh" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-acosh" title="Link to this method">
+                  <span class="method-callseq">
+                    acosh(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="acosh-source">
+            <pre>static VALUE
+math_acosh(VALUE unused_obj, VALUE x)
+{
+    double d;
+
+    d = Get_Double(x);
+    domain_check_min(d, 1.0, &quot;acosh&quot;);
+    return DBL2NUM(acosh(d));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions">inverse hyperbolic cosine</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[1, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[0, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">acosh</span>(<span class="ruby-value">1.0</span>)      <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">acosh</span>(<span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-asin" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-asin" title="Link to this method">
+                  <span class="method-callseq">
+                    asin(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="asin-source">
+            <pre>static VALUE
+math_asin(VALUE unused_obj, VALUE x)
+{
+    math_arc(x, asin)
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">arc sine</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[-1, -1]</code>.</p>
+</li><li>
+<p>Range: <code>[-PI/2, PI/2]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">asin</span>(<span class="ruby-value">-1.0</span>) <span class="ruby-comment"># =&gt; -1.5707963267948966 # -PI/2</span>
+<span class="ruby-identifier">asin</span>(<span class="ruby-value">0.0</span>)  <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">asin</span>(<span class="ruby-value">1.0</span>)  <span class="ruby-comment"># =&gt; 1.5707963267948966  # PI/2</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-asinh" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-asinh" title="Link to this method">
+                  <span class="method-callseq">
+                    asinh(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="asinh-source">
+            <pre>static VALUE
+math_asinh(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(asinh(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions">inverse hyperbolic sine</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[-INFINITY, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">asinh</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; -Infinity</span>
+<span class="ruby-identifier">asinh</span>(<span class="ruby-value">0.0</span>)       <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">asinh</span>(<span class="ruby-constant">INFINITY</span>)  <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-atan" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-atan" title="Link to this method">
+                  <span class="method-callseq">
+                    atan(x)    &rarr; Float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="atan-source">
+            <pre>static VALUE
+math_atan(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(atan(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">arc tangent</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[-PI/2, PI/2]  </code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">atan</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; -1.5707963267948966 # -PI2</span>
+<span class="ruby-identifier">atan</span>(<span class="ruby-operator">-</span><span class="ruby-constant">PI</span>)       <span class="ruby-comment"># =&gt; -1.2626272556789115</span>
+<span class="ruby-identifier">atan</span>(<span class="ruby-operator">-</span><span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>)     <span class="ruby-comment"># =&gt; -1.0038848218538872</span>
+<span class="ruby-identifier">atan</span>(<span class="ruby-value">0.0</span>)       <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">atan</span>(<span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>)      <span class="ruby-comment"># =&gt; 1.0038848218538872</span>
+<span class="ruby-identifier">atan</span>(<span class="ruby-constant">PI</span>)        <span class="ruby-comment"># =&gt; 1.2626272556789115</span>
+<span class="ruby-identifier">atan</span>(<span class="ruby-constant">INFINITY</span>)  <span class="ruby-comment"># =&gt; 1.5707963267948966  # PI/2</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-atan2" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-atan2" title="Link to this method">
+                  <span class="method-callseq">
+                    atan2(y, x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="atan2-source">
+            <pre>static VALUE
+math_atan2(VALUE unused_obj, VALUE y, VALUE x)
+{
+    double dx, dy;
+    dx = Get_Double(x);
+    dy = Get_Double(y);
+    if (dx == 0.0 &amp;&amp; dy == 0.0) {
+        if (!signbit(dx))
+            return DBL2NUM(dy);
+        if (!signbit(dy))
+            return DBL2NUM(M_PI);
+        return DBL2NUM(-M_PI);
+    }
+#ifndef ATAN2_INF_C99
+    if (isinf(dx) &amp;&amp; isinf(dy)) {
+        /* optimization for FLONUM */
+        if (dx &lt; 0.0) {
+            const double dz = (3.0 * M_PI / 4.0);
+            return (dy &lt; 0.0) ? DBL2NUM(-dz) : DBL2NUM(dz);
+        }
+        else {
+            const double dz = (M_PI / 4.0);
+            return (dy &lt; 0.0) ? DBL2NUM(-dz) : DBL2NUM(dz);
+        }
+    }
+#endif
+    return DBL2NUM(atan2(dy, dx));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Atan2">arc tangent</a> of <code>y</code> and <code>x</code> in <a href="https://en.wikipedia.org/wiki/Trigonometric_functions#Radians_versus_degrees">radians</a>.</p>
+<ul><li>
+<p>Domain of <code>y</code>: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Domain of <code>x</code>: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[-PI, PI]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">atan2</span>(<span class="ruby-value">-1.0</span>, <span class="ruby-value">-1.0</span>) <span class="ruby-comment"># =&gt; -2.356194490192345  # -3*PI/4</span>
+<span class="ruby-identifier">atan2</span>(<span class="ruby-value">-1.0</span>, <span class="ruby-value">0.0</span>)  <span class="ruby-comment"># =&gt; -1.5707963267948966 # -PI/2</span>
+<span class="ruby-identifier">atan2</span>(<span class="ruby-value">-1.0</span>, <span class="ruby-value">1.0</span>)  <span class="ruby-comment"># =&gt; -0.7853981633974483 # -PI/4</span>
+<span class="ruby-identifier">atan2</span>(<span class="ruby-value">0.0</span>, <span class="ruby-value">-1.0</span>)  <span class="ruby-comment"># =&gt; 3.141592653589793   # PI</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-atanh" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-atanh" title="Link to this method">
+                  <span class="method-callseq">
+                    atanh(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="atanh-source">
+            <pre>static VALUE
+math_atanh(VALUE unused_obj, VALUE x)
+{
+    double d;
+
+    d = Get_Double(x);
+    domain_check_range(d, -1.0, +1.0, &quot;atanh&quot;);
+    /* check for pole error */
+    if (d == -1.0) return DBL2NUM(-HUGE_VAL);
+    if (d == +1.0) return DBL2NUM(+HUGE_VAL);
+    return DBL2NUM(atanh(d));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions">inverse hyperbolic tangent</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[-1, 1]</code>.</p>
+</li><li>
+<p>Range: <code>[-INFINITY, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">atanh</span>(<span class="ruby-value">-1.0</span>) <span class="ruby-comment"># =&gt; -Infinity</span>
+<span class="ruby-identifier">atanh</span>(<span class="ruby-value">0.0</span>)  <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">atanh</span>(<span class="ruby-value">1.0</span>)  <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-cbrt" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-cbrt" title="Link to this method">
+                  <span class="method-callseq">
+                    cbrt(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cbrt-source">
+            <pre>static VALUE
+math_cbrt(VALUE unused_obj, VALUE x)
+{
+    double f = Get_Double(x);
+    double r = cbrt(f);
+#if defined __GLIBC__
+    if (isfinite(r) &amp;&amp; !(f == 0.0 &amp;&amp; r == 0.0)) {
+        r = (2.0 * r + (f / r / r)) / 3.0;
+    }
+#endif
+    return DBL2NUM(r);
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Cube_root">cube root</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[-INFINITY, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">cbrt</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; -Infinity</span>
+<span class="ruby-identifier">cbrt</span>(<span class="ruby-value">-27.0</span>)     <span class="ruby-comment"># =&gt; -3.0</span>
+<span class="ruby-identifier">cbrt</span>(<span class="ruby-value">-8.0</span>)      <span class="ruby-comment"># =&gt; -2.0</span>
+<span class="ruby-identifier">cbrt</span>(<span class="ruby-value">-2.0</span>)      <span class="ruby-comment"># =&gt; -1.2599210498948732</span>
+<span class="ruby-identifier">cbrt</span>(<span class="ruby-value">1.0</span>)       <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">cbrt</span>(<span class="ruby-value">0.0</span>)       <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">cbrt</span>(<span class="ruby-value">1.0</span>)       <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">cbrt</span>(<span class="ruby-value">2.0</span>)       <span class="ruby-comment"># =&gt; 1.2599210498948732</span>
+<span class="ruby-identifier">cbrt</span>(<span class="ruby-value">8.0</span>)       <span class="ruby-comment"># =&gt; 2.0</span>
+<span class="ruby-identifier">cbrt</span>(<span class="ruby-value">27.0</span>)      <span class="ruby-comment"># =&gt; 3.0</span>
+<span class="ruby-identifier">cbrt</span>(<span class="ruby-constant">INFINITY</span>)  <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-cos" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-cos" title="Link to this method">
+                  <span class="method-callseq">
+                    cos(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cos-source">
+            <pre>static VALUE
+math_cos(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(cos(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Sine_and_cosine">cosine</a> of <code>x</code> in <a href="https://en.wikipedia.org/wiki/Trigonometric_functions#Radians_versus_degrees">radians</a>.</p>
+<ul><li>
+<p>Domain: <code>(-INFINITY, INFINITY)</code>.</p>
+</li><li>
+<p>Range: <code>[-1.0, 1.0]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">cos</span>(<span class="ruby-operator">-</span><span class="ruby-constant">PI</span>)   <span class="ruby-comment"># =&gt; -1.0</span>
+<span class="ruby-identifier">cos</span>(<span class="ruby-operator">-</span><span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>) <span class="ruby-comment"># =&gt; 6.123031769111886e-17 # 0.0000000000000001</span>
+<span class="ruby-identifier">cos</span>(<span class="ruby-value">0.0</span>)   <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">cos</span>(<span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>)  <span class="ruby-comment"># =&gt; 6.123031769111886e-17 # 0.0000000000000001</span>
+<span class="ruby-identifier">cos</span>(<span class="ruby-constant">PI</span>)    <span class="ruby-comment"># =&gt; -1.0</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-cosh" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-cosh" title="Link to this method">
+                  <span class="method-callseq">
+                    cosh(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cosh-source">
+            <pre>static VALUE
+math_cosh(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(cosh(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Hyperbolic_functions">hyperbolic cosine</a> of <code>x</code> in <a href="https://en.wikipedia.org/wiki/Trigonometric_functions#Radians_versus_degrees">radians</a>.</p>
+<ul><li>
+<p>Domain: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[1, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">cosh</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; Infinity</span>
+<span class="ruby-identifier">cosh</span>(<span class="ruby-value">0.0</span>)       <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">cosh</span>(<span class="ruby-constant">INFINITY</span>)  <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-erf" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-erf" title="Link to this method">
+                  <span class="method-callseq">
+                    erf(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="erf-source">
+            <pre>static VALUE
+math_erf(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(erf(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns the value of the <a href="https://en.wikipedia.org/wiki/Error_function">Gauss error function</a> for <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[-1, 1]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">erf</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; -1.0</span>
+<span class="ruby-identifier">erf</span>(<span class="ruby-value">0.0</span>)       <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">erf</span>(<span class="ruby-constant">INFINITY</span>)  <span class="ruby-comment"># =&gt; 1.0</span>
+</pre>
+
+<p>Related: <a href="Math.html#method-c-erfc"><code>Math.erfc</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-erfc" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-erfc" title="Link to this method">
+                  <span class="method-callseq">
+                    erfc(x)  &rarr; Float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="erfc-source">
+            <pre>static VALUE
+math_erfc(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(erfc(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns the value of the <a href="https://en.wikipedia.org/wiki/Error_function#Complementary_error_function">complementary error function</a> for <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[0, 2]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">erfc</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; 2.0</span>
+<span class="ruby-identifier">erfc</span>(<span class="ruby-value">0.0</span>)       <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">erfc</span>(<span class="ruby-constant">INFINITY</span>)  <span class="ruby-comment"># =&gt; 0.0</span>
+</pre>
+
+<p>Related: <a href="Math.html#method-c-erf"><code>Math.erf</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-exp" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-exp" title="Link to this method">
+                  <span class="method-callseq">
+                    exp(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="exp-source">
+            <pre>static VALUE
+math_exp(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(exp(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns <code>e</code> raised to the <code>x</code> power.</p>
+<ul><li>
+<p>Domain: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[0, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">exp</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">exp</span>(<span class="ruby-value">-1.0</span>)      <span class="ruby-comment"># =&gt; 0.36787944117144233 # 1.0/E</span>
+<span class="ruby-identifier">exp</span>(<span class="ruby-value">0.0</span>)       <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">exp</span>(<span class="ruby-value">0.5</span>)       <span class="ruby-comment"># =&gt; 1.6487212707001282  # sqrt(E)</span>
+<span class="ruby-identifier">exp</span>(<span class="ruby-value">1.0</span>)       <span class="ruby-comment"># =&gt; 2.718281828459045   # E</span>
+<span class="ruby-identifier">exp</span>(<span class="ruby-value">2.0</span>)       <span class="ruby-comment"># =&gt; 7.38905609893065    # E**2</span>
+<span class="ruby-identifier">exp</span>(<span class="ruby-constant">INFINITY</span>)  <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-frexp" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-frexp" title="Link to this method">
+                  <span class="method-callseq">
+                    frexp(x) &rarr; [fraction, exponent]
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="frexp-source">
+            <pre>static VALUE
+math_frexp(VALUE unused_obj, VALUE x)
+{
+    double d;
+    int exp;
+
+    d = frexp(Get_Double(x), &amp;exp);
+    return rb_assoc_new(DBL2NUM(d), INT2NUM(exp));
+}</pre>
+          </div>
+          <p>Returns a 2-element array containing the normalized signed float <code>fraction</code> and integer <code>exponent</code> of <code>x</code> such that:</p>
+
+<pre class="ruby"><span class="ruby-identifier">x</span> = <span class="ruby-identifier">fraction</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-identifier">exponent</span>
+</pre>
+
+<p>See <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format#IEEE_754_double-precision_binary_floating-point_format:_binary64">IEEE 754 double-precision binary floating-point format: binary64</a>.</p>
+<ul><li>
+<p>Domain: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p><a href="Range.html"><code>Range</code></a> <code>[-INFINITY, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">frexp</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; [-Infinity, -1]</span>
+<span class="ruby-identifier">frexp</span>(<span class="ruby-value">-2.0</span>)      <span class="ruby-comment"># =&gt; [-0.5, 2]</span>
+<span class="ruby-identifier">frexp</span>(<span class="ruby-value">-1.0</span>)      <span class="ruby-comment"># =&gt; [-0.5, 1]</span>
+<span class="ruby-identifier">frexp</span>(<span class="ruby-value">0.0</span>)       <span class="ruby-comment"># =&gt; [0.0, 0]</span>
+<span class="ruby-identifier">frexp</span>(<span class="ruby-value">1.0</span>)       <span class="ruby-comment"># =&gt; [0.5, 1]</span>
+<span class="ruby-identifier">frexp</span>(<span class="ruby-value">2.0</span>)       <span class="ruby-comment"># =&gt; [0.5, 2]</span>
+<span class="ruby-identifier">frexp</span>(<span class="ruby-constant">INFINITY</span>)  <span class="ruby-comment"># =&gt; [Infinity, -1]</span>
+</pre>
+
+<p>Related: <a href="Math.html#method-c-ldexp"><code>Math.ldexp</code></a> (inverse of <a href="Math.html#method-c-frexp"><code>Math.frexp</code></a>).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-gamma" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-gamma" title="Link to this method">
+                  <span class="method-callseq">
+                    gamma(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="gamma-source">
+            <pre>static VALUE
+math_gamma(VALUE unused_obj, VALUE x)
+{
+    static const double fact_table[] = {
+        /* fact(0) */ 1.0,
+        /* fact(1) */ 1.0,
+        /* fact(2) */ 2.0,
+        /* fact(3) */ 6.0,
+        /* fact(4) */ 24.0,
+        /* fact(5) */ 120.0,
+        /* fact(6) */ 720.0,
+        /* fact(7) */ 5040.0,
+        /* fact(8) */ 40320.0,
+        /* fact(9) */ 362880.0,
+        /* fact(10) */ 3628800.0,
+        /* fact(11) */ 39916800.0,
+        /* fact(12) */ 479001600.0,
+        /* fact(13) */ 6227020800.0,
+        /* fact(14) */ 87178291200.0,
+        /* fact(15) */ 1307674368000.0,
+        /* fact(16) */ 20922789888000.0,
+        /* fact(17) */ 355687428096000.0,
+        /* fact(18) */ 6402373705728000.0,
+        /* fact(19) */ 121645100408832000.0,
+        /* fact(20) */ 2432902008176640000.0,
+        /* fact(21) */ 51090942171709440000.0,
+        /* fact(22) */ 1124000727777607680000.0,
+        /* fact(23)=25852016738884976640000 needs 56bit mantissa which is
+         * impossible to represent exactly in IEEE 754 double which have
+         * 53bit mantissa. */
+    };
+    enum {NFACT_TABLE = numberof(fact_table)};
+    double d;
+    d = Get_Double(x);
+    /* check for domain error */
+    if (isinf(d)) {
+        if (signbit(d)) domain_error(&quot;gamma&quot;);
+        return DBL2NUM(HUGE_VAL);
+    }
+    if (d == 0.0) {
+        return signbit(d) ? DBL2NUM(-HUGE_VAL) : DBL2NUM(HUGE_VAL);
+    }
+    if (d == floor(d)) {
+        domain_check_min(d, 0.0, &quot;gamma&quot;);
+        if (1.0 &lt;= d &amp;&amp; d &lt;= (double)NFACT_TABLE) {
+            return DBL2NUM(fact_table[(int)d - 1]);
+        }
+    }
+    return DBL2NUM(tgamma(d));
+}</pre>
+          </div>
+          <p>Returns the value of the <a href="https://en.wikipedia.org/wiki/Gamma_function">gamma function</a> for <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>(-INFINITY, INFINITY]</code> excluding negative integers.</p>
+</li><li>
+<p>Range: <code>[-INFINITY, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">gamma</span>(<span class="ruby-value">-2.5</span>)      <span class="ruby-comment"># =&gt; -0.9453087204829431</span>
+<span class="ruby-identifier">gamma</span>(<span class="ruby-value">-1.5</span>)      <span class="ruby-comment"># =&gt; 2.3632718012073513</span>
+<span class="ruby-identifier">gamma</span>(<span class="ruby-value">-0.5</span>)      <span class="ruby-comment"># =&gt; -3.5449077018110375</span>
+<span class="ruby-identifier">gamma</span>(<span class="ruby-value">0.0</span>)      <span class="ruby-comment"># =&gt; Infinity</span>
+<span class="ruby-identifier">gamma</span>(<span class="ruby-value">1.0</span>)      <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">gamma</span>(<span class="ruby-value">2.0</span>)      <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">gamma</span>(<span class="ruby-value">3.0</span>)      <span class="ruby-comment"># =&gt; 2.0</span>
+<span class="ruby-identifier">gamma</span>(<span class="ruby-value">4.0</span>)      <span class="ruby-comment"># =&gt; 6.0</span>
+<span class="ruby-identifier">gamma</span>(<span class="ruby-value">5.0</span>)      <span class="ruby-comment"># =&gt; 24.0</span>
+</pre>
+
+<p>Related: <a href="Math.html#method-c-lgamma"><code>Math.lgamma</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-hypot" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-hypot" title="Link to this method">
+                  <span class="method-callseq">
+                    hypot(a, b) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="hypot-source">
+            <pre>static VALUE
+math_hypot(VALUE unused_obj, VALUE x, VALUE y)
+{
+    return DBL2NUM(hypot(Get_Double(x), Get_Double(y)));
+}</pre>
+          </div>
+          <p>Returns <code>sqrt(a**2 + b**2)</code>, which is the length of the longest side <code>c</code> (the hypotenuse) of the right triangle whose other sides have lengths <code>a</code> and <code>b</code>.</p>
+<ul><li>
+<p>Domain of <code>a</code>: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Domain of +ab: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[0, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">hypot</span>(<span class="ruby-value">0.0</span>, <span class="ruby-value">1.0</span>)       <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">hypot</span>(<span class="ruby-value">1.0</span>, <span class="ruby-value">1.0</span>)       <span class="ruby-comment"># =&gt; 1.4142135623730951 # sqrt(2.0)</span>
+<span class="ruby-identifier">hypot</span>(<span class="ruby-value">3.0</span>, <span class="ruby-value">4.0</span>)       <span class="ruby-comment"># =&gt; 5.0</span>
+<span class="ruby-identifier">hypot</span>(<span class="ruby-value">5.0</span>, <span class="ruby-value">12.0</span>)      <span class="ruby-comment"># =&gt; 13.0</span>
+<span class="ruby-identifier">hypot</span>(<span class="ruby-value">1.0</span>, <span class="ruby-identifier">sqrt</span>(<span class="ruby-value">3.0</span>)) <span class="ruby-comment"># =&gt; 1.9999999999999998 # Near 2.0</span>
+</pre>
+
+<p>Note that if either argument is <code>INFINITY</code> or <code>-INFINITY</code>, the result is <code>Infinity</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-ldexp" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-ldexp" title="Link to this method">
+                  <span class="method-callseq">
+                    ldexp(fraction, exponent) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ldexp-source">
+            <pre>static VALUE
+math_ldexp(VALUE unused_obj, VALUE x, VALUE n)
+{
+    return DBL2NUM(ldexp(Get_Double(x), NUM2INT(n)));
+}</pre>
+          </div>
+          <p>Returns the value of <code>fraction * 2**exponent</code>.</p>
+<ul><li>
+<p>Domain of <code>fraction</code>: <code>[0.0, 1.0)</code>.</p>
+</li><li>
+<p>Domain of <code>exponent</code>: <code>[0, 1024]</code> (larger values are equivalent to 1024).</p>
+</li></ul>
+
+<p>See <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format#IEEE_754_double-precision_binary_floating-point_format:_binary64">IEEE 754 double-precision binary floating-point format: binary64</a>.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">ldexp</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>, <span class="ruby-value">-1</span>) <span class="ruby-comment"># =&gt; -Infinity</span>
+<span class="ruby-identifier">ldexp</span>(<span class="ruby-value">-0.5</span>, <span class="ruby-value">2</span>)       <span class="ruby-comment"># =&gt; -2.0</span>
+<span class="ruby-identifier">ldexp</span>(<span class="ruby-value">-0.5</span>, <span class="ruby-value">1</span>)       <span class="ruby-comment"># =&gt; -1.0</span>
+<span class="ruby-identifier">ldexp</span>(<span class="ruby-value">0.0</span>, <span class="ruby-value">0</span>)        <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">ldexp</span>(<span class="ruby-value">-0.5</span>, <span class="ruby-value">1</span>)       <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">ldexp</span>(<span class="ruby-value">-0.5</span>, <span class="ruby-value">2</span>)       <span class="ruby-comment"># =&gt; 2.0</span>
+<span class="ruby-identifier">ldexp</span>(<span class="ruby-constant">INFINITY</span>, <span class="ruby-value">-1</span>)  <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+
+<p>Related: <a href="Math.html#method-c-frexp"><code>Math.frexp</code></a> (inverse of <a href="Math.html#method-c-ldexp"><code>Math.ldexp</code></a>).</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-lgamma" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-lgamma" title="Link to this method">
+                  <span class="method-callseq">
+                    lgamma(x) &rarr; [float, -1 or 1]
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="lgamma-source">
+            <pre>static VALUE
+math_lgamma(VALUE unused_obj, VALUE x)
+{
+    double d;
+    int sign=1;
+    VALUE v;
+    d = Get_Double(x);
+    /* check for domain error */
+    if (isinf(d)) {
+        if (signbit(d)) domain_error(&quot;lgamma&quot;);
+        return rb_assoc_new(DBL2NUM(HUGE_VAL), INT2FIX(1));
+    }
+    if (d == 0.0) {
+        VALUE vsign = signbit(d) ? INT2FIX(-1) : INT2FIX(+1);
+        return rb_assoc_new(DBL2NUM(HUGE_VAL), vsign);
+    }
+    v = DBL2NUM(lgamma_r(d, &amp;sign));
+    return rb_assoc_new(v, INT2FIX(sign));
+}</pre>
+          </div>
+          <p>Returns a 2-element array equivalent to:</p>
+
+<pre class="ruby">[<span class="ruby-constant">Math</span>.<span class="ruby-identifier">log</span>(<span class="ruby-constant">Math</span>.<span class="ruby-identifier">gamma</span>(<span class="ruby-identifier">x</span>).<span class="ruby-identifier">abs</span>), <span class="ruby-constant">Math</span>.<span class="ruby-identifier">gamma</span>(<span class="ruby-identifier">x</span>) <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-value">-1</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>]
+</pre>
+
+<p>See <a href="https://en.wikipedia.org/wiki/Gamma_function#The_log-gamma_function">logarithmic gamma function</a>.</p>
+<ul><li>
+<p>Domain: <code>(-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p><a href="Range.html"><code>Range</code></a> of first element: <code>(-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Second element is -1 or 1.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">lgamma</span>(<span class="ruby-value">-4.0</span>) <span class="ruby-comment"># =&gt; [Infinity, -1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">-3.0</span>) <span class="ruby-comment"># =&gt; [Infinity, -1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">-2.0</span>) <span class="ruby-comment"># =&gt; [Infinity, -1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">-1.0</span>) <span class="ruby-comment"># =&gt; [Infinity, -1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">0.0</span>)  <span class="ruby-comment"># =&gt; [Infinity, 1]</span>
+
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">1.0</span>)  <span class="ruby-comment"># =&gt; [0.0, 1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">2.0</span>)  <span class="ruby-comment"># =&gt; [0.0, 1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">3.0</span>)  <span class="ruby-comment"># =&gt; [0.6931471805599436, 1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">4.0</span>)  <span class="ruby-comment"># =&gt; [1.7917594692280545, 1]</span>
+
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">-2.5</span>) <span class="ruby-comment"># =&gt; [-0.05624371649767279, -1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">-1.5</span>) <span class="ruby-comment"># =&gt; [0.8600470153764797, 1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">-0.5</span>) <span class="ruby-comment"># =&gt; [1.265512123484647, -1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">0.5</span>)  <span class="ruby-comment"># =&gt; [0.5723649429247004, 1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">1.5</span>)  <span class="ruby-comment"># =&gt; [-0.12078223763524676, 1]</span>
+<span class="ruby-identifier">lgamma</span>(<span class="ruby-value">2.5</span>)      <span class="ruby-comment"># =&gt; [0.2846828704729205, 1]</span>
+</pre>
+
+<p>Related: <a href="Math.html#method-c-gamma"><code>Math.gamma</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-log" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-log" title="Link to this method">
+                  <span class="method-callseq">
+                    log(x, base = Math::E) &rarr; Float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="log-source">
+            <pre>static VALUE
+math_log(int argc, const VALUE *argv, VALUE unused_obj)
+{
+    return rb_math_log(argc, argv);
+}</pre>
+          </div>
+          <p>Returns the base <code>base</code> <a href="https://en.wikipedia.org/wiki/Logarithm">logarithm</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[0, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[-INFINITY, INFINITY)]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">log</span>(<span class="ruby-value">0.0</span>)        <span class="ruby-comment"># =&gt; -Infinity</span>
+<span class="ruby-identifier">log</span>(<span class="ruby-value">1.0</span>)        <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">log</span>(<span class="ruby-constant">E</span>)          <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">log</span>(<span class="ruby-constant">INFINITY</span>)   <span class="ruby-comment"># =&gt; Infinity</span>
+
+<span class="ruby-identifier">log</span>(<span class="ruby-value">0.0</span>, <span class="ruby-value">2.0</span>)   <span class="ruby-comment"># =&gt; -Infinity</span>
+<span class="ruby-identifier">log</span>(<span class="ruby-value">1.0</span>, <span class="ruby-value">2.0</span>)   <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">log</span>(<span class="ruby-value">2.0</span>, <span class="ruby-value">2.0</span>)   <span class="ruby-comment"># =&gt; 1.0</span>
+
+<span class="ruby-identifier">log</span>(<span class="ruby-value">0.0</span>, <span class="ruby-value">10.0</span>)  <span class="ruby-comment"># =&gt; -Infinity</span>
+<span class="ruby-identifier">log</span>(<span class="ruby-value">1.0</span>, <span class="ruby-value">10.0</span>)  <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">log</span>(<span class="ruby-value">10.0</span>, <span class="ruby-value">10.0</span>) <span class="ruby-comment"># =&gt; 1.0</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-log10" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-log10" title="Link to this method">
+                  <span class="method-callseq">
+                    log10(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="log10-source">
+            <pre>static VALUE
+math_log10(VALUE unused_obj, VALUE x)
+{
+    size_t numbits;
+    double d = get_double_rshift(x, &amp;numbits);
+
+    domain_check_min(d, 0.0, &quot;log10&quot;);
+    /* check for pole error */
+    if (d == 0.0) return DBL2NUM(-HUGE_VAL);
+
+    return DBL2NUM(log10(d) + numbits * log10(2)); /* log10(d * 2 ** numbits) */
+}</pre>
+          </div>
+          <p>Returns the base 10 <a href="https://en.wikipedia.org/wiki/Logarithm">logarithm</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[0, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[-INFINITY, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">log10</span>(<span class="ruby-value">0.0</span>)      <span class="ruby-comment"># =&gt; -Infinity</span>
+<span class="ruby-identifier">log10</span>(<span class="ruby-value">1.0</span>)      <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">log10</span>(<span class="ruby-value">10.0</span>)     <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">log10</span>(<span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-log2" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-log2" title="Link to this method">
+                  <span class="method-callseq">
+                    log2(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="log2-source">
+            <pre>static VALUE
+math_log2(VALUE unused_obj, VALUE x)
+{
+    size_t numbits;
+    double d = get_double_rshift(x, &amp;numbits);
+
+    domain_check_min(d, 0.0, &quot;log2&quot;);
+    /* check for pole error */
+    if (d == 0.0) return DBL2NUM(-HUGE_VAL);
+
+    return DBL2NUM(log2(d) + numbits); /* log2(d * 2 ** numbits) */
+}</pre>
+          </div>
+          <p>Returns the base 2 <a href="https://en.wikipedia.org/wiki/Logarithm">logarithm</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[0, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[-INFINITY, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">log2</span>(<span class="ruby-value">0.0</span>)      <span class="ruby-comment"># =&gt; -Infinity</span>
+<span class="ruby-identifier">log2</span>(<span class="ruby-value">1.0</span>)      <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">log2</span>(<span class="ruby-value">2.0</span>)      <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">log2</span>(<span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-sin" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-sin" title="Link to this method">
+                  <span class="method-callseq">
+                    sin(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="sin-source">
+            <pre>static VALUE
+math_sin(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(sin(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Sine_and_cosine">sine</a> of <code>x</code> in <a href="https://en.wikipedia.org/wiki/Trigonometric_functions#Radians_versus_degrees">radians</a>.</p>
+<ul><li>
+<p>Domain: <code>(-INFINITY, INFINITY)</code>.</p>
+</li><li>
+<p>Range: <code>[-1.0, 1.0]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">sin</span>(<span class="ruby-operator">-</span><span class="ruby-constant">PI</span>)   <span class="ruby-comment"># =&gt; -1.2246063538223773e-16 # -0.0000000000000001</span>
+<span class="ruby-identifier">sin</span>(<span class="ruby-operator">-</span><span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>) <span class="ruby-comment"># =&gt; -1.0</span>
+<span class="ruby-identifier">sin</span>(<span class="ruby-value">0.0</span>)   <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">sin</span>(<span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>)  <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">sin</span>(<span class="ruby-constant">PI</span>)    <span class="ruby-comment"># =&gt; 1.2246063538223773e-16  # 0.0000000000000001</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-sinh" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-sinh" title="Link to this method">
+                  <span class="method-callseq">
+                    sinh(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="sinh-source">
+            <pre>static VALUE
+math_sinh(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(sinh(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Hyperbolic_functions">hyperbolic sine</a> of <code>x</code> in <a href="https://en.wikipedia.org/wiki/Trigonometric_functions#Radians_versus_degrees">radians</a>.</p>
+<ul><li>
+<p>Domain: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[-INFINITY, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">sinh</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; -Infinity</span>
+<span class="ruby-identifier">sinh</span>(<span class="ruby-value">0.0</span>)       <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">sinh</span>(<span class="ruby-constant">INFINITY</span>)  <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-sqrt" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-sqrt" title="Link to this method">
+                  <span class="method-callseq">
+                    sqrt(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="sqrt-source">
+            <pre>static VALUE
+math_sqrt(VALUE unused_obj, VALUE x)
+{
+    return rb_math_sqrt(x);
+}</pre>
+          </div>
+          <p>Returns the principal (non-negative) <a href="https://en.wikipedia.org/wiki/Square_root">square root</a> of <code>x</code>.</p>
+<ul><li>
+<p>Domain: <code>[0, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[0, INFINITY]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">sqrt</span>(<span class="ruby-value">0.0</span>)      <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">0.5</span>)      <span class="ruby-comment"># =&gt; 0.7071067811865476</span>
+<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">1.0</span>)      <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">2.0</span>)      <span class="ruby-comment"># =&gt; 1.4142135623730951</span>
+<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">4.0</span>)      <span class="ruby-comment"># =&gt; 2.0</span>
+<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">9.0</span>)      <span class="ruby-comment"># =&gt; 3.0</span>
+<span class="ruby-identifier">sqrt</span>(<span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; Infinity</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-tan" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-tan" title="Link to this method">
+                  <span class="method-callseq">
+                    tan(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="tan-source">
+            <pre>static VALUE
+math_tan(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(tan(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Trigonometric_functions">tangent</a> of <code>x</code> in <a href="https://en.wikipedia.org/wiki/Trigonometric_functions#Radians_versus_degrees">radians</a>.</p>
+<ul><li>
+<p>Domain: <code>(-INFINITY, INFINITY)</code>.</p>
+</li><li>
+<p>Range: <code>(-INFINITY, INFINITY)</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">tan</span>(<span class="ruby-operator">-</span><span class="ruby-constant">PI</span>)   <span class="ruby-comment"># =&gt; 1.2246467991473532e-16  # -0.0000000000000001</span>
+<span class="ruby-identifier">tan</span>(<span class="ruby-operator">-</span><span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>) <span class="ruby-comment"># =&gt; -1.633123935319537e+16  # -16331239353195370.0</span>
+<span class="ruby-identifier">tan</span>(<span class="ruby-value">0.0</span>)   <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">tan</span>(<span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>)  <span class="ruby-comment"># =&gt; 1.633123935319537e+16   # 16331239353195370.0</span>
+<span class="ruby-identifier">tan</span>(<span class="ruby-constant">PI</span>)    <span class="ruby-comment"># =&gt; -1.2246467991473532e-16 # -0.0000000000000001</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-tanh" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-tanh" title="Link to this method">
+                  <span class="method-callseq">
+                    tanh(x) &rarr; float
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="tanh-source">
+            <pre>static VALUE
+math_tanh(VALUE unused_obj, VALUE x)
+{
+    return DBL2NUM(tanh(Get_Double(x)));
+}</pre>
+          </div>
+          <p>Returns the <a href="https://en.wikipedia.org/wiki/Hyperbolic_functions">hyperbolic tangent</a> of <code>x</code> in <a href="https://en.wikipedia.org/wiki/Trigonometric_functions#Radians_versus_degrees">radians</a>.</p>
+<ul><li>
+<p>Domain: <code>[-INFINITY, INFINITY]</code>.</p>
+</li><li>
+<p>Range: <code>[-1, 1]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">tanh</span>(<span class="ruby-operator">-</span><span class="ruby-constant">INFINITY</span>) <span class="ruby-comment"># =&gt; -1.0</span>
+<span class="ruby-identifier">tanh</span>(<span class="ruby-value">0.0</span>)       <span class="ruby-comment"># =&gt; 0.0</span>
+<span class="ruby-identifier">tanh</span>(<span class="ruby-constant">INFINITY</span>)  <span class="ruby-comment"># =&gt; 1.0</span>
+</pre>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

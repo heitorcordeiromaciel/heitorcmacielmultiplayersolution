@@ -1,0 +1,11 @@
+U:RDoc::Attr[iI"
+value:ETI"(Prism::LocalVariableWriteNode#value;TI"R;T:privateo:RDoc::Markup::Document:@parts[	o:RDoc::Markup::Paragraph;	[I"¡The value to write to the local variable. It can be any {non-void expression}[https://github.com/ruby/prism/blob/main/docs/parsing_rules.md#non-void-expression].;To:RDoc::Markup::Verbatim;	[
+I"foo = :bar
+;TI"      ^^^^
+;TI"
+;TI"abc = 1234
+;TI"      ^^^^
+;T:@format0o;
+;	[I"ŸNote that since the name of a local variable is known before the value is parsed, it is valid for a local variable to appear within the value of its own write.;To;;	[I"foo = foo
+;T;0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I""Prism::LocalVariableWriteNode;TcRDoc::NormalClass0

@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>maintainers - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,maintainers">
+  <meta name="description" content="maintainers: Maintainers This page describes the current branch, module, library, and extension maintainers of Ruby. Branch Maintainers A branch maintainer is re">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/maintainers_md.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Maintainers">Maintainers</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Branch+Maintainers">Branch Maintainers</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Module+Maintainers">Module Maintainers</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Language+core+features+including+security">Language core features including security</a>
+          <li>      <a href="#label-Evaluator">Evaluator</a>
+          <li>      <a href="#label-Core+classes">Core classes</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Standard+Library+Maintainers">Standard Library Maintainers</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-Libraries">Libraries</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-lib-2Fmkmf.rb">lib/mkmf.rb</a>
+          <li>      <a href="#label-lib-2Frubygems.rb-2C+lib-2Frubygems-2F-2A">lib/rubygems.rb, lib/rubygems/*</a>
+          <li>      <a href="#label-lib-2Funicode_normalize.rb-2C+lib-2Funicode_normalize-2F-2A">lib/unicode_normalize.rb, lib/unicode_normalize/*</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Extensions">Extensions</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-ext-2Fcontinuation">ext/continuation</a>
+          <li>      <a href="#label-ext-2Fcoverage">ext/coverage</a>
+          <li>      <a href="#label-ext-2Ffiber">ext/fiber</a>
+          <li>      <a href="#label-ext-2Fmonitor">ext/monitor</a>
+          <li>      <a href="#label-ext-2Fobjspace">ext/objspace</a>
+          <li>      <a href="#label-ext-2Fpty">ext/pty</a>
+          <li>      <a href="#label-ext-2Fripper">ext/ripper</a>
+          <li>      <a href="#label-ext-2Fsocket">ext/socket</a>
+          <li>      <a href="#label-ext-2Fwin32">ext/win32</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Default+gems+Maintainers">Default gems Maintainers</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-Libraries">Libraries</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-lib-2Fbenchmark.rb">lib/benchmark.rb</a>
+          <li>      <a href="#label-lib-2Fbundler.rb-2C+lib-2Fbundler-2F-2A">lib/bundler.rb, lib/bundler/*</a>
+          <li>      <a href="#label-lib-2Fcgi.rb-2C+lib-2Fcgi-2F-2A">lib/cgi.rb, lib/cgi/*</a>
+          <li>      <a href="#label-lib-2FEnglish.rb">lib/English.rb</a>
+          <li>      <a href="#label-lib-2Fdelegate.rb">lib/delegate.rb</a>
+          <li>      <a href="#label-lib-2Fdid_you_mean.rb">lib/did_you_mean.rb</a>
+          <li>      <a href="#label-ext-2Fdigest-2C+ext-2Fdigest-2F-2A">ext/digest, ext/digest/*</a>
+          <li>      <a href="#label-lib-2Ferb.rb">lib/erb.rb</a>
+          <li>      <a href="#label-lib-2Ferror_highlight.rb-2C+lib-2Ferror_highlight-2F-2A">lib/error_highlight.rb, lib/error_highlight/*</a>
+          <li>      <a href="#label-lib-2Ffileutils.rb">lib/fileutils.rb</a>
+          <li>      <a href="#label-lib-2Ffind.rb">lib/find.rb</a>
+          <li>      <a href="#label-lib-2Fforwardable.rb">lib/forwardable.rb</a>
+          <li>      <a href="#label-lib-2Fipaddr.rb">lib/ipaddr.rb</a>
+          <li>      <a href="#label-lib-2Firb.rb-2C+lib-2Firb-2F-2A">lib/irb.rb, lib/irb/*</a>
+          <li>      <a href="#label-lib-2Foptparse.rb-2C+lib-2Foptparse-2F-2A">lib/optparse.rb, lib/optparse/*</a>
+          <li>      <a href="#label-lib-2Flogger.rb">lib/logger.rb</a>
+          <li>      <a href="#label-lib-2Fnet-2Fhttp.rb-2C+lib-2Fnet-2Fhttps.rb">lib/net/http.rb, lib/net/https.rb</a>
+          <li>      <a href="#label-lib-2Fnet-2Fprotocol.rb">lib/net/protocol.rb</a>
+          <li>      <a href="#label-lib-2Fopen3.rb">lib/open3.rb</a>
+          <li>      <a href="#label-lib-2Fopen-uri.rb">lib/open-uri.rb</a>
+          <li>      <a href="#label-lib-2Fostruct.rb">lib/ostruct.rb</a>
+          <li>      <a href="#label-lib-2Fpp.rb">lib/pp.rb</a>
+          <li>      <a href="#label-lib-2Fprettyprint.rb">lib/prettyprint.rb</a>
+          <li>      <a href="#label-lib-2Fprism.rb">lib/prism.rb</a>
+          <li>      <a href="#label-lib-2Fpstore.rb">lib/pstore.rb</a>
+          <li>      <a href="#label-lib-2Freadline.rb">lib/readline.rb</a>
+          <li>      <a href="#label-lib-2Fresolv.rb">lib/resolv.rb</a>
+          <li>      <a href="#label-lib-2Frdoc.rb-2C+lib-2Frdoc-2F-2A">lib/rdoc.rb, lib/rdoc/*</a>
+          <li>      <a href="#label-lib-2Freline.rb-2C+lib-2Freline-2F-2A">lib/reline.rb, lib/reline/*</a>
+          <li>      <a href="#label-lib-2Fsecurerandom.rb">lib/securerandom.rb</a>
+          <li>      <a href="#label-lib-2Fset.rb">lib/set.rb</a>
+          <li>      <a href="#label-lib-2Fshellwords.rb">lib/shellwords.rb</a>
+          <li>      <a href="#label-lib-2Fsingleton.rb">lib/singleton.rb</a>
+          <li>      <a href="#label-lib-2Ftempfile.rb">lib/tempfile.rb</a>
+          <li>      <a href="#label-lib-2Ftime.rb">lib/time.rb</a>
+          <li>      <a href="#label-lib-2Ftimeout.rb">lib/timeout.rb</a>
+          <li>      <a href="#label-lib-2Fthwait.rb">lib/thwait.rb</a>
+          <li>      <a href="#label-lib-2Ftmpdir.rb">lib/tmpdir.rb</a>
+          <li>      <a href="#label-lib-2Ftsort.rb">lib/tsort.rb</a>
+          <li>      <a href="#label-lib-2Fun.rb">lib/un.rb</a>
+          <li>      <a href="#label-lib-2Furi.rb-2C+lib-2Furi-2F-2A">lib/uri.rb, lib/uri/*</a>
+          <li>      <a href="#label-lib-2Fyaml.rb-2C+lib-2Fyaml-2F-2A">lib/yaml.rb, lib/yaml/*</a>
+          <li>      <a href="#label-lib-2Fweakref.rb">lib/weakref.rb</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Extensions">Extensions</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-ext-2Fcgi">ext/cgi</a>
+          <li>      <a href="#label-ext-2Fdate">ext/date</a>
+          <li>      <a href="#label-ext-2Fetc">ext/etc</a>
+          <li>      <a href="#label-ext-2Ffcntl">ext/fcntl</a>
+          <li>      <a href="#label-ext-2Ffiddle">ext/fiddle</a>
+          <li>      <a href="#label-ext-2Fio-2Fconsole">ext/io/console</a>
+          <li>      <a href="#label-ext-2Fio-2Fnonblock">ext/io/nonblock</a>
+          <li>      <a href="#label-ext-2Fio-2Fwait">ext/io/wait</a>
+          <li>      <a href="#label-ext-2Fjson">ext/json</a>
+          <li>      <a href="#label-ext-2Fopenssl">ext/openssl</a>
+          <li>      <a href="#label-ext-2Fpathname">ext/pathname</a>
+          <li>      <a href="#label-ext-2Fpsych">ext/psych</a>
+          <li>      <a href="#label-ext-2Fstringio">ext/stringio</a>
+          <li>      <a href="#label-ext-2Fstrscan">ext/strscan</a>
+          <li>      <a href="#label-ext-2Fwin32ole">ext/win32ole</a>
+          <li>      <a href="#label-ext-2Fzlib">ext/zlib</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Bundled+gems+upstream+repositories">Bundled gems upstream repositories</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-minitest">minitest</a>
+          <li>      <a href="#label-power_assert">power_assert</a>
+          <li>      <a href="#label-rake">rake</a>
+          <li>      <a href="#label-test-unit">test-unit</a>
+          <li>      <a href="#label-rexml">rexml</a>
+          <li>      <a href="#label-rss">rss</a>
+          <li>      <a href="#label-net-ftp">net-ftp</a>
+          <li>      <a href="#label-net-imap">net-imap</a>
+          <li>      <a href="#label-net-pop">net-pop</a>
+          <li>      <a href="#label-net-smtp">net-smtp</a>
+          <li>      <a href="#label-matrix">matrix</a>
+          <li>      <a href="#label-prime">prime</a>
+          <li>      <a href="#label-rbs">rbs</a>
+          <li>      <a href="#label-typeprof">typeprof</a>
+          <li>      <a href="#label-debug">debug</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-racc">racc</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-mutex_m">mutex_m</a>
+          <li>      <a href="#label-getoptlong">getoptlong</a>
+          <li>      <a href="#label-base64">base64</a>
+          <li>      <a href="#label-bigdecimal">bigdecimal</a>
+          <li>      <a href="#label-observer">observer</a>
+          <li>      <a href="#label-abbrev">abbrev</a>
+          <li>      <a href="#label-resolv-replace">resolv-replace</a>
+          <li>      <a href="#label-rinda">rinda</a>
+          <li>      <a href="#label-drb">drb</a>
+          <li>      <a href="#label-nkf">nkf</a>
+          <li>      <a href="#label-syslog">syslog</a>
+          <li>      <a href="#label-csv">csv</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Platform+Maintainers">Platform Maintainers</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-mswin64+-28Microsoft+Windows-29">mswin64 (Microsoft Windows)</a>
+          <li>      <a href="#label-mingw32+-28Minimalist+GNU+for+Windows-29">mingw32 (Minimalist GNU for Windows)</a>
+          <li>      <a href="#label-AIX">AIX</a>
+          <li>      <a href="#label-FreeBSD">FreeBSD</a>
+          <li>      <a href="#label-Solaris">Solaris</a>
+          <li>      <a href="#label-RHEL-2C+CentOS">RHEL, CentOS</a>
+          <li>      <a href="#label-macOS">macOS</a>
+          <li>      <a href="#label-OpenBSD">OpenBSD</a>
+          <li>      <a href="#label-cygwin-2C+...">cygwin, …</a>
+          <li>      <a href="#label-WebAssembly-2FWASI">WebAssembly/WASI</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./COPYING.html">COPYING</a>
+    <li><a href="./COPYING_ja.html">COPYING.ja</a>
+    <li><a href="./LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="./NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="./NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="./NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="./NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="./NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="./NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="./NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="./NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="./NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="./NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="./NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="./NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="./NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="./NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="./NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="./NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="./NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="./README_ja_md.html">README.ja</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./bsearch_rdoc.html">bsearch</a>
+    <li><a href="./bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="./case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="./character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="./command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="./contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="./contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="./contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="./contributing/glossary_md.html">glossary</a>
+      <li><a href="./contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="./contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="./contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="./contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="./date/calendars_rdoc.html">calendars</a>
+    <li><a href="./dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="./distribution_md.html">distribution</a>
+    <li><a href="./dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="./encodings_rdoc.html">encodings</a>
+    <li><a href="./exceptions_md.html">exceptions</a>
+    <li><a href="./extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="./extension_rdoc.html">extension</a>
+    <li><a href="./fiber_md.html">fiber</a>
+    <li><a href="./format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="./globals_rdoc.html">globals</a>
+    <li><a href="./implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="./index_md.html">index</a>
+    <li><a href="./maintainers_md.html">maintainers</a>
+    <li><a href="./marshal_rdoc.html">marshal</a>
+    <li><a href="./memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="./optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="./optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="./optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="./optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="./packed_data_rdoc.html">packed_data</a>
+    <li><a href="./ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="./regexp/methods_rdoc.html">methods</a>
+      <li><a href="./regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="./rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="./ruby/option_dump_md.html">option_dump</a>
+      <li><a href="./ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="./security_rdoc.html">security</a>
+    <li><a href="./signals_rdoc.html">signals</a>
+    <li><a href="./standard_library_md.html">standard_library</a>
+    <li><a href="./strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="./syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="./syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="./syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="./syntax/comments_rdoc.html">comments</a>
+      <li><a href="./syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="./syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="./syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="./syntax/literals_rdoc.html">literals</a>
+      <li><a href="./syntax/methods_rdoc.html">methods</a>
+      <li><a href="./syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="./syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="./syntax/operators_rdoc.html">operators</a>
+      <li><a href="./syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="./syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="./syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="./windows_md.html">windows</a>
+    <li><a href="./yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page maintainers.md">
+
+<h1 id="label-Maintainers">Maintainers<span><a href="#label-Maintainers">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>This page describes the current branch, module, library, and extension maintainers of Ruby.</p>
+
+<h2 id="label-Branch+Maintainers">Branch Maintainers<span><a href="#label-Branch+Maintainers">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A branch maintainer is responsible for backporting commits into stable branches and publishing Ruby patch releases.</p>
+
+<p><a href="https://github.com/ruby/ruby/wiki/Release-Engineering">The list of current branch maintainers is available in the wiki</a>.</p>
+
+<h2 id="label-Module+Maintainers">Module Maintainers<span><a href="#label-Module+Maintainers">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A module maintainer is responsible for a certain part of Ruby.</p>
+<ul><li>
+<p>The maintainer fixes bugs of the part. Particularly, they should fix security vulnerabilities as soon as possible.</p>
+</li><li>
+<p>They handle issues related the module on the Redmine or ML.</p>
+</li><li>
+<p>They may be discharged by the 3 months rule <a href="https://blade.ruby-lang.org/ruby-core/25764">[ruby-core:25764]</a>.</p>
+</li><li>
+<p>They have commit right to Ruby’s repository to modify their part in the repository.</p>
+</li><li>
+<p>They have “developer” role on the Redmine to modify issues.</p>
+</li><li>
+<p>They have authority to decide the feature of their part. But they should always respect discussions on ruby-core/ruby-dev.</p>
+</li></ul>
+
+<p>A submaintainer of a module is like a maintainer. But the submaintainer does not have authority to change/add a feature on his/her part. They need consensus on ruby-core/ruby-dev before changing/adding. Some of submaintainers have commit right, others don’t.</p>
+
+<h3 id="label-Language+core+features+including+security">Language core features including security<span><a href="#label-Language+core+features+including+security">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Yukihiro Matsumoto (<a href="https://github.com/matz">matz</a>)</p>
+</li></ul>
+
+<h3 id="label-Evaluator">Evaluator<span><a href="#label-Evaluator">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Koichi Sasada (<a href="https://github.com/ko1">ko1</a>)</p>
+</li></ul>
+
+<h3 id="label-Core+classes">Core classes<span><a href="#label-Core+classes">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Yukihiro Matsumoto (<a href="https://github.com/matz">matz</a>)</p>
+</li></ul>
+
+<h2 id="label-Standard+Library+Maintainers">Standard Library Maintainers<span><a href="#label-Standard+Library+Maintainers">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Libraries">Libraries<span><a href="#label-Libraries">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-lib-2Fmkmf.rb">lib/mkmf.rb<span><a href="#label-lib-2Fmkmf.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li></ul>
+
+<h4 id="label-lib-2Frubygems.rb-2C+lib-2Frubygems-2F-2A">lib/rubygems.rb, lib/rubygems/*<span><a href="#label-lib-2Frubygems.rb-2C+lib-2Frubygems-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Eric Hodel (<a href="https://github.com/drbrain">drbrain</a>)</p>
+</li><li>
+<p>Hiroshi SHIBATA (<a href="https://github.com/hsbt">hsbt</a>)</p>
+</li><li>
+<p><a href="https://github.com/rubygems/rubygems">github.com/rubygems/rubygems</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Funicode_normalize.rb-2C+lib-2Funicode_normalize-2F-2A">lib/unicode_normalize.rb, lib/unicode_normalize/*<span><a href="#label-lib-2Funicode_normalize.rb-2C+lib-2Funicode_normalize-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Martin J. Dürst (<a href="https://github.com/duerst">duerst</a>)</p>
+</li></ul>
+
+<h3 id="label-Extensions">Extensions<span><a href="#label-Extensions">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-ext-2Fcontinuation">ext/continuation<span><a href="#label-ext-2Fcontinuation">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Koichi Sasada (<a href="https://github.com/ko1">ko1</a>)</p>
+</li></ul>
+
+<h4 id="label-ext-2Fcoverage">ext/coverage<span><a href="#label-ext-2Fcoverage">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Yusuke Endoh (<a href="https://github.com/mame">mame</a>)</p>
+</li></ul>
+
+<h4 id="label-ext-2Ffiber">ext/fiber<span><a href="#label-ext-2Ffiber">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Koichi Sasada (<a href="https://github.com/ko1">ko1</a>)</p>
+</li></ul>
+
+<h4 id="label-ext-2Fmonitor">ext/monitor<span><a href="#label-ext-2Fmonitor">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Koichi Sasada (<a href="https://github.com/ko1">ko1</a>)</p>
+</li></ul>
+
+<h4 id="label-ext-2Fobjspace">ext/objspace<span><a href="#label-ext-2Fobjspace">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li></ul>
+
+<h4 id="label-ext-2Fpty">ext/pty<span><a href="#label-ext-2Fpty">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li></ul>
+
+<h4 id="label-ext-2Fripper">ext/ripper<span><a href="#label-ext-2Fripper">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li></ul>
+
+<h4 id="label-ext-2Fsocket">ext/socket<span><a href="#label-ext-2Fsocket">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Tanaka Akira (<a href="https://github.com/akr">akr</a>)</p>
+</li><li>
+<p>API change needs matz’s approval</p>
+</li></ul>
+
+<h4 id="label-ext-2Fwin32">ext/win32<span><a href="#label-ext-2Fwin32">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>NAKAMURA Usaku (<a href="https://github.com/unak">unak</a>)</p>
+</li></ul>
+
+<h2 id="label-Default+gems+Maintainers">Default gems Maintainers<span><a href="#label-Default+gems+Maintainers">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Libraries">Libraries<span><a href="#label-Libraries">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-lib-2Fbenchmark.rb">lib/benchmark.rb<span><a href="#label-lib-2Fbenchmark.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/benchmark">github.com/ruby/benchmark</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/benchmark">rubygems.org/gems/benchmark</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fbundler.rb-2C+lib-2Fbundler-2F-2A">lib/bundler.rb, lib/bundler/*<span><a href="#label-lib-2Fbundler.rb-2C+lib-2Fbundler-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Hiroshi SHIBATA (<a href="https://github.com/hsbt">hsbt</a>)</p>
+</li><li>
+<p><a href="https://github.com/rubygems/rubygems">github.com/rubygems/rubygems</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/bundler">rubygems.org/gems/bundler</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fcgi.rb-2C+lib-2Fcgi-2F-2A">lib/cgi.rb, lib/cgi/*<span><a href="#label-lib-2Fcgi.rb-2C+lib-2Fcgi-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/cgi">github.com/ruby/cgi</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/cgi">rubygems.org/gems/cgi</a></p>
+</li></ul>
+
+<h4 id="label-lib-2FEnglish.rb">lib/English.rb<span><a href="#label-lib-2FEnglish.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/English">github.com/ruby/English</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/English">rubygems.org/gems/English</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fdelegate.rb">lib/delegate.rb<span><a href="#label-lib-2Fdelegate.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/delegate">github.com/ruby/delegate</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/delegate">rubygems.org/gems/delegate</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fdid_you_mean.rb">lib/did_you_mean.rb<span><a href="#label-lib-2Fdid_you_mean.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Yuki Nishijima (<a href="https://github.com/yuki24">yuki24</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/did_you_mean">github.com/ruby/did_you_mean</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/did_you_mean">rubygems.org/gems/did_you_mean</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fdigest-2C+ext-2Fdigest-2F-2A">ext/digest, ext/digest/*<span><a href="#label-ext-2Fdigest-2C+ext-2Fdigest-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Akinori MUSHA (<a href="https://github.com/knu">knu</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/digest">github.com/ruby/digest</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/digest">rubygems.org/gems/digest</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Ferb.rb">lib/erb.rb<span><a href="#label-lib-2Ferb.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Masatoshi SEKI (<a href="https://github.com/seki">seki</a>)</p>
+</li><li>
+<p>Takashi Kokubun (<a href="https://github.com/k0kubun">k0kubun</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/erb">github.com/ruby/erb</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/erb">rubygems.org/gems/erb</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Ferror_highlight.rb-2C+lib-2Ferror_highlight-2F-2A">lib/error_highlight.rb, lib/error_highlight/*<span><a href="#label-lib-2Ferror_highlight.rb-2C+lib-2Ferror_highlight-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Yusuke Endoh (<a href="https://github.com/mame">mame</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/error_highlight">github.com/ruby/error_highlight</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/error_highlight">rubygems.org/gems/error_highlight</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Ffileutils.rb">lib/fileutils.rb<span><a href="#label-lib-2Ffileutils.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/fileutils">github.com/ruby/fileutils</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/fileutils">rubygems.org/gems/fileutils</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Ffind.rb">lib/find.rb<span><a href="#label-lib-2Ffind.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Kazuki Tsujimoto (<a href="https://github.com/k-tsj">k-tsj</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/find">github.com/ruby/find</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/find">rubygems.org/gems/find</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fforwardable.rb">lib/forwardable.rb<span><a href="#label-lib-2Fforwardable.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Keiju ISHITSUKA (<a href="https://github.com/keiju">keiju</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/forwardable">github.com/ruby/forwardable</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/forwardable">rubygems.org/gems/forwardable</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fipaddr.rb">lib/ipaddr.rb<span><a href="#label-lib-2Fipaddr.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Akinori MUSHA (<a href="https://github.com/knu">knu</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/ipaddr">github.com/ruby/ipaddr</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/ipaddr">rubygems.org/gems/ipaddr</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Firb.rb-2C+lib-2Firb-2F-2A">lib/irb.rb, lib/irb/*<span><a href="#label-lib-2Firb.rb-2C+lib-2Firb-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Stan Lo (<a href="https://github.com/st0012">st0012</a>)</p>
+</li><li>
+<p>Tomoya Ishida (<a href="https://github.com/tompng">tompng</a>)</p>
+</li><li>
+<p>Mari Imaizumi (<a href="https://github.com/ima1zumi">ima1zumi</a>)</p>
+</li><li>
+<p>Hitoshi Hasumi (<a href="https://github.com/hasumikin">hasumikin</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/irb">github.com/ruby/irb</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/irb">rubygems.org/gems/irb</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Foptparse.rb-2C+lib-2Foptparse-2F-2A">lib/optparse.rb, lib/optparse/*<span><a href="#label-lib-2Foptparse.rb-2C+lib-2Foptparse-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Nobuyuki Nakada (<a href="https://github.com/nobu">nobu</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/optparse">github.com/ruby/optparse</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Flogger.rb">lib/logger.rb<span><a href="#label-lib-2Flogger.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Naotoshi Seo (<a href="https://github.com/sonots">sonots</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/logger">github.com/ruby/logger</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/logger">rubygems.org/gems/logger</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fnet-2Fhttp.rb-2C+lib-2Fnet-2Fhttps.rb">lib/net/http.rb, lib/net/https.rb<span><a href="#label-lib-2Fnet-2Fhttp.rb-2C+lib-2Fnet-2Fhttps.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>NARUSE, Yui (<a href="https://github.com/nurse">nurse</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/net-http">github.com/ruby/net-http</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/net-http">rubygems.org/gems/net-http</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fnet-2Fprotocol.rb">lib/net/protocol.rb<span><a href="#label-lib-2Fnet-2Fprotocol.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/net-protocol">github.com/ruby/net-protocol</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/net-protocol">rubygems.org/gems/net-protocol</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fopen3.rb">lib/open3.rb<span><a href="#label-lib-2Fopen3.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/open3">github.com/ruby/open3</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/open3">rubygems.org/gems/open3</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fopen-uri.rb">lib/open-uri.rb<span><a href="#label-lib-2Fopen-uri.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Tanaka Akira (<a href="https://github.com/akr">akr</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/open-uri">github.com/ruby/open-uri</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fostruct.rb">lib/ostruct.rb<span><a href="#label-lib-2Fostruct.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Marc-André Lafortune (<a href="https://github.com/marcandre">marcandre</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/ostruct">github.com/ruby/ostruct</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/ostruct">rubygems.org/gems/ostruct</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fpp.rb">lib/pp.rb<span><a href="#label-lib-2Fpp.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Tanaka Akira (<a href="https://github.com/akr">akr</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/pp">github.com/ruby/pp</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/pp">rubygems.org/gems/pp</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fprettyprint.rb">lib/prettyprint.rb<span><a href="#label-lib-2Fprettyprint.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Tanaka Akira (<a href="https://github.com/akr">akr</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/prettyprint">github.com/ruby/prettyprint</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/prettyprint">rubygems.org/gems/prettyprint</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fprism.rb">lib/prism.rb<span><a href="#label-lib-2Fprism.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Kevin Newton (<a href="https://github.com/kddnewton">kddnewton</a>)</p>
+</li><li>
+<p>Eileen Uchitelle (<a href="https://github.com/eileencodes">eileencodes</a>)</p>
+</li><li>
+<p>Aaron Patterson (<a href="https://github.com/tenderlove">tenderlove</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/prism">github.com/ruby/prism</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/prism">rubygems.org/gems/prism</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fpstore.rb">lib/pstore.rb<span><a href="#label-lib-2Fpstore.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/pstore">github.com/ruby/pstore</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/pstore">rubygems.org/gems/pstore</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Freadline.rb">lib/readline.rb<span><a href="#label-lib-2Freadline.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>aycabta</p>
+</li><li>
+<p><a href="https://github.com/ruby/readline">github.com/ruby/readline</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/readline">rubygems.org/gems/readline</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fresolv.rb">lib/resolv.rb<span><a href="#label-lib-2Fresolv.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Tanaka Akira (<a href="https://github.com/akr">akr</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/resolv">github.com/ruby/resolv</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/resolv">rubygems.org/gems/resolv</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Frdoc.rb-2C+lib-2Frdoc-2F-2A">lib/rdoc.rb, lib/rdoc/*<span><a href="#label-lib-2Frdoc.rb-2C+lib-2Frdoc-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Eric Hodel (<a href="https://github.com/drbrain">drbrain</a>)</p>
+</li><li>
+<p>Hiroshi SHIBATA (<a href="https://github.com/hsbt">hsbt</a>)</p>
+</li><li>
+<p>Stan Lo (<a href="https://github.com/st0012">st0012</a>)</p>
+</li><li>
+<p>Colby Swandale (<a href="https://github.com/colby-swandale">colby-swandale</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/rdoc">github.com/ruby/rdoc</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/rdoc">rubygems.org/gems/rdoc</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Freline.rb-2C+lib-2Freline-2F-2A">lib/reline.rb, lib/reline/*<span><a href="#label-lib-2Freline.rb-2C+lib-2Freline-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Tomoya Ishida (<a href="https://github.com/tompng">tompng</a>)</p>
+</li><li>
+<p>Mari Imaizumi (<a href="https://github.com/ima1zumi">ima1zumi</a>)</p>
+</li><li>
+<p>Stan Lo (<a href="https://github.com/st0012">st0012</a>)</p>
+</li><li>
+<p>Hitoshi Hasumi (<a href="https://github.com/hasumikin">hasumikin</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/reline">github.com/ruby/reline</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/reline">rubygems.org/gems/reline</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fsecurerandom.rb">lib/securerandom.rb<span><a href="#label-lib-2Fsecurerandom.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Tanaka Akira (<a href="https://github.com/akr">akr</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/securerandom">github.com/ruby/securerandom</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/securerandom">rubygems.org/gems/securerandom</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fset.rb">lib/set.rb<span><a href="#label-lib-2Fset.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Akinori MUSHA (<a href="https://github.com/knu">knu</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/set">github.com/ruby/set</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/set">rubygems.org/gems/set</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fshellwords.rb">lib/shellwords.rb<span><a href="#label-lib-2Fshellwords.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Akinori MUSHA (<a href="https://github.com/knu">knu</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/shellwords">github.com/ruby/shellwords</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/shellwords">rubygems.org/gems/shellwords</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fsingleton.rb">lib/singleton.rb<span><a href="#label-lib-2Fsingleton.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Yukihiro Matsumoto (<a href="https://github.com/matz">matz</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/singleton">github.com/ruby/singleton</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/singleton">rubygems.org/gems/singleton</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Ftempfile.rb">lib/tempfile.rb<span><a href="#label-lib-2Ftempfile.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/tempfile">github.com/ruby/tempfile</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/tempfile">rubygems.org/gems/tempfile</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Ftime.rb">lib/time.rb<span><a href="#label-lib-2Ftime.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Tanaka Akira (<a href="https://github.com/akr">akr</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/time">github.com/ruby/time</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/time">rubygems.org/gems/time</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Ftimeout.rb">lib/timeout.rb<span><a href="#label-lib-2Ftimeout.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Yukihiro Matsumoto (<a href="https://github.com/matz">matz</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/timeout">github.com/ruby/timeout</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/timeout">rubygems.org/gems/timeout</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fthwait.rb">lib/thwait.rb<span><a href="#label-lib-2Fthwait.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Keiju ISHITSUKA (<a href="https://github.com/keiju">keiju</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/thwait">github.com/ruby/thwait</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/thwait">rubygems.org/gems/thwait</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Ftmpdir.rb">lib/tmpdir.rb<span><a href="#label-lib-2Ftmpdir.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/tmpdir">github.com/ruby/tmpdir</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/tmpdir">rubygems.org/gems/tmpdir</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Ftsort.rb">lib/tsort.rb<span><a href="#label-lib-2Ftsort.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Tanaka Akira (<a href="https://github.com/akr">akr</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/tsort">github.com/ruby/tsort</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/tsort">rubygems.org/gems/tsort</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fun.rb">lib/un.rb<span><a href="#label-lib-2Fun.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>WATANABE Hirofumi (<a href="https://github.com/eban">eban</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/un">github.com/ruby/un</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/un">rubygems.org/gems/un</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Furi.rb-2C+lib-2Furi-2F-2A">lib/uri.rb, lib/uri/*<span><a href="#label-lib-2Furi.rb-2C+lib-2Furi-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>NARUSE, Yui (<a href="https://github.com/nurse">nurse</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/uri">github.com/ruby/uri</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/uri">rubygems.org/gems/uri</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fyaml.rb-2C+lib-2Fyaml-2F-2A">lib/yaml.rb, lib/yaml/*<span><a href="#label-lib-2Fyaml.rb-2C+lib-2Fyaml-2F-2A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Aaron Patterson (<a href="https://github.com/tenderlove">tenderlove</a>)</p>
+</li><li>
+<p>Hiroshi SHIBATA (<a href="https://github.com/hsbt">hsbt</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/yaml">github.com/ruby/yaml</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/yaml">rubygems.org/gems/yaml</a></p>
+</li></ul>
+
+<h4 id="label-lib-2Fweakref.rb">lib/weakref.rb<span><a href="#label-lib-2Fweakref.rb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/weakref">github.com/ruby/weakref</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/weakref">rubygems.org/gems/weakref</a></p>
+</li></ul>
+
+<h3 id="label-Extensions">Extensions<span><a href="#label-Extensions">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-ext-2Fcgi">ext/cgi<span><a href="#label-ext-2Fcgi">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Nobuyoshi Nakada (<a href="https://github.com/nobu">nobu</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/cgi">github.com/ruby/cgi</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/cgi">rubygems.org/gems/cgi</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fdate">ext/date<span><a href="#label-ext-2Fdate">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/date">github.com/ruby/date</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/date">rubygems.org/gems/date</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fetc">ext/etc<span><a href="#label-ext-2Fetc">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/etc">github.com/ruby/etc</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/etc">rubygems.org/gems/etc</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Ffcntl">ext/fcntl<span><a href="#label-ext-2Ffcntl">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><em>unmaintained</em></p>
+</li><li>
+<p><a href="https://github.com/ruby/fcntl">github.com/ruby/fcntl</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/fcntl">rubygems.org/gems/fcntl</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Ffiddle">ext/fiddle<span><a href="#label-ext-2Ffiddle">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Aaron Patterson (<a href="https://github.com/tenderlove">tenderlove</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/fiddle">github.com/ruby/fiddle</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/fiddle">rubygems.org/gems/fiddle</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fio-2Fconsole">ext/io/console<span><a href="#label-ext-2Fio-2Fconsole">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Nobuyuki Nakada (<a href="https://github.com/nobu">nobu</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/io-console">github.com/ruby/io-console</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/io-console">rubygems.org/gems/io-console</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fio-2Fnonblock">ext/io/nonblock<span><a href="#label-ext-2Fio-2Fnonblock">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Nobuyuki Nakada (<a href="https://github.com/nobu">nobu</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/io-nonblock">github.com/ruby/io-nonblock</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/io-nonblock">rubygems.org/gems/io-nonblock</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fio-2Fwait">ext/io/wait<span><a href="#label-ext-2Fio-2Fwait">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Nobuyuki Nakada (<a href="https://github.com/nobu">nobu</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/io-wait">github.com/ruby/io-wait</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/io-wait">rubygems.org/gems/io-wait</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fjson">ext/json<span><a href="#label-ext-2Fjson">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>NARUSE, Yui (<a href="https://github.com/nurse">nurse</a>)</p>
+</li><li>
+<p>Hiroshi SHIBATA (<a href="https://github.com/hsbt">hsbt</a>)</p>
+</li><li>
+<p>Jean Boussier (<a href="https://github.com/byroot">byroot</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/json">github.com/ruby/json</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/json">rubygems.org/gems/json</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fopenssl">ext/openssl<span><a href="#label-ext-2Fopenssl">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Kazuki Yamaguchi (<a href="https://github.com/rhenium">rhenium</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/openssl">github.com/ruby/openssl</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/openssl">rubygems.org/gems/openssl</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fpathname">ext/pathname<span><a href="#label-ext-2Fpathname">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Tanaka Akira (<a href="https://github.com/akr">akr</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/pathname">github.com/ruby/pathname</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/pathname">rubygems.org/gems/pathname</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fpsych">ext/psych<span><a href="#label-ext-2Fpsych">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Aaron Patterson (<a href="https://github.com/tenderlove">tenderlove</a>)</p>
+</li><li>
+<p>Hiroshi SHIBATA (<a href="https://github.com/hsbt">hsbt</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/psych">github.com/ruby/psych</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/psych">rubygems.org/gems/psych</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fstringio">ext/stringio<span><a href="#label-ext-2Fstringio">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Nobuyuki Nakada (<a href="https://github.com/nobu">nobu</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/stringio">github.com/ruby/stringio</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/stringio">rubygems.org/gems/stringio</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fstrscan">ext/strscan<span><a href="#label-ext-2Fstrscan">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Kouhei Sutou (<a href="https://github.com/kou">kou</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/strscan">github.com/ruby/strscan</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/strscan">rubygems.org/gems/strscan</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fwin32ole">ext/win32ole<span><a href="#label-ext-2Fwin32ole">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Masaki Suketa (<a href="https://github.com/suketa">suketa</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/win32ole">github.com/ruby/win32ole</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/win32ole">rubygems.org/gems/win32ole</a></p>
+</li></ul>
+
+<h4 id="label-ext-2Fzlib">ext/zlib<span><a href="#label-ext-2Fzlib">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>NARUSE, Yui (<a href="https://github.com/nurse">nurse</a>)</p>
+</li><li>
+<p><a href="https://github.com/ruby/zlib">github.com/ruby/zlib</a></p>
+</li><li>
+<p><a href="https://rubygems.org/gems/zlib">rubygems.org/gems/zlib</a></p>
+</li></ul>
+
+<h2 id="label-Bundled+gems+upstream+repositories">Bundled gems upstream repositories<span><a href="#label-Bundled+gems+upstream+repositories">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-minitest">minitest<span><a href="#label-minitest">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/minitest/minitest">github.com/minitest/minitest</a></p>
+</li></ul>
+
+<h3 id="label-power_assert">power_assert<span><a href="#label-power_assert">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/power_assert">github.com/ruby/power_assert</a></p>
+</li></ul>
+
+<h3 id="label-rake">rake<span><a href="#label-rake">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/rake">github.com/ruby/rake</a></p>
+</li></ul>
+
+<h3 id="label-test-unit">test-unit<span><a href="#label-test-unit">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/test-unit/test-unit">github.com/test-unit/test-unit</a></p>
+</li></ul>
+
+<h3 id="label-rexml">rexml<span><a href="#label-rexml">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/rexml">github.com/ruby/rexml</a></p>
+</li></ul>
+
+<h3 id="label-rss">rss<span><a href="#label-rss">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/rss">github.com/ruby/rss</a></p>
+</li></ul>
+
+<h3 id="label-net-ftp">net-ftp<span><a href="#label-net-ftp">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/net-ftp">github.com/ruby/net-ftp</a></p>
+</li></ul>
+
+<h3 id="label-net-imap">net-imap<span><a href="#label-net-imap">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/net-imap">github.com/ruby/net-imap</a></p>
+</li></ul>
+
+<h3 id="label-net-pop">net-pop<span><a href="#label-net-pop">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/net-pop">github.com/ruby/net-pop</a></p>
+</li></ul>
+
+<h3 id="label-net-smtp">net-smtp<span><a href="#label-net-smtp">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/net-smtp">github.com/ruby/net-smtp</a></p>
+</li></ul>
+
+<h3 id="label-matrix">matrix<span><a href="#label-matrix">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/matrix">github.com/ruby/matrix</a></p>
+</li></ul>
+
+<h3 id="label-prime">prime<span><a href="#label-prime">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/prime">github.com/ruby/prime</a></p>
+</li></ul>
+
+<h3 id="label-rbs">rbs<span><a href="#label-rbs">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/rbs">github.com/ruby/rbs</a></p>
+</li></ul>
+
+<h3 id="label-typeprof">typeprof<span><a href="#label-typeprof">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/typeprof">github.com/ruby/typeprof</a></p>
+</li></ul>
+
+<h3 id="label-debug">debug<span><a href="#label-debug">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/debug">github.com/ruby/debug</a></p>
+</li></ul>
+
+<h3 id="label-racc">racc<span><a href="#label-racc">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://github.com/ruby/racc">github.com/ruby/racc</a></p>
+</li></ul>
+
+<h4 id="label-mutex_m">mutex_m<span><a href="#label-mutex_m">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/mutex_m">github.com/ruby/mutex_m</a></p>
+</li></ul>
+
+<h4 id="label-getoptlong">getoptlong<span><a href="#label-getoptlong">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/getoptlong">github.com/ruby/getoptlong</a></p>
+</li></ul>
+
+<h4 id="label-base64">base64<span><a href="#label-base64">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/base64">github.com/ruby/base64</a></p>
+</li></ul>
+
+<h4 id="label-bigdecimal">bigdecimal<span><a href="#label-bigdecimal">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/bigdecimal">github.com/ruby/bigdecimal</a></p>
+</li></ul>
+
+<h4 id="label-observer">observer<span><a href="#label-observer">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/observer">github.com/ruby/observer</a></p>
+</li></ul>
+
+<h4 id="label-abbrev">abbrev<span><a href="#label-abbrev">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/abbrev">github.com/ruby/abbrev</a></p>
+</li></ul>
+
+<h4 id="label-resolv-replace">resolv-replace<span><a href="#label-resolv-replace">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/resolv-replace">github.com/ruby/resolv-replace</a></p>
+</li></ul>
+
+<h4 id="label-rinda">rinda<span><a href="#label-rinda">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/rinda">github.com/ruby/rinda</a></p>
+</li></ul>
+
+<h4 id="label-drb">drb<span><a href="#label-drb">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/drb">github.com/ruby/drb</a></p>
+</li></ul>
+
+<h4 id="label-nkf">nkf<span><a href="#label-nkf">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/nkf">github.com/ruby/nkf</a></p>
+</li></ul>
+
+<h4 id="label-syslog">syslog<span><a href="#label-syslog">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/syslog">github.com/ruby/syslog</a></p>
+</li></ul>
+
+<h4 id="label-csv">csv<span><a href="#label-csv">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><a href="https://github.com/ruby/csv">github.com/ruby/csv</a></p>
+</li></ul>
+
+<h2 id="label-Platform+Maintainers">Platform Maintainers<span><a href="#label-Platform+Maintainers">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-mswin64+-28Microsoft+Windows-29">mswin64 (Microsoft Windows)<span><a href="#label-mswin64+-28Microsoft+Windows-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>NAKAMURA Usaku (<a href="https://github.com/unak">unak</a>)</p>
+</li></ul>
+
+<h3 id="label-mingw32+-28Minimalist+GNU+for+Windows-29">mingw32 (Minimalist GNU for Windows)<span><a href="#label-mingw32+-28Minimalist+GNU+for+Windows-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Nobuyoshi Nakada (<a href="https://github.com/nobu">nobu</a>)</p>
+</li></ul>
+
+<h3 id="label-AIX">AIX<span><a href="#label-AIX">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Yutaka Kanemoto (<a href="https://github.com/kanemoto">kanemoto</a>)</p>
+</li></ul>
+
+<h3 id="label-FreeBSD">FreeBSD<span><a href="#label-FreeBSD">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Akinori MUSHA (<a href="https://github.com/knu">knu</a>)</p>
+</li></ul>
+
+<h3 id="label-Solaris">Solaris<span><a href="#label-Solaris">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Naohisa Goto (<a href="https://github.com/ngoto">ngoto</a>)</p>
+</li></ul>
+
+<h3 id="label-RHEL-2C+CentOS">RHEL, CentOS<span><a href="#label-RHEL-2C+CentOS">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>KOSAKI Motohiro (<a href="https://github.com/kosaki">kosaki</a>)</p>
+</li></ul>
+
+<h3 id="label-macOS">macOS<span><a href="#label-macOS">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Kenta Murata (<a href="https://github.com/mrkn">mrkn</a>)</p>
+</li></ul>
+
+<h3 id="label-OpenBSD">OpenBSD<span><a href="#label-OpenBSD">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Jeremy Evans (<a href="https://github.com/jeremyevans">jeremyevans</a>)</p>
+</li></ul>
+
+<h3 id="label-cygwin-2C+...">cygwin, …<span><a href="#label-cygwin-2C+...">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>none. (Maintainer WANTED)</p>
+</li></ul>
+
+<h3 id="label-WebAssembly-2FWASI">WebAssembly/WASI<span><a href="#label-WebAssembly-2FWASI">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Yuta Saito (<a href="https://github.com/kateinoigakukun">kateinoigakukun</a>)</p>
+</li></ul>
+
+</main>
+

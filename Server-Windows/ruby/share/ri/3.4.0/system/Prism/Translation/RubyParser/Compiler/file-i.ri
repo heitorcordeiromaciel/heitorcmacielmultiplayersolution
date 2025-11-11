@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"	file:ETI"2Prism::Translation::RubyParser::Compiler#file;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"ùThis is the name of the file that we are compiling. We set it on every
+Sexp object that is generated, and also use it to compile <code>__FILE__</code>
+nodes.;T:
+@fileI")lib/prism/translation/ruby_parser.rb;T:0@omit_headings_from_table_of_contents_below0F@I"-Prism::Translation::RubyParser::Compiler;TcRDoc::NormalClass0

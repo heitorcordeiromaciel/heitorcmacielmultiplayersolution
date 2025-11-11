@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"
+lexed:ETI",Prism::Translation::Parser::Lexer#lexed;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"fAn array of tuples that contain prism tokens and their associated lex
+state when they were lexed.;T:
+@fileI"*lib/prism/translation/parser/lexer.rb;T:0@omit_headings_from_table_of_contents_below0F@I"&Prism::Translation::Parser::Lexer;TcRDoc::NormalClass0

@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class Gem::SafeMarshal::Reader - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,Gem::SafeMarshal::Reader">
+
+    <meta name="description" content="Documentation for the Gem::SafeMarshal::Reader class">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Gem/SafeMarshal/Reader.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="../../Object.html">Object</a><ul><li><a href="../../BasicObject.html">BasicObject</a></li></ul></li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-new">new</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-read-21">read!</a></li>
+      <li ><a href="#method-i-read_array">read_array</a></li>
+      <li ><a href="#method-i-read_bignum">read_bignum</a></li>
+      <li ><a href="#method-i-read_byte">read_byte</a></li>
+      <li ><a href="#method-i-read_bytes">read_bytes</a></li>
+      <li ><a href="#method-i-read_class">read_class</a></li>
+      <li ><a href="#method-i-read_class_or_module">read_class_or_module</a></li>
+      <li ><a href="#method-i-read_data">read_data</a></li>
+      <li ><a href="#method-i-read_element">read_element</a></li>
+      <li ><a href="#method-i-read_extended_object">read_extended_object</a></li>
+      <li ><a href="#method-i-read_false">read_false</a></li>
+      <li ><a href="#method-i-read_float">read_float</a></li>
+      <li ><a href="#method-i-read_hash">read_hash</a></li>
+      <li ><a href="#method-i-read_hash_with_default_value">read_hash_with_default_value</a></li>
+      <li ><a href="#method-i-read_header">read_header</a></li>
+      <li ><a href="#method-i-read_integer">read_integer</a></li>
+      <li ><a href="#method-i-read_module">read_module</a></li>
+      <li ><a href="#method-i-read_nil">read_nil</a></li>
+      <li ><a href="#method-i-read_object">read_object</a></li>
+      <li ><a href="#method-i-read_object_link">read_object_link</a></li>
+      <li ><a href="#method-i-read_object_with_ivars">read_object_with_ivars</a></li>
+      <li ><a href="#method-i-read_regexp">read_regexp</a></li>
+      <li ><a href="#method-i-read_string">read_string</a></li>
+      <li ><a href="#method-i-read_struct">read_struct</a></li>
+      <li ><a href="#method-i-read_symbol">read_symbol</a></li>
+      <li ><a href="#method-i-read_symbol_link">read_symbol_link</a></li>
+      <li ><a href="#method-i-read_true">read_true</a></li>
+      <li ><a href="#method-i-read_user_class">read_user_class</a></li>
+      <li ><a href="#method-i-read_user_defined">read_user_defined</a></li>
+      <li ><a href="#method-i-read_user_marshal">read_user_marshal</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-Gem::SafeMarshal::Reader">
+  
+  
+    <ol role="navigation" aria-label="breadcrumb" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../../Gem.html">Gem</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <a href="../../Gem/SafeMarshal.html">SafeMarshal</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>Reader</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <h1 id="class-Gem::SafeMarshal::Reader" class="anchor-link class">
+    class Gem::SafeMarshal::Reader
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="EMPTY_ARRAY">EMPTY_ARRAY
+        <dd>
+          
+        <dt id="EMPTY_HASH">EMPTY_HASH
+        <dd>
+          
+        <dt id="EMPTY_STRING">EMPTY_STRING
+        <dd>
+          
+        <dt id="MARSHAL_VERSION">MARSHAL_VERSION
+        <dd>
+          
+        <dt id="OBJECT_LINKS">OBJECT_LINKS
+        <dd>
+          <p>profiling bundle install –full-index shows that offset 6 is by far the most common object link, so we special case it to avoid allocating a new object a third of the time. the following are all the object links that appear more than 10000 times in my profiling</p>
+        <dt id="STRING_E_SYMBOL">STRING_E_SYMBOL
+        <dd>
+          
+      </dl>
+    </section>
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(io)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">io</span>)
+  <span class="ruby-ivar">@io</span> = <span class="ruby-identifier">io</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-read-21" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read-21" title="Link to this method">
+                <span class="method-name">read!</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read-21-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read!</span>
+  <span class="ruby-identifier">read_header</span>
+  <span class="ruby-identifier">root</span> = <span class="ruby-identifier">read_element</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnconsumedBytesError</span>, <span class="ruby-node">&quot;expected EOF, got #{@io.read(10).inspect}... after top-level element #{root.class}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">eof?</span>
+  <span class="ruby-identifier">root</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-read_array" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_array" title="Link to this method">
+                <span class="method-name">read_array</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_array-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_array</span>
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">read_integer</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">EMPTY_ARRAY</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NegativeLengthError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">elements</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">length</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">read_element</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elements</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_bignum" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_bignum" title="Link to this method">
+                <span class="method-name">read_bignum</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_bignum-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_bignum</span>
+  <span class="ruby-identifier">sign</span> = <span class="ruby-identifier">read_byte</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">read_bytes</span>(<span class="ruby-identifier">read_integer</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>)
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Bignum</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">sign</span>, <span class="ruby-identifier">data</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_byte" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_byte" title="Link to this method">
+                <span class="method-name">read_byte</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_byte-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_byte</span>
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">getbyte</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">raise</span>(<span class="ruby-constant">EOFError</span>, <span class="ruby-string">&quot;Unexpected EOF&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_bytes" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_bytes" title="Link to this method">
+                <span class="method-name">read_bytes</span>
+                <span class="method-args">(n)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_bytes-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_bytes</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NegativeLengthError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">EOFError</span>, <span class="ruby-node">&quot;expected #{n} bytes, got EOF&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">DataTooShortError</span>, <span class="ruby-node">&quot;expected #{n} bytes, got #{str.inspect}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">n</span>
+  <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_class" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_class" title="Link to this method">
+                <span class="method-name">read_class</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_class-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 294</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_class</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-string">&quot;Reading Marshal objects of type class is not implemented&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_class_or_module" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_class_or_module" title="Link to this method">
+                <span class="method-name">read_class_or_module</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_class_or_module-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_class_or_module</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-string">&quot;Reading Marshal objects of type class_or_module is not implemented&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_data" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_data" title="Link to this method">
+                <span class="method-name">read_data</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_data-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_data</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-string">&quot;Reading Marshal objects of type data is not implemented&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_element" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_element" title="Link to this method">
+                <span class="method-name">read_element</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_element-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_element</span>
+  <span class="ruby-identifier">type</span> = <span class="ruby-identifier">read_byte</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">34</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_string</span> <span class="ruby-comment"># ?&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">48</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_nil</span> <span class="ruby-comment"># ?0</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">58</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_symbol</span> <span class="ruby-comment"># ?:</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">59</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_symbol_link</span> <span class="ruby-comment"># ?;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">64</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_object_link</span> <span class="ruby-comment"># ?@</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">70</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_false</span> <span class="ruby-comment"># ?F</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">73</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_object_with_ivars</span> <span class="ruby-comment"># ?I</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">84</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_true</span> <span class="ruby-comment"># ?T</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">85</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_user_marshal</span> <span class="ruby-comment"># ?U</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">91</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_array</span> <span class="ruby-comment"># ?[</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">102</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_float</span> <span class="ruby-comment"># ?f</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">105</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">read_integer</span>) <span class="ruby-comment"># ?i</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">108</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_bignum</span> <span class="ruby-comment"># ?l</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">111</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_object</span> <span class="ruby-comment"># ?o</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">117</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_user_defined</span> <span class="ruby-comment"># ?u</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">123</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_hash</span> <span class="ruby-comment"># ?{</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">125</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_hash_with_default_value</span> <span class="ruby-comment"># ?}</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">101</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_extended_object</span> <span class="ruby-comment"># ?e</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">99</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_class</span> <span class="ruby-comment"># ?c</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">109</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_module</span> <span class="ruby-comment"># ?m</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">77</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_class_or_module</span> <span class="ruby-comment"># ?M</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">100</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_data</span> <span class="ruby-comment"># ?d</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">47</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_regexp</span> <span class="ruby-comment"># ?/</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">83</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_struct</span> <span class="ruby-comment"># ?S</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">67</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">read_user_class</span> <span class="ruby-comment"># ?C</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;Unknown marshal type discriminator #{type.chr.inspect} (#{type})&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_extended_object" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_extended_object" title="Link to this method">
+                <span class="method-name">read_extended_object</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_extended_object-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_extended_object</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-string">&quot;Reading Marshal objects of type extended_object is not implemented&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_false" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_false" title="Link to this method">
+                <span class="method-name">read_false</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_false-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_false</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">False</span><span class="ruby-operator">::</span><span class="ruby-constant">FALSE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_float" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_float" title="Link to this method">
+                <span class="method-name">read_float</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_float-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_float</span>
+  <span class="ruby-identifier">string</span> = <span class="ruby-identifier">read_bytes</span>(<span class="ruby-identifier">read_integer</span>)
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Float</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_hash" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_hash" title="Link to this method">
+                <span class="method-name">read_hash</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_hash-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_hash</span>
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">read_integer</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">EMPTY_HASH</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">pairs</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">length</span>) <span class="ruby-keyword">do</span>
+    [<span class="ruby-identifier">read_element</span>, <span class="ruby-identifier">read_element</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pairs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_hash_with_default_value" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_hash_with_default_value" title="Link to this method">
+                <span class="method-name">read_hash_with_default_value</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_hash_with_default_value-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_hash_with_default_value</span>
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">read_integer</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NegativeLengthError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">pairs</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">length</span>) <span class="ruby-keyword">do</span>
+    [<span class="ruby-identifier">read_element</span>, <span class="ruby-identifier">read_element</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">default</span> = <span class="ruby-identifier">read_element</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">HashWithDefaultValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pairs</span>, <span class="ruby-identifier">default</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_header" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_header" title="Link to this method">
+                <span class="method-name">read_header</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_header-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_header</span>
+  <span class="ruby-identifier">v</span> = <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value">2</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnsupportedVersionError</span>, <span class="ruby-node">&quot;Unsupported marshal version #{v.bytes.map(&amp;:ord).join(&quot;.&quot;)}, expected #{Marshal::MAJOR_VERSION}.#{Marshal::MINOR_VERSION}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-constant">MARSHAL_VERSION</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_integer" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_integer" title="Link to this method">
+                <span class="method-name">read_integer</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_integer-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_integer</span>
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">read_byte</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">b</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0x00</span>
+    <span class="ruby-value">0</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0x01</span>
+    <span class="ruby-identifier">read_byte</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0x02</span>
+    <span class="ruby-identifier">read_byte</span> <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0x03</span>
+    <span class="ruby-identifier">read_byte</span> <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">16</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0x04</span>
+    <span class="ruby-identifier">read_byte</span> <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">16</span>) <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">24</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0xFC</span>
+    <span class="ruby-identifier">read_byte</span> <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">16</span>) <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">24</span>) <span class="ruby-operator">|</span> <span class="ruby-value">-0x100000000</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0xFD</span>
+    <span class="ruby-identifier">read_byte</span> <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">16</span>) <span class="ruby-operator">|</span> <span class="ruby-value">-0x1000000</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0xFE</span>
+    <span class="ruby-identifier">read_byte</span> <span class="ruby-operator">|</span> (<span class="ruby-identifier">read_byte</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">|</span> <span class="ruby-value">-0x10000</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0xFF</span>
+    <span class="ruby-identifier">read_byte</span> <span class="ruby-operator">|</span> <span class="ruby-value">-0x100</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">signed</span> = (<span class="ruby-identifier">b</span> <span class="ruby-operator">^</span> <span class="ruby-value">128</span>) <span class="ruby-operator">-</span> <span class="ruby-value">128</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">b</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">128</span>
+      <span class="ruby-identifier">signed</span> <span class="ruby-operator">+</span> <span class="ruby-value">5</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">signed</span> <span class="ruby-operator">-</span> <span class="ruby-value">5</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_module" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_module" title="Link to this method">
+                <span class="method-name">read_module</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_module-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_module</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-string">&quot;Reading Marshal objects of type module is not implemented&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_nil" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_nil" title="Link to this method">
+                <span class="method-name">read_nil</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_nil-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_nil</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Nil</span><span class="ruby-operator">::</span><span class="ruby-constant">NIL</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_object" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_object" title="Link to this method">
+                <span class="method-name">read_object</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_object-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 264</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_object</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">read_element</span>
+  <span class="ruby-identifier">object</span> = <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">read_integer</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NegativeLengthError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">ivars</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">length</span>) <span class="ruby-keyword">do</span>
+    [<span class="ruby-identifier">read_element</span>, <span class="ruby-identifier">read_element</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">WithIvars</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">ivars</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_object_link" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_object_link" title="Link to this method">
+                <span class="method-name">read_object_link</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_object_link-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_object_link</span>
+  <span class="ruby-identifier">offset</span> = <span class="ruby-identifier">read_integer</span>
+  <span class="ruby-constant">OBJECT_LINKS</span>[<span class="ruby-identifier">offset</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">ObjectLink</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_object_with_ivars" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_object_with_ivars" title="Link to this method">
+                <span class="method-name">read_object_with_ivars</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_object_with_ivars-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_object_with_ivars</span>
+  <span class="ruby-identifier">object</span> = <span class="ruby-identifier">read_element</span>
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">read_integer</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NegativeLengthError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">ivars</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">length</span>) <span class="ruby-keyword">do</span>
+    [<span class="ruby-identifier">read_element</span>, <span class="ruby-identifier">read_element</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">WithIvars</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">ivars</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_regexp" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_regexp" title="Link to this method">
+                <span class="method-name">read_regexp</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_regexp-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_regexp</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-string">&quot;Reading Marshal objects of type regexp is not implemented&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_string" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_string" title="Link to this method">
+                <span class="method-name">read_string</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_string-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_string</span>
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">read_integer</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">EMPTY_STRING</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">read_bytes</span>(<span class="ruby-identifier">length</span>)
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_struct" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_struct" title="Link to this method">
+                <span class="method-name">read_struct</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_struct-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_struct</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-string">&quot;Reading Marshal objects of type struct is not implemented&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_symbol" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_symbol" title="Link to this method">
+                <span class="method-name">read_symbol</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_symbol-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_symbol</span>
+  <span class="ruby-identifier">len</span> = <span class="ruby-identifier">read_integer</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">len</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">byte</span> = <span class="ruby-identifier">read_byte</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">byte</span> <span class="ruby-operator">==</span> <span class="ruby-value">69</span> <span class="ruby-comment"># ?E</span>
+      <span class="ruby-constant">STRING_E_SYMBOL</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Symbol</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">byte</span>.<span class="ruby-identifier">chr</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">name</span> = <span class="ruby-identifier">read_bytes</span>(<span class="ruby-identifier">len</span>)
+    <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Symbol</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_symbol_link" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_symbol_link" title="Link to this method">
+                <span class="method-name">read_symbol_link</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_symbol_link-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_symbol_link</span>
+  <span class="ruby-identifier">offset</span> = <span class="ruby-identifier">read_integer</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">SymbolLink</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_true" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_true" title="Link to this method">
+                <span class="method-name">read_true</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_true-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_true</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">True</span><span class="ruby-operator">::</span><span class="ruby-constant">TRUE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_user_class" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_user_class" title="Link to this method">
+                <span class="method-name">read_user_class</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_user_class-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 318</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_user_class</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">read_element</span>
+  <span class="ruby-identifier">wrapped_object</span> = <span class="ruby-identifier">read_element</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">UserClass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">wrapped_object</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_user_defined" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_user_defined" title="Link to this method">
+                <span class="method-name">read_user_defined</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_user_defined-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_user_defined</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">read_element</span>
+  <span class="ruby-identifier">binary_string</span> = <span class="ruby-identifier">read_bytes</span>(<span class="ruby-identifier">read_integer</span>)
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">UserDefined</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">binary_string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_user_marshal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_user_marshal" title="Link to this method">
+                <span class="method-name">read_user_marshal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_user_marshal-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/reader.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_user_marshal</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">read_element</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">read_element</span>
+  <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">UserMarshal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">data</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>packed_data - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,packed_data">
+  <meta name="description" content="packed_data: Packed \Data == Quick Reference These tables summarize the directives for packing and unpacking. Formats each element in array +self+ into a binary ">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/packed_data_rdoc.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Packed+Data">Packed Data</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-Quick+Reference">Quick Reference</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-For+Integers">For Integers</a>
+          <li>      <a href="#label-For+Floats">For Floats</a>
+          <li>      <a href="#label-For+Strings">For Strings</a>
+          <li>      <a href="#label-Additional+Directives+for+Packing">Additional Directives for Packing</a>
+          <li>      <a href="#label-Additional+Directives+for+Unpacking">Additional Directives for Unpacking</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Packing+and+Unpacking">Packing and Unpacking</a>
+          <li>      <a href="#label-Packing+Method">Packing Method</a>
+          <li>      <a href="#label-Unpacking+Methods">Unpacking Methods</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Integer+Directives">Integer Directives</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-8-Bit+Integer+Directives">8-Bit Integer Directives</a>
+          <li>      <a href="#label-16-Bit+Integer+Directives">16-Bit Integer Directives</a>
+          <li>      <a href="#label-32-Bit+Integer+Directives">32-Bit Integer Directives</a>
+          <li>      <a href="#label-64-Bit+Integer+Directives">64-Bit Integer Directives</a>
+          <li>      <a href="#label-Platform-Dependent+Integer+Directives">Platform-Dependent Integer Directives</a>
+          <li>      <a href="#label-Other+Integer+Directives">Other Integer Directives</a>
+          <li>      <a href="#label-Modifiers+for+Integer+Directives">Modifiers for Integer Directives</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Float+Directives">Float Directives</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Single-Precision+Float+Directives">Single-Precision Float Directives</a>
+          <li>      <a href="#label-Double-Precision+Float+Directives">Double-Precision Float Directives</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-String+Directives">String Directives</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Binary+String+Directives">Binary String Directives</a>
+          <li>      <a href="#label-Bit+String+Directives">Bit String Directives</a>
+          <li>      <a href="#label-Hex+String+Directives">Hex String Directives</a>
+          <li>      <a href="#label-Pointer+String+Directives">Pointer String Directives</a>
+          <li>      <a href="#label-Other+String+Directives">Other String Directives</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Offset+Directives">Offset Directives</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./COPYING.html">COPYING</a>
+    <li><a href="./COPYING_ja.html">COPYING.ja</a>
+    <li><a href="./LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="./NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="./NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="./NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="./NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="./NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="./NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="./NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="./NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="./NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="./NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="./NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="./NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="./NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="./NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="./NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="./NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="./NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="./README_ja_md.html">README.ja</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./bsearch_rdoc.html">bsearch</a>
+    <li><a href="./bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="./case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="./character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="./command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="./contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="./contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="./contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="./contributing/glossary_md.html">glossary</a>
+      <li><a href="./contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="./contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="./contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="./contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="./date/calendars_rdoc.html">calendars</a>
+    <li><a href="./dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="./distribution_md.html">distribution</a>
+    <li><a href="./dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="./encodings_rdoc.html">encodings</a>
+    <li><a href="./exceptions_md.html">exceptions</a>
+    <li><a href="./extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="./extension_rdoc.html">extension</a>
+    <li><a href="./fiber_md.html">fiber</a>
+    <li><a href="./format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="./globals_rdoc.html">globals</a>
+    <li><a href="./implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="./index_md.html">index</a>
+    <li><a href="./maintainers_md.html">maintainers</a>
+    <li><a href="./marshal_rdoc.html">marshal</a>
+    <li><a href="./memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="./optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="./optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="./optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="./optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="./packed_data_rdoc.html">packed_data</a>
+    <li><a href="./ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="./regexp/methods_rdoc.html">methods</a>
+      <li><a href="./regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="./rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="./ruby/option_dump_md.html">option_dump</a>
+      <li><a href="./ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="./security_rdoc.html">security</a>
+    <li><a href="./signals_rdoc.html">signals</a>
+    <li><a href="./standard_library_md.html">standard_library</a>
+    <li><a href="./strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="./syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="./syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="./syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="./syntax/comments_rdoc.html">comments</a>
+      <li><a href="./syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="./syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="./syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="./syntax/literals_rdoc.html">literals</a>
+      <li><a href="./syntax/methods_rdoc.html">methods</a>
+      <li><a href="./syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="./syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="./syntax/operators_rdoc.html">operators</a>
+      <li><a href="./syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="./syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="./syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="./windows_md.html">windows</a>
+    <li><a href="./yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page packed_data.rdoc">
+
+<h1 id="label-Packed+Data">Packed Data<span><a href="#label-Packed+Data">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Quick+Reference">Quick Reference<span><a href="#label-Quick+Reference">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>These tables summarize the directives for packing and unpacking.</p>
+
+<h3 id="label-For+Integers">For Integers<span><a href="#label-For+Integers">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>Directive     | Meaning
+--------------|---------------------------------------------------------------
+C             | 8-bit unsigned (unsigned char)
+S             | 16-bit unsigned, native endian (uint16_t)
+L             | 32-bit unsigned, native endian (uint32_t)
+Q             | 64-bit unsigned, native endian (uint64_t)
+J             | pointer width unsigned, native endian (uintptr_t)
+
+c             | 8-bit signed (signed char)
+s             | 16-bit signed, native endian (int16_t)
+l             | 32-bit signed, native endian (int32_t)
+q             | 64-bit signed, native endian (int64_t)
+j             | pointer width signed, native endian (intptr_t)
+
+S_ S!         | unsigned short, native endian
+I I_ I!       | unsigned int, native endian
+L_ L!         | unsigned long, native endian
+Q_ Q!         | unsigned long long, native endian
+              |   (raises ArgumentError if the platform has no long long type)
+J!            | uintptr_t, native endian (same with J)
+
+s_ s!         | signed short, native endian
+i i_ i!       | signed int, native endian
+l_ l!         | signed long, native endian
+q_ q!         | signed long long, native endian
+              |   (raises ArgumentError if the platform has no long long type)
+j!            | intptr_t, native endian (same with j)
+
+S&gt; s&gt; S!&gt; s!&gt; | each the same as the directive without &gt;, but big endian
+L&gt; l&gt; L!&gt; l!&gt; |   S&gt; is the same as n
+I!&gt; i!&gt;       |   L&gt; is the same as N
+Q&gt; q&gt; Q!&gt; q!&gt; |
+J&gt; j&gt; J!&gt; j!&gt; |
+
+S&lt; s&lt; S!&lt; s!&lt; | each the same as the directive without &lt;, but little endian
+L&lt; l&lt; L!&lt; l!&lt; |   S&lt; is the same as v
+I!&lt; i!&lt;       |   L&lt; is the same as V
+Q&lt; q&lt; Q!&lt; q!&lt; |
+J&lt; j&lt; J!&lt; j!&lt; |
+
+n             | 16-bit unsigned, network (big-endian) byte order
+N             | 32-bit unsigned, network (big-endian) byte order
+v             | 16-bit unsigned, VAX (little-endian) byte order
+V             | 32-bit unsigned, VAX (little-endian) byte order
+
+U             | UTF-8 character
+w             | BER-compressed integer</pre>
+
+<h3 id="label-For+Floats">For Floats<span><a href="#label-For+Floats">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>Directive | Meaning
+----------|--------------------------------------------------
+D d       | double-precision, native format
+F f       | single-precision, native format
+E         | double-precision, little-endian byte order
+e         | single-precision, little-endian byte order
+G         | double-precision, network (big-endian) byte order
+g         | single-precision, network (big-endian) byte order</pre>
+
+<h3 id="label-For+Strings">For Strings<span><a href="#label-For+Strings">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>Directive | Meaning
+----------|-----------------------------------------------------------------
+A         | arbitrary binary string (remove trailing nulls and ASCII spaces)
+a         | arbitrary binary string
+Z         | null-terminated string
+B         | bit string (MSB first)
+b         | bit string (LSB first)
+H         | hex string (high nibble first)
+h         | hex string (low nibble first)
+u         | UU-encoded string
+M         | quoted-printable, MIME encoding (see RFC2045)
+m         | base64 encoded string (RFC 2045) (default)
+          |   (base64 encoded string (RFC 4648) if followed by 0)
+P         | pointer to a structure (fixed-length string)
+p         | pointer to a null-terminated string</pre>
+
+<h3 id="label-Additional+Directives+for+Packing">Additional Directives for Packing<span><a href="#label-Additional+Directives+for+Packing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>Directive | Meaning
+----------|----------------------------------------------------------------
+@         | moves to absolute position
+X         | back up a byte
+x         | null byte</pre>
+
+<h3 id="label-Additional+Directives+for+Unpacking">Additional Directives for Unpacking<span><a href="#label-Additional+Directives+for+Unpacking">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>Directive | Meaning
+----------|----------------------------------------------------------------
+@         | skip to the offset given by the length argument
+X         | skip backward one byte
+x         | skip forward one byte</pre>
+
+<h2 id="label-Packing+and+Unpacking">Packing and Unpacking<span><a href="#label-Packing+and+Unpacking">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Certain Ruby core methods deal with packing and unpacking data:</p>
+<ul><li>
+<p>Method <a href="Array.html#method-i-pack"><code>Array#pack</code></a>: Formats each element in array <code>self</code> into a binary string; returns that string.</p>
+</li><li>
+<p>Method <a href="String.html#method-i-unpack"><code>String#unpack</code></a>: Extracts data from string <code>self</code>, forming objects that become the elements of a new array; returns that array.</p>
+</li><li>
+<p>Method <a href="String.html#method-i-unpack1"><code>String#unpack1</code></a>: Does the same, but unpacks and returns only the first extracted object.</p>
+</li></ul>
+
+<p>Each of these methods accepts a string <code>template</code>, consisting of zero or more <em>directive</em> characters, each followed by zero or more <em>modifier</em> characters.</p>
+
+<p>Examples (directive <code>&#39;C&#39;</code> specifies ‘unsigned character’):</p>
+
+<pre class="ruby">[<span class="ruby-value">65</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C&#39;</span>)      <span class="ruby-comment"># =&gt; &quot;A&quot;  # One element, one directive.</span>
+[<span class="ruby-value">65</span>, <span class="ruby-value">66</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;CC&#39;</span>) <span class="ruby-comment"># =&gt; &quot;AB&quot; # Two elements, two directives.</span>
+[<span class="ruby-value">65</span>, <span class="ruby-value">66</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C&#39;</span>)  <span class="ruby-comment"># =&gt; &quot;A&quot;  # Extra element is ignored.</span>
+[<span class="ruby-value">65</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;&#39;</span>)       <span class="ruby-comment"># =&gt; &quot;&quot;   # No directives.</span>
+[<span class="ruby-value">65</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;CC&#39;</span>)               <span class="ruby-comment"># Extra directive raises ArgumentError.</span>
+
+<span class="ruby-string">&#39;A&#39;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;C&#39;</span>)   <span class="ruby-comment"># =&gt; [65]      # One character, one directive.</span>
+<span class="ruby-string">&#39;AB&#39;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;CC&#39;</span>) <span class="ruby-comment"># =&gt; [65, 66]  # Two characters, two directives.</span>
+<span class="ruby-string">&#39;AB&#39;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;C&#39;</span>)  <span class="ruby-comment"># =&gt; [65]      # Extra character is ignored.</span>
+<span class="ruby-string">&#39;A&#39;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;CC&#39;</span>)  <span class="ruby-comment"># =&gt; [65, nil] # Extra directive generates nil.</span>
+<span class="ruby-string">&#39;AB&#39;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;&#39;</span>)   <span class="ruby-comment"># =&gt; []        # No directives.</span>
+</pre>
+
+<p>The string <code>template</code> may contain any mixture of valid directives (directive <code>&#39;c&#39;</code> specifies ‘signed character’):</p>
+
+<pre class="ruby">[<span class="ruby-value">65</span>, <span class="ruby-value">-1</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;cC&#39;</span>)  <span class="ruby-comment"># =&gt; &quot;A\xFF&quot;</span>
+<span class="ruby-string">&quot;A\xFF&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;cC&#39;</span>) <span class="ruby-comment"># =&gt; [65, 255]</span>
+</pre>
+
+<p>The string <code>template</code> may contain whitespace (which is ignored) and comments, each of which begins with character <code>&#39;#&#39;</code> and continues up to and including the next following newline:</p>
+
+<pre class="ruby">[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;  C  #foo \n  C  &quot;</span>)    <span class="ruby-comment"># =&gt; &quot;\x00\x01&quot;</span>
+<span class="ruby-string">&quot;\0\1&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;  C  #foo \n  C  &quot;</span>) <span class="ruby-comment"># =&gt; [0, 1]</span>
+</pre>
+
+<p>Any directive may be followed by either of these modifiers:</p>
+<ul><li>
+<p><code>&#39;*&#39;</code> - The directive is to be applied as many times as needed:</p>
+
+<pre class="ruby">[<span class="ruby-value">65</span>, <span class="ruby-value">66</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;AB&quot;</span>
+<span class="ruby-string">&#39;AB&#39;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;C*&#39;</span>)   <span class="ruby-comment"># =&gt; [65, 66]</span>
+</pre>
+</li><li>
+<p><a href="Integer.html"><code>Integer</code></a> <code>count</code> - The directive is to be applied <code>count</code> times:</p>
+
+<pre class="ruby">[<span class="ruby-value">65</span>, <span class="ruby-value">66</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C2&#39;</span>) <span class="ruby-comment"># =&gt; &quot;AB&quot;</span>
+[<span class="ruby-value">65</span>, <span class="ruby-value">66</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C3&#39;</span>) <span class="ruby-comment"># Raises ArgumentError.</span>
+<span class="ruby-string">&#39;AB&#39;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;C2&#39;</span>)   <span class="ruby-comment"># =&gt; [65, 66]</span>
+<span class="ruby-string">&#39;AB&#39;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;C3&#39;</span>)   <span class="ruby-comment"># =&gt; [65, 66, nil]</span>
+</pre>
+
+<p>Note: Directives in <code>%w[A a Z m]</code> use <code>count</code> differently; see <a href="packed_data_rdoc.html#label-String+Directives">String Directives</a>.</p>
+</li></ul>
+
+<p>If elements don’t fit the provided directive, only least significant bits are encoded:</p>
+
+<pre class="ruby">[<span class="ruby-value">257</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;C&quot;</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;C&quot;</span>) <span class="ruby-comment"># =&gt; [1]</span>
+</pre>
+
+<h2 id="label-Packing+Method">Packing Method<span><a href="#label-Packing+Method">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Method <a href="Array.html#method-i-pack"><code>Array#pack</code></a> accepts optional keyword argument <code>buffer</code> that specifies the target string (instead of a new string):</p>
+
+<pre class="ruby">[<span class="ruby-value">65</span>, <span class="ruby-value">66</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C*&#39;</span>, <span class="ruby-value">buffer:</span> <span class="ruby-string">&#39;foo&#39;</span>) <span class="ruby-comment"># =&gt; &quot;fooAB&quot;</span>
+</pre>
+
+<p>The method can accept a block:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Packed string is passed to the block.</span>
+[<span class="ruby-value">65</span>, <span class="ruby-value">66</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C*&#39;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">s</span> }    <span class="ruby-comment"># =&gt; &quot;AB&quot;</span>
+</pre>
+
+<h2 id="label-Unpacking+Methods">Unpacking Methods<span><a href="#label-Unpacking+Methods">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Methods <a href="String.html#method-i-unpack"><code>String#unpack</code></a> and <a href="String.html#method-i-unpack1"><code>String#unpack1</code></a> each accept an optional keyword argument <code>offset</code> that specifies an offset into the string:</p>
+
+<pre class="ruby"><span class="ruby-string">&#39;ABC&#39;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;C*&#39;</span>, <span class="ruby-value">offset:</span> <span class="ruby-value">1</span>)  <span class="ruby-comment"># =&gt; [66, 67]</span>
+<span class="ruby-string">&#39;ABC&#39;</span>.<span class="ruby-identifier">unpack1</span>(<span class="ruby-string">&#39;C*&#39;</span>, <span class="ruby-value">offset:</span> <span class="ruby-value">1</span>) <span class="ruby-comment"># =&gt; 66</span>
+</pre>
+
+<p>Both methods can accept a block:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Each unpacked object is passed to the block.</span>
+<span class="ruby-identifier">ret</span> = []
+<span class="ruby-string">&quot;ABCD&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;C*&quot;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ret</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span> }
+<span class="ruby-identifier">ret</span> <span class="ruby-comment"># =&gt; [65, 66, 67, 68]</span>
+
+<span class="ruby-comment"># The single unpacked object is passed to the block.</span>
+<span class="ruby-string">&#39;AB&#39;</span>.<span class="ruby-identifier">unpack1</span>(<span class="ruby-string">&#39;C*&#39;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">ele</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">ele</span> } <span class="ruby-comment"># =&gt; 65</span>
+</pre>
+
+<h2 id="label-Integer+Directives">Integer Directives<span><a href="#label-Integer+Directives">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Each integer directive specifies the packing or unpacking for one element in the input or output array.</p>
+
+<h3 id="label-8-Bit+Integer+Directives">8-Bit Integer Directives<span><a href="#label-8-Bit+Integer+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;c&#39;</code> - 8-bit signed integer (like C <code>signed char</code>):</p>
+
+<pre class="ruby">[<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">255</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;c*&#39;</span>)  <span class="ruby-comment"># =&gt; &quot;\x00\x01\xFF&quot;</span>
+<span class="ruby-identifier">s</span> = [<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">-1</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;c*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x00\x01\xFF&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;c*&#39;</span>) <span class="ruby-comment"># =&gt; [0, 1, -1]</span>
+</pre>
+</li><li>
+<p><code>&#39;C&#39;</code> - 8-bit unsigned integer (like C <code>unsigned char</code>):</p>
+
+<pre class="ruby">[<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">255</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C*&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;\x00\x01\xFF&quot;</span>
+<span class="ruby-identifier">s</span> = [<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">-1</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x00\x01\xFF&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;C*&#39;</span>)            <span class="ruby-comment"># =&gt; [0, 1, 255]</span>
+</pre>
+</li></ul>
+
+<h3 id="label-16-Bit+Integer+Directives">16-Bit Integer Directives<span><a href="#label-16-Bit+Integer+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;s&#39;</code> - 16-bit signed integer, native-endian (like C <code>int16_t</code>):</p>
+
+<pre class="ruby">[<span class="ruby-value">513</span>, <span class="ruby-value">-514</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;s*&#39;</span>)      <span class="ruby-comment"># =&gt; &quot;\x01\x02\xFE\xFD&quot;</span>
+<span class="ruby-identifier">s</span> = [<span class="ruby-value">513</span>, <span class="ruby-value">65022</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;s*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\x02\xFE\xFD&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;s*&#39;</span>)              <span class="ruby-comment"># =&gt; [513, -514]</span>
+</pre>
+</li><li>
+<p><code>&#39;S&#39;</code> - 16-bit unsigned integer, native-endian (like C <code>uint16_t</code>):</p>
+
+<pre class="ruby">[<span class="ruby-value">513</span>, <span class="ruby-value">-514</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;S*&#39;</span>)      <span class="ruby-comment"># =&gt; &quot;\x01\x02\xFE\xFD&quot;</span>
+<span class="ruby-identifier">s</span> = [<span class="ruby-value">513</span>, <span class="ruby-value">65022</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;S*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\x02\xFE\xFD&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;S*&#39;</span>)              <span class="ruby-comment"># =&gt; [513, 65022]</span>
+</pre>
+</li><li>
+<p><code>&#39;n&#39;</code> - 16-bit network integer, big-endian:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">-1</span>, <span class="ruby-value">32767</span>, <span class="ruby-value">-32768</span>, <span class="ruby-value">65535</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;n*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x00\x00\x00\x01\xFF\xFF\x7F\xFF\x80\x00\xFF\xFF&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;n*&#39;</span>)
+<span class="ruby-comment"># =&gt; [0, 1, 65535, 32767, 32768, 65535]</span>
+</pre>
+</li><li>
+<p><code>&#39;v&#39;</code> - 16-bit VAX integer, little-endian:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">-1</span>, <span class="ruby-value">32767</span>, <span class="ruby-value">-32768</span>, <span class="ruby-value">65535</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;v*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x00\x00\x01\x00\xFF\xFF\xFF\x7F\x00\x80\xFF\xFF&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;v*&#39;</span>)
+<span class="ruby-comment"># =&gt; [0, 1, 65535, 32767, 32768, 65535]</span>
+</pre>
+</li></ul>
+
+<h3 id="label-32-Bit+Integer+Directives">32-Bit Integer Directives<span><a href="#label-32-Bit+Integer+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;l&#39;</code> - 32-bit signed integer, native-endian (like C <code>int32_t</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">67305985</span>, <span class="ruby-value">-50462977</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;l*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x01\x02\x03\x04\xFF\xFE\xFD\xFC&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;l*&#39;</span>)
+<span class="ruby-comment"># =&gt; [67305985, -50462977]</span>
+</pre>
+</li><li>
+<p><code>&#39;L&#39;</code> - 32-bit unsigned integer, native-endian (like C <code>uint32_t</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">67305985</span>, <span class="ruby-value">4244504319</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;L*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x01\x02\x03\x04\xFF\xFE\xFD\xFC&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;L*&#39;</span>)
+<span class="ruby-comment"># =&gt; [67305985, 4244504319]</span>
+</pre>
+</li><li>
+<p><code>&#39;N&#39;</code> - 32-bit network integer, big-endian:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">0</span>,<span class="ruby-value">1</span>,<span class="ruby-value">-1</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;N*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x00\x00\x00\x00\x00\x00\x00\x01\xFF\xFF\xFF\xFF&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;N*&#39;</span>)
+<span class="ruby-comment"># =&gt; [0, 1, 4294967295]</span>
+</pre>
+</li><li>
+<p><code>&#39;V&#39;</code> - 32-bit VAX integer, little-endian:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">0</span>,<span class="ruby-value">1</span>,<span class="ruby-value">-1</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;V*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x00\x00\x00\x00\x01\x00\x00\x00\xFF\xFF\xFF\xFF&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;v*&#39;</span>)
+<span class="ruby-comment"># =&gt; [0, 0, 1, 0, 65535, 65535]</span>
+</pre>
+</li></ul>
+
+<h3 id="label-64-Bit+Integer+Directives">64-Bit Integer Directives<span><a href="#label-64-Bit+Integer+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;q&#39;</code> - 64-bit signed integer, native-endian (like C <code>int64_t</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">578437695752307201</span>, <span class="ruby-value">-506097522914230529</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;q*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x01\x02\x03\x04\x05\x06\a\b\xFF\xFE\xFD\xFC\xFB\xFA\xF9\xF8&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;q*&#39;</span>)
+<span class="ruby-comment"># =&gt; [578437695752307201, -506097522914230529]</span>
+</pre>
+</li><li>
+<p><code>&#39;Q&#39;</code> - 64-bit unsigned integer, native-endian (like C <code>uint64_t</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">578437695752307201</span>, <span class="ruby-value">17940646550795321087</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;Q*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x01\x02\x03\x04\x05\x06\a\b\xFF\xFE\xFD\xFC\xFB\xFA\xF9\xF8&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;Q*&#39;</span>)
+<span class="ruby-comment"># =&gt; [578437695752307201, 17940646550795321087]</span>
+</pre>
+</li></ul>
+
+<h3 id="label-Platform-Dependent+Integer+Directives">Platform-Dependent Integer Directives<span><a href="#label-Platform-Dependent+Integer+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;i&#39;</code> - Platform-dependent width signed integer, native-endian (like C <code>int</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">67305985</span>, <span class="ruby-value">-50462977</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;i*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x01\x02\x03\x04\xFF\xFE\xFD\xFC&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;i*&#39;</span>)
+<span class="ruby-comment"># =&gt; [67305985, -50462977]</span>
+</pre>
+</li><li>
+<p><code>&#39;I&#39;</code> - Platform-dependent width unsigned integer, native-endian (like C <code>unsigned int</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">67305985</span>, <span class="ruby-value">-50462977</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;I*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x01\x02\x03\x04\xFF\xFE\xFD\xFC&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;I*&#39;</span>)
+<span class="ruby-comment"># =&gt; [67305985, 4244504319]</span>
+</pre>
+</li><li>
+<p><code>&#39;j&#39;</code> - Pointer-width signed integer, native-endian (like C <code>intptr_t</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">67305985</span>, <span class="ruby-value">-50462977</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;j*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x01\x02\x03\x04\x00\x00\x00\x00\xFF\xFE\xFD\xFC\xFF\xFF\xFF\xFF&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;j*&#39;</span>)
+<span class="ruby-comment"># =&gt; [67305985, -50462977]</span>
+</pre>
+</li><li>
+<p><code>&#39;J&#39;</code> - Pointer-width unsigned integer, native-endian (like C <code>uintptr_t</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">67305985</span>, <span class="ruby-value">4244504319</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;J*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x01\x02\x03\x04\x00\x00\x00\x00\xFF\xFE\xFD\xFC\x00\x00\x00\x00&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;J*&#39;</span>)
+<span class="ruby-comment"># =&gt; [67305985, 4244504319]</span>
+</pre>
+</li></ul>
+
+<h3 id="label-Other+Integer+Directives">Other Integer Directives<span><a href="#label-Other+Integer+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;U&#39;</code> - UTF-8 character:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">4194304</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;U*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\xF8\x90\x80\x80\x80&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;U*&#39;</span>)
+<span class="ruby-comment"># =&gt; [4194304]</span>
+</pre>
+</li><li>
+<p><code>&#39;w&#39;</code> - BER-encoded integer (see <a href="https://en.wikipedia.org/wiki/X.690#BER_encoding">BER encoding</a>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">1073741823</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;w*&#39;</span>)
+<span class="ruby-comment"># =&gt; &quot;\x83\xFF\xFF\xFF\x7F&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;w*&#39;</span>)
+<span class="ruby-comment"># =&gt; [1073741823]</span>
+</pre>
+</li></ul>
+
+<h3 id="label-Modifiers+for+Integer+Directives">Modifiers for Integer Directives<span><a href="#label-Modifiers+for+Integer+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>For the following directives, <code>&#39;!&#39;</code> or <code>&#39;_&#39;</code> modifiers may be suffixed as underlying platform’s native size.</p>
+<ul><li>
+<p><code>&#39;i&#39;</code>, <code>&#39;I&#39;</code> - C <code>int</code>, always native size.</p>
+</li><li>
+<p><code>&#39;s&#39;</code>, <code>&#39;S&#39;</code> - C <code>short</code>.</p>
+</li><li>
+<p><code>&#39;l&#39;</code>, <code>&#39;L&#39;</code> - C <code>long</code>.</p>
+</li><li>
+<p><code>&#39;q&#39;</code>, <code>&#39;Q&#39;</code> - C <code>long long</code>, if available.</p>
+</li><li>
+<p><code>&#39;j&#39;</code>, <code>&#39;J&#39;</code> - C <code>intptr_t</code>, always native size.</p>
+</li></ul>
+
+<p>Native size modifiers are silently ignored for always native size directives.</p>
+
+<p>The endian modifiers also may be suffixed in the directives above:</p>
+<ul><li>
+<p><code>&#39;&gt;&#39;</code> - Big-endian.</p>
+</li><li>
+<p><code>&#39;&lt;&#39;</code> - Little-endian.</p>
+</li></ul>
+
+<h2 id="label-Float+Directives">Float Directives<span><a href="#label-Float+Directives">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Each float directive specifies the packing or unpacking for one element in the input or output array.</p>
+
+<h3 id="label-Single-Precision+Float+Directives">Single-Precision Float Directives<span><a href="#label-Single-Precision+Float+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;F&#39;</code> or <code>&#39;f&#39;</code> - Native format:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">3.0</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;F&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x00\x00@@&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;F&#39;</span>)       <span class="ruby-comment"># =&gt; [3.0]</span>
+</pre>
+</li><li>
+<p><code>&#39;e&#39;</code> - Little-endian:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">3.0</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;e&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x00\x00@@&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;e&#39;</span>)       <span class="ruby-comment"># =&gt; [3.0]</span>
+</pre>
+</li><li>
+<p><code>&#39;g&#39;</code> - Big-endian:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">3.0</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;g&#39;</span>) <span class="ruby-comment"># =&gt; &quot;@@\x00\x00&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;g&#39;</span>)       <span class="ruby-comment"># =&gt; [3.0]</span>
+</pre>
+</li></ul>
+
+<h3 id="label-Double-Precision+Float+Directives">Double-Precision Float Directives<span><a href="#label-Double-Precision+Float+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;D&#39;</code> or <code>&#39;d&#39;</code> - Native format:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">3.0</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;D&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x00\x00\x00\x00\x00\x00\b@&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;D&#39;</span>)       <span class="ruby-comment"># =&gt; [3.0]</span>
+</pre>
+</li><li>
+<p><code>&#39;E&#39;</code> - Little-endian:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">3.0</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;E&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x00\x00\x00\x00\x00\x00\b@&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;E&#39;</span>)       <span class="ruby-comment"># =&gt; [3.0]</span>
+</pre>
+</li><li>
+<p><code>&#39;G&#39;</code> - Big-endian:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-value">3.0</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;G&#39;</span>) <span class="ruby-comment"># =&gt; &quot;@\b\x00\x00\x00\x00\x00\x00&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;G&#39;</span>)       <span class="ruby-comment"># =&gt; [3.0]</span>
+</pre>
+</li></ul>
+
+<p>A float directive may be infinity or not-a-number:</p>
+
+<pre class="ruby"><span class="ruby-identifier">inf</span> = <span class="ruby-value">1.0</span><span class="ruby-operator">/</span><span class="ruby-value">0.0</span>                  <span class="ruby-comment"># =&gt; Infinity</span>
+[<span class="ruby-identifier">inf</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;f&#39;</span>)                <span class="ruby-comment"># =&gt; &quot;\x00\x00\x80\x7F&quot;</span>
+<span class="ruby-string">&quot;\x00\x00\x80\x7F&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;f&#39;</span>) <span class="ruby-comment"># =&gt; [Infinity]</span>
+
+<span class="ruby-identifier">nan</span> = <span class="ruby-identifier">inf</span><span class="ruby-operator">/</span><span class="ruby-identifier">inf</span>                  <span class="ruby-comment"># =&gt; NaN</span>
+[<span class="ruby-identifier">nan</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;f&#39;</span>)                <span class="ruby-comment"># =&gt; &quot;\x00\x00\xC0\x7F&quot;</span>
+<span class="ruby-string">&quot;\x00\x00\xC0\x7F&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;f&#39;</span>) <span class="ruby-comment"># =&gt; [NaN]</span>
+</pre>
+
+<h2 id="label-String+Directives">String Directives<span><a href="#label-String+Directives">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Each string directive specifies the packing or unpacking for one byte in the input or output string.</p>
+
+<h3 id="label-Binary+String+Directives">Binary String Directives<span><a href="#label-Binary+String+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;A&#39;</code> - Arbitrary binary string (space padded; count is width); <code>nil</code> is treated as the empty string:</p>
+
+<pre class="ruby">[<span class="ruby-string">&#39;foo&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;A&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;f&quot;</span>
+[<span class="ruby-string">&#39;foo&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;A*&#39;</span>)   <span class="ruby-comment"># =&gt; &quot;foo&quot;</span>
+[<span class="ruby-string">&#39;foo&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;A2&#39;</span>)   <span class="ruby-comment"># =&gt; &quot;fo&quot;</span>
+[<span class="ruby-string">&#39;foo&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;A4&#39;</span>)   <span class="ruby-comment"># =&gt; &quot;foo &quot;</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;A&#39;</span>)      <span class="ruby-comment"># =&gt; &quot; &quot;</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;A*&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;A2&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;  &quot;</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;A4&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;    &quot;</span>
+
+<span class="ruby-string">&quot;foo\0&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;A&#39;</span>)      <span class="ruby-comment"># =&gt; [&quot;f&quot;]</span>
+<span class="ruby-string">&quot;foo\0&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;A4&#39;</span>)     <span class="ruby-comment"># =&gt; [&quot;foo&quot;]</span>
+<span class="ruby-string">&quot;foo\0bar&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;A10&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;foo\x00bar&quot;] # Reads past &quot;\0&quot;.</span>
+<span class="ruby-string">&quot;foo &quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;A&#39;</span>)       <span class="ruby-comment"># =&gt; [&quot;f&quot;]</span>
+<span class="ruby-string">&quot;foo &quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;A4&#39;</span>)      <span class="ruby-comment"># =&gt; [&quot;foo&quot;]</span>
+<span class="ruby-string">&quot;foo&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;A4&#39;</span>)       <span class="ruby-comment"># =&gt; [&quot;foo&quot;]</span>
+
+<span class="ruby-identifier">russian</span> = <span class="ruby-string">&quot;\u{442 435 441 442}&quot;</span> <span class="ruby-comment"># =&gt; &quot;тест&quot;</span>
+<span class="ruby-identifier">russian</span>.<span class="ruby-identifier">size</span>         <span class="ruby-comment"># =&gt; 4</span>
+<span class="ruby-identifier">russian</span>.<span class="ruby-identifier">bytesize</span>     <span class="ruby-comment"># =&gt; 8</span>
+[<span class="ruby-identifier">russian</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;A&#39;</span>)  <span class="ruby-comment"># =&gt; &quot;\xD1&quot;</span>
+[<span class="ruby-identifier">russian</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;A*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\xD1\x82\xD0\xB5\xD1\x81\xD1\x82&quot;</span>
+<span class="ruby-identifier">russian</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;A&#39;</span>)  <span class="ruby-comment"># =&gt; [&quot;\xD1&quot;]</span>
+<span class="ruby-identifier">russian</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;A2&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\xD1\x82&quot;]</span>
+<span class="ruby-identifier">russian</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;A4&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\xD1\x82\xD0\xB5&quot;]</span>
+<span class="ruby-identifier">russian</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;A*&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\xD1\x82\xD0\xB5\xD1\x81\xD1\x82&quot;]</span>
+</pre>
+</li><li>
+<p><code>&#39;a&#39;</code> - Arbitrary binary string (null padded; count is width):</p>
+
+<pre class="ruby">[<span class="ruby-string">&quot;foo&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;a&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;f&quot;</span>
+[<span class="ruby-string">&quot;foo&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;a*&#39;</span>)   <span class="ruby-comment"># =&gt; &quot;foo&quot;</span>
+[<span class="ruby-string">&quot;foo&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;a2&#39;</span>)   <span class="ruby-comment"># =&gt; &quot;fo&quot;</span>
+[<span class="ruby-string">&quot;foo\0&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;a4&#39;</span>) <span class="ruby-comment"># =&gt; &quot;foo\x00&quot;</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;a&#39;</span>)      <span class="ruby-comment"># =&gt; &quot;\x00&quot;</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;a*&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;a2&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;\x00\x00&quot;</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;a4&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;\x00\x00\x00\x00&quot;</span>
+
+<span class="ruby-string">&quot;foo\0&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;a&#39;</span>)     <span class="ruby-comment"># =&gt; [&quot;f&quot;]</span>
+<span class="ruby-string">&quot;foo\0&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;a4&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;foo\x00&quot;]</span>
+<span class="ruby-string">&quot;foo &quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;a4&#39;</span>)     <span class="ruby-comment"># =&gt; [&quot;foo &quot;]</span>
+<span class="ruby-string">&quot;foo&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;a4&#39;</span>)      <span class="ruby-comment"># =&gt; [&quot;foo&quot;]</span>
+<span class="ruby-string">&quot;foo\0bar&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;a4&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;foo\x00&quot;] # Reads past &quot;\0&quot;.</span>
+</pre>
+</li><li>
+<p><code>&#39;Z&#39;</code> - Same as <code>&#39;a&#39;</code>, except that null is added or ignored with <code>&#39;*&#39;</code>:</p>
+
+<pre class="ruby">[<span class="ruby-string">&quot;foo&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;Z*&#39;</span>)   <span class="ruby-comment"># =&gt; &quot;foo\x00&quot;</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;Z*&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;\x00&quot;</span>
+
+<span class="ruby-string">&quot;foo\0&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;Z*&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;foo&quot;]</span>
+<span class="ruby-string">&quot;foo&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;Z*&#39;</span>)      <span class="ruby-comment"># =&gt; [&quot;foo&quot;]</span>
+<span class="ruby-string">&quot;foo\0bar&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;Z*&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;foo&quot;] # Does not read past &quot;\0&quot;.</span>
+</pre>
+</li></ul>
+
+<h3 id="label-Bit+String+Directives">Bit String Directives<span><a href="#label-Bit+String+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;B&#39;</code> - Bit string (high byte first):</p>
+
+<pre class="ruby">[<span class="ruby-string">&#39;11111111&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;00000000&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;B*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\xFF\x00&quot;</span>
+[<span class="ruby-string">&#39;10000000&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;01000000&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;B*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x80@&quot;</span>
+
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;B0&#39;</span>) <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;B1&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x80&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;B2&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x80\x00&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;B3&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x80\x00&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;B4&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x80\x00\x00&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;B5&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x80\x00\x00&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;B6&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x80\x00\x00\x00&quot;</span>
+
+<span class="ruby-string">&quot;\xff\x00&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;B*&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;1111111100000000&quot;]</span>
+<span class="ruby-string">&quot;\x01\x02&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;B*&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;0000000100000010&quot;]</span>
+
+<span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;B0&quot;</span>)     <span class="ruby-comment"># =&gt; [&quot;&quot;]</span>
+<span class="ruby-string">&quot;\x80&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;B1&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;1&quot;]</span>
+<span class="ruby-string">&quot;\x80&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;B2&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;10&quot;]</span>
+<span class="ruby-string">&quot;\x80&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;B3&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;100&quot;]</span>
+</pre>
+</li><li>
+<p><code>&#39;b&#39;</code> - Bit string (low byte first):</p>
+
+<pre class="ruby">[<span class="ruby-string">&#39;11111111&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;00000000&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;b*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\xFF\x00&quot;</span>
+[<span class="ruby-string">&#39;10000000&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;01000000&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;b*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\x02&quot;</span>
+
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;b0&#39;</span>) <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;b1&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;b2&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\x00&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;b3&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\x00&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;b4&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\x00\x00&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;b5&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\x00\x00&quot;</span>
+[<span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;b6&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\x00\x00\x00&quot;</span>
+
+<span class="ruby-string">&quot;\xff\x00&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;b*&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;1111111100000000&quot;]</span>
+<span class="ruby-string">&quot;\x01\x02&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;b*&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;1000000001000000&quot;]</span>
+
+<span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;b0&quot;</span>)     <span class="ruby-comment"># =&gt; [&quot;&quot;]</span>
+<span class="ruby-string">&quot;\x01&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;b1&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;1&quot;]</span>
+<span class="ruby-string">&quot;\x01&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;b2&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;10&quot;]</span>
+<span class="ruby-string">&quot;\x01&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;b3&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;100&quot;]</span>
+</pre>
+</li></ul>
+
+<h3 id="label-Hex+String+Directives">Hex String Directives<span><a href="#label-Hex+String+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;H&#39;</code> - Hex string (high nibble first):</p>
+
+<pre class="ruby">[<span class="ruby-string">&#39;10ef&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;H*&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;\x10\xEF&quot;</span>
+[<span class="ruby-string">&#39;10ef&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;H0&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+[<span class="ruby-string">&#39;10ef&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;H3&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;\x10\xE0&quot;</span>
+[<span class="ruby-string">&#39;10ef&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;H5&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;\x10\xEF\x00&quot;</span>
+
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;H3&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;\xFF\xF0&quot;</span>
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;H4&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;\xFF\xF0&quot;</span>
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;H5&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;\xFF\xF0\x00&quot;</span>
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;H6&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;\xFF\xF0\x00&quot;</span>
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;H7&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;\xFF\xF0\x00\x00&quot;</span>
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;H8&#39;</span>)    <span class="ruby-comment"># =&gt; &quot;\xFF\xF0\x00\x00&quot;</span>
+
+<span class="ruby-string">&quot;\x10\xef&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H*&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;10ef&quot;]</span>
+<span class="ruby-string">&quot;\x10\xef&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H0&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;&quot;]</span>
+<span class="ruby-string">&quot;\x10\xef&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H1&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;1&quot;]</span>
+<span class="ruby-string">&quot;\x10\xef&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H2&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;10&quot;]</span>
+<span class="ruby-string">&quot;\x10\xef&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H3&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;10e&quot;]</span>
+<span class="ruby-string">&quot;\x10\xef&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H4&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;10ef&quot;]</span>
+<span class="ruby-string">&quot;\x10\xef&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H5&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;10ef&quot;]</span>
+</pre>
+</li><li>
+<p><code>&#39;h&#39;</code> - Hex string (low nibble first):</p>
+
+<pre class="ruby">[<span class="ruby-string">&#39;10ef&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;h*&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\xFE&quot;</span>
+[<span class="ruby-string">&#39;10ef&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;h0&#39;</span>) <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+[<span class="ruby-string">&#39;10ef&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;h3&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\x0E&quot;</span>
+[<span class="ruby-string">&#39;10ef&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;h5&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\xFE\x00&quot;</span>
+
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;h3&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\xFF\x0F&quot;</span>
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;h4&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\xFF\x0F&quot;</span>
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;h5&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\xFF\x0F\x00&quot;</span>
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;h6&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\xFF\x0F\x00&quot;</span>
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;h7&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\xFF\x0F\x00\x00&quot;</span>
+[<span class="ruby-string">&#39;fff&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;h8&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\xFF\x0F\x00\x00&quot;</span>
+
+<span class="ruby-string">&quot;\x01\xfe&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;h*&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;10ef&quot;]</span>
+<span class="ruby-string">&quot;\x01\xfe&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;h0&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;&quot;]</span>
+<span class="ruby-string">&quot;\x01\xfe&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;h1&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;1&quot;]</span>
+<span class="ruby-string">&quot;\x01\xfe&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;h2&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;10&quot;]</span>
+<span class="ruby-string">&quot;\x01\xfe&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;h3&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;10e&quot;]</span>
+<span class="ruby-string">&quot;\x01\xfe&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;h4&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;10ef&quot;]</span>
+<span class="ruby-string">&quot;\x01\xfe&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;h5&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;10ef&quot;]</span>
+</pre>
+</li></ul>
+
+<h3 id="label-Pointer+String+Directives">Pointer String Directives<span><a href="#label-Pointer+String+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;P&#39;</code> - Pointer to a structure (fixed-length string):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-string">&#39;abc&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;P&#39;</span>)  <span class="ruby-comment"># =&gt; &quot;\xE0O\x7F\xE5\xA1\x01\x00\x00&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;P*&#39;</span>)         <span class="ruby-comment"># =&gt; [&quot;abc&quot;]</span>
+<span class="ruby-string">&quot;.&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;P&quot;</span>)        <span class="ruby-comment"># =&gt; []</span>
+(<span class="ruby-string">&quot;\0&quot;</span> <span class="ruby-operator">*</span> <span class="ruby-value">8</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;P&quot;</span>) <span class="ruby-comment"># =&gt; [nil]</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;P&quot;</span>)        <span class="ruby-comment"># =&gt; &quot;\x00\x00\x00\x00\x00\x00\x00\x00&quot;</span>
+</pre>
+</li><li>
+<p><code>&#39;p&#39;</code> - Pointer to a null-terminated string:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = [<span class="ruby-string">&#39;abc&#39;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;p&#39;</span>)  <span class="ruby-comment"># =&gt; &quot;(\xE4u\xE5\xA1\x01\x00\x00&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;p*&#39;</span>)         <span class="ruby-comment"># =&gt; [&quot;abc&quot;]</span>
+<span class="ruby-string">&quot;.&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;p&quot;</span>)        <span class="ruby-comment"># =&gt; []</span>
+(<span class="ruby-string">&quot;\0&quot;</span> <span class="ruby-operator">*</span> <span class="ruby-value">8</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;p&quot;</span>) <span class="ruby-comment"># =&gt; [nil]</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;p&quot;</span>)        <span class="ruby-comment"># =&gt; &quot;\x00\x00\x00\x00\x00\x00\x00\x00&quot;</span>
+</pre>
+</li></ul>
+
+<h3 id="label-Other+String+Directives">Other String Directives<span><a href="#label-Other+String+Directives">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>&#39;M&#39;</code> - Quoted printable, MIME encoding; text mode, but input must use LF and output LF; (see <a href="https://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a>):</p>
+
+<pre class="ruby">[<span class="ruby-string">&quot;a b c\td \ne&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;M&#39;</span>) <span class="ruby-comment"># =&gt; &quot;a b c\td =\n\ne=\n&quot;</span>
+[<span class="ruby-string">&quot;\0&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;M&#39;</span>)           <span class="ruby-comment"># =&gt; &quot;=00=\n&quot;</span>
+
+[<span class="ruby-string">&quot;a&quot;</span><span class="ruby-operator">*</span><span class="ruby-value">1023</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;M&#39;</span>) <span class="ruby-operator">==</span> (<span class="ruby-string">&quot;a&quot;</span><span class="ruby-operator">*</span><span class="ruby-value">73</span><span class="ruby-string">+&quot;=\n&quot;</span>)<span class="ruby-operator">*</span><span class="ruby-value">14</span><span class="ruby-string">+&quot;a=\n&quot;</span>     <span class="ruby-comment"># =&gt; true</span>
+(<span class="ruby-string">&quot;a&quot;</span><span class="ruby-operator">*</span><span class="ruby-value">73</span><span class="ruby-string">+&quot;=\na=\n&quot;</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>) <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;a&quot;</span><span class="ruby-operator">*</span><span class="ruby-value">74</span>]           <span class="ruby-comment"># =&gt; true</span>
+((<span class="ruby-string">&quot;a&quot;</span><span class="ruby-operator">*</span><span class="ruby-value">73</span><span class="ruby-string">+&quot;=\n&quot;</span>)<span class="ruby-operator">*</span><span class="ruby-value">14</span><span class="ruby-string">+&quot;a=\n&quot;</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>) <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;a&quot;</span><span class="ruby-operator">*</span><span class="ruby-value">1023</span>] <span class="ruby-comment"># =&gt; true</span>
+
+<span class="ruby-string">&quot;a b c\td =\n\ne=\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;a b c\td \ne&quot;]</span>
+<span class="ruby-string">&quot;=00=\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;\x00&quot;]</span>
+
+<span class="ruby-string">&quot;pre=31=32=33after&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;pre123after&quot;]</span>
+<span class="ruby-string">&quot;pre=\nafter&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>)       <span class="ruby-comment"># =&gt; [&quot;preafter&quot;]</span>
+<span class="ruby-string">&quot;pre=\r\nafter&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>)     <span class="ruby-comment"># =&gt; [&quot;preafter&quot;]</span>
+<span class="ruby-string">&quot;pre=&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>)              <span class="ruby-comment"># =&gt; [&quot;pre=&quot;]</span>
+<span class="ruby-string">&quot;pre=\r&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>)            <span class="ruby-comment"># =&gt; [&quot;pre=\r&quot;]</span>
+<span class="ruby-string">&quot;pre=hoge&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>)          <span class="ruby-comment"># =&gt; [&quot;pre=hoge&quot;]</span>
+<span class="ruby-string">&quot;pre==31after&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>)      <span class="ruby-comment"># =&gt; [&quot;pre==31after&quot;]</span>
+<span class="ruby-string">&quot;pre===31after&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;M&#39;</span>)     <span class="ruby-comment"># =&gt; [&quot;pre===31after&quot;]</span>
+</pre>
+</li><li>
+<p><code>&#39;m&#39;</code> - Base64 encoded string; count specifies input bytes between each newline, rounded down to nearest multiple of 3; if count is zero, no newlines are added; (see <a href="https://www.ietf.org/rfc/rfc4648.txt">RFC 4648</a>):</p>
+
+<pre class="ruby">[<span class="ruby-string">&quot;&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m&#39;</span>)             <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+[<span class="ruby-string">&quot;\0&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m&#39;</span>)           <span class="ruby-comment"># =&gt; &quot;AA==\n&quot;</span>
+[<span class="ruby-string">&quot;\0\0&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m&#39;</span>)         <span class="ruby-comment"># =&gt; &quot;AAA=\n&quot;</span>
+[<span class="ruby-string">&quot;\0\0\0&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m&#39;</span>)       <span class="ruby-comment"># =&gt; &quot;AAAA\n&quot;</span>
+[<span class="ruby-string">&quot;\377&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m&#39;</span>)         <span class="ruby-comment"># =&gt; &quot;/w==\n&quot;</span>
+[<span class="ruby-string">&quot;\377\377&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;//8=\n&quot;</span>
+[<span class="ruby-string">&quot;\377\377\377&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m&#39;</span>) <span class="ruby-comment"># =&gt; &quot;////\n&quot;</span>
+
+<span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>)       <span class="ruby-comment"># =&gt; [&quot;&quot;]</span>
+<span class="ruby-string">&quot;AA==\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\x00&quot;]</span>
+<span class="ruby-string">&quot;AAA=\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\x00\x00&quot;]</span>
+<span class="ruby-string">&quot;AAAA\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\x00\x00\x00&quot;]</span>
+<span class="ruby-string">&quot;/w==\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\xFF&quot;]</span>
+<span class="ruby-string">&quot;//8=\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\xFF\xFF&quot;]</span>
+<span class="ruby-string">&quot;////\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\xFF\xFF\xFF&quot;]</span>
+<span class="ruby-string">&quot;A\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>)    <span class="ruby-comment"># =&gt; [&quot;&quot;]</span>
+<span class="ruby-string">&quot;AA\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>)   <span class="ruby-comment"># =&gt; [&quot;\x00&quot;]</span>
+<span class="ruby-string">&quot;AA=\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>)  <span class="ruby-comment"># =&gt; [&quot;\x00&quot;]</span>
+<span class="ruby-string">&quot;AAA\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m&#39;</span>)  <span class="ruby-comment"># =&gt; [&quot;\x00\x00&quot;]</span>
+
+[<span class="ruby-string">&quot;&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m0&#39;</span>)             <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+[<span class="ruby-string">&quot;\0&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m0&#39;</span>)           <span class="ruby-comment"># =&gt; &quot;AA==&quot;</span>
+[<span class="ruby-string">&quot;\0\0&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m0&#39;</span>)         <span class="ruby-comment"># =&gt; &quot;AAA=&quot;</span>
+[<span class="ruby-string">&quot;\0\0\0&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m0&#39;</span>)       <span class="ruby-comment"># =&gt; &quot;AAAA&quot;</span>
+[<span class="ruby-string">&quot;\377&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m0&#39;</span>)         <span class="ruby-comment"># =&gt; &quot;/w==&quot;</span>
+[<span class="ruby-string">&quot;\377\377&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m0&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;//8=&quot;</span>
+[<span class="ruby-string">&quot;\377\377\377&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m0&#39;</span>) <span class="ruby-comment"># =&gt; &quot;////&quot;</span>
+
+<span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m0&#39;</span>)     <span class="ruby-comment"># =&gt; [&quot;&quot;]</span>
+<span class="ruby-string">&quot;AA==&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m0&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\x00&quot;]</span>
+<span class="ruby-string">&quot;AAA=&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m0&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\x00\x00&quot;]</span>
+<span class="ruby-string">&quot;AAAA&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m0&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\x00\x00\x00&quot;]</span>
+<span class="ruby-string">&quot;/w==&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m0&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\xFF&quot;]</span>
+<span class="ruby-string">&quot;//8=&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m0&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\xFF\xFF&quot;]</span>
+<span class="ruby-string">&quot;////&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;m0&#39;</span>) <span class="ruby-comment"># =&gt; [&quot;\xFF\xFF\xFF&quot;]</span>
+</pre>
+</li><li>
+<p><code>&#39;u&#39;</code> - UU-encoded string:</p>
+
+<pre class="ruby">[<span class="ruby-string">&quot;&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;u&quot;</span>)        <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+[<span class="ruby-string">&quot;a&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;u&quot;</span>)       <span class="ruby-comment"># =&gt; &quot;!80``\n&quot;</span>
+[<span class="ruby-string">&quot;aaa&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;u&quot;</span>)     <span class="ruby-comment"># =&gt; &quot;#86%A\n&quot;</span>
+
+<span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;u&quot;</span>)        <span class="ruby-comment"># =&gt; [&quot;&quot;]</span>
+<span class="ruby-string">&quot;#86)C\n&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;u&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;abc&quot;]</span>
+</pre>
+</li></ul>
+
+<h2 id="label-Offset+Directives">Offset Directives<span><a href="#label-Offset+Directives">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><code>&#39;@&#39;</code> - Begin packing at the given byte offset; for packing, null fill or shrink if necessary:</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;C@0C&quot;</span>)     <span class="ruby-comment"># =&gt; &quot;\x02&quot;</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;C@1C&quot;</span>)     <span class="ruby-comment"># =&gt; &quot;\x01\x02&quot;</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;C@5C&quot;</span>)     <span class="ruby-comment"># =&gt; &quot;\x01\x00\x00\x00\x00\x02&quot;</span>
+[<span class="ruby-operator">*</span><span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;CCCC@2C&quot;</span>) <span class="ruby-comment"># =&gt; &quot;\x01\x02\x05&quot;</span>
+</pre>
+
+<p>For unpacking, cannot to move to outside the string:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;\x01\x00\x00\x02&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;C@3C&quot;</span>) <span class="ruby-comment"># =&gt; [1, 2]</span>
+<span class="ruby-string">&quot;\x00&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;@1C&quot;</span>)              <span class="ruby-comment"># =&gt; [nil]</span>
+<span class="ruby-string">&quot;\x00&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;@2C&quot;</span>)              <span class="ruby-comment"># Raises ArgumentError.</span>
+</pre>
+</li><li>
+<p><code>&#39;X&#39;</code> - For packing, shrink for the given byte offset:</p>
+
+<pre class="ruby">[<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;CCXC&quot;</span>)    <span class="ruby-comment"># =&gt; &quot;\x00\x02&quot;</span>
+[<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;CCX2C&quot;</span>)   <span class="ruby-comment"># =&gt; &quot;\x02&quot;</span>
+</pre>
+
+<p>For unpacking; rewind unpacking position for the given byte offset:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;\x00\x02&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;CCXC&quot;</span>) <span class="ruby-comment"># =&gt; [0, 2, 2]</span>
+</pre>
+
+<p>Cannot to move to outside the string:</p>
+
+<pre class="ruby">[<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;CCX3C&quot;</span>)   <span class="ruby-comment"># Raises ArgumentError.</span>
+<span class="ruby-string">&quot;\x00\x02&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;CX3C&quot;</span>) <span class="ruby-comment"># Raises ArgumentError.</span>
+</pre>
+</li><li>
+<p><code>&#39;x&#39;</code> - Begin packing at after the given byte offset; for packing, null fill if necessary:</p>
+
+<pre class="ruby">[].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;x0&quot;</span>)                <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+[].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;x&quot;</span>)                 <span class="ruby-comment"># =&gt; &quot;\x00&quot;</span>
+[].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;x8&quot;</span>)                <span class="ruby-comment"># =&gt; &quot;\x00\x00\x00\x00\x00\x00\x00\x00&quot;</span>
+</pre>
+
+<p>For unpacking, cannot to move to outside the string:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;\x00\x00\x02&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;CxC&quot;</span>) <span class="ruby-comment"># =&gt; [0, 2]</span>
+<span class="ruby-string">&quot;\x00\x00\x02&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;x3C&quot;</span>) <span class="ruby-comment"># =&gt; [nil]</span>
+<span class="ruby-string">&quot;\x00\x00\x02&quot;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;x4C&quot;</span>) <span class="ruby-comment"># Raises ArgumentError</span>
+</pre>
+</li></ul>
+
+</main>
+

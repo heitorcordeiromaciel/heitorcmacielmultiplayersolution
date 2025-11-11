@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"response_body_encoding:ETI"%Net::HTTP#response_body_encoding;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"8Returns the encoding to use for the response body; ;TI""see #response_body_encoding=.;T:
+@fileI"lib/net/http.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Net::HTTP;TcRDoc::NormalClass0

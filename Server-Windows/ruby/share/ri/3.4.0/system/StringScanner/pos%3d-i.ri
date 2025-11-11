@@ -1,0 +1,18 @@
+U:RDoc::AnyMethod[iI"	pos=:ETI"StringScanner#pos=;TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I".call-seq:
+ pos = n -> n
+ pointer = n -> n;To;
+;	[I"�Sets the {byte position}[rdoc-ref:StringScanner@Byte+Position+-28Position-29] and the {character position}[rdoc-ref:StringScanner@Positions];
+returns <code>n</code>.;To;
+;	[I"IDoes not affect {match values}[rdoc-ref:StringScanner@Match+Values].;To;
+;	[I"JFor non-negative <code>n</code>, sets the position to <code>n</code>:;To:RDoc::Markup::Verbatim;	[I"�scanner = StringScanner.new(HIRAGANA_TEXT)
+scanner.string  # => "こんにちは"
+scanner.pos = 3 # => 3
+scanner.rest    # => "んにちは"
+scanner.charpos # => 1
+;T:@format:rbo;
+;	[I"sFor negative <code>n</code>, counts from the end of the {stored string}[rdoc-ref:StringScanner@Stored+String]:;To;;	[I"pscanner.pos = -9 # => -9
+scanner.pos      # => 6
+scanner.rest     # => "にちは"
+scanner.charpos  # => 2
+;T;;:
+@fileI"ext/strscan/strscan.c;T:0@omit_headings_from_table_of_contents_below000[[I"pointer=;T@	I"	(p1);T@ FI"StringScanner;TcRDoc::NormalClass00

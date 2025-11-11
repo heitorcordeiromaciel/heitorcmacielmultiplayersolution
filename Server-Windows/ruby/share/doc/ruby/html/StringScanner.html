@@ -1,0 +1,3659 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class StringScanner - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,StringScanner">
+
+    <meta name="description" content="class StringScanner: docs. ruby-lang.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/StringScanner.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>      <a href="#class-StringScanner-label-About+the+Examples">About the Examples</a>
+          <li>      <a href="#class-StringScanner-label-The+StringScanner+Object">The <code>StringScanner</code> Object</a>
+          <li>      <a href="#class-StringScanner-label-Stored+String">Stored String</a>
+          <li>
+            <details open>
+              <summary>      <a href="#class-StringScanner-label-Positions">Positions</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-StringScanner-label-Byte+Position+-28Position-29">Byte Position (Position)</a>
+          <li>      <a href="#class-StringScanner-label-Character+Position">Character Position</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#class-StringScanner-label-Target+Substring">Target Substring</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-StringScanner-label-Setting+the+Target+Substring">Setting the Target Substring</a>
+          <li>      <a href="#class-StringScanner-label-Querying+the+Target+Substring">Querying the Target Substring</a>
+          <li>      <a href="#class-StringScanner-label-Searching+the+Target+Substring">Searching the Target Substring</a>
+          <li>      <a href="#class-StringScanner-label-Traversing+the+Target+Substring">Traversing the Target Substring</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#class-StringScanner-label-Querying+the+Scanner">Querying the Scanner</a>
+          <li>
+            <details open>
+              <summary>      <a href="#class-StringScanner-label-Matching">Matching</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-StringScanner-label-Matcher+Methods">Matcher Methods</a>
+          <li>
+            <details open>
+              <summary>      <a href="#class-StringScanner-label-Match+Values">Match Values</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-StringScanner-label-Basic+Match+Values">Basic Match Values</a>
+          <li>      <a href="#class-StringScanner-label-Captured+Match+Values">Captured Match Values</a>
+          <li>      <a href="#class-StringScanner-label-Match+Values+Examples">Match Values Examples</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#class-StringScanner-label-Fixed-Anchor+Property">Fixed-Anchor Property</a>
+
+  </ul>
+</div>
+
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="Object.html">Object</a><ul><li><a href="BasicObject.html">BasicObject</a></li></ul></li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-new">new</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-3C-3C">&lt;&lt;</a></li>
+      <li ><a href="#method-i-5B-5D">[]</a></li>
+      <li ><a href="#method-i-beginning_of_line-3F">beginning_of_line?</a></li>
+      <li ><a href="#method-i-captures">captures</a></li>
+      <li ><a href="#method-i-charpos">charpos</a></li>
+      <li ><a href="#method-i-check">check</a></li>
+      <li ><a href="#method-i-check_until">check_until</a></li>
+      <li ><a href="#method-i-concat">concat</a></li>
+      <li ><a href="#method-i-eos-3F">eos?</a></li>
+      <li ><a href="#method-i-exist-3F">exist?</a></li>
+      <li ><a href="#method-i-fixed_anchor-3F">fixed_anchor?</a></li>
+      <li ><a href="#method-i-get_byte">get_byte</a></li>
+      <li ><a href="#method-i-getch">getch</a></li>
+      <li ><a href="#method-i-initialize_copy">initialize_copy</a></li>
+      <li ><a href="#method-i-inspect">inspect</a></li>
+      <li ><a href="#method-i-match-3F">match?</a></li>
+      <li ><a href="#method-i-matched">matched</a></li>
+      <li ><a href="#method-i-matched-3F">matched?</a></li>
+      <li ><a href="#method-i-matched_size">matched_size</a></li>
+      <li ><a href="#method-i-named_captures">named_captures</a></li>
+      <li ><a href="#method-i-peek">peek</a></li>
+      <li ><a href="#method-i-peek_byte">peek_byte</a></li>
+      <li ><a href="#method-i-pointer">pointer</a></li>
+      <li ><a href="#method-i-pointer-3D">pointer=</a></li>
+      <li ><a href="#method-i-pos">pos</a></li>
+      <li ><a href="#method-i-pos-3D">pos=</a></li>
+      <li ><a href="#method-i-post_match">post_match</a></li>
+      <li ><a href="#method-i-pre_match">pre_match</a></li>
+      <li ><a href="#method-i-reset">reset</a></li>
+      <li ><a href="#method-i-rest">rest</a></li>
+      <li ><a href="#method-i-rest_size">rest_size</a></li>
+      <li ><a href="#method-i-scan">scan</a></li>
+      <li ><a href="#method-i-scan_base10_integer">scan_base10_integer</a></li>
+      <li ><a href="#method-i-scan_base16_integer">scan_base16_integer</a></li>
+      <li ><a href="#method-i-scan_byte">scan_byte</a></li>
+      <li ><a href="#method-i-scan_until">scan_until</a></li>
+      <li ><a href="#method-i-size">size</a></li>
+      <li ><a href="#method-i-skip">skip</a></li>
+      <li ><a href="#method-i-skip_until">skip_until</a></li>
+      <li ><a href="#method-i-string">string</a></li>
+      <li ><a href="#method-i-string-3D">string=</a></li>
+      <li ><a href="#method-i-terminate">terminate</a></li>
+      <li ><a href="#method-i-unscan">unscan</a></li>
+      <li ><a href="#method-i-values_at">values_at</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-StringScanner">
+  
+  
+
+  <h1 id="class-StringScanner" class="anchor-link class">
+    class StringScanner
+  </h1>
+
+  <section class="description">
+    
+<p>Class <a href="StringScanner.html"><code>StringScanner</code></a> supports processing a stored string as a stream; this code creates a new <a href="StringScanner.html"><code>StringScanner</code></a> object with string <code>&#39;foobarbaz&#39;</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;strscan&#39;</span>
+<span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+</pre>
+
+<h2 id="class-StringScanner-label-About+the+Examples">About the Examples<span><a href="#class-StringScanner-label-About+the+Examples">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>All examples here assume that <a href="StringScanner.html"><code>StringScanner</code></a> has been required:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;strscan&#39;</span>
+</pre>
+
+<p>Some examples here assume that these constants are defined:</p>
+
+<pre class="ruby"><span class="ruby-constant">MULTILINE_TEXT</span> = <span class="ruby-identifier">&lt;&lt;~EOT</span>
+<span class="ruby-value">Go placidly amid the noise and haste,
+and remember what peace there may be in silence.
+</span><span class="ruby-identifier">EOT</span>
+
+<span class="ruby-constant">HIRAGANA_TEXT</span> = <span class="ruby-string">&#39;こんにちは&#39;</span>
+
+<span class="ruby-constant">ENGLISH_TEXT</span> = <span class="ruby-string">&#39;Hello&#39;</span>
+</pre>
+
+<p>Some examples here assume that certain helper methods are defined:</p>
+<ul><li>
+<p><code>put_situation(scanner)</code>: Displays the values of the scanner’s methods <a href="StringScanner.html#method-i-pos"><code>pos</code></a>, <a href="StringScanner.html#method-i-charpos"><code>charpos</code></a>, <a href="StringScanner.html#method-i-rest"><code>rest</code></a>, and <a href="StringScanner.html#method-i-rest_size"><code>rest_size</code></a>.</p>
+</li><li>
+<p><code>put_match_values(scanner)</code>: Displays the scanner’s <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li><li>
+<p><code>match_values_cleared?(scanner)</code>: Returns whether the scanner’s <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a> are cleared.</p>
+</li></ul>
+
+<p>See examples [<a href="ext/strscan/helper_methods_md.html">here]</a>.</p>
+
+<h2 id="class-StringScanner-label-The+StringScanner+Object">The <a href="StringScanner.html"><code>StringScanner</code></a> Object<span><a href="#class-StringScanner-label-The+StringScanner+Object">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>This code creates a <a href="StringScanner.html"><code>StringScanner</code></a> object (we’ll call it simply a <em>scanner</em>), and shows some of its basic properties:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span> <span class="ruby-comment"># =&gt; &quot;foobarbaz&quot;</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       0</span>
+<span class="ruby-comment">#   charpos:   0</span>
+<span class="ruby-comment">#   rest:      &quot;foobarbaz&quot;</span>
+<span class="ruby-comment">#   rest_size: 9</span>
+</pre>
+
+<p>The scanner has:</p>
+<ul><li>
+<p>A <em>stored string</em>, which is:</p>
+<ul><li>
+<p>Initially set by <a href="StringScanner.html#method-c-new"><code>StringScanner.new(string)</code></a> to the given <code>string</code> (<code>&#39;foobarbaz&#39;</code> in the example above).</p>
+</li><li>
+<p>Modifiable by methods <a href="StringScanner.html#method-i-string-3D"><code>string=(new_string)</code></a> and <a href="StringScanner.html#method-i-concat"><code>concat(more_string)</code></a>.</p>
+</li><li>
+<p>Returned by method <a href="StringScanner.html#method-i-string"><code>string</code></a>.</p>
+</li></ul>
+
+<p>More at <a href="StringScanner.html#class-StringScanner-label-Stored+String">Stored String</a> below.</p>
+</li><li>
+<p>A <em>position</em>; a zero-based index into the bytes of the stored string (<em>not</em> into its characters):</p>
+<ul><li>
+<p>Initially set by <a href="StringScanner.html#method-c-new"><code>StringScanner.new</code></a> to <code>0</code>.</p>
+</li><li>
+<p>Returned by method <a href="StringScanner.html#method-i-pos"><code>pos</code></a>.</p>
+</li><li>
+<p>Modifiable explicitly by methods <a href="StringScanner.html#method-i-reset"><code>reset</code></a>, <a href="StringScanner.html#method-i-terminate"><code>terminate</code></a>, and <a href="StringScanner.html#method-i-pos-3D"><code>pos=(new_pos)</code></a>.</p>
+</li><li>
+<p>Modifiable implicitly (various traversing methods, among others).</p>
+</li></ul>
+
+<p>More at <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">Byte Position</a> below.</p>
+</li><li>
+<p>A <em>target substring</em>, which is a trailing substring of the stored string; it extends from the current position to the end of the stored string:</p>
+<ul><li>
+<p>Initially set by <a href="StringScanner.html#method-c-new"><code>StringScanner.new(string)</code></a> to the given <code>string</code> (<code>&#39;foobarbaz&#39;</code> in the example above).</p>
+</li><li>
+<p>Returned by method <a href="StringScanner.html#method-i-rest"><code>rest</code></a>.</p>
+</li><li>
+<p>Modified by any modification to either the stored string or the position.</p>
+</li></ul>
+
+<p><strong>Most importantly</strong>: the searching and traversing methods operate on the target substring, which may be (and often is) less than the entire stored string.</p>
+
+<p>More at <a href="StringScanner.html#class-StringScanner-label-Target+Substring">Target Substring</a> below.</p>
+</li></ul>
+
+<h2 id="class-StringScanner-label-Stored+String">Stored String<span><a href="#class-StringScanner-label-Stored+String">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The <em>stored string</em> is the string stored in the <a href="StringScanner.html"><code>StringScanner</code></a> object.</p>
+
+<p>Each of these methods sets, modifies, or returns the stored string:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="StringScanner.html#method-c-new"><code>::new(string)</code></a></td>
+<td>Creates a new scanner for the given string.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-string-3D"><code>string=(new_string)</code></a></td>
+<td>Replaces the existing stored string.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-concat"><code>concat(more_string)</code></a></td>
+<td>Appends a string to the existing stored string.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-string"><code>string</code></a></td>
+<td>Returns the stored string.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="class-StringScanner-label-Positions">Positions<span><a href="#class-StringScanner-label-Positions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A <a href="StringScanner.html"><code>StringScanner</code></a> object maintains a zero-based <em>byte position</em> and a zero-based <em>character position</em>.</p>
+
+<p>Each of these methods explicitly sets positions:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="StringScanner.html#method-i-reset"><code>reset</code></a></td>
+<td>Sets both positions to zero (begining of stored string).</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-terminate"><code>terminate</code></a></td>
+<td>Sets both positions to the end of the stored string.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-pos-3D"><code>pos=(new_byte_position)</code></a></td>
+<td>Sets byte position; adjusts character position.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="class-StringScanner-label-Byte+Position+-28Position-29">Byte Position (Position)<span><a href="#class-StringScanner-label-Byte+Position+-28Position-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The byte position (or simply <em>position</em>) is a zero-based index into the bytes in the scanner’s stored string; for a new <a href="StringScanner.html"><code>StringScanner</code></a> object, the byte position is zero.</p>
+
+<p>When the byte position is:</p>
+<ul><li>
+<p>Zero (at the beginning), the target substring is the entire stored string.</p>
+</li><li>
+<p>Equal to the size of the stored string (at the end), the target substring is the empty string <code>&#39;&#39;</code>.</p>
+</li></ul>
+
+<p>To get or set the byte position:</p>
+<ul><li>
+<p><a href="StringScanner.html#method-i-pos"><code>pos</code></a>: returns the byte position.</p>
+</li><li>
+<p><a href="StringScanner.html#method-i-pos-3D"><code>pos=(new_pos)</code></a>: sets the byte position.</p>
+</li></ul>
+
+<p>Many methods use the byte position as the basis for finding matches; many others set, increment, or decrement the byte position:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobar&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/foo/</span>) <span class="ruby-comment"># =&gt; &quot;foo&quot; # Match found.</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>         <span class="ruby-comment"># =&gt; 3     # Byte position incremented.</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/foo/</span>) <span class="ruby-comment"># =&gt; nil   # Match not found.</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> <span class="ruby-comment"># =&gt; 3             # Byte position not changed.</span>
+</pre>
+
+<p>Some methods implicitly modify the byte position; see:</p>
+<ul><li>
+<p><a href="StringScanner.html#class-StringScanner-label-Setting+the+Target+Substring">Setting the Target Substring</a>.</p>
+</li><li>
+<p><a href="StringScanner.html#class-StringScanner-label-Traversing+the+Target+Substring">Traversing the Target Substring</a>.</p>
+</li></ul>
+
+<p>The values of these methods are derived directly from the values of <a href="StringScanner.html#method-i-pos"><code>pos</code></a> and <a href="StringScanner.html#method-i-string"><code>string</code></a>:</p>
+<ul><li>
+<p><a href="StringScanner.html#method-i-charpos"><code>charpos</code></a>: the <a href="StringScanner.html#class-StringScanner-label-Character+Position">character position</a>.</p>
+</li><li>
+<p><a href="StringScanner.html#method-i-rest"><code>rest</code></a>: the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>.</p>
+</li><li>
+<p><a href="StringScanner.html#method-i-rest_size"><code>rest_size</code></a>: <code>rest.size</code>.</p>
+</li></ul>
+
+<h3 id="class-StringScanner-label-Character+Position">Character Position<span><a href="#class-StringScanner-label-Character+Position">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The character position is a zero-based index into the <em>characters</em> in the stored string; for a new <a href="StringScanner.html"><code>StringScanner</code></a> object, the character position is zero.</p>
+
+<p>Method <a href="StringScanner.html#method-i-charpos"><code>charpos</code></a> returns the character position; its value may not be reset explicitly.</p>
+
+<p>Some methods change (increment or reset) the character position; see:</p>
+<ul><li>
+<p><a href="StringScanner.html#class-StringScanner-label-Setting+the+Target+Substring">Setting the Target Substring</a>.</p>
+</li><li>
+<p><a href="StringScanner.html#class-StringScanner-label-Traversing+the+Target+Substring">Traversing the Target Substring</a>.</p>
+</li></ul>
+
+<p>Example (string includes multi-byte characters):</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">ENGLISH_TEXT</span>) <span class="ruby-comment"># Five 1-byte characters.</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)             <span class="ruby-comment"># Five 3-byte characters</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span> <span class="ruby-comment"># =&gt; &quot;Helloこんにちは&quot;       # Twenty bytes in all.</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       0</span>
+<span class="ruby-comment">#   charpos:   0</span>
+<span class="ruby-comment">#   rest:      &quot;Helloこんにちは&quot;</span>
+<span class="ruby-comment">#   rest_size: 20</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/Hello/</span>) <span class="ruby-comment"># =&gt; &quot;Hello&quot; # Five 1-byte characters.</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       5</span>
+<span class="ruby-comment">#   charpos:   5</span>
+<span class="ruby-comment">#   rest:      &quot;こんにちは&quot;</span>
+<span class="ruby-comment">#   rest_size: 15</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>         <span class="ruby-comment"># =&gt; &quot;こ&quot;    # One 3-byte character.</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       8</span>
+<span class="ruby-comment">#   charpos:   6</span>
+<span class="ruby-comment">#   rest:      &quot;んにちは&quot;</span>
+<span class="ruby-comment">#   rest_size: 12</span>
+</pre>
+
+<h2 id="class-StringScanner-label-Target+Substring">Target Substring<span><a href="#class-StringScanner-label-Target+Substring">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The target substring is the the part of the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a> that extends from the current <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a> to the end of the stored string; it is always either:</p>
+<ul><li>
+<p>The entire stored string (byte position is zero).</p>
+</li><li>
+<p>A trailing substring of the stored string (byte position positive).</p>
+</li></ul>
+
+<p>The target substring is returned by method <a href="StringScanner.html#method-i-rest"><code>rest</code></a>, and its size is returned by method <a href="StringScanner.html#method-i-rest_size"><code>rest_size</code></a>.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       0</span>
+<span class="ruby-comment">#   charpos:   0</span>
+<span class="ruby-comment">#   rest:      &quot;foobarbaz&quot;</span>
+<span class="ruby-comment">#   rest_size: 9</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       3</span>
+<span class="ruby-comment">#   charpos:   3</span>
+<span class="ruby-comment">#   rest:      &quot;barbaz&quot;</span>
+<span class="ruby-comment">#   rest_size: 6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">9</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       9</span>
+<span class="ruby-comment">#   charpos:   9</span>
+<span class="ruby-comment">#   rest:      &quot;&quot;</span>
+<span class="ruby-comment">#   rest_size: 0</span>
+</pre>
+
+<h3 id="class-StringScanner-label-Setting+the+Target+Substring">Setting the Target Substring<span><a href="#class-StringScanner-label-Setting+the+Target+Substring">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The target substring is set whenever:</p>
+<ul><li>
+<p>The <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a> is set (position reset to zero; target substring set to stored string).</p>
+</li><li>
+<p>The <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a> is set (target substring adjusted accordingly).</p>
+</li></ul>
+
+<h3 id="class-StringScanner-label-Querying+the+Target+Substring">Querying the Target Substring<span><a href="#class-StringScanner-label-Querying+the+Target+Substring">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>This table summarizes (details and examples at the links):</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="StringScanner.html#method-i-rest"><code>rest</code></a></td>
+<td>Target substring.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-rest_size"><code>rest_size</code></a></td>
+<td>Size (bytes) of target substring.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="class-StringScanner-label-Searching+the+Target+Substring">Searching the Target Substring<span><a href="#class-StringScanner-label-Searching+the+Target+Substring">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>A <em>search</em> method examines the target substring, but does not advance the <a href="StringScanner.html#class-StringScanner-label-Positions">positions</a> or (by implication) shorten the target substring.</p>
+
+<p>This table summarizes (details and examples at the links):</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+<th>Sets Match Values?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="StringScanner.html#method-i-check"><code>check(pattern)</code></a></td>
+<td>Matched leading substring or <code>nil</code>.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-check_until"><code>check_until(pattern)</code></a></td>
+<td>Matched substring (anywhere) or <code>nil</code>.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-exist-3F"><code>exist?(pattern)</code></a></td>
+<td>Matched substring (anywhere) end index.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-match-3F"><code>match?(pattern)</code></a></td>
+<td>Size of matched leading substring or <code>nil</code>.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-peek"><code>peek(size)</code></a></td>
+<td>Leading substring of given length (bytes).</td>
+<td>No.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-peek_byte"><code>peek_byte</code></a></td>
+<td><a href="Integer.html"><code>Integer</code></a> leading byte or <code>nil</code>.</td>
+<td>No.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-rest"><code>rest</code></a></td>
+<td>Target substring (from byte position to end).</td>
+<td>No.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="class-StringScanner-label-Traversing+the+Target+Substring">Traversing the Target Substring<span><a href="#class-StringScanner-label-Traversing+the+Target+Substring">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>A <em>traversal</em> method examines the target substring, and, if successful:</p>
+<ul><li>
+<p>Advances the <a href="StringScanner.html#class-StringScanner-label-Positions">positions</a>.</p>
+</li><li>
+<p>Shortens the target substring.</p>
+</li></ul>
+
+<p>This table summarizes (details and examples at links):</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+<th>Sets Match Values?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="StringScanner.html#method-i-get_byte"><code>get_byte</code></a></td>
+<td>Leading byte or <code>nil</code>.</td>
+<td>No.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-getch"><code>getch</code></a></td>
+<td>Leading character or <code>nil</code>.</td>
+<td>No.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-scan"><code>scan(pattern)</code></a></td>
+<td>Matched leading substring or <code>nil</code>.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-scan_byte"><code>scan_byte</code></a></td>
+<td><a href="Integer.html"><code>Integer</code></a> leading byte or <code>nil</code>.</td>
+<td>No.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-scan_until"><code>scan_until(pattern)</code></a></td>
+<td>Matched substring (anywhere) or <code>nil</code>.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-skip"><code>skip(pattern)</code></a></td>
+<td>Matched leading substring size or <code>nil</code>.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-skip_until"><code>skip_until(pattern)</code></a></td>
+<td>Position delta to end-of-matched-substring or <code>nil</code>.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-unscan"><code>unscan</code></a></td>
+<td><code>self</code>.</td>
+<td>No.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="class-StringScanner-label-Querying+the+Scanner">Querying the Scanner<span><a href="#class-StringScanner-label-Querying+the+Scanner">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Each of these methods queries the scanner object without modifying it (details and examples at links)</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="StringScanner.html#method-i-beginning_of_line-3F"><code>beginning_of_line?</code></a></td>
+<td><code>true</code> or <code>false</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-charpos"><code>charpos</code></a></td>
+<td>Character position.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-eos-3F"><code>eos?</code></a></td>
+<td><code>true</code> or <code>false</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-fixed_anchor-3F"><code>fixed_anchor?</code></a></td>
+<td><code>true</code> or <code>false</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-inspect"><code>inspect</code></a></td>
+<td><a href="String.html"><code>String</code></a> representation of <code>self</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-pos"><code>pos</code></a></td>
+<td>Byte position.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-rest"><code>rest</code></a></td>
+<td>Target substring.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-rest_size"><code>rest_size</code></a></td>
+<td>Size of target substring.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-string"><code>string</code></a></td>
+<td>Stored string.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="class-StringScanner-label-Matching">Matching<span><a href="#class-StringScanner-label-Matching">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="StringScanner.html"><code>StringScanner</code></a> implements pattern matching via Ruby class <a href="https://docs.ruby-lang.org/en/master/Regexp.html">Regexp</a>, and its matching behaviors are the same as Ruby’s except for the <a href="StringScanner.html#class-StringScanner-label-Fixed-Anchor+Property">fixed-anchor property</a>.</p>
+
+<h3 id="class-StringScanner-label-Matcher+Methods">Matcher Methods<span><a href="#class-StringScanner-label-Matcher+Methods">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Each <em>matcher method</em> takes a single argument <code>pattern</code>, and attempts to find a matching substring in the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>.</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Pattern Type</th>
+<th>Matches Target Substring</th>
+<th>Success Return</th>
+<th>May Update Positions?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="StringScanner.html#method-i-check"><code>check</code></a></td>
+<td><a href="Regexp.html"><code>Regexp</code></a> or <a href="String.html"><code>String</code></a>.</td>
+<td>At beginning.</td>
+<td>Matched substring.</td>
+<td>No.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-check_until"><code>check_until</code></a></td>
+<td><a href="Regexp.html"><code>Regexp</code></a> or <a href="String.html"><code>String</code></a>.</td>
+<td>Anywhere.</td>
+<td>Substring.</td>
+<td>No.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-match-3F"><code>match?</code></a></td>
+<td><a href="Regexp.html"><code>Regexp</code></a> or <a href="String.html"><code>String</code></a>.</td>
+<td>At beginning.</td>
+<td>Match size.</td>
+<td>No.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-exist-3F"><code>exist?</code></a></td>
+<td><a href="Regexp.html"><code>Regexp</code></a> or <a href="String.html"><code>String</code></a>.</td>
+<td>Anywhere.</td>
+<td>Substring size.</td>
+<td>No.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-scan"><code>scan</code></a></td>
+<td><a href="Regexp.html"><code>Regexp</code></a> or <a href="String.html"><code>String</code></a>.</td>
+<td>At beginning.</td>
+<td>Matched substring.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-scan_until"><code>scan_until</code></a></td>
+<td><a href="Regexp.html"><code>Regexp</code></a> or <a href="String.html"><code>String</code></a>.</td>
+<td>Anywhere.</td>
+<td>Substring.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-skip"><code>skip</code></a></td>
+<td><a href="Regexp.html"><code>Regexp</code></a> or <a href="String.html"><code>String</code></a>.</td>
+<td>At beginning.</td>
+<td>Match size.</td>
+<td>Yes.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-skip_until"><code>skip_until</code></a></td>
+<td><a href="Regexp.html"><code>Regexp</code></a> or <a href="String.html"><code>String</code></a>.</td>
+<td>Anywhere.</td>
+<td>Substring size.</td>
+<td>Yes.</td>
+</tr>
+</tbody>
+</table>
+
+<p><br></p>
+
+<p>Which matcher you choose will depend on:</p>
+<ul><li>
+<p>Where you want to find a match:</p>
+<ul><li>
+<p>Only at the beginning of the target substring: <a href="StringScanner.html#method-i-check"><code>check</code></a>, <a href="StringScanner.html#method-i-match-3F"><code>match?</code></a>, <a href="StringScanner.html#method-i-scan"><code>scan</code></a>, <a href="StringScanner.html#method-i-skip"><code>skip</code></a>.</p>
+</li><li>
+<p>Anywhere in the target substring: <a href="StringScanner.html#method-i-check_until"><code>check_until</code></a>, <a href="StringScanner.html#method-i-exist-3F"><code>exist?</code></a>, <a href="StringScanner.html#method-i-scan_until"><code>scan_until</code></a>, <a href="StringScanner.html#method-i-skip_until"><code>skip_until</code></a>.</p>
+</li></ul>
+</li><li>
+<p>Whether you want to:</p>
+<ul><li>
+<p>Traverse, by advancing the positions: <a href="StringScanner.html#method-i-scan"><code>scan</code></a>, <a href="StringScanner.html#method-i-scan_until"><code>scan_until</code></a>, <a href="StringScanner.html#method-i-skip"><code>skip</code></a>, <a href="StringScanner.html#method-i-skip_until"><code>skip_until</code></a>.</p>
+</li><li>
+<p>Keep the positions unchanged: <a href="StringScanner.html#method-i-check"><code>check</code></a>, <a href="StringScanner.html#method-i-check_until"><code>check_until</code></a>, <a href="StringScanner.html#method-i-match-3F"><code>match?</code></a>, <a href="StringScanner.html#method-i-exist-3F"><code>exist?</code></a>.</p>
+</li></ul>
+</li><li>
+<p>What you want for the return value:</p>
+<ul><li>
+<p>The matched substring: <a href="StringScanner.html#method-i-check"><code>check</code></a>, <a href="StringScanner.html#method-i-scan"><code>scan</code></a>.</p>
+</li><li>
+<p>The substring: <a href="StringScanner.html#method-i-check_until"><code>check_until</code></a>, <a href="StringScanner.html#method-i-scan_until"><code>scan_until</code></a>.</p>
+</li><li>
+<p>The match size: <a href="StringScanner.html#method-i-match-3F"><code>match?</code></a>, <a href="StringScanner.html#method-i-skip"><code>skip</code></a>.</p>
+</li><li>
+<p>The substring size: <a href="StringScanner.html#method-i-exist-3F"><code>exist?</code></a>, <a href="StringScanner.html#method-i-skip_until"><code>skip_until</code></a>.</p>
+</li></ul>
+</li></ul>
+
+<h3 id="class-StringScanner-label-Match+Values">Match Values<span><a href="#class-StringScanner-label-Match+Values">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The <em>match values</em> in a <a href="StringScanner.html"><code>StringScanner</code></a> object generally contain the results of the most recent attempted match.</p>
+
+<p>Each match value may be thought of as:</p>
+<ul><li>
+<p><em>Clear</em>: Initially, or after an unsuccessful match attempt: usually, <code>false</code>, <code>nil</code>, or <code>{}</code>.</p>
+</li><li>
+<p><em>Set</em>: After a successful match attempt: <code>true</code>, string, array, or hash.</p>
+</li></ul>
+
+<p>Each of these methods clears match values:</p>
+<ul><li>
+<p><a href="StringScanner.html#method-c-new"><code>::new(string)</code></a>.</p>
+</li><li>
+<p><a href="StringScanner.html#method-i-reset"><code>reset</code></a>.</p>
+</li><li>
+<p><a href="StringScanner.html#method-i-terminate"><code>terminate</code></a>.</p>
+</li></ul>
+
+<p>Each of these methods attempts a match based on a pattern, and either sets match values (if successful) or clears them (if not);</p>
+<ul><li>
+<p><a href="StringScanner.html#method-i-check"><code>check(pattern)</code></a></p>
+</li><li>
+<p><a href="StringScanner.html#method-i-check_until"><code>check_until(pattern)</code></a></p>
+</li><li>
+<p><a href="StringScanner.html#method-i-exist-3F"><code>exist?(pattern)</code></a></p>
+</li><li>
+<p><a href="StringScanner.html#method-i-match-3F"><code>match?(pattern)</code></a></p>
+</li><li>
+<p><a href="StringScanner.html#method-i-scan"><code>scan(pattern)</code></a></p>
+</li><li>
+<p><a href="StringScanner.html#method-i-scan_until"><code>scan_until(pattern)</code></a></p>
+</li><li>
+<p><a href="StringScanner.html#method-i-skip"><code>skip(pattern)</code></a></p>
+</li><li>
+<p><a href="StringScanner.html#method-i-skip_until"><code>skip_until(pattern)</code></a></p>
+</li></ul>
+
+<h4 id="class-StringScanner-label-Basic+Match+Values">Basic Match Values<span><a href="#class-StringScanner-label-Basic+Match+Values">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Basic match values are those not related to captures.</p>
+
+<p>Each of these methods returns a basic match value:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Return After Match</th>
+<th>Return After No Match</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="StringScanner.html#method-i-matched-3F"><code>matched?</code></a></td>
+<td><code>true</code>.</td>
+<td><code>false</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-matched_size"><code>matched_size</code></a></td>
+<td>Size of matched substring.</td>
+<td><code>nil</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-matched"><code>matched</code></a></td>
+<td>Matched substring.</td>
+<td><code>nil</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-pre_match"><code>pre_match</code></a></td>
+<td>Substring preceding matched substring.</td>
+<td><code>nil</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-post_match"><code>post_match</code></a></td>
+<td>Substring following matched substring.</td>
+<td><code>nil</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p><br></p>
+
+<p>See examples below.</p>
+
+<h4 id="class-StringScanner-label-Captured+Match+Values">Captured Match Values<span><a href="#class-StringScanner-label-Captured+Match+Values">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Captured match values are those related to <a href="https://docs.ruby-lang.org/en/master/Regexp.html#class-Regexp-label-Groups+and+Captures">captures</a>.</p>
+
+<p>Each of these methods returns a captured match value:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Return After Match</th>
+<th>Return After No Match</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="StringScanner.html#method-i-size"><code>size</code></a></td>
+<td>Count of captured substrings.</td>
+<td><code>nil</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-5B-5D"><code>[](n)</code></a></td>
+<td><code>n</code>th captured substring.</td>
+<td><code>nil</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-captures"><code>captures</code></a></td>
+<td><a href="Array.html"><code>Array</code></a> of all captured substrings.</td>
+<td><code>nil</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-values_at"><code>values_at(*n)</code></a></td>
+<td><a href="Array.html"><code>Array</code></a> of specified captured substrings.</td>
+<td><code>nil</code>.</td>
+</tr>
+<tr>
+<td><a href="StringScanner.html#method-i-named_captures"><code>named_captures</code></a></td>
+<td><a href="Hash.html"><code>Hash</code></a> of named captures.</td>
+<td><code>{}</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p><br></p>
+
+<p>See examples below.</p>
+
+<h4 id="class-StringScanner-label-Match+Values+Examples">Match Values Examples<span><a href="#class-StringScanner-label-Match+Values+Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Successful basic match attempt (no captures):</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/bar/</span>)
+<span class="ruby-identifier">put_match_values</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Basic match values:</span>
+<span class="ruby-comment">#   matched?:       true</span>
+<span class="ruby-comment">#   matched_size:   3</span>
+<span class="ruby-comment">#   pre_match:      &quot;foo&quot;</span>
+<span class="ruby-comment">#   matched  :      &quot;bar&quot;</span>
+<span class="ruby-comment">#   post_match:     &quot;baz&quot;</span>
+<span class="ruby-comment"># Captured match values:</span>
+<span class="ruby-comment">#   size:           1</span>
+<span class="ruby-comment">#   captures:       []</span>
+<span class="ruby-comment">#   named_captures: {}</span>
+<span class="ruby-comment">#   values_at:      [&quot;bar&quot;, nil]</span>
+<span class="ruby-comment">#   []:</span>
+<span class="ruby-comment">#     [0]:          &quot;bar&quot;</span>
+<span class="ruby-comment">#     [1]:          nil</span>
+</pre>
+
+<p>Failed basic match attempt (no captures);</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/nope/</span>)
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p>Successful unnamed capture match attempt:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbazbatbam&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/(foo)bar(baz)bat(bam)/</span>)
+<span class="ruby-identifier">put_match_values</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Basic match values:</span>
+<span class="ruby-comment">#   matched?:       true</span>
+<span class="ruby-comment">#   matched_size:   15</span>
+<span class="ruby-comment">#   pre_match:      &quot;&quot;</span>
+<span class="ruby-comment">#   matched  :      &quot;foobarbazbatbam&quot;</span>
+<span class="ruby-comment">#   post_match:     &quot;&quot;</span>
+<span class="ruby-comment"># Captured match values:</span>
+<span class="ruby-comment">#   size:           4</span>
+<span class="ruby-comment">#   captures:       [&quot;foo&quot;, &quot;baz&quot;, &quot;bam&quot;]</span>
+<span class="ruby-comment">#   named_captures: {}</span>
+<span class="ruby-comment">#   values_at:      [&quot;foobarbazbatbam&quot;, &quot;foo&quot;, &quot;baz&quot;, &quot;bam&quot;, nil]</span>
+<span class="ruby-comment">#   []:</span>
+<span class="ruby-comment">#     [0]:          &quot;foobarbazbatbam&quot;</span>
+<span class="ruby-comment">#     [1]:          &quot;foo&quot;</span>
+<span class="ruby-comment">#     [2]:          &quot;baz&quot;</span>
+<span class="ruby-comment">#     [3]:          &quot;bam&quot;</span>
+<span class="ruby-comment">#     [4]:          nil</span>
+</pre>
+
+<p>Successful named capture match attempt; same as unnamed above, except for <a href="StringScanner.html#method-i-named_captures"><code>named_captures</code></a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbazbatbam&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/(?&lt;x&gt;foo)bar(?&lt;y&gt;baz)bat(?&lt;z&gt;bam)/</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">named_captures</span> <span class="ruby-comment"># =&gt; {&quot;x&quot;=&gt;&quot;foo&quot;, &quot;y&quot;=&gt;&quot;baz&quot;, &quot;z&quot;=&gt;&quot;bam&quot;}</span>
+</pre>
+
+<p>Failed unnamed capture match attempt:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;somestring&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/(foo)bar(baz)bat(bam)/</span>)
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p>Failed named capture match attempt; same as unnamed above, except for <a href="StringScanner.html#method-i-named_captures"><code>named_captures</code></a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;somestring&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/(?&lt;x&gt;foo)bar(?&lt;y&gt;baz)bat(?&lt;z&gt;bam)/</span>)
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">named_captures</span> <span class="ruby-comment"># =&gt; {&quot;x&quot;=&gt;nil, &quot;y&quot;=&gt;nil, &quot;z&quot;=&gt;nil}</span>
+</pre>
+
+<h2 id="class-StringScanner-label-Fixed-Anchor+Property">Fixed-Anchor Property<span><a href="#class-StringScanner-label-Fixed-Anchor+Property">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Pattern matching in <a href="StringScanner.html"><code>StringScanner</code></a> is the same as in Ruby’s, except for its fixed-anchor property, which determines the meaning of <code>&#39;\A&#39;</code>:</p>
+<ul><li>
+<p><code>false</code> (the default): matches the current byte position.</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobar&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\A./</span>) <span class="ruby-comment"># =&gt; &quot;f&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\A./</span>) <span class="ruby-comment"># =&gt; &quot;o&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\A./</span>) <span class="ruby-comment"># =&gt; &quot;o&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\A./</span>) <span class="ruby-comment"># =&gt; &quot;b&quot;</span>
+</pre>
+</li><li>
+<p><code>true</code>: matches the beginning of the target substring; never matches unless the byte position is zero:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobar&#39;</span>, <span class="ruby-value">fixed_anchor:</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\A./</span>) <span class="ruby-comment"># =&gt; &quot;f&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\A./</span>) <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">reset</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\A./</span>) <span class="ruby-comment"># =&gt; &quot;f&quot;</span>
+</pre>
+</li></ul>
+
+<p>The fixed-anchor property is set when the <a href="StringScanner.html"><code>StringScanner</code></a> object is created, and may not be modified (see <a href="StringScanner.html#method-c-new"><code>StringScanner.new</code></a>); method <a href="StringScanner.html#method-i-fixed_anchor-3F"><code>fixed_anchor?</code></a> returns the setting.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-c-new" title="Link to this method">
+                  <span class="method-callseq">
+                    new(string, fixed_anchor: false) &rarr; string_scanner
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE
+strscan_initialize(int argc, VALUE *argv, VALUE self)
+{
+    struct strscanner *p;
+    VALUE str, options;
+
+    p = check_strscan(self);
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;str, &amp;options);
+    options = rb_check_hash_type(options);
+    if (!NIL_P(options)) {
+        VALUE fixed_anchor;
+        ID keyword_ids[1];
+        keyword_ids[0] = rb_intern(&quot;fixed_anchor&quot;);
+        rb_get_kwargs(options, keyword_ids, 0, 1, &amp;fixed_anchor);
+        if (fixed_anchor == Qundef) {
+            p-&gt;fixed_anchor_p = false;
+        }
+        else {
+            p-&gt;fixed_anchor_p = RTEST(fixed_anchor);
+        }
+    }
+    else {
+        p-&gt;fixed_anchor_p = false;
+    }
+    StringValue(str);
+    p-&gt;str = str;
+
+    return self;
+}</pre>
+          </div>
+          <p>Returns a new <a href="StringScanner.html"><code>StringScanner</code></a> object whose <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a> is the given <code>string</code>; sets the <a href="StringScanner.html#class-StringScanner-label-Fixed-Anchor+Property">fixed-anchor property</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>        <span class="ruby-comment"># =&gt; &quot;foobarbaz&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">fixed_anchor?</span> <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       0</span>
+<span class="ruby-comment">#   charpos:   0</span>
+<span class="ruby-comment">#   rest:      &quot;foobarbaz&quot;</span>
+<span class="ruby-comment">#   rest_size: 9</span>
+</pre>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-3C-3C" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-3C-3C" title="Link to this method">
+                <span class="method-name">&lt;&lt;</span>
+              </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="aliases">
+          Alias for: <a href="StringScanner.html#method-i-concat">concat</a>
+        </div>
+      </div>
+
+      <div id="method-i-5B-5D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-5B-5D" title="Link to this method">
+                  <span class="method-callseq">
+                    [](specifier) &rarr; substring or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5B-5D-source">
+            <pre>static VALUE
+strscan_aref(VALUE self, VALUE idx)
+{
+    const char *name;
+    struct strscanner *p;
+    long i;
+
+    GET_SCANNER(self, p);
+    if (! MATCHED_P(p))        return Qnil;
+
+    switch (TYPE(idx)) {
+        case T_SYMBOL:
+            idx = rb_sym2str(idx);
+            /* fall through */
+        case T_STRING:
+            if (!RTEST(p-&gt;regex)) return Qnil;
+            RSTRING_GETMEM(idx, name, i);
+            i = name_to_backref_number(&amp;(p-&gt;regs), p-&gt;regex, name, name + i, rb_enc_get(idx));
+            break;
+        default:
+            i = NUM2LONG(idx);
+    }
+
+    if (i &lt; 0)
+        i += p-&gt;regs.num_regs;
+    if (i &lt; 0)                 return Qnil;
+    if (i &gt;= p-&gt;regs.num_regs) return Qnil;
+    if (p-&gt;regs.beg[i] == -1)  return Qnil;
+
+    return extract_range(p,
+                         adjust_register_position(p, p-&gt;regs.beg[i]),
+                         adjust_register_position(p, p-&gt;regs.end[i]));
+}</pre>
+          </div>
+          <p>Returns a captured substring or <code>nil</code>; see <a href="StringScanner.html#class-StringScanner-label-Captured+Match+Values">Captured Match Values</a>.</p>
+
+<p>When there are captures:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Fri Dec 12 1975 14:39&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/(?&lt;wday&gt;\w+) (?&lt;month&gt;\w+) (?&lt;day&gt;\d+) /</span>)
+</pre>
+<ul><li>
+<p><code>specifier</code> zero: returns the entire matched substring:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>[<span class="ruby-value">0</span>]         <span class="ruby-comment"># =&gt; &quot;Fri Dec 12 &quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pre_match</span>  <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">post_match</span> <span class="ruby-comment"># =&gt; &quot;1975 14:39&quot;</span>
+</pre>
+</li><li>
+<p><code>specifier</code> positive integer. returns the <code>n</code>th capture, or <code>nil</code> if out of range:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>[<span class="ruby-value">1</span>] <span class="ruby-comment"># =&gt; &quot;Fri&quot;</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">2</span>] <span class="ruby-comment"># =&gt; &quot;Dec&quot;</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">3</span>] <span class="ruby-comment"># =&gt; &quot;12&quot;</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">4</span>] <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+</li><li>
+<p><code>specifier</code> negative integer. counts backward from the last subgroup:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>[<span class="ruby-value">-1</span>] <span class="ruby-comment"># =&gt; &quot;12&quot;</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">-4</span>] <span class="ruby-comment"># =&gt; &quot;Fri Dec 12 &quot;</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">-5</span>] <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+</li><li>
+<p><code>specifier</code> symbol or string. returns the named subgroup, or <code>nil</code> if no such:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>[<span class="ruby-value">:wday</span>]  <span class="ruby-comment"># =&gt; &quot;Fri&quot;</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-string">&#39;wday&#39;</span>] <span class="ruby-comment"># =&gt; &quot;Fri&quot;</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">:month</span>] <span class="ruby-comment"># =&gt; &quot;Dec&quot;</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">:day</span>]   <span class="ruby-comment"># =&gt; &quot;12&quot;</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">:nope</span>]  <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+</li></ul>
+
+<p>When there are no captures, only <code>[0]</code> returns non-<code>nil</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/bar/</span>)
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">0</span>] <span class="ruby-comment"># =&gt; &quot;bar&quot;</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">1</span>] <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+
+<p>For a failed match, even <code>[0]</code> returns <code>nil</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/nope/</span>) <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">0</span>]           <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">scanner</span>[<span class="ruby-value">1</span>]           <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-beginning_of_line-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-beginning_of_line-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    beginning_of_line? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="beginning_of_line-3F-source">
+            <pre>static VALUE
+strscan_bol_p(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    if (CURPTR(p) &gt; S_PEND(p)) return Qnil;
+    if (p-&gt;curr == 0) return Qtrue;
+    return (*(CURPTR(p) - 1) == &#39;\n&#39;) ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          <p>Returns whether the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a> is at the beginning of a line; that is, at the beginning of the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a> or immediately after a newline:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">MULTILINE_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-comment"># =&gt; &quot;Go placidly amid the noise and haste,\nand remember what peace there may be in silence.\n&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>                <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">beginning_of_line?</span> <span class="ruby-comment"># =&gt; true</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan_until</span>(<span class="ruby-regexp">/,/</span>)    <span class="ruby-comment"># =&gt; &quot;Go placidly amid the noise and haste,&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">beginning_of_line?</span> <span class="ruby-comment"># =&gt; false</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\n/</span>)         <span class="ruby-comment"># =&gt; &quot;\n&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">beginning_of_line?</span> <span class="ruby-comment"># =&gt; true</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">beginning_of_line?</span> <span class="ruby-comment"># =&gt; true</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-string">&#39;x&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">beginning_of_line?</span> <span class="ruby-comment"># =&gt; false</span>
+</pre>
+
+<p>StringScanner#bol? is an alias for <a href="StringScanner.html#method-i-beginning_of_line-3F"><code>StringScanner#beginning_of_line?</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-captures" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-captures" title="Link to this method">
+                  <span class="method-callseq">
+                    captures &rarr; substring_array or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="captures-source">
+            <pre>static VALUE
+strscan_captures(VALUE self)
+{
+    struct strscanner *p;
+    int   i, num_regs;
+    VALUE new_ary;
+
+    GET_SCANNER(self, p);
+    if (! MATCHED_P(p))        return Qnil;
+
+    num_regs = p-&gt;regs.num_regs;
+    new_ary  = rb_ary_new2(num_regs);
+
+    for (i = 1; i &lt; num_regs; i++) {
+        VALUE str;
+        if (p-&gt;regs.beg[i] == -1)
+            str = Qnil;
+        else
+            str = extract_range(p,
+                                adjust_register_position(p, p-&gt;regs.beg[i]),
+                                adjust_register_position(p, p-&gt;regs.end[i]));
+        rb_ary_push(new_ary, str);
+    }
+
+    return new_ary;
+}</pre>
+          </div>
+          <p>Returns the array of <a href="StringScanner.html#class-StringScanner-label-Captured+Match+Values">captured match values</a> at indexes <code>(1..)</code> if the most recent match attempt succeeded, or <code>nil</code> otherwise:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Fri Dec 12 1975 14:39&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">captures</span>         <span class="ruby-comment"># =&gt; nil</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/(?&lt;wday&gt;\w+) (?&lt;month&gt;\w+) (?&lt;day&gt;\d+) /</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">captures</span>         <span class="ruby-comment"># =&gt; [&quot;Fri&quot;, &quot;Dec&quot;, &quot;12&quot;]</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-operator">*</span><span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">4</span>) <span class="ruby-comment"># =&gt; [&quot;Fri Dec 12 &quot;, &quot;Fri&quot;, &quot;Dec&quot;, &quot;12&quot;, nil]</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/Fri/</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">captures</span>         <span class="ruby-comment"># =&gt; []</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/nope/</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">captures</span>         <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-charpos" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-charpos" title="Link to this method">
+                <span class="method-name">charpos</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="charpos-source">
+            <pre>static VALUE
+strscan_get_charpos(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+
+    return LONG2NUM(rb_enc_strlen(S_PBEG(p), CURPTR(p), rb_enc_get(p-&gt;str)));
+}</pre>
+          </div>
+          <p>call-seq: charpos -&gt; character_position</p>
+
+<p>Returns the <a href="StringScanner.html#class-StringScanner-label-Character+Position">character position</a> (initially zero), which may be different from the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a> given by method <a href="StringScanner.html#method-i-pos"><code>pos</code></a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span> <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>  <span class="ruby-comment"># =&gt; &quot;こ&quot; # 3-byte character.</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>  <span class="ruby-comment"># =&gt; &quot;ん&quot; # 3-byte character.</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       6</span>
+<span class="ruby-comment">#   charpos:   2</span>
+<span class="ruby-comment">#   rest:      &quot;にちは&quot;</span>
+<span class="ruby-comment">#   rest_size: 9</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-check" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-check" title="Link to this method">
+                  <span class="method-callseq">
+                    check(pattern) &rarr; matched_substring or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="check-source">
+            <pre>static VALUE
+strscan_check(VALUE self, VALUE re)
+{
+    return strscan_do_scan(self, re, 0, 1, 1);
+}</pre>
+          </div>
+          <p>Attempts to <a href="StringScanner.html#class-StringScanner-label-Matching">match</a> the given <code>pattern</code> at the beginning of the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>; does not modify the <a href="StringScanner.html#class-StringScanner-label-Positions">positions</a>.</p>
+
+<p>If the match succeeds:</p>
+<ul><li>
+<p>Returns the matched substring.</p>
+</li><li>
+<p>Sets all <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">check</span>(<span class="ruby-string">&#39;bar&#39;</span>) <span class="ruby-comment"># =&gt; &quot;bar&quot;</span>
+<span class="ruby-identifier">put_match_values</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Basic match values:</span>
+<span class="ruby-comment">#   matched?:       true</span>
+<span class="ruby-comment">#   matched_size:   3</span>
+<span class="ruby-comment">#   pre_match:      &quot;foo&quot;</span>
+<span class="ruby-comment">#   matched  :      &quot;bar&quot;</span>
+<span class="ruby-comment">#   post_match:     &quot;baz&quot;</span>
+<span class="ruby-comment"># Captured match values:</span>
+<span class="ruby-comment">#   size:           1</span>
+<span class="ruby-comment">#   captures:       []</span>
+<span class="ruby-comment">#   named_captures: {}</span>
+<span class="ruby-comment">#   values_at:      [&quot;bar&quot;, nil]</span>
+<span class="ruby-comment">#   []:</span>
+<span class="ruby-comment">#     [0]:          &quot;bar&quot;</span>
+<span class="ruby-comment">#     [1]:          nil</span>
+<span class="ruby-comment"># =&gt; 0..1</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       3</span>
+<span class="ruby-comment">#   charpos:   3</span>
+<span class="ruby-comment">#   rest:      &quot;barbaz&quot;</span>
+<span class="ruby-comment">#   rest_size: 6</span>
+</pre>
+
+<p>If the match fails:</p>
+<ul><li>
+<p>Returns <code>nil</code>.</p>
+</li><li>
+<p>Clears all <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">check</span>(<span class="ruby-regexp">/nope/</span>)          <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-check_until" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-check_until" title="Link to this method">
+                  <span class="method-callseq">
+                    check_until(pattern) &rarr; substring or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="check_until-source">
+            <pre>static VALUE
+strscan_check_until(VALUE self, VALUE re)
+{
+    return strscan_do_scan(self, re, 0, 1, 0);
+}</pre>
+          </div>
+          <p>Attempts to <a href="StringScanner.html#class-StringScanner-label-Matching">match</a> the given <code>pattern</code> anywhere (at any <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a>) in the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>; does not modify the <a href="StringScanner.html#class-StringScanner-label-Positions">positions</a>.</p>
+
+<p>If the match succeeds:</p>
+<ul><li>
+<p>Sets all <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li><li>
+<p>Returns the matched substring, which extends from the current <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a> to the end of the matched substring.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbazbatbam&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">check_until</span>(<span class="ruby-regexp">/bat/</span>) <span class="ruby-comment"># =&gt; &quot;bazbat&quot;</span>
+<span class="ruby-identifier">put_match_values</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Basic match values:</span>
+<span class="ruby-comment">#   matched?:       true</span>
+<span class="ruby-comment">#   matched_size:   3</span>
+<span class="ruby-comment">#   pre_match:      &quot;foobarbaz&quot;</span>
+<span class="ruby-comment">#   matched  :      &quot;bat&quot;</span>
+<span class="ruby-comment">#   post_match:     &quot;bam&quot;</span>
+<span class="ruby-comment"># Captured match values:</span>
+<span class="ruby-comment">#   size:           1</span>
+<span class="ruby-comment">#   captures:       []</span>
+<span class="ruby-comment">#   named_captures: {}</span>
+<span class="ruby-comment">#   values_at:      [&quot;bat&quot;, nil]</span>
+<span class="ruby-comment">#   []:</span>
+<span class="ruby-comment">#     [0]:          &quot;bat&quot;</span>
+<span class="ruby-comment">#     [1]:          nil</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       6</span>
+<span class="ruby-comment">#   charpos:   6</span>
+<span class="ruby-comment">#   rest:      &quot;bazbatbam&quot;</span>
+<span class="ruby-comment">#   rest_size: 9</span>
+</pre>
+
+<p>If the match fails:</p>
+<ul><li>
+<p>Clears all <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li><li>
+<p>Returns <code>nil</code>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">check_until</span>(<span class="ruby-regexp">/nope/</span>)    <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-concat" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-concat" title="Link to this method">
+                  <span class="method-callseq">
+                    concat(more_string) &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="concat-source">
+            <pre>static VALUE
+strscan_concat(VALUE self, VALUE str)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    StringValue(str);
+    rb_str_append(p-&gt;str, str);
+    return self;
+}</pre>
+          </div>
+          <ul><li>
+<p>Appends the given <code>more_string</code> to the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a>.</p>
+</li><li>
+<p>Returns <code>self</code>.</p>
+</li><li>
+<p>Does not affect the <a href="StringScanner.html#class-StringScanner-label-Positions">positions</a> or <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foo&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>           <span class="ruby-comment"># =&gt; &quot;foo&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-string">&#39;barbaz&#39;</span>) <span class="ruby-comment"># =&gt; #&lt;StringScanner 3/9 &quot;foo&quot; @ &quot;barba...&quot;&gt;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>           <span class="ruby-comment"># =&gt; &quot;foobarbaz&quot;</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       3</span>
+<span class="ruby-comment">#   charpos:   3</span>
+<span class="ruby-comment">#   rest:      &quot;barbaz&quot;</span>
+<span class="ruby-comment">#   rest_size: 6</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="StringScanner.html#method-i-3C-3C">&lt;&lt;</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-eos-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-eos-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    eos? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="eos-3F-source">
+            <pre>static VALUE
+strscan_eos_p(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    return EOS_P(p) ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          <p>Returns whether the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a> is at the end of the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">eos?</span> <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">eos?</span> <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">eos?</span> <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-exist-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-exist-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    exist?(pattern) &rarr; byte_offset or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="exist-3F-source">
+            <pre>static VALUE
+strscan_exist_p(VALUE self, VALUE re)
+{
+    return strscan_do_scan(self, re, 0, 0, 0);
+}</pre>
+          </div>
+          <p>Attempts to <a href="StringScanner.html#class-StringScanner-label-Matching">match</a> the given <code>pattern</code> anywhere (at any <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a>) n the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>; does not modify the <a href="StringScanner.html#class-StringScanner-label-Positions">positions</a>.</p>
+
+<p>If the match succeeds:</p>
+<ul><li>
+<p>Returns a byte offset: the distance in bytes between the current <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a> and the end of the matched substring.</p>
+</li><li>
+<p>Sets all <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbazbatbam&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/bat/</span>) <span class="ruby-comment"># =&gt; 6</span>
+<span class="ruby-identifier">put_match_values</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Basic match values:</span>
+<span class="ruby-comment">#   matched?:       true</span>
+<span class="ruby-comment">#   matched_size:   3</span>
+<span class="ruby-comment">#   pre_match:      &quot;foobarbaz&quot;</span>
+<span class="ruby-comment">#   matched  :      &quot;bat&quot;</span>
+<span class="ruby-comment">#   post_match:     &quot;bam&quot;</span>
+<span class="ruby-comment"># Captured match values:</span>
+<span class="ruby-comment">#   size:           1</span>
+<span class="ruby-comment">#   captures:       []</span>
+<span class="ruby-comment">#   named_captures: {}</span>
+<span class="ruby-comment">#   values_at:      [&quot;bat&quot;, nil]</span>
+<span class="ruby-comment">#   []:</span>
+<span class="ruby-comment">#     [0]:          &quot;bat&quot;</span>
+<span class="ruby-comment">#     [1]:          nil</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       6</span>
+<span class="ruby-comment">#   charpos:   6</span>
+<span class="ruby-comment">#   rest:      &quot;bazbatbam&quot;</span>
+<span class="ruby-comment">#   rest_size: 9</span>
+</pre>
+
+<p>If the match fails:</p>
+<ul><li>
+<p>Returns <code>nil</code>.</p>
+</li><li>
+<p>Clears all <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/nope/</span>)         <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-fixed_anchor-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-fixed_anchor-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    fixed_anchor? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="fixed_anchor-3F-source">
+            <pre>static VALUE
+strscan_fixed_anchor_p(VALUE self)
+{
+    struct strscanner *p;
+    p = check_strscan(self);
+    return p-&gt;fixed_anchor_p ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          <p>Returns whether the <a href="StringScanner.html#class-StringScanner-label-Fixed-Anchor+Property">fixed-anchor property</a> is set.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-get_byte" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-get_byte" title="Link to this method">
+                <span class="method-name">get_byte</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="get_byte-source">
+            <pre>static VALUE
+strscan_get_byte(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    CLEAR_MATCH_STATUS(p);
+    if (EOS_P(p))
+        return Qnil;
+
+    p-&gt;prev = p-&gt;curr;
+    p-&gt;curr++;
+    MATCHED(p);
+    adjust_registers_to_matched(p);
+    return extract_range(p,
+                         adjust_register_position(p, p-&gt;regs.beg[0]),
+                         adjust_register_position(p, p-&gt;regs.end[0]));
+}</pre>
+          </div>
+          <p>call-seq: <a href="StringScanner.html#method-i-get_byte"><code>get_byte</code></a> -&gt; byte_as_character or nil</p>
+
+<p>Returns the next byte, if available:</p>
+<ul><li>
+<p>If the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a> is not at the end of the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a>:</p>
+<ul><li>
+<p>Returns the next byte.</p>
+</li><li>
+<p>Increments the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a>.</p>
+</li><li>
+<p>Adjusts the <a href="StringScanner.html#class-StringScanner-label-Character+Position">character position</a>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-comment"># =&gt; #&lt;StringScanner 0/15 @ &quot;\xE3\x81\x93\xE3\x82...&quot;&gt;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>                                   <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">get_byte</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;\xE3&quot;, 1, 1]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">get_byte</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;\x81&quot;, 2, 2]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">get_byte</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;\x93&quot;, 3, 1]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">get_byte</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;\xE3&quot;, 4, 2]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">get_byte</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;\x82&quot;, 5, 3]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">get_byte</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;\x93&quot;, 6, 2]</span>
+</pre>
+</li><li>
+<p>Otherwise, returns <code>nil</code>, and does not change the positions.</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">get_byte</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [nil, 15, 5]</span>
+</pre>
+</li></ul>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-getch" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-getch" title="Link to this method">
+                <span class="method-name">getch</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="getch-source">
+            <pre>static VALUE
+strscan_getch(VALUE self)
+{
+    struct strscanner *p;
+    long len;
+
+    GET_SCANNER(self, p);
+    CLEAR_MATCH_STATUS(p);
+    if (EOS_P(p))
+        return Qnil;
+
+    len = rb_enc_mbclen(CURPTR(p), S_PEND(p), rb_enc_get(p-&gt;str));
+    len = minl(len, S_RESTLEN(p));
+    p-&gt;prev = p-&gt;curr;
+    p-&gt;curr += len;
+    MATCHED(p);
+    adjust_registers_to_matched(p);
+    return extract_range(p,
+                         adjust_register_position(p, p-&gt;regs.beg[0]),
+                         adjust_register_position(p, p-&gt;regs.end[0]));
+}</pre>
+          </div>
+          <p>call-seq: getch -&gt; character or nil</p>
+
+<p>Returns the next (possibly multibyte) character, if available:</p>
+<ul><li>
+<p>If the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a> is at the beginning of a character:</p>
+<ul><li>
+<p>Returns the character.</p>
+</li><li>
+<p>Increments the <a href="StringScanner.html#class-StringScanner-label-Character+Position">character position</a> by 1.</p>
+</li><li>
+<p>Increments the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a> by the size (in bytes) of the character.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>                                <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;こ&quot;, 3, 1]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;ん&quot;, 6, 2]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;に&quot;, 9, 3]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;ち&quot;, 12, 4]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;は&quot;, 15, 5]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [nil, 15, 5]</span>
+</pre>
+</li><li>
+<p>If the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a> is within a multi-byte character (that is, not at its beginning), behaves like <a href="StringScanner.html#method-i-get_byte"><code>get_byte</code></a> (returns a 1-byte character):</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">1</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;\x81&quot;, 2, 2]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;\x93&quot;, 3, 1]</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [&quot;ん&quot;, 6, 2]</span>
+</pre>
+</li><li>
+<p>If the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a> is at the end of the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a>, returns <code>nil</code> and does not modify the positions:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>
+[<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>] <span class="ruby-comment"># =&gt; [nil, 15, 5]</span>
+</pre>
+</li></ul>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-inspect" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-inspect" title="Link to this method">
+                  <span class="method-callseq">
+                    inspect &rarr; string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="inspect-source">
+            <pre>static VALUE
+strscan_inspect(VALUE self)
+{
+    struct strscanner *p;
+    VALUE a, b;
+
+    p = check_strscan(self);
+    if (NIL_P(p-&gt;str)) {
+        a = rb_sprintf(&quot;#&lt;%&quot;PRIsVALUE&quot; (uninitialized)&gt;&quot;, rb_obj_class(self));
+        return a;
+    }
+    if (EOS_P(p)) {
+        a = rb_sprintf(&quot;#&lt;%&quot;PRIsVALUE&quot; fin&gt;&quot;, rb_obj_class(self));
+        return a;
+    }
+    if (p-&gt;curr == 0) {
+        b = inspect2(p);
+        a = rb_sprintf(&quot;#&lt;%&quot;PRIsVALUE&quot; %ld/%ld @ %&quot;PRIsVALUE&quot;&gt;&quot;,
+                       rb_obj_class(self),
+                       p-&gt;curr, S_LEN(p),
+                       b);
+        return a;
+    }
+    a = inspect1(p);
+    b = inspect2(p);
+    a = rb_sprintf(&quot;#&lt;%&quot;PRIsVALUE&quot; %ld/%ld %&quot;PRIsVALUE&quot; @ %&quot;PRIsVALUE&quot;&gt;&quot;,
+                   rb_obj_class(self),
+                   p-&gt;curr, S_LEN(p),
+                   a, b);
+    return a;
+}</pre>
+          </div>
+          <p>Returns a string representation of <code>self</code> that may show:</p>
+<ol><li>
+<p>The current <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a>.</p>
+</li><li>
+<p>The size (in bytes) of the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a>.</p>
+</li><li>
+<p>The substring preceding the current position.</p>
+</li><li>
+<p>The substring following the current position (which is also the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>).</p>
+</li></ol>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Fri Dec 12 1975 14:39&quot;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">11</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">inspect</span> <span class="ruby-comment"># =&gt; &quot;#&lt;StringScanner 11/21 \&quot;...c 12 \&quot; @ \&quot;1975 ...\&quot;&gt;&quot;</span>
+</pre>
+
+<p>If at beginning-of-string, item 4 above (following substring) is omitted:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">reset</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">inspect</span> <span class="ruby-comment"># =&gt; &quot;#&lt;StringScanner 0/21 @ \&quot;Fri D...\&quot;&gt;&quot;</span>
+</pre>
+
+<p>If at end-of-string, all items above are omitted:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">inspect</span> <span class="ruby-comment"># =&gt; &quot;#&lt;StringScanner fin&gt;&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-match-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-match-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    match?(pattern) &rarr; updated_position or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="match-3F-source">
+            <pre>static VALUE
+strscan_match_p(VALUE self, VALUE re)
+{
+    return strscan_do_scan(self, re, 0, 0, 1);
+}</pre>
+          </div>
+          <p>Attempts to <a href="StringScanner.html#class-StringScanner-label-Matching">match</a> the given <code>pattern</code> at the beginning of the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>; does not modify the <a href="StringScanner.html#class-StringScanner-label-Positions">positions</a>.</p>
+
+<p>If the match succeeds:</p>
+<ul><li>
+<p>Sets <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li><li>
+<p>Returns the size in bytes of the matched substring.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/bar/</span>) <span class="ruby-operator">=&gt;</span> <span class="ruby-value">3</span>
+<span class="ruby-identifier">put_match_values</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Basic match values:</span>
+<span class="ruby-comment">#   matched?:       true</span>
+<span class="ruby-comment">#   matched_size:   3</span>
+<span class="ruby-comment">#   pre_match:      &quot;foo&quot;</span>
+<span class="ruby-comment">#   matched  :      &quot;bar&quot;</span>
+<span class="ruby-comment">#   post_match:     &quot;baz&quot;</span>
+<span class="ruby-comment"># Captured match values:</span>
+<span class="ruby-comment">#   size:           1</span>
+<span class="ruby-comment">#   captures:       []</span>
+<span class="ruby-comment">#   named_captures: {}</span>
+<span class="ruby-comment">#   values_at:      [&quot;bar&quot;, nil]</span>
+<span class="ruby-comment">#   []:</span>
+<span class="ruby-comment">#     [0]:          &quot;bar&quot;</span>
+<span class="ruby-comment">#     [1]:          nil</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       3</span>
+<span class="ruby-comment">#   charpos:   3</span>
+<span class="ruby-comment">#   rest:      &quot;barbaz&quot;</span>
+<span class="ruby-comment">#   rest_size: 6</span>
+</pre>
+
+<p>If the match fails:</p>
+<ul><li>
+<p>Clears match values.</p>
+</li><li>
+<p>Returns <code>nil</code>.</p>
+</li><li>
+<p>Does not increment positions.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/nope/</span>)         <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-matched" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-matched" title="Link to this method">
+                  <span class="method-callseq">
+                    matched &rarr; matched_substring or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="matched-source">
+            <pre>static VALUE
+strscan_matched(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    if (! MATCHED_P(p)) return Qnil;
+    return extract_range(p,
+                         adjust_register_position(p, p-&gt;regs.beg[0]),
+                         adjust_register_position(p, p-&gt;regs.end[0]));
+}</pre>
+          </div>
+          <p>Returns the matched substring from the most recent <a href="StringScanner.html#class-StringScanner-label-Matching">match</a> attempt if it was successful, or <code>nil</code> otherwise; see <a href="StringScanner.html#class-StringScanner-label-Basic+Match+Values">Basic Matched Values</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched</span>        <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/bar/</span>)  <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched</span>        <span class="ruby-comment"># =&gt; &quot;bar&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/nope/</span>) <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched</span>        <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-matched-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-matched-3F" title="Link to this method">
+                  <span class="method-callseq">
+                    matched? &rarr; true or false
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="matched-3F-source">
+            <pre>static VALUE
+strscan_matched_p(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    return MATCHED_P(p) ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          <p>Returns <code>true</code> of the most recent <a href="StringScanner.html#class-StringScanner-label-Matching">match attempt</a> was successful, <code>false</code> otherwise; see <a href="StringScanner.html#class-StringScanner-label-Basic+Match+Values">Basic Matched Values</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched?</span>       <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/baz/</span>)  <span class="ruby-comment"># =&gt; 6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched?</span>       <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/nope/</span>) <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched?</span>       <span class="ruby-comment"># =&gt; false</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-matched_size" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-matched_size" title="Link to this method">
+                  <span class="method-callseq">
+                    matched_size &rarr; substring_size or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="matched_size-source">
+            <pre>static VALUE
+strscan_matched_size(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    if (! MATCHED_P(p)) return Qnil;
+    return LONG2NUM(p-&gt;regs.end[0] - p-&gt;regs.beg[0]);
+}</pre>
+          </div>
+          <p>Returns the size (in bytes) of the matched substring from the most recent match <a href="StringScanner.html#class-StringScanner-label-Matching">match attempt</a> if it was successful, or <code>nil</code> otherwise; see <a href="StringScanner.html#class-StringScanner-label-Basic+Match+Values">Basic Matched Values</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched_size</span>   <span class="ruby-comment"># =&gt; nil</span>
+
+<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/baz/</span>)  <span class="ruby-comment"># =&gt; 9</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched_size</span>   <span class="ruby-comment"># =&gt; 3</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/nope/</span>) <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched_size</span>   <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-named_captures" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-named_captures" title="Link to this method">
+                  <span class="method-callseq">
+                    named_captures &rarr; hash
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="named_captures-source">
+            <pre>static VALUE
+strscan_named_captures(VALUE self)
+{
+    struct strscanner *p;
+    named_captures_data data;
+    GET_SCANNER(self, p);
+    data.self = self;
+    data.captures = rb_hash_new();
+    if (!RB_NIL_P(p-&gt;regex)) {
+        onig_foreach_name(RREGEXP_PTR(p-&gt;regex), named_captures_iter, &amp;data);
+    }
+
+    return data.captures;
+}</pre>
+          </div>
+          <p>Returns the array of captured match values at indexes (1..) if the most recent match attempt succeeded, or nil otherwise; see <a href="StringScanner.html#class-StringScanner-label-Captured+Match+Values">Captured Match Values</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Fri Dec 12 1975 14:39&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">named_captures</span> <span class="ruby-comment"># =&gt; {}</span>
+
+<span class="ruby-identifier">pattern</span> = <span class="ruby-regexp">/(?&lt;wday&gt;\w+) (?&lt;month&gt;\w+) (?&lt;day&gt;\d+) /</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">pattern</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">named_captures</span> <span class="ruby-comment"># =&gt; {&quot;wday&quot;=&gt;&quot;Fri&quot;, &quot;month&quot;=&gt;&quot;Dec&quot;, &quot;day&quot;=&gt;&quot;12&quot;}</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span> = <span class="ruby-string">&#39;nope&#39;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">pattern</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">named_captures</span> <span class="ruby-comment"># =&gt; {&quot;wday&quot;=&gt;nil, &quot;month&quot;=&gt;nil, &quot;day&quot;=&gt;nil}</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/nosuch/</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">named_captures</span> <span class="ruby-comment"># =&gt; {}</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-peek" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-peek" title="Link to this method">
+                  <span class="method-callseq">
+                    peek(length) &rarr; substring
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="peek-source">
+            <pre>static VALUE
+strscan_peek(VALUE self, VALUE vlen)
+{
+    struct strscanner *p;
+    long len;
+
+    GET_SCANNER(self, p);
+
+    len = NUM2LONG(vlen);
+    if (EOS_P(p))
+        return str_new(p, &quot;&quot;, 0);
+
+    len = minl(len, S_RESTLEN(p));
+    return extract_beg_len(p, p-&gt;curr, len);
+}</pre>
+          </div>
+          <p>Returns the substring <code>string[pos, length]</code>; does not update <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a> or <a href="StringScanner.html#class-StringScanner-label-Positions">positions</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">peek</span>(<span class="ruby-value">3</span>)   <span class="ruby-comment"># =&gt; &quot;bar&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">peek</span>(<span class="ruby-value">3</span>)   <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-peek_byte" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-peek_byte" title="Link to this method">
+                <span class="method-name">peek_byte</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="peek_byte-source">
+            <pre>static VALUE
+strscan_peek_byte(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    if (EOS_P(p))
+        return Qnil;
+
+    return INT2FIX((unsigned char)*CURPTR(p));
+}</pre>
+          </div>
+          <p>Peeks at the current byte and returns it as an integer.</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;ab&#39;</span>)
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">peek_byte</span>         <span class="ruby-comment"># =&gt; 97</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-pointer" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-pointer" title="Link to this method">
+                <span class="method-name">pointer</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>call-seq: pos -&gt; byte_position</p>
+
+<p>Returns the integer <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a>, which may be different from the <a href="StringScanner.html#class-StringScanner-label-Character+Position">character position</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>  <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>     <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>   <span class="ruby-comment"># =&gt; &quot;こ&quot; # 3-byte character.</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span> <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>     <span class="ruby-comment"># =&gt; 3</span>
+</pre>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="StringScanner.html#method-i-pos">pos</a>
+        </div>
+      </div>
+
+      <div id="method-i-pointer-3D" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-pointer-3D" title="Link to this method">
+                <span class="method-name">pointer=</span>
+                <span class="method-args">(p1)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          <p>call-seq: pos = n -&gt; n pointer = n -&gt; n</p>
+
+<p>Sets the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a> and the <a href="StringScanner.html#class-StringScanner-label-Positions">character position</a>; returns <code>n</code>.</p>
+
+<p>Does not affect <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+
+<p>For non-negative <code>n</code>, sets the position to <code>n</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>  <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span> <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span>    <span class="ruby-comment"># =&gt; &quot;んにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span> <span class="ruby-comment"># =&gt; 1</span>
+</pre>
+
+<p>For negative <code>n</code>, counts from the end of the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">-9</span> <span class="ruby-comment"># =&gt; -9</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>      <span class="ruby-comment"># =&gt; 6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span>     <span class="ruby-comment"># =&gt; &quot;にちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>  <span class="ruby-comment"># =&gt; 2</span>
+</pre>
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="StringScanner.html#method-i-pos-3D">pos=</a>
+        </div>
+      </div>
+
+      <div id="method-i-pos" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-pos" title="Link to this method">
+                <span class="method-name">pos</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="pos-source">
+            <pre>static VALUE
+strscan_get_pos(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    return INT2FIX(p-&gt;curr);
+}</pre>
+          </div>
+          <p>call-seq: pos -&gt; byte_position</p>
+
+<p>Returns the integer <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a>, which may be different from the <a href="StringScanner.html#class-StringScanner-label-Character+Position">character position</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>  <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>     <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">getch</span>   <span class="ruby-comment"># =&gt; &quot;こ&quot; # 3-byte character.</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span> <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>     <span class="ruby-comment"># =&gt; 3</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="StringScanner.html#method-i-pointer">pointer</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-pos-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-pos-3D" title="Link to this method">
+                <span class="method-name">pos=</span>
+                <span class="method-args">(p1)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="pos-3D-source">
+            <pre>static VALUE
+strscan_set_pos(VALUE self, VALUE v)
+{
+    struct strscanner *p;
+    long i;
+
+    GET_SCANNER(self, p);
+    i = NUM2INT(v);
+    if (i &lt; 0) i += S_LEN(p);
+    if (i &lt; 0) rb_raise(rb_eRangeError, &quot;index out of range&quot;);
+    if (i &gt; S_LEN(p)) rb_raise(rb_eRangeError, &quot;index out of range&quot;);
+    p-&gt;curr = i;
+    return LONG2NUM(i);
+}</pre>
+          </div>
+          <p>call-seq: pos = n -&gt; n pointer = n -&gt; n</p>
+
+<p>Sets the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a> and the <a href="StringScanner.html#class-StringScanner-label-Positions">character position</a>; returns <code>n</code>.</p>
+
+<p>Does not affect <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+
+<p>For non-negative <code>n</code>, sets the position to <code>n</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>  <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span> <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span>    <span class="ruby-comment"># =&gt; &quot;んにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span> <span class="ruby-comment"># =&gt; 1</span>
+</pre>
+
+<p>For negative <code>n</code>, counts from the end of the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">-9</span> <span class="ruby-comment"># =&gt; -9</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span>      <span class="ruby-comment"># =&gt; 6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span>     <span class="ruby-comment"># =&gt; &quot;にちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">charpos</span>  <span class="ruby-comment"># =&gt; 2</span>
+</pre>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="StringScanner.html#method-i-pointer-3D">pointer=</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-post_match" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-post_match" title="Link to this method">
+                  <span class="method-callseq">
+                    post_match &rarr; substring
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="post_match-source">
+            <pre>static VALUE
+strscan_post_match(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    if (! MATCHED_P(p)) return Qnil;
+    return extract_range(p,
+                         adjust_register_position(p, p-&gt;regs.end[0]),
+                         S_LEN(p));
+}</pre>
+          </div>
+          <p>Returns the substring that follows the matched substring from the most recent match attempt if it was successful, or <code>nil</code> otherwise; see <a href="StringScanner.html#class-StringScanner-label-Basic+Match+Values">Basic Match Values</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">post_match</span>     <span class="ruby-comment"># =&gt; nil</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/bar/</span>)  <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">post_match</span>     <span class="ruby-comment"># =&gt; &quot;baz&quot;</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/nope/</span>) <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">post_match</span>     <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-pre_match" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-pre_match" title="Link to this method">
+                  <span class="method-callseq">
+                    pre_match &rarr; substring
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="pre_match-source">
+            <pre>static VALUE
+strscan_pre_match(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    if (! MATCHED_P(p)) return Qnil;
+    return extract_range(p,
+                         0,
+                         adjust_register_position(p, p-&gt;regs.beg[0]));
+}</pre>
+          </div>
+          <p>Returns the substring that precedes the matched substring from the most recent match attempt if it was successful, or <code>nil</code> otherwise; see <a href="StringScanner.html#class-StringScanner-label-Basic+Match+Values">Basic Match Values</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pre_match</span>      <span class="ruby-comment"># =&gt; nil</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/baz/</span>)  <span class="ruby-comment"># =&gt; 6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pre_match</span>      <span class="ruby-comment"># =&gt; &quot;foobar&quot; # Substring of entire string, not just target string.</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/nope/</span>) <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pre_match</span>      <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-reset" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-reset" title="Link to this method">
+                  <span class="method-callseq">
+                    reset &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="reset-source">
+            <pre>static VALUE
+strscan_reset(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    p-&gt;curr = 0;
+    CLEAR_MATCH_STATUS(p);
+    return self;
+}</pre>
+          </div>
+          <p>Sets both <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a> and <a href="StringScanner.html#class-StringScanner-label-Character+Position">character position</a> to zero, and clears <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>; returns <code>self</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-regexp">/bar/</span>)          <span class="ruby-comment"># =&gt; 6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">reset</span>                  <span class="ruby-comment"># =&gt; #&lt;StringScanner 0/9 @ &quot;fooba...&quot;&gt;</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       0</span>
+<span class="ruby-comment">#   charpos:   0</span>
+<span class="ruby-comment">#   rest:      &quot;foobarbaz&quot;</span>
+<span class="ruby-comment">#   rest_size: 9</span>
+<span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rest" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-rest" title="Link to this method">
+                  <span class="method-callseq">
+                    rest &rarr; target_substring
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="rest-source">
+            <pre>static VALUE
+strscan_rest(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    if (EOS_P(p)) {
+        return str_new(p, &quot;&quot;, 0);
+    }
+    return extract_range(p, p-&gt;curr, S_LEN(p));
+}</pre>
+          </div>
+          <p>Returns the ‘rest’ of the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a> (all after the current <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a>), which is the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span> <span class="ruby-comment"># =&gt; &quot;foobarbaz&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span> <span class="ruby-comment"># =&gt; &quot;barbaz&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span> <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rest_size" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-rest_size" title="Link to this method">
+                  <span class="method-callseq">
+                    rest_size &rarr; integer
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="rest_size-source">
+            <pre>static VALUE
+strscan_rest_size(VALUE self)
+{
+    struct strscanner *p;
+    long i;
+
+    GET_SCANNER(self, p);
+    if (EOS_P(p)) {
+        return INT2FIX(0);
+    }
+    i = S_RESTLEN(p);
+    return INT2FIX(i);
+}</pre>
+          </div>
+          <p>Returns the size (in bytes) of the <a href="StringScanner.html#method-i-rest"><code>rest</code></a> of the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span>      <span class="ruby-comment"># =&gt; &quot;foobarbaz&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest_size</span> <span class="ruby-comment"># =&gt; 9</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">3</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span>      <span class="ruby-comment"># =&gt; &quot;barbaz&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest_size</span> <span class="ruby-comment"># =&gt; 6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span>      <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest_size</span> <span class="ruby-comment"># =&gt; 0</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-scan" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-scan" title="Link to this method">
+                <span class="method-name">scan</span>
+                <span class="method-args">(p1)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="scan-source">
+            <pre>static VALUE
+strscan_scan(VALUE self, VALUE re)
+{
+    return strscan_do_scan(self, re, 1, 1, 1);
+}</pre>
+          </div>
+          <p>call-seq: scan(pattern) -&gt; substring or nil</p>
+
+<p>Attempts to <a href="StringScanner.html#class-StringScanner-label-Matching">match</a> the given <code>pattern</code> at the beginning of the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>.</p>
+
+<p>If the match succeeds:</p>
+<ul><li>
+<p>Returns the matched substring.</p>
+</li><li>
+<p>Increments the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a> by <code>substring.bytesize</code>, and may increment the <a href="StringScanner.html#class-StringScanner-label-Character+Position">character position</a>.</p>
+</li><li>
+<p>Sets <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>     <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/に/</span>) <span class="ruby-comment"># =&gt; &quot;に&quot;</span>
+<span class="ruby-identifier">put_match_values</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Basic match values:</span>
+<span class="ruby-comment">#   matched?:       true</span>
+<span class="ruby-comment">#   matched_size:   3</span>
+<span class="ruby-comment">#   pre_match:      &quot;こん&quot;</span>
+<span class="ruby-comment">#   matched  :      &quot;に&quot;</span>
+<span class="ruby-comment">#   post_match:     &quot;ちは&quot;</span>
+<span class="ruby-comment"># Captured match values:</span>
+<span class="ruby-comment">#   size:           1</span>
+<span class="ruby-comment">#   captures:       []</span>
+<span class="ruby-comment">#   named_captures: {}</span>
+<span class="ruby-comment">#   values_at:      [&quot;に&quot;, nil]</span>
+<span class="ruby-comment">#   []:</span>
+<span class="ruby-comment">#     [0]:          &quot;に&quot;</span>
+<span class="ruby-comment">#     [1]:          nil</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       9</span>
+<span class="ruby-comment">#   charpos:   3</span>
+<span class="ruby-comment">#   rest:      &quot;ちは&quot;</span>
+<span class="ruby-comment">#   rest_size: 6</span>
+</pre>
+
+<p>If the match fails:</p>
+<ul><li>
+<p>Returns <code>nil</code>.</p>
+</li><li>
+<p>Does not increment byte and character positions.</p>
+</li><li>
+<p>Clears match values.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/nope/</span>)           <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-scan_byte" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-scan_byte" title="Link to this method">
+                  <span class="method-callseq">
+                    scan_byte &rarr; integer_byte
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="scan_byte-source">
+            <pre>static VALUE
+strscan_scan_byte(VALUE self)
+{
+    struct strscanner *p;
+    VALUE byte;
+
+    GET_SCANNER(self, p);
+    CLEAR_MATCH_STATUS(p);
+    if (EOS_P(p))
+        return Qnil;
+
+    byte = INT2FIX((unsigned char)*CURPTR(p));
+    p-&gt;prev = p-&gt;curr;
+    p-&gt;curr++;
+    MATCHED(p);
+    adjust_registers_to_matched(p);
+    return byte;
+}</pre>
+          </div>
+          <p>Scans one byte and returns it as an integer. This method is not multibyte character sensitive. See also: <a href="StringScanner.html#method-i-getch"><code>getch</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-scan_until" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-scan_until" title="Link to this method">
+                <span class="method-name">scan_until</span>
+                <span class="method-args">(p1)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="scan_until-source">
+            <pre>static VALUE
+strscan_scan_until(VALUE self, VALUE re)
+{
+    return strscan_do_scan(self, re, 1, 1, 0);
+}</pre>
+          </div>
+          <p>call-seq: <a href="StringScanner.html#method-i-scan_until"><code>scan_until</code></a>(pattern) -&gt; substring or nil</p>
+
+<p>Attempts to <a href="StringScanner.html#class-StringScanner-label-Matching">match</a> the given <code>pattern</code> anywhere (at any <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a>) in the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>.</p>
+
+<p>If the match attempt succeeds:</p>
+<ul><li>
+<p>Sets <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li><li>
+<p>Sets the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a> to the end of the matched substring; may adjust the <a href="StringScanner.html#class-StringScanner-label-Character+Position">character position</a>.</p>
+</li><li>
+<p>Returns the matched substring.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>           <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan_until</span>(<span class="ruby-regexp">/ち/</span>) <span class="ruby-comment"># =&gt; &quot;にち&quot;</span>
+<span class="ruby-identifier">put_match_values</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Basic match values:</span>
+<span class="ruby-comment">#   matched?:       true</span>
+<span class="ruby-comment">#   matched_size:   3</span>
+<span class="ruby-comment">#   pre_match:      &quot;こんに&quot;</span>
+<span class="ruby-comment">#   matched  :      &quot;ち&quot;</span>
+<span class="ruby-comment">#   post_match:     &quot;は&quot;</span>
+<span class="ruby-comment"># Captured match values:</span>
+<span class="ruby-comment">#   size:           1</span>
+<span class="ruby-comment">#   captures:       []</span>
+<span class="ruby-comment">#   named_captures: {}</span>
+<span class="ruby-comment">#   values_at:      [&quot;ち&quot;, nil]</span>
+<span class="ruby-comment">#   []:</span>
+<span class="ruby-comment">#     [0]:          &quot;ち&quot;</span>
+<span class="ruby-comment">#     [1]:          nil</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       12</span>
+<span class="ruby-comment">#   charpos:   4</span>
+<span class="ruby-comment">#   rest:      &quot;は&quot;</span>
+<span class="ruby-comment">#   rest_size: 3</span>
+</pre>
+
+<p>If the match attempt fails:</p>
+<ul><li>
+<p>Clears match data.</p>
+</li><li>
+<p>Returns <code>nil</code>.</p>
+</li><li>
+<p>Does not update positions.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan_until</span>(<span class="ruby-regexp">/nope/</span>)     <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-size" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-size" title="Link to this method">
+                  <span class="method-callseq">
+                    size &rarr; captures_count
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="size-source">
+            <pre>static VALUE
+strscan_size(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    if (! MATCHED_P(p))        return Qnil;
+    return INT2FIX(p-&gt;regs.num_regs);
+}</pre>
+          </div>
+          <p>Returns the count of captures if the most recent match attempt succeeded, <code>nil</code> otherwise; see <a href="StringScanner.html#class-StringScanner-label-Captured+Match+Values">Captures Match Values</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Fri Dec 12 1975 14:39&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">size</span>                        <span class="ruby-comment"># =&gt; nil</span>
+
+<span class="ruby-identifier">pattern</span> = <span class="ruby-regexp">/(?&lt;wday&gt;\w+) (?&lt;month&gt;\w+) (?&lt;day&gt;\d+) /</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">pattern</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-operator">*</span><span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">size</span>) <span class="ruby-comment"># =&gt; [&quot;Fri Dec 12 &quot;, &quot;Fri&quot;, &quot;Dec&quot;, &quot;12&quot;, nil]</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">size</span>                        <span class="ruby-comment"># =&gt; 4</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/nope/</span>)              <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">size</span>                        <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-skip" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-skip" title="Link to this method">
+                <span class="method-name">skip</span>
+                <span class="method-args">(p1)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="skip-source">
+            <pre>static VALUE
+strscan_skip(VALUE self, VALUE re)
+{
+    return strscan_do_scan(self, re, 1, 0, 1);
+}</pre>
+          </div>
+          <p>call-seq: skip(pattern) match_size or nil</p>
+
+<p>Attempts to <a href="StringScanner.html#class-StringScanner-label-Matching">match</a> the given <code>pattern</code> at the beginning of the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>;</p>
+
+<p>If the match succeeds:</p>
+<ul><li>
+<p>Increments the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">byte position</a> by substring.bytesize, and may increment the <a href="StringScanner.html#class-StringScanner-label-Character+Position">character position</a>.</p>
+</li><li>
+<p>Sets <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li><li>
+<p>Returns the size (bytes) of the matched substring.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>                  <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">skip</span>(<span class="ruby-regexp">/に/</span>)              <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-identifier">put_match_values</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Basic match values:</span>
+<span class="ruby-comment">#   matched?:       true</span>
+<span class="ruby-comment">#   matched_size:   3</span>
+<span class="ruby-comment">#   pre_match:      &quot;こん&quot;</span>
+<span class="ruby-comment">#   matched  :      &quot;に&quot;</span>
+<span class="ruby-comment">#   post_match:     &quot;ちは&quot;</span>
+<span class="ruby-comment"># Captured match values:</span>
+<span class="ruby-comment">#   size:           1</span>
+<span class="ruby-comment">#   captures:       []</span>
+<span class="ruby-comment">#   named_captures: {}</span>
+<span class="ruby-comment">#   values_at:      [&quot;に&quot;, nil]</span>
+<span class="ruby-comment">#   []:</span>
+<span class="ruby-comment">#     [0]:          &quot;に&quot;</span>
+<span class="ruby-comment">#     [1]:          nil</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       9</span>
+<span class="ruby-comment">#   charpos:   3</span>
+<span class="ruby-comment">#   rest:      &quot;ちは&quot;</span>
+<span class="ruby-comment">#   rest_size: 6</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">skip</span>(<span class="ruby-regexp">/nope/</span>)            <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>)  <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-skip_until" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-skip_until" title="Link to this method">
+                <span class="method-name">skip_until</span>
+                <span class="method-args">(p1)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="skip_until-source">
+            <pre>static VALUE
+strscan_skip_until(VALUE self, VALUE re)
+{
+    return strscan_do_scan(self, re, 1, 0, 0);
+}</pre>
+          </div>
+          <p>call-seq: <a href="StringScanner.html#method-i-skip_until"><code>skip_until</code></a>(pattern) -&gt; matched_substring_size or nil</p>
+
+<p>Attempts to <a href="StringScanner.html#class-StringScanner-label-Matching">match</a> the given <code>pattern</code> anywhere (at any <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a>) in the <a href="StringScanner.html#class-StringScanner-label-Target+Substring">target substring</a>; does not modify the positions.</p>
+
+<p>If the match attempt succeeds:</p>
+<ul><li>
+<p>Sets <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li><li>
+<p>Returns the size of the matched substring.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>           <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">skip_until</span>(<span class="ruby-regexp">/ち/</span>) <span class="ruby-comment"># =&gt; 6</span>
+<span class="ruby-identifier">put_match_values</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Basic match values:</span>
+<span class="ruby-comment">#   matched?:       true</span>
+<span class="ruby-comment">#   matched_size:   3</span>
+<span class="ruby-comment">#   pre_match:      &quot;こんに&quot;</span>
+<span class="ruby-comment">#   matched  :      &quot;ち&quot;</span>
+<span class="ruby-comment">#   post_match:     &quot;は&quot;</span>
+<span class="ruby-comment"># Captured match values:</span>
+<span class="ruby-comment">#   size:           1</span>
+<span class="ruby-comment">#   captures:       []</span>
+<span class="ruby-comment">#   named_captures: {}</span>
+<span class="ruby-comment">#   values_at:      [&quot;ち&quot;, nil]</span>
+<span class="ruby-comment">#   []:</span>
+<span class="ruby-comment">#     [0]:          &quot;ち&quot;</span>
+<span class="ruby-comment">#     [1]:          nil</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       12</span>
+<span class="ruby-comment">#   charpos:   4</span>
+<span class="ruby-comment">#   rest:      &quot;は&quot;</span>
+<span class="ruby-comment">#   rest_size: 3</span>
+</pre>
+
+<p>If the match attempt fails:</p>
+<ul><li>
+<p>Clears match values.</p>
+</li><li>
+<p>Returns <code>nil</code>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">skip_until</span>(<span class="ruby-regexp">/nope/</span>)     <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-string" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-string" title="Link to this method">
+                  <span class="method-callseq">
+                    string &rarr; stored_string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="string-source">
+            <pre>static VALUE
+strscan_get_string(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    return p-&gt;str;
+}</pre>
+          </div>
+          <p>Returns the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobar&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span> <span class="ruby-comment"># =&gt; &quot;foobar&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-string">&#39;baz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span> <span class="ruby-comment"># =&gt; &quot;foobarbaz&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-string-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-string-3D" title="Link to this method">
+                  <span class="method-callseq">
+                    string = other_string &rarr; other_string
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="string-3D-source">
+            <pre>static VALUE
+strscan_set_string(VALUE self, VALUE str)
+{
+    struct strscanner *p = check_strscan(self);
+
+    StringValue(str);
+    p-&gt;str = str;
+    p-&gt;curr = 0;
+    CLEAR_MATCH_STATUS(p);
+    return str;
+}</pre>
+          </div>
+          <p>Replaces the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a> with the given <code>other_string</code>:</p>
+<ul><li>
+<p>Sets both <a href="StringScanner.html#class-StringScanner-label-Positions">positions</a> to zero.</p>
+</li><li>
+<p>Clears <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li><li>
+<p>Returns <code>other_string</code>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobar&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/foo/</span>)
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       3</span>
+<span class="ruby-comment">#   charpos:   3</span>
+<span class="ruby-comment">#   rest:      &quot;bar&quot;</span>
+<span class="ruby-comment">#   rest_size: 3</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; false</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span> = <span class="ruby-string">&#39;baz&#39;</span>         <span class="ruby-comment"># =&gt; &quot;baz&quot;</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       0</span>
+<span class="ruby-comment">#   charpos:   0</span>
+<span class="ruby-comment">#   rest:      &quot;baz&quot;</span>
+<span class="ruby-comment">#   rest_size: 3</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-terminate" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-terminate" title="Link to this method">
+                <span class="method-name">terminate</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="terminate-source">
+            <pre>static VALUE
+strscan_terminate(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    p-&gt;curr = S_LEN(p);
+    CLEAR_MATCH_STATUS(p);
+    return self;
+}</pre>
+          </div>
+          <p>call-seq: terminate -&gt; self</p>
+
+<p>Sets the scanner to end-of-string; returns <code>self</code>:</p>
+<ul><li>
+<p>Sets both <a href="StringScanner.html#class-StringScanner-label-Positions">positions</a> to end-of-stream.</p>
+</li><li>
+<p>Clears <a href="StringScanner.html#class-StringScanner-label-Match+Values">match values</a>.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">HIRAGANA_TEXT</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">string</span>                 <span class="ruby-comment"># =&gt; &quot;こんにちは&quot;</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan_until</span>(<span class="ruby-regexp">/に/</span>)
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       9</span>
+<span class="ruby-comment">#   charpos:   3</span>
+<span class="ruby-comment">#   rest:      &quot;ちは&quot;</span>
+<span class="ruby-comment">#   rest_size: 6</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; false</span>
+
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">terminate</span>              <span class="ruby-comment"># =&gt; #&lt;StringScanner fin&gt;</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       15</span>
+<span class="ruby-comment">#   charpos:   5</span>
+<span class="ruby-comment">#   rest:      &quot;&quot;</span>
+<span class="ruby-comment">#   rest_size: 0</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-unscan" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-unscan" title="Link to this method">
+                  <span class="method-callseq">
+                    unscan &rarr; self
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="unscan-source">
+            <pre>static VALUE
+strscan_unscan(VALUE self)
+{
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    if (! MATCHED_P(p))
+        rb_raise(ScanError, &quot;unscan failed: previous match record not exist&quot;);
+    p-&gt;curr = p-&gt;prev;
+    CLEAR_MATCH_STATUS(p);
+    return self;
+}</pre>
+          </div>
+          <p>Sets the <a href="StringScanner.html#class-StringScanner-label-Byte+Position+-28Position-29">position</a> to its value previous to the recent successful <a href="StringScanner.html#class-StringScanner-label-Matching">match</a> attempt:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foobarbaz&#39;</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/foo/</span>)
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       3</span>
+<span class="ruby-comment">#   charpos:   3</span>
+<span class="ruby-comment">#   rest:      &quot;barbaz&quot;</span>
+<span class="ruby-comment">#   rest_size: 6</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">unscan</span>
+<span class="ruby-comment"># =&gt; #&lt;StringScanner 0/9 @ &quot;fooba...&quot;&gt;</span>
+<span class="ruby-identifier">put_situation</span>(<span class="ruby-identifier">scanner</span>)
+<span class="ruby-comment"># Situation:</span>
+<span class="ruby-comment">#   pos:       0</span>
+<span class="ruby-comment">#   charpos:   0</span>
+<span class="ruby-comment">#   rest:      &quot;foobarbaz&quot;</span>
+<span class="ruby-comment">#   rest_size: 9</span>
+</pre>
+
+<p>Raises an exception if match values are clear:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/nope/</span>)           <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">match_values_cleared?</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">unscan</span>                 <span class="ruby-comment"># Raises StringScanner::Error.</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-values_at" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-values_at" title="Link to this method">
+                  <span class="method-callseq">
+                    values_at(*specifiers) &rarr; array_of_captures or nil
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="values_at-source">
+            <pre>static VALUE
+strscan_values_at(int argc, VALUE *argv, VALUE self)
+{
+    struct strscanner *p;
+    long i;
+    VALUE new_ary;
+
+    GET_SCANNER(self, p);
+    if (! MATCHED_P(p))        return Qnil;
+
+    new_ary = rb_ary_new2(argc);
+    for (i = 0; i&lt;argc; i++) {
+        rb_ary_push(new_ary, strscan_aref(self, argv[i]));
+    }
+
+    return new_ary;
+}</pre>
+          </div>
+          <p>Returns an array of captured substrings, or <code>nil</code> of none.</p>
+
+<p>For each <code>specifier</code>, the returned substring is <code>[specifier]</code>; see <a href="StringScanner.html#method-i-5B-5D"><code>[]</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">scanner</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Fri Dec 12 1975 14:39&#39;</span>)
+<span class="ruby-identifier">pattern</span> = <span class="ruby-regexp">/(?&lt;wday&gt;\w+) (?&lt;month&gt;\w+) (?&lt;day&gt;\d+) /</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">pattern</span>)
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-operator">*</span><span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">3</span>)               <span class="ruby-comment"># =&gt; [&quot;Fri Dec 12 &quot;, &quot;Fri&quot;, &quot;Dec&quot;, &quot;12&quot;]</span>
+<span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-operator">*</span><span class="ruby-node">%i[wday month day]</span>) <span class="ruby-comment"># =&gt; [&quot;Fri&quot;, &quot;Dec&quot;, &quot;12&quot;]</span>
+</pre>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-initialize_copy" class="method-detail anchor-link ">
+        <div class="method-header">
+              <div class="method-heading">
+                <a href="#method-i-initialize_copy" title="Link to this method">
+                  <span class="method-callseq">
+                    dup &rarr; shallow_copy
+                  </span>
+                </a>
+              </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="initialize_copy-source">
+            <pre>static VALUE
+strscan_init_copy(VALUE vself, VALUE vorig)
+{
+    struct strscanner *self, *orig;
+
+    self = check_strscan(vself);
+    orig = check_strscan(vorig);
+    if (self != orig) {
+        self-&gt;flags = orig-&gt;flags;
+        self-&gt;str = orig-&gt;str;
+        self-&gt;prev = orig-&gt;prev;
+        self-&gt;curr = orig-&gt;curr;
+        if (rb_reg_region_copy(&amp;self-&gt;regs, &amp;orig-&gt;regs))
+            rb_memerror();
+        RB_GC_GUARD(vorig);
+    }
+
+    return vself;
+}</pre>
+          </div>
+          <p>Returns a shallow copy of <code>self</code>; the <a href="StringScanner.html#class-StringScanner-label-Stored+String">stored string</a> in the copy is the same string as in <code>self</code>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-scan_base10_integer" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-scan_base10_integer" title="Link to this method">
+                <span class="method-name">scan_base10_integer</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="scan_base10_integer-source">
+            <pre>static VALUE
+strscan_scan_base10_integer(VALUE self)
+{
+    char *ptr;
+    long len = 0;
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    CLEAR_MATCH_STATUS(p);
+
+    strscan_must_ascii_compat(p-&gt;str);
+
+    ptr = CURPTR(p);
+
+    long remaining_len = S_RESTLEN(p);
+
+    if (remaining_len &lt;= 0) {
+        return Qnil;
+    }
+
+    if (ptr[len] == &#39;-&#39; || ptr[len] == &#39;+&#39;) {
+        len++;
+    }
+
+    if (!rb_isdigit(ptr[len])) {
+        return Qnil;
+    }
+
+    MATCHED(p);
+    p-&gt;prev = p-&gt;curr;
+
+    while (len &lt; remaining_len &amp;&amp; rb_isdigit(ptr[len])) {
+        len++;
+    }
+
+    return strscan_parse_integer(p, 10, len);
+}</pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-scan_base16_integer" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-scan_base16_integer" title="Link to this method">
+                <span class="method-name">scan_base16_integer</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="scan_base16_integer-source">
+            <pre>static VALUE
+strscan_scan_base16_integer(VALUE self)
+{
+    char *ptr;
+    long len = 0;
+    struct strscanner *p;
+
+    GET_SCANNER(self, p);
+    CLEAR_MATCH_STATUS(p);
+
+    strscan_must_ascii_compat(p-&gt;str);
+
+    ptr = CURPTR(p);
+
+    long remaining_len = S_RESTLEN(p);
+
+    if (remaining_len &lt;= 0) {
+        return Qnil;
+    }
+
+    if (ptr[len] == &#39;-&#39; || ptr[len] == &#39;+&#39;) {
+        len++;
+    }
+
+    if ((remaining_len &gt;= (len + 2)) &amp;&amp; ptr[len] == &#39;0&#39; &amp;&amp; ptr[len + 1] == &#39;x&#39;) {
+        len += 2;
+    }
+
+    if (len &gt;= remaining_len || !rb_isxdigit(ptr[len])) {
+        return Qnil;
+    }
+
+    MATCHED(p);
+    p-&gt;prev = p-&gt;curr;
+
+    while (len &lt; remaining_len &amp;&amp; rb_isxdigit(ptr[len])) {
+        len++;
+    }
+
+    return strscan_parse_integer(p, 16, len);
+}</pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

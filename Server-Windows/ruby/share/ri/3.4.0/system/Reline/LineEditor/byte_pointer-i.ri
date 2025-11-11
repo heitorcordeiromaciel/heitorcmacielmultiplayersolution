@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"byte_pointer:ETI"$Reline::LineEditor#byte_pointer;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@TODO: Use "private alias_method" idiom after drop Ruby 2.5.;T:
+@fileI"lib/reline/line_editor.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Reline::LineEditor;TcRDoc::NormalClass0

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>encodings - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,encodings">
+  <meta name="description" content="encodings: en. wikipedia.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/encodings_rdoc.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Encodings">Encodings</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-The+Basics">The Basics</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-The+Encoding+Class">The Encoding Class</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Encoding+Objects">Encoding Objects</a>
+          <li>      <a href="#label-Names+and+Aliases">Names and Aliases</a>
+          <li>      <a href="#label-Default+Encodings">Default Encodings</a>
+          <li>      <a href="#label-Compatible+Encodings">Compatible Encodings</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-String+Encoding">String Encoding</a>
+          <li>      <a href="#label-Symbol+and+Regexp+Encodings">Symbol and Regexp Encodings</a>
+          <li>      <a href="#label-Filesystem+Encoding">Filesystem Encoding</a>
+          <li>      <a href="#label-Locale+Encoding">Locale Encoding</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Stream+Encodings">Stream Encodings</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-External+Encoding">External Encoding</a>
+          <li>      <a href="#label-Internal+Encoding">Internal Encoding</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Script+Encoding">Script Encoding</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Transcoding">Transcoding</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Transcoding+a+String">Transcoding a String</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Transcoding+a+Stream">Transcoding a Stream</a>
+          <li>      <a href="#label-Encoding+Options">Encoding Options</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./COPYING.html">COPYING</a>
+    <li><a href="./COPYING_ja.html">COPYING.ja</a>
+    <li><a href="./LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="./NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="./NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="./NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="./NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="./NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="./NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="./NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="./NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="./NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="./NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="./NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="./NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="./NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="./NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="./NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="./NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="./NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="./README_ja_md.html">README.ja</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./bsearch_rdoc.html">bsearch</a>
+    <li><a href="./bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="./case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="./character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="./command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="./contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="./contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="./contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="./contributing/glossary_md.html">glossary</a>
+      <li><a href="./contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="./contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="./contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="./contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="./date/calendars_rdoc.html">calendars</a>
+    <li><a href="./dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="./distribution_md.html">distribution</a>
+    <li><a href="./dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="./encodings_rdoc.html">encodings</a>
+    <li><a href="./exceptions_md.html">exceptions</a>
+    <li><a href="./extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="./extension_rdoc.html">extension</a>
+    <li><a href="./fiber_md.html">fiber</a>
+    <li><a href="./format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="./globals_rdoc.html">globals</a>
+    <li><a href="./implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="./index_md.html">index</a>
+    <li><a href="./maintainers_md.html">maintainers</a>
+    <li><a href="./marshal_rdoc.html">marshal</a>
+    <li><a href="./memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="./optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="./optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="./optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="./optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="./packed_data_rdoc.html">packed_data</a>
+    <li><a href="./ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="./regexp/methods_rdoc.html">methods</a>
+      <li><a href="./regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="./rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="./ruby/option_dump_md.html">option_dump</a>
+      <li><a href="./ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="./security_rdoc.html">security</a>
+    <li><a href="./signals_rdoc.html">signals</a>
+    <li><a href="./standard_library_md.html">standard_library</a>
+    <li><a href="./strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="./syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="./syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="./syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="./syntax/comments_rdoc.html">comments</a>
+      <li><a href="./syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="./syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="./syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="./syntax/literals_rdoc.html">literals</a>
+      <li><a href="./syntax/methods_rdoc.html">methods</a>
+      <li><a href="./syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="./syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="./syntax/operators_rdoc.html">operators</a>
+      <li><a href="./syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="./syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="./syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="./windows_md.html">windows</a>
+    <li><a href="./yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page encodings.rdoc">
+
+<h1 id="label-Encodings">Encodings<span><a href="#label-Encodings">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-The+Basics">The Basics<span><a href="#label-The+Basics">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A <a href="https://en.wikipedia.org/wiki/Character_encoding">character encoding</a>, often shortened to <em>encoding</em>, is a mapping between:</p>
+<ul><li>
+<p>A sequence of 8-bit bytes (each byte in the range <code>0..255</code>).</p>
+</li><li>
+<p>Characters in a specific character set.</p>
+</li></ul>
+
+<p>Some character sets contain only 1-byte characters; <a href="https://en.wikipedia.org/wiki/ASCII">US-ASCII</a>, for example, has 256 1-byte characters. This string, encoded in US-ASCII, has six characters that are stored as six bytes:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;Hello!&#39;</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;US-ASCII&#39;</span>)  <span class="ruby-comment"># =&gt; &quot;Hello!&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encoding</span>                       <span class="ruby-comment"># =&gt; #&lt;Encoding:US-ASCII&gt;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">bytes</span>                          <span class="ruby-comment"># =&gt; [72, 101, 108, 108, 111, 33]</span>
+</pre>
+
+<p>Other encodings may involve multi-byte characters. <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>, for example, encodes more than one million characters, encoding each in one to four bytes. The lowest-valued of these characters correspond to ASCII characters, and so are 1-byte characters:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;Hello!&#39;</span> <span class="ruby-comment"># =&gt; &quot;Hello!&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">bytes</span>      <span class="ruby-comment"># =&gt; [72, 101, 108, 108, 111, 33]</span>
+</pre>
+
+<p>Other characters, such as the Euro symbol, are multi-byte:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\u20ac&quot;</span> <span class="ruby-comment"># =&gt; &quot;€&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">bytes</span>      <span class="ruby-comment"># =&gt; [226, 130, 172]</span>
+</pre>
+
+<h2 id="label-The+Encoding+Class">The Encoding Class<span><a href="#label-The+Encoding+Class">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Encoding+Objects">Encoding Objects<span><a href="#label-Encoding+Objects">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Ruby encodings are defined by constants in class Encoding. There can be only one instance of Encoding for each of these constants. Method <a href="Encoding.html#method-c-list"><code>Encoding.list</code></a> returns an array of Encoding objects (one for each constant):</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">size</span>        <span class="ruby-comment"># =&gt; 103</span>
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">class</span> <span class="ruby-comment"># =&gt; Encoding</span>
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">3</span>)
+<span class="ruby-comment"># =&gt; [#&lt;Encoding:ASCII-8BIT&gt;, #&lt;Encoding:UTF-8&gt;, #&lt;Encoding:US-ASCII&gt;]</span>
+</pre>
+
+<h3 id="label-Names+and+Aliases">Names and Aliases<span><a href="#label-Names+and+Aliases">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Method <a href="Encoding.html#method-i-name"><code>Encoding#name</code></a> returns the name of an Encoding:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>.<span class="ruby-identifier">name</span>  <span class="ruby-comment"># =&gt; &quot;ASCII-8BIT&quot;</span>
+<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">WINDOWS_31J</span>.<span class="ruby-identifier">name</span> <span class="ruby-comment"># =&gt; &quot;Windows-31J&quot;</span>
+</pre>
+
+<p>An Encoding object has zero or more aliases; method <a href="Encoding.html#method-i-names"><code>Encoding#names</code></a> returns an array containing the name and all aliases:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>.<span class="ruby-identifier">names</span>
+<span class="ruby-comment"># =&gt; [&quot;ASCII-8BIT&quot;, &quot;BINARY&quot;]</span>
+<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">WINDOWS_31J</span>.<span class="ruby-identifier">names</span>
+<span class="ruby-comment">#=&gt; [&quot;Windows-31J&quot;, &quot;CP932&quot;, &quot;csWindows31J&quot;, &quot;SJIS&quot;, &quot;PCK&quot;]</span>
+</pre>
+
+<p>Method <a href="Encoding.html#method-c-aliases"><code>Encoding.aliases</code></a> returns a hash of all alias/name pairs:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">size</span> <span class="ruby-comment"># =&gt; 71</span>
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">3</span>)
+<span class="ruby-comment"># =&gt; [[&quot;BINARY&quot;, &quot;ASCII-8BIT&quot;], [&quot;CP437&quot;, &quot;IBM437&quot;], [&quot;CP720&quot;, &quot;IBM720&quot;]]</span>
+</pre>
+
+<p>Method <a href="Encoding.html#method-c-name_list"><code>Encoding.name_list</code></a> returns an array of all the encoding names and aliases:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">name_list</span>.<span class="ruby-identifier">size</span> <span class="ruby-comment"># =&gt; 175</span>
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">name_list</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">3</span>)
+<span class="ruby-comment"># =&gt; [&quot;ASCII-8BIT&quot;, &quot;UTF-8&quot;, &quot;US-ASCII&quot;]</span>
+</pre>
+
+<p>Method <code>name_list</code> returns more entries than method <code>list</code> because it includes both the names and their aliases.</p>
+
+<p>Method <a href="Encoding.html#method-c-find"><code>Encoding.find</code></a> returns the Encoding for a given name or alias, if it exists:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&quot;US-ASCII&quot;</span>)       <span class="ruby-comment"># =&gt; #&lt;Encoding:US-ASCII&gt;</span>
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&quot;US-ASCII&quot;</span>).<span class="ruby-identifier">class</span> <span class="ruby-comment"># =&gt; Encoding</span>
+</pre>
+
+<h3 id="label-Default+Encodings">Default Encodings<span><a href="#label-Default+Encodings">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Method <a href="Encoding.html#method-c-find"><code>Encoding.find</code></a>, above, also returns a default Encoding for each of these special names:</p>
+<ul><li>
+<p><code>external</code>: the default external Encoding:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&quot;external&quot;</span>) <span class="ruby-comment"># =&gt; #&lt;Encoding:UTF-8&gt;</span>
+</pre>
+</li><li>
+<p><code>internal</code>: the default internal Encoding (may be <code>nil</code>):</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&quot;internal&quot;</span>) <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+</li><li>
+<p><code>locale</code>: the default Encoding for a string from the environment:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&quot;locale&quot;</span>) <span class="ruby-comment"># =&gt; #&lt;Encoding:UTF-8&gt;  # Linux</span>
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&quot;locale&quot;</span>) <span class="ruby-comment"># =&gt; #&lt;Encoding:IBM437&gt; # Windows</span>
+</pre>
+</li><li>
+<p><code>filesystem</code>: the default Encoding for a string from the filesystem:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&quot;filesystem&quot;</span>) <span class="ruby-comment"># =&gt; #&lt;Encoding:UTF-8&gt;</span>
+</pre>
+</li></ul>
+
+<p>Method <a href="Encoding.html#method-c-default_external"><code>Encoding.default_external</code></a> returns the default external Encoding:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span> <span class="ruby-comment"># =&gt; #&lt;Encoding:UTF-8&gt;</span>
+</pre>
+
+<p>Method <a href="Encoding.html#method-c-default_external-3D"><code>Encoding.default_external=</code></a> sets that value:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span> = <span class="ruby-string">&#39;US-ASCII&#39;</span> <span class="ruby-comment"># =&gt; &quot;US-ASCII&quot;</span>
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span>              <span class="ruby-comment"># =&gt; #&lt;Encoding:US-ASCII&gt;</span>
+</pre>
+
+<p>Method <a href="Encoding.html#method-c-default_internal"><code>Encoding.default_internal</code></a> returns the default internal Encoding:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_internal</span> <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+
+<p>Method <a href="Encoding.html#method-c-default_internal-3D"><code>Encoding.default_internal=</code></a> sets the default internal Encoding:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_internal</span> = <span class="ruby-string">&#39;US-ASCII&#39;</span> <span class="ruby-comment"># =&gt; &quot;US-ASCII&quot;</span>
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_internal</span>              <span class="ruby-comment"># =&gt; #&lt;Encoding:US-ASCII&gt;</span>
+</pre>
+
+<h3 id="label-Compatible+Encodings">Compatible Encodings<span><a href="#label-Compatible+Encodings">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Method <a href="Encoding.html#method-c-compatible-3F"><code>Encoding.compatible?</code></a> returns whether two given objects are encoding-compatible (that is, whether they can be concatenated); returns the Encoding of the concatenated string, or <code>nil</code> if incompatible:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rus</span> = <span class="ruby-string">&quot;\u{442 435 441 442}&quot;</span>
+<span class="ruby-identifier">eng</span> = <span class="ruby-string">&#39;text&#39;</span>
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">compatible?</span>(<span class="ruby-identifier">rus</span>, <span class="ruby-identifier">eng</span>) <span class="ruby-comment"># =&gt; #&lt;Encoding:UTF-8&gt;</span>
+
+<span class="ruby-identifier">s0</span> = <span class="ruby-string">&quot;\xa1\xa1&quot;</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&#39;iso-8859-1&#39;</span>) <span class="ruby-comment"># =&gt; &quot;\xA1\xA1&quot;</span>
+<span class="ruby-identifier">s1</span> = <span class="ruby-string">&quot;\xa1\xa1&quot;</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&#39;euc-jp&#39;</span>)     <span class="ruby-comment"># =&gt; &quot;\x{A1A1}&quot;</span>
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">compatible?</span>(<span class="ruby-identifier">s0</span>, <span class="ruby-identifier">s1</span>)                 <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+
+<h2 id="label-String+Encoding">String Encoding<span><a href="#label-String+Encoding">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A Ruby <a href="String.html"><code>String</code></a> object has an encoding that is an instance of class Encoding. The encoding may be retrieved by method <a href="String.html#method-i-encoding"><code>String#encoding</code></a>.</p>
+
+<p>The default encoding for a string literal is the script encoding; see <a href="encodings_rdoc.html#label-Script+Encoding">Script Encoding</a>.</p>
+
+<pre class="ruby"><span class="ruby-string">&#39;s&#39;</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-comment"># =&gt; #&lt;Encoding:UTF-8&gt;</span>
+</pre>
+
+<p>The default encoding for a string created with method <a href="String.html#method-c-new"><code>String.new</code></a> is:</p>
+<ul><li>
+<p>For a String object argument, the encoding of that string.</p>
+</li><li>
+<p>For a string literal, the script encoding; see <a href="encodings_rdoc.html#label-Script+Encoding">Script Encoding</a>.</p>
+</li></ul>
+
+<p>In either case, any encoding may be specified:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">encoding:</span> <span class="ruby-string">&#39;UTF-8&#39;</span>)             <span class="ruby-comment"># =&gt; &quot;&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encoding</span>                                    <span class="ruby-comment"># =&gt; #&lt;Encoding:UTF-8&gt;</span>
+<span class="ruby-identifier">s</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-value">encoding:</span> <span class="ruby-string">&#39;ASCII-8BIT&#39;</span>) <span class="ruby-comment"># =&gt; &quot;foo&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encoding</span>                                    <span class="ruby-comment"># =&gt; #&lt;Encoding:ASCII-8BIT&gt;</span>
+</pre>
+
+<p>The encoding for a string may be changed:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;R\xC3\xA9sum\xC3\xA9&quot;</span>     <span class="ruby-comment"># =&gt; &quot;Résumé&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encoding</span>                     <span class="ruby-comment"># =&gt; #&lt;Encoding:UTF-8&gt;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&#39;ISO-8859-1&#39;</span>) <span class="ruby-comment"># =&gt; &quot;R\xC3\xA9sum\xC3\xA9&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encoding</span>                     <span class="ruby-comment"># =&gt; #&lt;Encoding:ISO-8859-1&gt;</span>
+</pre>
+
+<p>Changing the assigned encoding does not alter the content of the string; it changes only the way the content is to be interpreted:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span>                         <span class="ruby-comment"># =&gt; &quot;R\xC3\xA9sum\xC3\xA9&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&#39;UTF-8&#39;</span>) <span class="ruby-comment"># =&gt; &quot;Résumé&quot;</span>
+</pre>
+
+<p>The actual content of a string may also be altered; see <a href="#label-Transcoding+a+String">Transcoding a String</a>.</p>
+
+<p>Here are a couple of useful query methods:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;abc&quot;</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;UTF-8&quot;</span>)         <span class="ruby-comment"># =&gt; &quot;abc&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">ascii_only?</span>                             <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;abc\u{6666}&quot;</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;UTF-8&quot;</span>) <span class="ruby-comment"># =&gt; &quot;abc晦&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">ascii_only?</span>                             <span class="ruby-comment"># =&gt; false</span>
+
+<span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\xc2\xa1&quot;</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;UTF-8&quot;</span>) <span class="ruby-comment"># =&gt; &quot;¡&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">valid_encoding?</span>                      <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\xc2&quot;</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;UTF-8&quot;</span>)     <span class="ruby-comment"># =&gt; &quot;\xC2&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">valid_encoding?</span>                      <span class="ruby-comment"># =&gt; false</span>
+</pre>
+
+<h2 id="label-Symbol+and+Regexp+Encodings">Symbol and Regexp Encodings<span><a href="#label-Symbol+and+Regexp+Encodings">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The string stored in a <a href="Symbol.html"><code>Symbol</code></a> or <a href="Regexp.html"><code>Regexp</code></a> object also has an encoding; the encoding may be retrieved by method <a href="Symbol.html#method-i-encoding"><code>Symbol#encoding</code></a> or <a href="Regexp.html#method-i-encoding"><code>Regexp#encoding</code></a>.</p>
+
+<p>The default encoding for these, however, is:</p>
+<ul><li>
+<p>US-ASCII, if all characters are US-ASCII.</p>
+</li><li>
+<p>The script encoding, otherwise; see (Script Script Encoding] at <code>Encoding)[rdoc-ref:encodings.rdoc</code>.</p>
+</li></ul>
+
+<h2 id="label-Filesystem+Encoding">Filesystem Encoding<span><a href="#label-Filesystem+Encoding">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The filesystem encoding is the default Encoding for a string from the filesystem:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&quot;filesystem&quot;</span>) <span class="ruby-comment"># =&gt; #&lt;Encoding:UTF-8&gt;</span>
+</pre>
+
+<h2 id="label-Locale+Encoding">Locale Encoding<span><a href="#label-Locale+Encoding">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The locale encoding is the default encoding for a string from the environment, other than from the filesystem:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&#39;locale&#39;</span>) <span class="ruby-comment"># =&gt; #&lt;Encoding:IBM437&gt;</span>
+</pre>
+
+<h2 id="label-Stream+Encodings">Stream Encodings<span><a href="#label-Stream+Encodings">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Certain stream objects can have two encodings; these objects include instances of:</p>
+<ul><li>
+<p><a href="IO.html"><code>IO</code></a>.</p>
+</li><li>
+<p><a href="File.html"><code>File</code></a>.</p>
+</li><li>
+<p><a href="ARGF.html"><code>ARGF</code></a>.</p>
+</li><li>
+<p><a href="StringIO.html"><code>StringIO</code></a>.</p>
+</li></ul>
+
+<p>The two encodings are:</p>
+<ul><li>
+<p>An <em>external</em> <em>encoding</em>, which identifies the encoding of the stream.</p>
+</li><li>
+<p>An <em>internal</em> <em>encoding</em>, which (if not <code>nil</code>) specifies the encoding to be used for the string constructed from the stream.</p>
+</li></ul>
+
+<h3 id="label-External+Encoding">External Encoding<span><a href="#label-External+Encoding">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The external encoding, which is an Encoding object, specifies how bytes read from the stream are to be interpreted as characters.</p>
+
+<p>The default external encoding is:</p>
+<ul><li>
+<p>UTF-8 for a text stream.</p>
+</li><li>
+<p>ASCII-8BIT for a binary stream.</p>
+</li></ul>
+
+<p>The default external encoding is returned by method <a href="Encoding.html#method-c-default_external"><code>Encoding.default_external</code></a>, and may be set by:</p>
+<ul><li>
+<p>Ruby command-line options <code>--external_encoding</code> or <code>-E</code>.</p>
+</li></ul>
+
+<p>You can also set the default external encoding using method <a href="Encoding.html#method-c-default_external-3D"><code>Encoding.default_external=</code></a>, but doing so may cause problems; strings created before and after the change may have a different encodings.</p>
+
+<p>For an IO or File object, the external encoding may be set by:</p>
+<ul><li>
+<p>Open options <code>external_encoding</code> or <code>encoding</code>, when the object is created; see <a href="IO.html#class-IO-label-Open+Options">Open Options</a>.</p>
+</li></ul>
+
+<p>For an IO, File, ARGF, or StringIO object, the external encoding may be set by:</p>
+<ul><li>
+<p>Methods <code>set_encoding</code> or (except for ARGF) <code>set_encoding_by_bom</code>.</p>
+</li></ul>
+
+<h3 id="label-Internal+Encoding">Internal Encoding<span><a href="#label-Internal+Encoding">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The internal encoding, which is an Encoding object or <code>nil</code>, specifies how characters read from the stream are to be converted to characters in the internal encoding; those characters become a string whose encoding is set to the internal encoding.</p>
+
+<p>The default internal encoding is <code>nil</code> (no conversion). It is returned by method <a href="Encoding.html#method-c-default_internal"><code>Encoding.default_internal</code></a>, and may be set by:</p>
+<ul><li>
+<p>Ruby command-line options <code>--internal_encoding</code> or <code>-E</code>.</p>
+</li></ul>
+
+<p>You can also set the default internal encoding using method <a href="Encoding.html#method-c-default_internal-3D"><code>Encoding.default_internal=</code></a>, but doing so may cause problems; strings created before and after the change may have a different encodings.</p>
+
+<p>For an IO or File object, the internal encoding may be set by:</p>
+<ul><li>
+<p>Open options <code>internal_encoding</code> or <code>encoding</code>, when the object is created; see <a href="IO.html#class-IO-label-Open+Options">Open Options</a>.</p>
+</li></ul>
+
+<p>For an IO, File, ARGF, or StringIO object, the internal encoding may be set by:</p>
+<ul><li>
+<p>Method <code>set_encoding</code>.</p>
+</li></ul>
+
+<h2 id="label-Script+Encoding">Script Encoding<span><a href="#label-Script+Encoding">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A Ruby script has a script encoding, which may be retrieved by:</p>
+
+<pre class="ruby"><span class="ruby-keyword">__ENCODING__</span> <span class="ruby-comment"># =&gt; #&lt;Encoding:UTF-8&gt;</span>
+</pre>
+
+<p>The default script encoding is UTF-8; a Ruby source file may set its script encoding with a magic comment on the first line of the file (or second line, if there is a shebang on the first). The comment must contain the word <code>coding</code> or <code>encoding</code>, followed by a colon, space and the <a href="Encoding.html"><code>Encoding</code></a> name or alias:</p>
+
+<pre class="ruby"><span class="ruby-comment"># encoding: ISO-8859-1</span>
+<span class="ruby-keyword">__ENCODING__</span> <span class="ruby-comment">#=&gt; #&lt;Encoding:ISO-8859-1&gt;</span>
+</pre>
+
+<h2 id="label-Transcoding">Transcoding<span><a href="#label-Transcoding">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><em>Transcoding</em> is the process of changing a sequence of characters from one encoding to another.</p>
+
+<p>As far as possible, the characters remain the same, but the bytes that represent them may change.</p>
+
+<p>The handling for characters that cannot be represented in the destination encoding may be specified by @Encoding+Options.</p>
+
+<h3 id="label-Transcoding+a+String">Transcoding a String<span><a href="#label-Transcoding+a+String">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Each of these methods transcodes a string:</p>
+<ul><li>
+<p><a href="String.html#method-i-encode"><code>String#encode</code></a>: Transcodes <code>self</code> into a new string according to given encodings and options.</p>
+</li><li>
+<p><a href="String.html#method-i-encode-21"><code>String#encode!</code></a>: Like <a href="String.html#method-i-encode"><code>String#encode</code></a>, but transcodes <code>self</code> in place.</p>
+</li><li>
+<p><a href="String.html#method-i-scrub"><code>String#scrub</code></a>: Transcodes <code>self</code> into a new string by replacing invalid byte sequences with a given or default replacement string.</p>
+</li><li>
+<p><a href="String.html#method-i-scrub-21"><code>String#scrub!</code></a>: Like <a href="String.html#method-i-scrub"><code>String#scrub</code></a>, but transcodes <code>self</code> in place.</p>
+</li><li>
+<p><a href="String.html#method-i-unicode_normalize"><code>String#unicode_normalize</code></a>: Transcodes <code>self</code> into a new string according to Unicode normalization.</p>
+</li><li>
+<p><a href="String.html#method-i-unicode_normalize-21"><code>String#unicode_normalize!</code></a>: Like <a href="String.html#method-i-unicode_normalize"><code>String#unicode_normalize</code></a>, but transcodes <code>self</code> in place.</p>
+</li></ul>
+
+<h2 id="label-Transcoding+a+Stream">Transcoding a Stream<span><a href="#label-Transcoding+a+Stream">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Each of these methods may transcode a stream; whether it does so depends on the external and internal encodings:</p>
+<ul><li>
+<p><a href="IO.html#method-c-foreach"><code>IO.foreach</code></a>: Yields each line of given stream to the block.</p>
+</li><li>
+<p><a href="IO.html#method-c-new"><code>IO.new</code></a>: Creates and returns a new IO object for the given integer file descriptor.</p>
+</li><li>
+<p><a href="IO.html#method-c-open"><code>IO.open</code></a>: Creates a new IO object.</p>
+</li><li>
+<p><a href="IO.html#method-c-pipe"><code>IO.pipe</code></a>: Creates a connected pair of reader and writer IO objects.</p>
+</li><li>
+<p><a href="IO.html#method-c-popen"><code>IO.popen</code></a>: Creates an IO object to interact with a subprocess.</p>
+</li><li>
+<p><a href="IO.html#method-c-read"><code>IO.read</code></a>: Returns a string with all or a subset of bytes from the given stream.</p>
+</li><li>
+<p><a href="IO.html#method-c-readlines"><code>IO.readlines</code></a>: Returns an array of strings, which are the lines from the given stream.</p>
+</li><li>
+<p><a href="IO.html#method-c-write"><code>IO.write</code></a>: Writes a given string to the given stream.</p>
+</li></ul>
+
+<p>This example writes a string to a file, encoding it as ISO-8859-1, then reads the file into a new string, encoding it as UTF-8:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;R\u00E9sum\u00E9&quot;</span>
+<span class="ruby-identifier">path</span> = <span class="ruby-string">&#39;t.tmp&#39;</span>
+<span class="ruby-identifier">ext_enc</span> = <span class="ruby-string">&#39;ISO-8859-1&#39;</span>
+<span class="ruby-identifier">int_enc</span> = <span class="ruby-string">&#39;UTF-8&#39;</span>
+
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">s</span>, <span class="ruby-value">external_encoding:</span> <span class="ruby-identifier">ext_enc</span>)
+<span class="ruby-identifier">raw_text</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">binread</span>(<span class="ruby-identifier">path</span>)
+
+<span class="ruby-identifier">transcoded_text</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value">external_encoding:</span> <span class="ruby-identifier">ext_enc</span>, <span class="ruby-value">internal_encoding:</span> <span class="ruby-identifier">int_enc</span>)
+
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">raw_text</span>
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">transcoded_text</span>
+</pre>
+
+<p>Output:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;R\xE9sum\xE9&quot;</span>
+<span class="ruby-string">&quot;Résumé&quot;</span>
+</pre>
+
+<h2 id="label-Encoding+Options">Encoding Options<span><a href="#label-Encoding+Options">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A number of methods in the Ruby core accept keyword arguments as encoding options.</p>
+
+<p>Some of the options specify or utilize a <em>replacement</em> <em>string</em>, to be used in certain transcoding operations. A replacement string may be in any encoding that can be converted to the encoding of the destination string.</p>
+
+<p>These keyword-value pairs specify encoding options:</p>
+<ul><li>
+<p>For an invalid byte sequence:</p>
+<ul><li>
+<p><code>:invalid: nil</code> (default): Raise exception.</p>
+</li><li>
+<p><code>:invalid: :replace</code>: Replace each invalid byte sequence with the replacement string.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\x80foo\x80&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;ISO-8859-3&#39;</span>) <span class="ruby-comment"># Raises Encoding::InvalidByteSequenceError.</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;ISO-8859-3&#39;</span>, <span class="ruby-value">invalid:</span> <span class="ruby-value">:replace</span>) <span class="ruby-comment"># =&gt; &quot;?foo?&quot;</span>
+</pre>
+</li><li>
+<p>For an undefined character:</p>
+<ul><li>
+<p><code>:undef: nil</code> (default): Raise exception.</p>
+</li><li>
+<p><code>:undef: :replace</code>: Replace each undefined character with the replacement string.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\x80foo\x80&quot;</span>
+<span class="ruby-string">&quot;\x80&quot;</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;UTF-8&#39;</span>, <span class="ruby-string">&#39;ASCII-8BIT&#39;</span>) <span class="ruby-comment"># Raises Encoding::UndefinedConversionError.</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;UTF-8&#39;</span>, <span class="ruby-string">&#39;ASCII-8BIT&#39;</span>, <span class="ruby-value">undef:</span> <span class="ruby-value">:replace</span>) <span class="ruby-comment"># =&gt; &quot;�foo�&quot;</span>
+</pre>
+</li><li>
+<p>Replacement string:</p>
+<ul><li>
+<p><code>:replace: nil</code> (default): Set replacement string to default value: <code>&quot;\uFFFD&quot;</code> (“�”) for a Unicode encoding, <code>&#39;?&#39;</code> otherwise.</p>
+</li><li>
+<p><code>:replace: <em>some_string</em></code>: Set replacement string to the given <code>some_string</code>; overrides <code>:fallback</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\xA5foo\xA5&quot;</span>
+<span class="ruby-identifier">options</span> = {<span class="ruby-value">:undef</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:replace</span>, <span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;xyzzy&#39;</span>}
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;UTF-8&#39;</span>, <span class="ruby-string">&#39;ISO-8859-3&#39;</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>) <span class="ruby-comment"># =&gt; &quot;xyzzyfooxyzzy&quot;</span>
+</pre>
+</li><li>
+<p>Replacement fallback:</p>
+
+<p>One of these may be specified:</p>
+<ul><li>
+<p><code>:fallback: nil</code> (default): No replacement fallback.</p>
+</li><li>
+<p><code>:fallback: <em>hash_like_object</em></code>: Set replacement fallback to the given <code>hash_like_object</code>; the replacement string is <code><em>hash_like_object</em>[X]</code>.</p>
+</li><li>
+<p><code>:fallback: <em>method</em></code>: Set replacement fallback to the given <code>method</code>; the replacement string is <code><em>method</em>(X)</code>.</p>
+</li><li>
+<p><code>:fallback: <em>proc</em></code>: Set replacement fallback to the given <code>proc</code>; the replacement string is <code><em>proc</em>[X]</code>.</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\u3042foo\u3043&quot;</span>
+
+<span class="ruby-identifier">hash</span> = {<span class="ruby-string">&quot;\u3042&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;xyzzy&#39;</span>}
+<span class="ruby-identifier">hash</span>.<span class="ruby-identifier">default</span> = <span class="ruby-string">&#39;XYZZY&#39;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;ASCII&#39;</span>, <span class="ruby-value">fallback:</span> <span class="ruby-identifier">hash</span>) <span class="ruby-comment"># =&gt; &quot;xyzzyfooXYZZY&quot;</span>
+
+<span class="ruby-keyword">def</span> (<span class="ruby-identifier ruby-title">fallback</span> = <span class="ruby-string">&quot;U+%.4X&quot;</span>).<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">x</span>)
+  <span class="ruby-keyword">self</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;U&quot;</span>)
+<span class="ruby-keyword">end</span>
+<span class="ruby-string">&quot;\u{3042}&quot;</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;US-ASCII&quot;</span>, <span class="ruby-value">fallback:</span> <span class="ruby-identifier">fallback</span>.<span class="ruby-identifier">method</span>(<span class="ruby-value">:escape</span>)) <span class="ruby-comment"># =&gt; &quot;U+3042&quot;</span>
+
+<span class="ruby-identifier">proc</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\u3042&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;xyzzy&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;XYZZY&#39;</span> }
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;ASCII&#39;</span>, <span class="ruby-value">fallback:</span> <span class="ruby-identifier">proc</span>) <span class="ruby-comment"># =&gt; &quot;XYZZYfooXYZZY&quot;</span>
+</pre>
+</li><li>
+<p>XML entities:</p>
+
+<p>One of these may be specified:</p>
+<ul><li>
+<p><code>:xml: nil</code> (default): No handling for XML entities.</p>
+</li><li>
+<p><code>:xml: :text</code>: Treat source text as XML; replace each undefined character with its upper-case hexdecimal numeric character reference, except that:</p>
+<ul><li>
+<p><code>&amp;</code> is replaced with <code>&amp;amp;</code>.</p>
+</li><li>
+<p><code>&lt;</code> is replaced with <code>&amp;lt;</code>.</p>
+</li><li>
+<p><code>&gt;</code> is replaced with <code>&amp;gt;</code>.</p>
+</li></ul>
+</li><li>
+<p><code>:xml: :attr</code>: Treat source text as XML attribute value; replace each undefined character with its upper-case hexdecimal numeric character reference, except that:</p>
+<ul><li>
+<p>The replacement string <code>r</code> is double-quoted (<code>&quot;r&quot;</code>).</p>
+</li><li>
+<p>Each embedded double-quote is replaced with <code>&amp;quot;</code>.</p>
+</li><li>
+<p><code>&amp;</code> is replaced with <code>&amp;amp;</code>.</p>
+</li><li>
+<p><code>&lt;</code> is replaced with <code>&amp;lt;</code>.</p>
+</li><li>
+<p><code>&gt;</code> is replaced with <code>&amp;gt;</code>.</p>
+</li></ul>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;foo&quot;&lt;&amp;&gt;&quot;bar&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\u3042&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;ASCII&#39;</span>, <span class="ruby-value">xml:</span> <span class="ruby-value">:text</span>) <span class="ruby-comment"># =&gt; &quot;foo\&quot;&amp;lt;&amp;amp;&amp;gt;\&quot;bar&amp;#x3042;&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;ASCII&#39;</span>, <span class="ruby-value">xml:</span> <span class="ruby-value">:attr</span>) <span class="ruby-comment"># =&gt; &quot;\&quot;foo&amp;quot;&amp;lt;&amp;amp;&amp;gt;&amp;quot;bar&amp;#x3042;\&quot;&quot;</span>
+</pre>
+</li><li>
+<p>Newlines:</p>
+
+<p>One of these may be specified:</p>
+<ul><li>
+<p><code>:cr_newline: true</code>: Replace each line-feed character (<code>&quot;\n&quot;</code>) with a carriage-return character (<code>&quot;\r&quot;</code>).</p>
+</li><li>
+<p><code>:crlf_newline: true</code>: Replace each line-feed character (<code>&quot;\n&quot;</code>) with a carriage-return/line-feed string (<code>&quot;\r\n&quot;</code>).</p>
+</li><li>
+<p><code>:universal_newline: true</code>: Replace each carriage-return character (<code>&quot;\r&quot;</code>) and each carriage-return/line-feed string (<code>&quot;\r\n&quot;</code>) with a line-feed character (<code>&quot;\n&quot;</code>).</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\n \r \r\n&quot;</span>                           <span class="ruby-comment"># =&gt; &quot;\n \r \r\n&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;ASCII&#39;</span>, <span class="ruby-value">cr_newline:</span> <span class="ruby-keyword">true</span>)        <span class="ruby-comment"># =&gt; &quot;\r \r \r\r&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;ASCII&#39;</span>, <span class="ruby-value">crlf_newline:</span> <span class="ruby-keyword">true</span>)      <span class="ruby-comment"># =&gt; &quot;\r\n \r \r\r\n&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;ASCII&#39;</span>, <span class="ruby-value">universal_newline:</span> <span class="ruby-keyword">true</span>) <span class="ruby-comment"># =&gt; &quot;\n \n \n&quot;</span>
+</pre>
+</li></ul>
+
+</main>
+

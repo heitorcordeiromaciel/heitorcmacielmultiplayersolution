@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>unicode_properties - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,unicode_properties">
+  <meta name="description" content="unicode_properties: Regexps Based on Unicode Properties The properties shown here are those currently supported in Ruby. Older versions may not support all of these.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/regexp/unicode_properties_rdoc.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Regexps+Based+on+Unicode+Properties">Regexps Based on Unicode Properties</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-POSIX+brackets">POSIX brackets</a>
+          <li>      <a href="#label-Special">Special</a>
+          <li>      <a href="#label-Major+and+General+Categories">Major and General Categories</a>
+          <li>      <a href="#label-Prop+List">Prop List</a>
+          <li>      <a href="#label-Derived+Core+Properties">Derived Core Properties</a>
+          <li>      <a href="#label-Scripts">Scripts</a>
+          <li>      <a href="#label-Blocks">Blocks</a>
+          <li>      <a href="#label-Emoji">Emoji</a>
+          <li>      <a href="#label-Graphemes">Graphemes</a>
+          <li>      <a href="#label-Derived+Ages">Derived Ages</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../COPYING.html">COPYING</a>
+    <li><a href="../COPYING_ja.html">COPYING.ja</a>
+    <li><a href="../LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="../NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="../NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="../NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="../NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="../NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="../NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="../NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="../NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="../NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="../NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="../NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="../NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="../NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="../NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="../NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="../NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="../NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="../README_ja_md.html">README.ja</a>
+    <li><a href="../README_md.html">README</a>
+    <li><a href="../bsearch_rdoc.html">bsearch</a>
+    <li><a href="../bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="../case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="../character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="../command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="../contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="../contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="../contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="../contributing/glossary_md.html">glossary</a>
+      <li><a href="../contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="../contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="../contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="../contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="../date/calendars_rdoc.html">calendars</a>
+    <li><a href="../dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="../distribution_md.html">distribution</a>
+    <li><a href="../dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="../encodings_rdoc.html">encodings</a>
+    <li><a href="../exceptions_md.html">exceptions</a>
+    <li><a href="../extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="../extension_rdoc.html">extension</a>
+    <li><a href="../fiber_md.html">fiber</a>
+    <li><a href="../format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="../globals_rdoc.html">globals</a>
+    <li><a href="../implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="../index_md.html">index</a>
+    <li><a href="../maintainers_md.html">maintainers</a>
+    <li><a href="../marshal_rdoc.html">marshal</a>
+    <li><a href="../memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="../optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="../optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="../optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="../optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="../packed_data_rdoc.html">packed_data</a>
+    <li><a href="../ractor_md.html">ractor</a>
+    <li><details open><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="../regexp/methods_rdoc.html">methods</a>
+      <li><a href="../regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="../rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="../ruby/option_dump_md.html">option_dump</a>
+      <li><a href="../ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="../security_rdoc.html">security</a>
+    <li><a href="../signals_rdoc.html">signals</a>
+    <li><a href="../standard_library_md.html">standard_library</a>
+    <li><a href="../strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="../syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="../syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="../syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="../syntax/comments_rdoc.html">comments</a>
+      <li><a href="../syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="../syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="../syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="../syntax/literals_rdoc.html">literals</a>
+      <li><a href="../syntax/methods_rdoc.html">methods</a>
+      <li><a href="../syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="../syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="../syntax/operators_rdoc.html">operators</a>
+      <li><a href="../syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="../syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="../syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="../windows_md.html">windows</a>
+    <li><a href="../yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page regexp/unicode_properties.rdoc">
+
+<h2 id="label-Regexps+Based+on+Unicode+Properties">Regexps Based on Unicode Properties<span><a href="#label-Regexps+Based+on+Unicode+Properties">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The properties shown here are those currently supported in Ruby. Older versions may not support all of these.</p>
+
+<h3 id="label-POSIX+brackets">POSIX brackets<span><a href="#label-POSIX+brackets">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>\p{ASCII}</code></p>
+</li><li>
+<p><code>\p{Alnum}</code></p>
+</li><li>
+<p><code>\p{Alphabetic}</code>, <code>\p{Alpha}</code></p>
+</li><li>
+<p><code>\p{Blank}</code></p>
+</li><li>
+<p><code>\p{Cntrl}</code></p>
+</li><li>
+<p><code>\p{Digit}</code></p>
+</li><li>
+<p><code>\p{Graph}</code></p>
+</li><li>
+<p><code>\p{Lowercase}</code>, <code>\p{Lower}</code></p>
+</li><li>
+<p><code>\p{Print}</code></p>
+</li><li>
+<p><code>\p{Punct}</code></p>
+</li><li>
+<p><code>\p{Space}</code></p>
+</li><li>
+<p><code>\p{Uppercase}</code>, <code>\p{Upper}</code></p>
+</li><li>
+<p><code>\p{Word}</code></p>
+</li><li>
+<p><code>\p{XDigit}</code></p>
+</li><li>
+<p><code>\p{XPosixPunct}</code></p>
+</li></ul>
+
+<h3 id="label-Special">Special<span><a href="#label-Special">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>\p{Any}</code></p>
+</li><li>
+<p><code>\p{Assigned}</code></p>
+</li></ul>
+
+<h3 id="label-Major+and+General+Categories">Major and General Categories<span><a href="#label-Major+and+General+Categories">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>\p{Cased_Letter}</code>, <code>\p{LC}</code></p>
+</li><li>
+<p><code>\p{Close_Punctuation}</code>, <code>\p{Pe}</code></p>
+</li><li>
+<p><code>\p{Connector_Punctuation}</code>, <code>\p{Pc}</code></p>
+</li><li>
+<p><code>\p{Control}</code>, <code>\p{Cc}</code></p>
+</li><li>
+<p><code>\p{Currency_Symbol}</code>, <code>\p{Sc}</code></p>
+</li><li>
+<p><code>\p{Dash_Punctuation}</code>, <code>\p{Pd}</code></p>
+</li><li>
+<p><code>\p{Decimal_Number}</code>, <code>\p{Nd}</code></p>
+</li><li>
+<p><code>\p{Enclosing_Mark}</code>, <code>\p{Me}</code></p>
+</li><li>
+<p><code>\p{Final_Punctuation}</code>, <code>\p{Pf}</code></p>
+</li><li>
+<p><code>\p{Format}</code>, <code>\p{Cf}</code></p>
+</li><li>
+<p><code>\p{Initial_Punctuation}</code>, <code>\p{Pi}</code></p>
+</li><li>
+<p><code>\p{Letter}</code>, <code>\p{L}</code></p>
+</li><li>
+<p><code>\p{Letter_Number}</code>, <code>\p{Nl}</code></p>
+</li><li>
+<p><code>\p{Line_Separator}</code>, <code>\p{Zl}</code></p>
+</li><li>
+<p><code>\p{Lowercase_Letter}</code>, <code>\p{Ll}</code></p>
+</li><li>
+<p><code>\p{Mark}</code>, <code>\p{M}</code></p>
+</li><li>
+<p><code>\p{Math_Symbol}</code>, <code>\p{Sm}</code></p>
+</li><li>
+<p><code>\p{Modifier_Letter}</code>, <code>\p{Lm}</code></p>
+</li><li>
+<p><code>\p{Modifier_Symbol}</code>, <code>\p{Sk}</code></p>
+</li><li>
+<p><code>\p{Nonspacing_Mark}</code>, <code>\p{Mn}</code></p>
+</li><li>
+<p><code>\p{Number}</code>, <code>\p{N}</code></p>
+</li><li>
+<p><code>\p{Open_Punctuation}</code>, <code>\p{Ps}</code></p>
+</li><li>
+<p><code>\p{Other}</code>, <code>\p{C}</code></p>
+</li><li>
+<p><code>\p{Other_Letter}</code>, <code>\p{Lo}</code></p>
+</li><li>
+<p><code>\p{Other_Number}</code>, <code>\p{No}</code></p>
+</li><li>
+<p><code>\p{Other_Punctuation}</code>, <code>\p{Po}</code></p>
+</li><li>
+<p><code>\p{Other_Symbol}</code>, <code>\p{So}</code></p>
+</li><li>
+<p><code>\p{Paragraph_Separator}</code>, <code>\p{Zp}</code></p>
+</li><li>
+<p><code>\p{Private_Use}</code>, <code>\p{Co}</code></p>
+</li><li>
+<p><code>\p{Punctuation}</code>, <code>\p{P}</code></p>
+</li><li>
+<p><code>\p{Separator}</code>, <code>\p{Z}</code></p>
+</li><li>
+<p><code>\p{Space_Separator}</code>, <code>\p{Zs}</code></p>
+</li><li>
+<p><code>\p{Spacing_Mark}</code>, <code>\p{Mc}</code></p>
+</li><li>
+<p><code>\p{Surrogate}</code>, <code>\p{Cs}</code></p>
+</li><li>
+<p><code>\p{Symbol}</code>, <code>\p{S}</code></p>
+</li><li>
+<p><code>\p{Titlecase_Letter}</code>, <code>\p{Lt}</code></p>
+</li><li>
+<p><code>\p{Unassigned}</code>, <code>\p{Cn}</code></p>
+</li><li>
+<p><code>\p{Uppercase_Letter}</code>, <code>\p{Lu}</code></p>
+</li></ul>
+
+<h3 id="label-Prop+List">Prop List<span><a href="#label-Prop+List">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>\p{ASCII_Hex_Digit}</code>, <code>\p{AHex}</code></p>
+</li><li>
+<p><code>\p{Bidi_Control}</code>, <code>\p{Bidi_C}</code></p>
+</li><li>
+<p><code>\p{Dash}</code></p>
+</li><li>
+<p><code>\p{Deprecated}</code>, <code>\p{Dep}</code></p>
+</li><li>
+<p><code>\p{Diacritic}</code>, <code>\p{Dia}</code></p>
+</li><li>
+<p><code>\p{Extender}</code>, <code>\p{Ext}</code></p>
+</li><li>
+<p><code>\p{Hex_Digit}</code>, <code>\p{Hex}</code></p>
+</li><li>
+<p><code>\p{Hyphen}</code></p>
+</li><li>
+<p><code>\p{IDS_Binary_Operator}</code>, <code>\p{IDSB}</code></p>
+</li><li>
+<p><code>\p{IDS_Trinary_Operator}</code>, <code>\p{IDST}</code></p>
+</li><li>
+<p><code>\p{Ideographic}</code>, <code>\p{Ideo}</code></p>
+</li><li>
+<p><code>\p{Join_Control}</code>, <code>\p{Join_C}</code></p>
+</li><li>
+<p><code>\p{Logical_Order_Exception}</code>, <code>\p{LOE}</code></p>
+</li><li>
+<p><code>\p{Noncharacter_Code_Point}</code>, <code>\p{NChar}</code></p>
+</li><li>
+<p><code>\p{Other_Alphabetic}</code>, <code>\p{OAlpha}</code></p>
+</li><li>
+<p><code>\p{Other_Default_Ignorable_Code_Point}</code>, <code>\p{ODI}</code></p>
+</li><li>
+<p><code>\p{Other_Grapheme_Extend}</code>, <code>\p{OGr_Ext}</code></p>
+</li><li>
+<p><code>\p{Other_ID_Continue}</code>, <code>\p{OIDC}</code></p>
+</li><li>
+<p><code>\p{Other_ID_Start}</code>, <code>\p{OIDS}</code></p>
+</li><li>
+<p><code>\p{Other_Lowercase}</code>, <code>\p{OLower}</code></p>
+</li><li>
+<p><code>\p{Other_Math}</code>, <code>\p{OMath}</code></p>
+</li><li>
+<p><code>\p{Other_Uppercase}</code>, <code>\p{OUpper}</code></p>
+</li><li>
+<p><code>\p{Pattern_Syntax}</code>, <code>\p{Pat_Syn}</code></p>
+</li><li>
+<p><code>\p{Pattern_White_Space}</code>, <code>\p{Pat_WS}</code></p>
+</li><li>
+<p><code>\p{Prepended_Concatenation_Mark}</code>, <code>\p{PCM}</code></p>
+</li><li>
+<p><code>\p{Quotation_Mark}</code>, <code>\p{QMark}</code></p>
+</li><li>
+<p><code>\p{Radical}</code></p>
+</li><li>
+<p><code>\p{Regional_Indicator}</code>, <code>\p{RI}</code></p>
+</li><li>
+<p><code>\p{Sentence_Terminal}</code>, <code>\p{STerm}</code></p>
+</li><li>
+<p><code>\p{Soft_Dotted}</code>, <code>\p{SD}</code></p>
+</li><li>
+<p><code>\p{Terminal_Punctuation}</code>, <code>\p{Term}</code></p>
+</li><li>
+<p><code>\p{Unified_Ideograph}</code>, <code>\p{UIdeo}</code></p>
+</li><li>
+<p><code>\p{Variation_Selector}</code>, <code>\p{VS}</code></p>
+</li><li>
+<p><code>\p{White_Space}</code>, <code>\p{WSpace}</code></p>
+</li></ul>
+
+<h3 id="label-Derived+Core+Properties">Derived Core Properties<span><a href="#label-Derived+Core+Properties">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>\p{Alphabetic}</code>, <code>\p{Alpha}</code></p>
+</li><li>
+<p><code>\p{Case_Ignorable}</code>, <code>\p{CI}</code></p>
+</li><li>
+<p><code>\p{Cased}</code></p>
+</li><li>
+<p><code>\p{Changes_When_Casefolded}</code>, <code>\p{CWCF}</code></p>
+</li><li>
+<p><code>\p{Changes_When_Casemapped}</code>, <code>\p{CWCM}</code></p>
+</li><li>
+<p><code>\p{Changes_When_Lowercased}</code>, <code>\p{CWL}</code></p>
+</li><li>
+<p><code>\p{Changes_When_Titlecased}</code>, <code>\p{CWT}</code></p>
+</li><li>
+<p><code>\p{Changes_When_Uppercased}</code>, <code>\p{CWU}</code></p>
+</li><li>
+<p><code>\p{Default_Ignorable_Code_Point}</code>, <code>\p{DI}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Base}</code>, <code>\p{Gr_Base}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Extend}</code>, <code>\p{Gr_Ext}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Link}</code>, <code>\p{Gr_Link}</code></p>
+</li><li>
+<p><code>\p{ID_Continue}</code>, <code>\p{IDC}</code></p>
+</li><li>
+<p><code>\p{ID_Start}</code>, <code>\p{IDS}</code></p>
+</li><li>
+<p><code>\p{Lowercase}</code>, <code>\p{Lower}</code></p>
+</li><li>
+<p><code>\p{Math}</code></p>
+</li><li>
+<p><code>\p{Uppercase}</code>, <code>\p{Upper}</code></p>
+</li><li>
+<p><code>\p{XID_Continue}</code>, <code>\p{XIDC}</code></p>
+</li><li>
+<p><code>\p{XID_Start}</code>, <code>\p{XIDS}</code></p>
+</li></ul>
+
+<h3 id="label-Scripts">Scripts<span><a href="#label-Scripts">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>\p{Adlam}</code>, <code>\p{Adlm}</code></p>
+</li><li>
+<p><code>\p{Ahom}</code></p>
+</li><li>
+<p><code>\p{Anatolian_Hieroglyphs}</code>, <code>\p{Hluw}</code></p>
+</li><li>
+<p><code>\p{Arabic}</code>, <code>\p{Arab}</code></p>
+</li><li>
+<p><code>\p{Armenian}</code>, <code>\p{Armn}</code></p>
+</li><li>
+<p><code>\p{Avestan}</code>, <code>\p{Avst}</code></p>
+</li><li>
+<p><code>\p{Balinese}</code>, <code>\p{Bali}</code></p>
+</li><li>
+<p><code>\p{Bamum}</code>, <code>\p{Bamu}</code></p>
+</li><li>
+<p><code>\p{Bassa_Vah}</code>, <code>\p{Bass}</code></p>
+</li><li>
+<p><code>\p{Batak}</code>, <code>\p{Batk}</code></p>
+</li><li>
+<p><code>\p{Bengali}</code>, <code>\p{Beng}</code></p>
+</li><li>
+<p><code>\p{Bhaiksuki}</code>, <code>\p{Bhks}</code></p>
+</li><li>
+<p><code>\p{Bopomofo}</code>, <code>\p{Bopo}</code></p>
+</li><li>
+<p><code>\p{Brahmi}</code>, <code>\p{Brah}</code></p>
+</li><li>
+<p><code>\p{Braille}</code>, <code>\p{Brai}</code></p>
+</li><li>
+<p><code>\p{Buginese}</code>, <code>\p{Bugi}</code></p>
+</li><li>
+<p><code>\p{Buhid}</code>, <code>\p{Buhd}</code></p>
+</li><li>
+<p><code>\p{Canadian_Aboriginal}</code>, <code>\p{Cans}</code></p>
+</li><li>
+<p><code>\p{Carian}</code>, <code>\p{Cari}</code></p>
+</li><li>
+<p><code>\p{Caucasian_Albanian}</code>, <code>\p{Aghb}</code></p>
+</li><li>
+<p><code>\p{Chakma}</code>, <code>\p{Cakm}</code></p>
+</li><li>
+<p><code>\p{Cham}</code></p>
+</li><li>
+<p><code>\p{Cherokee}</code>, <code>\p{Cher}</code></p>
+</li><li>
+<p><code>\p{Chorasmian}</code>, <code>\p{Chrs}</code></p>
+</li><li>
+<p><code>\p{Common}</code>, <code>\p{Zyyy}</code></p>
+</li><li>
+<p><code>\p{Coptic}</code>, <code>\p{Copt}</code></p>
+</li><li>
+<p><code>\p{Cuneiform}</code>, <code>\p{Xsux}</code></p>
+</li><li>
+<p><code>\p{Cypriot}</code>, <code>\p{Cprt}</code></p>
+</li><li>
+<p><code>\p{Cypro_Minoan}</code>, <code>\p{Cpmn}</code></p>
+</li><li>
+<p><code>\p{Cyrillic}</code>, <code>\p{Cyrl}</code></p>
+</li><li>
+<p><code>\p{Deseret}</code>, <code>\p{Dsrt}</code></p>
+</li><li>
+<p><code>\p{Devanagari}</code>, <code>\p{Deva}</code></p>
+</li><li>
+<p><code>\p{Dives_Akuru}</code>, <code>\p{Diak}</code></p>
+</li><li>
+<p><code>\p{Dogra}</code>, <code>\p{Dogr}</code></p>
+</li><li>
+<p><code>\p{Duployan}</code>, <code>\p{Dupl}</code></p>
+</li><li>
+<p><code>\p{Egyptian_Hieroglyphs}</code>, <code>\p{Egyp}</code></p>
+</li><li>
+<p><code>\p{Elbasan}</code>, <code>\p{Elba}</code></p>
+</li><li>
+<p><code>\p{Elymaic}</code>, <code>\p{Elym}</code></p>
+</li><li>
+<p><code>\p{Ethiopic}</code>, <code>\p{Ethi}</code></p>
+</li><li>
+<p><code>\p{Georgian}</code>, <code>\p{Geor}</code></p>
+</li><li>
+<p><code>\p{Glagolitic}</code>, <code>\p{Glag}</code></p>
+</li><li>
+<p><code>\p{Gothic}</code>, <code>\p{Goth}</code></p>
+</li><li>
+<p><code>\p{Grantha}</code>, <code>\p{Gran}</code></p>
+</li><li>
+<p><code>\p{Greek}</code>, <code>\p{Grek}</code></p>
+</li><li>
+<p><code>\p{Gujarati}</code>, <code>\p{Gujr}</code></p>
+</li><li>
+<p><code>\p{Gunjala_Gondi}</code>, <code>\p{Gong}</code></p>
+</li><li>
+<p><code>\p{Gurmukhi}</code>, <code>\p{Guru}</code></p>
+</li><li>
+<p><code>\p{Han}</code>, <code>\p{Hani}</code></p>
+</li><li>
+<p><code>\p{Hangul}</code>, <code>\p{Hang}</code></p>
+</li><li>
+<p><code>\p{Hanifi_Rohingya}</code>, <code>\p{Rohg}</code></p>
+</li><li>
+<p><code>\p{Hanunoo}</code>, <code>\p{Hano}</code></p>
+</li><li>
+<p><code>\p{Hatran}</code>, <code>\p{Hatr}</code></p>
+</li><li>
+<p><code>\p{Hebrew}</code>, <code>\p{Hebr}</code></p>
+</li><li>
+<p><code>\p{Hiragana}</code>, <code>\p{Hira}</code></p>
+</li><li>
+<p><code>\p{Imperial_Aramaic}</code>, <code>\p{Armi}</code></p>
+</li><li>
+<p><code>\p{Inherited}</code>, <code>\p{Zinh}</code></p>
+</li><li>
+<p><code>\p{Inscriptional_Pahlavi}</code>, <code>\p{Phli}</code></p>
+</li><li>
+<p><code>\p{Inscriptional_Parthian}</code>, <code>\p{Prti}</code></p>
+</li><li>
+<p><code>\p{Javanese}</code>, <code>\p{Java}</code></p>
+</li><li>
+<p><code>\p{Kaithi}</code>, <code>\p{Kthi}</code></p>
+</li><li>
+<p><code>\p{Kannada}</code>, <code>\p{Knda}</code></p>
+</li><li>
+<p><code>\p{Katakana}</code>, <code>\p{Kana}</code></p>
+</li><li>
+<p><code>\p{Kawi}</code></p>
+</li><li>
+<p><code>\p{Kayah_Li}</code>, <code>\p{Kali}</code></p>
+</li><li>
+<p><code>\p{Kharoshthi}</code>, <code>\p{Khar}</code></p>
+</li><li>
+<p><code>\p{Khitan_Small_Script}</code>, <code>\p{Kits}</code></p>
+</li><li>
+<p><code>\p{Khmer}</code>, <code>\p{Khmr}</code></p>
+</li><li>
+<p><code>\p{Khojki}</code>, <code>\p{Khoj}</code></p>
+</li><li>
+<p><code>\p{Khudawadi}</code>, <code>\p{Sind}</code></p>
+</li><li>
+<p><code>\p{Lao}</code>, <code>\p{Laoo}</code></p>
+</li><li>
+<p><code>\p{Latin}</code>, <code>\p{Latn}</code></p>
+</li><li>
+<p><code>\p{Lepcha}</code>, <code>\p{Lepc}</code></p>
+</li><li>
+<p><code>\p{Limbu}</code>, <code>\p{Limb}</code></p>
+</li><li>
+<p><code>\p{Linear_A}</code>, <code>\p{Lina}</code></p>
+</li><li>
+<p><code>\p{Linear_B}</code>, <code>\p{Linb}</code></p>
+</li><li>
+<p><code>\p{Lisu}</code></p>
+</li><li>
+<p><code>\p{Lycian}</code>, <code>\p{Lyci}</code></p>
+</li><li>
+<p><code>\p{Lydian}</code>, <code>\p{Lydi}</code></p>
+</li><li>
+<p><code>\p{Mahajani}</code>, <code>\p{Mahj}</code></p>
+</li><li>
+<p><code>\p{Makasar}</code>, <code>\p{Maka}</code></p>
+</li><li>
+<p><code>\p{Malayalam}</code>, <code>\p{Mlym}</code></p>
+</li><li>
+<p><code>\p{Mandaic}</code>, <code>\p{Mand}</code></p>
+</li><li>
+<p><code>\p{Manichaean}</code>, <code>\p{Mani}</code></p>
+</li><li>
+<p><code>\p{Marchen}</code>, <code>\p{Marc}</code></p>
+</li><li>
+<p><code>\p{Masaram_Gondi}</code>, <code>\p{Gonm}</code></p>
+</li><li>
+<p><code>\p{Medefaidrin}</code>, <code>\p{Medf}</code></p>
+</li><li>
+<p><code>\p{Meetei_Mayek}</code>, <code>\p{Mtei}</code></p>
+</li><li>
+<p><code>\p{Mende_Kikakui}</code>, <code>\p{Mend}</code></p>
+</li><li>
+<p><code>\p{Meroitic_Cursive}</code>, <code>\p{Merc}</code></p>
+</li><li>
+<p><code>\p{Meroitic_Hieroglyphs}</code>, <code>\p{Mero}</code></p>
+</li><li>
+<p><code>\p{Miao}</code>, <code>\p{Plrd}</code></p>
+</li><li>
+<p><code>\p{Modi}</code></p>
+</li><li>
+<p><code>\p{Mongolian}</code>, <code>\p{Mong}</code></p>
+</li><li>
+<p><code>\p{Mro}</code>, <code>\p{Mroo}</code></p>
+</li><li>
+<p><code>\p{Multani}</code>, <code>\p{Mult}</code></p>
+</li><li>
+<p><code>\p{Myanmar}</code>, <code>\p{Mymr}</code></p>
+</li><li>
+<p><code>\p{Nabataean}</code>, <code>\p{Nbat}</code></p>
+</li><li>
+<p><code>\p{Nag_Mundari}</code>, <code>\p{Nagm}</code></p>
+</li><li>
+<p><code>\p{Nandinagari}</code>, <code>\p{Nand}</code></p>
+</li><li>
+<p><code>\p{New_Tai_Lue}</code>, <code>\p{Talu}</code></p>
+</li><li>
+<p><code>\p{Newa}</code></p>
+</li><li>
+<p><code>\p{Nko}</code>, <code>\p{Nkoo}</code></p>
+</li><li>
+<p><code>\p{Nushu}</code>, <code>\p{Nshu}</code></p>
+</li><li>
+<p><code>\p{Nyiakeng_Puachue_Hmong}</code>, <code>\p{Hmnp}</code></p>
+</li><li>
+<p><code>\p{Ogham}</code>, <code>\p{Ogam}</code></p>
+</li><li>
+<p><code>\p{Ol_Chiki}</code>, <code>\p{Olck}</code></p>
+</li><li>
+<p><code>\p{Old_Hungarian}</code>, <code>\p{Hung}</code></p>
+</li><li>
+<p><code>\p{Old_Italic}</code>, <code>\p{Ital}</code></p>
+</li><li>
+<p><code>\p{Old_North_Arabian}</code>, <code>\p{Narb}</code></p>
+</li><li>
+<p><code>\p{Old_Permic}</code>, <code>\p{Perm}</code></p>
+</li><li>
+<p><code>\p{Old_Persian}</code>, <code>\p{Xpeo}</code></p>
+</li><li>
+<p><code>\p{Old_Sogdian}</code>, <code>\p{Sogo}</code></p>
+</li><li>
+<p><code>\p{Old_South_Arabian}</code>, <code>\p{Sarb}</code></p>
+</li><li>
+<p><code>\p{Old_Turkic}</code>, <code>\p{Orkh}</code></p>
+</li><li>
+<p><code>\p{Old_Uyghur}</code>, <code>\p{Ougr}</code></p>
+</li><li>
+<p><code>\p{Oriya}</code>, <code>\p{Orya}</code></p>
+</li><li>
+<p><code>\p{Osage}</code>, <code>\p{Osge}</code></p>
+</li><li>
+<p><code>\p{Osmanya}</code>, <code>\p{Osma}</code></p>
+</li><li>
+<p><code>\p{Pahawh_Hmong}</code>, <code>\p{Hmng}</code></p>
+</li><li>
+<p><code>\p{Palmyrene}</code>, <code>\p{Palm}</code></p>
+</li><li>
+<p><code>\p{Pau_Cin_Hau}</code>, <code>\p{Pauc}</code></p>
+</li><li>
+<p><code>\p{Phags_Pa}</code>, <code>\p{Phag}</code></p>
+</li><li>
+<p><code>\p{Phoenician}</code>, <code>\p{Phnx}</code></p>
+</li><li>
+<p><code>\p{Psalter_Pahlavi}</code>, <code>\p{Phlp}</code></p>
+</li><li>
+<p><code>\p{Rejang}</code>, <code>\p{Rjng}</code></p>
+</li><li>
+<p><code>\p{Runic}</code>, <code>\p{Runr}</code></p>
+</li><li>
+<p><code>\p{Samaritan}</code>, <code>\p{Samr}</code></p>
+</li><li>
+<p><code>\p{Saurashtra}</code>, <code>\p{Saur}</code></p>
+</li><li>
+<p><code>\p{Sharada}</code>, <code>\p{Shrd}</code></p>
+</li><li>
+<p><code>\p{Shavian}</code>, <code>\p{Shaw}</code></p>
+</li><li>
+<p><code>\p{Siddham}</code>, <code>\p{Sidd}</code></p>
+</li><li>
+<p><code>\p{SignWriting}</code>, <code>\p{Sgnw}</code></p>
+</li><li>
+<p><code>\p{Sinhala}</code>, <code>\p{Sinh}</code></p>
+</li><li>
+<p><code>\p{Sogdian}</code>, <code>\p{Sogd}</code></p>
+</li><li>
+<p><code>\p{Sora_Sompeng}</code>, <code>\p{Sora}</code></p>
+</li><li>
+<p><code>\p{Soyombo}</code>, <code>\p{Soyo}</code></p>
+</li><li>
+<p><code>\p{Sundanese}</code>, <code>\p{Sund}</code></p>
+</li><li>
+<p><code>\p{Syloti_Nagri}</code>, <code>\p{Sylo}</code></p>
+</li><li>
+<p><code>\p{Syriac}</code>, <code>\p{Syrc}</code></p>
+</li><li>
+<p><code>\p{Tagalog}</code>, <code>\p{Tglg}</code></p>
+</li><li>
+<p><code>\p{Tagbanwa}</code>, <code>\p{Tagb}</code></p>
+</li><li>
+<p><code>\p{Tai_Le}</code>, <code>\p{Tale}</code></p>
+</li><li>
+<p><code>\p{Tai_Tham}</code>, <code>\p{Lana}</code></p>
+</li><li>
+<p><code>\p{Tai_Viet}</code>, <code>\p{Tavt}</code></p>
+</li><li>
+<p><code>\p{Takri}</code>, <code>\p{Takr}</code></p>
+</li><li>
+<p><code>\p{Tamil}</code>, <code>\p{Taml}</code></p>
+</li><li>
+<p><code>\p{Tangsa}</code>, <code>\p{Tnsa}</code></p>
+</li><li>
+<p><code>\p{Tangut}</code>, <code>\p{Tang}</code></p>
+</li><li>
+<p><code>\p{Telugu}</code>, <code>\p{Telu}</code></p>
+</li><li>
+<p><code>\p{Thaana}</code>, <code>\p{Thaa}</code></p>
+</li><li>
+<p><code>\p{Thai}</code></p>
+</li><li>
+<p><code>\p{Tibetan}</code>, <code>\p{Tibt}</code></p>
+</li><li>
+<p><code>\p{Tifinagh}</code>, <code>\p{Tfng}</code></p>
+</li><li>
+<p><code>\p{Tirhuta}</code>, <code>\p{Tirh}</code></p>
+</li><li>
+<p><code>\p{Toto}</code></p>
+</li><li>
+<p><code>\p{Ugaritic}</code>, <code>\p{Ugar}</code></p>
+</li><li>
+<p><code>\p{Unknown}</code>, <code>\p{Zzzz}</code></p>
+</li><li>
+<p><code>\p{Vai}</code>, <code>\p{Vaii}</code></p>
+</li><li>
+<p><code>\p{Vithkuqi}</code>, <code>\p{Vith}</code></p>
+</li><li>
+<p><code>\p{Wancho}</code>, <code>\p{Wcho}</code></p>
+</li><li>
+<p><code>\p{Warang_Citi}</code>, <code>\p{Wara}</code></p>
+</li><li>
+<p><code>\p{Yezidi}</code>, <code>\p{Yezi}</code></p>
+</li><li>
+<p><code>\p{Yi}</code>, <code>\p{Yiii}</code></p>
+</li><li>
+<p><code>\p{Zanabazar_Square}</code>, <code>\p{Zanb}</code></p>
+</li></ul>
+
+<h3 id="label-Blocks">Blocks<span><a href="#label-Blocks">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>\p{In_Adlam}</code></p>
+</li><li>
+<p><code>\p{In_Aegean_Numbers}</code></p>
+</li><li>
+<p><code>\p{In_Ahom}</code></p>
+</li><li>
+<p><code>\p{In_Alchemical_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Alphabetic_Presentation_Forms}</code></p>
+</li><li>
+<p><code>\p{In_Anatolian_Hieroglyphs}</code></p>
+</li><li>
+<p><code>\p{In_Ancient_Greek_Musical_Notation}</code></p>
+</li><li>
+<p><code>\p{In_Ancient_Greek_Numbers}</code></p>
+</li><li>
+<p><code>\p{In_Ancient_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Arabic}</code></p>
+</li><li>
+<p><code>\p{In_Arabic_Extended_A}</code></p>
+</li><li>
+<p><code>\p{In_Arabic_Extended_B}</code></p>
+</li><li>
+<p><code>\p{In_Arabic_Extended_C}</code></p>
+</li><li>
+<p><code>\p{In_Arabic_Mathematical_Alphabetic_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Arabic_Presentation_Forms_A}</code></p>
+</li><li>
+<p><code>\p{In_Arabic_Presentation_Forms_B}</code></p>
+</li><li>
+<p><code>\p{In_Arabic_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Armenian}</code></p>
+</li><li>
+<p><code>\p{In_Arrows}</code></p>
+</li><li>
+<p><code>\p{In_Avestan}</code></p>
+</li><li>
+<p><code>\p{In_Balinese}</code></p>
+</li><li>
+<p><code>\p{In_Bamum}</code></p>
+</li><li>
+<p><code>\p{In_Bamum_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Basic_Latin}</code></p>
+</li><li>
+<p><code>\p{In_Bassa_Vah}</code></p>
+</li><li>
+<p><code>\p{In_Batak}</code></p>
+</li><li>
+<p><code>\p{In_Bengali}</code></p>
+</li><li>
+<p><code>\p{In_Bhaiksuki}</code></p>
+</li><li>
+<p><code>\p{In_Block_Elements}</code></p>
+</li><li>
+<p><code>\p{In_Bopomofo}</code></p>
+</li><li>
+<p><code>\p{In_Bopomofo_Extended}</code></p>
+</li><li>
+<p><code>\p{In_Box_Drawing}</code></p>
+</li><li>
+<p><code>\p{In_Brahmi}</code></p>
+</li><li>
+<p><code>\p{In_Braille_Patterns}</code></p>
+</li><li>
+<p><code>\p{In_Buginese}</code></p>
+</li><li>
+<p><code>\p{In_Buhid}</code></p>
+</li><li>
+<p><code>\p{In_Byzantine_Musical_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Compatibility}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Compatibility_Forms}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Compatibility_Ideographs}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Compatibility_Ideographs_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Radicals_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Strokes}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Symbols_and_Punctuation}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Unified_Ideographs}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Unified_Ideographs_Extension_A}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Unified_Ideographs_Extension_B}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Unified_Ideographs_Extension_C}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Unified_Ideographs_Extension_D}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Unified_Ideographs_Extension_E}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Unified_Ideographs_Extension_F}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Unified_Ideographs_Extension_G}</code></p>
+</li><li>
+<p><code>\p{In_CJK_Unified_Ideographs_Extension_H}</code></p>
+</li><li>
+<p><code>\p{In_Carian}</code></p>
+</li><li>
+<p><code>\p{In_Caucasian_Albanian}</code></p>
+</li><li>
+<p><code>\p{In_Chakma}</code></p>
+</li><li>
+<p><code>\p{In_Cham}</code></p>
+</li><li>
+<p><code>\p{In_Cherokee}</code></p>
+</li><li>
+<p><code>\p{In_Cherokee_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Chess_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Chorasmian}</code></p>
+</li><li>
+<p><code>\p{In_Combining_Diacritical_Marks}</code></p>
+</li><li>
+<p><code>\p{In_Combining_Diacritical_Marks_Extended}</code></p>
+</li><li>
+<p><code>\p{In_Combining_Diacritical_Marks_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Combining_Diacritical_Marks_for_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Combining_Half_Marks}</code></p>
+</li><li>
+<p><code>\p{In_Common_Indic_Number_Forms}</code></p>
+</li><li>
+<p><code>\p{In_Control_Pictures}</code></p>
+</li><li>
+<p><code>\p{In_Coptic}</code></p>
+</li><li>
+<p><code>\p{In_Coptic_Epact_Numbers}</code></p>
+</li><li>
+<p><code>\p{In_Counting_Rod_Numerals}</code></p>
+</li><li>
+<p><code>\p{In_Cuneiform}</code></p>
+</li><li>
+<p><code>\p{In_Cuneiform_Numbers_and_Punctuation}</code></p>
+</li><li>
+<p><code>\p{In_Currency_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Cypriot_Syllabary}</code></p>
+</li><li>
+<p><code>\p{In_Cypro_Minoan}</code></p>
+</li><li>
+<p><code>\p{In_Cyrillic}</code></p>
+</li><li>
+<p><code>\p{In_Cyrillic_Extended_A}</code></p>
+</li><li>
+<p><code>\p{In_Cyrillic_Extended_B}</code></p>
+</li><li>
+<p><code>\p{In_Cyrillic_Extended_C}</code></p>
+</li><li>
+<p><code>\p{In_Cyrillic_Extended_D}</code></p>
+</li><li>
+<p><code>\p{In_Cyrillic_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Deseret}</code></p>
+</li><li>
+<p><code>\p{In_Devanagari}</code></p>
+</li><li>
+<p><code>\p{In_Devanagari_Extended}</code></p>
+</li><li>
+<p><code>\p{In_Devanagari_Extended_A}</code></p>
+</li><li>
+<p><code>\p{In_Dingbats}</code></p>
+</li><li>
+<p><code>\p{In_Dives_Akuru}</code></p>
+</li><li>
+<p><code>\p{In_Dogra}</code></p>
+</li><li>
+<p><code>\p{In_Domino_Tiles}</code></p>
+</li><li>
+<p><code>\p{In_Duployan}</code></p>
+</li><li>
+<p><code>\p{In_Early_Dynastic_Cuneiform}</code></p>
+</li><li>
+<p><code>\p{In_Egyptian_Hieroglyph_Format_Controls}</code></p>
+</li><li>
+<p><code>\p{In_Egyptian_Hieroglyphs}</code></p>
+</li><li>
+<p><code>\p{In_Elbasan}</code></p>
+</li><li>
+<p><code>\p{In_Elymaic}</code></p>
+</li><li>
+<p><code>\p{In_Emoticons}</code></p>
+</li><li>
+<p><code>\p{In_Enclosed_Alphanumeric_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Enclosed_Alphanumerics}</code></p>
+</li><li>
+<p><code>\p{In_Enclosed_CJK_Letters_and_Months}</code></p>
+</li><li>
+<p><code>\p{In_Enclosed_Ideographic_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Ethiopic}</code></p>
+</li><li>
+<p><code>\p{In_Ethiopic_Extended}</code></p>
+</li><li>
+<p><code>\p{In_Ethiopic_Extended_A}</code></p>
+</li><li>
+<p><code>\p{In_Ethiopic_Extended_B}</code></p>
+</li><li>
+<p><code>\p{In_Ethiopic_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_General_Punctuation}</code></p>
+</li><li>
+<p><code>\p{In_Geometric_Shapes}</code></p>
+</li><li>
+<p><code>\p{In_Geometric_Shapes_Extended}</code></p>
+</li><li>
+<p><code>\p{In_Georgian}</code></p>
+</li><li>
+<p><code>\p{In_Georgian_Extended}</code></p>
+</li><li>
+<p><code>\p{In_Georgian_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Glagolitic}</code></p>
+</li><li>
+<p><code>\p{In_Glagolitic_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Gothic}</code></p>
+</li><li>
+<p><code>\p{In_Grantha}</code></p>
+</li><li>
+<p><code>\p{In_Greek_Extended}</code></p>
+</li><li>
+<p><code>\p{In_Greek_and_Coptic}</code></p>
+</li><li>
+<p><code>\p{In_Gujarati}</code></p>
+</li><li>
+<p><code>\p{In_Gunjala_Gondi}</code></p>
+</li><li>
+<p><code>\p{In_Gurmukhi}</code></p>
+</li><li>
+<p><code>\p{In_Halfwidth_and_Fullwidth_Forms}</code></p>
+</li><li>
+<p><code>\p{In_Hangul_Compatibility_Jamo}</code></p>
+</li><li>
+<p><code>\p{In_Hangul_Jamo}</code></p>
+</li><li>
+<p><code>\p{In_Hangul_Jamo_Extended_A}</code></p>
+</li><li>
+<p><code>\p{In_Hangul_Jamo_Extended_B}</code></p>
+</li><li>
+<p><code>\p{In_Hangul_Syllables}</code></p>
+</li><li>
+<p><code>\p{In_Hanifi_Rohingya}</code></p>
+</li><li>
+<p><code>\p{In_Hanunoo}</code></p>
+</li><li>
+<p><code>\p{In_Hatran}</code></p>
+</li><li>
+<p><code>\p{In_Hebrew}</code></p>
+</li><li>
+<p><code>\p{In_High_Private_Use_Surrogates}</code></p>
+</li><li>
+<p><code>\p{In_High_Surrogates}</code></p>
+</li><li>
+<p><code>\p{In_Hiragana}</code></p>
+</li><li>
+<p><code>\p{In_IPA_Extensions}</code></p>
+</li><li>
+<p><code>\p{In_Ideographic_Description_Characters}</code></p>
+</li><li>
+<p><code>\p{In_Ideographic_Symbols_and_Punctuation}</code></p>
+</li><li>
+<p><code>\p{In_Imperial_Aramaic}</code></p>
+</li><li>
+<p><code>\p{In_Indic_Siyaq_Numbers}</code></p>
+</li><li>
+<p><code>\p{In_Inscriptional_Pahlavi}</code></p>
+</li><li>
+<p><code>\p{In_Inscriptional_Parthian}</code></p>
+</li><li>
+<p><code>\p{In_Javanese}</code></p>
+</li><li>
+<p><code>\p{In_Kaithi}</code></p>
+</li><li>
+<p><code>\p{In_Kaktovik_Numerals}</code></p>
+</li><li>
+<p><code>\p{In_Kana_Extended_A}</code></p>
+</li><li>
+<p><code>\p{In_Kana_Extended_B}</code></p>
+</li><li>
+<p><code>\p{In_Kana_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Kanbun}</code></p>
+</li><li>
+<p><code>\p{In_Kangxi_Radicals}</code></p>
+</li><li>
+<p><code>\p{In_Kannada}</code></p>
+</li><li>
+<p><code>\p{In_Katakana}</code></p>
+</li><li>
+<p><code>\p{In_Katakana_Phonetic_Extensions}</code></p>
+</li><li>
+<p><code>\p{In_Kawi}</code></p>
+</li><li>
+<p><code>\p{In_Kayah_Li}</code></p>
+</li><li>
+<p><code>\p{In_Kharoshthi}</code></p>
+</li><li>
+<p><code>\p{In_Khitan_Small_Script}</code></p>
+</li><li>
+<p><code>\p{In_Khmer}</code></p>
+</li><li>
+<p><code>\p{In_Khmer_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Khojki}</code></p>
+</li><li>
+<p><code>\p{In_Khudawadi}</code></p>
+</li><li>
+<p><code>\p{In_Lao}</code></p>
+</li><li>
+<p><code>\p{In_Latin_1_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Latin_Extended_A}</code></p>
+</li><li>
+<p><code>\p{In_Latin_Extended_Additional}</code></p>
+</li><li>
+<p><code>\p{In_Latin_Extended_B}</code></p>
+</li><li>
+<p><code>\p{In_Latin_Extended_C}</code></p>
+</li><li>
+<p><code>\p{In_Latin_Extended_D}</code></p>
+</li><li>
+<p><code>\p{In_Latin_Extended_E}</code></p>
+</li><li>
+<p><code>\p{In_Latin_Extended_F}</code></p>
+</li><li>
+<p><code>\p{In_Latin_Extended_G}</code></p>
+</li><li>
+<p><code>\p{In_Lepcha}</code></p>
+</li><li>
+<p><code>\p{In_Letterlike_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Limbu}</code></p>
+</li><li>
+<p><code>\p{In_Linear_A}</code></p>
+</li><li>
+<p><code>\p{In_Linear_B_Ideograms}</code></p>
+</li><li>
+<p><code>\p{In_Linear_B_Syllabary}</code></p>
+</li><li>
+<p><code>\p{In_Lisu}</code></p>
+</li><li>
+<p><code>\p{In_Lisu_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Low_Surrogates}</code></p>
+</li><li>
+<p><code>\p{In_Lycian}</code></p>
+</li><li>
+<p><code>\p{In_Lydian}</code></p>
+</li><li>
+<p><code>\p{In_Mahajani}</code></p>
+</li><li>
+<p><code>\p{In_Mahjong_Tiles}</code></p>
+</li><li>
+<p><code>\p{In_Makasar}</code></p>
+</li><li>
+<p><code>\p{In_Malayalam}</code></p>
+</li><li>
+<p><code>\p{In_Mandaic}</code></p>
+</li><li>
+<p><code>\p{In_Manichaean}</code></p>
+</li><li>
+<p><code>\p{In_Marchen}</code></p>
+</li><li>
+<p><code>\p{In_Masaram_Gondi}</code></p>
+</li><li>
+<p><code>\p{In_Mathematical_Alphanumeric_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Mathematical_Operators}</code></p>
+</li><li>
+<p><code>\p{In_Mayan_Numerals}</code></p>
+</li><li>
+<p><code>\p{In_Medefaidrin}</code></p>
+</li><li>
+<p><code>\p{In_Meetei_Mayek}</code></p>
+</li><li>
+<p><code>\p{In_Meetei_Mayek_Extensions}</code></p>
+</li><li>
+<p><code>\p{In_Mende_Kikakui}</code></p>
+</li><li>
+<p><code>\p{In_Meroitic_Cursive}</code></p>
+</li><li>
+<p><code>\p{In_Meroitic_Hieroglyphs}</code></p>
+</li><li>
+<p><code>\p{In_Miao}</code></p>
+</li><li>
+<p><code>\p{In_Miscellaneous_Mathematical_Symbols_A}</code></p>
+</li><li>
+<p><code>\p{In_Miscellaneous_Mathematical_Symbols_B}</code></p>
+</li><li>
+<p><code>\p{In_Miscellaneous_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Miscellaneous_Symbols_and_Arrows}</code></p>
+</li><li>
+<p><code>\p{In_Miscellaneous_Symbols_and_Pictographs}</code></p>
+</li><li>
+<p><code>\p{In_Miscellaneous_Technical}</code></p>
+</li><li>
+<p><code>\p{In_Modi}</code></p>
+</li><li>
+<p><code>\p{In_Modifier_Tone_Letters}</code></p>
+</li><li>
+<p><code>\p{In_Mongolian}</code></p>
+</li><li>
+<p><code>\p{In_Mongolian_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Mro}</code></p>
+</li><li>
+<p><code>\p{In_Multani}</code></p>
+</li><li>
+<p><code>\p{In_Musical_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Myanmar}</code></p>
+</li><li>
+<p><code>\p{In_Myanmar_Extended_A}</code></p>
+</li><li>
+<p><code>\p{In_Myanmar_Extended_B}</code></p>
+</li><li>
+<p><code>\p{In_NKo}</code></p>
+</li><li>
+<p><code>\p{In_Nabataean}</code></p>
+</li><li>
+<p><code>\p{In_Nag_Mundari}</code></p>
+</li><li>
+<p><code>\p{In_Nandinagari}</code></p>
+</li><li>
+<p><code>\p{In_New_Tai_Lue}</code></p>
+</li><li>
+<p><code>\p{In_Newa}</code></p>
+</li><li>
+<p><code>\p{In_No_Block}</code></p>
+</li><li>
+<p><code>\p{In_Number_Forms}</code></p>
+</li><li>
+<p><code>\p{In_Nushu}</code></p>
+</li><li>
+<p><code>\p{In_Nyiakeng_Puachue_Hmong}</code></p>
+</li><li>
+<p><code>\p{In_Ogham}</code></p>
+</li><li>
+<p><code>\p{In_Ol_Chiki}</code></p>
+</li><li>
+<p><code>\p{In_Old_Hungarian}</code></p>
+</li><li>
+<p><code>\p{In_Old_Italic}</code></p>
+</li><li>
+<p><code>\p{In_Old_North_Arabian}</code></p>
+</li><li>
+<p><code>\p{In_Old_Permic}</code></p>
+</li><li>
+<p><code>\p{In_Old_Persian}</code></p>
+</li><li>
+<p><code>\p{In_Old_Sogdian}</code></p>
+</li><li>
+<p><code>\p{In_Old_South_Arabian}</code></p>
+</li><li>
+<p><code>\p{In_Old_Turkic}</code></p>
+</li><li>
+<p><code>\p{In_Old_Uyghur}</code></p>
+</li><li>
+<p><code>\p{In_Optical_Character_Recognition}</code></p>
+</li><li>
+<p><code>\p{In_Oriya}</code></p>
+</li><li>
+<p><code>\p{In_Ornamental_Dingbats}</code></p>
+</li><li>
+<p><code>\p{In_Osage}</code></p>
+</li><li>
+<p><code>\p{In_Osmanya}</code></p>
+</li><li>
+<p><code>\p{In_Ottoman_Siyaq_Numbers}</code></p>
+</li><li>
+<p><code>\p{In_Pahawh_Hmong}</code></p>
+</li><li>
+<p><code>\p{In_Palmyrene}</code></p>
+</li><li>
+<p><code>\p{In_Pau_Cin_Hau}</code></p>
+</li><li>
+<p><code>\p{In_Phags_pa}</code></p>
+</li><li>
+<p><code>\p{In_Phaistos_Disc}</code></p>
+</li><li>
+<p><code>\p{In_Phoenician}</code></p>
+</li><li>
+<p><code>\p{In_Phonetic_Extensions}</code></p>
+</li><li>
+<p><code>\p{In_Phonetic_Extensions_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Playing_Cards}</code></p>
+</li><li>
+<p><code>\p{In_Private_Use_Area}</code></p>
+</li><li>
+<p><code>\p{In_Psalter_Pahlavi}</code></p>
+</li><li>
+<p><code>\p{In_Rejang}</code></p>
+</li><li>
+<p><code>\p{In_Rumi_Numeral_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Runic}</code></p>
+</li><li>
+<p><code>\p{In_Samaritan}</code></p>
+</li><li>
+<p><code>\p{In_Saurashtra}</code></p>
+</li><li>
+<p><code>\p{In_Sharada}</code></p>
+</li><li>
+<p><code>\p{In_Shavian}</code></p>
+</li><li>
+<p><code>\p{In_Shorthand_Format_Controls}</code></p>
+</li><li>
+<p><code>\p{In_Siddham}</code></p>
+</li><li>
+<p><code>\p{In_Sinhala}</code></p>
+</li><li>
+<p><code>\p{In_Sinhala_Archaic_Numbers}</code></p>
+</li><li>
+<p><code>\p{In_Small_Form_Variants}</code></p>
+</li><li>
+<p><code>\p{In_Small_Kana_Extension}</code></p>
+</li><li>
+<p><code>\p{In_Sogdian}</code></p>
+</li><li>
+<p><code>\p{In_Sora_Sompeng}</code></p>
+</li><li>
+<p><code>\p{In_Soyombo}</code></p>
+</li><li>
+<p><code>\p{In_Spacing_Modifier_Letters}</code></p>
+</li><li>
+<p><code>\p{In_Specials}</code></p>
+</li><li>
+<p><code>\p{In_Sundanese}</code></p>
+</li><li>
+<p><code>\p{In_Sundanese_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Superscripts_and_Subscripts}</code></p>
+</li><li>
+<p><code>\p{In_Supplemental_Arrows_A}</code></p>
+</li><li>
+<p><code>\p{In_Supplemental_Arrows_B}</code></p>
+</li><li>
+<p><code>\p{In_Supplemental_Arrows_C}</code></p>
+</li><li>
+<p><code>\p{In_Supplemental_Mathematical_Operators}</code></p>
+</li><li>
+<p><code>\p{In_Supplemental_Punctuation}</code></p>
+</li><li>
+<p><code>\p{In_Supplemental_Symbols_and_Pictographs}</code></p>
+</li><li>
+<p><code>\p{In_Supplementary_Private_Use_Area_A}</code></p>
+</li><li>
+<p><code>\p{In_Supplementary_Private_Use_Area_B}</code></p>
+</li><li>
+<p><code>\p{In_Sutton_SignWriting}</code></p>
+</li><li>
+<p><code>\p{In_Syloti_Nagri}</code></p>
+</li><li>
+<p><code>\p{In_Symbols_and_Pictographs_Extended_A}</code></p>
+</li><li>
+<p><code>\p{In_Symbols_for_Legacy_Computing}</code></p>
+</li><li>
+<p><code>\p{In_Syriac}</code></p>
+</li><li>
+<p><code>\p{In_Syriac_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Tagalog}</code></p>
+</li><li>
+<p><code>\p{In_Tagbanwa}</code></p>
+</li><li>
+<p><code>\p{In_Tags}</code></p>
+</li><li>
+<p><code>\p{In_Tai_Le}</code></p>
+</li><li>
+<p><code>\p{In_Tai_Tham}</code></p>
+</li><li>
+<p><code>\p{In_Tai_Viet}</code></p>
+</li><li>
+<p><code>\p{In_Tai_Xuan_Jing_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Takri}</code></p>
+</li><li>
+<p><code>\p{In_Tamil}</code></p>
+</li><li>
+<p><code>\p{In_Tamil_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Tangsa}</code></p>
+</li><li>
+<p><code>\p{In_Tangut}</code></p>
+</li><li>
+<p><code>\p{In_Tangut_Components}</code></p>
+</li><li>
+<p><code>\p{In_Tangut_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Telugu}</code></p>
+</li><li>
+<p><code>\p{In_Thaana}</code></p>
+</li><li>
+<p><code>\p{In_Thai}</code></p>
+</li><li>
+<p><code>\p{In_Tibetan}</code></p>
+</li><li>
+<p><code>\p{In_Tifinagh}</code></p>
+</li><li>
+<p><code>\p{In_Tirhuta}</code></p>
+</li><li>
+<p><code>\p{In_Toto}</code></p>
+</li><li>
+<p><code>\p{In_Transport_and_Map_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Ugaritic}</code></p>
+</li><li>
+<p><code>\p{In_Unified_Canadian_Aboriginal_Syllabics}</code></p>
+</li><li>
+<p><code>\p{In_Unified_Canadian_Aboriginal_Syllabics_Extended}</code></p>
+</li><li>
+<p><code>\p{In_Unified_Canadian_Aboriginal_Syllabics_Extended_A}</code></p>
+</li><li>
+<p><code>\p{In_Vai}</code></p>
+</li><li>
+<p><code>\p{In_Variation_Selectors}</code></p>
+</li><li>
+<p><code>\p{In_Variation_Selectors_Supplement}</code></p>
+</li><li>
+<p><code>\p{In_Vedic_Extensions}</code></p>
+</li><li>
+<p><code>\p{In_Vertical_Forms}</code></p>
+</li><li>
+<p><code>\p{In_Vithkuqi}</code></p>
+</li><li>
+<p><code>\p{In_Wancho}</code></p>
+</li><li>
+<p><code>\p{In_Warang_Citi}</code></p>
+</li><li>
+<p><code>\p{In_Yezidi}</code></p>
+</li><li>
+<p><code>\p{In_Yi_Radicals}</code></p>
+</li><li>
+<p><code>\p{In_Yi_Syllables}</code></p>
+</li><li>
+<p><code>\p{In_Yijing_Hexagram_Symbols}</code></p>
+</li><li>
+<p><code>\p{In_Zanabazar_Square}</code></p>
+</li><li>
+<p><code>\p{In_Znamenny_Musical_Notation}</code></p>
+</li></ul>
+
+<h3 id="label-Emoji">Emoji<span><a href="#label-Emoji">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>\p{Emoji}</code></p>
+</li><li>
+<p><code>\p{Emoji_Component}</code>, <code>\p{EComp}</code></p>
+</li><li>
+<p><code>\p{Emoji_Modifier}</code>, <code>\p{EMod}</code></p>
+</li><li>
+<p><code>\p{Emoji_Modifier_Base}</code>, <code>\p{EBase}</code></p>
+</li><li>
+<p><code>\p{Emoji_Presentation}</code>, <code>\p{EPres}</code></p>
+</li><li>
+<p><code>\p{Extended_Pictographic}</code>, <code>\p{ExtPict}</code></p>
+</li></ul>
+
+<h3 id="label-Graphemes">Graphemes<span><a href="#label-Graphemes">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>\p{Grapheme_Cluster_Break_CR}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_Control}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_Extend}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_L}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_LF}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_LV}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_LVT}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_Prepend}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_Regional_Indicator}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_SpacingMark}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_T}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_V}</code></p>
+</li><li>
+<p><code>\p{Grapheme_Cluster_Break_ZWJ}</code></p>
+</li></ul>
+
+<h3 id="label-Derived+Ages">Derived Ages<span><a href="#label-Derived+Ages">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>\p{Age_10_0}</code></p>
+</li><li>
+<p><code>\p{Age_11_0}</code></p>
+</li><li>
+<p><code>\p{Age_12_0}</code></p>
+</li><li>
+<p><code>\p{Age_12_1}</code></p>
+</li><li>
+<p><code>\p{Age_13_0}</code></p>
+</li><li>
+<p><code>\p{Age_14_0}</code></p>
+</li><li>
+<p><code>\p{Age_15_0}</code></p>
+</li><li>
+<p><code>\p{Age_1_1}</code></p>
+</li><li>
+<p><code>\p{Age_2_0}</code></p>
+</li><li>
+<p><code>\p{Age_2_1}</code></p>
+</li><li>
+<p><code>\p{Age_3_0}</code></p>
+</li><li>
+<p><code>\p{Age_3_1}</code></p>
+</li><li>
+<p><code>\p{Age_3_2}</code></p>
+</li><li>
+<p><code>\p{Age_4_0}</code></p>
+</li><li>
+<p><code>\p{Age_4_1}</code></p>
+</li><li>
+<p><code>\p{Age_5_0}</code></p>
+</li><li>
+<p><code>\p{Age_5_1}</code></p>
+</li><li>
+<p><code>\p{Age_5_2}</code></p>
+</li><li>
+<p><code>\p{Age_6_0}</code></p>
+</li><li>
+<p><code>\p{Age_6_1}</code></p>
+</li><li>
+<p><code>\p{Age_6_2}</code></p>
+</li><li>
+<p><code>\p{Age_6_3}</code></p>
+</li><li>
+<p><code>\p{Age_7_0}</code></p>
+</li><li>
+<p><code>\p{Age_8_0}</code></p>
+</li><li>
+<p><code>\p{Age_9_0}</code></p>
+</li></ul>
+
+</main>
+

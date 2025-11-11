@@ -1,0 +1,9 @@
+U:RDoc::Attr[iI"key:ETI"Prism::AssocNode#key;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"•The key of the association. This can be any {non-void expression}[https://github.com/ruby/prism/blob/main/docs/parsing_rules.md#non-void-expression].;To:RDoc::Markup::Verbatim;	[I"{ a: b }
+;TI"	  ^
+;TI"
+;TI"{ foo => bar }
+;TI"  ^^^
+;T@I"{ def a; end => 1 }
+;TI"  ^^^^^^^^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::AssocNode;TcRDoc::NormalClass0

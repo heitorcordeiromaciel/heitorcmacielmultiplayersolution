@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>yjit - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,yjit">
+  <meta name="description" content="yjit: yjit. user-images.">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/yjit/yjit_md.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-YJIT+-+Yet+Another+Ruby+JIT">YJIT - Yet Another Ruby JIT</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Current+Limitations">Current Limitations</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Installation">Installation</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Requirements">Requirements</a>
+          <li>      <a href="#label-Building+YJIT">Building YJIT</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Usage">Usage</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Examples">Examples</a>
+          <li>      <a href="#label-Benchmarking">Benchmarking</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Performance+Tips+for+Production+Deployments">Performance Tips for Production Deployments</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Increasing+--yjit-mem-size">Increasing –yjit-mem-size</a>
+          <li>      <a href="#label-Running+workers+as+long+as+possible">Running workers as long as possible</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Reducing+YJIT+Memory+Usage">Reducing YJIT Memory Usage</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Decreasing+--yjit-mem-size">Decreasing –yjit-mem-size</a>
+          <li>      <a href="#label-Enabling+YJIT+lazily">Enabling YJIT lazily</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Code+Optimization+Tips">Code Optimization Tips</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Other+Statistics">Other Statistics</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Contributing">Contributing</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Source+Code+Organization">Source Code Organization</a>
+          <li>      <a href="#label-Generating+C+bindings+with+bindgen">Generating C bindings with bindgen</a>
+          <li>      <a href="#label-Coding+-26+Debugging+Protips">Coding &amp; Debugging Protips</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Running+x86+YJIT+on+Apple-27s+Rosetta">Running x86 YJIT on Apple’s Rosetta</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Rosetta+Caveats">Rosetta Caveats</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Profiling+with+Linux+perf">Profiling with Linux perf</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Call+graph">Call graph</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-YJIT+codegen">YJIT codegen</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Building+perf+with+Python+support">Building perf with Python support</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../COPYING.html">COPYING</a>
+    <li><a href="../COPYING_ja.html">COPYING.ja</a>
+    <li><a href="../LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="../NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="../NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="../NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="../NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="../NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="../NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="../NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="../NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="../NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="../NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="../NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="../NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="../NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="../NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="../NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="../NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="../NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="../README_ja_md.html">README.ja</a>
+    <li><a href="../README_md.html">README</a>
+    <li><a href="../bsearch_rdoc.html">bsearch</a>
+    <li><a href="../bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="../case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="../character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="../command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="../contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="../contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="../contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="../contributing/glossary_md.html">glossary</a>
+      <li><a href="../contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="../contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="../contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="../contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="../date/calendars_rdoc.html">calendars</a>
+    <li><a href="../dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="../distribution_md.html">distribution</a>
+    <li><a href="../dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="../encodings_rdoc.html">encodings</a>
+    <li><a href="../exceptions_md.html">exceptions</a>
+    <li><a href="../extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="../extension_rdoc.html">extension</a>
+    <li><a href="../fiber_md.html">fiber</a>
+    <li><a href="../format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="../globals_rdoc.html">globals</a>
+    <li><a href="../implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="../index_md.html">index</a>
+    <li><a href="../maintainers_md.html">maintainers</a>
+    <li><a href="../marshal_rdoc.html">marshal</a>
+    <li><a href="../memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="../optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="../optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="../optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="../optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="../packed_data_rdoc.html">packed_data</a>
+    <li><a href="../ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="../regexp/methods_rdoc.html">methods</a>
+      <li><a href="../regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="../rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="../ruby/option_dump_md.html">option_dump</a>
+      <li><a href="../ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="../security_rdoc.html">security</a>
+    <li><a href="../signals_rdoc.html">signals</a>
+    <li><a href="../standard_library_md.html">standard_library</a>
+    <li><a href="../strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="../syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="../syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="../syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="../syntax/comments_rdoc.html">comments</a>
+      <li><a href="../syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="../syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="../syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="../syntax/literals_rdoc.html">literals</a>
+      <li><a href="../syntax/methods_rdoc.html">methods</a>
+      <li><a href="../syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="../syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="../syntax/operators_rdoc.html">operators</a>
+      <li><a href="../syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="../syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="../syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="../windows_md.html">windows</a>
+    <li><a href="../yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page yjit/yjit.md">
+<p align="center">
+  <a href="https://yjit.org/" target="_blank" rel="noopener noreferrer">
+    <img src="https://user-images.githubusercontent.com/224488/131155756-aa8fb528-a813-4dfd-99ac-8785c3d5eed7.png" width="400">
+  </a>
+</p>
+<h1 id="label-YJIT+-+Yet+Another+Ruby+JIT">YJIT - Yet Another Ruby JIT<span><a href="#label-YJIT+-+Yet+Another+Ruby+JIT">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>YJIT is a lightweight, minimalistic Ruby JIT built inside CRuby. It lazily compiles code using a Basic Block Versioning (BBV) architecture. YJIT is currently supported for macOS, Linux and BSD on x86-64 and arm64/aarch64 CPUs. This project is open source and falls under the same license as CRuby.</p>
+<p align="center"><b>
+    If you're using YJIT in production, please
+    <a href="mailto:maxime.chevalierboisvert@shopify.com">share your success stories with us!</a>
+</b></p>
+<p>If you wish to learn more about the approach taken, here are some conference talks and publications:</p>
+<ul><li>
+<p>MPLR 2023 talk: <a href="https://www.youtube.com/watch?v=pVRmPZcNUhc">Evaluating YJIT’s Performance in a Production Context: A Pragmatic Approach</a></p>
+</li><li>
+<p>RubyKaigi 2023 keynote: <a href="https://www.youtube.com/watch?v=X0JRhh8w_4I">Optimizing YJIT’s Performance, from Inception to Production</a></p>
+</li><li>
+<p>RubyKaigi 2023 keynote: <a href="https://www.youtube.com/watch?v=GI7vvAgP_Qs">Fitting Rust YJIT into CRuby</a></p>
+</li><li>
+<p>RubyKaigi 2022 keynote: <a href="https://www.youtube.com/watch?v=EMchdR9C8XM">Stories from developing YJIT</a></p>
+</li><li>
+<p>RubyKaigi 2022 talk: <a href="https://www.youtube.com/watch?v=BbLGqTxTRp0">Building a Lightweight IR and Backend for YJIT</a></p>
+</li><li>
+<p>RubyKaigi 2021 talk: <a href="https://www.youtube.com/watch?v=PBVLf3yfMs8">YJIT: Building a New JIT Compiler Inside CRuby</a></p>
+</li><li>
+<p>Blog post: <a href="https://pointersgonewild.com/2021/06/02/yjit-building-a-new-jit-compiler-inside-cruby/">YJIT: Building a New JIT Compiler Inside CRuby</a></p>
+</li><li>
+<p>MPLR 2023 paper: <a href="https://dl.acm.org/doi/10.1145/3617651.3622982">Evaluating YJIT’s Performance in a Production Context: A Pragmatic Approach</a></p>
+</li><li>
+<p>VMIL 2021 paper: <a href="https://dl.acm.org/doi/10.1145/3486606.3486781">YJIT: A Basic Block Versioning JIT Compiler for CRuby</a></p>
+</li><li>
+<p>MoreVMs 2021 talk: <a href="https://www.youtube.com/watch?v=vucLAqv7qpc">YJIT: Building a New JIT Compiler Inside CRuby</a></p>
+</li><li>
+<p>ECOOP 2016 talk: <a href="https://www.youtube.com/watch?v=sRNBY7Ss97A">Interprocedural Type Specialization of JavaScript Programs Without Type Analysis</a></p>
+</li><li>
+<p>ECOOP 2016 paper: <a href="https://drops.dagstuhl.de/opus/volltexte/2016/6101/pdf/LIPIcs-ECOOP-2016-7.pdf">Interprocedural Type Specialization of JavaScript Programs Without Type Analysis</a></p>
+</li><li>
+<p>ECOOP 2015 talk: <a href="https://www.youtube.com/watch?v=S-aHBuoiYE0">Simple and Effective Type Check Removal through Lazy Basic Block Versioning</a></p>
+</li><li>
+<p>ECOOP 2015 paper: <a href="https://arxiv.org/pdf/1411.0352.pdf">Simple and Effective Type Check Removal through Lazy Basic Block Versioning</a></p>
+</li></ul>
+
+<p>To cite YJIT in your publications, please cite the MPLR 2023 paper:</p>
+
+<pre>@inproceedings{yjit_mplr_2023,
+author = {Chevalier-Boisvert, Maxime and Kokubun, Takashi and Gibbs, Noah and Wu, Si Xing (Alan) and Patterson, Aaron and Issroff, Jemma},
+title = {Evaluating YJIT’s Performance in a Production Context: A Pragmatic Approach},
+year = {2023},
+isbn = {9798400703805},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3617651.3622982},
+doi = {10.1145/3617651.3622982},
+booktitle = {Proceedings of the 20th ACM SIGPLAN International Conference on Managed Programming Languages and Runtimes},
+pages = {20–33},
+numpages = {14},
+keywords = {dynamically typed, optimization, just-in-time, virtual machine, ruby, compiler, bytecode},
+location = {Cascais, Portugal},
+series = {MPLR 2023}
+}</pre>
+
+<h2 id="label-Current+Limitations">Current Limitations<span><a href="#label-Current+Limitations">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>YJIT may not be suitable for certain applications. It currently only supports macOS, Linux and BSD on x86-64 and arm64/aarch64 CPUs. YJIT will use more memory than the Ruby interpreter because the JIT compiler needs to generate machine code in memory and maintain additional state information. You can change how much executable memory is allocated using <a href="#command-line-options">YJIT’s command-line options</a>.</p>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Requirements">Requirements<span><a href="#label-Requirements">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You will need to install:</p>
+<ul><li>
+<p>All the usual build tools for Ruby. See <a href="../contributing/building_ruby_md.html">Building Ruby</a></p>
+</li><li>
+<p>The Rust compiler <code>rustc</code></p>
+<ul><li>
+<p>The Rust version must be <a href="../../yjit/Cargo.toml">&gt;= 1.58.0</a>.</p>
+</li></ul>
+</li><li>
+<p>Optionally, only if you wish to build in dev/debug mode, Rust’s <code>cargo</code></p>
+</li></ul>
+
+<p>If you don’t intend on making code changes to YJIT itself, we recommend obtaining <code>rustc</code> through your OS’s package manager since that likely reuses the same vendor which provides the C toolchain.</p>
+
+<p>If you will be changing YJIT’s Rust code, we suggest using the <a href="https://www.rust-lang.org/tools/install">first-party installation method</a> for Rust. Rust also provides first class <a href="https://www.rust-lang.org/tools">support</a> for many source code editors.</p>
+
+<h3 id="label-Building+YJIT">Building YJIT<span><a href="#label-Building+YJIT">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Start by cloning the <code>ruby/ruby</code> repository:</p>
+
+<pre>git clone https://github.com/ruby/ruby yjit
+cd yjit</pre>
+
+<p>The YJIT <code>ruby</code> binary can be built with either GCC or Clang. It can be built either in dev (debug) mode or in release mode. For maximum performance, compile YJIT in release mode with GCC. More detailed build instructions are provided in the <a href="https://github.com/ruby/ruby#how-to-build">Ruby README</a>.</p>
+
+<pre># Configure in release mode for maximum performance, build and install
+./autogen.sh
+./configure --enable-yjit --prefix=$HOME/.rubies/ruby-yjit --disable-install-doc
+make -j &amp;&amp; make install</pre>
+
+<p>or</p>
+
+<pre># Configure in lower-performance dev (debug) mode for development, build and install
+./autogen.sh
+./configure --enable-yjit=dev --prefix=$HOME/.rubies/ruby-yjit --disable-install-doc
+make -j &amp;&amp; make install</pre>
+
+<p>Dev mode includes extended YJIT statistics, but can be slow. For only statistics you can configure in stats mode:</p>
+
+<pre># Configure in extended-stats mode without slow runtime checks, build and install
+./autogen.sh
+./configure --enable-yjit=stats --prefix=$HOME/.rubies/ruby-yjit --disable-install-doc
+make -j &amp;&amp; make install</pre>
+
+<p>On macOS, you may need to specify where to find some libraries:</p>
+
+<pre># Install dependencies
+brew install openssl libyaml
+
+# Configure in dev (debug) mode for development, build and install
+./autogen.sh
+./configure --enable-yjit=dev --prefix=$HOME/.rubies/ruby-yjit --disable-install-doc --with-opt-dir=&quot;$(brew --prefix openssl):$(brew --prefix readline):$(brew --prefix libyaml)&quot;
+make -j &amp;&amp; make install</pre>
+
+<p>Typically configure will choose the default C compiler. To specify the C compiler, use</p>
+
+<pre># Choosing a specific c compiler
+export CC=/path/to/my/chosen/c/compiler</pre>
+
+<p>before running <code>./configure</code>.</p>
+
+<p>You can test that YJIT works correctly by running:</p>
+
+<pre># Quick tests found in /bootstraptest
+make btest
+
+# Complete set of tests
+make -j test-all</pre>
+
+<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Examples">Examples<span><a href="#label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Once YJIT is built, you can either use <code>./miniruby</code> from within your build directory, or switch to the YJIT version of <code>ruby</code> by using the <code>chruby</code> tool:</p>
+
+<pre class="ruby"><span class="ruby-identifier">chruby</span> <span class="ruby-identifier">ruby</span><span class="ruby-operator">-</span><span class="ruby-identifier">yjit</span>
+<span class="ruby-identifier">ruby</span> <span class="ruby-identifier">myscript</span>.<span class="ruby-identifier">rb</span>
+</pre>
+
+<p>You can dump statistics about compilation and execution by running YJIT with the <code>--yjit-stats</code> command-line option:</p>
+
+<pre>./miniruby --yjit-stats myscript.rb</pre>
+
+<p>You can see what YJIT has compiled by running YJIT with the <code>--yjit-log</code> command-line option:</p>
+
+<pre>./miniruby --yjit-log myscript.rb</pre>
+
+<p>The machine code generated for a given method can be printed by adding <code>puts RubyVM::YJIT.disasm(method(:method_name))</code> to a Ruby script. Note that no code will be generated if the method is not compiled.</p>
+<h3 id="command-line-options">Command-Line Options</h3>
+<p>YJIT supports all command-line options supported by upstream CRuby, but also adds a few YJIT-specific options:</p>
+<ul><li>
+<p><code>--yjit</code>: enable YJIT (disabled by default)</p>
+</li><li>
+<p><code>--yjit-mem-size=N</code>: soft limit on YJIT memory usage in MiB (default: 128). Tries to limit <code>code_region_size + yjit_alloc_size</code></p>
+</li><li>
+<p><code>--yjit-exec-mem-size=N</code>: hard limit on executable memory block in MiB. Limits <code>code_region_size</code></p>
+</li><li>
+<p><code>--yjit-call-threshold=N</code>: number of calls after which YJIT begins to compile a function. It defaults to 30, and it’s then increased to 120 when the number of ISEQs in the process reaches 40,000.</p>
+</li><li>
+<p><code>--yjit-cold-threshold=N</code>: number of global calls after which an ISEQ is considered cold and not compiled, lower values mean less code is compiled (default 200K)</p>
+</li><li>
+<p><code>--yjit-stats</code>: print statistics after the execution of a program (incurs a run-time cost)</p>
+</li><li>
+<p><code>--yjit-stats=quiet</code>: gather statistics while running a program but don’t print them. Stats are accessible through <a href="../RubyVM/YJIT.html#method-c-runtime_stats"><code>RubyVM::YJIT.runtime_stats</code></a>. (incurs a run-time cost)</p>
+</li><li>
+<p><code>--yjit-log[=file|dir]</code>: log all compilation events to the specified file or directory. If no name is supplied, the last 1024 log entries will be printed to stderr when the application exits.</p>
+</li><li>
+<p><code>--yjit-log=quiet</code>: gather a circular buffer of recent YJIT compilations. The compilation log entries are accessible through <a href="../RubyVM/YJIT.html#method-c-log"><code>RubyVM::YJIT.log</code></a> and old entries will be discarded if the buffer is not drained quickly. (incurs a run-time cost)</p>
+</li><li>
+<p><code>--yjit-disable</code>: disable YJIT despite other <code>--yjit*</code> flags for lazily enabling it with <a href="../RubyVM/YJIT.html#method-c-enable"><code>RubyVM::YJIT.enable</code></a></p>
+</li><li>
+<p><code>--yjit-code-gc</code>: enable code <a href="../GC.html"><code>GC</code></a> (disabled by default as of Ruby 3.3). It will cause all machine code to be discarded when the executable memory size limit is hit, meaning JIT compilation will then start over. This can allow you to use a lower executable memory size limit, but may cause a slight drop in performance when the limit is hit.</p>
+</li><li>
+<p><code>--yjit-perf</code>: enable frame pointers and profiling with the <code>perf</code> tool</p>
+</li><li>
+<p><code>--yjit-trace-exits</code>: produce a <a href="../Marshal.html"><code>Marshal</code></a> dump of backtraces from all exits. Automatically enables <code>--yjit-stats</code></p>
+</li><li>
+<p><code>--yjit-trace-exits=COUNTER</code>: produce a <a href="../Marshal.html"><code>Marshal</code></a> dump of backtraces from a counted exit or a fallback. Automatically enables <code>--yjit-stats</code></p>
+</li><li>
+<p><code>--yjit-trace-exits-sample-rate=N</code>: trace exit locations only every Nth occurrence. Automatically enables <code>--yjit-trace-exits</code></p>
+</li></ul>
+
+<p>Note that there is also an environment variable <code>RUBY_YJIT_ENABLE</code> which can be used to enable YJIT. This can be useful for some deployment scripts where specifying an extra command-line option to Ruby is not practical.</p>
+
+<p>You can also enable YJIT at run-time using <a href="../RubyVM/YJIT.html#method-c-enable"><code>RubyVM::YJIT.enable</code></a>. This can allow you to enable YJIT after your application is done booting, which makes it possible to avoid compiling any initialization code.</p>
+
+<p>You can verify that YJIT is enabled using <a href="../RubyVM/YJIT.html#method-c-enabled-3F"><code>RubyVM::YJIT.enabled?</code></a> or by checking that <code>ruby --yjit -v</code> includes the string <code>+YJIT</code>:</p>
+
+<pre>ruby --yjit -v
+ruby 3.3.0dev (2023-01-31T15:11:10Z master 2a0bf269c9) +YJIT dev [x86_64-darwin22]
+
+ruby --yjit -e &quot;p RubyVM::YJIT.enabled?&quot;
+true
+
+ruby -e &quot;RubyVM::YJIT.enable; p RubyVM::YJIT.enabled?&quot;
+true</pre>
+
+<h3 id="label-Benchmarking">Benchmarking<span><a href="#label-Benchmarking">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>We have collected a set of benchmarks and implemented a simple benchmarking harness in the <a href="https://github.com/Shopify/yjit-bench">yjit-bench</a> repository. This benchmarking harness is designed to disable CPU frequency scaling, set process affinity and disable address space randomization so that the variance between benchmarking runs will be as small as possible.</p>
+
+<h2 id="label-Performance+Tips+for+Production+Deployments">Performance Tips for Production Deployments<span><a href="#label-Performance+Tips+for+Production+Deployments">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>While YJIT options default to what we think would work well for most workloads, they might not necessarily be the best configuration for your application. This section covers tips on improving YJIT performance in case YJIT does not speed up your application in production.</p>
+
+<h3 id="label-Increasing+--yjit-mem-size">Increasing –yjit-mem-size<span><a href="#label-Increasing+--yjit-mem-size">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The <code>--yjit-mem-size</code> value can be used to set the maximum amount of memory that YJIT is allowed to use. This corresponds to the total of <a href="../RubyVM/YJIT.html#method-c-runtime_stats"><code>RubyVM::YJIT.runtime_stats[:code_region_size]</code></a> and <a href="../RubyVM/YJIT.html#method-c-runtime_stats"><code>RubyVM::YJIT.runtime_stats[:yjit_alloc_size]</code></a> Increasing the <code>--yjit-mem-size</code> value means more code can be optimized by YJIT, at the cost of more memory usage.</p>
+
+<p>If you start Ruby with <code>--yjit-stats</code>, e.g. using an environment variable <code>RUBYOPT=--yjit-stats</code>, <a href="../RubyVM/YJIT.html#method-c-runtime_stats"><code>RubyVM::YJIT.runtime_stats[:ratio_in_yjit]</code></a> shows the percentage of total YARV instructions executed by YJIT as opposed to the CRuby interpreter. Ideally, <code>ratio_in_yjit</code> should be as large as 99%, and increasing <code>--yjit-mem-size</code> often helps improving <code>ratio_in_yjit</code>.</p>
+
+<h3 id="label-Running+workers+as+long+as+possible">Running workers as long as possible<span><a href="#label-Running+workers+as+long+as+possible">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>It’s helpful to call the same code as many times as possible before a process restarts. If a process is killed too frequently, the time taken for compiling methods may outweigh the speedup obtained by compiling them.</p>
+
+<p>You should monitor the number of requests each process has served. If you’re periodically killing worker processes, e.g. with <code>unicorn-worker-killer</code> or <code>puma_worker_killer</code>, you may want to reduce the killing frequency or increase the limit.</p>
+
+<h2 id="label-Reducing+YJIT+Memory+Usage">Reducing YJIT Memory Usage<span><a href="#label-Reducing+YJIT+Memory+Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>YJIT allocates memory for JIT code and metadata. Enabling YJIT generally results in more memory usage. This section goes over tips on minimizing YJIT memory usage in case it uses more than your capacity.</p>
+
+<h3 id="label-Decreasing+--yjit-mem-size">Decreasing –yjit-mem-size<span><a href="#label-Decreasing+--yjit-mem-size">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>YJIT uses memory for compiled code and metadata. You can change the maximum amount of memory that YJIT can use by specifying a different <code>--yjit-mem-size</code> command-line option. The default value is currently <code>128</code>. When changing this value, you may want to monitor <a href="../RubyVM/YJIT.html#method-c-runtime_stats"><code>RubyVM::YJIT.runtime_stats[:ratio_in_yjit]</code></a> as explained above.</p>
+
+<h3 id="label-Enabling+YJIT+lazily">Enabling YJIT lazily<span><a href="#label-Enabling+YJIT+lazily">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If you enable YJIT by <code>--yjit</code> options or <code>RUBY_YJIT_ENABLE=1</code>, YJIT may compile code that is used only during the application boot. <a href="../RubyVM/YJIT.html#method-c-enable"><code>RubyVM::YJIT.enable</code></a> allows you to enable YJIT from Ruby code, and you can call this after your application is initialized, e.g. on Unicorn’s <code>after_fork</code> hook. If you use any YJIT options (<code>--yjit-*</code>), YJIT will start at boot by default, but <code>--yjit-disable</code> allows you to start Ruby with the YJIT-disabled mode while passing YJIT tuning options.</p>
+
+<h2 id="label-Code+Optimization+Tips">Code Optimization Tips<span><a href="#label-Code+Optimization+Tips">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>This section contains tips on writing Ruby code that will run as fast as possible on YJIT. Some of this advice is based on current limitations of YJIT, while other advice is broadly applicable. It probably won’t be practical to apply these tips everywhere in your codebase. You should ideally start by profiling your application using a tool such as <a href="https://github.com/tmm1/stackprof">stackprof</a> so that you can determine which methods make up most of the execution time. You can then refactor the specific methods that make up the largest fractions of the execution time. We do not recommend modifying your entire codebase based on the current limitations of YJIT.</p>
+<ul><li>
+<p>Avoid using <a href="../OpenStruct.html"><code>OpenStruct</code></a></p>
+</li><li>
+<p>Avoid redefining basic integer operations (i.e. +, -, &lt;, &gt;, etc.)</p>
+</li><li>
+<p>Avoid redefining the meaning of <code>nil</code>, equality, etc.</p>
+</li><li>
+<p>Avoid allocating objects in the hot parts of your code</p>
+</li><li>
+<p>Minimize layers of indirection</p>
+</li><li>
+<p>Avoid writing wrapper classes if you can (e.g. a class that only wraps a Ruby hash)</p>
+</li><li>
+<p>Avoid methods that just call another method</p>
+</li><li>
+<p>Ruby method calls are costly. Avoid things such as methods that only return a value from a hash</p>
+</li><li>
+<p>Try to write code so that the same variables and method arguments always have the same type</p>
+</li><li>
+<p>Avoid using <a href="../TracePoint.html"><code>TracePoint</code></a> as it can cause YJIT to deoptimize code</p>
+</li><li>
+<p>Avoid using <code>binding</code> as it can cause YJIT to deoptimize code</p>
+</li></ul>
+
+<p>You can also use the <code>--yjit-stats</code> command-line option to see which bytecodes cause YJIT to exit, and refactor your code to avoid using these instructions in the hottest methods of your code.</p>
+
+<h3 id="label-Other+Statistics">Other Statistics<span><a href="#label-Other+Statistics">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If you run <code>ruby</code> with <code>--yjit-stats</code>, YJIT will track and return performance statistics in <a href="../RubyVM/YJIT.html#method-c-runtime_stats"><code>RubyVM::YJIT.runtime_stats</code></a>.</p>
+
+<pre>$ RUBYOPT=&quot;--yjit-stats&quot; irb
+irb(main):001:0&gt; RubyVM::YJIT.runtime_stats
+=&gt;
+{:inline_code_size=&gt;340745,
+ :outlined_code_size=&gt;297664,
+ :all_stats=&gt;true,
+ :yjit_insns_count=&gt;1547816,
+ :send_callsite_not_simple=&gt;7267,
+ :send_kw_splat=&gt;7,
+ :send_ivar_set_method=&gt;72,
+...</pre>
+
+<p>Some of the counters include:</p>
+<ul><li>
+<p><code>:yjit_insns_count</code> - how many Ruby bytecode instructions have been executed</p>
+</li><li>
+<p><code>:binding_allocations</code> - number of bindings allocated</p>
+</li><li>
+<p><code>:binding_set</code> - number of variables set via a binding</p>
+</li><li>
+<p><code>:code_gc_count</code> - number of garbage collections of compiled code since process start</p>
+</li><li>
+<p><code>:vm_insns_count</code> - number of instructions executed by the Ruby interpreter</p>
+</li><li>
+<p><code>:compiled_iseq_count</code> - number of bytecode sequences compiled</p>
+</li><li>
+<p><code>:inline_code_size</code> - size in bytes of compiled YJIT blocks</p>
+</li><li>
+<p><code>:outline_code_size</code> - size in bytes of YJIT error-handling compiled code</p>
+</li><li>
+<p><code>:side_exit_count</code> - number of side exits taken at runtime</p>
+</li><li>
+<p><code>:total_exit_count</code> - number of exits, including side exits, taken at runtime</p>
+</li><li>
+<p><code>:avg_len_in_yjit</code> - avg. number of instructions in compiled blocks before exiting to interpreter</p>
+</li></ul>
+
+<p>Counters starting with “exit_” show reasons for YJIT code taking a side exit (return to the interpreter.)</p>
+
+<p>Performance counter names are not guaranteed to remain the same between Ruby versions. If you’re curious what each counter means, it’s usually best to search the source code for it — but it may change in a later Ruby version.</p>
+
+<p>The printed text after a <code>--yjit-stats</code> run includes other information that may be named differently than the information in <a href="../RubyVM/YJIT.html#method-c-runtime_stats"><code>RubyVM::YJIT.runtime_stats</code></a>.</p>
+
+<h2 id="label-Contributing">Contributing<span><a href="#label-Contributing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>We welcome open source contributions. You should feel free to open new issues to report bugs or just to ask questions. Suggestions on how to make this readme file more helpful for new contributors are most welcome.</p>
+
+<p>Bug fixes and bug reports are very valuable to us. If you find a bug in YJIT, it’s very possible be that nobody has reported it before, or that we don’t have a good reproduction for it, so please open an issue and provide as much information as you can about your configuration and a description of how you encountered the problem. List the commands you used to run YJIT so that we can easily reproduce the issue on our end and investigate it. If you are able to produce a small program reproducing the error to help us track it down, that is very much appreciated as well.</p>
+
+<p>If you would like to contribute a large patch to YJIT, we suggest opening an issue or a discussion on the <a href="https://github.com/Shopify/ruby/issues">Shopify/ruby repository</a> so that we can have an active discussion. A common problem is that sometimes people submit large pull requests to open source projects without prior communication, and we have to reject them because the work they implemented does not fit within the design of the project. We want to save you time and frustration, so please reach out so we can have a productive discussion as to how you can contribute patches we will want to merge into YJIT.</p>
+
+<h3 id="label-Source+Code+Organization">Source Code Organization<span><a href="#label-Source+Code+Organization">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The YJIT source code is divided between:</p>
+<ul><li>
+<p><code>yjit.c</code>: code YJIT uses to interface with the rest of CRuby</p>
+</li><li>
+<p><code>yjit.h</code>: C definitions YJIT exposes to the rest of the CRuby</p>
+</li><li>
+<p><code>yjit.rb</code>: <code>YJIT</code> Ruby module that is exposed to Ruby</p>
+</li><li>
+<p><code>yjit/src/asm/*</code>: in-memory assembler we use to generate machine code</p>
+</li><li>
+<p><code>yjit/src/codegen.rs</code>: logic for translating Ruby bytecode to machine code</p>
+</li><li>
+<p><code>yjit/src/core.rb</code>: basic block versioning logic, core structure of YJIT</p>
+</li><li>
+<p><code>yjit/src/stats.rs</code>: gathering of run-time statistics</p>
+</li><li>
+<p><code>yjit/src/options.rs</code>: handling of command-line options</p>
+</li><li>
+<p><code>yjit/src/cruby.rs</code>: C bindings manually exposed to the Rust codebase</p>
+</li><li>
+<p><code>yjit/bindgen/src/main.rs</code>: C bindings exposed to the Rust codebase through bindgen</p>
+</li></ul>
+
+<p>The core of CRuby’s interpreter logic is found in:</p>
+<ul><li>
+<p><code>insns.def</code>: defines Ruby’s bytecode instructions (gets compiled into <code>vm.inc</code>)</p>
+</li><li>
+<p><code>vm_insnshelper.c</code>: logic used by Ruby’s bytecode instructions</p>
+</li><li>
+<p><code>vm_exec.c</code>: Ruby interpreter loop</p>
+</li></ul>
+
+<h3 id="label-Generating+C+bindings+with+bindgen">Generating C bindings with bindgen<span><a href="#label-Generating+C+bindings+with+bindgen">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>In order to expose C functions to the Rust codebase, you will need to generate C bindings:</p>
+
+<pre>CC=clang ./configure --enable-yjit=dev
+make -j yjit-bindgen</pre>
+
+<p>This uses the bindgen tools to generate/update <code>yjit/src/cruby_bindings.inc.rs</code> based on the bindings listed in <code>yjit/bindgen/src/main.rs</code>. Avoid manually editing this file as it could be automatically regenerated at a later time. If you need to manually add C bindings, add them to <code>yjit/cruby.rs</code> instead.</p>
+
+<h3 id="label-Coding+-26+Debugging+Protips">Coding &amp; Debugging Protips<span><a href="#label-Coding+-26+Debugging+Protips">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>There are multiple test suites:</p>
+<ul><li>
+<p><code>make btest</code> (see <code>/bootstraptest</code>)</p>
+</li><li>
+<p><code>make test-all</code></p>
+</li><li>
+<p><code>make test-spec</code></p>
+</li><li>
+<p><code>make check</code> runs all of the above</p>
+</li><li>
+<p><code>make yjit-smoke-test</code> runs quick checks to see that YJIT is working correctly</p>
+</li></ul>
+
+<p>The tests can be run in parallel like this:</p>
+
+<pre>make -j test-all RUN_OPTS=&quot;--yjit-call-threshold=1&quot;</pre>
+
+<p>Or single-threaded like this, to more easily identify which specific test is failing:</p>
+
+<pre>make test-all TESTOPTS=--verbose RUN_OPTS=&quot;--yjit-call-threshold=1&quot;</pre>
+
+<p>To run a single test file with <code>test-all</code>:</p>
+
+<pre>make test-all TESTS=&#39;test/-ext-/marshal/test_usrmarshal.rb&#39; RUNRUBYOPT=--debugger=lldb RUN_OPTS=&quot;--yjit-call-threshold=1&quot;</pre>
+
+<p>It’s also possible to filter tests by name to run a single test:</p>
+
+<pre>make test-all TESTS=&#39;-n /test_float_plus/&#39; RUN_OPTS=&quot;--yjit-call-threshold=1&quot;</pre>
+
+<p>You can also run one specific test in <code>btest</code>:</p>
+
+<pre>make btest BTESTS=bootstraptest/test_ractor.rb RUN_OPTS=&quot;--yjit-call-threshold=1&quot;</pre>
+
+<p>There are shortcuts to run/debug your own test/repro in <code>test.rb</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">make</span> <span class="ruby-identifier">run</span>  <span class="ruby-comment"># runs ./miniruby test.rb</span>
+<span class="ruby-identifier">make</span> <span class="ruby-identifier">lldb</span> <span class="ruby-comment"># launches ./miniruby test.rb in lldb</span>
+</pre>
+
+<p>You can use the Intel syntax for disassembly in LLDB, keeping it consistent with YJIT’s disassembly:</p>
+
+<pre>echo &quot;settings set target.x86-disassembly-flavor intel&quot; &gt;&gt; ~/.lldbinit</pre>
+
+<h2 id="label-Running+x86+YJIT+on+Apple-27s+Rosetta">Running x86 YJIT on Apple’s Rosetta<span><a href="#label-Running+x86+YJIT+on+Apple-27s+Rosetta">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>For development purposes, it is possible to run x86 YJIT on an Apple M1 via Rosetta. You can find basic instructions below, but there are a few caveats listed further down.</p>
+
+<p>First, install Rosetta:</p>
+
+<pre>$ softwareupdate --install-rosetta</pre>
+
+<p>Now any command can be run with Rosetta via the <code>arch</code> command line tool.</p>
+
+<p>Then you can start your shell in an x86 environment:</p>
+
+<pre>$ arch -x86_64 zsh</pre>
+
+<p>You can double check your current architecture via the <code>arch</code> command:</p>
+
+<pre>$ arch -x86_64 zsh
+$ arch
+i386</pre>
+
+<p>You may need to set the default target for <code>rustc</code> to x86-64, e.g.</p>
+
+<pre>$ rustup default stable-x86_64-apple-darwin</pre>
+
+<p>While in your i386 shell, install Cargo and Homebrew, then hack away!</p>
+
+<h3 id="label-Rosetta+Caveats">Rosetta Caveats<span><a href="#label-Rosetta+Caveats">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ol><li>
+<p>You must install a version of Homebrew for each architecture</p>
+</li><li>
+<p>Cargo will install in $HOME/.cargo by default, and I don’t know a good way to change architectures after install</p>
+</li></ol>
+
+<p>If you use Fish shell you can <a href="https://tenderlovemaking.com/2022/01/07/homebrew-rosetta-and-ruby.html">read this link</a> for information on making the dev environment easier.</p>
+
+<h2 id="label-Profiling+with+Linux+perf">Profiling with Linux perf<span><a href="#label-Profiling+with+Linux+perf">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><code>--yjit-perf</code> allows you to profile JIT-ed methods along with other native functions using Linux perf. When you run Ruby with <code>perf record</code>, perf looks up <code>/tmp/perf-{pid}.map</code> to resolve symbols in JIT code, and this option lets YJIT write method symbols into that file as well as enabling frame pointers.</p>
+
+<h3 id="label-Call+graph">Call graph<span><a href="#label-Call+graph">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Here’s an example way to use this option with <a href="https://profiler.firefox.com">Firefox Profiler</a> (See also: <a href="https://profiler.firefox.com/docs/#/./guide-perf-profiling">Profiling with Linux perf</a>):</p>
+
+<pre># Compile the interpreter with frame pointers enabled
+./configure --enable-yjit --prefix=$HOME/.rubies/ruby-yjit --disable-install-doc cflags=-fno-omit-frame-pointer
+make -j &amp;&amp; make install
+
+# [Optional] Allow running perf without sudo
+echo 0 | sudo tee /proc/sys/kernel/kptr_restrict
+echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid
+
+# Profile Ruby with --yjit-perf
+cd ../yjit-bench
+PERF=&quot;record --call-graph fp&quot; ruby --yjit-perf -Iharness-perf benchmarks/liquid-render/benchmark.rb
+
+# View results on Firefox Profiler https://profiler.firefox.com.
+# Create /tmp/test.perf as below and upload it using &quot;Load a profile from file&quot;.
+perf script --fields +pid &gt; /tmp/test.perf</pre>
+
+<h3 id="label-YJIT+codegen">YJIT codegen<span><a href="#label-YJIT+codegen">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can also profile the number of cycles consumed by code generated by each YJIT function.</p>
+
+<pre># Install perf
+apt-get install linux-tools-common linux-tools-generic linux-tools-`uname -r`
+
+# [Optional] Allow running perf without sudo
+echo 0 | sudo tee /proc/sys/kernel/kptr_restrict
+echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid
+
+# Profile Ruby with --yjit-perf=codegen
+cd ../yjit-bench
+PERF=record ruby --yjit-perf=codegen -Iharness-perf benchmarks/lobsters/benchmark.rb
+
+# Aggregate results
+perf script &gt; /tmp/perf.txt
+../ruby/misc/yjit_perf.py /tmp/perf.txt</pre>
+
+<h4 id="label-Building+perf+with+Python+support">Building perf with Python support<span><a href="#label-Building+perf+with+Python+support">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The above instructions work fine for most people, but you could also use a handy <code>perf script -s</code> interface if you build perf from source.</p>
+
+<pre># Build perf from source for Python support
+sudo apt-get install libpython3-dev python3-pip flex libtraceevent-dev \
+  libelf-dev libunwind-dev libaudit-dev libslang2-dev libdw-dev
+git clone --depth=1 https://github.com/torvalds/linux
+cd linux/tools/perf
+make
+make install
+
+# Aggregate results
+perf script -s ../ruby/misc/yjit_perf.py</pre>
+
+</main>
+

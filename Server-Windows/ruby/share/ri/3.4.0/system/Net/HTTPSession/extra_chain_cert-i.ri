@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"extra_chain_cert:ETI"Net::HTTP#extra_chain_cert;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"WSets or returns the extra X509 certificates to be added to the certificate chain. ;TI"`See {OpenSSL::SSL::SSLContext#add_certificate}[OpenSSL::SSL::SSL::Context#add_certificate].;T:
+@fileI"lib/net/http.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Net::HTTPSession;TcRDoc::NormalClass0

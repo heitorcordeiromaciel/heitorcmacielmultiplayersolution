@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"raise_unknown:ETI"OptionParser#raise_unknown;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"(Whether to raise at unknown option.;T:
+@fileI"lib/optparse.rb;T:0@omit_headings_from_table_of_contents_below0F@I"OptionParser;TcRDoc::NormalClass0

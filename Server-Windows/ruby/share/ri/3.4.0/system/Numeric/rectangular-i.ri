@@ -1,0 +1,3 @@
+U:RDoc::AnyMethod[iI"rectangular:ETI"Numeric#rectangular;TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"&Returns array <tt>[self, 0]</tt>.;T:
+@fileI"complex.c;T:0@omit_headings_from_table_of_contents_below0I"rect -> array
+;T0[[I"	rect;T@	I"();T@FI"Numeric;TcRDoc::NormalClass00

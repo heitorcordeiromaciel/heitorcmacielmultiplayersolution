@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"parse_result:ETI".Prism::ParseResult::Comments#parse_result;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"8The parse result that we are attaching comments to.;T:
+@fileI"'lib/prism/parse_result/comments.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Prism::ParseResult::Comments;TcRDoc::NormalClass0

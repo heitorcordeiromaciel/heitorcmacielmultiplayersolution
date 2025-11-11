@@ -1,0 +1,10 @@
+U:RDoc::Attr[iI"	rest:ETI" Prism::MultiTargetNode#rest;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"6Represents a splat node in the target expression.;To:RDoc::Markup::Verbatim;	[I"a, (b, *c) = 1, 2, 3, 4
+;TI"       ^^
+;T:@format0o;
+;	[I"rThe variable can be empty, this results in a <code>SplatNode</code> with a <code>nil</code> expression field.;To;;	[I"a, (b, *) = 1, 2, 3, 4
+;TI"       ^
+;T;0o;
+;	[I"_If the <code>*</code> is omitted, this field will contain an <code>ImplicitRestNode</code>;To;;	[I"a, (b,) = 1, 2, 3, 4
+;TI"     ^
+;T;0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@!I"Prism::MultiTargetNode;TcRDoc::NormalClass0

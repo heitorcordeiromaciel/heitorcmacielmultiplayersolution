@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class PStore - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,PStore">
+
+    <meta name="description" content="class PStore: PStore implements a file based persistence mechanism based on a Hash. User code can store hierarchies of Ruby objects (values) into the data store by ">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/PStore.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>      <a href="#class-PStore-label-About+the+Examples">About the Examples</a>
+          <li>      <a href="#class-PStore-label-The+Store">The Store</a>
+          <li>      <a href="#class-PStore-label-Entries">Entries</a>
+          <li>
+            <details open>
+              <summary>      <a href="#class-PStore-label-Transactions">Transactions</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-PStore-label-The+Transaction+Block">The Transaction Block</a>
+          <li>      <a href="#class-PStore-label-Read-Only+Transactions">Read-Only Transactions</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#class-PStore-label-Hierarchical+Values">Hierarchical Values</a>
+          <li>
+            <details open>
+              <summary>      <a href="#class-PStore-label-Working+with+the+Store">Working with the Store</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-PStore-label-Creating+a+Store">Creating a Store</a>
+          <li>      <a href="#class-PStore-label-Modifying+the+Store">Modifying the Store</a>
+          <li>      <a href="#class-PStore-label-Retrieving+Values">Retrieving Values</a>
+          <li>      <a href="#class-PStore-label-Querying+the+Store">Querying the Store</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#class-PStore-label-Transaction+Safety">Transaction Safety</a>
+          <li>      <a href="#class-PStore-label-An+Example+Store">An Example Store</a>
+
+  </ul>
+</div>
+
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="Object.html">Object</a><ul><li><a href="BasicObject.html">BasicObject</a></li></ul></li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-new">new</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-5B-5D">[]</a></li>
+      <li ><a href="#method-i-5B-5D-3D">[]=</a></li>
+      <li ><a href="#method-i-abort">abort</a></li>
+      <li ><a href="#method-i-commit">commit</a></li>
+      <li ><a href="#method-i-delete">delete</a></li>
+      <li ><a href="#method-i-empty_marshal_checksum">empty_marshal_checksum</a></li>
+      <li ><a href="#method-i-empty_marshal_data">empty_marshal_data</a></li>
+      <li ><a href="#method-i-fetch">fetch</a></li>
+      <li ><a href="#method-i-in_transaction">in_transaction</a></li>
+      <li ><a href="#method-i-in_transaction_wr">in_transaction_wr</a></li>
+      <li ><a href="#method-i-key-3F">key?</a></li>
+      <li ><a href="#method-i-keys">keys</a></li>
+      <li ><a href="#method-i-load_data">load_data</a></li>
+      <li ><a href="#method-i-on_windows-3F">on_windows?</a></li>
+      <li ><a href="#method-i-open_and_lock_file">open_and_lock_file</a></li>
+      <li ><a href="#method-i-path">path</a></li>
+      <li ><a href="#method-i-root-3F">root?</a></li>
+      <li ><a href="#method-i-roots">roots</a></li>
+      <li ><a href="#method-i-save_data">save_data</a></li>
+      <li ><a href="#method-i-save_data_with_atomic_file_rename_strategy">save_data_with_atomic_file_rename_strategy</a></li>
+      <li ><a href="#method-i-save_data_with_fast_strategy">save_data_with_fast_strategy</a></li>
+      <li ><a href="#method-i-transaction">transaction</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-PStore">
+  
+  
+
+  <h1 id="class-PStore" class="anchor-link class">
+    class PStore
+  </h1>
+
+  <section class="description">
+    
+<p>PStore implements a file based persistence mechanism based on a <a href="Hash.html"><code>Hash</code></a>. User code can store hierarchies of Ruby objects (values) into the data store by name (keys). An object hierarchy may be just a single object. User code may later read values back from the data store or even update data, as needed.</p>
+
+<p>The transactional behavior ensures that any changes succeed or fail together. This can be used to ensure that the data store is not left in a transitory state, where some values were updated but others were not.</p>
+
+<p>Behind the scenes, Ruby objects are stored to the data store file with <a href="Marshal.html"><code>Marshal</code></a>. That carries the usual limitations. <a href="Proc.html"><code>Proc</code></a> objects cannot be marshalled, for example.</p>
+
+<p>There are three important concepts here (details at the links):</p>
+<ul><li>
+<p><a href="PStore.html#class-PStore-label-The+Store">Store</a>: a store is an instance of PStore.</p>
+</li><li>
+<p><a href="PStore.html#class-PStore-label-Entries">Entries</a>: the store is hash-like; each entry is the key for a stored object.</p>
+</li><li>
+<p><a href="PStore.html#class-PStore-label-Transactions">Transactions</a>: each transaction is a collection of prospective changes to the store; a transaction is defined in the block given with a call to <a href="PStore.html#method-i-transaction"><code>PStore#transaction</code></a>.</p>
+</li></ul>
+
+<h2 id="class-PStore-label-About+the+Examples">About the Examples<span><a href="#class-PStore-label-About+the+Examples">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Examples on this page need a store that has known properties. They can get a new (and populated) store by calling thus:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-comment"># Example code using store goes here.</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>All we really need to know about <code>example_store</code> is that it yields a fresh store with a known population of entries; its implementation:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;pstore&#39;</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;tempfile&#39;</span>
+<span class="ruby-comment"># Yield a pristine store for use in examples.</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_store</span>
+  <span class="ruby-comment"># Create the store in a temporary file.</span>
+  <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">create</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">store</span> = <span class="ruby-constant">PStore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">file</span>)
+    <span class="ruby-comment"># Populate the store.</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">store</span>[<span class="ruby-value">:foo</span>] = <span class="ruby-value">0</span>
+      <span class="ruby-identifier">store</span>[<span class="ruby-value">:bar</span>] = <span class="ruby-value">1</span>
+      <span class="ruby-identifier">store</span>[<span class="ruby-value">:baz</span>] = <span class="ruby-value">2</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">store</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="class-PStore-label-The+Store">The Store<span><a href="#class-PStore-label-The+Store">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The contents of the store are maintained in a file whose path is specified when the store is created (see <a href="PStore.html#method-c-new"><code>PStore.new</code></a>). The objects are stored and retrieved using module <a href="Marshal.html"><code>Marshal</code></a>, which means that certain objects cannot be added to the store; see <a href="Marshal.html#method-c-dump">Marshal::dump</a>.</p>
+
+<h2 id="class-PStore-label-Entries">Entries<span><a href="#class-PStore-label-Entries">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A store may have any number of entries. Each entry has a key and a value, just as in a hash:</p>
+<ul><li>
+<p>Key: as in a hash, the key can be (almost) any object; see <a href="Hash.html#class-Hash-label-Hash+Keys">Hash Keys</a>. You may find it convenient to keep it simple by using only symbols or strings as keys.</p>
+</li><li>
+<p>Value: the value may be any object that can be marshalled by Marshal (see <a href="Marshal.html#method-c-dump">Marshal::dump</a>) and in fact may be a collection (e.g., an array, a hash, a set, a range, etc). That collection may in turn contain nested objects, including collections, to any depth; those objects must also be Marshal-able. See <a href="PStore.html#class-PStore-label-Hierarchical+Values">Hierarchical Values</a>.</p>
+</li></ul>
+
+<h2 id="class-PStore-label-Transactions">Transactions<span><a href="#class-PStore-label-Transactions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="class-PStore-label-The+Transaction+Block">The Transaction Block<span><a href="#class-PStore-label-The+Transaction+Block">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The block given with a call to method <a href="PStore.html#method-i-transaction"><code>transaction</code></a># contains a <em>transaction</em>, which consists of calls to PStore methods that read from or write to the store (that is, all PStore methods except <a href="PStore.html#method-i-transaction"><code>transaction</code></a> itself, <a href="PStore.html#method-i-path"><code>path</code></a>, and Pstore.new):</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">keys</span> <span class="ruby-comment"># =&gt; [:foo, :bar, :baz]</span>
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:bat</span>] = <span class="ruby-value">3</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">keys</span> <span class="ruby-comment"># =&gt; [:foo, :bar, :baz, :bat]</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Execution of the transaction is deferred until the block exits, and is executed <em>atomically</em> (all-or-nothing): either all transaction calls are executed, or none are. This maintains the integrity of the store.</p>
+
+<p>Other code in the block (including even calls to <a href="PStore.html#method-i-path"><code>path</code></a> and <a href="PStore.html#method-c-new"><code>PStore.new</code></a>) is executed immediately, not deferred.</p>
+
+<p>The transaction block:</p>
+<ul><li>
+<p>May not contain a nested call to <a href="PStore.html#method-i-transaction"><code>transaction</code></a>.</p>
+</li><li>
+<p>Is the only context where methods that read from or write to the store are allowed.</p>
+</li></ul>
+
+<p>As seen above, changes in a transaction are made automatically when the block exits. The block may be exited early by calling method <a href="PStore.html#method-i-commit"><code>commit</code></a> or <a href="PStore.html#method-i-abort"><code>abort</code></a>.</p>
+<ul><li>
+<p>Method <a href="PStore.html#method-i-commit"><code>commit</code></a> triggers the update to the store and exits the block:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">keys</span> <span class="ruby-comment"># =&gt; [:foo, :bar, :baz]</span>
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:bat</span>] = <span class="ruby-value">3</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">commit</span>
+    <span class="ruby-identifier">fail</span> <span class="ruby-string">&#39;Cannot get here&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Update was completed.</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">keys</span> <span class="ruby-comment"># =&gt; [:foo, :bar, :baz, :bat]</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+</li><li>
+<p>Method <a href="PStore.html#method-i-abort"><code>abort</code></a> discards the update to the store and exits the block:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">keys</span> <span class="ruby-comment"># =&gt; [:foo, :bar, :baz]</span>
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:bat</span>] = <span class="ruby-value">3</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">abort</span>
+    <span class="ruby-identifier">fail</span> <span class="ruby-string">&#39;Cannot get here&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Update was not completed.</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">keys</span> <span class="ruby-comment"># =&gt; [:foo, :bar, :baz]</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+</li></ul>
+
+<h3 id="class-PStore-label-Read-Only+Transactions">Read-Only Transactions<span><a href="#class-PStore-label-Read-Only+Transactions">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>By default, a transaction allows both reading from and writing to the store:</p>
+
+<pre class="ruby"><span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># Read-write transaction.</span>
+  <span class="ruby-comment"># Any code except a call to #transaction is allowed here.</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>If argument <code>read_only</code> is passed as <code>true</code>, only reading is allowed:</p>
+
+<pre class="ruby"><span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># Read-only transaction:</span>
+  <span class="ruby-comment"># Calls to #transaction, #[]=, and #delete are not allowed here.</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="class-PStore-label-Hierarchical+Values">Hierarchical Values<span><a href="#class-PStore-label-Hierarchical+Values">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The value for an entry may be a simple object (as seen above). It may also be a hierarchy of objects nested to any depth:</p>
+
+<pre class="ruby"><span class="ruby-identifier">deep_store</span> = <span class="ruby-constant">PStore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;deep.store&#39;</span>)
+<span class="ruby-identifier">deep_store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">array_of_hashes</span> = [{}, {}, {}]
+  <span class="ruby-identifier">deep_store</span>[<span class="ruby-value">:array_of_hashes</span>] = <span class="ruby-identifier">array_of_hashes</span>
+  <span class="ruby-identifier">deep_store</span>[<span class="ruby-value">:array_of_hashes</span>] <span class="ruby-comment"># =&gt; [{}, {}, {}]</span>
+  <span class="ruby-identifier">hash_of_arrays</span> = {<span class="ruby-value">foo:</span> [], <span class="ruby-value">bar:</span> [], <span class="ruby-value">baz:</span> []}
+  <span class="ruby-identifier">deep_store</span>[<span class="ruby-value">:hash_of_arrays</span>] = <span class="ruby-identifier">hash_of_arrays</span>
+  <span class="ruby-identifier">deep_store</span>[<span class="ruby-value">:hash_of_arrays</span>]  <span class="ruby-comment"># =&gt; {:foo=&gt;[], :bar=&gt;[], :baz=&gt;[]}</span>
+  <span class="ruby-identifier">deep_store</span>[<span class="ruby-value">:hash_of_arrays</span>][<span class="ruby-value">:foo</span>].<span class="ruby-identifier">push</span>(<span class="ruby-value">:bat</span>)
+  <span class="ruby-identifier">deep_store</span>[<span class="ruby-value">:hash_of_arrays</span>]  <span class="ruby-comment"># =&gt; {:foo=&gt;[:bat], :bar=&gt;[], :baz=&gt;[]}</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>And recall that you can use <a href="dig_methods_rdoc.html">dig methods</a> in a returned hierarchy of objects.</p>
+
+<h2 id="class-PStore-label-Working+with+the+Store">Working with the Store<span><a href="#class-PStore-label-Working+with+the+Store">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="class-PStore-label-Creating+a+Store">Creating a Store<span><a href="#class-PStore-label-Creating+a+Store">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Use method <a href="PStore.html#method-c-new"><code>PStore.new</code></a> to create a store. The new store creates or opens its containing file:</p>
+
+<pre class="ruby"><span class="ruby-identifier">store</span> = <span class="ruby-constant">PStore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;t.store&#39;</span>)
+</pre>
+
+<h3 id="class-PStore-label-Modifying+the+Store">Modifying the Store<span><a href="#class-PStore-label-Modifying+the+Store">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Use method <a href="PStore.html#method-i-5B-5D-3D"><code>[]=</code></a> to update or create an entry:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:foo</span>] = <span class="ruby-value">1</span> <span class="ruby-comment"># Update.</span>
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:bam</span>] = <span class="ruby-value">1</span> <span class="ruby-comment"># Create.</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Use method <a href="PStore.html#method-i-delete"><code>delete</code></a> to remove an entry:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:foo</span>)
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:foo</span>] <span class="ruby-comment"># =&gt; nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="class-PStore-label-Retrieving+Values">Retrieving Values<span><a href="#class-PStore-label-Retrieving+Values">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Use method <a href="PStore.html#method-i-fetch"><code>fetch</code></a> (allows default) or <a href="PStore.html#method-i-5B-5D"><code>[]</code></a> (defaults to <code>nil</code>) to retrieve an entry:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:foo</span>]             <span class="ruby-comment"># =&gt; 0</span>
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:nope</span>]            <span class="ruby-comment"># =&gt; nil</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:baz</span>)       <span class="ruby-comment"># =&gt; 2</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:nope</span>, <span class="ruby-keyword">nil</span>) <span class="ruby-comment"># =&gt; nil</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:nope</span>)      <span class="ruby-comment"># Raises exception.</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="class-PStore-label-Querying+the+Store">Querying the Store<span><a href="#class-PStore-label-Querying+the+Store">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Use method <a href="PStore.html#method-i-key-3F"><code>key?</code></a> to determine whether a given key exists:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:foo</span>) <span class="ruby-comment"># =&gt; true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Use method <a href="PStore.html#method-i-keys"><code>keys</code></a> to retrieve keys:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">keys</span> <span class="ruby-comment"># =&gt; [:foo, :bar, :baz]</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Use method <a href="PStore.html#method-i-path"><code>path</code></a> to retrieve the path to the store’s underlying file; this method may be called from outside a transaction block:</p>
+
+<pre class="ruby"><span class="ruby-identifier">store</span> = <span class="ruby-constant">PStore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;t.store&#39;</span>)
+<span class="ruby-identifier">store</span>.<span class="ruby-identifier">path</span> <span class="ruby-comment"># =&gt; &quot;t.store&quot;</span>
+</pre>
+
+<h2 id="class-PStore-label-Transaction+Safety">Transaction Safety<span><a href="#class-PStore-label-Transaction+Safety">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>For transaction safety, see:</p>
+<ul><li>
+<p>Optional argument <code>thread_safe</code> at method <a href="PStore.html#method-c-new"><code>PStore.new</code></a>.</p>
+</li><li>
+<p>Attribute <a href="PStore.html#attribute-i-ultra_safe"><code>ultra_safe</code></a>.</p>
+</li></ul>
+
+<p>Needless to say, if you’re storing valuable data with PStore, then you should backup the PStore file from time to time.</p>
+
+<h2 id="class-PStore-label-An+Example+Store">An Example Store<span><a href="#class-PStore-label-An+Example+Store">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&quot;pstore&quot;</span>
+
+<span class="ruby-comment"># A mock wiki object.</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">WikiPage</span>
+
+  <span class="ruby-identifier">attr_reader</span> <span class="ruby-value">:page_name</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">page_name</span>, <span class="ruby-identifier">author</span>, <span class="ruby-identifier">contents</span>)
+    <span class="ruby-ivar">@page_name</span> = <span class="ruby-identifier">page_name</span>
+    <span class="ruby-ivar">@revisions</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">add_revision</span>(<span class="ruby-identifier">author</span>, <span class="ruby-identifier">contents</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_revision</span>(<span class="ruby-identifier">author</span>, <span class="ruby-identifier">contents</span>)
+    <span class="ruby-ivar">@revisions</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">created:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>,
+                   <span class="ruby-value">author:</span> <span class="ruby-identifier">author</span>,
+                   <span class="ruby-value">contents:</span> <span class="ruby-identifier">contents</span>}
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">wiki_page_references</span>
+    [<span class="ruby-ivar">@page_name</span>] <span class="ruby-operator">+</span> <span class="ruby-ivar">@revisions</span>.<span class="ruby-identifier">last</span>[<span class="ruby-value">:contents</span>].<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\b(?:[A-Z]+[a-z]+){2,}/</span>)
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># Create a new wiki page.</span>
+<span class="ruby-identifier">home_page</span> = <span class="ruby-constant">WikiPage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;HomePage&quot;</span>, <span class="ruby-string">&quot;James Edward Gray II&quot;</span>,
+                         <span class="ruby-string">&quot;A page about the JoysOfDocumentation...&quot;</span> )
+
+<span class="ruby-identifier">wiki</span> = <span class="ruby-constant">PStore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;wiki_pages.pstore&quot;</span>)
+<span class="ruby-comment"># Update page data and the index together, or not at all.</span>
+<span class="ruby-identifier">wiki</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># Store page.</span>
+  <span class="ruby-identifier">wiki</span>[<span class="ruby-identifier">home_page</span>.<span class="ruby-identifier">page_name</span>] = <span class="ruby-identifier">home_page</span>
+  <span class="ruby-comment"># Create page index.</span>
+  <span class="ruby-identifier">wiki</span>[<span class="ruby-value">:wiki_index</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-comment"># Update wiki index.</span>
+  <span class="ruby-identifier">wiki</span>[<span class="ruby-value">:wiki_index</span>].<span class="ruby-identifier">push</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">home_page</span>.<span class="ruby-identifier">wiki_page_references</span>)
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># Read wiki data, setting argument read_only to true.</span>
+<span class="ruby-identifier">wiki</span>.<span class="ruby-identifier">transaction</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">wiki</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">wiki</span>[<span class="ruby-identifier">key</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="CHECKSUM_ALGO">CHECKSUM_ALGO
+        <dd>
+          <p>Constant for relieving Ruby’s garbage collector.</p>
+        <dt id="EMPTY_MARSHAL_CHECKSUM">EMPTY_MARSHAL_CHECKSUM
+        <dd>
+          
+        <dt id="EMPTY_MARSHAL_DATA">EMPTY_MARSHAL_DATA
+        <dd>
+          
+        <dt id="EMPTY_STRING">EMPTY_STRING
+        <dd>
+          
+        <dt id="RDWR_ACCESS">RDWR_ACCESS
+        <dd>
+          
+        <dt id="RD_ACCESS">RD_ACCESS
+        <dd>
+          
+        <dt id="VERSION">VERSION
+        <dd>
+          
+        <dt id="WR_ACCESS">WR_ACCESS
+        <dd>
+          
+      </dl>
+    </section>
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-ultra_safe" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-ultra_safe" title="Link to this attribute">
+            <span class="method-name">ultra_safe</span>
+            <span class="attribute-access-type">[RW]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        <p>Whether PStore should do its best to prevent file corruptions, even when an unlikely error (such as memory-error or filesystem error) occurs:</p>
+<ul><li>
+<p><code>true</code>: changes are posted by creating a temporary file, writing the updated data to it, then renaming the file to the given <a href="PStore.html#method-i-path"><code>path</code></a>. <a href="File.html"><code>File</code></a> integrity is maintained. Note: has effect only if the filesystem has atomic file rename (as do POSIX platforms Linux, MacOS, FreeBSD and others).</p>
+</li><li>
+<p><code>false</code> (the default): changes are posted by rewinding the open file and writing the updated data. <a href="File.html"><code>File</code></a> integrity is maintained if the filesystem raises no unexpected I/O error; if such an error occurs during a write to the store, the file may become corrupted.</p>
+</li></ul>
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(file, thread_safe = false)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 372</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">thread_safe</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dir</span> = <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-identifier">directory?</span> <span class="ruby-identifier">dir</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">PStore</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;directory %s does not exist&quot;</span>, <span class="ruby-identifier">dir</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-identifier">exist?</span> <span class="ruby-identifier">file</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">not</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-identifier">readable?</span> <span class="ruby-identifier">file</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">PStore</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;file %s not readable&quot;</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">file</span>
+  <span class="ruby-ivar">@abort</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@ultra_safe</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@thread_safe</span> = <span class="ruby-identifier">thread_safe</span>
+  <span class="ruby-ivar">@lock</span> = <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns a new PStore object.</p>
+
+<p>Argument <code>file</code> is the path to the file in which objects are to be stored; if the file exists, it should be one that was written by PStore.</p>
+
+<pre class="ruby"><span class="ruby-identifier">path</span> = <span class="ruby-string">&#39;t.store&#39;</span>
+<span class="ruby-identifier">store</span> = <span class="ruby-constant">PStore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>)
+</pre>
+
+<p>A PStore object is <a href="https://en.wikipedia.org/wiki/Reentrancy_(computing)">reentrant</a>. If argument <code>thread_safe</code> is given as <code>true</code>, the object is also thread-safe (at the cost of a small performance penalty):</p>
+
+<pre class="ruby"><span class="ruby-identifier">store</span> = <span class="ruby-constant">PStore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>, <span class="ruby-keyword">true</span>)
+</pre>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-5B-5D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-5B-5D" title="Link to this method">
+                <span class="method-name">[]</span>
+                <span class="method-args">(key)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">in_transaction</span>
+  <span class="ruby-ivar">@table</span>[<span class="ruby-identifier">key</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the value for the given <code>key</code> if the key exists. <code>nil</code> otherwise; if not <code>nil</code>, the returned value is an object or a hierarchy of objects:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:foo</span>]  <span class="ruby-comment"># =&gt; 0</span>
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:nope</span>] <span class="ruby-comment"># =&gt; nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Returns <code>nil</code> if there is no such key.</p>
+
+<p>See also <a href="PStore.html#class-PStore-label-Hierarchical+Values">Hierarchical Values</a>.</p>
+
+<p>Raises an exception if called outside a transaction block.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-5B-5D-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-5B-5D-3D" title="Link to this method">
+                <span class="method-name">[]=</span>
+                <span class="method-args">(key, value)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 459</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">in_transaction_wr</span>
+  <span class="ruby-ivar">@table</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Creates or replaces the value for the given <code>key</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">temp</span>[<span class="ruby-value">:bat</span>] = <span class="ruby-value">3</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>See also <a href="PStore.html#class-PStore-label-Hierarchical+Values">Hierarchical Values</a>.</p>
+
+<p>Raises an exception if called outside a transaction block.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-abort" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-abort" title="Link to this method">
+                <span class="method-name">abort</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="abort-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 535</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">abort</span>
+  <span class="ruby-identifier">in_transaction</span>
+  <span class="ruby-ivar">@abort</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">throw</span> <span class="ruby-value">:pstore_abort_transaction</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Exits the current transaction block, discarding any changes specified in the <a href="PStore.html#class-PStore-label-The+Transaction+Block">transaction block</a>.</p>
+
+<p>Raises an exception if called outside a transaction block.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-commit" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-commit" title="Link to this method">
+                <span class="method-name">commit</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="commit-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 524</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">commit</span>
+  <span class="ruby-identifier">in_transaction</span>
+  <span class="ruby-ivar">@abort</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">throw</span> <span class="ruby-value">:pstore_abort_transaction</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Exits the current transaction block, committing any changes specified in the <a href="PStore.html#class-PStore-label-The+Transaction+Block">transaction block</a>.</p>
+
+<p>Raises an exception if called outside a transaction block.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-delete" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-delete" title="Link to this method">
+                <span class="method-name">delete</span>
+                <span class="method-args">(key)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 476</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">in_transaction_wr</span>
+  <span class="ruby-ivar">@table</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Removes and returns the value at <code>key</code> if it exists:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>[<span class="ruby-value">:bat</span>] = <span class="ruby-value">3</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:bat</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Returns <code>nil</code> if there is no such key.</p>
+
+<p>Raises an exception if called outside a transaction block.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-fetch" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-fetch" title="Link to this method">
+                <span class="method-name">fetch</span>
+                <span class="method-args">(key, default=PStore::Error)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="fetch-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 436</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">default</span>=<span class="ruby-constant">PStore</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>)
+  <span class="ruby-identifier">in_transaction</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@table</span>.<span class="ruby-identifier">key?</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">default</span> <span class="ruby-operator">==</span> <span class="ruby-constant">PStore</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">PStore</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;undefined key &#39;%s&#39;&quot;</span>, <span class="ruby-identifier">key</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">default</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@table</span>[<span class="ruby-identifier">key</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Like <a href="PStore.html#method-i-5B-5D"><code>[]</code></a>, except that it accepts a default value for the store. If the <code>key</code> does not exist:</p>
+<ul><li>
+<p>Raises an exception if <code>default</code> is <a href="PStore/Error.html"><code>PStore::Error</code></a>.</p>
+</li><li>
+<p>Returns the value of <code>default</code> otherwise:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:nope</span>, <span class="ruby-keyword">nil</span>) <span class="ruby-comment"># =&gt; nil</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:nope</span>)      <span class="ruby-comment"># Raises an exception.</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+</li></ul>
+
+<p>Raises an exception if called outside a transaction block.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-key-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-key-3F" title="Link to this method">
+                <span class="method-name">key?</span>
+                <span class="method-args">(key)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="key-3F-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 505</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">key?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">in_transaction</span>
+  <span class="ruby-ivar">@table</span>.<span class="ruby-identifier">key?</span> <span class="ruby-identifier">key</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns <code>true</code> if <code>key</code> exists, <code>false</code> otherwise:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:foo</span>) <span class="ruby-comment"># =&gt; true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Raises an exception if called outside a transaction block.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="PStore.html#method-i-root-3F">root?</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-keys" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-keys" title="Link to this method">
+                <span class="method-name">keys</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="keys-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 490</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">keys</span>
+  <span class="ruby-identifier">in_transaction</span>
+  <span class="ruby-ivar">@table</span>.<span class="ruby-identifier">keys</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns an array of the existing keys:</p>
+
+<pre class="ruby"><span class="ruby-identifier">example_store</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">store</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">keys</span> <span class="ruby-comment"># =&gt; [:foo, :bar, :baz]</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Raises an exception if called outside a transaction block.</p>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="PStore.html#method-i-roots">roots</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-path" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-path" title="Link to this method">
+                <span class="method-name">path</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="path-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 515</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">path</span>
+  <span class="ruby-ivar">@filename</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Returns the string file path used to create the store:</p>
+
+<pre class="ruby"><span class="ruby-identifier">store</span>.<span class="ruby-identifier">path</span> <span class="ruby-comment"># =&gt; &quot;flat.store&quot;</span>
+</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-root-3F" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-root-3F" title="Link to this method">
+                <span class="method-name">root?</span>
+                <span class="method-args">(key)</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="PStore.html#method-i-key-3F">key?</a>
+        </div>
+      </div>
+
+      <div id="method-i-roots" class="method-detail anchor-link method-alias">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-roots" title="Link to this method">
+                <span class="method-name">roots</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+
+        <div class="method-description">
+          
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="PStore.html#method-i-keys">keys</a>
+        </div>
+      </div>
+
+      <div id="method-i-transaction" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-transaction" title="Link to this method">
+                <span class="method-name">transaction</span>
+                <span class="method-args">(read_only = false) { |pstore| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="transaction-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 551</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">transaction</span>(<span class="ruby-identifier">read_only</span> = <span class="ruby-keyword">false</span>)  <span class="ruby-comment"># :yields:  pstore</span>
+  <span class="ruby-identifier">value</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@thread_safe</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">PStore</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;nested transaction&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">try_lock</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">lock</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ThreadError</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">PStore</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;nested transaction&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@rdonly</span> = <span class="ruby-identifier">read_only</span>
+    <span class="ruby-ivar">@abort</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">file</span> = <span class="ruby-identifier">open_and_lock_file</span>(<span class="ruby-ivar">@filename</span>, <span class="ruby-identifier">read_only</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">file</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-ivar">@table</span>, <span class="ruby-identifier">checksum</span>, <span class="ruby-identifier">original_data_size</span> = <span class="ruby-identifier">load_data</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">read_only</span>)
+
+        <span class="ruby-identifier">catch</span>(<span class="ruby-value">:pstore_abort_transaction</span>) <span class="ruby-keyword">do</span>
+          <span class="ruby-identifier">value</span> = <span class="ruby-keyword">yield</span>(<span class="ruby-keyword">self</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@abort</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">read_only</span>
+          <span class="ruby-identifier">save_data</span>(<span class="ruby-identifier">checksum</span>, <span class="ruby-identifier">original_data_size</span>, <span class="ruby-identifier">file</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">ensure</span>
+        <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># This can only occur if read_only == true.</span>
+      <span class="ruby-ivar">@table</span> = {}
+      <span class="ruby-identifier">catch</span>(<span class="ruby-value">:pstore_abort_transaction</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">value</span> = <span class="ruby-keyword">yield</span>(<span class="ruby-keyword">self</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">unlock</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Opens a transaction block for the store. See <a href="PStore.html#class-PStore-label-Transactions">Transactions</a>.</p>
+
+<p>With argument <code>read_only</code> as <code>false</code>, the block may both read from and write to the store.</p>
+
+<p>With argument <code>read_only</code> as <code>true</code>, the block may not include calls to <a href="PStore.html#method-i-transaction"><code>transaction</code></a>, <a href="PStore.html#method-i-5B-5D-3D"><code>[]=</code></a>, or <a href="PStore.html#method-i-delete"><code>delete</code></a>.</p>
+
+<p>Raises an exception if called within a transaction block.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-empty_marshal_checksum" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-empty_marshal_checksum" title="Link to this method">
+                <span class="method-name">empty_marshal_checksum</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="empty_marshal_checksum-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 728</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">empty_marshal_checksum</span>
+  <span class="ruby-constant">EMPTY_MARSHAL_CHECKSUM</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-empty_marshal_data" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-empty_marshal_data" title="Link to this method">
+                <span class="method-name">empty_marshal_data</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="empty_marshal_data-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 725</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">empty_marshal_data</span>
+  <span class="ruby-constant">EMPTY_MARSHAL_DATA</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-in_transaction" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-in_transaction" title="Link to this method">
+                <span class="method-name">in_transaction</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="in_transaction-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 388</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">in_transaction</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">PStore</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;not in transaction&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">locked?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Raises <a href="PStore/Error.html"><code>PStore::Error</code></a> if the calling code is not in a <a href="PStore.html#method-i-transaction"><code>PStore#transaction</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-in_transaction_wr" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-in_transaction_wr" title="Link to this method">
+                <span class="method-name">in_transaction_wr</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="in_transaction_wr-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 395</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">in_transaction_wr</span>
+  <span class="ruby-identifier">in_transaction</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">PStore</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;in read-only transaction&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@rdonly</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Raises <a href="PStore/Error.html"><code>PStore::Error</code></a> if the calling code is not in a <a href="PStore.html#method-i-transaction"><code>PStore#transaction</code></a> or if the code is in a read-only <a href="PStore.html#method-i-transaction"><code>PStore#transaction</code></a>.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-load_data" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-load_data" title="Link to this method">
+                <span class="method-name">load_data</span>
+                <span class="method-args">(file, read_only)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="load_data-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 639</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load_data</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">read_only</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">read_only</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">table</span> = <span class="ruby-identifier">load</span>(<span class="ruby-identifier">file</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;PStore file seems to be corrupted.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">table</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">EOFError</span>
+      <span class="ruby-comment"># This seems to be a newly-created file.</span>
+      <span class="ruby-identifier">table</span> = {}
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">table</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">read</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-comment"># This seems to be a newly-created file.</span>
+      <span class="ruby-identifier">table</span> = {}
+      <span class="ruby-identifier">checksum</span> = <span class="ruby-identifier">empty_marshal_checksum</span>
+      <span class="ruby-identifier">size</span> = <span class="ruby-identifier">empty_marshal_data</span>.<span class="ruby-identifier">bytesize</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">table</span> = <span class="ruby-identifier">load</span>(<span class="ruby-identifier">data</span>)
+      <span class="ruby-identifier">checksum</span> = <span class="ruby-constant">CHECKSUM_ALGO</span>.<span class="ruby-identifier">digest</span>(<span class="ruby-identifier">data</span>)
+      <span class="ruby-identifier">size</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">bytesize</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;PStore file seems to be corrupted.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">table</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">data</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-constant">EMPTY_STRING</span>)
+    [<span class="ruby-identifier">table</span>, <span class="ruby-identifier">checksum</span>, <span class="ruby-identifier">size</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Load the given <a href="PStore.html"><code>PStore</code></a> file. If <code>read_only</code> is true, the unmarshalled <a href="Hash.html"><code>Hash</code></a> will be returned. If <code>read_only</code> is false, a 3-tuple will be returned: the unmarshalled <a href="Hash.html"><code>Hash</code></a>, a checksum of the data, and the size of the data.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_windows-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-on_windows-3F" title="Link to this method">
+                <span class="method-name">on_windows?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="on_windows-3F-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 667</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_windows?</span>
+  <span class="ruby-identifier">is_windows</span> = <span class="ruby-constant">RUBY_PLATFORM</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/mswin|mingw|bccwin|wince/</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:define_method</span>, <span class="ruby-value">:on_windows?</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">is_windows</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">is_windows</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-open_and_lock_file" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-open_and_lock_file" title="Link to this method">
+                <span class="method-name">open_and_lock_file</span>
+                <span class="method-args">(filename, read_only)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="open_and_lock_file-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 614</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">open_and_lock_file</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">read_only</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">read_only</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-operator">**</span><span class="ruby-constant">RD_ACCESS</span>)
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">file</span>.<span class="ruby-identifier">flock</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_SH</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">file</span>
+      <span class="ruby-keyword">rescue</span>
+        <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-identifier">raise</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-operator">**</span><span class="ruby-constant">RDWR_ACCESS</span>)
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">flock</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_EX</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">file</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Open the specified filename (either in read-only mode or in read-write mode) and lock it for reading or writing.</p>
+
+<p>The opened <a href="File.html"><code>File</code></a> object will be returned. If <em>read_only</em> is true, and the file does not exist, then nil will be returned.</p>
+
+<p>All exceptions are propagated.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-save_data" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-save_data" title="Link to this method">
+                <span class="method-name">save_data</span>
+                <span class="method-args">(original_checksum, original_file_size, file)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="save_data-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 675</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_data</span>(<span class="ruby-identifier">original_checksum</span>, <span class="ruby-identifier">original_file_size</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">new_data</span> = <span class="ruby-identifier">dump</span>(<span class="ruby-ivar">@table</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">new_data</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">original_file_size</span> <span class="ruby-operator">||</span> <span class="ruby-constant">CHECKSUM_ALGO</span>.<span class="ruby-identifier">digest</span>(<span class="ruby-identifier">new_data</span>) <span class="ruby-operator">!=</span> <span class="ruby-identifier">original_checksum</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ultra_safe</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">on_windows?</span>
+      <span class="ruby-comment"># Windows doesn&#39;t support atomic file renames.</span>
+      <span class="ruby-identifier">save_data_with_atomic_file_rename_strategy</span>(<span class="ruby-identifier">new_data</span>, <span class="ruby-identifier">file</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">save_data_with_fast_strategy</span>(<span class="ruby-identifier">new_data</span>, <span class="ruby-identifier">file</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">new_data</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-constant">EMPTY_STRING</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-save_data_with_atomic_file_rename_strategy" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-save_data_with_atomic_file_rename_strategy" title="Link to this method">
+                <span class="method-name">save_data_with_atomic_file_rename_strategy</span>
+                <span class="method-args">(data, file)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="save_data_with_atomic_file_rename_strategy-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 690</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_data_with_atomic_file_rename_strategy</span>(<span class="ruby-identifier">data</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">temp_filename</span> = <span class="ruby-node">&quot;#{@filename}.tmp.#{Process.pid}.#{rand 1000000}&quot;</span>
+  <span class="ruby-identifier">temp_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">temp_filename</span>, <span class="ruby-operator">**</span><span class="ruby-constant">WR_ACCESS</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">temp_file</span>.<span class="ruby-identifier">flock</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_EX</span>)
+    <span class="ruby-identifier">temp_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">data</span>)
+    <span class="ruby-identifier">temp_file</span>.<span class="ruby-identifier">flush</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">rename</span>(<span class="ruby-identifier">temp_filename</span>, <span class="ruby-ivar">@filename</span>)
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">unlink</span>(<span class="ruby-identifier">temp_file</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">raise</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">temp_file</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-save_data_with_fast_strategy" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-save_data_with_fast_strategy" title="Link to this method">
+                <span class="method-name">save_data_with_fast_strategy</span>
+                <span class="method-args">(data, file)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="save_data_with_fast_strategy-source">
+            <pre><span class="ruby-comment"># File lib/pstore.rb, line 706</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_data_with_fast_strategy</span>(<span class="ruby-identifier">data</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">rewind</span>
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">truncate</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">bytesize</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

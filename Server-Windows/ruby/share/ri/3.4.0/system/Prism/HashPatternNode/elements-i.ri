@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"elements:ETI"$Prism::HashPatternNode#elements;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"8Represents the explicit named hash keys and values.;To:RDoc::Markup::Verbatim;	[I"foo => { a: 1, b:, ** }
+;TI"         ^^^^^^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::HashPatternNode;TcRDoc::NormalClass0

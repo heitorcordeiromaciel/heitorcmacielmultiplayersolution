@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"file_path_prefix:ETI"#RDoc::Options#file_path_prefix;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"*The prefix to use for file page paths;T:
+@fileI"lib/rdoc/options.rb;T:0@omit_headings_from_table_of_contents_below0F@I"RDoc::Options;TcRDoc::NormalClass0

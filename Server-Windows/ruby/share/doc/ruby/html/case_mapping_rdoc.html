@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>case_mapping - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,case_mapping">
+  <meta name="description" content="case_mapping: Case Mapping Some string-oriented methods use case mapping. Symbol#capitalize - Symbol#casecmp - Symbol#casecmp? - Symbol#downcase - Symbol#swapcase ">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/case_mapping_rdoc.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Case+Mapping">Case Mapping</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Default+Case+Mapping">Default Case Mapping</a>
+          <li>      <a href="#label-Options+for+Case+Mapping">Options for Case Mapping</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./COPYING.html">COPYING</a>
+    <li><a href="./COPYING_ja.html">COPYING.ja</a>
+    <li><a href="./LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="./NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="./NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="./NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="./NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="./NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="./NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="./NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="./NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="./NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="./NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="./NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="./NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="./NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="./NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="./NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="./NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="./NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="./README_ja_md.html">README.ja</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./bsearch_rdoc.html">bsearch</a>
+    <li><a href="./bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="./case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="./character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="./command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="./contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="./contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="./contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="./contributing/glossary_md.html">glossary</a>
+      <li><a href="./contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="./contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="./contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="./contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="./date/calendars_rdoc.html">calendars</a>
+    <li><a href="./dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="./distribution_md.html">distribution</a>
+    <li><a href="./dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="./encodings_rdoc.html">encodings</a>
+    <li><a href="./exceptions_md.html">exceptions</a>
+    <li><a href="./extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="./extension_rdoc.html">extension</a>
+    <li><a href="./fiber_md.html">fiber</a>
+    <li><a href="./format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="./globals_rdoc.html">globals</a>
+    <li><a href="./implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="./index_md.html">index</a>
+    <li><a href="./maintainers_md.html">maintainers</a>
+    <li><a href="./marshal_rdoc.html">marshal</a>
+    <li><a href="./memory_view_md.html">memory_view</a>
+    <li><details><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="./optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="./optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="./optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="./optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="./packed_data_rdoc.html">packed_data</a>
+    <li><a href="./ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="./regexp/methods_rdoc.html">methods</a>
+      <li><a href="./regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="./rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="./ruby/option_dump_md.html">option_dump</a>
+      <li><a href="./ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="./security_rdoc.html">security</a>
+    <li><a href="./signals_rdoc.html">signals</a>
+    <li><a href="./standard_library_md.html">standard_library</a>
+    <li><a href="./strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="./syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="./syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="./syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="./syntax/comments_rdoc.html">comments</a>
+      <li><a href="./syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="./syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="./syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="./syntax/literals_rdoc.html">literals</a>
+      <li><a href="./syntax/methods_rdoc.html">methods</a>
+      <li><a href="./syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="./syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="./syntax/operators_rdoc.html">operators</a>
+      <li><a href="./syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="./syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="./syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="./windows_md.html">windows</a>
+    <li><a href="./yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page case_mapping.rdoc">
+
+<h1 id="label-Case+Mapping">Case Mapping<span><a href="#label-Case+Mapping">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Some string-oriented methods use case mapping.</p>
+
+<p>In String:</p>
+<ul><li>
+<p><a href="String.html#method-i-capitalize"><code>String#capitalize</code></a></p>
+</li><li>
+<p><a href="String.html#method-i-capitalize-21"><code>String#capitalize!</code></a></p>
+</li><li>
+<p><a href="String.html#method-i-casecmp"><code>String#casecmp</code></a></p>
+</li><li>
+<p><a href="String.html#method-i-casecmp-3F"><code>String#casecmp?</code></a></p>
+</li><li>
+<p><a href="String.html#method-i-downcase"><code>String#downcase</code></a></p>
+</li><li>
+<p><a href="String.html#method-i-downcase-21"><code>String#downcase!</code></a></p>
+</li><li>
+<p><a href="String.html#method-i-swapcase"><code>String#swapcase</code></a></p>
+</li><li>
+<p><a href="String.html#method-i-swapcase-21"><code>String#swapcase!</code></a></p>
+</li><li>
+<p><a href="String.html#method-i-upcase"><code>String#upcase</code></a></p>
+</li><li>
+<p><a href="String.html#method-i-upcase-21"><code>String#upcase!</code></a></p>
+</li></ul>
+
+<p>In Symbol:</p>
+<ul><li>
+<p><a href="Symbol.html#method-i-capitalize"><code>Symbol#capitalize</code></a></p>
+</li><li>
+<p><a href="Symbol.html#method-i-casecmp"><code>Symbol#casecmp</code></a></p>
+</li><li>
+<p><a href="Symbol.html#method-i-casecmp-3F"><code>Symbol#casecmp?</code></a></p>
+</li><li>
+<p><a href="Symbol.html#method-i-downcase"><code>Symbol#downcase</code></a></p>
+</li><li>
+<p><a href="Symbol.html#method-i-swapcase"><code>Symbol#swapcase</code></a></p>
+</li><li>
+<p><a href="Symbol.html#method-i-upcase"><code>Symbol#upcase</code></a></p>
+</li></ul>
+
+<h2 id="label-Default+Case+Mapping">Default Case Mapping<span><a href="#label-Default+Case+Mapping">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>By default, all of these methods use full Unicode case mapping, which is suitable for most languages. See <a href="https://www.unicode.org/versions/latest/ch03.pdf">Section 3.13 (Default Case Algorithms) of the Unicode standard</a>.</p>
+
+<p>Non-ASCII case mapping and folding are supported for UTF-8, UTF-16BE/LE, UTF-32BE/LE, and ISO-8859-1~16 Strings/Symbols.</p>
+
+<p>Context-dependent case mapping as described in <a href="https://www.unicode.org/versions/latest/ch03.pdf">Table 3-17 (Context Specification for Casing) of the Unicode standard</a> is currently not supported.</p>
+
+<p>In most cases, case conversions of a string have the same number of characters. There are exceptions (see also <code>:fold</code> below):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\u00DF&quot;</span> <span class="ruby-comment"># =&gt; &quot;ß&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">upcase</span>     <span class="ruby-comment"># =&gt; &quot;SS&quot;</span>
+<span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\u0149&quot;</span> <span class="ruby-comment"># =&gt; &quot;ŉ&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">upcase</span>     <span class="ruby-comment"># =&gt; &quot;ʼN&quot;</span>
+</pre>
+
+<p>Case mapping may also depend on locale (see also <code>:turkic</code> below):</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\u0049&quot;</span>        <span class="ruby-comment"># =&gt; &quot;I&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>          <span class="ruby-comment"># =&gt; &quot;i&quot; # Dot above.</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>(<span class="ruby-value">:turkic</span>) <span class="ruby-comment"># =&gt; &quot;ı&quot; # No dot above.</span>
+</pre>
+
+<p>Case changes may not be reversible:</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;Hello World!&#39;</span> <span class="ruby-comment"># =&gt; &quot;Hello World!&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>         <span class="ruby-comment"># =&gt; &quot;hello world!&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">upcase</span>  <span class="ruby-comment"># =&gt; &quot;HELLO WORLD!&quot; # Different from original s.</span>
+</pre>
+
+<p>Case changing methods may not maintain Unicode normalization. See <a href="String.html#method-i-unicode_normalize"><code>String#unicode_normalize</code></a>).</p>
+
+<h2 id="label-Options+for+Case+Mapping">Options for Case Mapping<span><a href="#label-Options+for+Case+Mapping">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Except for <code>casecmp</code> and <code>casecmp?</code>, each of the case-mapping methods listed above accepts optional arguments, <code>*options</code>.</p>
+
+<p>The arguments may be:</p>
+<ul><li>
+<p><code>:ascii</code> only.</p>
+</li><li>
+<p><code>:fold</code> only.</p>
+</li><li>
+<p><code>:turkic</code> or <code>:lithuanian</code> or both.</p>
+</li></ul>
+
+<p>The options:</p>
+<ul><li>
+<p><code>:ascii</code>: ASCII-only mapping: uppercase letters (‘A’..‘Z’) are mapped to lowercase letters (‘a’..‘z); other characters are not changed</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;Foo \u00D8 \u00F8 Bar&quot;</span> <span class="ruby-comment"># =&gt; &quot;Foo Ø ø Bar&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">upcase</span>                    <span class="ruby-comment"># =&gt; &quot;FOO Ø Ø BAR&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>                  <span class="ruby-comment"># =&gt; &quot;foo ø ø bar&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">upcase</span>(<span class="ruby-value">:ascii</span>)            <span class="ruby-comment"># =&gt; &quot;FOO Ø ø BAR&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>(<span class="ruby-value">:ascii</span>)          <span class="ruby-comment"># =&gt; &quot;foo Ø ø bar&quot;</span>
+</pre>
+</li><li>
+<p><code>:turkic</code>: Full Unicode case mapping, adapted for the Turkic languages that distinguish dotted and dotless I, for example Turkish and Azeri.</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;Türkiye&#39;</span>       <span class="ruby-comment"># =&gt; &quot;Türkiye&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">upcase</span>            <span class="ruby-comment"># =&gt; &quot;TÜRKIYE&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">upcase</span>(<span class="ruby-value">:turkic</span>)   <span class="ruby-comment"># =&gt; &quot;TÜRKİYE&quot; # Dot above.</span>
+
+<span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;TÜRKIYE&#39;</span>       <span class="ruby-comment"># =&gt; &quot;TÜRKIYE&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>          <span class="ruby-comment"># =&gt; &quot;türkiye&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>(<span class="ruby-value">:turkic</span>) <span class="ruby-comment"># =&gt; &quot;türkıye&quot; # No dot above.</span>
+</pre>
+</li><li>
+<p><code>:lithuanian</code>: Not yet implemented.</p>
+</li><li>
+<p><code>:fold</code> (available only for <a href="String.html#method-i-downcase"><code>String#downcase</code></a>, <a href="String.html#method-i-downcase-21"><code>String#downcase!</code></a>, and <a href="Symbol.html#method-i-downcase"><code>Symbol#downcase</code></a>): Unicode case folding, which is more far-reaching than Unicode case mapping.</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\u00DF&quot;</span>      <span class="ruby-comment"># =&gt; &quot;ß&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>        <span class="ruby-comment"># =&gt; &quot;ß&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>(<span class="ruby-value">:fold</span>) <span class="ruby-comment"># =&gt; &quot;ss&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">upcase</span>          <span class="ruby-comment"># =&gt; &quot;SS&quot;</span>
+
+<span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;\uFB04&quot;</span>      <span class="ruby-comment"># =&gt; &quot;ﬄ&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>        <span class="ruby-comment"># =&gt; &quot;ﬄ&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">upcase</span>          <span class="ruby-comment"># =&gt; &quot;FFL&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>(<span class="ruby-value">:fold</span>) <span class="ruby-comment"># =&gt; &quot;ffl&quot;</span>
+</pre>
+</li></ul>
+
+</main>
+

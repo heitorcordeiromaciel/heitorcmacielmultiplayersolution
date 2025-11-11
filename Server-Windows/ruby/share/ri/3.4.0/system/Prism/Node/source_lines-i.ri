@@ -1,0 +1,4 @@
+U:RDoc::AnyMethod[iI"source_lines:ETI"Prism::Node#source_lines;TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"KReturns all of the lines of the source code associated with this node.;T:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below000[[I"script_lines;To;;	[o;
+;	[I"sAn alias for source_lines, used to mimic the API from
+RubyVM::AbstractSyntaxTree to make it easier to migrate.;T;@;0I"();T@FI"	Node;TcRDoc::NormalClass00

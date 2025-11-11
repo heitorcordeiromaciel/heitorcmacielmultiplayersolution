@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"source:ETI"Prism::Token#source;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"GThe Source object that represents the source this token came from.;T:
+@fileI"lib/prism/parse_result.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::Token;TcRDoc::NormalClass0

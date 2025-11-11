@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>argument_converters - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,documentation,argument_converters">
+  <meta name="description" content="argument_converters: Argument Converters An option can specify that its argument is to be converted from the default +String+ to an instance of another class. Contents -">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/optparse/argument_converters_rdoc.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Argument+Converters">Argument Converters</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Contents">Contents</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Built-In+Argument+Converters">Built-In Argument Converters</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Date"><code>Date</code></a>
+          <li>      <a href="#label-DateTime"><code>DateTime</code></a>
+          <li>      <a href="#label-Time"><code>Time</code></a>
+          <li>      <a href="#label-URI"><code>URI</code></a>
+          <li>      <a href="#label-Shellwords"><code>Shellwords</code></a>
+          <li>      <a href="#label-Integer"><code>Integer</code></a>
+          <li>      <a href="#label-Float"><code>Float</code></a>
+          <li>      <a href="#label-Numeric"><code>Numeric</code></a>
+          <li>      <a href="#label-DecimalInteger"><code>DecimalInteger</code></a>
+          <li>      <a href="#label-OctalInteger"><code>OctalInteger</code></a>
+          <li>      <a href="#label-DecimalNumeric"><code>DecimalNumeric</code></a>
+          <li>      <a href="#label-TrueClass"><code>TrueClass</code></a>
+          <li>      <a href="#label-FalseClass"><code>FalseClass</code></a>
+          <li>      <a href="#label-Object"><code>Object</code></a>
+          <li>      <a href="#label-String"><code>String</code></a>
+          <li>      <a href="#label-Array"><code>Array</code></a>
+          <li>      <a href="#label-Regexp"><code>Regexp</code></a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Custom+Argument+Converters">Custom Argument Converters</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../COPYING.html">COPYING</a>
+    <li><a href="../COPYING_ja.html">COPYING.ja</a>
+    <li><a href="../LEGAL.html">LEGAL</a>
+    <li><details><summary><a href="../NEWS_md.html">NEWS</a></summary>
+    <ul class="link-list">
+      <li><a href="../NEWS/NEWS-1_8_7.html">NEWS-1.8.7</a>
+      <li><a href="../NEWS/NEWS-1_9_1.html">NEWS-1.9.1</a>
+      <li><a href="../NEWS/NEWS-1_9_2.html">NEWS-1.9.2</a>
+      <li><a href="../NEWS/NEWS-1_9_3.html">NEWS-1.9.3</a>
+      <li><a href="../NEWS/NEWS-2_0_0.html">NEWS-2.0.0</a>
+      <li><a href="../NEWS/NEWS-2_1_0.html">NEWS-2.1.0</a>
+      <li><a href="../NEWS/NEWS-2_2_0.html">NEWS-2.2.0</a>
+      <li><a href="../NEWS/NEWS-2_3_0.html">NEWS-2.3.0</a>
+      <li><a href="../NEWS/NEWS-2_4_0.html">NEWS-2.4.0</a>
+      <li><a href="../NEWS/NEWS-2_5_0.html">NEWS-2.5.0</a>
+      <li><a href="../NEWS/NEWS-2_6_0.html">NEWS-2.6.0</a>
+      <li><a href="../NEWS/NEWS-2_7_0.html">NEWS-2.7.0</a>
+      <li><a href="../NEWS/NEWS-3_0_0_md.html">NEWS-3.0.0</a>
+      <li><a href="../NEWS/NEWS-3_1_0_md.html">NEWS-3.1.0</a>
+      <li><a href="../NEWS/NEWS-3_2_0_md.html">NEWS-3.2.0</a>
+      <li><a href="../NEWS/NEWS-3_3_0_md.html">NEWS-3.3.0</a>
+    </ul></details>
+    <li><a href="../README_ja_md.html">README.ja</a>
+    <li><a href="../README_md.html">README</a>
+    <li><a href="../bsearch_rdoc.html">bsearch</a>
+    <li><a href="../bug_triaging_rdoc.html">bug_triaging</a>
+    <li><a href="../case_mapping_rdoc.html">case_mapping</a>
+    <li><a href="../character_selectors_rdoc.html">character_selectors</a>
+    <li><a href="../command_injection_rdoc.html">command_injection</a>
+    <li><details><summary><a href="../contributing_md.html">contributing</a></summary>
+    <ul class="link-list">
+      <li><a href="../contributing/building_ruby_md.html">building_ruby</a>
+      <li><a href="../contributing/documentation_guide_md.html">documentation_guide</a>
+      <li><a href="../contributing/glossary_md.html">glossary</a>
+      <li><a href="../contributing/making_changes_to_ruby_md.html">making_changes_to_ruby</a>
+      <li><a href="../contributing/making_changes_to_stdlibs_md.html">making_changes_to_stdlibs</a>
+      <li><a href="../contributing/reporting_issues_md.html">reporting_issues</a>
+      <li><a href="../contributing/testing_ruby_md.html">testing_ruby</a>
+    </ul></details>
+    <li><a href="../date/calendars_rdoc.html">calendars</a>
+    <li><a href="../dig_methods_rdoc.html">dig_methods</a>
+    <li><a href="../distribution_md.html">distribution</a>
+    <li><a href="../dtrace_probes_rdoc.html">dtrace_probes</a>
+    <li><a href="../encodings_rdoc.html">encodings</a>
+    <li><a href="../exceptions_md.html">exceptions</a>
+    <li><a href="../extension_ja_rdoc.html">extension.ja</a>
+    <li><a href="../extension_rdoc.html">extension</a>
+    <li><a href="../fiber_md.html">fiber</a>
+    <li><a href="../format_specifications_rdoc.html">format_specifications</a>
+    <li><a href="../globals_rdoc.html">globals</a>
+    <li><a href="../implicit_conversion_rdoc.html">implicit_conversion</a>
+    <li><a href="../index_md.html">index</a>
+    <li><a href="../maintainers_md.html">maintainers</a>
+    <li><a href="../marshal_rdoc.html">marshal</a>
+    <li><a href="../memory_view_md.html">memory_view</a>
+    <li><details open><summary>optparse</summary>
+    <ul class="link-list">
+      <li><a href="../optparse/argument_converters_rdoc.html">argument_converters</a>
+      <li><a href="../optparse/creates_option_rdoc.html">creates_option</a>
+      <li><a href="../optparse/option_params_rdoc.html">option_params</a>
+      <li><a href="../optparse/tutorial_rdoc.html">tutorial</a>
+    </ul></details>
+    <li><a href="../packed_data_rdoc.html">packed_data</a>
+    <li><a href="../ractor_md.html">ractor</a>
+    <li><details><summary>regexp</summary>
+    <ul class="link-list">
+      <li><a href="../regexp/methods_rdoc.html">methods</a>
+      <li><a href="../regexp/unicode_properties_rdoc.html">unicode_properties</a>
+    </ul></details>
+    <li><a href="../rjit/rjit_md.html">rjit</a>
+    <li><details><summary>ruby</summary>
+    <ul class="link-list">
+      <li><a href="../ruby/option_dump_md.html">option_dump</a>
+      <li><a href="../ruby/options_md.html">options</a>
+    </ul></details>
+    <li><a href="../security_rdoc.html">security</a>
+    <li><a href="../signals_rdoc.html">signals</a>
+    <li><a href="../standard_library_md.html">standard_library</a>
+    <li><a href="../strftime_formatting_rdoc.html">strftime_formatting</a>
+    <li><details><summary><a href="../syntax_rdoc.html">syntax</a></summary>
+    <ul class="link-list">
+      <li><a href="../syntax/assignment_rdoc.html">assignment</a>
+      <li><a href="../syntax/calling_methods_rdoc.html">calling_methods</a>
+      <li><a href="../syntax/comments_rdoc.html">comments</a>
+      <li><a href="../syntax/control_expressions_rdoc.html">control_expressions</a>
+      <li><a href="../syntax/exceptions_rdoc.html">exceptions</a>
+      <li><a href="../syntax/keywords_rdoc.html">keywords</a>
+      <li><a href="../syntax/literals_rdoc.html">literals</a>
+      <li><a href="../syntax/methods_rdoc.html">methods</a>
+      <li><a href="../syntax/miscellaneous_rdoc.html">miscellaneous</a>
+      <li><a href="../syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+      <li><a href="../syntax/operators_rdoc.html">operators</a>
+      <li><a href="../syntax/pattern_matching_rdoc.html">pattern_matching</a>
+      <li><a href="../syntax/precedence_rdoc.html">precedence</a>
+      <li><a href="../syntax/refinements_rdoc.html">refinements</a>
+    </ul></details>
+    <li><a href="../windows_md.html">windows</a>
+    <li><a href="../yjit/yjit_md.html">yjit</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page optparse/argument_converters.rdoc">
+
+<h2 id="label-Argument+Converters">Argument Converters<span><a href="#label-Argument+Converters">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>An option can specify that its argument is to be converted from the default <a href="../String.html"><code>String</code></a> to an instance of another class.</p>
+
+<h3 id="label-Contents">Contents<span><a href="#label-Contents">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="#label-Built-In+Argument+Converters">Built-In Argument Converters</a></p>
+<ul><li>
+<p><a href="#label-Date">Date</a></p>
+</li><li>
+<p><a href="#label-DateTime">DateTime</a></p>
+</li><li>
+<p><a href="#label-Time">Time</a></p>
+</li><li>
+<p><a href="#label-URI">URI</a></p>
+</li><li>
+<p><a href="#label-Shellwords">Shellwords</a></p>
+</li><li>
+<p><a href="#label-Integer">Integer</a></p>
+</li><li>
+<p><a href="#label-Float">Float</a></p>
+</li><li>
+<p><a href="#label-Numeric">Numeric</a></p>
+</li><li>
+<p><a href="#label-DecimalInteger">DecimalInteger</a></p>
+</li><li>
+<p><a href="#label-OctalInteger">OctalInteger</a></p>
+</li><li>
+<p><a href="#label-DecimalNumeric">DecimalNumeric</a></p>
+</li><li>
+<p><a href="#label-TrueClass">TrueClass</a></p>
+</li><li>
+<p><a href="#label-FalseClass">FalseClass</a></p>
+</li><li>
+<p><a href="#label-Object">Object</a></p>
+</li><li>
+<p><a href="#label-String">String</a></p>
+</li><li>
+<p><a href="#label-Array">Array</a></p>
+</li><li>
+<p><a href="#label-Regexp">Regexp</a></p>
+</li></ul>
+</li><li>
+<p><a href="#label-Custom+Argument+Converters">Custom Argument Converters</a></p>
+</li></ul>
+
+<h3 id="label-Built-In+Argument+Converters">Built-In Argument Converters<span><a href="#label-Built-In+Argument+Converters">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><a href="../OptionParser.html"><code>OptionParser</code></a> has a number of built-in argument converters, which are demonstrated below.</p>
+
+<h4 id="label-Date"><a href="../Date.html"><code>Date</code></a><span><a href="#label-Date">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>date.rb</code> defines an option whose argument is to be converted to a <a href="../Date.html"><code>Date</code></a> object. The argument is converted by method Date#parse.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse/date&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--date=DATE&#39;</span>, <span class="ruby-constant">Date</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby date.rb --date 2001-02-03
+[#&lt;Date: 2001-02-03 ((2451944j,0s,0n),+0s,2299161j)&gt;, Date]
+$ ruby date.rb --date 20010203
+[#&lt;Date: 2001-02-03 ((2451944j,0s,0n),+0s,2299161j)&gt;, Date]
+$ ruby date.rb --date &quot;3rd Feb 2001&quot;
+[#&lt;Date: 2001-02-03 ((2451944j,0s,0n),+0s,2299161j)&gt;, Date]</pre>
+
+<h4 id="label-DateTime"><a href="../DateTime.html"><code>DateTime</code></a><span><a href="#label-DateTime">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>datetime.rb</code> defines an option whose argument is to be converted to a <a href="../DateTime.html"><code>DateTime</code></a> object. The argument is converted by method DateTime#parse.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse/date&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--datetime=DATETIME&#39;</span>, <span class="ruby-constant">DateTime</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby datetime.rb --datetime 2001-02-03T04:05:06+07:00
+[#&lt;DateTime: 2001-02-03T04:05:06+07:00 ((2451943j,75906s,0n),+25200s,2299161j)&gt;, DateTime]
+$ ruby datetime.rb --datetime 20010203T040506+0700
+[#&lt;DateTime: 2001-02-03T04:05:06+07:00 ((2451943j,75906s,0n),+25200s,2299161j)&gt;, DateTime]
+$ ruby datetime.rb --datetime &quot;3rd Feb 2001 04:05:06 PM&quot;
+[#&lt;DateTime: 2001-02-03T16:05:06+00:00 ((2451944j,57906s,0n),+0s,2299161j)&gt;, DateTime]</pre>
+
+<h4 id="label-Time"><a href="../Time.html"><code>Time</code></a><span><a href="#label-Time">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>time.rb</code> defines an option whose argument is to be converted to a <a href="../Time.html"><code>Time</code></a> object. The argument is converted by method <a href="../Time.html#method-i-httpdate"><code>Time#httpdate</code></a> or Time#parse.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse/time&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--time=TIME&#39;</span>, <span class="ruby-constant">Time</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby time.rb --time &quot;Thu, 06 Oct 2011 02:26:12 GMT&quot;
+[2011-10-06 02:26:12 UTC, Time]
+$ ruby time.rb --time 2010-10-31
+[2010-10-31 00:00:00 -0500, Time]</pre>
+
+<h4 id="label-URI"><a href="../URI.html"><code>URI</code></a><span><a href="#label-URI">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>uri.rb</code> defines an option whose argument is to be converted to a <a href="../URI.html"><code>URI</code></a> object. The argument is converted by method URI#parse.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse/uri&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--uri=URI&#39;</span>, <span class="ruby-constant">URI</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby uri.rb --uri https://github.com
+[#&lt;URI::HTTPS https://github.com&gt;, URI::HTTPS]
+$ ruby uri.rb --uri http://github.com
+[#&lt;URI::HTTP http://github.com&gt;, URI::HTTP]
+$ ruby uri.rb --uri file://~/var
+[#&lt;URI::File file://~/var&gt;, URI::File]</pre>
+
+<h4 id="label-Shellwords"><a href="../Shellwords.html"><code>Shellwords</code></a><span><a href="#label-Shellwords">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>shellwords.rb</code> defines an option whose argument is to be converted to an <a href="../Array.html"><code>Array</code></a> object by method <a href="../Shellwords.html#method-i-shellwords"><code>Shellwords#shellwords</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse/shellwords&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--shellwords=SHELLWORDS&#39;</span>, <span class="ruby-constant">Shellwords</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby shellwords.rb --shellwords &quot;ruby my_prog.rb | less&quot;
+[[&quot;ruby&quot;, &quot;my_prog.rb&quot;, &quot;|&quot;, &quot;less&quot;], Array]
+$ ruby shellwords.rb --shellwords &quot;here are &#39;two words&#39;&quot;
+[[&quot;here&quot;, &quot;are&quot;, &quot;two words&quot;], Array]</pre>
+
+<h4 id="label-Integer"><a href="../Integer.html"><code>Integer</code></a><span><a href="#label-Integer">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>integer.rb</code> defines an option whose argument is to be converted to an <a href="../Integer.html"><code>Integer</code></a> object. The argument is converted by method <a href="../Kernel.html#method-i-Integer"><code>Kernel#Integer</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--integer=INTEGER&#39;</span>, <span class="ruby-constant">Integer</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby integer.rb --integer 100
+[100, Integer]
+$ ruby integer.rb --integer -100
+[-100, Integer]
+$ ruby integer.rb --integer 0100
+[64, Integer]
+$ ruby integer.rb --integer 0x100
+[256, Integer]
+$ ruby integer.rb --integer 0b100
+[4, Integer]</pre>
+
+<h4 id="label-Float"><a href="../Float.html"><code>Float</code></a><span><a href="#label-Float">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>float.rb</code> defines an option whose argument is to be converted to a <a href="../Float.html"><code>Float</code></a> object. The argument is converted by method <a href="../Kernel.html#method-i-Float"><code>Kernel#Float</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--float=FLOAT&#39;</span>, <span class="ruby-constant">Float</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby float.rb --float 1
+[1.0, Float]
+$ ruby float.rb --float 3.14159
+[3.14159, Float]
+$ ruby float.rb --float 1.234E2
+[123.4, Float]
+$ ruby float.rb --float 1.234E-2
+[0.01234, Float]</pre>
+
+<h4 id="label-Numeric"><a href="../Numeric.html"><code>Numeric</code></a><span><a href="#label-Numeric">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>numeric.rb</code> defines an option whose argument is to be converted to an instance of <a href="../Rational.html"><code>Rational</code></a>, <a href="../Float.html"><code>Float</code></a>, or <a href="../Integer.html"><code>Integer</code></a>. The argument is converted by method <a href="../Kernel.html#method-i-Rational"><code>Kernel#Rational</code></a>, <a href="../Kernel.html#method-i-Float"><code>Kernel#Float</code></a>, or <a href="../Kernel.html#method-i-Integer"><code>Kernel#Integer</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--numeric=NUMERIC&#39;</span>, <span class="ruby-constant">Numeric</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby numeric.rb --numeric 1/3
+[(1/3), Rational]
+$ ruby numeric.rb --numeric 3.333E-1
+[0.3333, Float]
+$ ruby numeric.rb --numeric 3
+[3, Integer]</pre>
+
+<h4 id="label-DecimalInteger"><code>DecimalInteger</code><span><a href="#label-DecimalInteger">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>decimal_integer.rb</code> defines an option whose argument is to be converted to an <a href="../Integer.html"><code>Integer</code></a> object. The argument is converted by method <a href="../Kernel.html#method-i-Integer"><code>Kernel#Integer</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">include</span> <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">Acceptables</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--decimal_integer=DECIMAL_INTEGER&#39;</span>, <span class="ruby-constant">DecimalInteger</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>The argument may not be in a binary or hexadecimal format; a leading zero is ignored (not parsed as octal).</p>
+
+<p>Executions:</p>
+
+<pre>$ ruby decimal_integer.rb --decimal_integer 100
+[100, Integer]
+$ ruby decimal_integer.rb --decimal_integer -100
+[-100, Integer]
+$ ruby decimal_integer.rb --decimal_integer 0100
+[100, Integer]
+$ ruby decimal_integer.rb --decimal_integer -0100
+[-100, Integer]</pre>
+
+<h4 id="label-OctalInteger"><code>OctalInteger</code><span><a href="#label-OctalInteger">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>octal_integer.rb</code> defines an option whose argument is to be converted to an <a href="../Integer.html"><code>Integer</code></a> object. The argument is converted by method <a href="../Kernel.html#method-i-Integer"><code>Kernel#Integer</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">include</span> <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">Acceptables</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--octal_integer=OCTAL_INTEGER&#39;</span>, <span class="ruby-constant">OctalInteger</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>The argument may not be in a binary or hexadecimal format; it is parsed as octal, regardless of whether it has a leading zero.</p>
+
+<p>Executions:</p>
+
+<pre>$ ruby octal_integer.rb --octal_integer 100
+[64, Integer]
+$ ruby octal_integer.rb --octal_integer -100
+[-64, Integer]
+$ ruby octal_integer.rb --octal_integer 0100
+[64, Integer]</pre>
+
+<h4 id="label-DecimalNumeric"><code>DecimalNumeric</code><span><a href="#label-DecimalNumeric">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>decimal_numeric.rb</code> defines an option whose argument is to be converted to an <a href="../Integer.html"><code>Integer</code></a> object. The argument is converted by method <a href="../Kernel.html#method-i-Integer"><code>Kernel#Integer</code></a></p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">include</span> <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">Acceptables</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--decimal_numeric=DECIMAL_NUMERIC&#39;</span>, <span class="ruby-constant">DecimalNumeric</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>The argument may not be in a binary or hexadecimal format; a leading zero causes the argument to be parsed as octal.</p>
+
+<p>Executions:</p>
+
+<pre>$ ruby decimal_numeric.rb --decimal_numeric 100
+[100, Integer]
+$ ruby decimal_numeric.rb --decimal_numeric -100
+[-100, Integer]
+$ ruby decimal_numeric.rb --decimal_numeric 0100
+[64, Integer]</pre>
+
+<h4 id="label-TrueClass"><a href="../TrueClass.html"><code>TrueClass</code></a><span><a href="#label-TrueClass">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>true_class.rb</code> defines an option whose argument is to be converted to <code>true</code> or <code>false</code>. The argument is evaluated by method <a href="../Object.html#method-i-nil-3F"><code>Object#nil?</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--true_class=TRUE_CLASS&#39;</span>, <span class="ruby-constant">TrueClass</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>The argument may be any of those shown in the examples below.</p>
+
+<p>Executions:</p>
+
+<pre>$ ruby true_class.rb --true_class true
+[true, TrueClass]
+$ ruby true_class.rb --true_class yes
+[true, TrueClass]
+$ ruby true_class.rb --true_class +
+[true, TrueClass]
+$ ruby true_class.rb --true_class false
+[false, FalseClass]
+$ ruby true_class.rb --true_class no
+[false, FalseClass]
+$ ruby true_class.rb --true_class -
+[false, FalseClass]
+$ ruby true_class.rb --true_class nil
+[false, FalseClass]</pre>
+
+<h4 id="label-FalseClass"><a href="../FalseClass.html"><code>FalseClass</code></a><span><a href="#label-FalseClass">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>false_class.rb</code> defines an option whose argument is to be converted to <code>true</code> or <code>false</code>. The argument is evaluated by method <a href="../Object.html#method-i-nil-3F"><code>Object#nil?</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--false_class=FALSE_CLASS&#39;</span>, <span class="ruby-constant">FalseClass</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>The argument may be any of those shown in the examples below.</p>
+
+<p>Executions:</p>
+
+<pre>$ ruby false_class.rb --false_class false
+[false, FalseClass]
+$ ruby false_class.rb --false_class no
+[false, FalseClass]
+$ ruby false_class.rb --false_class -
+[false, FalseClass]
+$ ruby false_class.rb --false_class nil
+[false, FalseClass]
+$ ruby false_class.rb --false_class true
+[true, TrueClass]
+$ ruby false_class.rb --false_class yes
+[true, TrueClass]
+$ ruby false_class.rb --false_class +
+[true, TrueClass]</pre>
+
+<h4 id="label-Object"><a href="../Object.html"><code>Object</code></a><span><a href="#label-Object">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>object.rb</code> defines an option whose argument is not to be converted from <a href="../String.html"><code>String</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--object=OBJECT&#39;</span>, <span class="ruby-constant">Object</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby object.rb --object foo
+[&quot;foo&quot;, String]
+$ ruby object.rb --object nil
+[&quot;nil&quot;, String]</pre>
+
+<h4 id="label-String"><a href="../String.html"><code>String</code></a><span><a href="#label-String">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>string.rb</code> defines an option whose argument is not to be converted from <a href="../String.html"><code>String</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--string=STRING&#39;</span>, <span class="ruby-constant">String</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby string.rb --string foo
+[&quot;foo&quot;, String]
+$ ruby string.rb --string nil
+[&quot;nil&quot;, String]</pre>
+
+<h4 id="label-Array"><a href="../Array.html"><code>Array</code></a><span><a href="#label-Array">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>array.rb</code> defines an option whose argument is to be converted from <a href="../String.html"><code>String</code></a> to an array of strings, based on comma-separated substrings.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--array=ARRAY&#39;</span>, <span class="ruby-constant">Array</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby array.rb --array &quot;&quot;
+[[], Array]
+$ ruby array.rb --array foo,bar,baz
+[[&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;], Array]
+$ ruby array.rb --array &quot;foo, bar, baz&quot;
+[[&quot;foo&quot;, &quot; bar&quot;, &quot; baz&quot;], Array]</pre>
+
+<h4 id="label-Regexp"><a href="../Regexp.html"><code>Regexp</code></a><span><a href="#label-Regexp">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><a href="../File.html"><code>File</code></a> <code>regexp.rb</code> defines an option whose argument is to be converted to a <a href="../Regexp.html"><code>Regexp</code></a> object.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--regexp=REGEXP&#39;</span>, <span class="ruby-constant">Regexp</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby regexp.rb --regexp foo</pre>
+
+<h3 id="label-Custom+Argument+Converters">Custom Argument Converters<span><a href="#label-Custom+Argument+Converters">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can create custom argument converters. To create a custom converter, call <a href="../OptionParser.html#method-i-accept"><code>OptionParser#accept</code></a> with:</p>
+<ul><li>
+<p>An identifier, which may be any object.</p>
+</li><li>
+<p>An optional match pattern, which defaults to <code>/.*/m</code>.</p>
+</li><li>
+<p>A block that accepts the argument and returns the converted value.</p>
+</li></ul>
+
+<p>This custom converter accepts any argument and converts it, if possible, to a <a href="../Complex.html"><code>Complex</code></a> object.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse/date&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">accept</span>(<span class="ruby-constant">Complex</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_c</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--complex COMPLEX&#39;</span>, <span class="ruby-constant">Complex</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby custom_converter.rb --complex 0
+[(0+0i), Complex]
+$ ruby custom_converter.rb --complex 1
+[(1+0i), Complex]
+$ ruby custom_converter.rb --complex 1+2i
+[(1+2i), Complex]
+$ ruby custom_converter.rb --complex 0.3-0.5i
+[(0.3-0.5i), Complex]</pre>
+
+<p>This custom converter accepts any 1-word argument and capitalizes it, if possible.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;optparse/date&#39;</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">accept</span>(<span class="ruby-value">:capitalize</span>, <span class="ruby-regexp">/\w*/</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">capitalize</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;--capitalize XXX&#39;</span>, <span class="ruby-value">:capitalize</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse!</span>
+</pre>
+
+<p>Executions:</p>
+
+<pre>$ ruby match_converter.rb --capitalize foo
+[&quot;Foo&quot;, String]
+$ ruby match_converter.rb --capitalize &quot;foo bar&quot;
+match_converter.rb:9:in `&lt;main&gt;&#39;: invalid argument: --capitalize foo bar (OptionParser::InvalidArgument)</pre>
+
+</main>
+

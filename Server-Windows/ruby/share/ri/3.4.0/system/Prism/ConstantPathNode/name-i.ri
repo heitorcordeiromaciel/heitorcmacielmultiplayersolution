@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"	name:ETI"!Prism::ConstantPathNode#name;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"lThe name of the constant being accessed. This could be <code>nil</code> in the event of a syntax error.;T:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::ConstantPathNode;TcRDoc::NormalClass0

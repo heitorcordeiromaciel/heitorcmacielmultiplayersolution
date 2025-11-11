@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"arguments:ETI"Prism::CallNode#arguments;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"¨Represents the arguments to the method call. These can be any {non-void expressions}[https://github.com/ruby/prism/blob/main/docs/parsing_rules.md#non-void-expression].;To:RDoc::Markup::Verbatim;	[I"foo(bar)
+;TI"    ^^^
+;T:@format0:
+@fileI"lib/prism/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::CallNode;TcRDoc::NormalClass0

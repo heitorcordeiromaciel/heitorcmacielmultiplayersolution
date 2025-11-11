@@ -1,0 +1,20 @@
+U:RDoc::AnyMethod[iI"each_pair:ETI"Hash#each_pair;TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"DCalls the given block with each key-value pair; returns +self+:;To:RDoc::Markup::Verbatim;	[I""h = {foo: 0, bar: 1, baz: 2}
+;TI"Yh.each_pair {|key, value| puts "#{key}: #{value}"} # => {:foo=>0, :bar=>1, :baz=>2}
+;T:@format0o;
+;	[I"Output:;To;;	[I"foo: 0
+;TI"bar: 1
+;TI"baz: 2
+;T;0o;
+;	[I"0Returns a new Enumerator if no block given:;To;;	[	I""h = {foo: 0, bar: 1, baz: 2}
+;TI"Oe = h.each_pair # => #<Enumerator: {:foo=>0, :bar=>1, :baz=>2}:each_pair>
+;TI"8h1 = e.each {|key, value| puts "#{key}: #{value}"}
+;TI")h1 # => {:foo=>0, :bar=>1, :baz=>2}
+;T;0o;
+;	[I"Output:;To;;	[I"foo: 0
+;TI"bar: 1
+;TI"baz: 2;T;0:
+@fileI"hash.c;T:0@omit_headings_from_table_of_contents_below0I"Žhash.each {|key, value| ... } -> self
+hash.each_pair {|key, value| ... } -> self
+hash.each -> new_enumerator
+hash.each_pair -> new_enumerator
+;T0[[I"	each;T@	I"();T@+FI"	Hash;TcRDoc::NormalClass00

@@ -1,0 +1,8 @@
+U:RDoc::AnyMethod[iI"[]:ETI"String#[];TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"AReturns the substring of +self+ specified by the arguments. ;TI"DSee examples at {String Slices}[rdoc-ref:String@String+Slices].;T:
+@fileI"string.c;T:0@omit_headings_from_table_of_contents_below0I"Éstring[index] -> new_string or nil
+string[start, length] -> new_string or nil
+string[range] -> new_string or nil
+string[regexp, capture = 0] -> new_string or nil
+string[substring] -> new_string or nil
+;T0[[I"
+slice;T@	I"(*args);T@FI"String;TcRDoc::NormalClass00

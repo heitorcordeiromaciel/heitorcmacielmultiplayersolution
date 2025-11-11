@@ -1,0 +1,6 @@
+U:RDoc::AnyMethod[iI"arg:ETI"Float#arg;TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"9Returns 0 if +self+ is positive, Math::PI otherwise.;T:
+@fileI"complex.c;T:0@omit_headings_from_table_of_contents_below0I"arg -> 0 or Math::PI
+;T0[[I"
+angle;T@	[I"
+phase;T@	I"();T@FI"
+Float;TcRDoc::NormalClass00

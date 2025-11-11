@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class Gem::Ext::CargoBuilder - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,Gem::Ext::CargoBuilder">
+
+    <meta name="description" content="class Gem::Ext::CargoBuilder: This class is used by rubygems to build Rust extensions. It is a thin-wrapper over the `cargo rustc` command which takes care of building Rust code in">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Gem/Ext/CargoBuilder.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="Builder.html">Gem::Ext::Builder</a><ul><li><a href="../../Object.html">Object</a><ul><li><a href="../../BasicObject.html">BasicObject</a></li></ul></li></ul></li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-new">new</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-build">build</a></li>
+      <li ><a href="#method-i-build_env">build_env</a></li>
+      <li ><a href="#method-i-cargo">cargo</a></li>
+      <li ><a href="#method-i-cargo_command">cargo_command</a></li>
+      <li ><a href="#method-i-cargo_crate_name">cargo_crate_name</a></li>
+      <li ><a href="#method-i-cargo_dylib_path">cargo_dylib_path</a></li>
+      <li ><a href="#method-i-cargo_rustc_args">cargo_rustc_args</a></li>
+      <li ><a href="#method-i-darwin_target-3F">darwin_target?</a></li>
+      <li ><a href="#method-i-extension_nesting">extension_nesting</a></li>
+      <li ><a href="#method-i-ldflag_to_link_modifier">ldflag_to_link_modifier</a></li>
+      <li ><a href="#method-i-libruby_args">libruby_args</a></li>
+      <li ><a href="#method-i-linker_args">linker_args</a></li>
+      <li ><a href="#method-i-makefile_config">makefile_config</a></li>
+      <li ><a href="#method-i-maybe_resolve_ldflag_variable">maybe_resolve_ldflag_variable</a></li>
+      <li ><a href="#method-i-mingw_target-3F">mingw_target?</a></li>
+      <li ><a href="#method-i-mkmf_libpath">mkmf_libpath</a></li>
+      <li ><a href="#method-i-msvc_target-3F">msvc_target?</a></li>
+      <li ><a href="#method-i-mswin_link_args">mswin_link_args</a></li>
+      <li ><a href="#method-i-normalize_path">normalize_path</a></li>
+      <li ><a href="#method-i-platform_specific_rustc_args">platform_specific_rustc_args</a></li>
+      <li ><a href="#method-i-rb_config_env">rb_config_env</a></li>
+      <li ><a href="#method-i-ruby_static-3F">ruby_static?</a></li>
+      <li ><a href="#method-i-rustc_dynamic_linker_flags">rustc_dynamic_linker_flags</a></li>
+      <li ><a href="#method-i-rustc_lib_flags">rustc_lib_flags</a></li>
+      <li ><a href="#method-i-split_flags">split_flags</a></li>
+      <li ><a href="#method-i-win_target-3F">win_target?</a></li>
+      <li ><a href="#method-i-write_deffile">write_deffile</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-Gem::Ext::CargoBuilder">
+  
+  
+    <ol role="navigation" aria-label="breadcrumb" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../../Gem.html">Gem</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <a href="../../Gem/Ext.html">Ext</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>CargoBuilder</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <h1 id="class-Gem::Ext::CargoBuilder" class="anchor-link class">
+    class Gem::Ext::CargoBuilder
+  </h1>
+
+  <section class="description">
+    
+<p>This class is used by rubygems to build Rust extensions. It is a thin-wrapper over the ‘cargo rustc` command which takes care of building Rust code in a way that Ruby can use.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-profile" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-profile" title="Link to this attribute">
+            <span class="method-name">profile</span>
+            <span class="attribute-access-type">[RW]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-runner" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-runner" title="Link to this attribute">
+            <span class="method-name">runner</span>
+            <span class="attribute-access-type">[RW]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-spec" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-spec" title="Link to this attribute">
+            <span class="method-name">spec</span>
+            <span class="attribute-access-type">[RW]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-identifier">require_relative</span> <span class="ruby-string">&quot;../command&quot;</span>
+  <span class="ruby-identifier">require_relative</span> <span class="ruby-string">&quot;cargo_builder/link_flag_converter&quot;</span>
+
+  <span class="ruby-ivar">@runner</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">method</span>(<span class="ruby-value">:run</span>)
+  <span class="ruby-ivar">@profile</span> = <span class="ruby-value">:release</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-build" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-build" title="Link to this method">
+                <span class="method-name">build</span>
+                <span class="method-args">(extension, dest_path, results, args = [], lib_dir = nil, cargo_dir = Dir.pwd, target_rbconfig=Gem.target_rbconfig)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="build-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">build</span>(<span class="ruby-identifier">extension</span>, <span class="ruby-identifier">dest_path</span>, <span class="ruby-identifier">results</span>, <span class="ruby-identifier">args</span> = [], <span class="ruby-identifier">lib_dir</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">cargo_dir</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>,
+  <span class="ruby-identifier">target_rbconfig</span>=<span class="ruby-constant">Gem</span>.<span class="ruby-identifier">target_rbconfig</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;tempfile&quot;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;fileutils&quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">target_rbconfig</span>.<span class="ruby-identifier">path</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;--target-rbconfig is not yet supported for Rust extensions. Ignoring&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Where&#39;s the Cargo.toml of the crate we&#39;re building</span>
+  <span class="ruby-identifier">cargo_toml</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">cargo_dir</span>, <span class="ruby-string">&quot;Cargo.toml&quot;</span>)
+  <span class="ruby-comment"># What&#39;s the crate&#39;s name</span>
+  <span class="ruby-identifier">crate_name</span> = <span class="ruby-identifier">cargo_crate_name</span>(<span class="ruby-identifier">cargo_dir</span>, <span class="ruby-identifier">cargo_toml</span>, <span class="ruby-identifier">results</span>)
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># Create a tmp dir to do the build in</span>
+    <span class="ruby-identifier">tmp_dest</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mktmpdir</span>(<span class="ruby-string">&quot;.gem.&quot;</span>, <span class="ruby-identifier">cargo_dir</span>)
+
+    <span class="ruby-comment"># Run the build</span>
+    <span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">cargo_command</span>(<span class="ruby-identifier">cargo_toml</span>, <span class="ruby-identifier">tmp_dest</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">crate_name</span>)
+    <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">results</span>, <span class="ruby-string">&quot;cargo&quot;</span>, <span class="ruby-identifier">cargo_dir</span>, <span class="ruby-identifier">build_env</span>)
+
+    <span class="ruby-comment"># Where do we expect Cargo to write the compiled library</span>
+    <span class="ruby-identifier">dylib_path</span> = <span class="ruby-identifier">cargo_dylib_path</span>(<span class="ruby-identifier">tmp_dest</span>, <span class="ruby-identifier">crate_name</span>)
+
+    <span class="ruby-comment"># Helpful error if we didn&#39;t find the compiled library</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">DylibNotFoundError</span>, <span class="ruby-identifier">tmp_dest</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">dylib_path</span>)
+
+    <span class="ruby-comment"># Cargo and Ruby differ on how the library should be named, rename from</span>
+    <span class="ruby-comment"># what Cargo outputs to what Ruby expects</span>
+    <span class="ruby-identifier">dlext_name</span> = <span class="ruby-node">&quot;#{crate_name}.#{makefile_config(&quot;DLEXT&quot;)}&quot;</span>
+    <span class="ruby-identifier">dlext_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">dylib_path</span>), <span class="ruby-identifier">dlext_name</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">dylib_path</span>, <span class="ruby-identifier">dlext_path</span>)
+
+    <span class="ruby-identifier">nesting</span> = <span class="ruby-identifier">extension_nesting</span>(<span class="ruby-identifier">extension</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">install_extension_in_lib</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lib_dir</span>
+      <span class="ruby-identifier">nested_lib_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">lib_dir</span>, <span class="ruby-identifier">nesting</span>)
+      <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">nested_lib_dir</span>
+      <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp_r</span> <span class="ruby-identifier">dlext_path</span>, <span class="ruby-identifier">nested_lib_dir</span>, <span class="ruby-value">remove_destination:</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># move to final destination</span>
+    <span class="ruby-identifier">nested_dest_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dest_path</span>, <span class="ruby-identifier">nesting</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">nested_dest_path</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp_r</span> <span class="ruby-identifier">dlext_path</span>, <span class="ruby-identifier">nested_dest_path</span>, <span class="ruby-value">remove_destination:</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-comment"># clean up intermediary build artifacts</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">tmp_dest</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">tmp_dest</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">results</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-build_env" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-build_env" title="Link to this method">
+                <span class="method-name">build_env</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="build_env-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">build_env</span>
+  <span class="ruby-identifier">build_env</span> = <span class="ruby-identifier">rb_config_env</span>
+  <span class="ruby-identifier">build_env</span>[<span class="ruby-string">&quot;RUBY_STATIC&quot;</span>] = <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ruby_static?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&quot;RUBY_STATIC&quot;</span>)
+  <span class="ruby-identifier">cfg</span> = <span class="ruby-node">&quot;--cfg=rb_sys_gem --cfg=rubygems --cfg=rubygems_#{Gem::VERSION.tr(&quot;.&quot;, &quot;_&quot;)}&quot;</span>
+  <span class="ruby-identifier">build_env</span>[<span class="ruby-string">&quot;RUSTFLAGS&quot;</span>] = [<span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;RUSTFLAGS&quot;</span>], <span class="ruby-identifier">cfg</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+  <span class="ruby-identifier">build_env</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cargo_command" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-cargo_command" title="Link to this method">
+                <span class="method-name">cargo_command</span>
+                <span class="method-args">(cargo_toml, dest_path, args = [], crate_name = nil)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cargo_command-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cargo_command</span>(<span class="ruby-identifier">cargo_toml</span>, <span class="ruby-identifier">dest_path</span>, <span class="ruby-identifier">args</span> = [], <span class="ruby-identifier">crate_name</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">cmd</span> = []
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> [<span class="ruby-identifier">cargo</span>, <span class="ruby-string">&quot;rustc&quot;</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;--crate-type&quot;</span>, <span class="ruby-string">&quot;cdylib&quot;</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;--target&quot;</span>, <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CARGO_BUILD_TARGET&quot;</span>]] <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CARGO_BUILD_TARGET&quot;</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;--target-dir&quot;</span>, <span class="ruby-identifier">dest_path</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;--manifest-path&quot;</span>, <span class="ruby-identifier">cargo_toml</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;--lib&quot;</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;--profile&quot;</span>, <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">to_s</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;--locked&quot;</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span>.<span class="ruby-identifier">build_args</span>
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;--&quot;</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">+=</span> [<span class="ruby-operator">*</span><span class="ruby-identifier">cargo_rustc_args</span>(<span class="ruby-identifier">dest_path</span>, <span class="ruby-identifier">crate_name</span>)]
+  <span class="ruby-identifier">cmd</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-cargo" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-cargo" title="Link to this method">
+                <span class="method-name">cargo</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cargo-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cargo</span>
+  <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;CARGO&quot;</span>, <span class="ruby-string">&quot;cargo&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cargo_crate_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-cargo_crate_name" title="Link to this method">
+                <span class="method-name">cargo_crate_name</span>
+                <span class="method-args">(cargo_dir, manifest_path, results)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cargo_crate_name-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 198</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cargo_crate_name</span>(<span class="ruby-identifier">cargo_dir</span>, <span class="ruby-identifier">manifest_path</span>, <span class="ruby-identifier">results</span>)
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;open3&quot;</span>
+    <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">load_yaml</span>
+
+    <span class="ruby-identifier">output</span>, <span class="ruby-identifier">status</span> =
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-constant">Open3</span>.<span class="ruby-identifier">capture2e</span>(<span class="ruby-identifier">cargo</span>, <span class="ruby-string">&quot;metadata&quot;</span>, <span class="ruby-string">&quot;--no-deps&quot;</span>, <span class="ruby-string">&quot;--format-version&quot;</span>, <span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-value">chdir:</span> <span class="ruby-identifier">cargo_dir</span>)
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">error</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">InstallError</span>, <span class="ruby-node">&quot;cargo metadata failed #{error.message}&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">success?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">really_verbose</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">output</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">output</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">exit_reason</span> =
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">exited?</span>
+          <span class="ruby-node">&quot;, exit code #{status.exitstatus}&quot;</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">signaled?</span>
+          <span class="ruby-node">&quot;, uncaught signal #{status.termsig}&quot;</span>
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">InstallError</span>, <span class="ruby-node">&quot;cargo metadata failed#{exit_reason}&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># cargo metadata output is specified as json, but with the</span>
+    <span class="ruby-comment"># --format-version 1 option the output is compatible with YAML, so we can</span>
+    <span class="ruby-comment"># avoid the json dependency</span>
+    <span class="ruby-identifier">metadata</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">SafeYAML</span>.<span class="ruby-identifier">safe_load</span>(<span class="ruby-identifier">output</span>)
+    <span class="ruby-identifier">package</span> = <span class="ruby-identifier">metadata</span>[<span class="ruby-string">&quot;packages&quot;</span>].<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">pkg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">normalize_path</span>(<span class="ruby-identifier">pkg</span>[<span class="ruby-string">&quot;manifest_path&quot;</span>]) <span class="ruby-operator">==</span> <span class="ruby-identifier">manifest_path</span> }
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">package</span>
+      <span class="ruby-identifier">found</span> = <span class="ruby-identifier">metadata</span>[<span class="ruby-string">&quot;packages&quot;</span>].<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">md</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{md[&quot;name&quot;]} at #{md[&quot;manifest_path&quot;]}&quot;</span> }
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">InstallError</span>, <span class="ruby-identifier">&lt;&lt;-EOF</span>
+<span class="ruby-value">failed to determine cargo package name
+
+looking for: #{manifest_path}
+
+found:
+#{found.join(&quot;\n&quot;)}
+</span><span class="ruby-identifier">EOF</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">package</span>[<span class="ruby-string">&quot;name&quot;</span>].<span class="ruby-identifier">tr</span>(<span class="ruby-string">&quot;-&quot;</span>, <span class="ruby-string">&quot;_&quot;</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cargo_dylib_path" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-cargo_dylib_path" title="Link to this method">
+                <span class="method-name">cargo_dylib_path</span>
+                <span class="method-args">(dest_path, crate_name)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cargo_dylib_path-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cargo_dylib_path</span>(<span class="ruby-identifier">dest_path</span>, <span class="ruby-identifier">crate_name</span>)
+  <span class="ruby-identifier">so_ext</span> = <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&quot;SOEXT&quot;</span>]
+  <span class="ruby-identifier">prefix</span> = <span class="ruby-identifier">so_ext</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;dll&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;lib&quot;</span>
+  <span class="ruby-identifier">path_parts</span> = [<span class="ruby-identifier">dest_path</span>]
+  <span class="ruby-identifier">path_parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CARGO_BUILD_TARGET&quot;</span>] <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CARGO_BUILD_TARGET&quot;</span>]
+  <span class="ruby-identifier">path_parts</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;release&quot;</span>, <span class="ruby-node">&quot;#{prefix}#{crate_name}.#{so_ext}&quot;</span>]
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">path_parts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cargo_rustc_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-cargo_rustc_args" title="Link to this method">
+                <span class="method-name">cargo_rustc_args</span>
+                <span class="method-args">(dest_dir, crate_name)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="cargo_rustc_args-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cargo_rustc_args</span>(<span class="ruby-identifier">dest_dir</span>, <span class="ruby-identifier">crate_name</span>)
+  [
+    <span class="ruby-operator">*</span><span class="ruby-identifier">linker_args</span>,
+    <span class="ruby-operator">*</span><span class="ruby-identifier">mkmf_libpath</span>,
+    <span class="ruby-operator">*</span><span class="ruby-identifier">rustc_dynamic_linker_flags</span>(<span class="ruby-identifier">dest_dir</span>, <span class="ruby-identifier">crate_name</span>),
+    <span class="ruby-operator">*</span><span class="ruby-identifier">rustc_lib_flags</span>(<span class="ruby-identifier">dest_dir</span>),
+    <span class="ruby-operator">*</span><span class="ruby-identifier">platform_specific_rustc_args</span>(<span class="ruby-identifier">dest_dir</span>),
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-darwin_target-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-darwin_target-3F" title="Link to this method">
+                <span class="method-name">darwin_target?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="darwin_target-3F-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">darwin_target?</span>
+  <span class="ruby-identifier">makefile_config</span>(<span class="ruby-string">&quot;target_os&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;darwin&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-extension_nesting" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-extension_nesting" title="Link to this method">
+                <span class="method-name">extension_nesting</span>
+                <span class="method-args">(extension)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="extension_nesting-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extension_nesting</span>(<span class="ruby-identifier">extension</span>)
+  <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">extension</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">union</span>([<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span>].<span class="ruby-identifier">compact</span>))
+
+  <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">each_with_object</span>([]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">segment</span>, <span class="ruby-identifier">final</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">segment</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;.&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">segment</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;..&quot;</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">InstallError</span>, <span class="ruby-string">&quot;extension outside of gem root&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">final</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-identifier">final</span>.<span class="ruby-identifier">pop</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">final</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">segment</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">parts</span>[<span class="ruby-value">1</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>returns the directory nesting of the extension, ignoring the first part, so “ext/foo/bar/Cargo.toml” becomes “foo/bar”</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ldflag_to_link_modifier" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ldflag_to_link_modifier" title="Link to this method">
+                <span class="method-name">ldflag_to_link_modifier</span>
+                <span class="method-args">(arg)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ldflag_to_link_modifier-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 265</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ldflag_to_link_modifier</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-constant">LinkFlagConverter</span>.<span class="ruby-identifier">convert</span>(<span class="ruby-identifier">arg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-libruby_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-libruby_args" title="Link to this method">
+                <span class="method-name">libruby_args</span>
+                <span class="method-args">(dest_dir)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="libruby_args-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">libruby_args</span>(<span class="ruby-identifier">dest_dir</span>)
+  <span class="ruby-identifier">libs</span> = <span class="ruby-identifier">makefile_config</span>(<span class="ruby-identifier">ruby_static?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;LIBRUBYARG_STATIC&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;LIBRUBYARG_SHARED&quot;</span>)
+  <span class="ruby-identifier">raw_libs</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">shellsplit</span>(<span class="ruby-identifier">libs</span>)
+  <span class="ruby-identifier">raw_libs</span>.<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ldflag_to_link_modifier</span>(<span class="ruby-identifier">l</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-linker_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-linker_args" title="Link to this method">
+                <span class="method-name">linker_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="linker_args-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">linker_args</span>
+  <span class="ruby-identifier">cc_flag</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">shellsplit</span>(<span class="ruby-identifier">makefile_config</span>(<span class="ruby-string">&quot;CC&quot;</span>))
+  <span class="ruby-identifier">linker</span> = <span class="ruby-identifier">cc_flag</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">link_args</span> = <span class="ruby-identifier">cc_flag</span>.<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> [<span class="ruby-string">&quot;-C&quot;</span>, <span class="ruby-node">&quot;link-arg=#{a}&quot;</span>] }
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">mswin_link_args</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">linker</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;cl&quot;</span>
+
+  [<span class="ruby-string">&quot;-C&quot;</span>, <span class="ruby-node">&quot;linker=#{linker}&quot;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">link_args</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>We want to use the same linker that Ruby uses, so that the linker flags from mkmf work properly.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-makefile_config" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-makefile_config" title="Link to this method">
+                <span class="method-name">makefile_config</span>
+                <span class="method-args">(var_name)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="makefile_config-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">makefile_config</span>(<span class="ruby-identifier">var_name</span>)
+  <span class="ruby-identifier">val</span> = <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">MAKEFILE_CONFIG</span>[<span class="ruby-identifier">var_name</span>]
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">val</span>
+
+  <span class="ruby-constant">RbConfig</span>.<span class="ruby-identifier">expand</span>(<span class="ruby-identifier">val</span>.<span class="ruby-identifier">dup</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-maybe_resolve_ldflag_variable" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-maybe_resolve_ldflag_variable" title="Link to this method">
+                <span class="method-name">maybe_resolve_ldflag_variable</span>
+                <span class="method-args">(input_arg, dest_dir, crate_name)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="maybe_resolve_ldflag_variable-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 287</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">maybe_resolve_ldflag_variable</span>(<span class="ruby-identifier">input_arg</span>, <span class="ruby-identifier">dest_dir</span>, <span class="ruby-identifier">crate_name</span>)
+  <span class="ruby-identifier">var_matches</span> = <span class="ruby-identifier">input_arg</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\$\((\w+)\)/</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">input_arg</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">var_matches</span>
+
+  <span class="ruby-identifier">var_name</span> = <span class="ruby-identifier">var_matches</span>[<span class="ruby-value">1</span>]
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">input_arg</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">var_name</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">var_name</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">var_name</span>
+  <span class="ruby-comment"># On windows, it is assumed that mkmf has setup an exports file for the</span>
+  <span class="ruby-comment"># extension, so we have to create one ourselves.</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;DEFFILE&quot;</span>
+    <span class="ruby-identifier">write_deffile</span>(<span class="ruby-identifier">dest_dir</span>, <span class="ruby-identifier">crate_name</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-identifier">var_name</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Interpolate substitution vars in the arg (i.e. $(DEFFILE))</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-mingw_target-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-mingw_target-3F" title="Link to this method">
+                <span class="method-name">mingw_target?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="mingw_target-3F-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mingw_target?</span>
+  <span class="ruby-identifier">makefile_config</span>(<span class="ruby-string">&quot;target_os&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;mingw&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-mkmf_libpath" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-mkmf_libpath" title="Link to this method">
+                <span class="method-name">mkmf_libpath</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="mkmf_libpath-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 319</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mkmf_libpath</span>
+  [<span class="ruby-string">&quot;-L&quot;</span>, <span class="ruby-node">&quot;native=#{makefile_config(&quot;libdir&quot;)}&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Corresponds to $(LIBPATH) in mkmf</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-msvc_target-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-msvc_target-3F" title="Link to this method">
+                <span class="method-name">msvc_target?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="msvc_target-3F-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 269</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">msvc_target?</span>
+  <span class="ruby-identifier">makefile_config</span>(<span class="ruby-string">&quot;target_os&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;msvc&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-mswin_link_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-mswin_link_args" title="Link to this method">
+                <span class="method-name">mswin_link_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="mswin_link_args-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mswin_link_args</span>
+  <span class="ruby-identifier">args</span> = []
+  <span class="ruby-identifier">args</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;-l&quot;</span>, <span class="ruby-identifier">makefile_config</span>(<span class="ruby-string">&quot;LIBRUBYARG_SHARED&quot;</span>).<span class="ruby-identifier">chomp</span>(<span class="ruby-string">&quot;.lib&quot;</span>)]
+  <span class="ruby-identifier">args</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">split_flags</span>(<span class="ruby-string">&quot;LIBS&quot;</span>).<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">lib</span><span class="ruby-operator">|</span> [<span class="ruby-string">&quot;-l&quot;</span>, <span class="ruby-identifier">lib</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-string">&quot;.lib&quot;</span>)] }
+  <span class="ruby-identifier">args</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">split_flags</span>(<span class="ruby-string">&quot;LOCAL_LIBS&quot;</span>).<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">lib</span><span class="ruby-operator">|</span> [<span class="ruby-string">&quot;-l&quot;</span>, <span class="ruby-identifier">lib</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-string">&quot;.lib&quot;</span>)] }
+  <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-normalize_path" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-normalize_path" title="Link to this method">
+                <span class="method-name">normalize_path</span>
+                <span class="method-args">(path)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="normalize_path-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">normalize_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span>
+
+  <span class="ruby-identifier">path</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-platform_specific_rustc_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-platform_specific_rustc_args" title="Link to this method">
+                <span class="method-name">platform_specific_rustc_args</span>
+                <span class="method-args">(dest_dir, flags = [])</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="platform_specific_rustc_args-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">platform_specific_rustc_args</span>(<span class="ruby-identifier">dest_dir</span>, <span class="ruby-identifier">flags</span> = [])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mingw_target?</span>
+    <span class="ruby-comment"># On mingw platforms, mkmf adds libruby to the linker flags</span>
+    <span class="ruby-identifier">flags</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">libruby_args</span>(<span class="ruby-identifier">dest_dir</span>)
+
+    <span class="ruby-comment"># Make sure ALSR is used on mingw</span>
+    <span class="ruby-comment"># see https://github.com/rust-lang/rust/pull/75406/files</span>
+    <span class="ruby-identifier">flags</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;-C&quot;</span>, <span class="ruby-string">&quot;link-arg=-Wl,--dynamicbase&quot;</span>]
+    <span class="ruby-identifier">flags</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;-C&quot;</span>, <span class="ruby-string">&quot;link-arg=-Wl,--disable-auto-image-base&quot;</span>]
+
+    <span class="ruby-comment"># If the gem is installed on a host with build tools installed, but is</span>
+    <span class="ruby-comment"># run on one that isn&#39;t the missing libraries will cause the extension</span>
+    <span class="ruby-comment"># to fail on start.</span>
+    <span class="ruby-identifier">flags</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;-C&quot;</span>, <span class="ruby-string">&quot;link-arg=-static-libgcc&quot;</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">darwin_target?</span>
+    <span class="ruby-comment"># Ventura does not always have this flag enabled</span>
+    <span class="ruby-identifier">flags</span> <span class="ruby-operator">+=</span> [<span class="ruby-string">&quot;-C&quot;</span>, <span class="ruby-string">&quot;link-arg=-Wl,-undefined,dynamic_lookup&quot;</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">flags</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rb_config_env" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-rb_config_env" title="Link to this method">
+                <span class="method-name">rb_config_env</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="rb_config_env-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rb_config_env</span>
+  <span class="ruby-identifier">result</span> = {}
+  <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span>[<span class="ruby-node">&quot;RBCONFIG_#{k}&quot;</span>] = <span class="ruby-identifier">v</span> }
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ruby_static-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ruby_static-3F" title="Link to this method">
+                <span class="method-name">ruby_static?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ruby_static-3F-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ruby_static?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-node">%w[1 true]</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;RUBY_STATIC&quot;</span>])
+
+  <span class="ruby-identifier">makefile_config</span>(<span class="ruby-string">&quot;ENABLE_SHARED&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;no&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rustc_dynamic_linker_flags" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-rustc_dynamic_linker_flags" title="Link to this method">
+                <span class="method-name">rustc_dynamic_linker_flags</span>
+                <span class="method-args">(dest_dir, crate_name)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="rustc_dynamic_linker_flags-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rustc_dynamic_linker_flags</span>(<span class="ruby-identifier">dest_dir</span>, <span class="ruby-identifier">crate_name</span>)
+  <span class="ruby-identifier">split_flags</span>(<span class="ruby-string">&quot;DLDFLAGS&quot;</span>).
+    <span class="ruby-identifier">filter_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">maybe_resolve_ldflag_variable</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">dest_dir</span>, <span class="ruby-identifier">crate_name</span>) }.
+    <span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ldflag_to_link_modifier</span>(<span class="ruby-identifier">arg</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rustc_lib_flags" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-rustc_lib_flags" title="Link to this method">
+                <span class="method-name">rustc_lib_flags</span>
+                <span class="method-args">(dest_dir)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="rustc_lib_flags-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rustc_lib_flags</span>(<span class="ruby-identifier">dest_dir</span>)
+  <span class="ruby-identifier">split_flags</span>(<span class="ruby-string">&quot;LIBS&quot;</span>).<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ldflag_to_link_modifier</span>(<span class="ruby-identifier">arg</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-split_flags" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-split_flags" title="Link to this method">
+                <span class="method-name">split_flags</span>
+                <span class="method-args">(var)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="split_flags-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">split_flags</span>(<span class="ruby-identifier">var</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">shellsplit</span>(<span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">var</span>, <span class="ruby-string">&quot;&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-win_target-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-win_target-3F" title="Link to this method">
+                <span class="method-name">win_target?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="win_target-3F-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">win_target?</span>
+  <span class="ruby-identifier">target_platform</span> = <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&quot;target_os&quot;</span>]
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">WIN_PATTERNS</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">target_platform</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">r</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-write_deffile" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-write_deffile" title="Link to this method">
+                <span class="method-name">write_deffile</span>
+                <span class="method-args">(dest_dir, crate_name)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="write_deffile-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/ext/cargo_builder.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">write_deffile</span>(<span class="ruby-identifier">dest_dir</span>, <span class="ruby-identifier">crate_name</span>)
+  <span class="ruby-identifier">deffile_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dest_dir</span>, <span class="ruby-node">&quot;#{crate_name}-#{RbConfig::CONFIG[&quot;arch&quot;]}.def&quot;</span>)
+  <span class="ruby-identifier">export_prefix</span> = <span class="ruby-identifier">makefile_config</span>(<span class="ruby-string">&quot;EXPORT_PREFIX&quot;</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">deffile_path</span>, <span class="ruby-string">&quot;w&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;EXPORTS&quot;</span>
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{export_prefix.strip}Init_#{crate_name}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">deffile_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

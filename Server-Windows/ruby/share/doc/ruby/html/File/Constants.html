@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>module File::Constants - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,module,File::Constants">
+
+    <meta name="description" content="module File::Constants: Constants+ defines file-related constants. Constants@File+Access].">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/File/Constants.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="module">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#module-File::Constants-label-File+Access">File Access</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#module-File::Constants-label-Read-2FWrite+Access">Read/Write Access</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-File::Constants-label-File-3A-3ARDONLY">File::RDONLY</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3AWRONLY">File::WRONLY</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ARDWR">File::RDWR</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-File::Constants-label-File+Positioning">File Positioning</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-File::Constants-label-File-3A-3AAPPEND">File::APPEND</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ATRUNC">File::TRUNC</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-File::Constants-label-Creating+and+Preserving">Creating and Preserving</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-File::Constants-label-File-3A-3ACREAT">File::CREAT</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3AEXCL">File::EXCL</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-File::Constants-label-POSIX+File+Constants">POSIX File Constants</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-File::Constants-label-File-3A-3ASYNC-2C+File-3A-3ARSYNC-2C+and+File-3A-3ADSYNC">File::SYNC, File::RSYNC, and File::DSYNC</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ANOCTTY">File::NOCTTY</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ADIRECT">File::DIRECT</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ANOATIME">File::NOATIME</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ANOFOLLOW">File::NOFOLLOW</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ATMPFILE">File::TMPFILE</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-File::Constants-label-Other+File-Access+Constants">Other File-Access Constants</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-File::Constants-label-File-3A-3ANONBLOCK">File::NONBLOCK</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ABINARY">File::BINARY</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ASHARE_DELETE">File::SHARE_DELETE</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-File::Constants-label-Locking">Locking</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-File::Constants-label-File-3A-3ALOCK_EX">File::LOCK_EX</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ALOCK_NB">File::LOCK_NB</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ALOCK_SH">File::LOCK_SH</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3ALOCK_UN">File::LOCK_UN</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-File::Constants-label-Filename+Globbing+Constants+-28File-3A-3AFNM_-2A-29">Filename Globbing Constants (File::FNM_*)</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-File::Constants-label-File-3A-3AFNM_CASEFOLD">File::FNM_CASEFOLD</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3AFNM_DOTMATCH">File::FNM_DOTMATCH</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3AFNM_EXTGLOB">File::FNM_EXTGLOB</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3AFNM_NOESCAPE">File::FNM_NOESCAPE</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3AFNM_PATHNAME">File::FNM_PATHNAME</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3AFNM_SHORTNAME">File::FNM_SHORTNAME</a>
+          <li>      <a href="#module-File::Constants-label-File-3A-3AFNM_SYSCASE">File::FNM_SYSCASE</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#module-File::Constants-label-Other+Constants">Other Constants</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-File::Constants-label-File-3A-3ANULL">File::NULL</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+  
+  
+  
+  
+
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="module-File::Constants">
+  
+  
+    <ol role="navigation" aria-label="breadcrumb" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../File.html">File</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>Constants</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <h1 id="module-File::Constants" class="anchor-link module">
+    module File::Constants
+  </h1>
+
+  <section class="description">
+    
+<p>Module <a href="Constants.html"><code>File::Constants</code></a> defines file-related constants.</p>
+
+<p>There are two families of constants here:</p>
+<ul><li>
+<p>Those having to do with <a href="Constants.html#module-File::Constants-label-File+Access">file access</a>.</p>
+</li><li>
+<p>Those having to do with <a href="Constants.html#module-File::Constants-label-Filename+Globbing+Constants+-28File-3A-3AFNM_-2A-29">filename globbing</a>.</p>
+</li></ul>
+
+<p>File constants defined for the local process may be retrieved with method File::Constants.constants:</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">Constants</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">5</span>)
+<span class="ruby-comment"># =&gt; [:RDONLY, :WRONLY, :RDWR, :APPEND, :CREAT]</span>
+</pre>
+
+<h2 id="module-File::Constants-label-File+Access">File Access<span><a href="#module-File::Constants-label-File+Access">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>File-access constants may be used with optional argument <code>mode</code> in calls to the following methods:</p>
+<ul><li>
+<p><a href="../File.html#method-c-new"><code>File.new</code></a>.</p>
+</li><li>
+<p><a href="../File.html#method-c-open"><code>File.open</code></a>.</p>
+</li><li>
+<p><a href="../IO.html#method-c-for_fd"><code>IO.for_fd</code></a>.</p>
+</li><li>
+<p><a href="../IO.html#method-c-new"><code>IO.new</code></a>.</p>
+</li><li>
+<p><a href="../IO.html#method-c-open"><code>IO.open</code></a>.</p>
+</li><li>
+<p><a href="../IO.html#method-c-popen"><code>IO.popen</code></a>.</p>
+</li><li>
+<p><a href="../IO.html#method-i-reopen"><code>IO.reopen</code></a>.</p>
+</li><li>
+<p><a href="../IO.html#method-c-sysopen"><code>IO.sysopen</code></a>.</p>
+</li><li>
+<p><a href="../StringIO.html#method-c-new"><code>StringIO.new</code></a>.</p>
+</li><li>
+<p><a href="../StringIO.html#method-c-open"><code>StringIO.open</code></a>.</p>
+</li><li>
+<p><a href="../StringIO.html#method-i-reopen"><code>StringIO#reopen</code></a>.</p>
+</li></ul>
+
+<h3 id="module-File::Constants-label-Read-2FWrite+Access">Read/Write Access<span><a href="#module-File::Constants-label-Read-2FWrite+Access">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Read-write access for a stream may be specified by a file-access constant.</p>
+
+<p>The constant may be specified as part of a bitwise OR of other such constants.</p>
+
+<p>Any combination of the constants in this section may be specified.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ARDONLY">File::RDONLY<span><a href="#module-File::Constants-label-File-3A-3ARDONLY">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::RDONLY specifies the stream should be opened for reading only:</p>
+
+<pre class="ruby"><span class="ruby-identifier">filepath</span> = <span class="ruby-string">&#39;/tmp/t.tmp&#39;</span>
+<span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filepath</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">RDONLY</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&#39;Foo&#39;</span>) <span class="ruby-comment"># Raises IOError (not opened for writing).</span>
+</pre>
+
+<h4 id="module-File::Constants-label-File-3A-3AWRONLY">File::WRONLY<span><a href="#module-File::Constants-label-File-3A-3AWRONLY">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::WRONLY specifies that the stream should be opened for writing only:</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filepath</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">WRONLY</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span> <span class="ruby-comment"># Raises IOError (not opened for reading).</span>
+</pre>
+
+<h4 id="module-File::Constants-label-File-3A-3ARDWR">File::RDWR<span><a href="#module-File::Constants-label-File-3A-3ARDWR">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::RDWR specifies that the stream should be opened for both reading and writing:</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filepath</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">RDWR</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&#39;Foo&#39;</span>) <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">rewind</span>       <span class="ruby-comment"># =&gt; 0</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span>         <span class="ruby-comment"># =&gt; &quot;Foo&quot;</span>
+</pre>
+
+<h3 id="module-File::Constants-label-File+Positioning">File Positioning<span><a href="#module-File::Constants-label-File+Positioning">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="module-File::Constants-label-File-3A-3AAPPEND">File::APPEND<span><a href="#module-File::Constants-label-File-3A-3AAPPEND">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::APPEND specifies that the stream should be opened in append mode.</p>
+
+<p>Before each write operation, the position is set to end-of-stream. The modification of the position and the following write operation are performed as a single atomic step.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ATRUNC">File::TRUNC<span><a href="#module-File::Constants-label-File-3A-3ATRUNC">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::TRUNC specifies that the stream should be truncated at its beginning. If the file exists and is successfully opened for writing, it is to be truncated to position zero; its ctime and mtime are updated.</p>
+
+<p>There is no effect on a FIFO special file or a terminal device. The effect on other file types is implementation-defined. The result of using File::TRUNC with File::RDONLY is undefined.</p>
+
+<h3 id="module-File::Constants-label-Creating+and+Preserving">Creating and Preserving<span><a href="#module-File::Constants-label-Creating+and+Preserving">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="module-File::Constants-label-File-3A-3ACREAT">File::CREAT<span><a href="#module-File::Constants-label-File-3A-3ACREAT">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::CREAT specifies that the stream should be created if it does not already exist.</p>
+
+<p>If the file exists:</p>
+
+<pre>- Raise an exception if File::EXCL is also specified.
+- Otherwise, do nothing.</pre>
+
+<p>If the file does not exist, then it is created. Upon successful completion, the atime, ctime, and mtime of the file are updated, and the ctime and mtime of the parent directory are updated.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3AEXCL">File::EXCL<span><a href="#module-File::Constants-label-File-3A-3AEXCL">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::EXCL specifies that the stream should not already exist; If flags File::CREAT and File::EXCL are both specified and the stream already exists, an exception is raised.</p>
+
+<p>The check for the existence and creation of the file is performed as an atomic operation.</p>
+
+<p>If both File::EXCL and File::CREAT are specified and the path names a symbolic link, an exception is raised regardless of the contents of the symbolic link.</p>
+
+<p>If File::EXCL is specified and File::CREAT is not specified, the result is undefined.</p>
+
+<h3 id="module-File::Constants-label-POSIX+File+Constants">POSIX File Constants<span><a href="#module-File::Constants-label-POSIX+File+Constants">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Some file-access constants are defined only on POSIX-compliant systems; those are:</p>
+<ul><li>
+<p>File::SYNC.</p>
+</li><li>
+<p>File::DSYNC.</p>
+</li><li>
+<p>File::RSYNC.</p>
+</li><li>
+<p>File::DIRECT.</p>
+</li><li>
+<p>File::NOATIME.</p>
+</li><li>
+<p>File::NOCTTY.</p>
+</li><li>
+<p>File::NOFOLLOW.</p>
+</li><li>
+<p>File::TMPFILE.</p>
+</li></ul>
+
+<h4 id="module-File::Constants-label-File-3A-3ASYNC-2C+File-3A-3ARSYNC-2C+and+File-3A-3ADSYNC">File::SYNC, File::RSYNC, and File::DSYNC<span><a href="#module-File::Constants-label-File-3A-3ASYNC-2C+File-3A-3ARSYNC-2C+and+File-3A-3ADSYNC">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::SYNC, File::RSYNC, or File::DSYNC specifies synchronization of I/O operations with the underlying file system.</p>
+
+<p>These flags are valid only for POSIX-compliant systems.</p>
+<ul><li>
+<p>File::SYNC specifies that all write operations (both data and metadata) are immediately to be flushed to the underlying storage device. This means that the data is written to the storage device, and the file’s metadata (e.g., file size, timestamps, permissions) are also synchronized. This guarantees that data is safely stored on the storage medium before returning control to the calling program. This flag can have a significant impact on performance since it requires synchronous writes, which can be slower compared to asynchronous writes.</p>
+</li><li>
+<p>File::RSYNC specifies that any read operations on the file will not return until all outstanding write operations (those that have been issued but not completed) are also synchronized. This is useful when you want to read the most up-to-date data, which may still be in the process of being written.</p>
+</li><li>
+<p>File::DSYNC specifies that all <em>data</em> write operations are immediately to be flushed to the underlying storage device; this differs from File::SYNC, which requires that <em>metadata</em> also be synchronized.</p>
+</li></ul>
+
+<p>Note that the behavior of these flags may vary slightly depending on the operating system and filesystem being used. Additionally, using these flags can have an impact on performance due to the synchronous nature of the I/O operations, so they should be used judiciously, especially in performance-critical applications.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ANOCTTY">File::NOCTTY<span><a href="#module-File::Constants-label-File-3A-3ANOCTTY">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::NOCTTY specifies that if the stream is a terminal device, that device does not become the controlling terminal for the process.</p>
+
+<p>Defined only for POSIX-compliant systems.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ADIRECT">File::DIRECT<span><a href="#module-File::Constants-label-File-3A-3ADIRECT">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::DIRECT requests that cache effects of the I/O to and from the stream be minimized.</p>
+
+<p>Defined only for POSIX-compliant systems.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ANOATIME">File::NOATIME<span><a href="#module-File::Constants-label-File-3A-3ANOATIME">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::NOATIME specifies that act of opening the stream should not modify its access time (atime).</p>
+
+<p>Defined only for POSIX-compliant systems.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ANOFOLLOW">File::NOFOLLOW<span><a href="#module-File::Constants-label-File-3A-3ANOFOLLOW">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::NOFOLLOW specifies that if path is a symbolic link, it should not be followed.</p>
+
+<p>Defined only for POSIX-compliant systems.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ATMPFILE">File::TMPFILE<span><a href="#module-File::Constants-label-File-3A-3ATMPFILE">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::TMPFILE specifies that the opened stream should be a new temporary file.</p>
+
+<p>Defined only for POSIX-compliant systems.</p>
+
+<h3 id="module-File::Constants-label-Other+File-Access+Constants">Other File-Access Constants<span><a href="#module-File::Constants-label-Other+File-Access+Constants">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="module-File::Constants-label-File-3A-3ANONBLOCK">File::NONBLOCK<span><a href="#module-File::Constants-label-File-3A-3ANONBLOCK">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>When possible, the file is opened in nonblocking mode. Neither the open operation nor any subsequent I/O operations on the file will cause the calling process to wait.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ABINARY">File::BINARY<span><a href="#module-File::Constants-label-File-3A-3ABINARY">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::BINARY specifies that the stream is to be accessed in binary mode.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ASHARE_DELETE">File::SHARE_DELETE<span><a href="#module-File::Constants-label-File-3A-3ASHARE_DELETE">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::SHARE_DELETE enables other processes to open the stream with delete access.</p>
+
+<p>Windows only.</p>
+
+<p>If the stream is opened for (local) delete access without File::SHARE_DELETE, and another process attempts to open it with delete access, the attempt fails and the stream is not opened for that process.</p>
+
+<h2 id="module-File::Constants-label-Locking">Locking<span><a href="#module-File::Constants-label-Locking">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Four file constants relate to stream locking; see <a href="../File.html#method-i-flock"><code>File#flock</code></a>:</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ALOCK_EX">File::LOCK_EX<span><a href="#module-File::Constants-label-File-3A-3ALOCK_EX">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::LOCK_EX specifies an exclusive lock; only one process a a time may lock the stream.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ALOCK_NB">File::LOCK_NB<span><a href="#module-File::Constants-label-File-3A-3ALOCK_NB">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::LOCK_NB specifies non-blocking locking for the stream; may be combined with File::LOCK_EX or File::LOCK_SH.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ALOCK_SH">File::LOCK_SH<span><a href="#module-File::Constants-label-File-3A-3ALOCK_SH">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::LOCK_SH specifies that multiple processes may lock the stream at the same time.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3ALOCK_UN">File::LOCK_UN<span><a href="#module-File::Constants-label-File-3A-3ALOCK_UN">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::LOCK_UN specifies that the stream is not to be locked.</p>
+
+<h2 id="module-File::Constants-label-Filename+Globbing+Constants+-28File-3A-3AFNM_-2A-29">Filename Globbing Constants (File::FNM_*)<span><a href="#module-File::Constants-label-Filename+Globbing+Constants+-28File-3A-3AFNM_-2A-29">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Filename-globbing constants may be used with optional argument <code>flags</code> in calls to the following methods:</p>
+<ul><li>
+<p><a href="../Dir.html#method-c-glob"><code>Dir.glob</code></a>.</p>
+</li><li>
+<p><a href="../File.html#method-c-fnmatch"><code>File.fnmatch</code></a>.</p>
+</li><li>
+<p><a href="../Pathname.html#method-i-fnmatch"><code>Pathname#fnmatch</code></a>.</p>
+</li><li>
+<p><a href="../Pathname.html#method-c-glob"><code>Pathname.glob</code></a>.</p>
+</li><li>
+<p><a href="../Pathname.html#method-i-glob"><code>Pathname#glob</code></a>.</p>
+</li></ul>
+
+<p>The constants are:</p>
+
+<h4 id="module-File::Constants-label-File-3A-3AFNM_CASEFOLD">File::FNM_CASEFOLD<span><a href="#module-File::Constants-label-File-3A-3AFNM_CASEFOLD">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::FNM_CASEFOLD makes patterns case insensitive for <a href="../File.html#method-c-fnmatch"><code>File.fnmatch</code></a> (but not <a href="../Dir.html#method-c-glob"><code>Dir.glob</code></a>).</p>
+
+<h4 id="module-File::Constants-label-File-3A-3AFNM_DOTMATCH">File::FNM_DOTMATCH<span><a href="#module-File::Constants-label-File-3A-3AFNM_DOTMATCH">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::FNM_DOTMATCH makes the <code>&#39;*&#39;</code> pattern match a filename starting with <code>&#39;.&#39;</code>.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3AFNM_EXTGLOB">File::FNM_EXTGLOB<span><a href="#module-File::Constants-label-File-3A-3AFNM_EXTGLOB">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::FNM_EXTGLOB enables pattern <code>&#39;{<em>a</em>,<em>b</em>}&#39;</code>, which matches pattern ‘<em>a</em>’ and pattern ‘<em>b</em>’; behaves like a <a href="../Regexp.html#method-c-union">regexp union</a> (e.g., <code>&#39;(?:<em>a</em>|<em>b</em>)&#39;</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">pattern</span> = <span class="ruby-string">&#39;{LEGAL,BSDL}&#39;</span>
+<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">pattern</span>)      <span class="ruby-comment"># =&gt; [&quot;LEGAL&quot;, &quot;BSDL&quot;]</span>
+<span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">pattern</span>) <span class="ruby-comment"># =&gt; [#&lt;Pathname:LEGAL&gt;, #&lt;Pathname:BSDL&gt;]</span>
+<span class="ruby-identifier">pathname</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">pattern</span>) <span class="ruby-comment"># =&gt; [#&lt;Pathname:LEGAL&gt;, #&lt;Pathname:BSDL&gt;]</span>
+</pre>
+
+<h4 id="module-File::Constants-label-File-3A-3AFNM_NOESCAPE">File::FNM_NOESCAPE<span><a href="#module-File::Constants-label-File-3A-3AFNM_NOESCAPE">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::FNM_NOESCAPE disables <code>&#39;\&#39;</code> escaping.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3AFNM_PATHNAME">File::FNM_PATHNAME<span><a href="#module-File::Constants-label-File-3A-3AFNM_PATHNAME">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::FNM_PATHNAME specifies that patterns <code>&#39;*&#39;</code> and <code>&#39;?&#39;</code> do not match the directory separator (the value of constant File::SEPARATOR).</p>
+
+<h4 id="module-File::Constants-label-File-3A-3AFNM_SHORTNAME">File::FNM_SHORTNAME<span><a href="#module-File::Constants-label-File-3A-3AFNM_SHORTNAME">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::FNM_SHORTNAME allows patterns to match short names if they exist.</p>
+
+<p>Windows only.</p>
+
+<h4 id="module-File::Constants-label-File-3A-3AFNM_SYSCASE">File::FNM_SYSCASE<span><a href="#module-File::Constants-label-File-3A-3AFNM_SYSCASE">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::FNM_SYSCASE specifies that case sensitivity is the same as in the underlying operating system; effective for <a href="../File.html#method-c-fnmatch"><code>File.fnmatch</code></a>, but not <a href="../Dir.html#method-c-glob"><code>Dir.glob</code></a>.</p>
+
+<h2 id="module-File::Constants-label-Other+Constants">Other Constants<span><a href="#module-File::Constants-label-Other+Constants">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h4 id="module-File::Constants-label-File-3A-3ANULL">File::NULL<span><a href="#module-File::Constants-label-File-3A-3ANULL">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Flag File::NULL contains the string value of the null device:</p>
+<ul><li>
+<p>On a Unix-like OS, <code>&#39;/dev/null&#39;</code>.</p>
+</li><li>
+<p>On Windows, <code>&#39;NUL&#39;</code>.</p>
+</li></ul>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="APPEND">APPEND
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3AAPPEND">File::APPEND</a></p>
+        <dt id="BINARY">BINARY
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ABINARY">File::BINARY</a></p>
+        <dt id="CREAT">CREAT
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ACREAT">File::CREAT</a></p>
+        <dt id="DIRECT">DIRECT
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ADIRECT">File::DIRECT</a></p>
+        <dt id="DSYNC">DSYNC
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ASYNC-2C+File-3A-3ARSYNC-2C+and+File-3A-3ADSYNC">File::DSYNC</a></p>
+        <dt id="EXCL">EXCL
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3AEXCL">File::EXCL</a></p>
+        <dt id="FNM_CASEFOLD">FNM_CASEFOLD
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3AFNM_CASEFOLD">File::FNM_CASEFOLD</a></p>
+        <dt id="FNM_DOTMATCH">FNM_DOTMATCH
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3AFNM_DOTMATCH">File::FNM_DOTMATCH</a></p>
+        <dt id="FNM_EXTGLOB">FNM_EXTGLOB
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3AFNM_EXTGLOB">File::FNM_EXTGLOB</a></p>
+        <dt id="FNM_NOESCAPE">FNM_NOESCAPE
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3AFNM_NOESCAPE">File::FNM_NOESCAPE</a></p>
+        <dt id="FNM_PATHNAME">FNM_PATHNAME
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3AFNM_PATHNAME">File::FNM_PATHNAME</a></p>
+        <dt id="FNM_SHORTNAME">FNM_SHORTNAME
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3AFNM_SHORTNAME">File::FNM_SHORTNAME</a></p>
+        <dt id="FNM_SYSCASE">FNM_SYSCASE
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3AFNM_SYSCASE">File::FNM_SYSCASE</a></p>
+        <dt id="LOCK_EX">LOCK_EX
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ALOCK_EX">File::LOCK_EX</a></p>
+        <dt id="LOCK_NB">LOCK_NB
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ALOCK_NB">File::LOCK_NB</a></p>
+        <dt id="LOCK_SH">LOCK_SH
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ALOCK_SH">File::LOCK_SH</a></p>
+        <dt id="LOCK_UN">LOCK_UN
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ALOCK_UN">File::LOCK_UN</a></p>
+        <dt id="NOATIME">NOATIME
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ANOATIME">File::NOATIME</a></p>
+        <dt id="NOCTTY">NOCTTY
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ANOCTTY">File::NOCTTY</a></p>
+        <dt id="NOFOLLOW">NOFOLLOW
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ANOFOLLOW">File::NOFOLLOW</a></p>
+        <dt id="NONBLOCK">NONBLOCK
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ANONBLOCK">File::NONBLOCK</a></p>
+        <dt id="NULL">NULL
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ANULL">File::NULL</a></p>
+        <dt id="RDONLY">RDONLY
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ARDONLY">File::RDONLY</a></p>
+        <dt id="RDWR">RDWR
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ARDWR">File::RDWR</a></p>
+        <dt id="RSYNC">RSYNC
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ASYNC-2C+File-3A-3ARSYNC-2C+and+File-3A-3ADSYNC">File::RSYNC</a></p>
+        <dt id="SHARE_DELETE">SHARE_DELETE
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ASHARE_DELETE">File::SHARE_DELETE</a></p>
+        <dt id="SYNC">SYNC
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ASYNC-2C+File-3A-3ARSYNC-2C+and+File-3A-3ADSYNC">File::SYNC</a></p>
+        <dt id="TMPFILE">TMPFILE
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ATMPFILE">File::TMPFILE</a></p>
+        <dt id="TRUNC">TRUNC
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3ATRUNC">File::TRUNC</a></p>
+        <dt id="WRONLY">WRONLY
+        <dd>
+          <p><a href="Constants.html#module-File::Constants-label-File-3A-3AWRONLY">File::WRONLY</a></p>
+      </dl>
+    </section>
+
+
+
+  </section>
+</main>
+

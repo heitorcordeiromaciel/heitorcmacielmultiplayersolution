@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class Gem::SafeMarshal::Visitors::ToRuby - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,Gem::SafeMarshal::Visitors::ToRuby">
+
+    <meta name="description" content="Documentation for the Gem::SafeMarshal::Visitors::ToRuby class">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Gem/SafeMarshal/Visitors/ToRuby.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li>Visitor</li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-new">new</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-call_method">call_method</a></li>
+      <li ><a href="#method-i-formatted_stack">formatted_stack</a></li>
+      <li ><a href="#method-i-map_ivars">map_ivars</a></li>
+      <li ><a href="#method-i-push_stack">push_stack</a></li>
+      <li ><a href="#method-i-register_object">register_object</a></li>
+      <li ><a href="#method-i-resolve_class">resolve_class</a></li>
+      <li ><a href="#method-i-resolve_ivar">resolve_ivar</a></li>
+      <li ><a href="#method-i-resolve_symbol_name">resolve_symbol_name</a></li>
+      <li class="calls-super" ><a href="#method-i-visit">visit</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_Array">visit_Gem_SafeMarshal_Elements_Array</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_Bignum">visit_Gem_SafeMarshal_Elements_Bignum</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_False">visit_Gem_SafeMarshal_Elements_False</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_Float">visit_Gem_SafeMarshal_Elements_Float</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_Hash">visit_Gem_SafeMarshal_Elements_Hash</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_HashWithDefaultValue">visit_Gem_SafeMarshal_Elements_HashWithDefaultValue</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_Integer">visit_Gem_SafeMarshal_Elements_Integer</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_Nil">visit_Gem_SafeMarshal_Elements_Nil</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_Object">visit_Gem_SafeMarshal_Elements_Object</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_ObjectLink">visit_Gem_SafeMarshal_Elements_ObjectLink</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_String">visit_Gem_SafeMarshal_Elements_String</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_Symbol">visit_Gem_SafeMarshal_Elements_Symbol</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_SymbolLink">visit_Gem_SafeMarshal_Elements_SymbolLink</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_True">visit_Gem_SafeMarshal_Elements_True</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_UserClass">visit_Gem_SafeMarshal_Elements_UserClass</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_UserDefined">visit_Gem_SafeMarshal_Elements_UserDefined</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_UserMarshal">visit_Gem_SafeMarshal_Elements_UserMarshal</a></li>
+      <li ><a href="#method-i-visit_Gem_SafeMarshal_Elements_WithIvars">visit_Gem_SafeMarshal_Elements_WithIvars</a></li>
+      <li ><a href="#method-i-visit_symbol_type">visit_symbol_type</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-Gem::SafeMarshal::Visitors::ToRuby">
+  
+  
+    <ol role="navigation" aria-label="breadcrumb" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../../../Gem.html">Gem</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <a href="../../../Gem/SafeMarshal.html">SafeMarshal</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <a href="../../../Gem/SafeMarshal/Visitors.html">Visitors</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>ToRuby</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <h1 id="class-Gem::SafeMarshal::Visitors::ToRuby" class="anchor-link class">
+    class Gem::SafeMarshal::Visitors::ToRuby
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="COMPAT_CLASSES">COMPAT_CLASSES
+        <dd>
+          
+      </dl>
+    </section>
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(permitted_classes:, permitted_symbols:, permitted_ivars:)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">permitted_classes:</span>, <span class="ruby-value">permitted_symbols:</span>, <span class="ruby-value">permitted_ivars:</span>)
+  <span class="ruby-ivar">@permitted_classes</span> = <span class="ruby-identifier">permitted_classes</span>
+  <span class="ruby-ivar">@permitted_symbols</span> = [<span class="ruby-string">&quot;E&quot;</span>].<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">permitted_symbols</span>).<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">permitted_classes</span>)
+  <span class="ruby-ivar">@permitted_ivars</span> = <span class="ruby-identifier">permitted_ivars</span>
+
+  <span class="ruby-ivar">@objects</span> = []
+  <span class="ruby-ivar">@symbols</span> = []
+  <span class="ruby-ivar">@class_cache</span> = {}
+
+  <span class="ruby-ivar">@stack</span> = [<span class="ruby-string">&quot;root&quot;</span>]
+  <span class="ruby-ivar">@stack_idx</span> = <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-visit" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit" title="Link to this method">
+                <span class="method-name">visit</span>
+                <span class="method-args">(target)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit</span>(<span class="ruby-identifier">target</span>)
+  <span class="ruby-identifier">stack_idx</span> = <span class="ruby-ivar">@stack_idx</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-ivar">@stack_idx</span> = <span class="ruby-identifier">stack_idx</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-call_method" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-call_method" title="Link to this method">
+                <span class="method-name">call_method</span>
+                <span class="method-args">(receiver, method, *args)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="call_method-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 357</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call_method</span>(<span class="ruby-identifier">receiver</span>, <span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">receiver</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">NoMethodError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">receiver</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">receiver</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MethodCallError</span>, <span class="ruby-node">&quot;Unable to call #{method.inspect} on #{receiver.inspect}, perhaps it is a class using marshal compat, which is not visible in ruby? #{e}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-formatted_stack" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-formatted_stack" title="Link to this method">
+                <span class="method-name">formatted_stack</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="formatted_stack-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 365</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">formatted_stack</span>
+  <span class="ruby-identifier">formatted</span> = []
+  <span class="ruby-ivar">@stack</span>[<span class="ruby-value">0</span>, <span class="ruby-ivar">@stack_idx</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">formatted</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;ivar_&quot;</span>
+        <span class="ruby-identifier">formatted</span>[<span class="ruby-value">-1</span>] = <span class="ruby-node">&quot;ivar_#{e}&quot;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">formatted</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;[#{e}]&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">formatted</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">formatted</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-map_ivars" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-map_ivars" title="Link to this method">
+                <span class="method-name">map_ivars</span>
+                <span class="method-args">(klass, ivars)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="map_ivars-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">map_ivars</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">ivars</span>)
+  <span class="ruby-identifier">stack_idx</span> = <span class="ruby-ivar">@stack_idx</span>
+  <span class="ruby-identifier">ivars</span>.<span class="ruby-identifier">map</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>), <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@stack_idx</span> = <span class="ruby-identifier">stack_idx</span>
+
+    <span class="ruby-identifier">push_stack</span> <span class="ruby-string">&quot;ivar_&quot;</span>
+    <span class="ruby-identifier">push_stack</span> <span class="ruby-identifier">i</span>
+    <span class="ruby-identifier">k</span> = <span class="ruby-identifier">resolve_ivar</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">k</span>)
+
+    <span class="ruby-ivar">@stack_idx</span> = <span class="ruby-identifier">stack_idx</span>
+    <span class="ruby-identifier">push_stack</span> <span class="ruby-identifier">k</span>
+
+    <span class="ruby-keyword">next</span> <span class="ruby-identifier">k</span>, <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">v</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-push_stack" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-push_stack" title="Link to this method">
+                <span class="method-name">push_stack</span>
+                <span class="method-args">(element)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="push_stack-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">push_stack</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-ivar">@stack</span>[<span class="ruby-ivar">@stack_idx</span>] = <span class="ruby-identifier">element</span>
+  <span class="ruby-ivar">@stack_idx</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-register_object" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-register_object" title="Link to this method">
+                <span class="method-name">register_object</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="register_object-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 352</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register_object</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-ivar">@objects</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">o</span>
+  <span class="ruby-identifier">o</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-resolve_class" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-resolve_class" title="Link to this method">
+                <span class="method-name">resolve_class</span>
+                <span class="method-args">(n)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="resolve_class-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resolve_class</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-ivar">@class_cache</span>[<span class="ruby-identifier">n</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">to_s</span> = <span class="ruby-identifier">resolve_symbol_name</span>(<span class="ruby-identifier">n</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnpermittedClassError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">name:</span> <span class="ruby-identifier">to_s</span>, <span class="ruby-value">stack:</span> <span class="ruby-identifier">formatted_stack</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@permitted_classes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-identifier">visit_symbol_type</span>(<span class="ruby-identifier">n</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-operator">::</span><span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Undefined class #{to_s.inspect}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-resolve_ivar" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-resolve_ivar" title="Link to this method">
+                <span class="method-name">resolve_ivar</span>
+                <span class="method-args">(klass, name)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="resolve_ivar-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 308</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resolve_ivar</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">to_s</span> = <span class="ruby-identifier">resolve_symbol_name</span>(<span class="ruby-identifier">name</span>)
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnpermittedIvarError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">symbol:</span> <span class="ruby-identifier">to_s</span>, <span class="ruby-value">klass:</span> <span class="ruby-identifier">klass</span>, <span class="ruby-value">stack:</span> <span class="ruby-identifier">formatted_stack</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@permitted_ivars</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">name</span>, [].<span class="ruby-identifier">freeze</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">to_s</span>)
+
+  <span class="ruby-identifier">visit_symbol_type</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-resolve_symbol_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-resolve_symbol_name" title="Link to this method">
+                <span class="method-name">resolve_symbol_name</span>
+                <span class="method-args">(element)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="resolve_symbol_name-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 329</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resolve_symbol_name</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">element</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Symbol</span>
+    <span class="ruby-identifier">element</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">SymbolLink</span>
+    <span class="ruby-identifier">visit_Gem_SafeMarshal_Elements_SymbolLink</span>(<span class="ruby-identifier">element</span>).<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">FormatError</span>, <span class="ruby-node">&quot;Expected symbol or symbol link, got #{element.inspect} @ #{formatted_stack.join(&quot;.&quot;)}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_Array" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_Array" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_Array</span>
+                <span class="method-args">(a)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_Array-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_Array</span>(<span class="ruby-identifier">a</span>)
+  <span class="ruby-identifier">array</span> = <span class="ruby-identifier">register_object</span>([])
+
+  <span class="ruby-identifier">elements</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">elements</span>
+  <span class="ruby-identifier">size</span> = <span class="ruby-identifier">elements</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">idx</span> = <span class="ruby-value">0</span>
+  <span class="ruby-comment"># not idiomatic, but there&#39;s a huge number of IMEMOs allocated here, so we avoid the block</span>
+  <span class="ruby-comment"># because this is such a hot path when doing a bundle install with the full index</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">push_stack</span> <span class="ruby-identifier">idx</span>
+    <span class="ruby-identifier">array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">elements</span>[<span class="ruby-identifier">idx</span>])
+    <span class="ruby-identifier">idx</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">array</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_Bignum" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_Bignum" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_Bignum</span>
+                <span class="method-args">(b)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_Bignum-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_Bignum</span>(<span class="ruby-identifier">b</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">data</span>.<span class="ruby-identifier">each_byte</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">byte</span>, <span class="ruby-identifier">exp</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">byte</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span><span class="ruby-operator">**</span>(<span class="ruby-identifier">exp</span> <span class="ruby-operator">*</span> <span class="ruby-value">8</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">sign</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">43</span> <span class="ruby-comment"># ?+</span>
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">45</span> <span class="ruby-comment"># ?-</span>
+    <span class="ruby-operator">-</span><span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">FormatError</span>, <span class="ruby-node">&quot;Unexpected sign for Bignum #{b.sign.chr.inspect} (#{b.sign})&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_False" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_False" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_False</span>
+                <span class="method-args">(_)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_False-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_False</span>(<span class="ruby-identifier">_</span>)
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_Float" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_Float" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_Float</span>
+                <span class="method-args">(f)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_Float-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_Float</span>(<span class="ruby-identifier">f</span>)
+  <span class="ruby-identifier">register_object</span>(
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">string</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;inf&quot;</span>
+      <span class="ruby-operator">::</span><span class="ruby-constant">Float</span><span class="ruby-operator">::</span><span class="ruby-constant">INFINITY</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-inf&quot;</span>
+      <span class="ruby-operator">-</span><span class="ruby-operator">::</span><span class="ruby-constant">Float</span><span class="ruby-operator">::</span><span class="ruby-constant">INFINITY</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;nan&quot;</span>
+      <span class="ruby-operator">::</span><span class="ruby-constant">Float</span><span class="ruby-operator">::</span><span class="ruby-constant">NAN</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">f</span>.<span class="ruby-identifier">string</span>.<span class="ruby-identifier">to_f</span>
+    <span class="ruby-keyword">end</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_Hash" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_Hash" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_Hash</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_Hash-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_Hash</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">register_object</span>({})
+
+  <span class="ruby-identifier">o</span>.<span class="ruby-identifier">pairs</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>), <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">push_stack</span> <span class="ruby-identifier">i</span>
+    <span class="ruby-identifier">k</span> = <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">k</span>)
+    <span class="ruby-identifier">push_stack</span> <span class="ruby-identifier">k</span>
+    <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">v</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_HashWithDefaultValue" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_HashWithDefaultValue" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_HashWithDefaultValue</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_HashWithDefaultValue-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_HashWithDefaultValue</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">visit_Gem_SafeMarshal_Elements_Hash</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-identifier">push_stack</span> <span class="ruby-value">:default</span>
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">default</span> = <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">o</span>.<span class="ruby-identifier">default</span>)
+  <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_Integer" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_Integer" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_Integer</span>
+                <span class="method-args">(i)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_Integer-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_Integer</span>(<span class="ruby-identifier">i</span>)
+  <span class="ruby-identifier">i</span>.<span class="ruby-identifier">int</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_Nil" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_Nil" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_Nil</span>
+                <span class="method-args">(_)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_Nil-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_Nil</span>(<span class="ruby-identifier">_</span>)
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_Object" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_Object" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_Object</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_Object-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_Object</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-identifier">register_object</span>(<span class="ruby-identifier">resolve_class</span>(<span class="ruby-identifier">o</span>.<span class="ruby-identifier">name</span>).<span class="ruby-identifier">allocate</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_ObjectLink" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_ObjectLink" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_ObjectLink</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_ObjectLink-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_ObjectLink</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-ivar">@objects</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">o</span>.<span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_String" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_String" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_String</span>
+                <span class="method-args">(s)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_String-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_String</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-identifier">register_object</span>(<span class="ruby-operator">+</span><span class="ruby-identifier">s</span>.<span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_Symbol" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_Symbol" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_Symbol</span>
+                <span class="method-args">(s)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_Symbol-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_Symbol</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnpermittedSymbolError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">symbol:</span> <span class="ruby-identifier">name</span>, <span class="ruby-value">stack:</span> <span class="ruby-identifier">formatted_stack</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@permitted_symbols</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">visit_symbol_type</span>(<span class="ruby-identifier">s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_SymbolLink" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_SymbolLink" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_SymbolLink</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_SymbolLink-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_SymbolLink</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-ivar">@symbols</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">o</span>.<span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_True" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_True" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_True</span>
+                <span class="method-args">(_)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_True-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_True</span>(<span class="ruby-identifier">_</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_UserClass" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_UserClass" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_UserClass</span>
+                <span class="method-args">(r)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_UserClass-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_UserClass</span>(<span class="ruby-identifier">r</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">resolve_class</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">name</span>) <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Hash</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">wrapped_object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+
+    <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">register_object</span>({}.<span class="ruby-identifier">compare_by_identity</span>)
+
+    <span class="ruby-identifier">o</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">wrapped_object</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">pairs</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>), <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">push_stack</span> <span class="ruby-identifier">i</span>
+      <span class="ruby-identifier">k</span> = <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">k</span>)
+      <span class="ruby-identifier">push_stack</span> <span class="ruby-identifier">k</span>
+      <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">HashWithDefaultValue</span>)
+      <span class="ruby-identifier">push_stack</span> <span class="ruby-value">:default</span>
+      <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">default</span> = <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">o</span>.<span class="ruby-identifier">default</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">hash</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnsupportedError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Unsupported user class #{resolve_class(r.name)} in marshal stream&quot;</span>, <span class="ruby-value">stack:</span> <span class="ruby-identifier">formatted_stack</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_UserDefined" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_UserDefined" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_UserDefined</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_UserDefined-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_UserDefined</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-identifier">register_object</span>(<span class="ruby-identifier">call_method</span>(<span class="ruby-identifier">resolve_class</span>(<span class="ruby-identifier">o</span>.<span class="ruby-identifier">name</span>), <span class="ruby-value">:_load</span>, <span class="ruby-identifier">o</span>.<span class="ruby-identifier">binary_string</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_UserMarshal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_UserMarshal" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_UserMarshal</span>
+                <span class="method-args">(o)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_UserMarshal-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_UserMarshal</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-identifier">klass</span> = <span class="ruby-identifier">resolve_class</span>(<span class="ruby-identifier">o</span>.<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">compat</span> = <span class="ruby-constant">COMPAT_CLASSES</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">idx</span> = <span class="ruby-ivar">@objects</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">object</span> = <span class="ruby-identifier">register_object</span>(<span class="ruby-identifier">call_method</span>(<span class="ruby-identifier">compat</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">klass</span>, <span class="ruby-value">:allocate</span>))
+
+  <span class="ruby-identifier">push_stack</span> <span class="ruby-value">:data</span>
+  <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">call_method</span>(<span class="ruby-identifier">object</span>, <span class="ruby-value">:marshal_load</span>, <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">o</span>.<span class="ruby-identifier">data</span>))
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">compat</span>
+    <span class="ruby-identifier">object</span> = <span class="ruby-ivar">@objects</span>[<span class="ruby-identifier">idx</span>] = <span class="ruby-identifier">ret</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">object</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_Gem_SafeMarshal_Elements_WithIvars" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_Gem_SafeMarshal_Elements_WithIvars" title="Link to this method">
+                <span class="method-name">visit_Gem_SafeMarshal_Elements_WithIvars</span>
+                <span class="method-args">(e)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_Gem_SafeMarshal_Elements_WithIvars-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_Gem_SafeMarshal_Elements_WithIvars</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-identifier">object_offset</span> = <span class="ruby-ivar">@objects</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">push_stack</span> <span class="ruby-string">&quot;object&quot;</span>
+  <span class="ruby-identifier">object</span> = <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">object</span>)
+  <span class="ruby-identifier">ivars</span> = <span class="ruby-identifier">map_ivars</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">ivars</span>)
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">UserDefined</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>
+      <span class="ruby-identifier">internal</span> = []
+
+      <span class="ruby-identifier">ivars</span>.<span class="ruby-identifier">reject!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">k</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:offset</span>, <span class="ruby-value">:zone</span>, <span class="ruby-value">:nano_num</span>, <span class="ruby-value">:nano_den</span>, <span class="ruby-value">:submicro</span>
+          <span class="ruby-identifier">internal</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>]
+          <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">s</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">object</span>.<span class="ruby-identifier">binary_string</span>
+      <span class="ruby-comment"># 122 is the largest integer that can be represented in marshal in a single byte</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TimeTooLargeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;binary string too large&quot;</span>, <span class="ruby-value">stack:</span> <span class="ruby-identifier">formatted_stack</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">122</span>
+
+      <span class="ruby-identifier">marshal_string</span> = <span class="ruby-string">&quot;\x04\bIu:\tTime&quot;</span>.<span class="ruby-identifier">b</span>
+      <span class="ruby-identifier">marshal_string</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">+</span> <span class="ruby-value">5</span>)
+      <span class="ruby-identifier">marshal_string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">s</span>
+      <span class="ruby-comment"># internal is limited to 5, so no overflow is possible</span>
+      <span class="ruby-identifier">marshal_string</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">internal</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">5</span>)
+
+      <span class="ruby-identifier">internal</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">k</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">name</span>
+        <span class="ruby-comment"># ivar name can&#39;t be too large because only known ivars are in the internal ivars list</span>
+        <span class="ruby-identifier">marshal_string</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-string">&quot;:&quot;</span>)
+        <span class="ruby-identifier">marshal_string</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">k</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">+</span> <span class="ruby-value">5</span>)
+        <span class="ruby-identifier">marshal_string</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">k</span>)
+        <span class="ruby-identifier">dumped</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">dumped</span>[<span class="ruby-value">0</span>, <span class="ruby-value">2</span>] = <span class="ruby-string">&quot;&quot;</span>
+        <span class="ruby-identifier">marshal_string</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">dumped</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">object</span> = <span class="ruby-ivar">@objects</span>[<span class="ruby-identifier">object_offset</span>] = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">marshal_string</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">String</span>
+    <span class="ruby-identifier">enc</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-identifier">ivars</span>.<span class="ruby-identifier">reject!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">k</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:E</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-constant">TrueClass</span>
+          <span class="ruby-identifier">enc</span> = <span class="ruby-string">&quot;UTF-8&quot;</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-constant">FalseClass</span>
+          <span class="ruby-identifier">enc</span> = <span class="ruby-string">&quot;US-ASCII&quot;</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">FormatError</span>, <span class="ruby-node">&quot;Unexpected value for String :E #{v.inspect}&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:encoding</span>
+        <span class="ruby-identifier">enc</span> = <span class="ruby-identifier">v</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-identifier">enc</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">enc</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ivars</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">instance_variable_set</span> <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">object</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visit_symbol_type" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-visit_symbol_type" title="Link to this method">
+                <span class="method-name">visit_symbol_type</span>
+                <span class="method-args">(element)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="visit_symbol_type-source">
+            <pre><span class="ruby-comment"># File lib/rubygems/safe_marshal/visitors/to_ruby.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visit_symbol_type</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">element</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">Symbol</span>
+    <span class="ruby-identifier">sym</span> = <span class="ruby-identifier">element</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-ivar">@symbols</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sym</span>
+    <span class="ruby-identifier">sym</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Elements</span><span class="ruby-operator">::</span><span class="ruby-constant">SymbolLink</span>
+    <span class="ruby-identifier">visit_Gem_SafeMarshal_Elements_SymbolLink</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

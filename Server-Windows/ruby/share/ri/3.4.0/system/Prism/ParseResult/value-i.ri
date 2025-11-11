@@ -1,0 +1,3 @@
+U:RDoc::Attr[iI"
+value:ETI"Prism::ParseResult#value;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I":The syntax tree that was parsed from the source code.;T:
+@fileI"lib/prism/parse_result.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Prism::ParseResult;TcRDoc::NormalClass0

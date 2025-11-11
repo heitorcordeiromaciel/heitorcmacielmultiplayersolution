@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class Reline::Core - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,Reline::Core">
+
+    <meta name="description" content="Documentation for the Reline::Core class">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/Reline/Core.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="../Object.html">Object</a><ul><li><a href="../BasicObject.html">BasicObject</a></li></ul></li></ul>
+</div>
+
+  
+  
+<div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    <li><a class="extend" href="../Forwardable.html">Forwardable</a>
+  </ul>
+</div>
+
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-new">new</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-add_dialog_proc">add_dialog_proc</a></li>
+      <li ><a href="#method-i-ambiguous_width">ambiguous_width</a></li>
+      <li ><a href="#method-i-auto_indent_proc-3D">auto_indent_proc=</a></li>
+      <li ><a href="#method-i-basic_quote_characters-3D">basic_quote_characters=</a></li>
+      <li ><a href="#method-i-basic_word_break_characters-3D">basic_word_break_characters=</a></li>
+      <li ><a href="#method-i-completer_quote_characters-3D">completer_quote_characters=</a></li>
+      <li ><a href="#method-i-completer_word_break_characters-3D">completer_word_break_characters=</a></li>
+      <li ><a href="#method-i-completion_append_character-3D">completion_append_character=</a></li>
+      <li ><a href="#method-i-completion_case_fold">completion_case_fold</a></li>
+      <li ><a href="#method-i-completion_case_fold-3D">completion_case_fold=</a></li>
+      <li ><a href="#method-i-completion_proc-3D">completion_proc=</a></li>
+      <li ><a href="#method-i-completion_quote_character">completion_quote_character</a></li>
+      <li ><a href="#method-i-dialog_proc">dialog_proc</a></li>
+      <li ><a href="#method-i-dig_perfect_match_proc-3D">dig_perfect_match_proc=</a></li>
+      <li ><a href="#method-i-emacs_editing_mode">emacs_editing_mode</a></li>
+      <li ><a href="#method-i-emacs_editing_mode-3F">emacs_editing_mode?</a></li>
+      <li ><a href="#method-i-encoding">encoding</a></li>
+      <li ><a href="#method-i-filename_quote_characters-3D">filename_quote_characters=</a></li>
+      <li ><a href="#method-i-get_screen_size">get_screen_size</a></li>
+      <li ><a href="#method-i-inner_readline">inner_readline</a></li>
+      <li ><a href="#method-i-input-3D">input=</a></li>
+      <li ><a href="#method-i-io_gate">io_gate</a></li>
+      <li ><a href="#method-i-may_req_ambiguous_char_width">may_req_ambiguous_char_width</a></li>
+      <li ><a href="#method-i-output-3D">output=</a></li>
+      <li ><a href="#method-i-output_modifier_proc-3D">output_modifier_proc=</a></li>
+      <li ><a href="#method-i-pre_input_hook-3D">pre_input_hook=</a></li>
+      <li ><a href="#method-i-prompt_proc-3D">prompt_proc=</a></li>
+      <li ><a href="#method-i-read_io">read_io</a></li>
+      <li ><a href="#method-i-readline">readline</a></li>
+      <li ><a href="#method-i-readmultiline">readmultiline</a></li>
+      <li ><a href="#method-i-special_prefixes-3D">special_prefixes=</a></li>
+      <li ><a href="#method-i-vi_editing_mode">vi_editing_mode</a></li>
+      <li ><a href="#method-i-vi_editing_mode-3F">vi_editing_mode?</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-Reline::Core">
+  
+  
+    <ol role="navigation" aria-label="breadcrumb" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../Reline.html">Reline</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>Core</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <h1 id="class-Reline::Core" class="anchor-link class">
+    class Reline::Core
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="ATTR_READER_NAMES">ATTR_READER_NAMES
+        <dd>
+          
+        <dt id="DialogProc">DialogProc
+        <dd>
+          
+      </dl>
+    </section>
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-config" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-config" title="Link to this attribute">
+            <span class="method-name">config</span>
+            <span class="attribute-access-type">[RW]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-key_stroke" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-key_stroke" title="Link to this attribute">
+            <span class="method-name">key_stroke</span>
+            <span class="attribute-access-type">[RW]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-last_incremental_search" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-last_incremental_search" title="Link to this attribute">
+            <span class="method-name">last_incremental_search</span>
+            <span class="attribute-access-type">[RW]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-line_editor" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-line_editor" title="Link to this attribute">
+            <span class="method-name">line_editor</span>
+            <span class="attribute-access-type">[RW]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-output" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-output" title="Link to this attribute">
+            <span class="method-name">output</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">() { |self| ... }</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span> = <span class="ruby-constant">STDOUT</span>
+  <span class="ruby-ivar">@mutex</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@dialog_proc_list</span> = {}
+  <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-ivar">@completion_quote_character</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-add_dialog_proc" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-add_dialog_proc" title="Link to this method">
+                <span class="method-name">add_dialog_proc</span>
+                <span class="method-args">(name_sym, p, context = nil)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="add_dialog_proc-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_dialog_proc</span>(<span class="ruby-identifier">name_sym</span>, <span class="ruby-identifier">p</span>, <span class="ruby-identifier">context</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">name_sym</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Symbol</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@dialog_proc_list</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">name_sym</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-ivar">@dialog_proc_list</span>[<span class="ruby-identifier">name_sym</span>] = <span class="ruby-constant">DialogProc</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">p</span>, <span class="ruby-identifier">context</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-ambiguous_width" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-ambiguous_width" title="Link to this method">
+                <span class="method-name">ambiguous_width</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="ambiguous_width-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 409</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ambiguous_width</span>
+  <span class="ruby-identifier">may_req_ambiguous_char_width</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@ambiguous_width</span>
+  <span class="ruby-ivar">@ambiguous_width</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-auto_indent_proc-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-auto_indent_proc-3D" title="Link to this method">
+                <span class="method-name">auto_indent_proc=</span>
+                <span class="method-args">(p)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="auto_indent_proc-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">auto_indent_proc=</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@auto_indent_proc</span> = <span class="ruby-identifier">p</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-basic_quote_characters-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-basic_quote_characters-3D" title="Link to this method">
+                <span class="method-name">basic_quote_characters=</span>
+                <span class="method-args">(v)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="basic_quote_characters-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">basic_quote_characters=</span>(<span class="ruby-identifier">v</span>)
+  <span class="ruby-ivar">@basic_quote_characters</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-basic_word_break_characters-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-basic_word_break_characters-3D" title="Link to this method">
+                <span class="method-name">basic_word_break_characters=</span>
+                <span class="method-args">(v)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="basic_word_break_characters-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">basic_word_break_characters=</span>(<span class="ruby-identifier">v</span>)
+  <span class="ruby-ivar">@basic_word_break_characters</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-completer_quote_characters-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-completer_quote_characters-3D" title="Link to this method">
+                <span class="method-name">completer_quote_characters=</span>
+                <span class="method-args">(v)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="completer_quote_characters-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">completer_quote_characters=</span>(<span class="ruby-identifier">v</span>)
+  <span class="ruby-ivar">@completer_quote_characters</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-completer_word_break_characters-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-completer_word_break_characters-3D" title="Link to this method">
+                <span class="method-name">completer_word_break_characters=</span>
+                <span class="method-args">(v)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="completer_word_break_characters-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">completer_word_break_characters=</span>(<span class="ruby-identifier">v</span>)
+  <span class="ruby-ivar">@completer_word_break_characters</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-completion_append_character-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-completion_append_character-3D" title="Link to this method">
+                <span class="method-name">completion_append_character=</span>
+                <span class="method-args">(val)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="completion_append_character-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">completion_append_character=</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@completion_append_character</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@completion_append_character</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">encoding</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@completion_append_character</span> = <span class="ruby-identifier">val</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">encoding</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@completion_append_character</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-completion_case_fold" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-completion_case_fold" title="Link to this method">
+                <span class="method-name">completion_case_fold</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="completion_case_fold-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">completion_case_fold</span>
+  <span class="ruby-ivar">@config</span>.<span class="ruby-identifier">completion_ignore_case</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-completion_case_fold-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-completion_case_fold-3D" title="Link to this method">
+                <span class="method-name">completion_case_fold=</span>
+                <span class="method-args">(v)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="completion_case_fold-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">completion_case_fold=</span>(<span class="ruby-identifier">v</span>)
+  <span class="ruby-ivar">@config</span>.<span class="ruby-identifier">completion_ignore_case</span> = <span class="ruby-identifier">v</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-completion_proc-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-completion_proc-3D" title="Link to this method">
+                <span class="method-name">completion_proc=</span>
+                <span class="method-args">(p)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="completion_proc-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">completion_proc=</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@completion_proc</span> = <span class="ruby-identifier">p</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-completion_quote_character" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-completion_quote_character" title="Link to this method">
+                <span class="method-name">completion_quote_character</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="completion_quote_character-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">completion_quote_character</span>
+  <span class="ruby-ivar">@completion_quote_character</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-dialog_proc" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-dialog_proc" title="Link to this method">
+                <span class="method-name">dialog_proc</span>
+                <span class="method-args">(name_sym)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="dialog_proc-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dialog_proc</span>(<span class="ruby-identifier">name_sym</span>)
+  <span class="ruby-ivar">@dialog_proc_list</span>[<span class="ruby-identifier">name_sym</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-dig_perfect_match_proc-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-dig_perfect_match_proc-3D" title="Link to this method">
+                <span class="method-name">dig_perfect_match_proc=</span>
+                <span class="method-args">(p)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="dig_perfect_match_proc-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dig_perfect_match_proc=</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@dig_perfect_match_proc</span> = <span class="ruby-identifier">p</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-emacs_editing_mode" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-emacs_editing_mode" title="Link to this method">
+                <span class="method-name">emacs_editing_mode</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="emacs_editing_mode-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">emacs_editing_mode</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">editing_mode</span> = <span class="ruby-value">:emacs</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-emacs_editing_mode-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-emacs_editing_mode-3F" title="Link to this method">
+                <span class="method-name">emacs_editing_mode?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="emacs_editing_mode-3F-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">emacs_editing_mode?</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">editing_mode_is?</span>(<span class="ruby-value">:emacs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-encoding" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-encoding" title="Link to this method">
+                <span class="method-name">encoding</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="encoding-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">encoding</span>
+  <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">encoding</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-filename_quote_characters-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-filename_quote_characters-3D" title="Link to this method">
+                <span class="method-name">filename_quote_characters=</span>
+                <span class="method-args">(v)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="filename_quote_characters-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filename_quote_characters=</span>(<span class="ruby-identifier">v</span>)
+  <span class="ruby-ivar">@filename_quote_characters</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-get_screen_size" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-get_screen_size" title="Link to this method">
+                <span class="method-name">get_screen_size</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="get_screen_size-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_screen_size</span>
+  <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">get_screen_size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-input-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-input-3D" title="Link to this method">
+                <span class="method-name">input=</span>
+                <span class="method-args">(val)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="input-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">input=</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:getc</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:getc</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:input=</span>)
+    <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">input</span> = <span class="ruby-identifier">val</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-io_gate" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-io_gate" title="Link to this method">
+                <span class="method-name">io_gate</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="io_gate-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">io_gate</span>
+  <span class="ruby-constant">Reline</span><span class="ruby-operator">::</span><span class="ruby-constant">IOGate</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-output-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-output-3D" title="Link to this method">
+                <span class="method-name">output=</span>
+                <span class="method-args">(val)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="output-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">output=</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:write</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@output</span> = <span class="ruby-identifier">val</span>
+  <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">output</span> = <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-output_modifier_proc-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-output_modifier_proc-3D" title="Link to this method">
+                <span class="method-name">output_modifier_proc=</span>
+                <span class="method-args">(p)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="output_modifier_proc-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">output_modifier_proc=</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@output_modifier_proc</span> = <span class="ruby-identifier">p</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-pre_input_hook-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-pre_input_hook-3D" title="Link to this method">
+                <span class="method-name">pre_input_hook=</span>
+                <span class="method-args">(p)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="pre_input_hook-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pre_input_hook=</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-ivar">@pre_input_hook</span> = <span class="ruby-identifier">p</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prompt_proc-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prompt_proc-3D" title="Link to this method">
+                <span class="method-name">prompt_proc=</span>
+                <span class="method-args">(p)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prompt_proc-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prompt_proc=</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@prompt_proc</span> = <span class="ruby-identifier">p</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-readline" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-readline" title="Link to this method">
+                <span class="method-name">readline</span>
+                <span class="method-args">(prompt = &#39;&#39;, add_hist = false)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="readline-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">readline</span>(<span class="ruby-identifier">prompt</span> = <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">add_hist</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">with_raw_input</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">inner_readline</span>(<span class="ruby-identifier">prompt</span>, <span class="ruby-identifier">add_hist</span>, <span class="ruby-keyword">false</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">line</span> = <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">line</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">line</span>.<span class="ruby-identifier">taint</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">&lt;</span> <span class="ruby-string">&#39;2.7&#39;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">add_hist</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">line</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-constant">Reline</span><span class="ruby-operator">::</span><span class="ruby-constant">HISTORY</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">reset_line</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">line</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">line</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-readmultiline" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-readmultiline" title="Link to this method">
+                <span class="method-name">readmultiline</span>
+                <span class="method-args">(prompt = &#39;&#39;, add_hist = false, &amp;confirm_multiline_termination)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="readmultiline-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 250</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">readmultiline</span>(<span class="ruby-identifier">prompt</span> = <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">add_hist</span> = <span class="ruby-keyword">false</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">confirm_multiline_termination</span>)
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">confirm_multiline_termination</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;#readmultiline needs block to confirm multiline termination&#39;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">with_raw_input</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">inner_readline</span>(<span class="ruby-identifier">prompt</span>, <span class="ruby-identifier">add_hist</span>, <span class="ruby-keyword">true</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">confirm_multiline_termination</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">whole_buffer</span> = <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">whole_buffer</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">whole_buffer</span>.<span class="ruby-identifier">taint</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">&lt;</span> <span class="ruby-string">&#39;2.7&#39;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">add_hist</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">whole_buffer</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">whole_buffer</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-constant">Reline</span><span class="ruby-operator">::</span><span class="ruby-constant">HISTORY</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">whole_buffer</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">eof?</span>
+      <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">reset_line</span>
+      <span class="ruby-comment"># Return nil if the input is aborted by C-d.</span>
+      <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">whole_buffer</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-special_prefixes-3D" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-special_prefixes-3D" title="Link to this method">
+                <span class="method-name">special_prefixes=</span>
+                <span class="method-args">(v)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="special_prefixes-3D-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">special_prefixes=</span>(<span class="ruby-identifier">v</span>)
+  <span class="ruby-ivar">@special_prefixes</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-vi_editing_mode" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-vi_editing_mode" title="Link to this method">
+                <span class="method-name">vi_editing_mode</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="vi_editing_mode-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vi_editing_mode</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">editing_mode</span> = <span class="ruby-value">:vi_insert</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-vi_editing_mode-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-vi_editing_mode-3F" title="Link to this method">
+                <span class="method-name">vi_editing_mode?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="vi_editing_mode-3F-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vi_editing_mode?</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">editing_mode_is?</span>(<span class="ruby-value">:vi_insert</span>, <span class="ruby-value">:vi_command</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-inner_readline" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-inner_readline" title="Link to this method">
+                <span class="method-name">inner_readline</span>
+                <span class="method-args">(prompt, add_hist, multiline, &amp;confirm_multiline_termination)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="inner_readline-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 293</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inner_readline</span>(<span class="ruby-identifier">prompt</span>, <span class="ruby-identifier">add_hist</span>, <span class="ruby-identifier">multiline</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">confirm_multiline_termination</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RELINE_STDERR_TTY&#39;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">win?</span>
+      <span class="ruby-identifier">$stderr</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RELINE_STDERR_TTY&#39;</span>], <span class="ruby-string">&#39;a&#39;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RELINE_STDERR_TTY&#39;</span>], <span class="ruby-string">&#39;w&#39;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">sync</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Reline is used by #{Process.pid}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">test_mode</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">loaded?</span>
+    <span class="ruby-identifier">config</span>.<span class="ruby-identifier">read</span>
+    <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">set_default_key_bindings</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">otio</span> = <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">prep</span>
+
+  <span class="ruby-identifier">may_req_ambiguous_char_width</span>
+  <span class="ruby-identifier">key_stroke</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">encoding</span>
+  <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">reset</span>(<span class="ruby-identifier">prompt</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">multiline</span>
+    <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">multiline_on</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+      <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">confirm_multiline_termination_proc</span> = <span class="ruby-identifier">confirm_multiline_termination</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">multiline_off</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">completion_proc</span> = <span class="ruby-identifier">completion_proc</span>
+  <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">completion_append_character</span> = <span class="ruby-identifier">completion_append_character</span>
+  <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">output_modifier_proc</span> = <span class="ruby-identifier">output_modifier_proc</span>
+  <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">prompt_proc</span> = <span class="ruby-identifier">prompt_proc</span>
+  <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">auto_indent_proc</span> = <span class="ruby-identifier">auto_indent_proc</span>
+  <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">dig_perfect_match_proc</span> = <span class="ruby-identifier">dig_perfect_match_proc</span>
+
+  <span class="ruby-comment"># Readline calls pre_input_hook just after printing the first prompt.</span>
+  <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">print_nomultiline_prompt</span>
+  <span class="ruby-identifier">pre_input_hook</span>&amp;.<span class="ruby-identifier">call</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">Reline</span><span class="ruby-operator">::</span><span class="ruby-constant">IOGate</span>.<span class="ruby-identifier">dumb?</span>
+    <span class="ruby-ivar">@dialog_proc_list</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name_sym</span>, <span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">add_dialog_proc</span>(<span class="ruby-identifier">name_sym</span>, <span class="ruby-identifier">d</span>.<span class="ruby-identifier">dialog_proc</span>, <span class="ruby-identifier">d</span>.<span class="ruby-identifier">context</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">update_dialogs</span>
+  <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">rerender</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">set_signal_handlers</span>
+    <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">read_io</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">keyseq_timeout</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">inputs</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">set_pasting_state</span>(<span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">in_pasting?</span>)
+        <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">method_symbol</span>
+          <span class="ruby-keyword">when</span> <span class="ruby-value">:bracketed_paste_start</span>
+            <span class="ruby-comment"># io_gate is Reline::ANSI because the key :bracketed_paste_start is only assigned in Reline::ANSI</span>
+            <span class="ruby-identifier">key</span> = <span class="ruby-constant">Reline</span><span class="ruby-operator">::</span><span class="ruby-constant">Key</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">read_bracketed_paste</span>, <span class="ruby-value">:insert_multiline_text</span>)
+          <span class="ruby-keyword">when</span> <span class="ruby-value">:quoted_insert</span>, <span class="ruby-value">:ed_quoted_insert</span>
+            <span class="ruby-identifier">key</span> = <span class="ruby-constant">Reline</span><span class="ruby-operator">::</span><span class="ruby-constant">Key</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">read_single_char</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">keyseq_timeout</span>), <span class="ruby-value">:insert_raw_char</span>)
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">key</span>)
+        <span class="ruby-keyword">end</span>
+      }
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">finished?</span>
+        <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">render_finished</span>
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">set_pasting_state</span>(<span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">in_pasting?</span>)
+        <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">rerender</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">move_cursor_column</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EIO</span>
+    <span class="ruby-comment"># Maybe the I/O has been closed.</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">line_editor</span>.<span class="ruby-identifier">finalize</span>
+    <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">deprep</span>(<span class="ruby-identifier">otio</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-may_req_ambiguous_char_width" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-may_req_ambiguous_char_width" title="Link to this method">
+                <span class="method-name">may_req_ambiguous_char_width</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="may_req_ambiguous_char_width-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 414</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">may_req_ambiguous_char_width</span>
+  <span class="ruby-ivar">@ambiguous_width</span> = <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">dumb?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">tty?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-constant">STDOUT</span>.<span class="ruby-identifier">tty?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@ambiguous_width</span>
+  <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">move_cursor_column</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">write</span> <span class="ruby-string">&quot;\u{25bd}&quot;</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UndefinedConversionError</span>
+    <span class="ruby-comment"># LANG=C</span>
+    <span class="ruby-ivar">@ambiguous_width</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@ambiguous_width</span> = <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">cursor_pos</span>.<span class="ruby-identifier">x</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span> <span class="ruby-operator">?</span> <span class="ruby-value">2</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">move_cursor_column</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">erase_after_cursor</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-read_io" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-read_io" title="Link to this method">
+                <span class="method-name">read_io</span>
+                <span class="method-args">(keyseq_timeout, &amp;block)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="read_io-source">
+            <pre><span class="ruby-comment"># File lib/reline.rb, line 379</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_io</span>(<span class="ruby-identifier">keyseq_timeout</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">buffer</span> = []
+  <span class="ruby-identifier">status</span> = <span class="ruby-constant">KeyStroke</span><span class="ruby-operator">::</span><span class="ruby-constant">MATCHING</span>
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">timeout</span> = <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-constant">KeyStroke</span><span class="ruby-operator">::</span><span class="ruby-constant">MATCHING_MATCHED</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">keyseq_timeout</span>.<span class="ruby-identifier">fdiv</span>(<span class="ruby-value">1000</span>) <span class="ruby-operator">:</span> <span class="ruby-constant">Float</span><span class="ruby-operator">::</span><span class="ruby-constant">INFINITY</span>
+    <span class="ruby-identifier">c</span> = <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">getc</span>(<span class="ruby-identifier">timeout</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-constant">KeyStroke</span><span class="ruby-operator">::</span><span class="ruby-constant">MATCHING_MATCHED</span>
+        <span class="ruby-identifier">status</span> = <span class="ruby-constant">KeyStroke</span><span class="ruby-operator">::</span><span class="ruby-constant">MATCHED</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-comment"># io_gate is closed and reached EOF</span>
+        <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>([<span class="ruby-constant">Key</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">false</span>)])
+        <span class="ruby-keyword">return</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">status</span> = <span class="ruby-constant">KeyStroke</span><span class="ruby-operator">::</span><span class="ruby-constant">UNMATCHED</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">buffer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>
+      <span class="ruby-identifier">status</span> = <span class="ruby-identifier">key_stroke</span>.<span class="ruby-identifier">match_status</span>(<span class="ruby-identifier">buffer</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-constant">KeyStroke</span><span class="ruby-operator">::</span><span class="ruby-constant">MATCHED</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-constant">KeyStroke</span><span class="ruby-operator">::</span><span class="ruby-constant">UNMATCHED</span>
+      <span class="ruby-identifier">expanded</span>, <span class="ruby-identifier">rest_bytes</span> = <span class="ruby-identifier">key_stroke</span>.<span class="ruby-identifier">expand</span>(<span class="ruby-identifier">buffer</span>)
+      <span class="ruby-identifier">rest_bytes</span>.<span class="ruby-identifier">reverse_each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">io_gate</span>.<span class="ruby-identifier">ungetc</span>(<span class="ruby-identifier">c</span>) }
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">expanded</span>)
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>GNU <a href="../Readline.html"><code>Readline</code></a> watis for “keyseq-timeout” milliseconds when the input is ambiguous whether it is matching or matched. If the next character does not arrive within the specified timeout, input is considered as matched. ‘ESC` is ambiguous because it can be a standalone ESC (matched) or part of `ESC char` or part of CSI sequence (matching).</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

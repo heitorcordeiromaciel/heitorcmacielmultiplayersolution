@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class ErrorHighlight::Spotter - Documentation for Ruby 3.4</title>
+
+  <meta name="keywords" content="ruby,class,ErrorHighlight::Spotter">
+
+    <meta name="description" content="Documentation for the ErrorHighlight::Spotter class">
+
+
+<link rel="canonical" href="https://docs.ruby-lang.org/en/3.4/ErrorHighlight/Spotter.html">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li><a href="../Object.html">Object</a><ul><li><a href="../BasicObject.html">BasicObject</a></li></ul></li></ul>
+</div>
+
+  
+  
+  
+  <div class="nav-section">
+    <h3>Class Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-c-new">new</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-fetch_line">fetch_line</a></li>
+      <li ><a href="#method-i-prism_location">prism_location</a></li>
+      <li ><a href="#method-i-prism_spot_call_for_args">prism_spot_call_for_args</a></li>
+      <li ><a href="#method-i-prism_spot_call_for_name">prism_spot_call_for_name</a></li>
+      <li ><a href="#method-i-prism_spot_call_operator_write_for_args">prism_spot_call_operator_write_for_args</a></li>
+      <li ><a href="#method-i-prism_spot_call_operator_write_for_name">prism_spot_call_operator_write_for_name</a></li>
+      <li ><a href="#method-i-prism_spot_constant_path">prism_spot_constant_path</a></li>
+      <li ><a href="#method-i-prism_spot_constant_path_operator_write">prism_spot_constant_path_operator_write</a></li>
+      <li ><a href="#method-i-prism_spot_constant_read">prism_spot_constant_read</a></li>
+      <li ><a href="#method-i-prism_spot_index_operator_write_for_args">prism_spot_index_operator_write_for_args</a></li>
+      <li ><a href="#method-i-prism_spot_index_operator_write_for_name">prism_spot_index_operator_write_for_name</a></li>
+      <li ><a href="#method-i-prism_spot_local_variable_operator_write_for_args">prism_spot_local_variable_operator_write_for_args</a></li>
+      <li ><a href="#method-i-prism_spot_local_variable_operator_write_for_name">prism_spot_local_variable_operator_write_for_name</a></li>
+      <li ><a href="#method-i-spot">spot</a></li>
+      <li ><a href="#method-i-spot_attrasgn_for_args">spot_attrasgn_for_args</a></li>
+      <li ><a href="#method-i-spot_attrasgn_for_name">spot_attrasgn_for_name</a></li>
+      <li ><a href="#method-i-spot_call_for_args">spot_call_for_args</a></li>
+      <li ><a href="#method-i-spot_call_for_name">spot_call_for_name</a></li>
+      <li ><a href="#method-i-spot_colon2">spot_colon2</a></li>
+      <li ><a href="#method-i-spot_fcall_for_args">spot_fcall_for_args</a></li>
+      <li ><a href="#method-i-spot_fcall_for_name">spot_fcall_for_name</a></li>
+      <li ><a href="#method-i-spot_op_asgn1_for_args">spot_op_asgn1_for_args</a></li>
+      <li ><a href="#method-i-spot_op_asgn1_for_name">spot_op_asgn1_for_name</a></li>
+      <li ><a href="#method-i-spot_op_asgn2_for_args">spot_op_asgn2_for_args</a></li>
+      <li ><a href="#method-i-spot_op_asgn2_for_name">spot_op_asgn2_for_name</a></li>
+      <li ><a href="#method-i-spot_op_cdecl">spot_op_cdecl</a></li>
+      <li ><a href="#method-i-spot_opcall_for_args">spot_opcall_for_args</a></li>
+      <li ><a href="#method-i-spot_opcall_for_name">spot_opcall_for_name</a></li>
+      <li ><a href="#method-i-spot_vcall">spot_vcall</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-ErrorHighlight::Spotter">
+  
+  
+    <ol role="navigation" aria-label="breadcrumb" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../ErrorHighlight.html">ErrorHighlight</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>Spotter</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <h1 id="class-ErrorHighlight::Spotter" class="anchor-link class">
+    class ErrorHighlight::Spotter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="OPT_GETCONSTANT_PATH">OPT_GETCONSTANT_PATH
+        <dd>
+          
+      </dl>
+    </section>
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(node, point_type: :name, name: nil)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">node</span>, <span class="ruby-value">point_type:</span> <span class="ruby-value">:name</span>, <span class="ruby-value">name:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@node</span> = <span class="ruby-identifier">node</span>
+  <span class="ruby-ivar">@point_type</span> = <span class="ruby-identifier">point_type</span>
+  <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+
+  <span class="ruby-comment"># Not-implemented-yet options</span>
+  <span class="ruby-ivar">@arg</span> = <span class="ruby-keyword">nil</span> <span class="ruby-comment"># Specify the index or keyword at which argument caused the TypeError/ArgumentError</span>
+  <span class="ruby-ivar">@multiline</span> = <span class="ruby-keyword">false</span> <span class="ruby-comment"># Allow multiline spot</span>
+
+  <span class="ruby-ivar">@fetch</span> = <span class="ruby-operator">-&gt;</span> (<span class="ruby-identifier">lineno</span>, <span class="ruby-identifier">last_lineno</span> = <span class="ruby-identifier">lineno</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">snippet</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">script_lines</span>[<span class="ruby-identifier">lineno</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">..</span> <span class="ruby-identifier">last_lineno</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">snippet</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;\n&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">snippet</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+
+    <span class="ruby-comment"># It require some work to support Unicode (or multibyte) characters.</span>
+    <span class="ruby-comment"># Tentatively, we stop highlighting if the code snippet has non-ascii characters.</span>
+    <span class="ruby-comment"># See https://github.com/ruby/error_highlight/issues/4</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NonAscii</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">snippet</span>.<span class="ruby-identifier">ascii_only?</span>
+
+    <span class="ruby-identifier">snippet</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-spot" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot" title="Link to this method">
+                <span class="method-name">spot</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@node</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">OPT_GETCONSTANT_PATH</span>
+    <span class="ruby-comment"># In Ruby 3.2 or later, a nested constant access (like `Foo::Bar::Baz`)</span>
+    <span class="ruby-comment"># is compiled to one instruction (opt_getconstant_path).</span>
+    <span class="ruby-comment"># @node points to the node of the whole `Foo::Bar::Baz` even if `Foo`</span>
+    <span class="ruby-comment"># or `Foo::Bar` causes NameError.</span>
+    <span class="ruby-comment"># So we try to spot the sub-node that causes the NameError by using</span>
+    <span class="ruby-comment"># `NameError#name`.</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:COLON2</span>
+      <span class="ruby-identifier">subnodes</span> = []
+      <span class="ruby-identifier">node</span> = <span class="ruby-ivar">@node</span>
+      <span class="ruby-keyword">while</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:COLON2</span>
+        <span class="ruby-identifier">node2</span>, <span class="ruby-identifier">const</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>
+        <span class="ruby-identifier">subnodes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">const</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@name</span>
+        <span class="ruby-identifier">node</span> = <span class="ruby-identifier">node2</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:CONST</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:COLON3</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@name</span>
+          <span class="ruby-identifier">subnodes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-comment"># If we found only one sub-node whose name is equal to @name, use it</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">subnodes</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+        <span class="ruby-ivar">@node</span> = <span class="ruby-identifier">subnodes</span>.<span class="ruby-identifier">first</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># Do nothing; opt_getconstant_path is used only when the const base is</span>
+        <span class="ruby-comment"># NODE_CONST (`Foo`) or NODE_COLON3 (`::Foo`)</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:constant_path_node</span>
+      <span class="ruby-identifier">subnodes</span> = []
+      <span class="ruby-identifier">node</span> = <span class="ruby-ivar">@node</span>
+
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">subnodes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@name</span>
+      <span class="ruby-keyword">end</span> <span class="ruby-keyword">while</span> (<span class="ruby-identifier">node</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">parent</span>).<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantPathNode</span>)
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantReadNode</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@name</span>
+        <span class="ruby-identifier">subnodes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># If we found only one sub-node whose name is equal to @name, use it</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">subnodes</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+      <span class="ruby-ivar">@node</span> = <span class="ruby-identifier">subnodes</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">type</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:CALL</span>, <span class="ruby-value">:QCALL</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@point_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:name</span>
+      <span class="ruby-identifier">spot_call_for_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:args</span>
+      <span class="ruby-identifier">spot_call_for_args</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:ATTRASGN</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@point_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:name</span>
+      <span class="ruby-identifier">spot_attrasgn_for_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:args</span>
+      <span class="ruby-identifier">spot_attrasgn_for_args</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:OPCALL</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@point_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:name</span>
+      <span class="ruby-identifier">spot_opcall_for_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:args</span>
+      <span class="ruby-identifier">spot_opcall_for_args</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:FCALL</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@point_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:name</span>
+      <span class="ruby-identifier">spot_fcall_for_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:args</span>
+      <span class="ruby-identifier">spot_fcall_for_args</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:VCALL</span>
+    <span class="ruby-identifier">spot_vcall</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:OP_ASGN1</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@point_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:name</span>
+      <span class="ruby-identifier">spot_op_asgn1_for_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:args</span>
+      <span class="ruby-identifier">spot_op_asgn1_for_args</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:OP_ASGN2</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@point_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:name</span>
+      <span class="ruby-identifier">spot_op_asgn2_for_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:args</span>
+      <span class="ruby-identifier">spot_op_asgn2_for_args</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:CONST</span>
+    <span class="ruby-identifier">spot_vcall</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:COLON2</span>
+    <span class="ruby-identifier">spot_colon2</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:COLON3</span>
+    <span class="ruby-identifier">spot_vcall</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:OP_CDECL</span>
+    <span class="ruby-identifier">spot_op_cdecl</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:call_node</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@point_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:name</span>
+      <span class="ruby-identifier">prism_spot_call_for_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:args</span>
+      <span class="ruby-identifier">prism_spot_call_for_args</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:local_variable_operator_write_node</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@point_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:name</span>
+      <span class="ruby-identifier">prism_spot_local_variable_operator_write_for_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:args</span>
+      <span class="ruby-identifier">prism_spot_local_variable_operator_write_for_args</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:call_operator_write_node</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@point_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:name</span>
+      <span class="ruby-identifier">prism_spot_call_operator_write_for_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:args</span>
+      <span class="ruby-identifier">prism_spot_call_operator_write_for_args</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:index_operator_write_node</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@point_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:name</span>
+      <span class="ruby-identifier">prism_spot_index_operator_write_for_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:args</span>
+      <span class="ruby-identifier">prism_spot_index_operator_write_for_args</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:constant_read_node</span>
+    <span class="ruby-identifier">prism_spot_constant_read</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:constant_path_node</span>
+    <span class="ruby-identifier">prism_spot_constant_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:constant_path_operator_write_node</span>
+    <span class="ruby-identifier">prism_spot_constant_path_operator_write</span>
+
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@snippet</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@beg_column</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@end_column</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@beg_column</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@end_column</span>
+    <span class="ruby-keyword">return</span> {
+      <span class="ruby-value">first_lineno:</span> <span class="ruby-ivar">@beg_lineno</span>,
+      <span class="ruby-value">first_column:</span> <span class="ruby-ivar">@beg_column</span>,
+      <span class="ruby-value">last_lineno:</span> <span class="ruby-ivar">@end_lineno</span>,
+      <span class="ruby-value">last_column:</span> <span class="ruby-ivar">@end_column</span>,
+      <span class="ruby-value">snippet:</span> <span class="ruby-ivar">@snippet</span>,
+      <span class="ruby-value">script_lines:</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">script_lines</span>,
+    }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">NonAscii</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-fetch_line" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-fetch_line" title="Link to this method">
+                <span class="method-name">fetch_line</span>
+                <span class="method-args">(lineno)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="fetch_line-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 622</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fetch_line</span>(<span class="ruby-identifier">lineno</span>)
+  <span class="ruby-ivar">@beg_lineno</span> = <span class="ruby-ivar">@end_lineno</span> = <span class="ruby-identifier">lineno</span>
+  <span class="ruby-ivar">@snippet</span> = <span class="ruby-ivar">@fetch</span>[<span class="ruby-identifier">lineno</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_location" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_location" title="Link to this method">
+                <span class="method-name">prism_location</span>
+                <span class="method-args">(location)</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_location-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 629</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_location</span>(<span class="ruby-identifier">location</span>)
+  <span class="ruby-ivar">@beg_lineno</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">start_line</span>
+  <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">start_column</span>
+  <span class="ruby-ivar">@end_lineno</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">end_line</span>
+  <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">end_column</span>
+  <span class="ruby-ivar">@snippet</span> = <span class="ruby-ivar">@fetch</span>[<span class="ruby-ivar">@beg_lineno</span>, <span class="ruby-ivar">@end_lineno</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Take a location from the prism parser and set the necessary instance variables.</p>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_call_for_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_call_for_args" title="Link to this method">
+                <span class="method-name">prism_spot_call_for_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_call_for_args-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 702</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_call_for_args</span>
+  <span class="ruby-comment"># Disallow highlighting arguments if there are no arguments.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-comment"># Explicitly turn off foo.() syntax because error_highlight expects this</span>
+  <span class="ruby-comment"># to not work.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value">:call</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">message_loc</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value">:[]=</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">opening</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;[&quot;</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">arguments</span>&amp;.<span class="ruby-identifier">arguments</span> <span class="ruby-operator">||</span> []).<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">copy</span>(<span class="ruby-value">start_offset:</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">start_offset</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">location</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">location</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x.foo(42)
+      ^^
+x[42]
+  ^^
+x.foo = 1
+        ^
+x[42] = 1
+  ^^^^^^^
+x[] = 1
+  ^^^^^
+x + 1
+    ^
+foo(42)
+    ^^
+foo 42
+    ^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_call_for_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_call_for_name" title="Link to this method">
+                <span class="method-name">prism_spot_call_for_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_call_for_name-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 660</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_call_for_name</span>
+  <span class="ruby-comment"># Explicitly turn off foo.() syntax because error_highlight expects this</span>
+  <span class="ruby-comment"># to not work.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value">:call</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">message_loc</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">location</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">message_loc</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">call_operator_loc</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">location</span>
+  <span class="ruby-identifier">location</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">call_operator_loc</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">location</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">call_operator_loc</span>&amp;.<span class="ruby-identifier">start_line</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">start_line</span>
+
+  <span class="ruby-comment"># If the method name ends with &quot;=&quot; but the message does not, then this is</span>
+  <span class="ruby-comment"># a method call using the &quot;attribute assignment&quot; syntax</span>
+  <span class="ruby-comment"># (e.g., foo.bar = 1). In this case we need to go retrieve the = sign and</span>
+  <span class="ruby-comment"># add it to the location.</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">name</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">name</span>).<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;=&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@node</span>.<span class="ruby-identifier">message</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;=&quot;</span>)
+    <span class="ruby-identifier">location</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">adjoin</span>(<span class="ruby-string">&quot;=&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">prism_location</span>(<span class="ruby-identifier">location</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">name</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;=&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">name</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/[[:alpha:]_\[]/</span>)
+    <span class="ruby-comment"># If the method name is an operator, then error_highlight only</span>
+    <span class="ruby-comment"># highlights the first line.</span>
+    <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">location</span>.<span class="ruby-identifier">start_line</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x.foo
+ ^^^^
+x.foo(42)
+ ^^^^
+x&amp;.foo
+ ^^^^^
+x[42]
+ ^^^^
+x.foo = 1
+ ^^^^^^
+x[42] = 1
+ ^^^^^^
+x + 1
+  ^
++x
+^
+foo(42)
+^^^
+foo 42
+^^^
+foo
+^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_call_operator_write_for_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_call_operator_write_for_args" title="Link to this method">
+                <span class="method-name">prism_spot_call_operator_write_for_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_call_operator_write_for_args-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 755</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_call_operator_write_for_args</span>
+  <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x.foo += 42
+         ^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_call_operator_write_for_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_call_operator_write_for_name" title="Link to this method">
+                <span class="method-name">prism_spot_call_operator_write_for_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_call_operator_write_for_name-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 738</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_call_operator_write_for_name</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@name</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-regexp">/[[:alpha:]_]/</span>)
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">binary_operator_loc</span>.<span class="ruby-identifier">chop</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">location</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">message_loc</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">call_operator_loc</span>.<span class="ruby-identifier">start_line</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">start_line</span>
+      <span class="ruby-identifier">location</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">call_operator_loc</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">location</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">location</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">adjoin</span>(<span class="ruby-string">&quot;=&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;=&quot;</span>)
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-identifier">location</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x.foo += 42
+ ^^^     (for foo)
+x.foo += 42
+      ^  (for +)
+x.foo += 42
+ ^^^^^^^ (for foo=)</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_constant_path" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_constant_path" title="Link to this method">
+                <span class="method-name">prism_spot_constant_path</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_constant_path-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 805</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_constant_path</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">parent</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">end_line</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">end_line</span>
+    <span class="ruby-identifier">fetch_line</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">end_line</span>)
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">delimiter_loc</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">name_loc</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">fetch_line</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">end_line</span>)
+    <span class="ruby-identifier">location</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">name_loc</span>
+    <span class="ruby-identifier">location</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">delimiter_loc</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">location</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">delimiter_loc</span>.<span class="ruby-identifier">end_line</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">start_line</span>
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-identifier">location</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>Foo::Bar
+   ^^^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_constant_path_operator_write" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_constant_path_operator_write" title="Link to this method">
+                <span class="method-name">prism_spot_constant_path_operator_write</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_constant_path_operator_write-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 820</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_constant_path_operator_write</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name</span> <span class="ruby-operator">==</span> (<span class="ruby-identifier">target</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">target</span>).<span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-identifier">target</span>.<span class="ruby-identifier">delimiter_loc</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">target</span>.<span class="ruby-identifier">name_loc</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">binary_operator_loc</span>.<span class="ruby-identifier">chop</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>Foo::Bar += 1
+   ^^^^^^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_constant_read" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_constant_read" title="Link to this method">
+                <span class="method-name">prism_spot_constant_read</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_constant_read-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 798</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_constant_read</span>
+  <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>Foo
+^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_index_operator_write_for_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_index_operator_write_for_args" title="Link to this method">
+                <span class="method-name">prism_spot_index_operator_write_for_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_index_operator_write_for_args-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 784</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_index_operator_write_for_args</span>
+  <span class="ruby-identifier">opening_loc</span> =
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">copy</span>(<span class="ruby-value">start_offset:</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">start_offset</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">location</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">prism_location</span>(<span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">location</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x[1] += 42
+  ^^^^^^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_index_operator_write_for_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_index_operator_write_for_name" title="Link to this method">
+                <span class="method-name">prism_spot_index_operator_write_for_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_index_operator_write_for_name-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 766</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_index_operator_write_for_name</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@name</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:[]</span>
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">closing_loc</span>))
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:[]=</span>
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">closing_loc</span>).<span class="ruby-identifier">adjoin</span>(<span class="ruby-string">&quot;=&quot;</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Explicitly turn off foo[] += 1 syntax when the operator is not on</span>
+    <span class="ruby-comment"># the same line because error_highlight expects this to not work.</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">binary_operator_loc</span>.<span class="ruby-identifier">start_line</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">opening_loc</span>.<span class="ruby-identifier">start_line</span>
+
+    <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">binary_operator_loc</span>.<span class="ruby-identifier">chop</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x[1] += 42
+ ^^^    (for [])
+x[1] += 42
+     ^  (for +)
+x[1] += 42
+ ^^^^^^ (for []=)</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_local_variable_operator_write_for_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_local_variable_operator_write_for_args" title="Link to this method">
+                <span class="method-name">prism_spot_local_variable_operator_write_for_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_local_variable_operator_write_for_args-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 727</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_local_variable_operator_write_for_args</span>
+  <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x += 1
+     ^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-prism_spot_local_variable_operator_write_for_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-prism_spot_local_variable_operator_write_for_name" title="Link to this method">
+                <span class="method-name">prism_spot_local_variable_operator_write_for_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="prism_spot_local_variable_operator_write_for_name-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 720</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prism_spot_local_variable_operator_write_for_name</span>
+  <span class="ruby-identifier">prism_location</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">binary_operator_loc</span>.<span class="ruby-identifier">chop</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x += 1
+  ^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_attrasgn_for_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_attrasgn_for_args" title="Link to this method">
+                <span class="method-name">spot_attrasgn_for_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_attrasgn_for_args-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 400</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_attrasgn_for_args</span>
+  <span class="ruby-identifier">nd_recv</span>, <span class="ruby-identifier">mid</span>, <span class="ruby-identifier">nd_args</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mid</span> <span class="ruby-operator">==</span> <span class="ruby-value">:[]=</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G[\s)]*\[/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_lineno</span>
+      <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_column</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">nd_args</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">first_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_lineno</span>
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">first_column</span>
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_column</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># TODO: support @arg</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x.foo = 1
+        ^
+x[42] = 1
+  ^^^^^^^
+x[] = 1
+  ^^^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_attrasgn_for_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_attrasgn_for_name" title="Link to this method">
+                <span class="method-name">spot_attrasgn_for_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_attrasgn_for_name-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 374</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_attrasgn_for_name</span>
+  <span class="ruby-identifier">nd_recv</span>, <span class="ruby-identifier">mid</span>, <span class="ruby-identifier">nd_args</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-operator">*</span><span class="ruby-identifier">nd_args</span>, <span class="ruby-identifier">_nd_last_arg</span>, <span class="ruby-identifier">_nil</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mid</span> <span class="ruby-operator">==</span> <span class="ruby-value">:[]=</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G[\s)]*(\[)/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-identifier">args_last_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">last_lineno</span>
+      <span class="ruby-identifier">args_last_column</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">last_column</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/[\s)]*\]\s*=/</span>, <span class="ruby-identifier">args_last_column</span>)
+      <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G[\s)]*(\.\s*#{ Regexp.quote(mid.to_s.sub(/=\z/, &quot;&quot;)) }\s*=)/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x.foo = 1
+ ^^^^^^
+x[42] = 1
+ ^^^^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_call_for_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_call_for_args" title="Link to this method">
+                <span class="method-name">spot_call_for_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_call_for_args-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 359</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_call_for_args</span>
+  <span class="ruby-identifier">_nd_recv</span>, <span class="ruby-identifier">_mid</span>, <span class="ruby-identifier">nd_args</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_args</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">first_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_lineno</span>
+    <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">first_lineno</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">first_column</span>
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_column</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># TODO: support @arg</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x.foo(42)
+      ^^
+x[42]
+  ^^
+x += 1
+     ^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_call_for_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_call_for_name" title="Link to this method">
+                <span class="method-name">spot_call_for_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_call_for_name-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 315</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_call_for_name</span>
+  <span class="ruby-identifier">nd_recv</span>, <span class="ruby-identifier">mid</span>, <span class="ruby-identifier">nd_args</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-identifier">lineno</span> = <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span>
+  <span class="ruby-identifier">lines</span> = <span class="ruby-ivar">@fetch</span>[<span class="ruby-identifier">lineno</span>, <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">last_lineno</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mid</span> <span class="ruby-operator">==</span> <span class="ruby-value">:[]</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G[\s)]*(\[(?:\s*\])?)/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-ivar">@snippet</span> = <span class="ruby-identifier">lines</span>[<span class="ruby-regexp">/.*\n/</span>]
+    <span class="ruby-ivar">@beg_lineno</span> = <span class="ruby-ivar">@end_lineno</span> = <span class="ruby-identifier">lineno</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_args</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_lineno</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*\]/</span>, <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_column</span>)
+        <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G[\s)]*?\[\s*\]/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+        <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G[\s)]*?(\&amp;?\.)(\s*?)(#{ Regexp.quote(mid) }).*\n/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+    <span class="ruby-identifier">lines</span> = <span class="ruby-node">$`</span> <span class="ruby-operator">+</span> <span class="ruby-node">$&amp;</span>
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-node">$2</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;\n&quot;</span>) <span class="ruby-operator">?</span> <span class="ruby-value">3</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>)
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">3</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> = <span class="ruby-identifier">lines</span>[<span class="ruby-operator">..</span><span class="ruby-ivar">@beg_column</span>].<span class="ruby-identifier">rindex</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+      <span class="ruby-ivar">@beg_lineno</span> = <span class="ruby-ivar">@end_lineno</span> = <span class="ruby-identifier">lineno</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lines</span>[<span class="ruby-operator">..</span><span class="ruby-ivar">@beg_column</span>].<span class="ruby-identifier">count</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+      <span class="ruby-ivar">@snippet</span> = <span class="ruby-identifier">lines</span>[<span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span>]
+      <span class="ruby-ivar">@beg_column</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+      <span class="ruby-ivar">@end_column</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@snippet</span> = <span class="ruby-identifier">lines</span>
+      <span class="ruby-ivar">@beg_lineno</span> = <span class="ruby-ivar">@end_lineno</span> = <span class="ruby-identifier">lineno</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">mid</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A\W+\z/</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G\s*(#{ Regexp.quote(mid) })=.*\n/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+    <span class="ruby-ivar">@snippet</span> = <span class="ruby-node">$`</span> <span class="ruby-operator">+</span> <span class="ruby-node">$&amp;</span>
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x.foo
+ ^^^^
+x.foo(42)
+ ^^^^
+x&amp;.foo
+ ^^^^^
+x[42]
+ ^^^^
+x += 1
+  ^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_colon2" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_colon2" title="Link to this method">
+                <span class="method-name">spot_colon2</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_colon2-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 578</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_colon2</span>
+  <span class="ruby-identifier">nd_parent</span>, <span class="ruby-identifier">const</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_parent</span>.<span class="ruby-identifier">last_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">last_lineno</span>
+    <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_parent</span>.<span class="ruby-identifier">last_lineno</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">nd_parent</span>.<span class="ruby-identifier">last_column</span>
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">last_column</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@snippet</span> = <span class="ruby-ivar">@fetch</span>[<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">last_lineno</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@snippet</span>[<span class="ruby-operator">...</span><span class="ruby-ivar">@node</span>.<span class="ruby-identifier">last_column</span>].<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{ Regexp.quote(const) }\z/</span>)
+      <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">0</span>)
+      <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>Foo::Bar
+   ^^^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_fcall_for_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_fcall_for_args" title="Link to this method">
+                <span class="method-name">spot_fcall_for_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_fcall_for_args-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 470</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_fcall_for_args</span>
+  <span class="ruby-identifier">_mid</span>, <span class="ruby-identifier">nd_args</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_args</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">first_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_lineno</span>
+    <span class="ruby-comment"># binary operator</span>
+    <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">first_lineno</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">first_column</span>
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_column</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>foo(42)
+    ^^
+foo 42
+    ^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_fcall_for_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_fcall_for_name" title="Link to this method">
+                <span class="method-name">spot_fcall_for_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_fcall_for_name-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 456</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_fcall_for_name</span>
+  <span class="ruby-identifier">mid</span>, <span class="ruby-identifier">_nd_args</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-identifier">fetch_line</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">first_lineno</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/(#{ Regexp.quote(mid) })/</span>, <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">first_column</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>foo(42)
+^^^
+foo 42
+^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_op_asgn1_for_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_op_asgn1_for_args" title="Link to this method">
+                <span class="method-name">spot_op_asgn1_for_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_op_asgn1_for_args-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 523</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_op_asgn1_for_args</span>
+  <span class="ruby-identifier">nd_recv</span>, <span class="ruby-identifier">mid</span>, <span class="ruby-identifier">nd_args</span>, <span class="ruby-identifier">nd_rhs</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mid</span> <span class="ruby-operator">==</span> <span class="ruby-value">:[]=</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G\s*\[/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_rhs</span>.<span class="ruby-identifier">last_lineno</span>
+      <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">nd_rhs</span>.<span class="ruby-identifier">last_column</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">nd_args</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">first_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_rhs</span>.<span class="ruby-identifier">last_lineno</span>
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">first_column</span>
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">nd_rhs</span>.<span class="ruby-identifier">last_column</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># TODO: support @arg</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x[1] += 42
+  ^^^^^^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_op_asgn1_for_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_op_asgn1_for_name" title="Link to this method">
+                <span class="method-name">spot_op_asgn1_for_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_op_asgn1_for_name-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 498</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_op_asgn1_for_name</span>
+  <span class="ruby-identifier">nd_recv</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">nd_args</span>, <span class="ruby-identifier">_nd_rhs</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G[\s)]*(\[)/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+    <span class="ruby-identifier">bracket_beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-identifier">args_last_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_args</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_lineno</span>
+      <span class="ruby-identifier">args_last_column</span> = <span class="ruby-identifier">nd_args</span>.<span class="ruby-identifier">last_column</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*\](\s*)(#{ Regexp.quote(op) })=()/</span>, <span class="ruby-identifier">args_last_column</span>)
+      <span class="ruby-keyword">case</span> <span class="ruby-ivar">@name</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:[]</span>, <span class="ruby-value">:[]=</span>
+        <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">bracket_beg_column</span>
+        <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-ivar">@name</span> <span class="ruby-operator">==</span> <span class="ruby-value">:[]</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">3</span>)
+      <span class="ruby-keyword">when</span> <span class="ruby-identifier">op</span>
+        <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">2</span>)
+        <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">2</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x[1] += 42
+ ^^^    (for [])
+x[1] += 42
+     ^  (for +)
+x[1] += 42
+ ^^^^^^ (for []=)</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_op_asgn2_for_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_op_asgn2_for_args" title="Link to this method">
+                <span class="method-name">spot_op_asgn2_for_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_op_asgn2_for_args-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 566</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_op_asgn2_for_args</span>
+  <span class="ruby-identifier">_nd_recv</span>, <span class="ruby-identifier">_qcall</span>, <span class="ruby-identifier">_attr</span>, <span class="ruby-identifier">_op</span>, <span class="ruby-identifier">nd_rhs</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_rhs</span>.<span class="ruby-identifier">first_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_rhs</span>.<span class="ruby-identifier">last_lineno</span>
+    <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_rhs</span>.<span class="ruby-identifier">first_lineno</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">nd_rhs</span>.<span class="ruby-identifier">first_column</span>
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">nd_rhs</span>.<span class="ruby-identifier">last_column</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x.foo += 42
+         ^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_op_asgn2_for_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_op_asgn2_for_name" title="Link to this method">
+                <span class="method-name">spot_op_asgn2_for_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_op_asgn2_for_name-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 545</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_op_asgn2_for_name</span>
+  <span class="ruby-identifier">nd_recv</span>, <span class="ruby-identifier">_qcall</span>, <span class="ruby-identifier">attr</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">_nd_rhs</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G[\s)]*(\.)\s*#{ Regexp.quote(attr) }()\s*(#{ Regexp.quote(op) })(=)/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">attr</span>
+      <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+      <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">2</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">op</span>
+      <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">3</span>)
+      <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">3</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:&quot;#{ attr }=&quot;</span>
+      <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+      <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">4</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x.foo += 42
+ ^^^     (for foo)
+x.foo += 42
+      ^  (for +)
+x.foo += 42
+ ^^^^^^^ (for foo=)</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_op_cdecl" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_op_cdecl" title="Link to this method">
+                <span class="method-name">spot_op_cdecl</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_op_cdecl-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 596</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_op_cdecl</span>
+  <span class="ruby-identifier">nd_lhs</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">_nd_rhs</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-operator">*</span><span class="ruby-identifier">nd_parent_lhs</span>, <span class="ruby-identifier">_const</span> = <span class="ruby-identifier">nd_lhs</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">op</span>
+    <span class="ruby-ivar">@snippet</span> = <span class="ruby-ivar">@fetch</span>[<span class="ruby-identifier">nd_lhs</span>.<span class="ruby-identifier">last_lineno</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G\s*(#{ Regexp.quote(op) })=/</span>, <span class="ruby-identifier">nd_lhs</span>.<span class="ruby-identifier">last_column</span>)
+      <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+      <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># constant access error</span>
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">nd_lhs</span>.<span class="ruby-identifier">last_column</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_parent_lhs</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-comment"># example: ::C += 1</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_lhs</span>.<span class="ruby-identifier">first_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_lhs</span>.<span class="ruby-identifier">last_lineno</span>
+        <span class="ruby-ivar">@snippet</span> = <span class="ruby-ivar">@fetch</span>[<span class="ruby-identifier">nd_lhs</span>.<span class="ruby-identifier">last_lineno</span>]
+        <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">nd_lhs</span>.<span class="ruby-identifier">first_column</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-comment"># example: Foo::Bar::C += 1</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_parent_lhs</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">last_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_lhs</span>.<span class="ruby-identifier">last_lineno</span>
+        <span class="ruby-ivar">@snippet</span> = <span class="ruby-ivar">@fetch</span>[<span class="ruby-identifier">nd_lhs</span>.<span class="ruby-identifier">last_lineno</span>]
+        <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">nd_parent_lhs</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">last_column</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>Foo::Bar += 1
+   ^^^^^^^^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_opcall_for_args" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_opcall_for_args" title="Link to this method">
+                <span class="method-name">spot_opcall_for_args</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_opcall_for_args-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 441</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_opcall_for_args</span>
+  <span class="ruby-identifier">_nd_recv</span>, <span class="ruby-identifier">_op</span>, <span class="ruby-identifier">nd_arg</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_arg</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">nd_arg</span>.<span class="ruby-identifier">first_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nd_arg</span>.<span class="ruby-identifier">last_lineno</span>
+    <span class="ruby-comment"># binary operator</span>
+    <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_arg</span>.<span class="ruby-identifier">first_lineno</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">nd_arg</span>.<span class="ruby-identifier">first_column</span>
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">nd_arg</span>.<span class="ruby-identifier">last_column</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x + 1
+    ^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_opcall_for_name" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_opcall_for_name" title="Link to this method">
+                <span class="method-name">spot_opcall_for_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_opcall_for_name-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 420</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_opcall_for_name</span>
+  <span class="ruby-identifier">nd_recv</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">nd_arg</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-identifier">fetch_line</span>(<span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_lineno</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">nd_arg</span>
+    <span class="ruby-comment"># binary operator</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@snippet</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\G[\s)]*(#{ Regexp.quote(op) })/</span>, <span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">last_column</span>)
+      <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+      <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># unary operator</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@snippet</span>[<span class="ruby-operator">...</span><span class="ruby-identifier">nd_recv</span>.<span class="ruby-identifier">first_column</span>].<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/(#{ Regexp.quote(op.to_s.sub(/@\z/, &quot;&quot;)) })\s*\(?\s*\z/</span>)
+      <span class="ruby-ivar">@beg_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>)
+      <span class="ruby-ivar">@end_column</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>x + 1
+  ^
++x
+^</pre>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-spot_vcall" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-spot_vcall" title="Link to this method">
+                <span class="method-name">spot_vcall</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="spot_vcall-source">
+            <pre><span class="ruby-comment"># File lib/error_highlight/base.rb, line 483</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spot_vcall</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">first_lineno</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">last_lineno</span>
+    <span class="ruby-identifier">fetch_line</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">last_lineno</span>)
+    <span class="ruby-ivar">@beg_column</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">first_column</span>
+    <span class="ruby-ivar">@end_column</span> = <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">last_column</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          <p>Example:</p>
+
+<pre>foo
+^^^</pre>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

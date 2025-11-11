@@ -1,0 +1,11 @@
+U:RDoc::AnyMethod[iI"pos:ETI"StringScanner#pos;TF:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"$call-seq:
+ pos -> byte_position;To;
+;	[I"�Returns the integer {byte position}[rdoc-ref:StringScanner@Byte+Position+-28Position-29],
+which may be different from the {character position}[rdoc-ref:StringScanner@Character+Position]:;To:RDoc::Markup::Verbatim;	[I"�scanner = StringScanner.new(HIRAGANA_TEXT)
+scanner.string  # => "こんにちは"
+scanner.pos     # => 0
+scanner.getch   # => "こ" # 3-byte character.
+scanner.charpos # => 1
+scanner.pos     # => 3
+;T:@format:rb:
+@fileI"ext/strscan/strscan.c;T:0@omit_headings_from_table_of_contents_below000[[I"pointer;T@	I"();T@FI"StringScanner;TcRDoc::NormalClass00
