@@ -15,3 +15,7 @@ Since the original plugin is no longer maintained, this fork tries to keep it up
 - [ ] general bugfixes
 
 ### - More stuff will be added as development goes on
+
+# Credits
+
+All credits go to Voltseon for the original plugin, this fork is not NOT meant to replace the official plugin and only exists because the official plugin is not longer maintained, if ever an official update comes out that adds the features listed in this repo i strongly recommend you to use the official version. 
