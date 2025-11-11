@@ -74,7 +74,7 @@ Server/
 ├── start.bat # For Windows
 └── start.sh # For Linux
 ```
-### ⚙️ Configuration
+### Configuration
 The server reads settings from `config.ini`.  
 You can edit it with any text editor:
 
