@@ -41,7 +41,6 @@ multiplayer.ini → [YourGame]/
 
 Your final project structure should look like this:
 
-```
 YourGame/
 ├── Game.exe
 ├── Data/
@@ -49,7 +48,6 @@ YourGame/
 │ ├── OtherPlugins/
 │ └── Multiplayer/ # The client folder from this plugin
 └── multiplayer.ini
-```
 
 #### 2.1 Client Connection configuration
 
