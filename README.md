@@ -51,7 +51,7 @@ YourGame/
 └── multiplayer.ini
 ```
 
-#### 2.1 Client Connection configuration
+#### 2.5 Client Connection configuration
 
 The game reads connection settings from the `multiplayer.ini` file located in your game’s root folder.  
 Edit it with any text editor to configure the connection
