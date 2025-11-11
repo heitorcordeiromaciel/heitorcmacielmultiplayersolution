@@ -47,7 +47,7 @@ YourGame/
 ├── Data/
 ├── Plugins/
 │ ├── OtherPlugins/
-│ └── Multiplayer/ # The client folder from this plugin
+│ └── Client/ # The client folder from this plugin
 └── multiplayer.ini
 ```
 
