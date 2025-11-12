@@ -1,17 +1,19 @@
 module VMS
   def self.start_battle(player)
     begin
-      seed = VMS.get_cluster_id.clone
+      # In start_battle
+      seed_str = VMS.get_cluster_id.to_s
       if $player.id < player.id
-        seed << hash_pokemon($player.party)
-        seed << hash_pokemon(player.party)
+        seed_str += hash_pokemon($player.party).to_s
+        seed_str += hash_pokemon(player.party).to_s
       else
-        seed << hash_pokemon(player.party)
-        seed << hash_pokemon($player.party)
+        seed_str += hash_pokemon(player.party).to_s
+        seed_str += hash_pokemon($player.party).to_s
       end
-      seed = VMS.string_to_integer(seed)
-      srand(seed)
-      $game_temp.vms[:seed] = seed
+
+      seed_int = VMS.string_to_integer(seed_str)  # already integer
+      srand(seed_int)
+      $game_temp.vms[:seed] = seed_int  # MUST store integer
       $game_temp.vms[:battle_player] = player
       trainer = NPCTrainer.new(player.name, player.trainer_type, 0)
       trainer.id = player.id
@@ -34,7 +36,9 @@ class Battle
 
   def pbRandom(x)
     if VMS.is_connected? && !@internalBattle && !$game_temp.vms[:battle_player].nil?
-      srand($game_temp.vms[:seed] + @turnCount)
+      seed = $game_temp.vms[:seed]
+      seed = seed.to_i unless seed.is_a?(Integer)  # force integer just in case
+      srand(seed + @turnCount)
       return rand(x)
     end
     return rand(x)
@@ -207,6 +211,7 @@ class TrainerBattle
     battle.items        = foe_items
     battle.internalBattle = false
     # Set various other properties in the battle class
+    setBattleRule("canLose")
     setBattleRule("#{foe_trainers.length}v#{foe_trainers.length}") if $game_temp.battle_rules["size"].nil?
     BattleCreationHelperMethods.prepare_battle(battle)
     $game_temp.clear_battle_rules
