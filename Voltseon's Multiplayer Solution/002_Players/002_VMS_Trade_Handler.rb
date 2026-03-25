@@ -84,7 +84,7 @@ module VMS
         return
       end
 
-      pbStartTrade(pokemon_index, trade_pokemon, trade_pokemon_name, player.name)
+      pbStartTrade(pokemon_index, trade_pokemon, trade_pokemon_name, trade_pokemon.owner.name)
       $game_temp.vms[:state] = [:idle, nil]
 
       if Game.save

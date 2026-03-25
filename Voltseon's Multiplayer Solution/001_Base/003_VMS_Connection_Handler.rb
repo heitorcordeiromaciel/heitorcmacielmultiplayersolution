@@ -2,6 +2,13 @@ module VMS
   require 'socket'
   require "zlib"
 
+  #---------------------------------------------------------------------------
+  # Follower packet keys
+  #---------------------------------------------------------------------------
+  PACKET_KEYS[:follower_active]    ||= 31
+  PACKET_KEYS[:follower_graphic]   ||= 32
+  PACKET_KEYS[:follower_direction] ||= 33
+
   # Usage: VMS.join(id #<Integer>) (connects to the server with the specified ID)
   def self.join(id=-1)
     if id == -1 # Invalid ID
@@ -74,7 +81,9 @@ module VMS
       $game_temp.vms[:ping_log].push((VMS.ping * 500).round)
       $game_temp.vms[:ping_log].shift if $game_temp.vms[:ping_log].size > 50
       ping = [$game_temp.vms[:ping_log].sum / $game_temp.vms[:ping_log].size, 0].max
-      System.set_window_title(System.game_title + (ping != -1 ? " (#{ping}ms)" : ""))
+      cluster_id = VMS.get_cluster_id
+      cluster_str = cluster_id && cluster_id >= 0 ? " [Cluster #{cluster_id}]" : ""
+      System.set_window_title(System.game_title + (ping != -1 ? " (#{ping}ms)" : "") + cluster_str)
     end
     # Actually communicate with the server
     begin
@@ -128,6 +137,7 @@ module VMS
         return if player.nil?
         VMS.log("Player #{player.name} (#{id}) has disconnected from the server")
         Rf.delete_event(player.rf_event) if VMS.event_deletion_possible?(player)
+        VMS.delete_follower_event(player)
         $game_temp.vms[:players].delete(id)
         return
       end
@@ -153,36 +163,199 @@ module VMS
     end
   end
 
+  #---------------------------------------------------------------------------
+  # Follower helper methods
+  #---------------------------------------------------------------------------
+
+  def self.local_follower_event
+    return nil if !defined?(FollowingPkmn)
+    return nil if !FollowingPkmn.respond_to?(:get_event)
+    ev = FollowingPkmn.get_event
+    return nil if ev.nil?
+    return nil if ev.erased?
+    return nil if ev.character_name.nil? || ev.character_name.empty?
+    return ev
+  rescue
+    return nil
+  end
+
+  def self.create_follower_event(map_id, id)
+    rf_event = Rf.create_event(map_id) do |event|
+      event.x = 0
+      event.y = 0
+      event.name = "vms_follower_#{id}"
+      page = RPG::Event::Page.new
+      page.list.clear
+      page.trigger = 0
+      page.through = true
+      page.walk_anime = true
+      page.step_anime = true
+      page.direction_fix = false
+      event.pages = [page]
+    end
+    rf_event[:event].name = "vms_follower_#{id}"
+    return rf_event
+  end
+
+  def self.delete_follower_event(player)
+    return if player.nil?
+    return if !player.respond_to?(:follower_rf_event)
+    return if player.follower_rf_event.nil?
+    begin
+      Rf.delete_event(player.follower_rf_event)
+    rescue
+    end
+    player.follower_rf_event = nil
+  end
+
+  def self.remote_follower_coords(player)
+    case player.direction
+    when 2 then [player.x,     player.y - 1]
+    when 4 then [player.x + 1, player.y    ]
+    when 6 then [player.x - 1, player.y    ]
+    when 8 then [player.x,     player.y + 1]
+    else        [player.x,     player.y + 1]
+    end
+  end
+
+  def self.remote_follower_real_target(player, fx, fy)
+    target_real_x = fx * Game_Map::REAL_RES_X
+    target_real_y = fy * Game_Map::REAL_RES_Y
+
+    # Add a small extra trailing offset so the follower sits a bit farther back
+    # than the snapped "one tile behind" guess. This helps the follower feel
+    # less crowded against the remote player without changing packet formats.
+    trail_x = Game_Map::REAL_RES_X / 3
+    trail_y = Game_Map::REAL_RES_Y / 3
+
+    case player.direction
+    when 2 then target_real_y -= trail_y
+    when 4 then target_real_x += trail_x
+    when 6 then target_real_x -= trail_x
+    when 8 then target_real_y += trail_y
+    end
+
+    return [target_real_x, target_real_y]
+  end
+
+  def self.handle_follower(player)
+    return if player.nil?
+    return unless player.respond_to?(:follower_active)
+    return unless $game_map
+
+    connected = $map_factory.areConnected?(player.map_id, $game_map.map_id)
+    active    = player.follower_active
+    graphic   = player.follower_graphic
+
+    if !connected || !active || graphic.nil? || graphic.empty?
+      VMS.delete_follower_event(player)
+      return
+    end
+
+    created_now = false
+
+    if player.respond_to?(:follower_rf_event)
+      if player.follower_rf_event.nil? || player.follower_rf_event[:event].erased?
+        player.follower_rf_event = VMS.create_follower_event(player.map_id, player.id)
+        created_now = true
+      elsif player.follower_rf_event[:event].map_id != player.map_id
+        VMS.delete_follower_event(player)
+        player.follower_rf_event = VMS.create_follower_event(player.map_id, player.id)
+        created_now = true
+      end
+    else
+      return
+    end
+
+    return if player.follower_rf_event.nil?
+
+    ev = player.follower_rf_event[:event]
+    fx, fy = VMS.remote_follower_coords(player)
+    target_real_x, target_real_y = VMS.remote_follower_real_target(player, fx, fy)
+
+    ev.character_name = graphic if ev.character_name != graphic
+    ev.direction = player.follower_direction || player.direction
+    ev.opacity = player.opacity || 255
+    ev.through = true
+    ev.walk_anime = true if ev.respond_to?(:walk_anime=)
+    ev.step_anime = true if ev.respond_to?(:step_anime=)
+
+    current_real_x = ev.respond_to?(:real_x) ? ev.real_x : target_real_x
+    current_real_y = ev.respond_to?(:real_y) ? ev.real_y : target_real_y
+
+    snap_distance_x = Game_Map::REAL_RES_X * 2
+    snap_distance_y = Game_Map::REAL_RES_Y * 2
+
+    if created_now || (current_real_x - target_real_x).abs > snap_distance_x || (current_real_y - target_real_y).abs > snap_distance_y
+      ev.x = fx
+      ev.y = fy
+      ev.real_x = target_real_x if ev.respond_to?(:real_x=)
+      ev.real_y = target_real_y if ev.respond_to?(:real_y=)
+    else
+      step_x = [Game_Map::REAL_RES_X / 6, 1].max
+      step_y = [Game_Map::REAL_RES_Y / 6, 1].max
+
+      if ev.respond_to?(:real_x=)
+        diff_x = target_real_x - current_real_x
+        if diff_x.abs <= step_x
+          ev.real_x = target_real_x
+        else
+          ev.real_x = current_real_x + (diff_x < 0 ? -step_x : step_x)
+        end
+      end
+
+      if ev.respond_to?(:real_y=)
+        diff_y = target_real_y - current_real_y
+        if diff_y.abs <= step_y
+          ev.real_y = target_real_y
+        else
+          ev.real_y = current_real_y + (diff_y < 0 ? -step_y : step_y)
+        end
+      end
+
+      if ev.respond_to?(:real_x) && ev.respond_to?(:real_y)
+        ev.x = ((ev.real_x.to_f + (Game_Map::REAL_RES_X / 2.0)) / Game_Map::REAL_RES_X).floor
+        ev.y = ((ev.real_y.to_f + (Game_Map::REAL_RES_Y / 2.0)) / Game_Map::REAL_RES_Y).floor
+      else
+        ev.x = fx
+        ev.y = fy
+      end
+    end
+
+    ev.calculate_bush_depth if ev.respond_to?(:calculate_bush_depth)
+    ev.refresh if ev.respond_to?(:refresh)
+  end
+
   # Usage: VMS.process(data #<Hash>) (processes data received from the server)
   def self.process(data)
-      # Sync seed
-      VMS.sync_seed if VMS::SEED_SYNC && $game_temp.vms[:battle_player].nil?
-      # Iterate through players
-      data.each do |pl|
-        # Check for online variables
-        if pl[0] == :online_variables
-          $game_temp.vms[:online_variables] = pl[1]
-          next
-        end
-        # Get player
-        id_key = VMS::PACKET_KEYS[:id]
-        hb_key = VMS::PACKET_KEYS[:heartbeat]
-        id = pl[id_key]
+    # Sync seed
+    VMS.sync_seed if VMS::SEED_SYNC && $game_temp.vms[:battle_player].nil?
+    # Iterate through players
+    data.each do |pl|
+      # Check for online variables
+      if pl[0] == :online_variables
+        $game_temp.vms[:online_variables] = pl[1]
+        next
+      end
+      # Get player
+      id_key = VMS::PACKET_KEYS[:id]
+      hb_key = VMS::PACKET_KEYS[:heartbeat]
+      id = pl[id_key]
+      player = $game_temp.vms[:players][id]
+      is_self = id == $player.id
+      if player.nil? # Player doesn't exist yet
+        # Create player
+        $game_temp.vms[:players][id] = VMS::Player.new(id, "", 0)
         player = $game_temp.vms[:players][id]
-        is_self = id == $player.id
-        if player.nil? # Player doesn't exist yet
-          # Create player
-          $game_temp.vms[:players][id] = VMS::Player.new(id, "", 0)
-          player = $game_temp.vms[:players][id]
-        end
-        # Update ping if this is the player
-        $game_temp.vms[:ping_stamp] = pl[hb_key] if is_self
-        # Check if packet is new
-        new_packet = pl[hb_key] <= player.heartbeat - VMS::ADDED_DELAY
-        next if !VMS::HANDLE_MORE_PACKETS && new_packet
-        # Update player
-        player.update(pl)
-        player.is_new = new_packet
+      end
+      # Update ping if this is the player
+      $game_temp.vms[:ping_stamp] = pl[hb_key] if is_self
+      # Check if packet is new
+      new_packet = pl[hb_key] <= player.heartbeat - VMS::ADDED_DELAY
+      next if !VMS::HANDLE_MORE_PACKETS && new_packet
+      # Update player
+      player.update(pl)
+      player.is_new = new_packet
       # Don't create event if player is self and SHOW_SELF is false
       next unless VMS::SHOW_SELF if is_self
       # Create event if necessary
@@ -201,6 +374,7 @@ module VMS
       end
       # Handle player
       VMS.handle_player(player)
+      VMS.handle_follower(player)
     end
   end
 
@@ -210,6 +384,7 @@ module VMS
       next unless VMS.event_deletion_possible?(player)
       Rf.delete_event(player.rf_event)
       player.rf_event = nil
+      VMS.delete_follower_event(player)
     end
   end
 
@@ -219,13 +394,24 @@ module VMS
     $game_map.events.each_value do |event|
       next if event.nil?
       next if event.erased?
-      next unless event.name && event.name&.include?("vms_player")
-      id = (event.name.gsub("vms_player_","")).to_i
-      player = VMS.get_player(id)
-      if player.nil? || !$map_factory.areConnected?(player.map_id, $game_map.map_id)
-        event.character_name = ""
-        event.through = true
-        event.erase
+      next unless event.name
+
+      if event.name.include?("vms_player")
+        id = (event.name.gsub("vms_player_","")).to_i
+        player = VMS.get_player(id)
+        if player.nil? || !$map_factory.areConnected?(player.map_id, $game_map.map_id)
+          event.character_name = ""
+          event.through = true
+          event.erase
+        end
+      elsif event.name.include?("vms_follower")
+        id = (event.name.gsub("vms_follower_","")).to_i
+        player = VMS.get_player(id)
+        if player.nil? || !$map_factory.areConnected?(player.map_id, $game_map.map_id)
+          event.character_name = ""
+          event.through = true
+          event.erase
+        end
       end
     end
   end
@@ -248,6 +434,9 @@ module VMS
     $player.party.each do |pkmn|
       party.push(VMS.hash_pokemon(pkmn))
     end
+
+    follower_event = VMS.local_follower_event
+
     # Generate player data
     data = {}
     data[VMS::PACKET_KEYS[:cluster_id]]       = $game_temp.vms[:cluster] || -1        # What cluster to connect to
@@ -279,6 +468,11 @@ module VMS
     data[VMS::PACKET_KEYS[:surf_base_coords]] = $game_temp.surf_base_coords || [nil, nil]
     data[VMS::PACKET_KEYS[:state]]            = $game_temp.vms[:state]
     data[VMS::PACKET_KEYS[:busy]]             = !VMS.interaction_possible?
+
+    data[VMS::PACKET_KEYS[:follower_active]]    = !follower_event.nil?
+    data[VMS::PACKET_KEYS[:follower_graphic]]   = follower_event ? follower_event.character_name : ""
+    data[VMS::PACKET_KEYS[:follower_direction]] = follower_event ? follower_event.direction : 2
+
     return data
   end
 end
