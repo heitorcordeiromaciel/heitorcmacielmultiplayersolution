@@ -18,12 +18,14 @@ module VMS
     attr_accessor :jump_offset, :jumping_on_spot
     # Other data
     attr_accessor :surfing, :diving, :surf_base_coords
+    # Follower data
+    attr_accessor :follower_active, :follower_graphic, :follower_direction, :follower_rf_event
     # Custom information
     attr_accessor :state, :busy
 
     def initialize(id, address, port)
       # Used to check what values can be nil
-      @can_be_nil = [:surf_base_coords, :rf_event]
+      @can_be_nil = [:surf_base_coords, :rf_event, :follower_rf_event]
       # Required for connections
       @id = id
       @address = address
@@ -55,6 +57,11 @@ module VMS
       @surfing = false
       @diving = false
       @surf_base_coords = nil
+      # Follower data
+      @follower_active = false
+      @follower_graphic = ""
+      @follower_direction = 2
+      @follower_rf_event = nil
       # Custom information
       @state = [:idle, nil]
       @busy = false
@@ -65,20 +72,20 @@ module VMS
         key = VMS::REVERSE_KEYS[key_idx]
         next if key.nil?
         next if value.nil? && !@can_be_nil.include?(key)
+
         if key == :heartbeat
           @heartbeat = value
           next
         end
+
         # Special handling for party data - deserialize from strings to Pokemon objects
         if key == :party && value.is_a?(Array) && !value.empty?
           deserialized_party = []
           value.each do |pkmn_data|
             next if pkmn_data.nil?
-            # Check if it's a serialized string that needs dehashing
             if pkmn_data.is_a?(String)
               deserialized_party.push(VMS.dehash_pokemon(pkmn_data))
             else
-              # Already a Pokemon object
               deserialized_party.push(pkmn_data)
             end
           end
@@ -94,8 +101,8 @@ module VMS
       instance_variables.each do |var|
         sym = var.to_s.delete("@").to_sym
         next unless VMS::PACKET_KEYS.key?(sym)
-        next if [:address, :port, :can_be_nil].include?(sym)
-        
+        next if [:address, :port, :can_be_nil, :follower_rf_event].include?(sym)
+
         value = instance_variable_get(var)
         value = (value * 1000).round / 1000 if value.is_a?(Float)
         hash[VMS::PACKET_KEYS[sym]] = value

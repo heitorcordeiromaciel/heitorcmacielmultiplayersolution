@@ -90,7 +90,9 @@ class Battle
   end
 
   def pbRandom(x)
-    if VMS.is_connected? && !@internalBattle && !$game_temp.vms[:battle_player].nil?
+    in_vms_battle = VMS.is_connected? && !@internalBattle &&
+                    (!$game_temp.vms[:battle_player].nil? || $game_temp.vms[:mb_in_battle])
+    if in_vms_battle
       seed = $game_temp.vms[:seed]
       seed = seed.to_i unless seed.is_a?(Integer)
       @vms_random_calls ||= 0
@@ -106,7 +108,7 @@ class Battle
   def pbCommandPhaseLoop(isPlayer)
     @vms_random_calls = 0 if isPlayer # Reset counter for the new turn
     vms_pbCommandPhaseLoop(isPlayer)
-    if VMS.is_connected? && isPlayer
+    if VMS.is_connected? && isPlayer && !VMS.multibattle_active?
       is_single = $game_temp.vms[:battle_type] != :double
       battler_indices = is_single ? [0] : [0, 2]
       picks = []
@@ -174,28 +176,54 @@ class Battle
 
       $game_temp.vms[:state] = [:battle_command, $game_temp.vms[:state][1], @turnCount, picks, mega_idx_0, mega_idx_2, z_idx_0, z_idx_2, dyna_idx_0, dyna_idx_2, tera_idx_0, tera_idx_2]
     end
+
+    # --- Multibattle branch: each player controls only battler 0 (local layout) ---
+    if VMS.is_connected? && isPlayer && VMS.multibattle_active?
+      choice = @choices[0]
+      raw_target = choice ? choice[3] : nil
+      global_target = VMS.mb_local_to_global_target(raw_target)
+      pick = choice ? [choice[0], choice[1], nil, choice[3], global_target] : nil
+      mega = false; z_move = false; dyna = false; tera = false
+      begin
+        owner = pbGetOwnerIndexFromBattlerIndex(0)
+        mega     = (@megaEvolution[0][owner] == 0)      rescue false
+        z_move   = (@zMove[0][owner] == 0)              rescue false
+        dyna     = (@dynamax[0][owner] == 0)            rescue false
+        tera     = (@terastallize[0][owner] == 0)       rescue false
+      rescue
+      end
+      $game_temp.vms[:state] = [:multibattle_command, $game_temp.vms[:mb_lobby_id], $game_temp.vms[:mb_team_idx], $game_temp.vms[:mb_slot_idx], @turnCount, pick, mega, z_move, dyna, tera]
+    end
   end
 
   alias vms_pbConsumeItemInBag pbConsumeItemInBag unless method_defined?(:vms_pbConsumeItemInBag)
   def pbConsumeItemInBag(item, idxBattler)
     return if !item
     return if !GameData::Item.get(item).consumed_after_use?
-    return if VMS.is_connected? && @battleAI.is_a?(Battle::VMS_AI)
+    return if VMS.is_connected? && (@battleAI.is_a?(Battle::VMS_AI) || @battleAI.is_a?(Battle::VMS_Multibattle_AI))
     vms_pbConsumeItemInBag(item, idxBattler)
   end
 
   alias vms_pbItemMenu pbItemMenu unless method_defined?(:vms_pbItemMenu)
   def pbItemMenu(idxBattler, firstAction)
-    @internalBattle = true if VMS.is_connected? && @battleAI.is_a?(Battle::VMS_AI)
+    is_vms = VMS.is_connected? && (@battleAI.is_a?(Battle::VMS_AI) || @battleAI.is_a?(Battle::VMS_Multibattle_AI))
+    @internalBattle = true if is_vms
     ret = vms_pbItemMenu(idxBattler, firstAction)
-    @internalBattle = false if VMS.is_connected? && @battleAI.is_a?(Battle::VMS_AI)
+    @internalBattle = false if is_vms
     return ret
   end
 
   def pbSwitchInBetween(idxBattler, checkLaxOnly = false, canCancel = false)
     if !@controlPlayer && pbOwnedByPlayer?(idxBattler)
       newIndex = pbPartyScreen(idxBattler, checkLaxOnly, canCancel)
-      $game_temp.vms[:state] = [:battle_new_switch, $game_temp.vms[:state][1], idxBattler, newIndex] if VMS.is_connected?
+      if VMS.is_connected?
+        if VMS.multibattle_active?
+          global_idx = $game_temp.vms[:mb_local_to_global][idxBattler]
+          $game_temp.vms[:state] = [:multibattle_switch, $game_temp.vms[:mb_lobby_id], $game_temp.vms[:mb_team_idx], $game_temp.vms[:mb_slot_idx], global_idx, newIndex]
+        else
+          $game_temp.vms[:state] = [:battle_new_switch, $game_temp.vms[:state][1], idxBattler, newIndex]
+        end
+      end
       return newIndex
     end
     return @battleAI.pbDefaultChooseNewEnemy(idxBattler)
@@ -388,7 +416,7 @@ class TrainerBattle
     setBattleRule("noMoney")
     begin
       setBattleRule("noBag")
-    rescue ArgumentError
+    rescue
     end
     if $game_temp.vms[:battle_type] == :double
       setBattleRule("double")

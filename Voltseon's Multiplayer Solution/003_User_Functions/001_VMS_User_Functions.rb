@@ -22,7 +22,7 @@ module VMS
   # Usage: VMS.ping (returns the ping of the player in seconds)
   def self.ping
     return -1 if !VMS.is_connected? || VMS.get_self.nil?
-    return VMS.get_self.heartbeat - $game_temp.vms[:ping_stamp]
+    return Time.now - $game_temp.vms[:ping_stamp]
   end
 
   # Usage: VMS.sync_seed (syncs the seed with the server)

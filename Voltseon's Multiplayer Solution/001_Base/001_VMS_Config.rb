@@ -5,11 +5,11 @@ module VMS
 
   # If true, the menu will show "Local Play" and "Online Play" options.
   # If false, only integrated server (local play) options will be available.
-  USE_EXTERNAL_SERVER = false
+  USE_EXTERNAL_SERVER = true
 
   # External server connection settings (used when "Online Play" is selected)
-  EXTERNALHOST = "127.0.0.1"
-  EXTERNALPORT = 12345
+  EXTERNALHOST = "gamingwithgoose.ddns.net"
+  EXTERNALPORT = 25889
 
   # Default port for hosting, integrated server is always hosted on 0.0.0.0:PORT.
   PORT = 25565
@@ -95,6 +95,16 @@ module VMS
   }
   
   # ===========
+  # Multi Battle
+  # ===========
+  # Maximum seconds to wait in a lobby for all 4 players to join before auto-cancelling.
+  MB_LOBBY_TIMEOUT = 120
+  # Maximum seconds to wait for all players to ready up once 4 slots are filled.
+  MB_READY_TIMEOUT = 60
+  # The name of the Multi Battle option in the pause menu.
+  MB_MENU_NAME = "Multi Battle"
+
+  # ===========
   # Methods
   # ===========
   # Mapping for integer-keyed serialization to reduce bandwidth
@@ -104,7 +114,8 @@ module VMS
     animation: 14, offset_x: 15, offset_y: 16, opacity: 17, stop_animation: 18,
     rf_event: 19, jump_offset: 20, jumping_on_spot: 21, surfing: 22, diving: 23,
     surf_base_coords: 24, state: 25, busy: 26, cluster_id: 27,
-    online_variables: 28, game_name: 29, game_version: 30
+    online_variables: 28, game_name: 29, game_version: 30,
+	follower_active: 31, follower_graphic: 32, follower_direction: 33
   }
   REVERSE_KEYS = PACKET_KEYS.invert
 

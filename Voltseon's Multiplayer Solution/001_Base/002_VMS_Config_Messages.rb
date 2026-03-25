@@ -122,4 +122,39 @@ module VMS
   NO_CLUSTERS_AVAILABLE_MESSAGE = _INTL("No clusters are currently available. Create a new one?")
   # Message displayed when selecting a cluster to join.
   SELECT_CLUSTER_MESSAGE = _INTL("Select a cluster to join:")
+
+  # ===========
+  # Multi Battle
+  # ===========
+  # Title shown above the lobby browser list.
+  MB_MENU_TITLE = _INTL("Multi Battle Lobbies")
+  # Label for the "create new lobby" option.
+  MB_CREATE_LOBBY_OPTION = _INTL("Create New Lobby")
+  # Shown when no lobbies exist; asks if the player wants to create one.
+  MB_NO_LOBBIES_MESSAGE = _INTL("No multi battle lobbies found. Create a new one?")
+  # Prompt asking the player to choose a team.
+  MB_SELECT_TEAM_MESSAGE = _INTL("Choose your team:")
+  # Team and slot label options.
+  MB_TEAM_0_SLOT_0 = _INTL("Team 0 (Slot A)")
+  MB_TEAM_0_SLOT_1 = _INTL("Team 0 (Slot B)")
+  MB_TEAM_1_SLOT_0 = _INTL("Team 1 (Slot A)")
+  MB_TEAM_1_SLOT_1 = _INTL("Team 1 (Slot B)")
+  # Shown when the chosen lobby is already full.
+  MB_LOBBY_FULL_MESSAGE = _INTL("That lobby is already full.")
+  # Shown when the lobby wait times out.
+  MB_LOBBY_TIMEOUT_MESSAGE = _INTL("The lobby timed out.")
+  # Shown while waiting for all players to ready up.
+  MB_READY_WAIT_MESSAGE = _INTL("Waiting for all players to ready up...")
+  # Shown while waiting for all players to select their Pokémon.
+  MB_SELECTION_WAIT_MESSAGE = _INTL("Waiting for all players to select Pokémon...")
+  # Shown when auto-reassigned to a different slot. {1} is the new slot label.
+  MB_SLOT_CONFLICT_MESSAGE = _INTL("Slot taken — moved to {1}.")
+  # Shown when a player disconnects mid-battle. {1} is their name.
+  MB_DISCONNECT_BATTLE_MESSAGE = _INTL("{1} has disconnected. The battle has ended.")
+  # Shown to indicate that you must already be connected to use Multi Battle.
+  MB_NOT_CONNECTED_MESSAGE = _INTL("You must be connected to a server to use Multi Battle.")
+  # Prompt asking the player to confirm they are ready.
+  MB_READY_CONFIRM_MESSAGE = _INTL("Ready to battle?")
+  # Shown when a player has no eligible Pokémon for the multibattle.
+  MB_NO_ELIGIBLE_POKEMON = _INTL("You don't have enough able Pokémon to participate.")
 end
